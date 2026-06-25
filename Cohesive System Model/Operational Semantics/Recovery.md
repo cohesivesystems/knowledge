@@ -1,0 +1,29 @@
+---
+realm: Operational Semantics
+---
+
+# Recovery
+
+Realm: Operational Semantics
+
+Recovery defines how a system returns to coherent operation after failure, interruption, conflict, timeout, overload, or partial progress.
+
+Recovery depends on the durable material provided by [[Persistence]] and the method used for [[Reconstitution]].
+
+Retry is one recovery mechanism, but recovery is broader than retry. Some failures are recovered by re-driving incomplete work, while others require replay, reconstitution, compensation, rebuilding, or operator intervention.
+
+Recovery may include:
+
+- Replaying event history.
+- Loading snapshots and subsequent events.
+- Resuming workflow history.
+- Rebuilding projections.
+- Restoring CRDT replica state and causal metadata.
+- Re-driving outbox records.
+- Retrying incomplete work.
+- Compensating completed work.
+- Activating an actor by identity.
+
+Recovery must preserve the meaning of entity versions, committed events, idempotency records, CRDT causal metadata, and observer boundaries. Otherwise, the system may recover operationally while changing its semantic history or breaking convergence.
+
+Related concepts: [[Persistence]], [[Reconstitution]], [[Retry]], [[Idempotency]], [[Coordination]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Actor Systems]].
