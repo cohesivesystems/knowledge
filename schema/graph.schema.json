@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/cohesivesystems/knowledge/schema/graph.schema.json",
+  "title": "Cohesive Knowledge Graph Export",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "source", "nodes", "edges"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "object",
+      "required": ["repository", "root"],
+      "additionalProperties": false,
+      "properties": {
+        "repository": {
+          "type": "string"
+        },
+        "root": {
+          "type": "string"
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": [
+        "id",
+        "path",
+        "title",
+        "realm",
+        "kind",
+        "status",
+        "aliases",
+        "summary",
+        "outbound",
+        "backlinks"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "realm": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "status": {
+          "type": ["string", "null"]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "outbound": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "backlinks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "required": ["source", "target", "type", "mentions"],
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "type": {
+          "enum": ["mentions"]
+        },
+        "mentions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "line", "raw"],
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "line": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "raw": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

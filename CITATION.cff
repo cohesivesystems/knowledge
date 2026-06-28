@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this model, please cite the repository."
+title: "Cohesive System Model"
+type: dataset
+authors:
+  - name: "Cohesive Systems"
+repository-code: "https://github.com/cohesivesystems/knowledge"
+license: "CC-BY-4.0"
+keywords:
+  - systems modeling
+  - knowledge graph
+  - graph-centric development
+  - software architecture

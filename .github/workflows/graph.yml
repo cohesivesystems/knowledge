@@ -1,0 +1,36 @@
+name: Graph
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate graph
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check script syntax
+        run: python -m py_compile scripts/*.py
+
+      - name: Validate graph
+        run: python scripts/validate_graph.py
+
+      - name: Scan public content
+        run: python scripts/check_public.py
+
+      - name: Build graph export
+        run: python scripts/export_graph.py --out dist/graph.json

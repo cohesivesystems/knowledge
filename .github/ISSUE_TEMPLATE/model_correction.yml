@@ -1,0 +1,25 @@
+name: Model correction
+description: Report an incorrect, inconsistent, or misleading model statement.
+title: "Correct: "
+labels:
+  - correction
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Link or name the note and section.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is incorrect or inconsistent?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected model
+      description: What should the model say instead?

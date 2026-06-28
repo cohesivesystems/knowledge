@@ -1,0 +1,31 @@
+Cohesive Knowledge Licensing
+============================
+
+This repository uses separate licenses for authored content and supporting
+software artifacts.
+
+Content License
+---------------
+
+Unless otherwise noted, Markdown notes, diagrams expressed as content, prose,
+concept definitions, and other authored knowledge graph material are licensed
+under the Creative Commons Attribution 4.0 International Public License
+(CC BY 4.0). See LICENSE-CONTENT.
+
+Code License
+------------
+
+Unless otherwise noted, scripts, schemas, configuration files, tests, and other
+software artifacts are licensed under the Apache License, Version 2.0. See
+LICENSE-CODE.
+
+Attribution
+-----------
+
+Attribution should identify the material as part of the Cohesive System Model
+and link to the source repository when practical.
+
+Trademark Notice
+----------------
+
+The content and code licenses do not grant trademark rights. See TRADEMARKS.md.

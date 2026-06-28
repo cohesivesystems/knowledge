@@ -1,0 +1,25 @@
+name: Concept clarification
+description: Request clearer wording or sharper boundaries for a concept.
+title: "Clarify: "
+labels:
+  - concept
+body:
+  - type: textarea
+    id: concept
+    attributes:
+      label: Concept
+      description: Which concept or note needs clarification?
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is unclear?
+      description: Explain the ambiguity, missing distinction, or confusing wording.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested direction
+      description: Optional proposed wording or modeling direction.

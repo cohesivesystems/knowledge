@@ -1,0 +1,42 @@
+name: Relation proposal
+description: Propose a missing or changed relation between graph concepts.
+title: "Relate: "
+labels:
+  - relation
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Source concept
+      placeholder: Process
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Target concept
+      placeholder: Flows
+    validations:
+      required: true
+  - type: dropdown
+    id: relation
+    attributes:
+      label: Relation type
+      options:
+        - mentions
+        - defines
+        - refines
+        - depends_on
+        - constrains
+        - observes
+        - realizes
+        - documents
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why should this relation exist or change?
+    validations:
+      required: true
