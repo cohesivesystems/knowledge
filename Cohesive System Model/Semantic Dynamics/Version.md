@@ -18,6 +18,8 @@ Versions support:
 - Optimistic concurrency through expected-version or etag checks on [[Command|commands]].
 - Ordering of entity state observations over time.
 
+A version need not be a single scalar counter. In distributed or replicated histories, version may be realized by logical timestamps, causal contexts, vector-clock-like metadata, or other [[Time|time]] and [[Ordering|ordering]] mechanisms.
+
 If a command is rejected and no endogenous event is committed for the target entity, the entity version remains unchanged.
 
-Related concepts: [[Identity]], [[State]], [[Entity]], [[Event]], [[Event-State Duality]], [[Command]], [[Concurrency Control]], [[Fibrations and Indexed Structure]], [[Enrichment and Order]].
+Related concepts: [[Identity]], [[State]], [[Entity]], [[Event]], [[Event-State Duality]], [[Command]], [[Concurrency Control]], [[Time]], [[Ordering]], [[Fibrations and Indexed Structure]], [[Enrichment and Order]].
