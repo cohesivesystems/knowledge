@@ -14,6 +14,16 @@ It is not itself a semantic primitive. It relates semantic constructs such as [[
 
 The duality is not an isomorphism. Event schedules and state histories are mutually informative, but they are not interchangeable artifacts. Event histories can preserve intent, causality, source, and decision context that state samples do not. Different event histories can also converge to the same state.
 
+## Philosophical Parallel
+
+Hegel's distinction between being and becoming provides a useful conceptual parallel. [[State]] corresponds loosely to determinate being: what is, relative to a subject, boundary, shape, and point in behavior. [[Event]], [[Transition]], and [[Behavior]] correspond to becoming: occurrence, change, and the movement by which states become determinate.
+
+The parallel is not a formal identification. In the Cohesive model, state and event remain semantic constructs with observer-relative roles. The useful point is that state is not intelligible apart from the behavior and event histories through which it is determined, while events are not intelligible apart from the states they affect, reveal, or relate.
+
+This also suggests a notion of indeterminate state. An indeterminate state is not necessarily the absence of state. It is a recognized subject, possibility, external process, or pending situation whose relevant dimensions are not yet determined relative to an [[Observer]], [[Boundaries|boundary]], [[Shape|shape]], or [[Version]]. Indeterminacy may be epistemic, shape-relative, operational, semantic, or external. State becomes determinate for the model through observation, event interpretation, or a commitment boundary.
+
+Lawvere's categorical discussions of Being and Becoming are related mathematical-philosophical background. They are useful here as orientation toward structure and change, not as replacements for the model's semantic definitions.
+
 ## Operational Transforms
 
 Events can be folded, integrated, scanned, or applied by an [[Observer]] to produce state samples or behavior:
@@ -52,6 +62,8 @@ Concurrency control must match the history shape. A linear entity can use expect
 
 ## External References
 
+- G. W. F. Hegel, [Book I of *Science of Logic*: Being](https://www.marxists.org/reference/archive/hegel/works/hl/hlbeing.htm).
+- F. W. Lawvere, [Some Thoughts on the Future of Category Theory](https://lawverearchives.com/wp-content/uploads/2024/12/1991-some-thoughts-on-the-future-of-category-theory.pdf), 1991.
 - Vaughan R. Pratt, [Event-State Duality: The Enriched Case](https://boole.stanford.edu/pub/concur02.pdf), CONCUR 2002. [Springer entry](https://link.springer.com/chapter/10.1007/3-540-45694-5_3)
 
-Related concepts: [[Duality and Symmetry]], [[Event]], [[State]], [[Behavior]], [[Entity]], [[Version]], [[Observer]], [[Boundaries]], [[Concurrency Control]].
+Related concepts: [[Duality and Symmetry]], [[Event]], [[State]], [[Behavior]], [[Transition]], [[Entity]], [[Version]], [[Observer]], [[Boundaries]], [[Shape]], [[Concurrency Control]].
