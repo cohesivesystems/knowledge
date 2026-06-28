@@ -7,7 +7,7 @@ from collections import Counter
 from pathlib import Path
 import sys
 
-from cohesive_graph import ALLOWED_REALMS, load_nodes, repo_root_from, resolve_links
+from cohesive_graph import ALLOWED_KINDS, ALLOWED_REALMS, load_nodes, repo_root_from, resolve_links
 
 
 def main() -> int:
@@ -60,6 +60,8 @@ def main() -> int:
 
 def validate_node(node, errors: list[str], warnings: list[str]) -> None:
     if node.path == "Cohesive System Model.md":
+        if node.kind != "overview":
+            errors.append(f"Top-level overview must have kind 'overview': {node.kind!r}")
         return
 
     if not node.has_h1:
@@ -67,6 +69,11 @@ def validate_node(node, errors: list[str], warnings: list[str]) -> None:
 
     if node.realm not in ALLOWED_REALMS:
         errors.append(f"Invalid or missing realm in {node.path}: {node.realm!r}")
+
+    if not node.kind:
+        errors.append(f"Missing kind in {node.path}")
+    elif node.kind not in ALLOWED_KINDS:
+        errors.append(f"Invalid kind in {node.path}: {node.kind!r}")
 
     path = Path(node.path)
     parts = path.parts

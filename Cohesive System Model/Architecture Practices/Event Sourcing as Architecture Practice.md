@@ -1,5 +1,6 @@
 ---
 realm: Architecture Practices
+kind: architecture-practice
 ---
 
 # Event Sourcing As Architecture Practice

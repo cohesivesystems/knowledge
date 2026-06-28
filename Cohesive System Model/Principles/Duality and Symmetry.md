@@ -1,5 +1,6 @@
 ---
 realm: Principles
+kind: principle
 ---
 
 # Duality and Symmetry

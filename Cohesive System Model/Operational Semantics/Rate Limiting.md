@@ -1,5 +1,6 @@
 ---
 realm: Operational Semantics
+kind: operational-semantics
 ---
 
 # Rate Limiting

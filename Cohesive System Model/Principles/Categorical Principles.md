@@ -1,5 +1,6 @@
 ---
 realm: Principles
+kind: reference
 ---
 
 # Categorical Principles

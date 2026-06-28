@@ -1,5 +1,6 @@
 ---
 realm: Principles
+kind: principle
 ---
 
 # Trace And Feedback

@@ -1,5 +1,6 @@
 ---
 realm: Architecture Practices
+kind: pattern
 ---
 
 # Anti-Corruption Layer

@@ -1,4 +1,8 @@
 
+---
+kind: overview
+---
+
 ## Core Thesis
 
 Domains can be described as semantic system graphs composed of:

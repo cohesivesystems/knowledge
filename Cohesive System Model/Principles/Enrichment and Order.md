@@ -1,5 +1,6 @@
 ---
 realm: Principles
+kind: principle
 ---
 
 # Enrichment And Order

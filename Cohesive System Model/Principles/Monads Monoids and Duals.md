@@ -1,5 +1,6 @@
 ---
 realm: Principles
+kind: principle
 ---
 
 # Monads Monoids And Duals

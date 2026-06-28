@@ -69,7 +69,20 @@
           "type": "string"
         },
         "kind": {
-          "type": "string"
+          "enum": [
+            "overview",
+            "discipline",
+            "principle",
+            "semantic-construct",
+            "structural-construct",
+            "operational-semantics",
+            "realization-substrate",
+            "architecture-practice",
+            "pattern",
+            "example",
+            "reference",
+            "glossary"
+          ]
         },
         "status": {
           "type": ["string", "null"]

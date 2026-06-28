@@ -1,5 +1,6 @@
 ---
 realm: Architecture Practices
+kind: architecture-practice
 ---
 
 # Data Mesh

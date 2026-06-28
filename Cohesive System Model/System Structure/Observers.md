@@ -1,5 +1,6 @@
 ---
 realm: System Structure
+kind: structural-construct
 ---
 
 # Observers

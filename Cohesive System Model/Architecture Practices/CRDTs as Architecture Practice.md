@@ -1,5 +1,6 @@
 ---
 realm: Architecture Practices
+kind: architecture-practice
 ---
 
 # CRDTs As Architecture Practice

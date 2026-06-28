@@ -1,5 +1,6 @@
 ---
 realm: Principles
+kind: principle
 ---
 
 # Fixed Points And Recursion

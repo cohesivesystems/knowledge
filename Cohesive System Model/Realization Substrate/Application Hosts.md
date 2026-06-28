@@ -1,5 +1,6 @@
 ---
 realm: Realization Substrate
+kind: realization-substrate
 ---
 
 # Application Hosts

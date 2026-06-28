@@ -36,13 +36,15 @@ Recommended note frontmatter:
 ```yaml
 ---
 realm: Semantic Dynamics
+kind: semantic-construct
 status: draft
-kind: concept
 aliases: []
 ---
 ```
 
-Only `realm` is currently required for notes inside a realm folder.
+`realm` and `kind` are required for notes inside a realm folder. Use `kind` for
+the node's role, not for the folder name mechanically. See `GRAPH.md` for the
+controlled kind values.
 
 ## Review Checklist
 

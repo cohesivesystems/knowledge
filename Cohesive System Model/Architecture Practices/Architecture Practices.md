@@ -1,5 +1,6 @@
 ---
 realm: Architecture Practices
+kind: reference
 ---
 
 # Architecture Practices

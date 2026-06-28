@@ -1,5 +1,6 @@
 ---
 realm: Semantic Dynamics
+kind: semantic-construct
 ---
 
 # State

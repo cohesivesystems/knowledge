@@ -34,11 +34,26 @@ A graph node is a Markdown note that defines or organizes a concept.
 Required for notes inside `Cohesive System Model/`:
 
 - A frontmatter `realm` matching one of the allowed realms.
+- A frontmatter `kind` matching one of the allowed kinds.
 - A first-level heading naming the concept.
+
+Allowed kinds:
+
+- `discipline`: source discipline or body of theory, such as category theory.
+- `principle`: modeling discipline used to keep distinctions precise.
+- `semantic-construct`: meaning-bearing construct in semantic dynamics.
+- `structural-construct`: system-graph arrangement or composition construct.
+- `operational-semantics`: correctness, execution, reliability, or control semantics.
+- `realization-substrate`: concrete mechanism family or substrate category.
+- `architecture-practice`: named architecture practice or methodology.
+- `pattern`: reusable narrower technique that can appear inside practices or substrates.
+- `example`: concrete domain, system, or scenario example.
+- `reference`: organizing note, index-like reference, or explanatory guide.
+- `glossary`: term list or vocabulary note.
+- `overview`: reserved for the top-level `Cohesive System Model.md` overview.
 
 Recommended:
 
-- `kind`: `concept`, `overview`, `practice`, `principle`, or `index`.
 - `status`: `draft`, `stable`, or `deprecated`.
 - `aliases`: alternate titles or search names.
 

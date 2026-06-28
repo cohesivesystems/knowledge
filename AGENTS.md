@@ -10,6 +10,7 @@ model. Treat the Markdown graph as the canonical artifact.
 - Keep graph notes under `Cohesive System Model.md` or
   `Cohesive System Model/`.
 - Use frontmatter `realm` values that match the model realms in GRAPH.md.
+- Use frontmatter `kind` values from the controlled vocabulary in GRAPH.md.
 - Keep private implementation details, customer specifics, credentials,
   unreleased Ari modules, paid-feed block content, and private realization
   mappings out of this repository.

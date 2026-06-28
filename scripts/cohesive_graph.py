@@ -18,6 +18,21 @@ ALLOWED_REALMS = {
     "Architecture Practices",
 }
 
+ALLOWED_KINDS = {
+    "overview",
+    "discipline",
+    "principle",
+    "semantic-construct",
+    "structural-construct",
+    "operational-semantics",
+    "realization-substrate",
+    "architecture-practice",
+    "pattern",
+    "example",
+    "reference",
+    "glossary",
+}
+
 DEFAULT_SOURCES = ("Cohesive System Model.md", "Cohesive System Model")
 
 WIKILINK_RE = re.compile(r"(?<!!)\[\[([^\]]+)\]\]")
@@ -151,7 +166,7 @@ def parse_node(path: Path, root: Path) -> Node:
     frontmatter, body, body_start_line = parse_frontmatter(text)
     title, has_h1 = extract_title(path, body)
     realm = infer_realm(path, root, frontmatter)
-    kind = str(frontmatter.get("kind") or ("overview" if rel_path == "Cohesive System Model.md" else "concept"))
+    kind = str(frontmatter.get("kind") or ("overview" if rel_path == "Cohesive System Model.md" else ""))
     status_value = frontmatter.get("status")
     status = str(status_value) if status_value is not None else None
     aliases = normalize_aliases(frontmatter.get("aliases"))
