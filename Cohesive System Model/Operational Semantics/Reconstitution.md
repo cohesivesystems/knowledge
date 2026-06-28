@@ -16,7 +16,7 @@ Common strategies include:
 - Replay [[Event Sourcing|event-sourced]] committed events and fold them into a current observation.
 - Load a snapshot plus subsequent events.
 - Restore [[CRDTs|CRDT]] replica state and causal metadata so merge semantics remain valid.
-- Resume workflow history.
+- Resume [[Durable Execution|durable execution]] state, checkpoints, or workflow history.
 - Activate an actor by identity.
 - Rebuild a projection as an observation.
 
@@ -26,4 +26,4 @@ In [[CQRS]], reconstitution often happens on the [[Query|query]] side through pr
 
 Reconstitution and [[Persistence]] form a useful [[Duality and Symmetry|duality]]: persistence records selected material as recoverable truth, while reconstitution recovers usable observations from that material. The result can only be as complete as the persisted material and the reconstitution rules allow.
 
-Related concepts: [[Persistence]], [[Duality and Symmetry]], [[Observation]], [[Query]], [[State]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Workflow Engines]], [[Actor Systems]].
+Related concepts: [[Persistence]], [[Durable Execution]], [[Duality and Symmetry]], [[Observation]], [[Query]], [[State]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].

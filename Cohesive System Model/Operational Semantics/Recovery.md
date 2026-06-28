@@ -21,9 +21,10 @@ Recovery may include:
 - Restoring CRDT replica state and causal metadata.
 - Re-driving outbox records.
 - Retrying incomplete work.
+- Resuming durable execution state or replaying durable execution history.
 - Compensating completed work.
 - Activating an actor by identity.
 
 Recovery must preserve the meaning of entity versions, committed events, idempotency records, CRDT causal metadata, and observer boundaries. Otherwise, the system may recover operationally while changing its semantic history or breaking convergence.
 
-Related concepts: [[Persistence]], [[Reconstitution]], [[Retry]], [[Idempotency]], [[Coordination]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Actor Systems]].
+Related concepts: [[Persistence]], [[Reconstitution]], [[Durable Execution]], [[Retry]], [[Idempotency]], [[Coordination]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].

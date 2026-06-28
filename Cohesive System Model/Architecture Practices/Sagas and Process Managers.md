@@ -10,12 +10,14 @@ Sagas and process managers address the problem of coordinating long-running, mul
 
 ## Cohesive Formulation
 
-The practice is about [[Processes]] and [[Coordination]]:
+The practice is about [[Processes]], [[Coordination]], and sometimes [[Durable Execution]]:
 
 - A process has identity, state, progress, and recovery behavior.
 - It observes events or signals.
 - It emits commands to participants.
 - It may compensate, retry, time out, or escalate.
+
+Sagas and process managers can be implemented without a workflow engine, but they still need explicit persistence, recovery, idempotency, and delivery semantics when they are expected to survive failure or long delays.
 
 ## Practice Interpretation
 
@@ -25,4 +27,4 @@ A saga can be modeled as an entity-observer: it has state and history, observes 
 
 The pattern fails when the process boundary is implicit, when compensation is assumed to be inverse transition, or when delivery and idempotency are ignored. Sagas do not remove consistency problems; they make consistency procedural and temporal.
 
-Related concepts: [[Processes]], [[Coordination]], [[Observer]], [[Entity]], [[Command]], [[Event]], [[Retry]], [[Recovery]], [[Workflow Engines]], [[Trace and Feedback]].
+Related concepts: [[Processes]], [[Coordination]], [[Durable Execution]], [[Observer]], [[Entity]], [[Command]], [[Event]], [[Retry]], [[Recovery]], [[Workflow Engines]], [[Durable Execution Engines]], [[Trace and Feedback]].

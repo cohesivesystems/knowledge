@@ -18,6 +18,7 @@ Durable forms may include:
 - Outbox records.
 - Actor state providers.
 - Workflow histories.
+- Durable execution histories, checkpoints, timers, signals, and pending work.
 - Process state.
 - [[Projections|Projection]] state as derived observations.
 - [[CRDTs|CRDT]] replica state, deltas, operations, and causal metadata.
@@ -30,4 +31,4 @@ In [[CQRS]], persistence usually names the authoritative write-side material fro
 
 Persistence and [[Reconstitution]] form a useful [[Duality and Symmetry|duality]]: persistence makes selected material durable, while reconstitution turns durable material back into usable observations. The duality is not perfect because persistence choices determine what can later be reconstituted.
 
-Related concepts: [[Reconstitution]], [[Duality and Symmetry]], [[State]], [[Observation]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Storage Systems]], [[Workflow Engines]], [[Actor Systems]].
+Related concepts: [[Reconstitution]], [[Durable Execution]], [[Duality and Symmetry]], [[State]], [[Observation]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Storage Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].

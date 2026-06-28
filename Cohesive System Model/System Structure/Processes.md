@@ -30,7 +30,7 @@ Examples include:
 
 - OS processes and OS threads executing work across one or more scheduling units.
 - Logical processes spanning fibers, green threads, coroutines, or runtime tasks.
-- ASP.NET operations that perform multiple steps, possibly wrapped by durable execution.
+- ASP.NET operations that perform multiple steps, possibly wrapped by [[Durable Execution|durable execution]].
 - Driver onboarding, coordinated across entity state transitions, runtime listeners, effect emitters, concurrency control, UI activity, and durable step advancement.
 - Index rebuilds, backfills, data repairs, and migrations that must resume after a crash.
 - Sagas whose selected steps have compensating actions.
@@ -39,4 +39,4 @@ Examples include:
 
 Processes compose when outputs of one process feed another process as observations, commands, events, artifacts, or decisions. Such compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
 
-Related concepts: [[Business Transactions]], [[Coordination]], [[Workflow Engines]], [[Observer]], [[Entity]], [[Event]], [[Command]], [[State]], [[Recovery]], [[Policies]], [[Invariants]].
+Related concepts: [[Business Transactions]], [[Coordination]], [[Durable Execution]], [[Workflow Engines]], [[Durable Execution Engines]], [[Observer]], [[Entity]], [[Event]], [[Command]], [[State]], [[Recovery]], [[Policies]], [[Invariants]].

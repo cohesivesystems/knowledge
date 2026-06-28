@@ -61,6 +61,7 @@ Describes how semantic dynamics are made executable and reliable.
 - [[Interaction]]  
 - [[Delivery Semantics|Delivery semantics]]  
 - [[Coordination]]  
+- [[Durable Execution]]
 - [[Concurrency Control|Concurrency control]]  
 - [[CRDTs]]
 - [[Retry]], [[Rate Limiting|rate limiting]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
@@ -94,6 +95,7 @@ Provides concrete mechanisms.
 - [[CQRS]]
 - [[Brokers]]  
 - [[Workflow Engines|Workflow engines]]  
+- [[Durable Execution Engines|Durable execution engines]]
 - [[Actor Systems|Actor systems]]  
 - [[Infrastructure]]
 
@@ -337,6 +339,7 @@ What is made durable and authoritative?
 - Outbox records
 - Actor state providers
 - Workflow histories
+- Durable execution histories, checkpoints, timers, signals, and pending work
 - Process state
 - Projection state (derived observations)
 
@@ -347,7 +350,7 @@ How is usable state recovered?
 - Load latest record → produce an observation
 - Replay events → fold into a current state sample
 - Load snapshot + events
-- Resume workflow history
+- Resume durable execution state, checkpoints, or workflow history
 - Activate actor by identity
 - Rebuild projection as a derived observation
 
@@ -380,10 +383,20 @@ How is multi-step or multi-participant work made coherent across Observers?
 - Local transaction  
 - Distributed transaction / transactional outbox  
 - Saga with compensation  
-- Durable workflow with resume  
+- [[Durable Execution|Durable execution]] with resume  
 - Choreography through events  
 - Process manager  
 - Projection update protocol
+
+### Durable Execution
+
+How does process execution remain coherent across failure, restart, suspension, timeout, or delayed external work?
+
+- Persist execution state, history, checkpoints, timers, signals, or pending work
+- Reconstitute usable process context after interruption
+- Resume, replay, retry, compensate, or escalate without changing semantic history
+- Preserve idempotency at effect boundaries
+- Bind the guarantee to an explicit execution boundary
 
 ### Control
 
@@ -409,7 +422,7 @@ None of these automatically mean “the business transition committed” unless 
 
 ## Runtime
 
-[[Realization]] is the relation by which semantic dynamics, system structure, and operational semantics are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Brokers|broker]], or database can realize operational semantics, but the semantics should be described separately from any specific runtime.
+[[Realization]] is the relation by which semantic dynamics, system structure, and operational semantics are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Durable Execution Engines|durable execution engine]], [[Brokers|broker]], or database can realize operational semantics, but the semantics should be described separately from any specific runtime.
 
 Different runtimes realize Observers differently (e.g., actor placement and supervision vs. HTTP request pipeline), while the semantic model (Observer, Entity, Observation, Event, Command, Query) remains consistent. In async, fiber, or green-thread runtimes, the Observer follows the logical execution context rather than a fixed OS thread.
 
@@ -420,8 +433,8 @@ Cohesive preserves correspondence across realms:
 ```txt  
 Semantic dynamics (State, Observation, Event, Observer, Entity, Command, Query, ...)
   -> System structure (Entity Models, Observers, Relations, Projections, Flows, Boundaries, ...)
-  -> Operational semantics (Persistence, Reconstitution, Interaction, Delivery, Coordination, Control)  
-  -> Realization substrate (Realization, Compute, Runtimes, Network, Storage, Actor systems, ...)
+  -> Operational semantics (Persistence, Reconstitution, Interaction, Delivery, Coordination, Durable Execution, Control)  
+  -> Realization substrate (Realization, Compute, Runtimes, Network, Storage, Workflow engines, Durable execution engines, Actor systems, ...)
 ```
 
 It lets a domain be modeled in terms of entities, observers, states, observations, events, commands, queries, relations, and flows, then projects those primitives into operational systems running on existing infrastructure while maintaining semantic fidelity across layers and across different Observers.

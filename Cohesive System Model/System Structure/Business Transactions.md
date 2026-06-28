@@ -40,7 +40,7 @@ business transaction
 
 Each layer contributes local guarantees. The business transaction is correct only when those guarantees compose into the intended domain semantics. For example, an RPC response, a broker acknowledgment, a workflow checkpoint, and an event-store append may each be successful at their own boundary while still meaning different things for the business transaction.
 
-Application-level pieces include [[Interaction|request/reply]], [[Interaction|publish/consume]], durable execution through [[Workflow Engines]], and committed-event persistence through [[Event Sourcing]]. These pieces can be combined, but their guarantees remain scoped to their own boundaries unless coordination composes them into a business-level outcome.
+Application-level pieces include [[Interaction|request/reply]], [[Interaction|publish/consume]], [[Durable Execution|durable execution]] through [[Durable Execution Engines]], and committed-event persistence through [[Event Sourcing]]. These pieces can be combined, but their guarantees remain scoped to their own boundaries unless coordination composes them into a business-level outcome.
 
 ## Modeling Questions
 
@@ -86,4 +86,4 @@ Correct modeling therefore requires naming the boundary for each guarantee:
 - Did another observer receive, process, or commit the follow-up work?
 - Did the business transaction reach its domain-defined completion condition?
 
-Related concepts: [[Processes]], [[Flows]], [[Coordination]], [[Interaction]], [[Delivery Semantics]], [[Persistence]], [[Recovery]], [[Idempotency]], [[Ordering]], [[Event Sourcing]], [[CQRS]], [[Workflow Engines]], [[Brokers]], [[Network]], [[Compositionality]].
+Related concepts: [[Processes]], [[Flows]], [[Coordination]], [[Durable Execution]], [[Interaction]], [[Delivery Semantics]], [[Persistence]], [[Recovery]], [[Idempotency]], [[Ordering]], [[Event Sourcing]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Network]], [[Compositionality]].

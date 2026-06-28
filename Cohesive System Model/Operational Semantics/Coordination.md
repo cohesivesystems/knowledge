@@ -21,7 +21,7 @@ Coordination mechanisms include:
 - Transactional outbox.
 - [[CRDTs]].
 - Sagas with compensation.
-- Durable workflows with resume.
+- [[Durable Execution|Durable execution]] with resume.
 - Choreography through events.
 - Process managers.
 - Projection update protocols.
@@ -32,4 +32,4 @@ In [[CQRS]], coordination often centers on consistency under asynchrony: propaga
 
 The right mechanism depends on the failure boundaries, persistence choices, delivery semantics, and invariants involved.
 
-Related concepts: [[Interaction]], [[Delivery Semantics]], [[Recovery]], [[Business Transactions]], [[Processes]], [[CRDTs]], [[CQRS]], [[Workflow Engines]], [[Brokers]], [[Invariants]].
+Related concepts: [[Interaction]], [[Delivery Semantics]], [[Durable Execution]], [[Recovery]], [[Business Transactions]], [[Processes]], [[CRDTs]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Invariants]].
