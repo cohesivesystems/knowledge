@@ -1,14 +1,16 @@
 ---
-realm: Semantic Dynamics
-kind: semantic-construct
+realm: Principles
+kind: principle
 ---
 
 # Event-State Duality
 
-Event-state duality is an instance of [[Duality and Symmetry]]: the relationship between two views of [[Behavior]]:
+Event-state duality is a modeling principle and an instance of [[Duality and Symmetry]]: the relationship between two views of [[Behavior]]:
 
 - [[Event|Events]] emphasize occurrence, ordering, causality, and change.
 - [[State|States]] emphasize information, condition, continuity, and samples or cuts through behavior.
+
+It is not itself a semantic primitive. It relates semantic constructs such as [[Event]] and [[State]], and constrains how the model explains their correspondence.
 
 The duality is not an isomorphism. Event schedules and state histories are mutually informative, but they are not interchangeable artifacts. Event histories can preserve intent, causality, source, and decision context that state samples do not. Different event histories can also converge to the same state.
 

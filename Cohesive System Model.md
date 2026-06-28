@@ -1,34 +1,30 @@
 
----
-kind: overview
----
 
 ## Core Thesis
 
 Domains can be described as semantic system graphs composed of:
 
 - [[Entity Models|Entity models]] with stable [[Identity|identities]]
-- [[State|States]], [[Value|values]], and [[Transition|transitions]]
-- [[Event|Events]] and [[Observation|observations]]  
-- [[Observers]] as active participants  
+- [[Relations]] between identities, states, observations, and observers 
+- [[State|States]], [[Value|values]], [[Transition|transitions]], [[Event|events]] and [[Observation|observations]]  
+- [[Observers]] as active participants 
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
-- [[Relations]] between identities, states, observations, and observers  
 - [[Process|Processes]] over time, including the flows by which work moves between participants
 
-Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Coordination|coordination]], and control semantics, then relates them through [[Realization|realization]] to concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] while preserving correspondence across layers.
+Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
 ## Realms of Description
 
 ### 0. Principles
 
-Describe modeling discipline used across the system model.
+Describe modeling disciplines used across the system model.
 
 - [[Categorical Principles]]
 - [[Stuff Structure Property]]
 - [[Compositionality]]
 - [[Functoriality]]
 - [[Naturality]]
-- [[Duality and Symmetry]]
+- [[Duality and Symmetry]], [[Event-State Duality]]
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
 - [[Monads Monoids and Duals]], [[Algebras and Coalgebras]], [[Yoneda Lemma]], [[Adjunctions]]
@@ -44,7 +40,6 @@ Describes change, time, observation, and participation.
 - [[Observable]]  
 - [[Observation]]  
 - [[Event]]  
-- [[Event-State Duality]]
 - [[Behavior]]  
 - [[Process]]
 - [[Observer]]  

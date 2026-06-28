@@ -52,6 +52,13 @@ Allowed kinds:
 - `glossary`: term list or vocabulary note.
 - `overview`: reserved for the top-level `Cohesive System Model.md` overview.
 
+Use `kind` by the primary role of the note, not by the concepts it references.
+A `semantic-construct` is a meaning-bearing modeling primitive in semantic
+dynamics. A `principle` is a modeling discipline, distinction, or relationship
+that constrains how primitives are interpreted. If a note primarily relates,
+compares, or disciplines constructs such as `Event` and `State`, classify it as
+`principle` even when it is heavily referenced from semantic dynamics.
+
 Recommended:
 
 - `status`: `draft`, `stable`, or `deprecated`.
