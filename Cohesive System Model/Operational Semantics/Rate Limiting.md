@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Rate Limiting
 
-Realm: Operational Semantics
-
 Rate Limiting constrains how quickly work may be accepted, dispatched, delivered, or processed.
 
 Rate limiting protects observers, entities, dependencies, brokers, and storage systems from overload. It is part of the control semantics that shape execution across boundaries.

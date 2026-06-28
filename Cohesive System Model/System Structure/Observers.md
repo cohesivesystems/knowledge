@@ -4,8 +4,6 @@ realm: System Structure
 
 # Observers
 
-Realm: System Structure
-
 Observers describe how the semantic [[Observer]] role is arranged in the system graph.
 
 At the structure level, observers define placement, responsibility, logical execution context, and boundaries for observation, interpretation, routing, hosting, projection, and event participation. This page describes structural use of the observer role, not the primitive definition of observer and not a specific runtime implementation.

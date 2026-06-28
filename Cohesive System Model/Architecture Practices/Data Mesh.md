@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Data Mesh
 
-Realm: Architecture Practices
-
 Data Mesh addresses the problem of scaling analytical and operational data ownership across organizational and domain boundaries.
 
 ## Cohesive Formulation

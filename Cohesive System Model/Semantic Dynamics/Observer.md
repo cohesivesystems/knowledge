@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Observer
 
-Realm: Semantic Dynamics
-
 An Observer is a locus of interpretation. It is the participant, context, or execution locus relative to which [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], [[Query|queries]], [[Boundaries|boundaries]], and [[State|state]] acquire meaning.
 
 Every runtime participant is a potential observer, but an observer is not defined by a particular substrate mechanism. It is realized when some execution context supplies the boundary, state view, authority, and interpretation rules needed to observe and act.

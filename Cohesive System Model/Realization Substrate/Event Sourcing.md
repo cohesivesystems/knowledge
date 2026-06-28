@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Event Sourcing
 
-Realm: Realization Substrate
-
 Event sourcing is a realization pattern in which an entity's durable history is represented by committed [[Event|events]] rather than only by current-state records.
 
 In the Cohesive System Model, event-sourced events are not merely time-bearing values. They are committed endogenous events: events accepted within an [[Observer|observer]] boundary as the result of a valid [[Transition]]. Once committed, they can be treated as state actions:

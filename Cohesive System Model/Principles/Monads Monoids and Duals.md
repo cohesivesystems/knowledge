@@ -4,8 +4,6 @@ realm: Principles
 
 # Monads Monoids And Duals
 
-Realm: Principles
-
 Monads, monoids, and their duals provide recurring patterns for sequencing, accumulation, context, observation, and composition.
 
 ## Monoids

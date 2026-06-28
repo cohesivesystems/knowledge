@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Workflow Engines
 
-Realm: Realization Substrate
-
 Workflow Engines are runtimes for defining, coordinating, and operating multi-step workflows across time.
 
 They commonly provide workflow identity, workflow state or history, timers, activity scheduling, retries, compensation, signals, [[Query|queries]], inspection, and operational controls. Many workflow engines also provide [[Durable Execution]], but durable execution is a guarantee, not the definition of a workflow engine.

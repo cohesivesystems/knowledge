@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Ordering
 
-Realm: Operational Semantics
-
 Ordering defines the scope within which events, commands, observations, or effects are sequenced.
 
 Ordering is always relative to a space:

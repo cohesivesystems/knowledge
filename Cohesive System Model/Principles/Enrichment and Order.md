@@ -4,8 +4,6 @@ realm: Principles
 
 # Enrichment And Order
 
-Realm: Principles
-
 Enrichment adds structure to relationships. Instead of merely asking whether a relationship exists, an enriched view asks what kind of value the relationship has: order, distance, cost, probability, time, authority, confidence, or information.
 
 In many models, relationships are not just arrows. They carry operational and semantic measures:

@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Delivery Semantics
 
-Realm: Operational Semantics
-
 Delivery Semantics answers: what guarantees does an interaction edge provide?
 
 Delivery guarantees are always scoped to a defined boundary, key, stream, partition, actor, transaction, or protocol. They do not automatically mean that a business transition committed.

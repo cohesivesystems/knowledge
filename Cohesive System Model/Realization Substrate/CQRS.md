@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # CQRS
 
-Realm: Realization Substrate
-
 CQRS, Command Query Responsibility Segregation, is a realization pattern that separates the write side that interprets [[Command|commands]] and persists authoritative change from the read side that answers [[Query|queries]] by reconstituting queryable observations.
 
 In the Cohesive System Model, CQRS can be understood as a separation of [[Persistence]] and [[Reconstitution]]:

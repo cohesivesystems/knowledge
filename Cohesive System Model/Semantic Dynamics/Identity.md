@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Identity
 
-Realm: Semantic Dynamics
-
 Identity is what allows a sequence of state observations to be understood as successive versions of the same thing.
 
 For an [[Entity]], identity is stable across the entity lifetime. It is paired with [[Version]] to address a particular state in the entity history.

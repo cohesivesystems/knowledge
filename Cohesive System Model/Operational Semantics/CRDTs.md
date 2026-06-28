@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # CRDTs
 
-Realm: Operational Semantics
-
 CRDTs, conflict-free replicated data types, are replicated data types designed so that independently updated replicas converge without requiring synchronous coordination for every update.
 
 The earlier terminology distinguishes two related families:

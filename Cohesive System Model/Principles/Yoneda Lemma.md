@@ -4,8 +4,6 @@ realm: Principles
 
 # Yoneda Lemma
 
-Realm: Principles
-
 The Yoneda lemma says, roughly, that an object is determined by how it relates to all other objects through maps into or out of it.
 
 For modeling, the practical lesson is:

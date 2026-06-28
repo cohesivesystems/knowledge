@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Concurrency Control
 
-Realm: Operational Semantics
-
 Concurrency Control answers: how are conflicting attempts to change the same semantic subject constrained?
 
 In the model, commands may carry an expected version or etag: the [[Version]] of [[Entity]] state the [[Observer]] believed was current when it formulated the [[Command]].

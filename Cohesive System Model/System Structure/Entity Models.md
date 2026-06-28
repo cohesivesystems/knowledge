@@ -4,8 +4,6 @@ realm: System Structure
 
 # Entity Models
 
-Realm: System Structure
-
 Entity models describe how the semantic [[Entity]] role is arranged in the system graph.
 
 At the structure level, entity models organize placement, ownership, and composition around stable [[Identity|identities]], versioned state histories, transitions, invariants, policies, and effects. This page describes structural use of the entity role, not the primitive definition of entity and not a specific runtime or storage implementation.

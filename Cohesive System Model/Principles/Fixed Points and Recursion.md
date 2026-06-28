@@ -4,8 +4,6 @@ realm: Principles
 
 # Fixed Points And Recursion
 
-Realm: Principles
-
 Fixed points and recursion describe self-referential definitions, repeated behavior, and systems whose outputs feed future inputs.
 
 A fixed point is a value that is unchanged by a function:

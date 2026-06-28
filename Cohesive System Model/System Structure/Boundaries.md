@@ -4,8 +4,6 @@ realm: System Structure
 
 # Boundaries
 
-Realm: System Structure
-
 Boundaries define the scope and context in which observation, interpretation, authority, failure, persistence, delivery, and coordination apply.
 
 At the structure level, boundaries describe semantic and operational scoping in the system graph, not a specific process, network, storage, or deployment mechanism.

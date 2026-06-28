@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Brokers
 
-Realm: Realization Substrate
-
 Brokers are concrete messaging substrates that mediate delivery between producers and consumers.
 
 Examples include queues, topics, streams, pub/sub systems, event buses, and log-based messaging systems.

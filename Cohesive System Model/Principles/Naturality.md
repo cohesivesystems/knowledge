@@ -4,8 +4,6 @@ realm: Principles
 
 # Naturality
 
-Realm: Principles
-
 Naturality is the principle that a transformation should be independent of arbitrary representation choices. It should commute with the structure-preserving maps between representations.
 
 Informally, naturality asks whether the same conceptual operation behaves consistently across equivalent presentations of the same idea.

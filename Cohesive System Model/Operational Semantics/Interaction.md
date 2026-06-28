@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Interaction
 
-Realm: Operational Semantics
-
 Interaction answers: how do [[Observer|Observers]] address, observe, notify, or invoke one another?
 
 Interaction defines the operational edges through which observers coordinate by exchange, observation, notification, invocation, shared state, or synchronization.

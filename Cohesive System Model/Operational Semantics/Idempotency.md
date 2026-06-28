@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Idempotency
 
-Realm: Operational Semantics
-
 Idempotency is the property that repeated handling of the same semantic input does not produce duplicate domain effects.
 
 Idempotency is required when delivery, retry, replay, or recovery can cause the same input to be observed more than once.

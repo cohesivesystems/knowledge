@@ -4,8 +4,6 @@ realm: System Structure
 
 # Relations
 
-Realm: System Structure
-
 Relations describe how semantic roles are connected in the system graph.
 
 At the structure level, relations connect identities, states, observations, observers, entities, and events by dependency, reference, projection, observation, constraint, causation, or inclusion. This describes graph shape and semantic dependency, not a specific join mechanism, network link, storage relation, or runtime call.

@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Network
 
-Realm: Realization Substrate
-
 Network is the realization substrate for interaction across link, network, transport, and application protocol boundaries.
 
 Network mechanisms [[Realization|realize]] interaction edges, but they are not the definition of [[Interaction]]. Interaction also occurs locally between processes, threads, runtime tasks, actors, CPU cores, memory cells, and synchronization primitives. Networked interaction is one important family of realization.

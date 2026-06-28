@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Reconstitution
 
-Realm: Operational Semantics
-
 Reconstitution answers: how is usable state recovered?
 
 Reconstitution turns persisted material back into current, usable [[Observation|observations]] of [[State]] so that [[Observer|Observers]], [[Entity|Entities]], workflows, projections, and processes can continue operating.

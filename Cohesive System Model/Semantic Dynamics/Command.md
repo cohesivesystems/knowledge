@@ -5,8 +5,6 @@ tags:
 
 # Command
 
-Realm: Semantic Dynamics
-
 A Command is an observer-relative interpretation of an input event or incoming [[Value|value]] as an attempted [[Transition]].
 
 Command interpretation follows this shape:

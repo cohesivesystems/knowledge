@@ -4,8 +4,6 @@ realm: Principles
 
 # Equivalence Vs Equality
 
-Realm: Principles
-
 Equivalence and equality should not be confused.
 
 Equality usually means sameness inside a chosen representation, identity space, or semantic theory. Equivalence means two things can be treated as the same for a declared purpose, boundary, observer, or relation.

@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # CQRS As Architecture Practice
 
-Realm: Architecture Practices
-
 CQRS is often described as an architectural pattern or style. In the Cohesive System Model, the technical mechanics are captured by [[CQRS]] as a realization substrate pattern.
 
 ## Problem

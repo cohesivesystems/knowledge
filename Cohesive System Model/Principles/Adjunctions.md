@@ -4,8 +4,6 @@ realm: Principles
 
 # Adjunctions
 
-Realm: Principles
-
 Adjunctions describe paired constructions that translate between domains in the best available way, even when the translations are not inverses.
 
 An adjunction often appears when one side freely adds structure and the other forgets or extracts structure. The unit and counit explain what is gained, forgotten, approximated, or recovered when moving between the two sides.

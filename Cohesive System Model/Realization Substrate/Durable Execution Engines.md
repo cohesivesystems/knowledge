@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Durable Execution Engines
 
-Realm: Realization Substrate
-
 Durable Execution Engines are concrete runtimes or substrate mechanisms that [[Realization|realize]] [[Durable Execution]].
 
 A durable execution engine persists enough execution material to resume, replay, retry, or recover process execution after interruption. It may present itself as a workflow engine, durable task runtime, state-machine runtime, saga runtime, process-manager framework, durable job processor, actor runtime with reminders and persisted state, or transaction manager.

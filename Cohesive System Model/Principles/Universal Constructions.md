@@ -4,8 +4,6 @@ realm: Principles
 
 # Universal Constructions
 
-Realm: Principles
-
 Universal constructions are principles for naming "the" object determined by a diagram of related objects and morphisms.
 
 Instead of defining an object by its internal representation, a universal construction defines it by how it relates to all relevant things around it. This is why limits, colimits, and related universal properties are useful modeling tools: they let the model refer to a canonical object while incorporating the relationships that make it canonical.

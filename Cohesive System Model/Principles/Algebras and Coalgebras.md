@@ -4,8 +4,6 @@ realm: Principles
 
 # Algebras And Coalgebras
 
-Realm: Principles
-
 Algebras and coalgebras provide complementary ways to model construction and behavior.
 
 An algebra consumes structure into a value:

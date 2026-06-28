@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Recovery
 
-Realm: Operational Semantics
-
 Recovery defines how a system returns to coherent operation after failure, interruption, conflict, timeout, overload, or partial progress.
 
 Recovery depends on the durable material provided by [[Persistence]] and the method used for [[Reconstitution]].

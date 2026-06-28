@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Transactional Outbox
 
-Realm: Architecture Practices
-
 The Transactional Outbox addresses the problem of committing local state change and publishing a message without relying on a distributed transaction between the database and broker.
 
 ## Cohesive Formulation

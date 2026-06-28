@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Clean Architecture
 
-Realm: Architecture Practices
-
 Clean Architecture addresses the problem of dependency direction: keeping high-value semantic rules from depending on volatile delivery, persistence, framework, and infrastructure choices.
 
 ## Cohesive Formulation

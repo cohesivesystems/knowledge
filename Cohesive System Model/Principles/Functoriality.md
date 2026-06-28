@@ -4,8 +4,6 @@ realm: Principles
 
 # Functoriality
 
-Realm: Principles
-
 Functoriality is the principle that a mapping between domains should preserve the structure that matters: identities, relationships, composition, and change.
 
 Informally, it lets the model relate distinct semantic domains without collapsing them. The cave-shadow analogy is useful only if changes in the source are also related to changes in the shadows. A functorial view does not merely map things to things; it maps transformations to transformations in a way that preserves how they compose.

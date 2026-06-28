@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Event-State Duality
 
-Realm: Semantic Dynamics
-
 Event-state duality is an instance of [[Duality and Symmetry]]: the relationship between two views of [[Behavior]]:
 
 - [[Event|Events]] emphasize occurrence, ordering, causality, and change.

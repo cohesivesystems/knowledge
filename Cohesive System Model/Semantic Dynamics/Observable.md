@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Observable
 
-Realm: Semantic Dynamics
-
 An Observable is a probe, projection, measurement, or accessor that produces an [[Observation]] from [[State]].
 
 Observables define how abstract state becomes visible to an [[Observer]]. Different observables may produce different observations from the same underlying state.

@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Anti-Corruption Layer
 
-Realm: Architecture Practices
-
 An Anti-Corruption Layer addresses the problem of integrating with another model without letting that model's semantics leak into the local boundary.
 
 ## Cohesive Formulation

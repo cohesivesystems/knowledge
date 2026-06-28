@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Persistence
 
-Realm: Operational Semantics
-
 Persistence answers: what is made durable and authoritative?
 
 In the cohesive system model, persistence chooses which view of the system is recorded as the durable basis for future execution, reconstitution, coordination, or audit.

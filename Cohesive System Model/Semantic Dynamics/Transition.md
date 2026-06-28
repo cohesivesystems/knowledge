@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Transition
 
-Realm: Semantic Dynamics
-
 A Transition is the semantic decision relation that determines whether an attempted change may be committed for a subject.
 
 Under the [[Stuff Structure Property]] lens, a transition is structure: an operation or relation that organizes how entity state, command values, observations, authority, policies, and versions may produce a committed event or rejection.

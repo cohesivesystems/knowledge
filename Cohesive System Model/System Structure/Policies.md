@@ -4,8 +4,6 @@ realm: System Structure
 
 # Policies
 
-Realm: System Structure
-
 Policies describe where decision rules are attached in the system graph.
 
 At the structure level, policies guide or constrain interpretation, authorization, routing, coordination, or execution. They explain why a command is accepted, rejected, routed, delayed, retried, compensated, or interpreted differently by different observers. This describes decision scope and meaning, not a specific policy engine or enforcement substrate.

@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Domain-Driven Design
 
-Realm: Architecture Practices
-
 Domain-Driven Design, or DDD, addresses the problem of preserving domain meaning in software as systems grow in complexity.
 
 ## Cohesive Formulation

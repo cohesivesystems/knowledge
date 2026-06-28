@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Retry
 
-Realm: Operational Semantics
-
 Retry is the controlled repetition of an operation after a transient failure, timeout, conflict, or unavailable dependency.
 
 Retry changes the operational shape of a system because the same input may be observed more than once by the same or different [[Observer|Observers]].

@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Coordination
 
-Realm: Operational Semantics
-
 Coordination answers: how is multi-step or multi-participant work made coherent across [[Observer|Observers]]?
 
 Coordination defines how multiple transitions, observers, stores, processes, projections, or external systems are made to move together without losing the semantic meaning of the work.

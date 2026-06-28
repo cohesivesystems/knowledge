@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Runtimes
 
-Realm: Realization Substrate
-
 Runtimes are execution environments that host code and provide operational behavior.
 
 Examples include language runtimes, web runtimes, actor runtimes, workflow runtimes, [[Durable Execution Engines|durable execution engines]], serverless runtimes, job processors, stream processors, and application frameworks.

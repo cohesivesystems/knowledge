@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Value
 
-Realm: Semantic Dynamics
-
 A **Value** is pure structured data. It is the concrete information used to read, write, transmit, compare, validate, transform, or carry state.
 
 Values are identity-free, version-free, lineage-free, and timeless. They do not carry subject, observer, source, occurrence, or provenance. Those belong to contextual concepts such as [[Observation]], [[Event]], entity state, state records, histories, and lineage metadata.

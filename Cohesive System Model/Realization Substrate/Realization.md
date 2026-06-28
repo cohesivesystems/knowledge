@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Realization
 
-Realm: Realization Substrate
-
 Realization is the relation by which semantic roles, system structure, and operational semantics are made concrete in a substrate.
 
 A realization does not make the semantic concept identical to the substrate mechanism. It says that a concrete mechanism hosts, carries, preserves, or implements the relevant meaning under an explicit [[Boundaries|boundary]] and operational context.

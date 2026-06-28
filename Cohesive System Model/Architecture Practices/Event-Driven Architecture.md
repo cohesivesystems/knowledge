@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Event-Driven Architecture
 
-Realm: Architecture Practices
-
 Event-Driven Architecture addresses the problem of coordinating independent participants through event flow rather than direct synchronous control.
 
 ## Cohesive Formulation

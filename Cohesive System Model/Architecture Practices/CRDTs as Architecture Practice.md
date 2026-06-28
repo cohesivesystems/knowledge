@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # CRDTs As Architecture Practice
 
-Realm: Architecture Practices
-
 CRDTs are a distributed-systems practice for designing replicated state that can accept concurrent updates and converge without synchronous coordination for every update.
 
 The technical semantics are captured by [[CRDTs]].

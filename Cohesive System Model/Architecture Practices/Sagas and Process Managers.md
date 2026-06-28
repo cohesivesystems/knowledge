@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Sagas And Process Managers
 
-Realm: Architecture Practices
-
 Sagas and process managers address the problem of coordinating long-running, multi-step work across boundaries where one atomic transaction is unavailable or inappropriate.
 
 ## Cohesive Formulation

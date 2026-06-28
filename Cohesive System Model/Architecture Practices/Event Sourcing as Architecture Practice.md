@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Event Sourcing As Architecture Practice
 
-Realm: Architecture Practices
-
 Event sourcing is often described as an architecture practice. In the Cohesive System Model, the technical mechanics are captured by [[Event Sourcing]] as a realization substrate pattern.
 
 ## Problem

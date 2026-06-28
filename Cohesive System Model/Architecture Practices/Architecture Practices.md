@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Architecture Practices
 
-Realm: Architecture Practices
-
 Architecture practices are named bundles of modeling choices, constraints, and implementation habits that address recurring system-engineering problems.
 
 In the Cohesive System Model, these practices are not primitives. They are ways of arranging semantic dynamics, system structure, operational semantics, and realization substrate to solve particular problems.

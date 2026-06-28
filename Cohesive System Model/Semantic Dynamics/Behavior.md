@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Behavior
 
-Realm: Semantic Dynamics
-
 Behavior is a time-varying [[Value|value]]: a trajectory through state space:
 
 $$\text{Time}\to\text{Value}$$

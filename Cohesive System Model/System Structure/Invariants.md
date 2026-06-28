@@ -4,8 +4,6 @@ realm: System Structure
 
 # Invariants
 
-Realm: System Structure
-
 Invariants describe where validity constraints are attached in the system graph.
 
 At the structure level, an invariant constrains the evolution of an [[Entity]] by ruling out transitions that would produce invalid state or violate a domain rule. This describes the semantic constraint and its scope, not a specific validation mechanism or runtime enforcement substrate.

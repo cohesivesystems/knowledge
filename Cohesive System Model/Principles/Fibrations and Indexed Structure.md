@@ -4,8 +4,6 @@ realm: Principles
 
 # Fibrations And Indexed Structure
 
-Realm: Principles
-
 Fibrations and indexed structure describe situations where each object in a base domain has a category of things lying over it.
 
 Informally:

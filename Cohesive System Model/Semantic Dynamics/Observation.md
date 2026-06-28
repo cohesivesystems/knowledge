@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Observation
 
-Realm: Semantic Dynamics
-
 An **Observation** is a contextualized [[Value|value]] produced by an [[Observable]] acting on [[State]]. It is the form in which state becomes usable by an [[Observer]] relative to a [[Boundaries|boundary]].
 
 An observation has:

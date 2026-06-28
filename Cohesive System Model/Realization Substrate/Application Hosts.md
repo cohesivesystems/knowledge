@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Application Hosts
 
-Realm: Realization Substrate
-
 Application Hosts are runtime containers for application code, request handling, background work, dependency management, and operational concerns.
 
 An application host may expose HTTP endpoints, subscribe to queues, run workers, schedule jobs, host actors, execute workflow activities, or maintain projections.

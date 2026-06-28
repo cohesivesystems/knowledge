@@ -4,8 +4,6 @@ realm: System Structure
 
 # Projections
 
-Realm: System Structure
-
 Projections describe how derived observations or derived state views are arranged in the system graph.
 
 At the structure level, projections organize how one semantic view is shaped from another. They may support [[Query|queries]], read models, indexes, materialized views, UI models, analytics, routing views, or process state. This describes derivation and dependency structure, not the concrete database, cache, index, or compute substrate that realizes it.

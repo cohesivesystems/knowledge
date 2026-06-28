@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Modular Monolith
 
-Realm: Architecture Practices
-
 The modular monolith addresses the problem of maintaining strong internal boundaries and cohesive change units without paying the operational cost of distributed deployment.
 
 ## Cohesive Formulation

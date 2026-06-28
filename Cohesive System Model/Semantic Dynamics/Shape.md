@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Shape
 
-Realm: Semantic Dynamics
-
 A Shape is the logical structure expected of a [[Value]], [[Observation]], state view, event payload, command input, query result, or projection result within a model [[Boundaries|boundary]].
 
 Shape answers: what structure must a value have in order to be interpreted, validated, compared, transformed, observed, or transmitted for a declared purpose?

@@ -4,8 +4,6 @@ realm: Principles
 
 # Duality and Symmetry
 
-Realm: Principles
-
 Duality and symmetry are principles for recognizing paired concepts that explain one another through reversal, complementarity, or mirrored structure.
 
 A duality is not necessarily an isomorphism. Dual concepts may determine each other only partially, lossy transformations may exist in one direction, and extra context may be required to move between them. The point is to identify the shared structure and the direction of contrast without confusing dual things for the same thing or for unrelated things.

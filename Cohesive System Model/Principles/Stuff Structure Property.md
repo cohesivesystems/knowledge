@@ -4,8 +4,6 @@ realm: Principles
 
 # Stuff Structure Property
 
-Realm: Principles
-
 Stuff, structure, and property are a modeling distinction for separating what a model contains, how it is organized, and what constraints it satisfies.
 
 In the Cohesive System Model, this provides a useful lens:

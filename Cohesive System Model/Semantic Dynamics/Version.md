@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Version
 
-Realm: Semantic Dynamics
-
 A **Version** identifies a point in an [[Entity]] history at which a particular [[State]] became current.
 
 Entity state can be addressed as [[Identity]] + version. In [[Event-State Duality]], for a sequential entity, state at version `V` is the result of applying the [[Event]] that produced version `V`.

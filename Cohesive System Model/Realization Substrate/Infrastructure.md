@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Infrastructure
 
-Realm: Realization Substrate
-
 Infrastructure is the concrete operational environment that provides compute, networking, storage, deployment, security, observability, and platform services.
 
 Infrastructure includes cloud platforms, clusters, networks, load balancers, service discovery, secrets, identity systems, deployment pipelines, monitoring, logging, tracing, backups, and disaster recovery.

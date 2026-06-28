@@ -4,8 +4,6 @@ realm: Operational Semantics
 
 # Durable Execution
 
-Realm: Operational Semantics
-
 Durable Execution is the operational semantics by which a process can continue coherently across failure, restart, suspension, timeout, or delayed external work.
 
 Durable execution is not a workflow engine. It is the guarantee that process progress, pending decisions, timers, signals, retries, and recovery context are preserved well enough for execution to resume without changing the semantic meaning of the [[Process]].

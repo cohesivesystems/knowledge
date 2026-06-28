@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Time
 
-Realm: Semantic Dynamics
-
 Time is the dimension in which occurrences, changes, histories, and behaviors are ordered or compared.
 
 In the model, [[Value|values]] and [[Observation|observations]] do not carry intrinsic occurrence time. Time belongs to [[Event|Events]], version histories, and [[Behavior|Behaviors]].

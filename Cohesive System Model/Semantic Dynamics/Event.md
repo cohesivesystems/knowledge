@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Event
 
-Realm: Semantic Dynamics
-
 An Event is a time-bearing occurrence with a [[Value|value]]. It marks, reports, or induces change depending on how it is interpreted by an [[Observer]] relative to a [[Boundaries|boundary]].
 
 Structurally, an event is a [[Value|value]] with a notion of occurrence. Semantically, an event's role is observer- and boundary-relative.

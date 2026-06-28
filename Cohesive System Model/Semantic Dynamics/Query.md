@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Query
 
-Realm: Semantic Dynamics
-
 A Query is an observer-relative interpretation of an input event, request, or incoming [[Value|value]] as a request to observe, compute, or return information without requesting a modeled semantic state transition.
 
 Query interpretation follows this shape:

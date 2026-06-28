@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # State
 
-Realm: Semantic Dynamics
-
 A State is the condition or configuration of a subject within a model [[Boundaries|boundary]]. It represents what is, relative to the subject, boundary, [[Shape|shape]], and time or version at which it is considered.
 
 In Leslie Lamport's TLA formulation, a state is an assignment of values to variables: a mapping from variable names to values. In this model, those variables can be understood as the named dimensions made visible by a subject, boundary, [[Shape|shape]], or specification.

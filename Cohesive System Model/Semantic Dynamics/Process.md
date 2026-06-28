@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Process
 
-Realm: Semantic Dynamics
-
 A Process is coherent work unfolding over time.
 
 A process gives semantic unity to a related sequence of [[Observation|observations]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Transition|transitions]], decisions, effects, and participant activity. It is not defined by any particular runtime, workflow engine, scheduler, thread, transaction manager, or broker. Those belong to [[Realization]].

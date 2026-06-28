@@ -4,8 +4,6 @@ realm: Realization Substrate
 
 # Storage Systems
 
-Realm: Realization Substrate
-
 Storage Systems are concrete mechanisms for durable or semi-durable data: databases, event stores, object stores, key-value stores, logs, file systems, caches, and actor state providers.
 
 Storage systems [[Realization|realize]] [[Persistence]], support [[Reconstitution]], and participate in coordination and concurrency control.

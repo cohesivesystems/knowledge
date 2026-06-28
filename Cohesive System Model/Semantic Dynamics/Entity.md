@@ -4,8 +4,6 @@ realm: Semantic Dynamics
 
 # Entity
 
-Realm: Semantic Dynamics
-
 An Entity is an enduring, identifiable subject whose state evolves over time under controlled transitions.
 
 An entity is defined by:
