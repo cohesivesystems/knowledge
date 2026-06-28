@@ -24,8 +24,8 @@ Values relate to the other semantic concepts as follows:
 - [[State]] is condition; value is the concrete information used to read or write that condition.
 - [[Observation]] is a value with context: subject, [[Shape|shape]], source, version, observer, or lineage.
 - [[Event]] is a value with occurrence.
-- [[Command]] is an input [[event]] or incoming value interpreted as an attempted [[Transition]].
-- [[Query]] is an input event or incoming value interpreted as a request to observe, compute, or return information.
+- [[Command]] is an input [[Event|event]] interpreted as an attempted [[Transition]].
+- [[Query]] is an input [[Event|event]] interpreted as a request to observe, compute, or return information.
 - Entity state is an entity-scoped observation: a value attributed to an entity identity at a version.
 - A [[Transition]] consumes values and observations in a transition context and may commit an endogenous event.
 

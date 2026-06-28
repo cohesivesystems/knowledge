@@ -5,13 +5,13 @@ kind: semantic-construct
 
 # Query
 
-A Query is an observer-relative interpretation of an input event, request, or incoming [[Value|value]] as a request to observe, compute, or return information without requesting a modeled semantic state transition.
+A Query is an observer-relative interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
 
 Query interpretation follows this shape:
 
 ```txt
-Exogenous event or incoming value
-  -> input at an observer [[Boundaries|boundary]]
+Exogenous event
+  -> input event at an observer [[Boundaries|boundary]]
   -> query intent, relative to the observer and target subject or view
   -> selection of observable, projection, read model, computation, authority, and consistency expectation
   -> observation | value | stream | nil | rejection

@@ -28,7 +28,7 @@ Relative to an [[Observer]]'s [[Boundaries|boundary]]:
 - An **exogenous** event arrives from outside the observer [[Boundaries|boundary]].
 - An **input event** is an exogenous event in the role of entering a system or observer.
 - A [[Command|command]] is an input event interpreted as an attempted [[Transition]] for a target subject.
-- A [[Query|query]] is an input event or incoming value interpreted as a request to observe, compute, or return information.
+- A [[Query|query]] is an input event interpreted as a request to observe, compute, or return information.
 - An **endogenous** event is committed within the observer's own semantic history.
 - An **output event** is an endogenous event emitted across a [[Boundaries|boundary]].
 - A **nil** endogenous event is the modeled absence of a committed domain transition after the observer interpreted the input.
