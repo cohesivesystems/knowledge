@@ -25,10 +25,10 @@ Addressability of an observer is an operational concern. Some observers have glo
 
 Actor systems are important because they make observers addressable: an actor address gives other observers a delivery path to a receiving observer boundary. The address does not necessarily expose state, and it is not automatically the same as an entity identity, though an actor may be used to realize an entity observer.
 
-Entities and processes can be modeled as observers when they interpret inputs relative to their own state, history, policies, and boundary. A process is often a special kind of entity-observer: it has identity and state, observes events over time, and emits commands or endogenous events as its behavior progresses.
+Entities and [[Process|processes]] can be modeled as observers when they interpret inputs relative to their own state, history, policies, and boundary. A process is often a special kind of entity-observer: it has identity and state, observes events over time, and emits commands or endogenous events as its behavior progresses.
 
 One observer's endogenous event may become another observer's exogenous event.
 
 [[Command|Commands]] and [[Query|queries]] are observer-relative interpretations. The same incoming observation may be interpreted differently or rejected depending on the observer's current view of entity state, projections, invariants, policies, authority, and consistency expectations.
 
-Related concepts: [[Observation]], [[Event]], [[Command]], [[Query]], [[Entity]], [[Boundaries]], [[Realization]], [[Interaction]], [[Delivery Semantics]], [[Concurrency Control]], [[Actor Systems]], [[Runtimes]].
+Related concepts: [[Observation]], [[Event]], [[Command]], [[Query]], [[Entity]], [[Process]], [[Boundaries]], [[Realization]], [[Interaction]], [[Delivery Semantics]], [[Concurrency Control]], [[Actor Systems]], [[Runtimes]].

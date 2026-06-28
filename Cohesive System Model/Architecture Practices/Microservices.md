@@ -4,8 +4,6 @@ realm: Architecture Practices
 
 # Microservices
 
-Realm: Architecture Practices
-
 Microservices address the problem of independent ownership, deployment, scaling, and evolution across bounded capabilities.
 
 ## Cohesive Formulation

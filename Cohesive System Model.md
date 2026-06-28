@@ -9,7 +9,7 @@ Domains can be described as semantic system graphs composed of:
 - [[Observers]] as active participants  
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
 - [[Relations]] between identities, states, observations, and observers  
-- [[Flows]] and [[Processes|processes]] over time
+- [[Process|Processes]] over time, including the flows by which work moves between participants
 
 Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Coordination|coordination]], and control semantics, then relates them through [[Realization|realization]] to concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] while preserving correspondence across layers.
 
@@ -42,6 +42,7 @@ Describes change, time, observation, and participation.
 - [[Event]]  
 - [[Event-State Duality]]
 - [[Behavior]]  
+- [[Process]]
 - [[Observer]]  
 - [[Entity]]  
 - [[Command]]  
@@ -72,8 +73,8 @@ Organizes semantic dynamics into a system graph. System Structure describes plac
 - [[Observers]]  
 - [[Relations]]  
 - [[Projections]]  
-- [[Flows]]  
 - [[Processes]]  
+- [[Flows]] as movement views within or between processes
 - [[Business Transactions]]
 - [[Policies]]  
 - [[Invariants]]  
@@ -169,6 +170,14 @@ Structurally, an event is a value with occurrence. Semantically, an event may be
 
 [[Behavior]] is a time-varying [[Value|value]]: a trajectory through state space. For an Entity, behavior can be viewed as both an event schedule and a state history.
 
+### Process
+
+A [[Process]] is coherent work unfolding over time. It gives semantic unity to related observations, commands, queries, events, transitions, decisions, effects, artifacts, and participant activity.
+
+A Process is not defined by a workflow engine, scheduler, thread, transaction manager, application host, or broker. Those mechanisms may realize a Process, execute one activation of it, or host one step of it. The semantic Process is defined by its subject or correlation identity, participants, inputs, decisions, state or history, effects, completion meanings, and flows of movement between participants.
+
+Processes compose when the outputs of one process become future inputs to another. Compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
+
 ### Observer
 
 An [[Observer]] is a locus of interpretation: the participant, context, or execution locus relative to which values, observations, events, commands, queries, boundaries, and state acquire meaning. Every runtime participant is a potential Observer, but an Observer is realized only when a context supplies boundary, state view, authority, and interpretation rules.
@@ -185,7 +194,7 @@ Addressability of an Observer is an operational concern (part of [[Interaction]]
 
 An Observer may be realized by an OS thread, logical thread, fiber, coroutine, task, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler. In green-thread, fiber, or async runtimes, the Observer follows the logical execution context governed by a scheduler, not necessarily the OS thread.
 
-Actor systems make Observers addressable: an actor address gives other Observers a delivery path to a receiving Observer boundary. Entities and processes can also be modeled as Observers when they interpret inputs relative to their own state, history, policies, and boundary.
+Actor systems make Observers addressable: an actor address gives other Observers a delivery path to a receiving Observer boundary. Entities and [[Process|processes]] can also be modeled as Observers when they interpret inputs relative to their own state, history, policies, and boundary.
 
 An endogenous event emitted inside one Observer’s [[Boundaries|boundary]] can be observed as an exogenous event by another Observer.
 

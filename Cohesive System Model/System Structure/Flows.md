@@ -4,13 +4,13 @@ realm: System Structure
 
 # Flows
 
-Realm: System Structure
-
 Flows describe movement through the system graph over time.
 
-At the structure level, a flow arranges how observations, events, commands, notifications, projection updates, process signals, workflow steps, or runtime messages move between observers and entities. This describes semantic movement and interaction shape, not the concrete protocol, broker, queue, or transport substrate.
+At the structure level, a flow is usually a property or view of a [[Process|process]], [[Processes|process structure]], projection, interaction, or business transaction. A flow arranges how observations, events, commands, notifications, projection updates, process signals, workflow steps, artifacts, or runtime messages move between observers and entities. This describes semantic movement and interaction shape, not the concrete protocol, broker, queue, or transport substrate.
 
 [[Business Transactions]] use flows to compose application-level protocols into domain work such as tender exchange, shipment changes, tracking updates, delivery confirmation, or invoicing.
+
+A flow is not the whole process. It does not by itself define subject identity, participant roles, durable process state, decisions, policies, compensation, recovery, or completion meaning. Those belong to the process or transaction that owns or uses the flow.
 
 Flows provide structure for:
 
@@ -19,9 +19,9 @@ Flows provide structure for:
 - Endogenous event emission.
 - Observer-to-observer interaction.
 - Projection updates.
-- [[Processes]] progression.
+- Process progression.
 - Recovery and retry paths.
 
 Flows must be described with their interaction pattern, delivery semantics, ordering scope, failure boundary, and acknowledgment meaning.
 
-Related concepts: [[Business Transactions]], [[Event]], [[Command]], [[Observer]], [[Interaction]], [[Delivery Semantics]], [[Coordination]], [[Ordering]], [[Trace and Feedback]], [[Compositionality]].
+Related concepts: [[Process]], [[Processes]], [[Business Transactions]], [[Event]], [[Command]], [[Observer]], [[Interaction]], [[Delivery Semantics]], [[Coordination]], [[Ordering]], [[Trace and Feedback]], [[Compositionality]].

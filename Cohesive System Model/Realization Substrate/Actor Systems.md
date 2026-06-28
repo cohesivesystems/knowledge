@@ -6,7 +6,7 @@ realm: Realization Substrate
 
 Actor Systems are runtimes that organize execution around addressable actor identities, message delivery, placement, isolation, and serialized handling per actor.
 
-In the model, actor systems can realize [[Observer|Observers]], [[Entity|Entities]], [[processes|process]] participants, projections, or coordination components.
+In the model, actor systems can realize [[Observer|Observers]], [[Entity|Entities]], [[Process|process]] participants, projections, or coordination components.
 
 The distinctive contribution of an actor system is that it can make observers globally or system-wide addressable. An actor address gives other observers a delivery path to a receiving observer boundary:
 
@@ -31,4 +31,4 @@ Actor identity serialization can provide a concrete concurrency-control mechanis
 
 If an actor only forwards, routes, caches, or partially observes an entity, actor serialization alone does not prove that the entity transition is correct. The semantic meaning of each message still depends on observer-relative command interpretation, and correctness may still require expected-version checks, durable persistence, idempotency, or coordination with another transition owner.
 
-Related concepts: [[Realization]], [[Identity]], [[Observer]], [[Entity]], [[Concurrency Control]], [[Delivery Semantics]], [[Persistence]], [[Reconstitution]].
+Related concepts: [[Realization]], [[Identity]], [[Observer]], [[Entity]], [[Process]], [[Concurrency Control]], [[Delivery Semantics]], [[Persistence]], [[Reconstitution]].

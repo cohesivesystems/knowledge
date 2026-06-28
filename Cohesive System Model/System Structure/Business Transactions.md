@@ -4,13 +4,11 @@ realm: System Structure
 
 # Business Transactions
 
-Realm: System Structure
-
 Business Transactions describe domain-level units of work whose progress, acceptance, rejection, compensation, or completion matters to the business.
 
 A business transaction is not the same as a database transaction. A database transaction is one possible coordination mechanism inside a business transaction. A business transaction may span observers, entities, services, brokers, workflow engines, humans, agents, external systems, and time.
 
-At the structure level, a business transaction arranges [[Processes]], [[Flows]], [[Entity|entities]], [[Observer|observers]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Observation|observations]], and [[Transition|transitions]] into coherent domain work.
+At the structure level, a business transaction arranges [[Processes]], their flows, [[Entity|entities]], [[Observer|observers]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Observation|observations]], and [[Transition|transitions]] into coherent domain work.
 
 Examples include:
 
@@ -27,7 +25,7 @@ Business transactions are examples of [[Compositionality]]. They are implemented
 
 ```txt
 business transaction
-  -> process and flow structure
+  -> process structure and movement flows
   -> commands, queries, events, observations, transitions
   -> application-level interaction protocols
      (request/reply, publish/consume, durable execution, event-sourced commit)
