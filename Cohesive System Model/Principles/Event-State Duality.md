@@ -22,7 +22,7 @@ Events can be folded, integrated, scanned, or applied by an [[Observer]] to prod
 event schedule + initial state + accumulation function -> state history or behavior
 ```
 
-State can be observed for differences, transitions, threshold crossings, or samples that produce events:
+State histories can be compared to derive deltas that an observer may interpret as events:
 
 ```txt
 state history + observer + detection function -> event schedule
