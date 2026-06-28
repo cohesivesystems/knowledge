@@ -23,7 +23,7 @@ invariants and laws -> property
 
 The distinction is relative to a model boundary. A transition may be structure in a domain model, but become stuff in a meta-model that classifies transition rules. An invariant may be a property of entity transitions, but become structure when the system represents policies or validation rules as first-class objects.
 
-The lens helps ask:
+This lens helps ask:
 
 - Are we adding new things to the model, or only new structure on existing things?
 - Is this constraint a property, or is it represented as first-class structure?

@@ -20,7 +20,7 @@ Invariants may be checked against:
 - Policy and authority context.
 - External facts observed through an observer boundary.
 
-When an invariant fails, the command is rejected for the target entity and no endogenous event is committed for that entity.
+When an invariant fails, the command is rejected for the target entity and no accepted state change occurs for that entity.
 
 With [[CRDTs]], invariants must be checked for compatibility with monotonic merge or commutative updates. Non-monotonic invariants may still require coordination, escrow, reservations, or a different data model.
 

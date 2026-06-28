@@ -17,7 +17,7 @@ Exogenous event
   -> input event at an observer [[Boundaries|boundary]]
   -> command intent, relative to the observer and target subject
   -> validation against current entity state, required observations, invariants, policies, authority, and expected version
-  -> endogenous event | nil
+  -> accepted transition | nil | rejection
 ```
 
 Commands are not mere messages. They are interpretations made relative to:
@@ -27,7 +27,7 @@ Commands are not mere messages. They are interpretations made relative to:
 - The intended transition.
 - An optional expected [[Version|version]] or etag.
 
-A command's expected version is the version of entity state the observer believed was current when it formulated the command. The transition runtime checks that expectation before committing an endogenous event.
+A command's expected version is the version of entity state the observer believed was current when it formulated the command. The transition runtime checks that expectation before accepting the transition and advancing the entity version.
 
 An exogenous event does not become a command by structure alone. It becomes a command only when interpreted as a requested transition for a subject in a specific context.
 

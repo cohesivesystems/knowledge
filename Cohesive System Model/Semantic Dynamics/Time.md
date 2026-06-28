@@ -5,17 +5,38 @@ kind: semantic-construct
 
 # Time
 
+## Semantic Role
+
 Time is the dimension in which occurrences, changes, histories, and behaviors are ordered or compared.
 
 In the model, [[Value|values]] and [[Observation|observations]] do not carry intrinsic occurrence time. Time belongs to [[Event|Events]], version histories, and [[Behavior|Behaviors]].
 
+## Entity Histories
+
 For an [[Entity]], time is reflected operationally by its ordered sequence of versions. A state becomes current at the version or time produced by the event that caused it.
+
+## Representations
 
 Time may be represented by clocks, event positions, versions, sequence numbers, workflow history positions, stream offsets, or other ordering mechanisms depending on the realization substrate.
 
-Logical clocks model time as event ordering rather than wall-clock measurement. In distributed systems, this may produce partial orders where some events are concurrent or incomparable.
+## Wall-Clock and Civil Time
 
-Vector clocks refine logical time by tracking causal position across multiple participants. They are useful when a model must distinguish causally ordered events or state observations from concurrent or incomparable ones rather than forcing everything into one total order. A [[Version]] in a distributed or replicated history may use vector-clock-like metadata as its realization.
+**Wall-clock time** is time as reported by a physical or civil clock, such as UTC timestamps or local calendar time. It is useful for deadlines, schedules, retention windows, human interpretation, and external correlation, but it does not by itself define causal order or prove that a semantic transition committed.
+
+Time data structures carry different semantics. An **instant** identifies a globally comparable point, usually represented in UTC. A **duration** measures an elapsed amount rather than a calendar position. **Civil time** combines calendar fields with an offset or timezone. A local or relative time such as `2pm` is not a global instant until a date, timezone, calendar, or scheduling context supplies the missing interpretation. Recurring civil times may not correspond to uniform durations because calendar and timezone rules can change.
+
+## Logical and Causal Time
+
+**Logical clocks** model time as event ordering rather than wall-clock measurement. In distributed systems, this may produce partial orders where some events are concurrent or incomparable.
+
+The clock or version map is order-preserving with respect to Lamport's happened-before relation:
+$$
+A \prec B \Rightarrow \operatorname{version}(A) \le \operatorname{version}(B)
+$$
+
+Here $A \prec B$ means that event or observation `A` happens before `B`. The implication is one-way for ordinary logical clocks: ordered versions preserve happened-before, but comparing versions does not always recover the full causal relation unless the version representation carries enough causal metadata.
+
+**Vector clocks** refine logical time by tracking causal position across multiple participants. They are useful when a model must distinguish causally ordered events or state observations from concurrent or incomparable ones rather than forcing everything into one total order. A [[Version]] in a distributed or replicated history may use vector-clock-like metadata as its realization.
 
 ## External References
 

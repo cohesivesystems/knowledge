@@ -27,7 +27,7 @@ Values relate to the other semantic concepts as follows:
 - [[Command]] is an input [[Event|event]] interpreted as an attempted [[Transition]].
 - [[Query]] is an input [[Event|event]] interpreted as a request to observe, compute, or return information.
 - Entity state is an entity-scoped observation: a value attributed to an entity identity at a version.
-- A [[Transition]] consumes values and observations in a transition context and may commit an endogenous event.
+- A [[Transition]] consumes values and observations in a transition context and may produce an accepted endogenous event or state change.
 
 Values may be complete, partial, or projected only relative to a declared [[Shape|shape]], model [[Boundaries|boundary]], or operation. Completeness is not intrinsic to the value itself.
 

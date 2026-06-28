@@ -19,7 +19,7 @@ Concurrency-control mechanisms include:
 - Transactional isolation.
 - [[CRDTs|CRDT]] merge or commutative-update semantics for compatible replicated state.
 
-If an expected-version check fails, the attempted transition is rejected, no endogenous event is committed for the target entity, and the entity version remains unchanged.
+If an expected-version check fails, the attempted transition is rejected, no accepted state change occurs for the target entity, and the entity version remains unchanged.
 
 Entity transitions require the [[Observer]] that interprets the attempted transition to remain coherently aligned with the realization context that commits it. There are two common patterns:
 

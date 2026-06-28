@@ -62,7 +62,7 @@ A business transaction should identify:
 
 Tender exchange may compose request/reply for quote or tender submission, queries for carrier capacity or rate observations, command handling for accept/reject decisions, published events for tender status changes, and durable workflow state for timeouts or counteroffers.
 
-Shipment changes may compose command validation against current shipment state, related policy observations, expected-version checks, committed endogenous events, projection updates, and notifications to downstream observers.
+Shipment changes may compose command validation against current shipment state, related policy observations, expected-version checks, accepted transitions or committed event records, projection updates, and notifications to downstream observers.
 
 Tracking updates may compose high-volume publish/consume interaction, idempotent event ingestion, ordering by shipment or stop, projection reconstitution, and queryable read models for visibility.
 
