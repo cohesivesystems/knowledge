@@ -155,6 +155,10 @@ An [[Observable]] is a probe, projection, measurement, or accessor that produces
 
 Observables define how State becomes visible to an [[Observer]]. Different Observables may produce different Observations from the same underlying State.
 
+The current state of an [[Entity]] is not itself an Observable; it is State. The accessor, [[Reconstitution|reconstitution]] procedure, projection, cache read, or subscription that exposes that current state is a current-state Observable, producing an entity-scoped Observation at a declared boundary, version, and consistency expectation.
+
+Observables include field accessors, read models, metrics, sensors, UI views, policy-shaped views, derived computations, and stream subscriptions. Reactive-programming observables are one operational realization when they emit observations of state; physics offers a useful informal analogy in which an observable names what can be measured rather than the state itself.
+
 ### Observation
 
 An **[[Observation]]** is a contextualized [[Value|value]] produced by an observable acting on State. It is the form in which state becomes usable by an [[Observer]] relative to a [[Boundaries|boundary]].

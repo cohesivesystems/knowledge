@@ -30,7 +30,7 @@ Entity transitions require the [[Observer]] that interprets the attempted transi
 
 Session affinity may help keep related requests near the same cache or host, but it is not a concurrency-control guarantee unless it also enforces exclusive transition ownership.
 
-## Event Schedules And State Histories
+## Event Schedules and State Histories
 
 Concurrency control depends on the [[Version Histories|version-history]] shape of the state machine being modeled.
 
