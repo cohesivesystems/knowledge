@@ -15,20 +15,20 @@ As a modeling discipline, a boundary should be treated as a kind of [[Universal 
 
 Interpretation is performed by an [[Observer]] relative to a boundary. An observer interprets [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], and [[Query|queries]] within the scope and context defined by that boundary.
 
-An observer boundary determines whether an event is exogenous, input, endogenous, or output relative to that [[Observer|observer]]. It also frames which state is visible, which policies apply, which authority is available, which effects can be committed, and what command or query interpretation can mean.
+An observer boundary determines whether an event is exogenous, input, endogenous, or output relative to that [[Observer|observer]]. It also frames which state is visible, which policies apply, which authority is available, which [[Effects|effects]] can be committed, and what command or query interpretation can mean.
 
 Boundary types include:
 
 - **Observer boundaries**: define what an [[Observer]] can see, interpret, authorize, and commit.
 - **Entity or aggregate boundaries**: define the subject whose state, invariants, transitions, and version history are controlled together.
-- **Transaction boundaries**: define which reads and writes commit or roll back atomically.
+- **Transaction and [[Commit Boundaries|commit boundaries]]**: define which reads, writes, and effects commit or roll back atomically.
 - **Process or workflow boundaries**: define the scope of a long-running behavior, its durable progress, retries, compensations, and recovery.
 - **Service boundaries**: define an independently deployed or operated capability with its own API, policies, dependencies, and failure modes.
 - **Protocol and broker boundaries**: define delivery, ordering, acknowledgment, retries, and message ownership for an interaction substrate.
 - **Failure boundaries**: define what can fail, restart, partition, or recover independently.
 - **Persistence boundaries**: define what is durably recorded and treated as recoverable truth.
 
-Guarantees are meaningful only when their boundary is explicit. At-most-once delivery, ordering, acknowledgment, durability, and commitment can all refer to different boundaries.
+Guarantees are meaningful only when their boundary is explicit. At-most-once delivery, ordering, [[Acknowledgments|acknowledgment]], durability, and commitment can all refer to different boundaries.
 
 ## Example
 
@@ -42,10 +42,10 @@ Different guarantees apply at different boundaries:
 
 - At-most-once delivery may describe the broker/consumer boundary: once the consumer acknowledges or advances its offset, the broker may not redeliver the message even if processing later fails.
 - Ordering may be described with respect to the Kafka partition boundary. It does not imply global ordering or ordering across unrelated entity IDs.
-- Acknowledgment takes place at the broker protocol boundary. Committing an offset means the consumer accepted responsibility for the message, not necessarily that the domain transition committed.
+- [[Acknowledgments|Acknowledgment]] takes place at the broker protocol boundary. Committing an offset means the consumer accepted responsibility for the message, not necessarily that the domain transition committed.
 - Durability may describe Kafka log retention, database state durability, or outbox durability. These are separate persistence boundaries with different replication, retention, compaction, backup, and recovery policies.
 - Commitment may correspond to the entity or aggregate boundary. The business transition commits only when the entity accepts the command, records the new state or event, and advances the version.
 
 So a system can acknowledge a message and preserve broker ordering while still failing to commit the domain transition. It can also receive the same message more than once while committing the domain transition only once through idempotency and concurrency control.
 
-Related concepts: [[Observer]], [[Value]], [[Observation]], [[State]], [[Event]], [[Command]], [[Query]], [[Universal Constructions]], [[Interaction]], [[Delivery Semantics]], [[Coordination]], [[Recovery]].
+Related concepts: [[Observer]], [[Value]], [[Observation]], [[State]], [[Event]], [[Command]], [[Query]], [[Universal Constructions]], [[Effects]], [[Commit Boundaries]], [[Acknowledgments]], [[Interaction]], [[Delivery Semantics]], [[Coordination]], [[Recovery]], [[Dual-Write Problem]].

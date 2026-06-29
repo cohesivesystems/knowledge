@@ -39,6 +39,23 @@ Event sourcing therefore realizes several concepts together:
 
 Event sourcing is often combined with [[CQRS]], but the patterns are distinct. Event sourcing chooses committed event history as authoritative persistence; CQRS separates command-side consistency from query-side reconstitution and projection.
 
+## Relationship To Outbox
+
+Event sourcing can also act as a coordination substrate when the committed event history is the source from which projections, process managers, subscribers, and outbound publications are driven.
+
+This gives an atomic unification of persistence and orchestration:
+
+```txt
+committed endogenous event history
+  -> reconstitute entity state
+  -> drive projections and follow-up processes
+  -> publish output events
+```
+
+The event append is the local commit that makes both state history and follow-up responsibility observable. Publication and downstream processing still have their own [[Delivery Semantics]], [[Acknowledgments]], retry, and idempotency requirements, but the trigger for that work is durably tied to the authoritative transition.
+
+If an event-sourced system appends the event and separately writes an unrelated broker message with no recovery link, it reintroduces the [[Dual-Write Problem|dual-write problem]]. A separate [[Outbox]] may still be useful, but it must either be committed atomically with the event append or derived reliably from the committed event history.
+
 ARIES is relevant by analogy and contrast. In a database, the transaction log is often an internal [[Write-Ahead Logging|write-ahead]] recovery structure used for redo, undo, checkpoints, and crash recovery. In event-sourced systems, the event log is usually an addressable, first-class primitive of the application model: committed events define entity history, version succession, reconstitution, projection, audit, and sometimes publication.
 
 The logs therefore have different semantics. ARIES log records are recovery records for a storage engine. Event-sourced records are committed domain events for an entity boundary. Both make durable ordered history central to [[Persistence]], [[Reconstitution]], and [[Recovery]].
@@ -50,4 +67,4 @@ The logs therefore have different semantics. ARIES log records are recovery reco
 - Microsoft Azure Architecture Center, [Event Sourcing pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing).
 - C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992.
 
-Related concepts: [[Event]], [[State]], [[Transition]], [[Entity]], [[Version]], [[Persistence]], [[Reconstitution]], [[Recovery]], [[Write-Ahead Logging]], [[Concurrency Control]], [[Event-State Duality]], [[Behavior]], [[CQRS]], [[Storage Systems]], [[Realization]].
+Related concepts: [[Event]], [[State]], [[Transition]], [[Entity]], [[Version]], [[Persistence]], [[Reconstitution]], [[Recovery]], [[Write-Ahead Logging]], [[Commit Boundaries]], [[Effects]], [[Delivery Semantics]], [[Acknowledgments]], [[Concurrency Control]], [[Event-State Duality]], [[Behavior]], [[Outbox]], [[Transactional Outbox]], [[Dual-Write Problem]], [[CQRS]], [[Storage Systems]], [[Realization]].

@@ -27,7 +27,7 @@ Examples include:
 - An [[Entity]] realized by an actor-hosted aggregate, database record plus optimistic concurrency, event stream plus reconstitution, workflow subject, or storage document.
 - A [[Transition]] realized by a serialized actor turn, database transaction with expected-version check, compare-and-swap operation, workflow decision, or command handler plus durable commit.
 - A [[Boundaries|boundary]] realized by a transaction, actor identity, process, broker partition, service API, deployment unit, or persistence scope.
-- [[Persistence]] realized by records, logs, event streams, snapshots, workflow histories, outbox tables, or projection state.
+- [[Persistence]] realized by records, logs, event streams, snapshots, workflow histories, [[Outbox|outbox]] records, [[Transactional Inbox|inbox]] records, or projection state.
 - [[Behavior]] realized by an event schedule plus fold and interpolation, a workflow history, sampled state history, or live stream processor.
 - [[Durable Execution]] realized by a durable execution engine, workflow engine, transaction log, durable task runtime, database-backed process manager, or actor runtime with persisted state and reminders.
 
@@ -87,4 +87,4 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[Stuff Structure Property]], [[Functoriality]], [[Naturality]], [[Universal Constructions]], [[Fibrations and Indexed Structure]], [[Equivalence vs Equality]], [[Observer]], [[Entity]], [[Transition]], [[Boundaries]], [[Persistence]], [[Reconstitution]], [[Durable Execution]], [[Concurrency Control]], [[CRDTs]], [[Event Sourcing]], [[CQRS]], [[Runtimes]], [[Actor Systems]], [[Application Hosts]], [[Storage Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Infrastructure]].
+Related concepts: [[Stuff Structure Property]], [[Functoriality]], [[Naturality]], [[Universal Constructions]], [[Fibrations and Indexed Structure]], [[Equivalence vs Equality]], [[Observer]], [[Entity]], [[Transition]], [[Boundaries]], [[Effects]], [[Commit Boundaries]], [[Persistence]], [[Reconstitution]], [[Durable Execution]], [[Concurrency Control]], [[CRDTs]], [[Event Sourcing]], [[Outbox]], [[CQRS]], [[Runtimes]], [[Actor Systems]], [[Application Hosts]], [[Storage Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Infrastructure]].

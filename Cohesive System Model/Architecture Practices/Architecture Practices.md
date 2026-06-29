@@ -33,8 +33,9 @@ Some well-known patterns & practices:
 - [[Actor Model]]
 - [[Anti-Corruption Layer]]
 - [[Transactional Outbox]]
+- [[Transactional Inbox]]
 - [[Weak Isolation Patterns as Architecture Practice]]
 - [[CRDTs as Architecture Practice]]
 - [[Data Mesh]]
 
-Related concepts: [[Categorical Principles]], [[Stuff Structure Property]], [[Boundaries]], [[Observer]], [[Entity]], [[Transition]], [[Persistence]], [[Reconstitution]], [[Realization]].
+Related concepts: [[Categorical Principles]], [[Stuff Structure Property]], [[Boundaries]], [[Observer]], [[Entity]], [[Transition]], [[Persistence]], [[Reconstitution]], [[Effects]], [[Commit Boundaries]], [[Realization]].

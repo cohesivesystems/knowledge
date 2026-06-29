@@ -9,9 +9,9 @@ Domains can be described as semantic system graphs composed of:
 - [[State|States]], [[Value|values]], [[Transition|transitions]], [[Event|events]] and [[Observation|observations]]  
 - [[Observers]] as active participants 
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
-- [[Process|Processes]] over time, including the flows by which work moves between participants
+- [[Process|Processes]] over time, including the flows and [[Effects|effects]] by which work moves between participants
 
-Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
+Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
 ## Realms of Description
 
@@ -61,6 +61,8 @@ Describes how semantic dynamics are made executable and reliable.
 - [[Reconstitution]]  
 - [[Interaction]]  
 - [[Delivery Semantics|Delivery semantics]]  
+- [[Acknowledgments]]
+- [[Commit Boundaries]]
 - [[Coordination]]  
 - [[Consensus]]
 - [[Safety and Liveness]], [[Progress Conditions]], [[CAP Theorem]]
@@ -68,6 +70,7 @@ Describes how semantic dynamics are made executable and reliable.
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
 - [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]]
+- [[Dual-Write Problem]]
 - [[Version Histories]]
 - [[Consistency Models]]  
 - [[CRDTs]]
@@ -82,6 +85,7 @@ Organizes semantic dynamics into a system graph. System Structure describes plac
 - [[Relations]]  
 - [[Projections]]  
 - [[Processes]]  
+- [[Effects]]
 - [[Flows]] as movement views within or between processes
 - [[Business Transactions]]
 - [[Policies]]  
@@ -101,6 +105,7 @@ Provides concrete mechanisms.
 - [[Write-Ahead Logging]]
 - [[Consensus Protocols]]
 - [[Event Sourcing]]
+- [[Outbox]]
 - [[CQRS]]
 - [[Brokers]]  
 - [[Workflow Engines|Workflow engines]]  
@@ -117,7 +122,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Modular Monolith]], [[Microservices]], [[Event-Driven Architecture]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice]]
 - [[Sagas and Process Managers]], [[Actor Model]], [[Anti-Corruption Layer]]
-- [[Transactional Outbox]], [[Weak Isolation Patterns as Architecture Practice]], [[CRDTs as Architecture Practice]], [[Data Mesh]]
+- [[Transactional Outbox]], [[Transactional Inbox]], [[Weak Isolation Patterns as Architecture Practice]], [[CRDTs as Architecture Practice]], [[Data Mesh]]
 
 ## Semantic Dynamics
 
@@ -225,7 +230,7 @@ An Entity is defined by:
 - A **current State** at any point in time, attributed to Identity + Version
 - **[[Transition|Transitions]]** that define how its state may change
 - **[[Invariants]]** and **[[Policies]]** that constrain valid changes
-- **Effects**, primarily the endogenous Events it produces when transitions are committed
+- **[[Effects]]**, primarily the endogenous Events it produces when transitions are committed
 
 An Entity is therefore State + Identity + Version history + transitions + invariants + policies + effects.
 
@@ -349,7 +354,8 @@ What is made durable and authoritative?
 
 - Current-state records (as entity-scoped observations)
 - Event histories
-- Outbox records
+- [[Outbox]] records
+- [[Transactional Inbox|Inbox]] and deduplication records
 - Actor state providers
 - Workflow histories
 - Durable execution histories, checkpoints, timers, signals, and pending work
@@ -388,13 +394,15 @@ What guarantees does an interaction edge provide?
 - Replayable / retained  
 - Deduplicated  
 - Requires idempotent receiver
+- Explicit [[Acknowledgments|acknowledgment]] meaning
 
 ### Coordination
 
 How is multi-step or multi-participant work made coherent across Observers?
 
 - Local transaction  
-- Distributed transaction / transactional outbox  
+- Distributed transaction / [[Transactional Outbox|transactional outbox]]
+- [[Transactional Inbox|Transactional inbox]] or idempotent receiver
 - Saga with compensation  
 - [[Durable Execution|Durable execution]] with resume  
 - Choreography through events  
@@ -409,6 +417,7 @@ How does process execution remain coherent across failure, restart, suspension, 
 - Reconstitute usable process context after interruption
 - Resume, replay, retry, compensate, or escalate without changing semantic history
 - Preserve idempotency at effect boundaries
+- Preserve [[Commit Boundaries|commit boundaries]] and acknowledgment meanings
 - Bind the guarantee to an explicit execution boundary
 
 ### Control
@@ -427,7 +436,7 @@ Guarantees are always relative to a semantic space and an Observer’s [[Boundar
 
 - **Addressing space**: What kind of thing is addressed? (Entity, Observer, actor, etc.)  
 - **Message space**: What unit is delivered or interpreted? (Observation, Event, Command, Query)
-- **Acknowledgment space**: What has actually been accepted, persisted, processed, or committed?  
+- **[[Acknowledgments|Acknowledgment]] space**: What has actually been accepted, persisted, processed, or committed?
 - **[[Ordering|Ordering space]]**: Ordered relative to which key, stream, partition, actor, or transaction?  
 - **Failure space**: What [[Boundaries|boundary]] can fail independently?
 

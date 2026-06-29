@@ -19,7 +19,8 @@ Coordination mechanisms include:
 - Distributed transactions.
 - [[Two-Phase Commit]].
 - [[Consensus]] and [[Consensus Protocols|consensus protocols]].
-- Transactional outbox.
+- [[Transactional Outbox]] and [[Outbox|outbox]].
+- [[Transactional Inbox]] and idempotent receivers.
 - [[CRDTs]].
 - Sagas with compensation.
 - [[Durable Execution|Durable execution]] with resume.
@@ -51,10 +52,12 @@ The tradeoff is not "ordered" versus "unordered" in general. It is choosing whic
 
 In [[CQRS]], coordination often centers on consistency under asynchrony: propagating write-side commits to read-side projections while preserving the required ordering, idempotency, freshness, and recovery semantics.
 
+[[Outbox]] and [[Event Sourcing]] are important because they couple accepted local state change to downstream coordination through durable material. An outbox commits publication responsibility with the local transition. Event sourcing can make the committed event history the shared basis for persistence, projection, and orchestration. In both cases, the consistency claim depends on avoiding an unprotected [[Dual-Write Problem|dual write]] between authoritative state and the effect that tells other observers to act.
+
 The right mechanism depends on the failure boundaries, persistence choices, delivery semantics, and invariants involved.
 
 ## External References
 
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Interaction]], [[Ordering]], [[Synchrony and Asynchrony]], [[Consensus]], [[Consensus Protocols]], [[Safety and Liveness]], [[Progress Conditions]], [[CAP Theorem]], [[CALM Theorem]], [[Version Histories]], [[Consistency Models]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Delivery Semantics]], [[Durable Execution]], [[Recovery]], [[Business Transactions]], [[Processes]], [[CRDTs]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Invariants]].
+Related concepts: [[Interaction]], [[Ordering]], [[Synchrony and Asynchrony]], [[Commit Boundaries]], [[Effects]], [[Consensus]], [[Consensus Protocols]], [[Safety and Liveness]], [[Progress Conditions]], [[CAP Theorem]], [[CALM Theorem]], [[Version Histories]], [[Consistency Models]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Delivery Semantics]], [[Acknowledgments]], [[Durable Execution]], [[Recovery]], [[Dual-Write Problem]], [[Business Transactions]], [[Processes]], [[CRDTs]], [[CQRS]], [[Outbox]], [[Transactional Inbox]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Invariants]].

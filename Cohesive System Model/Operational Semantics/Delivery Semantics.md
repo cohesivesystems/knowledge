@@ -17,11 +17,12 @@ Delivery semantics may specify:
 - Replayable or retained delivery.
 - Deduplicated delivery.
 - Whether the receiver must be idempotent.
+- What [[Acknowledgments|acknowledgments]] mean.
 
 For [[CRDTs]], delivery requirements depend on the CRDT family. State-based CRDTs can tolerate duplicated state delivery when merge is idempotent. Operation-based CRDTs require the delivery assumptions under which concurrent operations commute, such as causal, reliable, or exactly-once operation delivery within the relevant boundary.
 
-The meaning of an acknowledgment must be defined explicitly. It may mean accepted, persisted, processed, committed, or something narrower.
+The meaning of an [[Acknowledgments|acknowledgment]] must be defined explicitly. It may mean accepted, persisted, processed, committed, responsibility transferred, or something narrower.
 
 Delivery semantics are one way [[Synchrony and Asynchrony|asynchronous]] interaction gains stronger structure. Ordered delivery, durable delivery, acknowledgment, replay, and deduplication do not necessarily make the interaction synchronous, but they define which independent occurrences are later related, joined, or observed as coherent.
 
-Related concepts: [[Interaction]], [[Ordering]], [[Idempotency]], [[Recovery]], [[CRDTs]], [[Synchrony and Asynchrony]], [[Observer]], [[Brokers]], [[Network]].
+Related concepts: [[Interaction]], [[Acknowledgments]], [[Ordering]], [[Commit Boundaries]], [[Effects]], [[Idempotency]], [[Recovery]], [[CRDTs]], [[Synchrony and Asynchrony]], [[Observer]], [[Brokers]], [[Network]].

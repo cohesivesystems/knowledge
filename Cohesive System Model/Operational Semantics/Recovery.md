@@ -18,7 +18,8 @@ Recovery may include:
 - Resuming workflow history.
 - Rebuilding projections.
 - Restoring CRDT replica state and causal metadata.
-- Re-driving outbox records.
+- Re-driving [[Outbox|outbox]] records.
+- Rechecking [[Transactional Inbox|inbox]] or deduplication records before repeating local effects.
 - Retrying incomplete work.
 - Resuming durable execution state or replaying durable execution history.
 - Compensating completed work.
@@ -34,4 +35,4 @@ In [[Safety and Liveness]] terms, recovery is a liveness mechanism constrained b
 
 - C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992. [IBM Research](https://research.ibm.com/publications/aries-a-transaction-recovery-method-supporting-fine-granularity-locking-and-partial-rollbacks-using-write-ahead-logging)
 
-Related concepts: [[Persistence]], [[Reconstitution]], [[ACID]], [[Write-Ahead Logging]], [[Durable Execution]], [[Retry]], [[Idempotency]], [[Safety and Liveness]], [[Coordination]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].
+Related concepts: [[Persistence]], [[Reconstitution]], [[ACID]], [[Write-Ahead Logging]], [[Durable Execution]], [[Retry]], [[Idempotency]], [[Safety and Liveness]], [[Commit Boundaries]], [[Effects]], [[Coordination]], [[Dual-Write Problem]], [[Outbox]], [[Transactional Inbox]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].

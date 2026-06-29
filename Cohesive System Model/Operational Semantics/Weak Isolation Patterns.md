@@ -17,6 +17,7 @@ They do not make weak isolation disappear. They replace implicit transactional g
 - **Related-version checks**: include versions, etags, read-model positions, policy versions, or causal metadata for related observations used during validation.
 - **Idempotency records**: remember processed inputs or operation identifiers so retries do not duplicate effects.
 - **Transactional outbox**: commit local state and publication responsibility in one local transaction, then publish asynchronously.
+- **Transactional inbox**: commit input receipt, deduplication state, and local effects in one local transaction before acknowledging completion to the delivery boundary.
 - **Sagas and process managers**: decompose long-running work into steps with explicit recovery, compensation, or forward progress.
 - **Compensation**: perform semantic follow-up actions when prior accepted work must be counteracted.
 - **Reservations and escrow**: allocate scarce capacity or rights in advance so later concurrent work cannot overdraw an invariant.
@@ -28,7 +29,7 @@ They do not make weak isolation disappear. They replace implicit transactional g
 
 Each pattern must name the guarantee it replaces.
 
-For example, an outbox replaces atomic commit between a database and broker with local atomicity plus asynchronous publication responsibility. A saga replaces one atomic transaction with a process whose partial progress, compensation, and recovery semantics are explicit. A reservation replaces global serializable allocation with a bounded right to consume capacity later.
+For example, an outbox replaces atomic commit between a database and broker with local atomicity plus asynchronous publication responsibility. An inbox complements it on the consumer side by making redelivery safe through local atomicity and deduplication. A saga replaces one atomic transaction with a process whose partial progress, compensation, and recovery semantics are explicit. A reservation replaces global serializable allocation with a bounded right to consume capacity later.
 
 Weak isolation patterns must be checked against [[Invariants]]. If the invariant is non-monotonic or requires a globally current view, avoiding coordination may be impossible without changing the model, accepting weaker semantics, or introducing escrow, reservation, or coordination at a narrower boundary.
 
@@ -40,4 +41,4 @@ The [[CALM Theorem]] supplies a useful diagnostic: when adding facts can invalid
 - Hector Garcia-Molina and Kenneth Salem, [Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf), Princeton CS-TR-070-87, 1987.
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Weak Isolation Patterns as Architecture Practice]], [[ACID]], [[Two-Phase Commit]], [[Isolation]], [[Coordination]], [[CALM Theorem]], [[Concurrency Control]], [[Consistency Models]], [[Ordering]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[CRDTs]], [[Invariants]], [[Business Transactions]].
+Related concepts: [[Weak Isolation Patterns as Architecture Practice]], [[ACID]], [[Two-Phase Commit]], [[Isolation]], [[Coordination]], [[CALM Theorem]], [[Concurrency Control]], [[Consistency Models]], [[Commit Boundaries]], [[Effects]], [[Ordering]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[Outbox]], [[Transactional Inbox]], [[Dual-Write Problem]], [[CRDTs]], [[Invariants]], [[Business Transactions]].

@@ -22,6 +22,7 @@ Weak isolation design makes the missing transaction guarantees explicit in the m
 - [[Version|Version]] and etag checks for target entities and related observations.
 - [[Idempotency]] records for retryable inputs and effects.
 - [[Transactional Outbox|Transactional outbox]] records for local commit plus asynchronous publication responsibility.
+- [[Transactional Inbox|Transactional inbox]] records for consumer-side deduplication and idempotent receipt.
 - [[Sagas and Process Managers|Sagas or process managers]] for long-running coordination.
 - Reservations, escrow, leases, or holds for scarce capacity.
 - Compensation and reconciliation when later facts invalidate earlier progress.
@@ -61,6 +62,7 @@ The [[CALM Theorem]] is a useful filter for these choices: monotone parts of the
 ### Messaging Reliability Patterns
 
 - **Transactional outbox** records local state change and publication responsibility in one local commit boundary.
+- **Transactional inbox** records input receipt and local processing in one local commit boundary before acknowledging completion to the delivery boundary.
 - **Inbox or deduplication records** make consumption idempotent by recording processed input identifiers.
 - **Deduplication windows** remember recent operation ids for a bounded period when infinite retention is unnecessary.
 - **Idempotent effect protocols** make repeated sends, retries, or handler executions converge to one semantic effect.
@@ -101,6 +103,7 @@ This shifts design work into the semantic model:
 - Which facts may become stale before completion?
 - Which partial outcomes are visible to which observers?
 - Which downstream effects are obligations rather than completed facts?
+- Which acknowledgments transfer responsibility, and at which boundary?
 - Which states are pending, final, compensating, expired, failed, or reconciled?
 - Which invariants are protected synchronously, and which are protected procedurally over time?
 
@@ -110,4 +113,4 @@ The practice fails when pending states are not first-class, when asynchronous wo
 
 It also fails when eventual consistency is used as a slogan. Eventuality must say what will eventually happen, under which delivery and recovery assumptions, and what observers may see before convergence.
 
-Related concepts: [[Weak Isolation Patterns]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Coordination]], [[CALM Theorem]], [[Consistency Models]], [[Version]], [[Observation]], [[Entity]], [[Transition]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[Sagas and Process Managers]], [[CRDTs as Architecture Practice]], [[Business Transactions]].
+Related concepts: [[Weak Isolation Patterns]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Coordination]], [[CALM Theorem]], [[Consistency Models]], [[Commit Boundaries]], [[Effects]], [[Acknowledgments]], [[Version]], [[Observation]], [[Entity]], [[Transition]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[Outbox]], [[Transactional Inbox]], [[Dual-Write Problem]], [[Sagas and Process Managers]], [[CRDTs as Architecture Practice]], [[Business Transactions]].

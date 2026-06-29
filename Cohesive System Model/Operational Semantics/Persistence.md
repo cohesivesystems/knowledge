@@ -15,7 +15,8 @@ Durable forms may include:
 - Current-state records as [[Observation|observations]].
 - [[Event Sourcing|Event-sourced]] histories of committed endogenous [[Event|events]].
 - Transaction logs, [[Write-Ahead Logging|write-ahead logs]], checkpoints, and recovery records.
-- Outbox records.
+- [[Outbox]] records.
+- [[Transactional Inbox|Inbox]] and deduplication records.
 - Actor state providers.
 - Workflow histories.
 - Durable execution histories, checkpoints, timers, signals, and pending work.
@@ -33,4 +34,4 @@ In database transaction systems, the transaction log may be the authoritative re
 
 Persistence and [[Reconstitution]] form a useful [[Duality and Symmetry|duality]]: persistence makes selected material durable, while reconstitution turns durable material back into usable observations. The duality is not perfect because persistence choices determine what can later be reconstituted.
 
-Related concepts: [[Reconstitution]], [[Recovery]], [[ACID]], [[Write-Ahead Logging]], [[Durable Execution]], [[Duality and Symmetry]], [[State]], [[Observation]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Storage Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].
+Related concepts: [[Reconstitution]], [[Recovery]], [[ACID]], [[Write-Ahead Logging]], [[Durable Execution]], [[Duality and Symmetry]], [[Commit Boundaries]], [[Effects]], [[State]], [[Observation]], [[Event]], [[Event Sourcing]], [[Outbox]], [[Transactional Inbox]], [[CRDTs]], [[CQRS]], [[Storage Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].

@@ -18,6 +18,6 @@ Brokers can realize interaction patterns such as:
 - Retained or replayable delivery.
 - Dead-letter or retry paths.
 
-Broker guarantees must be interpreted through the model's delivery semantics. Ordering, durability, deduplication, acknowledgment, and replay are always scoped to the broker's own boundaries and keys.
+Broker guarantees must be interpreted through the model's delivery semantics. Ordering, durability, deduplication, [[Acknowledgments|acknowledgment]], and replay are always scoped to the broker's own boundaries and keys.
 
-Related concepts: [[Realization]], [[Interaction]], [[Delivery Semantics]], [[Ordering]], [[Retry]], [[Idempotency]], [[Recovery]], [[Flows]].
+Related concepts: [[Realization]], [[Interaction]], [[Delivery Semantics]], [[Acknowledgments]], [[Ordering]], [[Retry]], [[Idempotency]], [[Recovery]], [[Outbox]], [[Transactional Inbox]], [[Flows]].

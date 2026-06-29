@@ -28,8 +28,8 @@ Storage concerns include:
 - Indexing and [[Query|query]] behavior.
 - Retention and compaction.
 - Backup and recovery.
-- Change streams or outbox support.
+- Change streams, [[Outbox|outbox]], or [[Transactional Inbox|inbox]] support.
 
 A storage system stores records, logs, snapshots, projections, or histories. The model defines what those stored values mean.
 
-Related concepts: [[Realization]], [[Persistence]], [[Reconstitution]], [[Concurrency Control]], [[Consensus Protocols]], [[ACID]], [[Write-Ahead Logging]], [[State]], [[Event]], [[Query]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Recovery]].
+Related concepts: [[Realization]], [[Persistence]], [[Reconstitution]], [[Concurrency Control]], [[Consensus Protocols]], [[ACID]], [[Write-Ahead Logging]], [[Commit Boundaries]], [[Effects]], [[State]], [[Event]], [[Query]], [[Event Sourcing]], [[Outbox]], [[Transactional Inbox]], [[CRDTs]], [[CQRS]], [[Projections]], [[Recovery]].
