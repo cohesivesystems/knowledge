@@ -28,8 +28,15 @@ A local ACID transaction may commit entity state and an outbox record. It does n
 
 When the work crosses multiple ACID boundaries, the model must choose a coordination strategy. [[Two-Phase Commit]] can try to create one atomic commit across participants. If that is unavailable, too expensive, or undesirable, the system must use explicit [[Weak Isolation Patterns|weak isolation patterns]].
 
+## Transaction Logs and Recovery
+
+Database transactions rely on recovery semantics, not only isolation semantics. ARIES is the classic reference point: a transaction manager uses [[Write-Ahead Logging|write-ahead logging]], log sequence numbers, redo, undo, checkpoints, and Compensation Log Records to preserve atomicity and durability through crash recovery and partial rollback.
+
+This matters for the Cohesive model because a transaction's visible state is backed by an ordered durable history inside the storage substrate. The log may be internal to the database rather than part of the domain model, but it still realizes [[Persistence]], [[Reconstitution]], and [[Recovery]] for the transaction boundary.
+
 ## External References
 
 - Jim Gray and Andreas Reuter, [Transaction Processing: Concepts and Techniques](https://www.microsoft.com/en-us/research/publication/transaction-processing-concepts-and-techniques/), Morgan Kaufmann, 1993.
+- C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992. [IBM Research](https://research.ibm.com/publications/aries-a-transaction-recovery-method-supporting-fine-granularity-locking-and-partial-rollbacks-using-write-ahead-logging)
 
-Related concepts: [[Isolation]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Consistency Models]], [[Concurrency Control]], [[Coordination]], [[Persistence]], [[Durable Execution]], [[Business Transactions]], [[Transactional Outbox]].
+Related concepts: [[Isolation]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Consistency Models]], [[Concurrency Control]], [[Coordination]], [[Persistence]], [[Reconstitution]], [[Recovery]], [[Write-Ahead Logging]], [[Durable Execution]], [[Business Transactions]], [[Transactional Outbox]].

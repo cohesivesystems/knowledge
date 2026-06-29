@@ -15,7 +15,7 @@ Network distribution is the common case when discussing distributed systems, but
 
 ## Minimal Edge
 
-At a low level, interaction can be modeled as asynchronous send and receive. A send operation usually means the local boundary accepted data for transmission or delivery. A receive operation observes data already admitted by the receiver's local substrate. Stronger meanings, such as remote receipt, application processing, durable persistence, or domain commitment, require additional protocol structure.
+At a low level (software), interaction can be modeled as asynchronous send and receive. A send operation usually means the local boundary accepted data for transmission or delivery. A receive operation observes data already admitted by the receiver's local substrate. Stronger meanings, such as remote receipt, application processing, durable persistence, or domain commitment, require additional protocol structure.
 
 Higher layers add addressing, atomicity, ordering, reliability, flow control, framing, multiplexing, persistence, cursoring, acknowledgment, and semantic interpretation.
 

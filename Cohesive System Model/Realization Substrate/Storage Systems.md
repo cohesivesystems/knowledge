@@ -17,6 +17,8 @@ For [[CRDTs]], storage must preserve the data type's convergence requirements, i
 
 Some replicated storage systems use [[Consensus Protocols]] to elect leaders, replicate logs, commit writes, and expose stronger consistency guarantees at a partition or key range. Those guarantees depend on the exact read and write path, not merely on the presence of a consensus implementation inside the storage system.
 
+Transaction-oriented storage systems may also maintain internal [[Write-Ahead Logging|write-ahead logs]] for recovery. ARIES is the classic example: the storage engine uses log sequence numbers, checkpoints, redo, undo, and Compensation Log Records to recover transaction state after failure.
+
 Storage concerns include:
 
 - Data model and shape.
@@ -30,4 +32,4 @@ Storage concerns include:
 
 A storage system stores records, logs, snapshots, projections, or histories. The model defines what those stored values mean.
 
-Related concepts: [[Realization]], [[Persistence]], [[Reconstitution]], [[Concurrency Control]], [[Consensus Protocols]], [[State]], [[Event]], [[Query]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Recovery]].
+Related concepts: [[Realization]], [[Persistence]], [[Reconstitution]], [[Concurrency Control]], [[Consensus Protocols]], [[ACID]], [[Write-Ahead Logging]], [[State]], [[Event]], [[Query]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Recovery]].

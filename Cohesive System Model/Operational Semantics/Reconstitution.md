@@ -23,6 +23,8 @@ The chosen strategy depends on what [[Persistence]] made durable and what the ob
 
 In [[CQRS]], reconstitution often happens on the [[Query|query]] side through projections, materialized views, caches, indexes, or other read models derived from authoritative write-side persistence.
 
+In database recovery, reconstitution may be hidden inside the storage engine. ARIES-style recovery reconstructs a coherent database state from pages, checkpoints, and [[Write-Ahead Logging|write-ahead log]] records by replaying redo and undo work according to transaction status and log sequence numbers.
+
 Reconstitution and [[Persistence]] form a useful [[Duality and Symmetry|duality]]: persistence records selected material as recoverable truth, while reconstitution recovers usable observations from that material. The result can only be as complete as the persisted material and the reconstitution rules allow.
 
-Related concepts: [[Persistence]], [[Durable Execution]], [[Duality and Symmetry]], [[Observation]], [[Query]], [[State]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].
+Related concepts: [[Persistence]], [[Recovery]], [[ACID]], [[Write-Ahead Logging]], [[Durable Execution]], [[Duality and Symmetry]], [[Observation]], [[Query]], [[State]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].

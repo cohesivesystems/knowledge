@@ -26,6 +26,12 @@ Recovery may include:
 
 Recovery must preserve the meaning of entity versions, committed events, idempotency records, CRDT causal metadata, and observer boundaries. Otherwise, the system may recover operationally while changing its semantic history or breaking convergence.
 
+Database recovery systems such as ARIES make this explicit through [[Write-Ahead Logging|write-ahead logging]], transaction identifiers, log sequence numbers, checkpoints, redo, undo, and Compensation Log Records. The durable log is not merely an audit artifact; it is the material that lets the system reconstruct a coherent committed state after crash, partial rollback, or restart.
+
 In [[Safety and Liveness]] terms, recovery is a liveness mechanism constrained by safety. It should restore progress without inventing histories, duplicating non-idempotent effects, losing committed facts, or weakening the boundary's consistency claim.
 
-Related concepts: [[Persistence]], [[Reconstitution]], [[Durable Execution]], [[Retry]], [[Idempotency]], [[Safety and Liveness]], [[Coordination]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].
+## External References
+
+- C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992. [IBM Research](https://research.ibm.com/publications/aries-a-transaction-recovery-method-supporting-fine-granularity-locking-and-partial-rollbacks-using-write-ahead-logging)
+
+Related concepts: [[Persistence]], [[Reconstitution]], [[ACID]], [[Write-Ahead Logging]], [[Durable Execution]], [[Retry]], [[Idempotency]], [[Safety and Liveness]], [[Coordination]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].

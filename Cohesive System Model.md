@@ -97,6 +97,7 @@ Provides concrete mechanisms.
 - [[Application Hosts|Application hosts]]  
 - [[Network]]
 - [[Storage Systems|Storage systems]]  
+- [[Write-Ahead Logging]]
 - [[Consensus Protocols]]
 - [[Event Sourcing]]
 - [[CQRS]]

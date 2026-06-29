@@ -14,6 +14,7 @@ Durable forms may include:
 
 - Current-state records as [[Observation|observations]].
 - [[Event Sourcing|Event-sourced]] histories of committed endogenous [[Event|events]].
+- Transaction logs, [[Write-Ahead Logging|write-ahead logs]], checkpoints, and recovery records.
 - Outbox records.
 - Actor state providers.
 - Workflow histories.
@@ -28,6 +29,8 @@ For [[CRDTs]], persistence must preserve enough replica state, operation history
 
 In [[CQRS]], persistence usually names the authoritative write-side material from which read-side observations are reconstituted or projected.
 
+In database transaction systems, the transaction log may be the authoritative recovery material even when the application primarily sees tables, rows, and indexes. ARIES-style [[Write-Ahead Logging|write-ahead logging]] is an example where redo and undo records make committed state recoverable after crash, partial rollback, and restart.
+
 Persistence and [[Reconstitution]] form a useful [[Duality and Symmetry|duality]]: persistence makes selected material durable, while reconstitution turns durable material back into usable observations. The duality is not perfect because persistence choices determine what can later be reconstituted.
 
-Related concepts: [[Reconstitution]], [[Durable Execution]], [[Duality and Symmetry]], [[State]], [[Observation]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Storage Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].
+Related concepts: [[Reconstitution]], [[Recovery]], [[ACID]], [[Write-Ahead Logging]], [[Durable Execution]], [[Duality and Symmetry]], [[State]], [[Observation]], [[Event]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Storage Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].
