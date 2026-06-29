@@ -3,7 +3,7 @@ realm: Principles
 kind: principle
 ---
 
-# Algebras And Coalgebras
+# Algebras and Coalgebras
 
 Algebras and coalgebras provide complementary ways to model construction and behavior.
 

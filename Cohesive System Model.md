@@ -26,7 +26,7 @@ Describe modeling disciplines used across the system model.
 - [[Asynchronous Computability Theorem]]
 - [[Functoriality]]
 - [[Naturality]]
-- [[Duality and Symmetry]], [[Event-State Duality]]
+- [[Duality and Symmetry]], [[Event-State Duality]], [[Synchrony and Asynchrony]]
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
 - [[Monads Monoids and Duals]], [[Algebras and Coalgebras]], [[Yoneda Lemma]], [[Adjunctions]]

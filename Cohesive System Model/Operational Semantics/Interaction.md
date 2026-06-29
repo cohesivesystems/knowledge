@@ -19,6 +19,8 @@ At a low level (software), interaction can be modeled as asynchronous send and r
 
 Higher layers add addressing, atomicity, ordering, reliability, flow control, framing, multiplexing, persistence, cursoring, acknowledgment, and semantic interpretation.
 
+[[Synchrony and Asynchrony]] gives the governing distinction: asynchrony leaves sends, receives, observations, and effects as independently progressing occurrences; synchronization coordinates selected occurrences into one boundary-relative unit such as a call/return, rendezvous, transaction, barrier, actor turn, or commit point.
+
 ## Modes
 
 Interaction modes are edge configurations at a chosen abstraction layer. They are not disjoint leaves; one mode may be realized in terms of another at a lower layer.
@@ -94,4 +96,4 @@ An interaction edge can be classified by:
 
 Interaction does not by itself define whether a domain transition committed. That depends on the receiver's observer-relative interpretation, validation, persistence, and delivery semantics.
 
-Related concepts: [[Observer]], [[Command]], [[Query]], [[Event]], [[Relations]], [[Flows]], [[Projections]], [[Delivery Semantics]], [[Coordination]], [[Network]], [[Brokers]], [[Actor Systems]], [[Trace and Feedback]], [[Duality and Symmetry]].
+Related concepts: [[Observer]], [[Command]], [[Query]], [[Event]], [[Relations]], [[Flows]], [[Projections]], [[Delivery Semantics]], [[Coordination]], [[Synchrony and Asynchrony]], [[Network]], [[Brokers]], [[Actor Systems]], [[Trace and Feedback]], [[Duality and Symmetry]].

@@ -34,6 +34,8 @@ The implication is one-way. A lock-free algorithm may starve one participant for
 
 Progress conditions matter for [[Coordination]] because stronger progress guarantees reduce dependence on other participants. A wait-free operation does not need another participant to release a lock or complete a protocol step before it can finish. A blocking operation may be simpler and faster in the uncontended case, but it couples progress to the participant currently holding the resource.
 
+[[Synchrony and Asynchrony]] should not be reduced to blocking and non-blocking. A logical operation may synchronously wait for a result while the runtime implements that wait non-blockingly by suspending the continuation and freeing the physical thread. Conversely, a non-blocking API can still coordinate a later synchronous commit or observation boundary.
+
 In distributed systems, this distinction becomes sharper. Waiting for a coordinator, quorum, leader, lock owner, or remote dependency may preserve [[Safety and Liveness|safety]], but it weakens liveness under crash, partition, pause, or delay. Coordination-avoidance techniques such as [[CRDTs]], monotone updates, escrow, reservations, local acceptance with reconciliation, or idempotent retry often improve local progress by narrowing or postponing the coordination point.
 
 Progress is not free. A stronger progress condition may require more metadata, helping, retry loops, contention management, constrained update algebra, weaker consistency, or a different domain protocol.
@@ -85,4 +87,4 @@ Progress conditions are therefore not only implementation details. They shape wh
 - Maurice Herlihy, Victor Luchangco, and Mark Moir, [Obstruction-Free Synchronization: Double-Ended Queues as an Example](https://cs.brown.edu/people/mph/HerlihyLM03/main.pdf), ICDCS 2003.
 - Maurice Herlihy and Nir Shavit, [The Art of Multiprocessor Programming](https://books.google.com/books/about/The_Art_of_Multiprocessor_Programming.html?id=7MqcBAAAQBAJ), Morgan Kaufmann.
 
-Related concepts: [[Safety and Liveness]], [[Asynchronous Computability Theorem]], [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[Concurrency Control]], [[Consistency Models]], [[CAP Theorem]], [[CALM Theorem]], [[Ordering]], [[Retry]], [[Recovery]], [[CRDTs]], [[Weak Isolation Patterns]], [[Actor Systems]], [[Storage Systems]].
+Related concepts: [[Safety and Liveness]], [[Asynchronous Computability Theorem]], [[Synchrony and Asynchrony]], [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[Concurrency Control]], [[Consistency Models]], [[CAP Theorem]], [[CALM Theorem]], [[Ordering]], [[Retry]], [[Recovery]], [[CRDTs]], [[Weak Isolation Patterns]], [[Actor Systems]], [[Storage Systems]].

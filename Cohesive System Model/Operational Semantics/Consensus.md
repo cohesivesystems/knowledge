@@ -28,6 +28,8 @@ In Cohesive terms, consensus often decides which input [[Command|command]], [[Ev
 
 Consensus should not be treated as "consistency" in general. It is one coordination primitive for constructing certain consistency guarantees. It requires assumptions about failures, quorum intersection, network timing, persistence, membership, and recovery. Under stronger timing assumptions or randomized protocols, termination can be obtained in practical settings; in a fully asynchronous system with even one crash failure, deterministic consensus cannot guarantee termination.
 
+Consensus is a synchronizing construction in the sense of [[Synchrony and Asynchrony]]: multiple proposals, observations, or participant states are joined into one decided value or log position. The join is logical, not wall-clock simultaneous.
+
 ## Universality
 
 Consensus gives a universal construction for distributed objects: decide the next operation, apply it to the local state machine, return the operation's result, and repeat. The distributed implementation inherits the sequential object's meaning by making all correct replicas apply operations in the same agreed order.
@@ -42,4 +44,4 @@ This connects [[Universal Constructions]] to operational semantics. A sequential
 - Michael J. Fischer, Nancy A. Lynch, and Michael S. Paterson, [Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf), Journal of the ACM, 32(2):374-382, April 1985.
 - Rachid Guerraoui and Michel Raynal, [The Alpha of Indulgent Consensus](https://doi.org/10.1093/comjnl/bxl046), The Computer Journal, 50(1):53-67, January 2007.
 
-Related concepts: [[Coordination]], [[Consensus Protocols]], [[Safety and Liveness]], [[Progress Conditions]], [[Asynchronous Computability Theorem]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Version Histories]], [[Time]], [[Version]], [[State]], [[Event]], [[Command]], [[Transition]], [[Invariants]], [[Policies]], [[Universal Constructions]].
+Related concepts: [[Coordination]], [[Consensus Protocols]], [[Safety and Liveness]], [[Progress Conditions]], [[Synchrony and Asynchrony]], [[Asynchronous Computability Theorem]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Version Histories]], [[Time]], [[Version]], [[State]], [[Event]], [[Command]], [[Transition]], [[Invariants]], [[Policies]], [[Universal Constructions]].

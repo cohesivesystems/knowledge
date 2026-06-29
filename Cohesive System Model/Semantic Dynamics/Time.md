@@ -40,9 +40,11 @@ Here $A \prec B$ means that event or observation `A` happens before `B`. The imp
 
 Logical and causal time also support the notion of a consistent cut: a causally closed selection of events, versions, or observations used to define a coherent snapshot across distributed participants.
 
+[[Synchrony and Asynchrony]] relates to time but is not the same distinction. Timing-model synchrony assumes bounds, rounds, or clocks. Commit or observation synchrony may instead be logical: several events are treated as one boundary-relative unit even if they did not occur at the same wall-clock instant.
+
 ## External References
 
 - Leslie Lamport, [Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf), Communications of the ACM, 21(7):558-565, July 1978.
 - Friedemann Mattern, [Virtual Time and Global States of Distributed Systems](https://homes.cs.washington.edu/~arvind/cs425/doc/mattern89virtual.pdf), 1989.
 
-Related concepts: [[Value]], [[Event]], [[Behavior]], [[Version]], [[State]], [[Ordering]], [[Consistency Models]].
+Related concepts: [[Value]], [[Event]], [[Behavior]], [[Version]], [[State]], [[Ordering]], [[Synchrony and Asynchrony]], [[Consistency Models]].

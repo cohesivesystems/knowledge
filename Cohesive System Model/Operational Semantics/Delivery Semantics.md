@@ -22,4 +22,6 @@ For [[CRDTs]], delivery requirements depend on the CRDT family. State-based CRDT
 
 The meaning of an acknowledgment must be defined explicitly. It may mean accepted, persisted, processed, committed, or something narrower.
 
-Related concepts: [[Interaction]], [[Ordering]], [[Idempotency]], [[Recovery]], [[CRDTs]], [[Observer]], [[Brokers]], [[Network]].
+Delivery semantics are one way [[Synchrony and Asynchrony|asynchronous]] interaction gains stronger structure. Ordered delivery, durable delivery, acknowledgment, replay, and deduplication do not necessarily make the interaction synchronous, but they define which independent occurrences are later related, joined, or observed as coherent.
+
+Related concepts: [[Interaction]], [[Ordering]], [[Idempotency]], [[Recovery]], [[CRDTs]], [[Synchrony and Asynchrony]], [[Observer]], [[Brokers]], [[Network]].

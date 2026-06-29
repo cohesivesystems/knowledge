@@ -13,6 +13,8 @@ Different runtimes [[Realization|realize]] [[Observer|Observers]] differently. A
 
 Some runtimes associate an observer with an OS thread and call stack. Green-thread, fiber, coroutine, task, or async runtimes relax that association: the observer follows the logical execution context governed by a scheduler, even when execution resumes on different OS threads.
 
+This is where [[Synchrony and Asynchrony|blocking and non-blocking]] must be separated carefully. A logical operation may wait for an asynchronous result while the runtime does not block the physical thread. Callback-, continuation-, task-, fiber-, or actor-based runtimes can suspend the logical continuation and resume it later, preserving the semantic wait without tying up the underlying thread.
+
 The same semantic model can be preserved across runtimes when observer, entity, event, command, state, and boundary meanings are kept explicit.
 
-Related concepts: [[Realization]], [[Observer]], [[Application Hosts]], [[Actor Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Network]], [[Compute]].
+Related concepts: [[Realization]], [[Observer]], [[Synchrony and Asynchrony]], [[Progress Conditions]], [[Application Hosts]], [[Actor Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Network]], [[Compute]].
