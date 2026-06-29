@@ -19,6 +19,8 @@ Linearizability requires each operation to appear as if it took effect at a sing
 
 Linearizability is a strong model for shared objects and entity boundaries because it lets observers reason as if each operation happened atomically at some point during its execution. It is usually expensive across distributed boundaries because preserving real-time order requires coordination.
 
+[[Consensus]] is a common way to construct a linearizable replicated object: participants agree on a sequence of operations, then each replica applies the same deterministic sequential specification in that order. The resulting consistency guarantee belongs to the governed object or boundary, not automatically to every cache, projection, read replica, or downstream observer.
+
 ## Registers and Linearization Points
 
 A SQL table row can realize a linearizable read/write register when all reads and writes go through one authoritative transaction boundary and reads observe the latest committed value for that boundary.
@@ -90,6 +92,8 @@ Consistency models choose how much history shape must be preserved.
 
 Linearizability and sequential consistency require a legal total order, though they differ on real-time constraints. Causal consistency preserves a partial order. Session consistency preserves an observer-relative slice of history. Eventual consistency focuses on convergence and may tolerate temporary divergence, stale observations, or concurrent incomparable versions.
 
+Consensus-based replication is one way to manufacture a total order from a distributed history. Coordination-avoidance designs instead preserve less order, use merge semantics, or expose eventuality as part of the domain protocol.
+
 The design question is not simply "strong" or "weak" consistency. It is which observations must be coherent for which observer, boundary, invariant, and history shape.
 
 ## External References
@@ -99,4 +103,4 @@ The design question is not simply "strong" or "weak" consistency. It is which ob
 - Douglas B. Terry, Alan J. Demers, Karin Petersen, Mike Spreitzer, Marvin Theimer, and Brent Welch, [Session Guarantees for Weakly Consistent Replicated Data](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html), PDIS 1994.
 - Werner Vogels, [Eventually Consistent](https://queue.acm.org/detail.cfm?id=1466448), ACM Queue, 2008.
 
-Related concepts: [[Ordering]], [[Version Histories]], [[Version]], [[Time]], [[Observation]], [[Observer]], [[Boundaries]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Concurrency Control]], [[Coordination]], [[Delivery Semantics]], [[CRDTs]], [[CQRS]], [[Persistence]], [[Reconstitution]].
+Related concepts: [[Ordering]], [[Consensus]], [[Consensus Protocols]], [[Version Histories]], [[Version]], [[Time]], [[Observation]], [[Observer]], [[Boundaries]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Concurrency Control]], [[Coordination]], [[Delivery Semantics]], [[CRDTs]], [[CQRS]], [[Persistence]], [[Reconstitution]].

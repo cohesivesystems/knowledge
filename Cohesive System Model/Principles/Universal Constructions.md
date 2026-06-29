@@ -40,7 +40,8 @@ Examples in the Cohesive System Model:
 - A projection can be understood as a view determined by source state, source events, derivation rules, and identity/version relationships.
 - A boundary can be understood as a scope/context object determined by what it includes, excludes, owns, observes, controls, or guarantees.
 - A coherent realization can be understood as a compatible selection of substrate mechanisms across a semantic model.
+- [[Consensus]] can be understood as a universal construction for distributed objects: decide the next operation, apply the sequential transition rule, and repeat so replicas share a common operation history.
 
 Universal constructions are not always implemented literally. Their value is disciplinary: they force the model to say what relationships make an object canonical, and what related information has been included, excluded, merged, or quotiented away.
 
-Related concepts: [[Transition]], [[Observation]], [[Projections]], [[Boundaries]], [[Behavior]], [[Realization]], [[Version Histories]], [[State]], [[Event]], [[Value]].
+Related concepts: [[Transition]], [[Observation]], [[Projections]], [[Boundaries]], [[Behavior]], [[Realization]], [[Version Histories]], [[Consensus]], [[State]], [[Event]], [[Value]].

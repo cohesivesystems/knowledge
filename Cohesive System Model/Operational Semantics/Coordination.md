@@ -18,6 +18,7 @@ Coordination mechanisms include:
 - Local transactions.
 - Distributed transactions.
 - [[Two-Phase Commit]].
+- [[Consensus]] and [[Consensus Protocols|consensus protocols]].
 - Transactional outbox.
 - [[CRDTs]].
 - Sagas with compensation.
@@ -31,6 +32,8 @@ Coordination mechanisms include:
 [[Ordering]] preserves distinctions that may matter semantically. If `A then B` and `B then A` collapse into the same result, the model may lose intent, causality, auditability, or invariant context. Ordered, non-commutative histories are therefore valuable when the domain needs to preserve what happened before what.
 
 Preserving order across distributed boundaries usually requires coordination. Coordination may add latency, reduce availability under partitions, constrain throughput, or create operational coupling. The design question is whether the domain invariant really requires the order being preserved.
+
+[[Consensus]] is the coordination primitive for agreeing on one decision, value, or ordered position at a boundary. It can be used to construct linearizable replicated state by deciding a common sequence of operations and applying the same sequential transition rules at each replica. This makes consensus powerful, but also makes its costs explicit: quorum communication, persistence, membership, failure handling, and timing assumptions become part of the boundary's operational semantics.
 
 Coordination avoidance designs move work into structures where concurrent updates can be accepted without synchronously agreeing on one global order. [[CRDTs]] do this with monotonic merge or commutative operations when the domain can tolerate temporary divergence and the invariants are compatible with the data type. Probabilistic data structures can play a similar role when approximate answers are acceptable and their update or merge operations compose without central serialization.
 
@@ -46,4 +49,4 @@ The right mechanism depends on the failure boundaries, persistence choices, deli
 
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Interaction]], [[Ordering]], [[Version Histories]], [[Consistency Models]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Delivery Semantics]], [[Durable Execution]], [[Recovery]], [[Business Transactions]], [[Processes]], [[CRDTs]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Invariants]].
+Related concepts: [[Interaction]], [[Ordering]], [[Consensus]], [[Consensus Protocols]], [[Version Histories]], [[Consistency Models]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Delivery Semantics]], [[Durable Execution]], [[Recovery]], [[Business Transactions]], [[Processes]], [[CRDTs]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Invariants]].

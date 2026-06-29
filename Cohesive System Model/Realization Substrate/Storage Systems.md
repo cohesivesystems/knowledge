@@ -15,6 +15,8 @@ For [[CQRS]], write-side storage and read-side storage may have different shapes
 
 For [[CRDTs]], storage must preserve the data type's convergence requirements, including replica identifiers, causal metadata, tombstones, deltas, or operation history when those are part of the merge semantics.
 
+Some replicated storage systems use [[Consensus Protocols]] to elect leaders, replicate logs, commit writes, and expose stronger consistency guarantees at a partition or key range. Those guarantees depend on the exact read and write path, not merely on the presence of a consensus implementation inside the storage system.
+
 Storage concerns include:
 
 - Data model and shape.
@@ -28,4 +30,4 @@ Storage concerns include:
 
 A storage system stores records, logs, snapshots, projections, or histories. The model defines what those stored values mean.
 
-Related concepts: [[Realization]], [[Persistence]], [[Reconstitution]], [[Concurrency Control]], [[State]], [[Event]], [[Query]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Recovery]].
+Related concepts: [[Realization]], [[Persistence]], [[Reconstitution]], [[Concurrency Control]], [[Consensus Protocols]], [[State]], [[Event]], [[Query]], [[Event Sourcing]], [[CRDTs]], [[CQRS]], [[Projections]], [[Recovery]].

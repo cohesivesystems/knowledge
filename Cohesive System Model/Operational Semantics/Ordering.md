@@ -25,6 +25,8 @@ An ordered delivery edge does not necessarily mean the domain transition has com
 
 Ordering supports [[Version Histories|version histories]], replay, projection updates, [[Consistency Models|consistency models]], concurrency control, and coherent behavior over time.
 
+[[Consensus]] can impose an agreed order where the system otherwise has concurrent or incomparable observations. In replicated state-machine designs, a consensus protocol decides each log position so that replicas apply the same operations in the same order.
+
 ## Ordering And Causality
 
 Ordering may represent causation or potential causation in models that define the order relation that way, but ordering should not be treated as causal by default. The meaning of an ordering relation is boundary- and mechanism-relative.
@@ -41,4 +43,4 @@ A consistent cut is an ordering-sensitive snapshot: it includes the causal prere
 
 For [[CRDTs]], ordering requirements are type-specific. Some merge functions are insensitive to message order, while operation-based CRDTs may require causal ordering or explicit causal metadata.
 
-Related concepts: [[Delivery Semantics]], [[Time]], [[Version]], [[Version Histories]], [[Consistency Models]], [[Event]], [[Concurrency Control]], [[CRDTs]], [[Enrichment and Order]], [[Functoriality]], [[Brokers]], [[Workflow Engines]], [[Actor Systems]].
+Related concepts: [[Delivery Semantics]], [[Time]], [[Version]], [[Version Histories]], [[Consistency Models]], [[Consensus]], [[Event]], [[Concurrency Control]], [[CRDTs]], [[Enrichment and Order]], [[Functoriality]], [[Brokers]], [[Workflow Engines]], [[Actor Systems]].
