@@ -33,6 +33,7 @@ Some well-known patterns & practices:
 - [[Actor Model]]
 - [[Anti-Corruption Layer]]
 - [[Transactional Outbox]]
+- [[Weak Isolation Patterns as Architecture Practice]]
 - [[CRDTs as Architecture Practice]]
 - [[Data Mesh]]
 

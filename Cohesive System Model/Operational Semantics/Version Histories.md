@@ -20,6 +20,8 @@ Common history shapes include:
 
 Scalar versions, stream offsets, vector clocks, causal contexts, Git commit graphs, event streams, workflow histories, and CRDT metadata are different realizations of version-history shape. The realization must preserve the distinctions the model needs: succession, causality, concurrency, incompatibility, mergeability, replay, audit, or convergence.
 
+A consistent cut selects versions, events, or observations from a history while respecting causal prerequisites. It is useful when a read, checkpoint, projection rebuild, or recovery process must observe several parts of a history coherently.
+
 ## Patch Histories And Pushout Merge
 
 A patch model treats states such as files or documents as objects and patches as morphisms between them. Two patches from a common base form a span:

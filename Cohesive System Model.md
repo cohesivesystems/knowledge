@@ -62,6 +62,8 @@ Describes how semantic dynamics are made executable and reliable.
 - [[Coordination]]  
 - [[Durable Execution]]
 - [[Concurrency Control|Concurrency control]]
+- [[Isolation]]
+- [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]]
 - [[Version Histories]]
 - [[Consistency Models]]  
 - [[CRDTs]]
@@ -109,7 +111,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Modular Monolith]], [[Microservices]], [[Event-Driven Architecture]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice]]
 - [[Sagas and Process Managers]], [[Actor Model]], [[Anti-Corruption Layer]]
-- [[Transactional Outbox]], [[CRDTs as Architecture Practice]], [[Data Mesh]]
+- [[Transactional Outbox]], [[Weak Isolation Patterns as Architecture Practice]], [[CRDTs as Architecture Practice]], [[Data Mesh]]
 
 ## Semantic Dynamics
 

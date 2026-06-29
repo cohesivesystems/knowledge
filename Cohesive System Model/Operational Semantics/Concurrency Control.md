@@ -16,7 +16,7 @@ Concurrency-control mechanisms include:
 - Fencing tokens.
 - Actor identity serialization.
 - Per-key ordering.
-- Transactional isolation.
+- Transactional [[Isolation|isolation]].
 - [[CRDTs|CRDT]] merge or commutative-update semantics for compatible replicated state.
 
 If an expected-version check fails, the attempted transition is rejected, no accepted state change occurs for the target entity, and the entity version remains unchanged.
@@ -38,4 +38,4 @@ Not all useful state machines are sequential. Git, for example, allows non-seque
 
 Event schedules and state histories are therefore related by [[Event-State Duality]], but not interchangeable. A linear entity history can be represented as alternating events and state versions. A non-sequential history may require partial orders, parent links, branch heads, merge events, patch residuals, or conflict records. The concurrency mechanism must match the history shape the system intends to preserve.
 
-Related concepts: [[Command]], [[Transition]], [[Version]], [[Version Histories]], [[Consistency Models]], [[Entity]], [[Event]], [[State]], [[Event-State Duality]], [[Event Sourcing]], [[CRDTs]], [[Behavior]], [[Realization]], [[Ordering]], [[Actor Systems]], [[Storage Systems]].
+Related concepts: [[Command]], [[Transition]], [[Version]], [[Version Histories]], [[Consistency Models]], [[Isolation]], [[ACID]], [[Weak Isolation Patterns]], [[Entity]], [[Event]], [[State]], [[Event-State Duality]], [[Event Sourcing]], [[CRDTs]], [[Behavior]], [[Realization]], [[Ordering]], [[Actor Systems]], [[Storage Systems]].

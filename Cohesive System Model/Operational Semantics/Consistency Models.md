@@ -11,11 +11,41 @@ A consistency model is a predicate over histories. It says which operation resul
 
 Consistency models are not global by default. A system may provide one model for an entity transition boundary, another for a read model, another for a cache, another for a workflow history, and another for a broker or storage substrate.
 
+[[Isolation]] is adjacent but distinct. Isolation describes what concurrent operations may observe while they execute. Consistency models describe which histories and observations are valid at the boundary being claimed.
+
 ## Linearizability
 
 Linearizability requires each operation to appear as if it took effect at a single point between invocation and response. The resulting history must be equivalent to a legal sequential history and must preserve real-time order for non-overlapping operations.
 
 Linearizability is a strong model for shared objects and entity boundaries because it lets observers reason as if each operation happened atomically at some point during its execution. It is usually expensive across distributed boundaries because preserving real-time order requires coordination.
+
+## Registers and Linearization Points
+
+A SQL table row can realize a linearizable read/write register when all reads and writes go through one authoritative transaction boundary and reads observe the latest committed value for that boundary.
+
+The **linearization point** is the point at which each operation takes effect in the abstract history. For a row update, this is usually the successful atomic update or transaction commit. For a read, it is the point at which the database returns the committed row version being observed.
+
+For example, an expected-version update can realize an atomic compare-and-set operation:
+
+```sql
+UPDATE register
+SET value = ?, version = version + 1
+WHERE id = ? AND version = ?;
+```
+
+This claim is configuration- and boundary-dependent. A database may be evaluated for linearizability as a system property, while a deployed application may not actually get linearizable reads or writes if it uses asynchronous replicas, stale snapshots, caches outside the consistency protocol, weak isolation, multi-primary conflict resolution, or read routing that does not preserve freshness.
+
+The model should therefore state the register boundary explicitly: primary row, transaction, replica set, cache, session, read model, or API endpoint. Linearizability belongs to that declared boundary, not to the word "database" in general.
+
+## Serializability and Linearizability
+
+Serializable [[Isolation|isolation]] does not by itself imply linearizability.
+
+**Serializability** requires that transactions be equivalent to some legal serial order. That serial order need not preserve real-time order between non-overlapping transactions.
+
+**Linearizability** additionally requires real-time order: if operation `A` completes before operation `B` begins, then `A` must appear before `B` in the legal history.
+
+For transactions, the stronger property is usually called **strict serializability** or **external consistency**: serializability plus real-time ordering of committed transactions. This is the transaction-level analogue of linearizability.
 
 ## Sequential Consistency
 
@@ -28,6 +58,14 @@ Sequential consistency is therefore weaker than linearizability. It can preserve
 Causal consistency preserves the order of causally related operations while allowing concurrent or unrelated operations to be observed in different orders.
 
 This model is naturally related to [[Time|logical time]], happened-before, vector clocks, and causal metadata. It is useful when the model needs to preserve potential causation without imposing one global total order on independent work.
+
+## Consistent Cut
+
+A **consistent cut** is a selected set of events, versions, or observations that is closed under causality: if the cut includes an event, it must also include the causal prerequisites of that event.
+
+In a distributed system, a consistent cut represents a coherent global snapshot relative to a partial order. It may include concurrent events in different combinations, but it must not include an effect while omitting a cause that happened before it.
+
+Consistent cuts matter for snapshots, checkpoints, debugging, projection rebuilds, workflow recovery, replicated reads, and cross-entity observations. A read that spans multiple entities, partitions, replicas, or projections may need to declare whether it observes a consistent cut, a stale cut, a session-relative cut, or merely independent local observations.
 
 ## Session Consistency
 
@@ -44,9 +82,9 @@ Session guarantees make weak or replicated systems easier to use because they pr
 
 Eventual consistency says that replicas converge if updates stop and delivery, reconciliation, or merge eventually completes.
 
-Eventual consistency alone does not say what intermediate observations are allowed, how conflicts are represented, whether causality is preserved, or what merge semantics are valid. Those details must be supplied by [[Version Histories]], [[Ordering]], [[Delivery Semantics]], [[CRDTs]], conflict resolution, or application-specific invariants.
+Eventual consistency alone does not say what intermediate observations are allowed, how conflicts are represented, whether causality is preserved, whether reads observe a consistent cut, or what merge semantics are valid. Those details must be supplied by [[Version Histories]], [[Ordering]], [[Delivery Semantics]], [[CRDTs]], conflict resolution, or application-specific invariants.
 
-## Relationship To History Shape
+## Relationship to History Shape
 
 Consistency models choose how much history shape must be preserved.
 
@@ -61,4 +99,4 @@ The design question is not simply "strong" or "weak" consistency. It is which ob
 - Douglas B. Terry, Alan J. Demers, Karin Petersen, Mike Spreitzer, Marvin Theimer, and Brent Welch, [Session Guarantees for Weakly Consistent Replicated Data](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html), PDIS 1994.
 - Werner Vogels, [Eventually Consistent](https://queue.acm.org/detail.cfm?id=1466448), ACM Queue, 2008.
 
-Related concepts: [[Ordering]], [[Version Histories]], [[Version]], [[Time]], [[Observation]], [[Observer]], [[Boundaries]], [[Concurrency Control]], [[Coordination]], [[Delivery Semantics]], [[CRDTs]], [[CQRS]], [[Persistence]], [[Reconstitution]].
+Related concepts: [[Ordering]], [[Version Histories]], [[Version]], [[Time]], [[Observation]], [[Observer]], [[Boundaries]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Concurrency Control]], [[Coordination]], [[Delivery Semantics]], [[CRDTs]], [[CQRS]], [[Persistence]], [[Reconstitution]].

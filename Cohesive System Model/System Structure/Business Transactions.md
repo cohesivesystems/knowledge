@@ -74,7 +74,7 @@ Invoicing may compose delivery and rating observations, invoice entity transitio
 
 Business transaction boundaries are domain boundaries. They define what counts as accepted, rejected, completed, cancelled, expired, compensated, or settled for the business.
 
-Those boundaries rarely coincide exactly with one protocol, process, transaction, or storage boundary. A business transaction may include several local ACID transactions, several RPC calls, several broker messages, several workflow activations, and several event-store commits.
+Those boundaries rarely coincide exactly with one protocol, process, transaction, or storage boundary. A business transaction may include several local [[ACID]] transactions, several RPC calls, several broker messages, several workflow activations, and several event-store commits. When [[Two-Phase Commit]] is not used or does not cover the whole business outcome, the model must name the [[Weak Isolation Patterns|weak isolation patterns]] that preserve the relevant invariants.
 
 Correct modeling therefore requires naming the boundary for each guarantee:
 
@@ -87,4 +87,4 @@ Correct modeling therefore requires naming the boundary for each guarantee:
 - Did another observer receive, process, or commit the follow-up work?
 - Did the business transaction reach its domain-defined completion condition?
 
-Related concepts: [[Processes]], [[Flows]], [[Coordination]], [[Durable Execution]], [[Interaction]], [[Delivery Semantics]], [[Persistence]], [[Recovery]], [[Idempotency]], [[Ordering]], [[Event Sourcing]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Network]], [[Compositionality]].
+Related concepts: [[Processes]], [[Flows]], [[Coordination]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Durable Execution]], [[Interaction]], [[Delivery Semantics]], [[Persistence]], [[Recovery]], [[Idempotency]], [[Ordering]], [[Event Sourcing]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Network]], [[Compositionality]].

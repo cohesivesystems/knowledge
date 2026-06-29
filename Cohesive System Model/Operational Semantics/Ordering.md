@@ -37,6 +37,8 @@ When using an ordering relation, the model should state whether it means causal 
 
 In distributed systems, [[Time|time]] often arises through ordering rather than wall-clock measurement. A clock, timestamp, stream offset, or [[Version|version]] can be understood as an order-valued projection: categorically, a monotone map or order-valued functor from events or state observations into an ordering space. When that projection is order-preserving, the ordering of versions or timestamps preserves the relevant happened-before relation. Richer metadata such as vector clocks can determine causal order and incomparability more precisely; scalar logical clocks generally preserve causality in one direction without fully characterizing it.
 
+A consistent cut is an ordering-sensitive snapshot: it includes the causal prerequisites of the events, versions, or observations it includes. It is coherent relative to the declared ordering space.
+
 For [[CRDTs]], ordering requirements are type-specific. Some merge functions are insensitive to message order, while operation-based CRDTs may require causal ordering or explicit causal metadata.
 
 Related concepts: [[Delivery Semantics]], [[Time]], [[Version]], [[Version Histories]], [[Consistency Models]], [[Event]], [[Concurrency Control]], [[CRDTs]], [[Enrichment and Order]], [[Functoriality]], [[Brokers]], [[Workflow Engines]], [[Actor Systems]].
