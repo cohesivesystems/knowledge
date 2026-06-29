@@ -30,7 +30,7 @@ Describe modeling disciplines used across the system model.
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
 - [[Monads Monoids and Duals]], [[Algebras and Coalgebras]], [[Yoneda Lemma]], [[Adjunctions]]
-- [[Fibrations and Indexed Structure]], [[Fixed Points and Recursion]], [[Enrichment and Order]], [[Optics and Lenses]], [[Trace and Feedback]]
+- [[Fibrations and Indexed Structure]], [[Systems Sheaf Semantics]], [[Fixed Points and Recursion]], [[Enrichment and Order]], [[Optics and Lenses]], [[Trace and Feedback]]
 
 ### 1. Semantic Dynamics
 

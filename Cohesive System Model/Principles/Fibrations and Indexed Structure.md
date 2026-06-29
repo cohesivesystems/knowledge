@@ -37,4 +37,6 @@ Examples:
 
 Fibrational thinking prevents context from being erased. It keeps clear that an observation is not just a value, a version is not just a number, and a realization is not just an implementation artifact. Each is something over a subject, identity, boundary, or semantic role.
 
-Related concepts: [[Realization]], [[Observation]], [[Identity]], [[Version]], [[Boundaries]], [[Observer]], [[Processes]].
+Observer-indexed fibers can also support [[Systems Sheaf Semantics]], where each observer has local sections over the cuts, boundaries, and views available to it.
+
+Related concepts: [[Realization]], [[Observation]], [[Identity]], [[Version]], [[Boundaries]], [[Observer]], [[Processes]], [[Systems Sheaf Semantics]].

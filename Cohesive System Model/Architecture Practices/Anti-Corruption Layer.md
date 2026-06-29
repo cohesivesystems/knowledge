@@ -1,6 +1,8 @@
 ---
 realm: Architecture Practices
 kind: pattern
+aliases:
+  - ACL
 ---
 
 # Anti-Corruption Layer

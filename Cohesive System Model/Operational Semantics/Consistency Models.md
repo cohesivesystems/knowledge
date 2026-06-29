@@ -71,6 +71,8 @@ In a distributed system, a consistent cut represents a coherent global snapshot 
 
 Consistent cuts matter for snapshots, checkpoints, debugging, projection rebuilds, workflow recovery, replicated reads, and cross-entity observations. A read that spans multiple entities, partitions, replicas, or projections may need to declare whether it observes a consistent cut, a stale cut, a session-relative cut, or merely independent local observations.
 
+[[Systems Sheaf Semantics]] treats consistent cuts as contexts over which state, observations, versions, or knowledge can be restricted, compared on overlaps, and sometimes glued into a coherent larger explanation.
+
 ## Session Consistency
 
 Session consistency is a family of guarantees scoped to one observer, client, process, or session. Common session guarantees include:
@@ -109,4 +111,4 @@ The design question is not simply "strong" or "weak" consistency. It is which ob
 - Douglas B. Terry, Alan J. Demers, Karin Petersen, Mike Spreitzer, Marvin Theimer, and Brent Welch, [Session Guarantees for Weakly Consistent Replicated Data](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html), PDIS 1994.
 - Werner Vogels, [Eventually Consistent](https://queue.acm.org/detail.cfm?id=1466448), ACM Queue, 2008.
 
-Related concepts: [[Ordering]], [[Consensus]], [[Consensus Protocols]], [[Safety and Liveness]], [[CAP Theorem]], [[CALM Theorem]], [[Version Histories]], [[Version]], [[Time]], [[Observation]], [[Observer]], [[Boundaries]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Concurrency Control]], [[Coordination]], [[Delivery Semantics]], [[CRDTs]], [[CQRS]], [[Persistence]], [[Reconstitution]].
+Related concepts: [[Ordering]], [[Consensus]], [[Consensus Protocols]], [[Safety and Liveness]], [[CAP Theorem]], [[CALM Theorem]], [[Systems Sheaf Semantics]], [[Version Histories]], [[Version]], [[Time]], [[Observation]], [[Observer]], [[Boundaries]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Concurrency Control]], [[Coordination]], [[Delivery Semantics]], [[CRDTs]], [[CQRS]], [[Persistence]], [[Reconstitution]].

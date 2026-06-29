@@ -1,6 +1,8 @@
 ---
 realm: Architecture Practices
 kind: architecture-practice
+aliases:
+  - Actor System
 ---
 
 # Actor Model

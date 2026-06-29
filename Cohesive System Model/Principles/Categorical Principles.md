@@ -32,6 +32,7 @@ Additional recurring principles:
 - [[Yoneda Lemma]]: objects are understood by their relationships, observations, and interactions.
 - [[Adjunctions]]: paired translations that are structured but not inverse.
 - [[Fibrations and Indexed Structure]]: context-dependent families over identities, boundaries, subjects, or semantic roles.
+- [[Systems Sheaf Semantics]]: local-to-global consistency for observer-relative sections of observations, states, versions, histories, and explanations.
 - [[Fixed Points and Recursion]]: recursive definitions, loops, stabilization, and repeated behavior.
 - [[Enrichment and Order]]: relationships enriched with ordering, time, cost, authority, confidence, or guarantees.
 - [[Optics and Lenses]]: focused observation, partial state, and view/update structure.

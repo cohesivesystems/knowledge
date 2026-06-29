@@ -1,6 +1,8 @@
 ---
 realm: Architecture Practices
 kind: architecture-practice
+aliases:
+  - DDD
 ---
 
 # Domain-Driven Design

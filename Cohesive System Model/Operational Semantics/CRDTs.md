@@ -1,6 +1,8 @@
 ---
 realm: Operational Semantics
 kind: operational-semantics
+aliases:
+  - convergent replicated data types
 ---
 
 # CRDTs
