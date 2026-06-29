@@ -28,7 +28,7 @@ Queries are not mere messages. They are interpretations made relative to:
 
 A query's result is usually an [[Observation]] or [[Value]]. The query selects or parameterizes how state should become visible, including the requested [[Shape|shape]]; the observation is the contextualized value produced.
 
-A query does not request a transition of the modeled semantic entity state. Operational state can still change while serving a query: caches may fill, metrics may record, cursors may advance, locks may be acquired, acknowledgments may be emitted, and audit records may be written. Those effects belong to other operational or semantic subjects unless the query is also interpreted as a command for them.
+A query does not request a [[transition]] of the modeled semantic entity state. However, operational state can still change while serving a query: caches may fill, metrics may record, cursors may advance, locks may be acquired, acknowledgments may be emitted, and audit records may be written. Those effects belong to other operational or semantic subjects unless the query is also interpreted as a command for them.
 
 Query is therefore dual to [[Command]] only in a limited modeling sense:
 

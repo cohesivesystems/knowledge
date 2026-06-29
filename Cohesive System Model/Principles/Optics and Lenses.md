@@ -3,7 +3,7 @@ realm: Principles
 kind: principle
 ---
 
-# Optics And Lenses
+# Optics and Lenses
 
 Optics are structured ways to focus on, observe, transform, or update part of a larger structure.
 

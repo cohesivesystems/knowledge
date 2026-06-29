@@ -39,8 +39,12 @@ Examples include:
 - Human approval, escalation, exception-handling, compliance, or review procedures.
 - Control loops that observe state, decide, emit corrective commands, and observe the resulting changes.
 
+
+## Process Composition
 Processes compose. One process may produce outputs, artifacts, observations, commands, or events consumed by another process. Compositions may be linear pipelines, branching protocols, nested sub-processes, concurrent processes over the same subject, or feedback loops where later outputs become future inputs.
 
 Process composition requires attention to boundary, identity, ordering, idempotency, persistence, retry, recovery, and compensation. Without those semantics, individually valid process steps may fail to compose into coherent work.
+
+## Related Concepts
 
 Related concepts: [[Behavior]], [[Observer]], [[Entity]], [[Observation]], [[Event]], [[Command]], [[Query]], [[Transition]], [[Identity]], [[State]], [[Processes]], [[Coordination]], [[Durable Execution]], [[Recovery]], [[Realization]], [[Workflow Engines]], [[Durable Execution Engines]], [[Trace and Feedback]], [[Compositionality]].

@@ -10,12 +10,11 @@ aliases:
   - Global Sections
   - Observer-Indexed Sheaves
   - Compatibility and Descent
-  - Sheaves and Gluing
 ---
 
 # Systems Sheaf Semantics
 
-Systems Sheaf Semantics uses sheaf-theoretic local-to-global structure to model how [[Observation|observations]], [[State|state]], [[Version|versions]], histories, process state, and knowledge vary over contexts such as observers, boundaries, and causally valid cuts of execution.
+Systems Sheaf Semantics uses [[Sheaves and Gluing|sheaf-theoretic local-to-global structure]] to model how [[Observation|observations]], [[State|state]], [[Version|versions]], histories, process state, and knowledge vary over contexts such as observers, boundaries, and causally valid cuts of execution.
 
 The point is not to make every system topological. The point is to give precise language for a recurring systems question:
 
@@ -287,4 +286,4 @@ The practical value is diagnostic. When a system claims one coherent state, quer
 
 Not every useful systems structure is literally a sheaf. Some structures are only presheaves. Some have partial gluing. Some glue only up to equivalence. Some require extra operational mechanisms before compatibility can be checked. The failure to satisfy the sheaf condition is itself meaningful: it identifies where lineage, authority, evidence, ordering, or coordination is missing.
 
-Related concepts: [[Categorical Principles]], [[Fibrations and Indexed Structure]], [[Universal Constructions]], [[Functoriality]], [[Naturality]], [[Consistency Models]], [[Version Histories]], [[Synchrony and Asynchrony]], [[Observer]], [[Observation]], [[State]], [[Version]], [[Event]], [[Command]], [[Projections]], [[Reconstitution]], [[Coordination]], [[Consensus]], [[Boundaries]].
+Related concepts: [[Sheaves and Gluing]], [[Categorical Principles]], [[Fibrations and Indexed Structure]], [[Universal Constructions]], [[Functoriality]], [[Naturality]], [[Consistency Models]], [[Version Histories]], [[Synchrony and Asynchrony]], [[Observer]], [[Observation]], [[State]], [[Version]], [[Event]], [[Command]], [[Projections]], [[Reconstitution]], [[Coordination]], [[Consensus]], [[Boundaries]].

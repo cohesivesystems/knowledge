@@ -8,13 +8,13 @@ tags:
 
 A Command is an observer-relative interpretation of an input event as an attempted [[Transition]].
 
-All inputs to an operation are modeled as input events subject to interpretation. They become commands only when an [[Observer]] interprets them as attempted transitions for a target subject.
+All inputs to an operation are modeled as input [[Event|events]] subject to interpretation. They become commands only when an [[Observer]] interprets them as attempted transitions for a target subject.
 
-Command interpretation follows this shape:
+Command interpretation proceeds as follows:
 
 ```txt
 Exogenous event
-  -> input event at an observer [[Boundaries|boundary]]
+  -> input event at an observer boundary
   -> command intent, relative to the observer and target subject
   -> validation against current entity state, required observations, invariants, policies, authority, and expected version
   -> accepted transition | nil | rejection
