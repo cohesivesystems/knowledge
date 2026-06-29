@@ -22,6 +22,7 @@ Describe modeling disciplines used across the system model.
 - [[Categorical Principles]]
 - [[Stuff Structure Property]]
 - [[Compositionality]]
+- [[CALM Theorem]]
 - [[Functoriality]]
 - [[Naturality]]
 - [[Duality and Symmetry]], [[Event-State Duality]]

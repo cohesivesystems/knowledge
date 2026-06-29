@@ -3,7 +3,7 @@ realm: Architecture Practices
 kind: pattern
 ---
 
-# Ports And Adapters
+# Ports and Adapters
 
 Ports and Adapters addresses the problem of keeping domain and application semantics independent from specific infrastructure, protocols, user interfaces, and external systems.
 

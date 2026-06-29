@@ -32,10 +32,12 @@ For example, an outbox replaces atomic commit between a database and broker with
 
 Weak isolation patterns must be checked against [[Invariants]]. If the invariant is non-monotonic or requires a globally current view, avoiding coordination may be impossible without changing the model, accepting weaker semantics, or introducing escrow, reservation, or coordination at a narrower boundary.
 
+The [[CALM Theorem]] supplies a useful diagnostic: when adding facts can invalidate an earlier conclusion, the transition or projection is non-monotone and should not be treated as safely coordination-free. The model must then introduce coordination, versioned dependencies, pending state, reservation, reconciliation, or a deliberately weaker guarantee.
+
 ## External References
 
 - Pat Helland, [Life beyond Distributed Transactions: an Apostate's Opinion](https://www.ics.uci.edu/~cs223/papers/cidr07p15.pdf), CIDR 2007.
 - Hector Garcia-Molina and Kenneth Salem, [Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf), Princeton CS-TR-070-87, 1987.
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Weak Isolation Patterns as Architecture Practice]], [[ACID]], [[Two-Phase Commit]], [[Isolation]], [[Coordination]], [[Concurrency Control]], [[Consistency Models]], [[Ordering]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[CRDTs]], [[Invariants]], [[Business Transactions]].
+Related concepts: [[Weak Isolation Patterns as Architecture Practice]], [[ACID]], [[Two-Phase Commit]], [[Isolation]], [[Coordination]], [[CALM Theorem]], [[Concurrency Control]], [[Consistency Models]], [[Ordering]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[CRDTs]], [[Invariants]], [[Business Transactions]].

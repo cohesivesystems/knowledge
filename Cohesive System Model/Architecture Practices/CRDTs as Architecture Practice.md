@@ -26,4 +26,6 @@ The practice moves part of the coordination problem into the algebra of the data
 
 CRDTs are suitable when the domain can tolerate temporary divergence and the intended state evolution can be modeled with monotonic merge or commutative updates.
 
-Related concepts: [[CRDTs]], [[Coordination]], [[Persistence]], [[Reconstitution]], [[Delivery Semantics]], [[Ordering]], [[Invariants]], [[Storage Systems]], [[Compositionality]].
+The [[CALM Theorem]] generalizes this practice beyond CRDT implementations: monotone application logic is the part of the system that can usually remain coordination-free.
+
+Related concepts: [[CRDTs]], [[CALM Theorem]], [[Coordination]], [[Persistence]], [[Reconstitution]], [[Delivery Semantics]], [[Ordering]], [[Invariants]], [[Storage Systems]], [[Compositionality]].

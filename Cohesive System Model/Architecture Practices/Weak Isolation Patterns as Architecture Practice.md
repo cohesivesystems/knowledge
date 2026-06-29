@@ -30,6 +30,8 @@ Weak isolation design makes the missing transaction guarantees explicit in the m
 
 Each choice says which stronger guarantee has been replaced and which invariant, ordering, recovery, or visibility rule now carries the correctness burden.
 
+The [[CALM Theorem]] is a useful filter for these choices: monotone parts of the process can often remain asynchronous and coordination-free, while non-monotone decisions need a coordination boundary or an explicit domain protocol for pending, reserved, compensating, or reconciled progress.
+
 ## Pattern Families
 
 ### Version And Dependency Patterns
@@ -108,4 +110,4 @@ The practice fails when pending states are not first-class, when asynchronous wo
 
 It also fails when eventual consistency is used as a slogan. Eventuality must say what will eventually happen, under which delivery and recovery assumptions, and what observers may see before convergence.
 
-Related concepts: [[Weak Isolation Patterns]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Coordination]], [[Consistency Models]], [[Version]], [[Observation]], [[Entity]], [[Transition]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[Sagas and Process Managers]], [[CRDTs as Architecture Practice]], [[Business Transactions]].
+Related concepts: [[Weak Isolation Patterns]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Coordination]], [[CALM Theorem]], [[Consistency Models]], [[Version]], [[Observation]], [[Entity]], [[Transition]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[Sagas and Process Managers]], [[CRDTs as Architecture Practice]], [[Business Transactions]].
