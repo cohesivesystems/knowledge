@@ -32,6 +32,8 @@ In distributed systems, uncertainty makes the safety/liveness split unavoidable.
 
 The FLP result shows that deterministic consensus cannot guarantee termination in a fully asynchronous system with even one crash failure. Consensus protocols therefore preserve safety under broad uncertainty, while their liveness depends on additional assumptions such as partial synchrony, quorums of live participants, randomized progress, reliable storage, or eventually accurate failure detection.
 
+The [[Asynchronous Computability Theorem]] gives a complementary wait-free account in the read/write model. It represents configurations topologically and shows that, for consensus, the required progress condition would demand a structure-preserving map that does not exist.
+
 This is the perspective behind indulgent consensus. The **Alpha** abstraction captures the safety part of a family of consensus algorithms, while **Omega**-style eventual leadership or failure-detection assumptions supply the progress side once the environment becomes sufficiently well behaved.
 
 ## CAP
@@ -44,7 +46,8 @@ This is why the slogan "choose two" is misleading. In the presence of a partitio
 
 - Bowen Alpern and Fred B. Schneider, [Defining Liveness](https://www.cs.cornell.edu/fbs/publications/DefLiveness.pdf), Information Processing Letters, 21(4):181-185, October 1985.
 - Michael J. Fischer, Nancy A. Lynch, and Michael S. Paterson, [Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf), Journal of the ACM, 32(2):374-382, April 1985.
+- Maurice Herlihy and Nir Shavit, [The Topological Structure of Asynchronous Computability](https://cs.brown.edu/people/mph/HerlihyS99/p858-herlihy.pdf), Journal of the ACM, 46(6):858-923, November 1999.
 - Rachid Guerraoui and Michel Raynal, [The Alpha of Indulgent Consensus](https://doi.org/10.1093/comjnl/bxl046), The Computer Journal, 50(1):53-67, January 2007.
 - Leo Gorodinski, [The Asynchronous Computability Theorem](https://www.gorodinski.com/The-Asynchronous-Computability-Theorem-3188cf7881f980d9b170dfbb0780a971), 2019.
 
-Related concepts: [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[Progress Conditions]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Recovery]], [[Retry]], [[Delivery Semantics]], [[Network]], [[Invariants]], [[Weak Isolation Patterns]], [[CRDTs]].
+Related concepts: [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[Progress Conditions]], [[Asynchronous Computability Theorem]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Recovery]], [[Retry]], [[Delivery Semantics]], [[Network]], [[Invariants]], [[Weak Isolation Patterns]], [[CRDTs]].

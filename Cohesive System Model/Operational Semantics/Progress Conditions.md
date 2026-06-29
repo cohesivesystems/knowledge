@@ -64,6 +64,8 @@ In Cohesive terms, consensus numbers help separate two questions:
 - What semantic object or transition rule is being implemented?
 - Which substrate primitive is strong enough to provide the required progress condition without adding stronger coordination elsewhere?
 
+The [[Asynchronous Computability Theorem]] picks up the wait-free question from a different angle. Instead of classifying object types by consensus number, it models tasks topologically and asks whether a wait-free protocol complex can be mapped continuously into the legal output complex.
+
 ## Operational Use
 
 When a system claims liveness, the model should ask:
@@ -79,7 +81,8 @@ Progress conditions are therefore not only implementation details. They shape wh
 ## External References
 
 - Maurice P. Herlihy, [Wait-Free Synchronization](https://cs.brown.edu/people/mph/Herlihy91/p124-herlihy.pdf), ACM Transactions on Programming Languages and Systems, 13(1):124-149, January 1991.
+- Maurice Herlihy and Nir Shavit, [The Asynchronous Computability Theorem for t-Resilient Tasks](https://groups.csail.mit.edu/tds/papers/Shavit/STOC93.pdf), STOC 1993.
 - Maurice Herlihy, Victor Luchangco, and Mark Moir, [Obstruction-Free Synchronization: Double-Ended Queues as an Example](https://cs.brown.edu/people/mph/HerlihyLM03/main.pdf), ICDCS 2003.
 - Maurice Herlihy and Nir Shavit, [The Art of Multiprocessor Programming](https://books.google.com/books/about/The_Art_of_Multiprocessor_Programming.html?id=7MqcBAAAQBAJ), Morgan Kaufmann.
 
-Related concepts: [[Safety and Liveness]], [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[Concurrency Control]], [[Consistency Models]], [[CAP Theorem]], [[CALM Theorem]], [[Ordering]], [[Retry]], [[Recovery]], [[CRDTs]], [[Weak Isolation Patterns]], [[Actor Systems]], [[Storage Systems]].
+Related concepts: [[Safety and Liveness]], [[Asynchronous Computability Theorem]], [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[Concurrency Control]], [[Consistency Models]], [[CAP Theorem]], [[CALM Theorem]], [[Ordering]], [[Retry]], [[Recovery]], [[CRDTs]], [[Weak Isolation Patterns]], [[Actor Systems]], [[Storage Systems]].

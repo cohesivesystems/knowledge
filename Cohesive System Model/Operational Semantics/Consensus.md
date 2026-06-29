@@ -20,6 +20,8 @@ These properties split across [[Safety and Liveness]]. Agreement, validity, and 
 
 [[Progress Conditions]] make the liveness side more precise. In the wait-free synchronization model, every operation must complete despite the speed or failure of other participants. In asynchronous message-passing consensus, termination depends on different assumptions, such as partial synchrony, randomized progress, or eventual leadership.
 
+The [[Asynchronous Computability Theorem]] gives a topological account of this impossibility in the asynchronous read/write model: consensus would require a map from possible protocol configurations into disjoint decision configurations, but the required continuous, color-preserving map does not exist.
+
 Consensus is powerful because it supplies an agreed order or decision where the distributed system otherwise has only partial, observer-relative knowledge. Once operations are agreed in a common sequence, replicas can apply the same deterministic sequential specification and produce equivalent state. This is the basis of state-machine replication and of the **universality of consensus**: consensus can be used to construct a distributed, linearizable implementation of an object from its sequential specification.
 
 In Cohesive terms, consensus often decides which input [[Command|command]], [[Event|event]], or transition proposal becomes the next endogenous [[Event]] or [[Version]] at a boundary. The decided value is not automatically domain-valid; it must still be interpreted by the boundary's [[Transition|transition]], [[Invariants|invariants]], and [[Policies|policies]].
@@ -36,7 +38,8 @@ This connects [[Universal Constructions]] to operational semantics. A sequential
 
 - Leo Gorodinski, [Universality of Consensus](https://medium.com/@eulerfx/universality-of-consensus-feceead50641), 2017.
 - Maurice P. Herlihy, [Wait-Free Synchronization](https://cs.brown.edu/people/mph/Herlihy91/p124-herlihy.pdf), ACM Transactions on Programming Languages and Systems, 13(1):124-149, January 1991.
+- Maurice Herlihy and Nir Shavit, [The Topological Structure of Asynchronous Computability](https://cs.brown.edu/people/mph/HerlihyS99/p858-herlihy.pdf), Journal of the ACM, 46(6):858-923, November 1999.
 - Michael J. Fischer, Nancy A. Lynch, and Michael S. Paterson, [Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf), Journal of the ACM, 32(2):374-382, April 1985.
 - Rachid Guerraoui and Michel Raynal, [The Alpha of Indulgent Consensus](https://doi.org/10.1093/comjnl/bxl046), The Computer Journal, 50(1):53-67, January 2007.
 
-Related concepts: [[Coordination]], [[Consensus Protocols]], [[Safety and Liveness]], [[Progress Conditions]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Version Histories]], [[Time]], [[Version]], [[State]], [[Event]], [[Command]], [[Transition]], [[Invariants]], [[Policies]], [[Universal Constructions]].
+Related concepts: [[Coordination]], [[Consensus Protocols]], [[Safety and Liveness]], [[Progress Conditions]], [[Asynchronous Computability Theorem]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Version Histories]], [[Time]], [[Version]], [[State]], [[Event]], [[Command]], [[Transition]], [[Invariants]], [[Policies]], [[Universal Constructions]].
