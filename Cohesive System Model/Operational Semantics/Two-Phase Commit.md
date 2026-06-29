@@ -15,7 +15,7 @@ Two-phase commit provides atomic agreement about commit or abort for the partici
 
 The protocol does not eliminate the need to define [[Isolation]], [[Persistence|durability]], recovery behavior, participant membership, timeout meaning, idempotency, or what external observers may see while the protocol is in progress.
 
-## Costs And Failure Modes
+## Costs and Failure Modes
 
 Two-phase commit is coordination-heavy. It adds synchronous dependency between participants, increases latency, and can reduce availability when participants or the coordinator are unreachable.
 

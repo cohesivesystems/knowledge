@@ -35,6 +35,8 @@ Preserving order across distributed boundaries usually requires coordination. Co
 
 [[Consensus]] is the coordination primitive for agreeing on one decision, value, or ordered position at a boundary. It can be used to construct linearizable replicated state by deciding a common sequence of operations and applying the same sequential transition rules at each replica. This makes consensus powerful, but also makes its costs explicit: quorum communication, persistence, membership, failure handling, and timing assumptions become part of the boundary's operational semantics.
 
+The [[Safety and Liveness]] view explains this cost. Coordination often preserves safety by delaying, rejecting, or serializing work until enough information is available. Those choices may weaken liveness unless the system also supplies recovery, retry, failure detection, or partial synchrony assumptions that restore progress.
+
 Coordination avoidance designs move work into structures where concurrent updates can be accepted without synchronously agreeing on one global order. [[CRDTs]] do this with monotonic merge or commutative operations when the domain can tolerate temporary divergence and the invariants are compatible with the data type. Probabilistic data structures can play a similar role when approximate answers are acceptable and their update or merge operations compose without central serialization.
 
 The [[CALM Theorem]] gives a sharper criterion for this choice: monotone programs can be consistently distributed without coordination, while non-monotone programs require coordination or a model change that makes incompleteness, exclusion, reservation, or eventual repair explicit.
@@ -51,4 +53,4 @@ The right mechanism depends on the failure boundaries, persistence choices, deli
 
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Interaction]], [[Ordering]], [[Consensus]], [[Consensus Protocols]], [[CALM Theorem]], [[Version Histories]], [[Consistency Models]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Delivery Semantics]], [[Durable Execution]], [[Recovery]], [[Business Transactions]], [[Processes]], [[CRDTs]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Invariants]].
+Related concepts: [[Interaction]], [[Ordering]], [[Consensus]], [[Consensus Protocols]], [[Safety and Liveness]], [[CAP Theorem]], [[CALM Theorem]], [[Version Histories]], [[Consistency Models]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Delivery Semantics]], [[Durable Execution]], [[Recovery]], [[Business Transactions]], [[Processes]], [[CRDTs]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Invariants]].

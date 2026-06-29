@@ -94,4 +94,6 @@ Network guarantees must be mapped to the boundary where they hold:
 
 Network behavior does not automatically equal domain commitment. The receiving [[Observer]] still interprets the value relative to its boundary, validates it, and may or may not commit a transition.
 
-Related concepts: [[Realization]], [[Interaction]], [[Delivery Semantics]], [[Ordering]], [[Observer]], [[Command]], [[Query]], [[Event]], [[Brokers]], [[Application Hosts]], [[Coordination]].
+Network partitions expose the distinction between [[Safety and Liveness|safety and liveness]]. A system may preserve a consistency claim by refusing progress across the partition, or preserve availability by accepting progress whose global order or freshness cannot yet be known. The [[CAP Theorem]] is the named form of this tradeoff for linearizable shared data.
+
+Related concepts: [[Realization]], [[Interaction]], [[Delivery Semantics]], [[Ordering]], [[Observer]], [[Command]], [[Query]], [[Event]], [[Brokers]], [[Application Hosts]], [[Coordination]], [[Safety and Liveness]], [[CAP Theorem]].

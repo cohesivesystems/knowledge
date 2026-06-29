@@ -22,10 +22,12 @@ Consensus protocols are a realization choice, not a domain concept. They can sup
 
 The cost is coordination. Consensus protocols preserve a chosen [[Ordering|order]] by requiring communication, durable metadata, quorum participation, and failure detection or timing assumptions. This can increase latency, reduce availability during partitions, and create operational coupling, but it lets systems construct distributed behavior that can be reasoned about using a sequential specification.
 
+Operationally, consensus protocols tend to preserve [[Safety and Liveness|safety]] even when progress is temporarily impossible. Their liveness depends on enough participants, storage, network behavior, and timing assumptions becoming available again.
+
 ## External References
 
 - Leslie Lamport, [Paxos Made Simple](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf), ACM SIGACT News, 32(4):51-58, December 2001.
 - Diego Ongaro and John Ousterhout, [In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf), USENIX ATC, 2014.
 - Barbara Liskov and James Cowling, [Viewstamped Replication Revisited](https://www.cs.princeton.edu/courses/archive/fall19/cos418/papers/vr-revisited.pdf), MIT CSAIL, 2012.
 
-Related concepts: [[Consensus]], [[Coordination]], [[Consistency Models]], [[Ordering]], [[Time]], [[Version]], [[Persistence]], [[Recovery]], [[Storage Systems]], [[Infrastructure]], [[Network]], [[Brokers]], [[Actor Systems]].
+Related concepts: [[Consensus]], [[Safety and Liveness]], [[CAP Theorem]], [[Coordination]], [[Consistency Models]], [[Ordering]], [[Time]], [[Version]], [[Persistence]], [[Recovery]], [[Storage Systems]], [[Infrastructure]], [[Network]], [[Brokers]], [[Actor Systems]].

@@ -16,6 +16,8 @@ A consensus object is usually characterized by:
 - **Termination**: correct participants eventually decide under the system assumptions.
 - **Integrity**: participants do not decide more than once for the same consensus instance.
 
+These properties split across [[Safety and Liveness]]. Agreement, validity, and integrity are safety properties: they forbid bad decisions. Termination is a liveness property: it requires progress. The FLP result concerns this liveness side, showing that deterministic consensus cannot guarantee termination in a fully asynchronous system with even one crash failure.
+
 Consensus is powerful because it supplies an agreed order or decision where the distributed system otherwise has only partial, observer-relative knowledge. Once operations are agreed in a common sequence, replicas can apply the same deterministic sequential specification and produce equivalent state. This is the basis of state-machine replication and of the **universality of consensus**: consensus can be used to construct a distributed, linearizable implementation of an object from its sequential specification.
 
 In Cohesive terms, consensus often decides which input [[Command|command]], [[Event|event]], or transition proposal becomes the next endogenous [[Event]] or [[Version]] at a boundary. The decided value is not automatically domain-valid; it must still be interpreted by the boundary's [[Transition|transition]], [[Invariants|invariants]], and [[Policies|policies]].
@@ -33,5 +35,6 @@ This connects [[Universal Constructions]] to operational semantics. A sequential
 - Leo Gorodinski, [Universality of Consensus](https://medium.com/@eulerfx/universality-of-consensus-feceead50641), 2017.
 - Maurice P. Herlihy, [Wait-Free Synchronization](https://cs.brown.edu/people/mph/Herlihy91/p124-herlihy.pdf), ACM Transactions on Programming Languages and Systems, 13(1):124-149, January 1991.
 - Michael J. Fischer, Nancy A. Lynch, and Michael S. Paterson, [Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf), Journal of the ACM, 32(2):374-382, April 1985.
+- Rachid Guerraoui and Michel Raynal, [The Alpha of Indulgent Consensus](https://doi.org/10.1093/comjnl/bxl046), The Computer Journal, 50(1):53-67, January 2007.
 
-Related concepts: [[Coordination]], [[Consensus Protocols]], [[Consistency Models]], [[Ordering]], [[Version Histories]], [[Time]], [[Version]], [[State]], [[Event]], [[Command]], [[Transition]], [[Invariants]], [[Policies]], [[Universal Constructions]].
+Related concepts: [[Coordination]], [[Consensus Protocols]], [[Safety and Liveness]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Version Histories]], [[Time]], [[Version]], [[State]], [[Event]], [[Command]], [[Transition]], [[Invariants]], [[Policies]], [[Universal Constructions]].

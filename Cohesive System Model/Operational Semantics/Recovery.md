@@ -26,4 +26,6 @@ Recovery may include:
 
 Recovery must preserve the meaning of entity versions, committed events, idempotency records, CRDT causal metadata, and observer boundaries. Otherwise, the system may recover operationally while changing its semantic history or breaking convergence.
 
-Related concepts: [[Persistence]], [[Reconstitution]], [[Durable Execution]], [[Retry]], [[Idempotency]], [[Coordination]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].
+In [[Safety and Liveness]] terms, recovery is a liveness mechanism constrained by safety. It should restore progress without inventing histories, duplicating non-idempotent effects, losing committed facts, or weakening the boundary's consistency claim.
+
+Related concepts: [[Persistence]], [[Reconstitution]], [[Durable Execution]], [[Retry]], [[Idempotency]], [[Safety and Liveness]], [[Coordination]], [[Event Sourcing]], [[CRDTs]], [[Workflow Engines]], [[Durable Execution Engines]], [[Actor Systems]].

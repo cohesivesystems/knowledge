@@ -62,6 +62,7 @@ Describes how semantic dynamics are made executable and reliable.
 - [[Delivery Semantics|Delivery semantics]]  
 - [[Coordination]]  
 - [[Consensus]]
+- [[Safety and Liveness]], [[CAP Theorem]]
 - [[Durable Execution]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
