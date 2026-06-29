@@ -21,6 +21,8 @@ In distributed systems, uncertainty makes the safety/liveness split unavoidable.
 
 [[Consistency Models]] are primarily safety properties over histories: they constrain which observations and results are allowed. Availability, termination, delivery, recovery, and eventual convergence are liveness or progress properties. A complete operational claim usually needs both.
 
+[[Progress Conditions]] refine liveness claims by saying who is guaranteed to complete: every participant, some participant, or only a participant that eventually runs without interference. This distinction matters when a system uses locks, retries, actors, quorum protocols, consensus, or coordination avoidance.
+
 ## Consensus
 
 [[Consensus]] exposes the split directly:
@@ -45,4 +47,4 @@ This is why the slogan "choose two" is misleading. In the presence of a partitio
 - Rachid Guerraoui and Michel Raynal, [The Alpha of Indulgent Consensus](https://doi.org/10.1093/comjnl/bxl046), The Computer Journal, 50(1):53-67, January 2007.
 - Leo Gorodinski, [The Asynchronous Computability Theorem](https://www.gorodinski.com/The-Asynchronous-Computability-Theorem-3188cf7881f980d9b170dfbb0780a971), 2019.
 
-Related concepts: [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Recovery]], [[Retry]], [[Delivery Semantics]], [[Network]], [[Invariants]], [[Weak Isolation Patterns]], [[CRDTs]].
+Related concepts: [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[Progress Conditions]], [[CAP Theorem]], [[Consistency Models]], [[Ordering]], [[Recovery]], [[Retry]], [[Delivery Semantics]], [[Network]], [[Invariants]], [[Weak Isolation Patterns]], [[CRDTs]].

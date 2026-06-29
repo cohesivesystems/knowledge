@@ -19,6 +19,8 @@ Concurrency-control mechanisms include:
 - Transactional [[Isolation|isolation]].
 - [[CRDTs|CRDT]] merge or commutative-update semantics for compatible replicated state.
 
+These mechanisms have different [[Progress Conditions|progress conditions]]. A lock can be blocking if progress depends on the lock holder. Optimistic retry loops may be obstruction-free, lock-free, or wait-free only under additional assumptions about contention, scheduling, bounded retries, helping, or backoff. Actor serialization gives clear per-entity ordering, but progress still depends on mailbox delivery, scheduler fairness, and actor recovery.
+
 If an expected-version check fails, the attempted transition is rejected, no accepted state change occurs for the target entity, and the entity version remains unchanged.
 
 Entity transitions require the [[Observer]] that interprets the attempted transition to remain coherently aligned with the realization context that commits it. There are two common patterns:
@@ -38,4 +40,4 @@ Not all useful state machines are sequential. Git, for example, allows non-seque
 
 Event schedules and state histories are therefore related by [[Event-State Duality]], but not interchangeable. A linear entity history can be represented as alternating events and state versions. A non-sequential history may require partial orders, parent links, branch heads, merge events, patch residuals, or conflict records. The concurrency mechanism must match the history shape the system intends to preserve.
 
-Related concepts: [[Command]], [[Transition]], [[Version]], [[Version Histories]], [[Consistency Models]], [[Isolation]], [[ACID]], [[Weak Isolation Patterns]], [[Entity]], [[Event]], [[State]], [[Event-State Duality]], [[Event Sourcing]], [[CRDTs]], [[Behavior]], [[Realization]], [[Ordering]], [[Actor Systems]], [[Storage Systems]].
+Related concepts: [[Command]], [[Transition]], [[Version]], [[Version Histories]], [[Consistency Models]], [[Progress Conditions]], [[Isolation]], [[ACID]], [[Weak Isolation Patterns]], [[Entity]], [[Event]], [[State]], [[Event-State Duality]], [[Event Sourcing]], [[CRDTs]], [[Behavior]], [[Realization]], [[Ordering]], [[Actor Systems]], [[Storage Systems]].
