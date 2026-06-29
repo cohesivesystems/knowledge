@@ -61,7 +61,9 @@ Describes how semantic dynamics are made executable and reliable.
 - [[Delivery Semantics|Delivery semantics]]  
 - [[Coordination]]  
 - [[Durable Execution]]
-- [[Concurrency Control|Concurrency control]]  
+- [[Concurrency Control|Concurrency control]]
+- [[Version Histories]]
+- [[Consistency Models]]  
 - [[CRDTs]]
 - [[Retry]], [[Rate Limiting|rate limiting]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
 

@@ -28,6 +28,7 @@ Colimits are useful for modeling assembly, accumulation, merging, and quotientin
 
 - A coproduct as a choice between alternatives.
 - A pushout as a controlled merge of structures sharing a common part.
+- A pushout of coinitial patches as a canonical merge or residual construction in a patch-based [[Version Histories|version history]].
 - A coequalizer as a quotient that identifies differences considered irrelevant under a boundary.
 - A colimit of events, projections, or partial views as "the" assembled object determined by their inclusion and merge relationships.
 
@@ -42,4 +43,4 @@ Examples in the Cohesive System Model:
 
 Universal constructions are not always implemented literally. Their value is disciplinary: they force the model to say what relationships make an object canonical, and what related information has been included, excluded, merged, or quotiented away.
 
-Related concepts: [[Transition]], [[Observation]], [[Projections]], [[Boundaries]], [[Behavior]], [[Realization]], [[State]], [[Event]], [[Value]].
+Related concepts: [[Transition]], [[Observation]], [[Projections]], [[Boundaries]], [[Behavior]], [[Realization]], [[Version Histories]], [[State]], [[Event]], [[Value]].
