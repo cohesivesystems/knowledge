@@ -7,7 +7,7 @@ aliases:
 
 # Actor Model
 
-The Actor Model addresses the problem of organizing concurrent computation around isolated, addressable participants that communicate by message passing.
+The actor model addresses the problem of organizing concurrent computation around isolated, addressable participants that communicate by message passing.
 
 ## Cohesive Formulation
 
@@ -15,7 +15,7 @@ In Cohesive terms, actors are a realization pattern for addressable [[Observer|o
 
 Actors can also realize entities when actor identity aligns with entity identity and the actor hosts that entity's transition boundary.
 
-## Practice Interpretation
+## In the Model
 
 The practice is useful when correctness depends on serializing interpretation and commit for a subject. A mailbox turn can align observer, state access, transition interpretation, and commit.
 
@@ -23,4 +23,4 @@ The practice is useful when correctness depends on serializing interpretation an
 
 Actor serialization only proves transition correctness when the actor owns the transition boundary. A router, cache, shard, or forwarding actor may be addressable without being the semantic owner of the entity transition.
 
-Related concepts: [[Actor Systems]], [[Observer]], [[Entity]], [[Identity]], [[Interaction]], [[Concurrency Control]], [[Delivery Semantics]], [[Realization]].
+Related concepts: [[Actor Systems|actor systems]], [[Observer|observer]], [[Entity|entity]], [[Identity|identity]], [[Interaction|interaction]], [[Concurrency Control|concurrency control]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].

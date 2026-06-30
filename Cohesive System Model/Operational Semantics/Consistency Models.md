@@ -88,7 +88,7 @@ Session guarantees make weak or replicated systems easier to use because they pr
 
 Eventual consistency says that replicas converge if updates stop and delivery, reconciliation, or merge eventually completes.
 
-Eventual consistency alone does not say what intermediate observations are allowed, how conflicts are represented, whether causality is preserved, whether reads observe a consistent cut, or what merge semantics are valid. Those details must be supplied by [[Version Histories]], [[Ordering]], [[Delivery Semantics]], [[CRDTs]], conflict resolution, or application-specific invariants.
+Eventual consistency alone does not say what intermediate observations are allowed, how conflicts are represented, whether causality is preserved, whether reads observe a consistent cut, or what merge semantics are valid. Those details must be supplied by [[Version Histories|version histories]], [[Ordering|ordering]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], conflict resolution, or application-specific invariants.
 
 ## Relationship to History Shape
 
@@ -98,9 +98,9 @@ Linearizability and sequential consistency require a legal total order, though t
 
 Consensus-based replication is one way to manufacture a total order from a distributed history. Coordination-avoidance designs instead preserve less order, use merge semantics, or expose eventuality as part of the domain protocol.
 
-The [[CALM Theorem]] relates consistency to program shape rather than only storage behavior: monotone programs can preserve consistent results without coordination because additional facts do not retract prior conclusions. Non-monotone programs need coordination or an explicit weaker protocol before exposing decisions that depend on completeness, absence, or exclusion.
+The [[CALM Theorem|CALM theorem]] relates consistency to program shape rather than only storage behavior: monotone programs can preserve consistent results without coordination because additional facts do not retract prior conclusions. Non-monotone programs need coordination or an explicit weaker protocol before exposing decisions that depend on completeness, absence, or exclusion.
 
-The [[CAP Theorem]] is a specific safety/liveness impossibility: under network partition, a system cannot guarantee both linearizable consistency and request availability for all non-failing nodes.
+The [[CAP Theorem|CAP theorem]] is a specific safety/liveness impossibility: under network partition, a system cannot guarantee both linearizable consistency and request availability for all non-failing nodes.
 
 The design question is not simply "strong" or "weak" consistency. It is which observations must be coherent for which observer, boundary, invariant, and history shape.
 
@@ -111,4 +111,4 @@ The design question is not simply "strong" or "weak" consistency. It is which ob
 - Douglas B. Terry, Alan J. Demers, Karin Petersen, Mike Spreitzer, Marvin Theimer, and Brent Welch, [Session Guarantees for Weakly Consistent Replicated Data](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html), PDIS 1994.
 - Werner Vogels, [Eventually Consistent](https://queue.acm.org/detail.cfm?id=1466448), ACM Queue, 2008.
 
-Related concepts: [[Ordering]], [[Consensus]], [[Consensus Protocols]], [[Safety and Liveness]], [[CAP Theorem]], [[CALM Theorem]], [[Systems Sheaf Semantics]], [[Version Histories]], [[Version]], [[Time]], [[Observation]], [[Observer]], [[Boundaries]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Concurrency Control]], [[Coordination]], [[Delivery Semantics]], [[CRDTs]], [[CQRS]], [[Persistence]], [[Reconstitution]].
+Related concepts: [[Ordering|ordering]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Version Histories|version histories]], [[Version|version]], [[Time|time]], [[Observation|observation]], [[Observer|observer]], [[Boundaries|boundaries]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], [[CQRS]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].

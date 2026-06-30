@@ -35,8 +35,8 @@ The model should state which one applies.
 
 Acknowledging too early can lose work. For example, a consumer that commits an offset before committing its local transition may not receive the input again after a crash.
 
-Acknowledging too late can duplicate work. For example, a consumer that commits local state but crashes before acknowledging the broker may receive the same input again and must rely on [[Idempotency]], expected versions, or a [[Transactional Inbox|transactional inbox]].
+Acknowledging too late can duplicate work. For example, a consumer that commits local state but crashes before acknowledging the broker may receive the same input again and must rely on [[Idempotency|idempotency]], expected versions, or a [[Transactional Inbox|transactional inbox]].
 
-Acknowledgment therefore belongs with [[Delivery Semantics]], [[Commit Boundaries]], [[Recovery]], and [[Effects|effect]] design.
+Acknowledgment therefore belongs with [[Delivery Semantics|delivery semantics]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], and [[Effects|effect]] design.
 
-Related concepts: [[Delivery Semantics]], [[Interaction]], [[Boundaries]], [[Commit Boundaries]], [[Effects]], [[Idempotency]], [[Retry]], [[Recovery]], [[Outbox]], [[Transactional Inbox]], [[Brokers]], [[Network]].
+Related concepts: [[Delivery Semantics|delivery semantics]], [[Interaction|interaction]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Brokers|brokers]], [[Network|network]].

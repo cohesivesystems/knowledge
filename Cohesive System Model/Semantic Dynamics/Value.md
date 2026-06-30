@@ -5,9 +5,9 @@ kind: semantic-construct
 
 # Value
 
-A **Value** is pure structured data. It is the concrete information used to read, write, transmit, compare, validate, transform, or carry state.
+A **value** is pure structured data. It is the concrete information used to read, write, transmit, compare, validate, transform, or carry state.
 
-Values are identity-free, version-free, lineage-free, and timeless. They do not carry subject, observer, source, occurrence, or provenance. Those belong to contextual concepts such as [[Observation]], [[Event]], entity state, state records, histories, and lineage metadata.
+Values are identity-free, version-free, lineage-free, and timeless. They do not carry subject, observer, source, occurrence, or provenance. Those belong to contextual concepts such as [[Observation|observation]], [[Event|event]], entity state, state records, histories, and lineage metadata.
 
 A value may be:
 
@@ -24,11 +24,11 @@ Values relate to the other semantic concepts as follows:
 - [[State]] is condition; value is the concrete information used to read or write that condition.
 - [[Observation]] is a value with context: subject, [[Shape|shape]], source, version, observer, or lineage.
 - [[Event]] is a value with occurrence.
-- [[Command]] is an input [[Event|event]] interpreted as an attempted [[Transition]].
+- [[Command]] is an input [[Event|event]] interpreted as an attempted [[Transition|transition]].
 - [[Query]] is an input [[Event|event]] interpreted as a request to observe, compute, or return information.
 - Entity state is an entity-scoped observation: a value attributed to an entity identity at a version.
-- A [[Transition]] consumes values and observations in a transition context and may produce an accepted endogenous event or state change.
+- A [[Transition|transition]] consumes values and observations in a transition context and may produce an accepted endogenous event or state change.
 
 Values may be complete, partial, or projected only relative to a declared [[Shape|shape]], model [[Boundaries|boundary]], or operation. Completeness is not intrinsic to the value itself.
 
-Related concepts: [[Shape]], [[State]], [[Observation]], [[Event]], [[Command]], [[Query]], [[Transition]], [[Entity]], [[Observable]], [[Boundaries]], [[Equivalence vs Equality]], [[Naturality]].
+Related concepts: [[Shape|shape]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Entity|entity]], [[Observable|observable]], [[Boundaries|boundaries]], [[Equivalence vs Equality|equivalence vs equality]], [[Naturality|naturality]].

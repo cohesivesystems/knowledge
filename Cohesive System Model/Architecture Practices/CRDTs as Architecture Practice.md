@@ -3,7 +3,7 @@ realm: Architecture Practices
 kind: architecture-practice
 ---
 
-# CRDTs As Architecture Practice
+# CRDTs as Architecture Practice
 
 CRDTs are a distributed-systems practice for designing replicated state that can accept concurrent updates and converge without synchronous coordination for every update.
 
@@ -22,10 +22,10 @@ The practice moves part of the coordination problem into the algebra of the data
 - Persistence and recovery must preserve causal metadata needed for convergence.
 - Invariants must be compatible with the merge or operation algebra, or else require additional coordination.
 
-## Practice Interpretation
+## In the Model
 
 CRDTs are suitable when the domain can tolerate temporary divergence and the intended state evolution can be modeled with monotonic merge or commutative updates.
 
-The [[CALM Theorem]] generalizes this practice beyond CRDT implementations: monotone application logic is the part of the system that can usually remain coordination-free.
+The [[CALM Theorem|CALM theorem]] generalizes this practice beyond CRDT implementations: monotone application logic is the part of the system that can usually remain coordination-free.
 
-Related concepts: [[CRDTs]], [[CALM Theorem]], [[Coordination]], [[Persistence]], [[Reconstitution]], [[Delivery Semantics]], [[Ordering]], [[Invariants]], [[Storage Systems]], [[Compositionality]].
+Related concepts: [[CRDTs]], [[CALM Theorem|CALM theorem]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Invariants|invariants]], [[Storage Systems|storage systems]], [[Compositionality|compositionality]].

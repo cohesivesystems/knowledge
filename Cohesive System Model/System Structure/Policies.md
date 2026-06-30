@@ -21,4 +21,4 @@ Policies may cover:
 
 Policies are observer-relative when they affect command interpretation inside a specific observer boundary.
 
-Related concepts: [[Command]], [[Observer]], [[Transition]], [[Invariants]], [[Rate Limiting]], [[Retry]], [[Coordination]].
+Related concepts: [[Command|command]], [[Observer|observer]], [[Transition|transition]], [[Invariants|invariants]], [[Rate Limiting|rate limiting]], [[Retry|retry]], [[Coordination|coordination]].

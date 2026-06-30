@@ -5,17 +5,17 @@ kind: operational-semantics
 
 # CAP Theorem
 
-The CAP Theorem describes an impossibility for distributed shared data under network partition: a system cannot simultaneously guarantee linearizable consistency, availability, and partition tolerance for all executions.
+The CAP theorem describes an impossibility for distributed shared data under network partition: a system cannot simultaneously guarantee linearizable consistency, availability, and partition tolerance for all executions.
 
 In the Gilbert-Lynch formulation:
 
-- **Consistency** means atomic, or linearizable, behavior for a shared object.
+- **Consistency** means atomic, or linearizable behavior for a shared object.
 - **Availability** means every request to a non-failing node eventually receives a response.
 - **Partition tolerance** means the system continues to operate in executions where messages between partitions may be lost or delayed indefinitely.
 
-The useful interpretation is not "choose two" as a static product label. Partition is a failure condition. When a partition occurs, the system must decide whether to preserve the safety property of linearizable consistency by refusing or delaying some operations, or preserve the liveness property of availability by responding without enough information to guarantee one linearized history.
+Partition is a failure condition. When a partition occurs, the system must decide whether to preserve the safety property of linearizable consistency by refusing or delaying some operations, or preserve the liveness property of availability by responding without enough information to guarantee one linearized history.
 
-CAP therefore relates [[Safety and Liveness]], [[Consistency Models]], [[Coordination]], [[Consensus]], and [[Network]] behavior. It says that failure is part of the model: a consistency claim made only when the network is healthy is different from a consistency claim made through partitions.
+CAP therefore relates [[Safety and Liveness|safety and liveness]], [[Consistency Models|consistency models]], [[Coordination|coordination]], [[Consensus|consensus]], and [[Network|network]] behavior. It says that failure is part of the model: a consistency claim made only when the network is healthy is different from a consistency claim made through partitions.
 
 CAP also uses narrower meanings than many architecture discussions:
 
@@ -30,4 +30,4 @@ Many practical systems choose finer-grained behavior than a global CAP label: pr
 - Seth Gilbert and Nancy Lynch, [Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services](https://www.cs.princeton.edu/courses/archive/spr22/cos418/papers/cap.pdf), ACM SIGACT News, 33(2):51-59, June 2002.
 - Eric Brewer, [CAP Twelve Years Later: How the "Rules" Have Changed](https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf), Computer, 45(2):23-29, February 2012.
 
-Related concepts: [[Safety and Liveness]], [[Consistency Models]], [[Consensus]], [[Consensus Protocols]], [[Coordination]], [[Network]], [[Recovery]], [[Weak Isolation Patterns]], [[CRDTs]], [[Boundaries]].
+Related concepts: [[Safety and Liveness|safety and liveness]], [[Consistency Models|consistency models]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Coordination|coordination]], [[Network|network]], [[Recovery|recovery]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs]], [[Boundaries|boundaries]].

@@ -10,7 +10,7 @@ aliases:
 
 # Transactional Inbox
 
-The Transactional Inbox addresses the consumer-side problem of processing a delivered input exactly once in domain meaning when the delivery substrate may redeliver it.
+The transactional inbox addresses the consumer-side problem of processing a delivered input exactly once in domain meaning when the delivery substrate may redeliver it.
 
 ## Cohesive Formulation
 
@@ -26,9 +26,9 @@ receive input
 
 If the same input is delivered again, the receiving observer can recognize it and produce no duplicate domain transition for the target entity.
 
-## Practice Interpretation
+## In the Model
 
-The inbox complements [[Transactional Outbox]]. Outbox records durable responsibility to publish after a local transition. Inbox records durable responsibility for having consumed or processed an input before acknowledging it as complete at the delivery boundary.
+The inbox complements [[Transactional Outbox|transactional outbox]]. Outbox records durable responsibility to publish after a local transition. Inbox records durable responsibility for having consumed or processed an input before acknowledging it as complete at the delivery boundary.
 
 Together they support reliable handoff across asynchronous boundaries:
 
@@ -44,4 +44,4 @@ This composition is often called effectively-once processing, but the guarantee 
 
 The pattern fails when the consumer acknowledges before committing the inbox and local state, when deduplication is not in the same commit boundary as the effects it protects, when the deduplication key does not identify the semantic input, or when non-idempotent external effects happen before the local commit.
 
-Related concepts: [[Transactional Outbox]], [[Outbox]], [[Idempotency]], [[Delivery Semantics]], [[Acknowledgments]], [[Commit Boundaries]], [[Effects]], [[Recovery]], [[Retry]], [[Interaction]], [[Dual-Write Problem]], [[Weak Isolation Patterns as Architecture Practice]].
+Related concepts: [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Idempotency|idempotency]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Recovery|recovery]], [[Retry|retry]], [[Interaction|interaction]], [[Dual-Write Problem|dual-write problem]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]].

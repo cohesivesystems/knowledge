@@ -5,7 +5,7 @@ kind: realization-substrate
 
 # Consensus Protocols
 
-Consensus Protocols are concrete protocol families that [[Realization|realize]] [[Consensus]] under specified network, failure, timing, persistence, and membership assumptions.
+Consensus Protocols are concrete protocol families that [[Realization|realize]] [[Consensus|consensus]] under specified network, failure, timing, persistence, and membership assumptions.
 
 Protocols such as Paxos, Multi-Paxos, Raft, Zab, and Viewstamped Replication use quorum intersection, terms or epochs, durable metadata, and recovery rules to make distributed participants agree on values or log positions. In practice they are most often used to build replicated logs, replicated state machines, leader election, membership changes, configuration stores, and strongly consistent storage partitions.
 
@@ -30,4 +30,4 @@ Operationally, consensus protocols tend to preserve [[Safety and Liveness|safety
 - Diego Ongaro and John Ousterhout, [In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf), USENIX ATC, 2014.
 - Barbara Liskov and James Cowling, [Viewstamped Replication Revisited](https://www.cs.princeton.edu/courses/archive/fall19/cos418/papers/vr-revisited.pdf), MIT CSAIL, 2012.
 
-Related concepts: [[Consensus]], [[Safety and Liveness]], [[CAP Theorem]], [[Coordination]], [[Consistency Models]], [[Ordering]], [[Time]], [[Version]], [[Persistence]], [[Recovery]], [[Storage Systems]], [[Infrastructure]], [[Network]], [[Brokers]], [[Actor Systems]].
+Related concepts: [[Consensus|consensus]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[Coordination|coordination]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Time|time]], [[Version|version]], [[Persistence|persistence]], [[Recovery|recovery]], [[Storage Systems|storage systems]], [[Infrastructure|infrastructure]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]].

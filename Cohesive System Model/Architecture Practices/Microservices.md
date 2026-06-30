@@ -18,7 +18,7 @@ The practice asks:
 - Which events and commands cross the boundary?
 - What delivery, ordering, recovery, and consistency semantics apply?
 
-## Practice Interpretation
+## In the Model
 
 Microservices turn semantic and structural boundaries into deployment and operational boundaries. That can increase autonomy, but it also turns local composition problems into distributed coordination, delivery, and recovery problems.
 
@@ -26,4 +26,4 @@ Microservices turn semantic and structural boundaries into deployment and operat
 
 The pattern fails when services are split by technical layer, table, team preference, or endpoint count rather than semantic ownership and operational boundary. Distributed deployment does not create bounded context clarity by itself.
 
-Related concepts: [[Boundaries]], [[Observer]], [[Interaction]], [[Delivery Semantics]], [[Coordination]], [[Recovery]], [[Brokers]], [[Network]], [[Modular Monolith]].
+Related concepts: [[Boundaries|boundaries]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Brokers|brokers]], [[Network|network]], [[Modular Monolith|modular monolith]].

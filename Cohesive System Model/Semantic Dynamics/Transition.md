@@ -5,9 +5,9 @@ kind: semantic-construct
 
 # Transition
 
-A Transition is the semantic decision relation that determines whether an attempted change is accepted for a subject.
+A transition is the semantic decision relation that determines whether an attempted change is accepted for a subject.
 
-Under the [[Stuff Structure Property]] lens, a transition is structure: an operation or relation that organizes how entity state, command values, observations, authority, policies, and versions may produce an accepted endogenous event, nil outcome, or rejection.
+Under the [[Stuff Structure Property|stuff structure property]] lens, a transition is structure: an operation or relation that organizes how entity state, command values, observations, authority, policies, and versions may produce an accepted endogenous event, nil outcome, or rejection.
 
 For entities, a transition is evaluated from a transition context:
 
@@ -22,7 +22,7 @@ observer and boundary
 
 The transition context should be treated as "the" context only relative to the diagram of required observations, policies, authority, boundary, and version constraints that determine it.
 
-The transition decision may accept, reject, or produce nil. Acceptance is an endogenous [[Event]]: the entity's state changes within the entity boundary and advances to a new [[Version]]. Whether that event is explicitly captured, persisted, or committed as an event record depends on the [[Realization|realization]]. Rejection produces no accepted state change for the target entity. Nil means the input was interpreted but no domain state transition occurred.
+The transition decision may accept, reject, or produce nil. Acceptance is an endogenous [[Event|event]]: the entity's state changes within the entity boundary and advances to a new [[Version|version]]. Whether that event is explicitly captured, persisted, or committed as an event record depends on the [[Realization|realization]]. Rejection produces no accepted state change for the target entity. Nil means the input was interpreted but no domain state transition occurred.
 
 Lower-level value changes are better described as value transforms. The before/after relation between two entity states is a state evolution or state change. The domain transition is the stronger concept because it includes observer-relative interpretation, authority, policy, invariants, concurrency checks, and realization-specific commitment.
 
@@ -34,4 +34,4 @@ Examples of rejected transitions include:
 - Expected-version conflict.
 - Telemetry-only or correlation-only input.
 
-Related concepts: [[Value]], [[Shape]], [[Command]], [[Observer]], [[Entity]], [[State]], [[Event]], [[Version]], [[Stuff Structure Property]], [[Universal Constructions]], [[Algebras and Coalgebras]], [[Monads Monoids and Duals]], [[Realization]], [[Concurrency Control]].
+Related concepts: [[Value|value]], [[Shape|shape]], [[Command|command]], [[Observer|observer]], [[Entity|entity]], [[State|state]], [[Event|event]], [[Version|version]], [[Stuff Structure Property|stuff structure property]], [[Universal Constructions|universal constructions]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Monads Monoids and Duals|monads monoids and duals]], [[Realization|realization]], [[Concurrency Control|concurrency control]].

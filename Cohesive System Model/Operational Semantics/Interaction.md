@@ -5,11 +5,11 @@ kind: operational-semantics
 
 # Interaction
 
-Interaction answers: how do [[Observer|Observers]] address, observe, notify, or invoke one another?
+Interaction answers: how do [[Observer|observers]] address, observe, notify, or invoke one another?
 
 Interaction defines the operational edges through which observers coordinate by exchange, observation, notification, invocation, shared state, or synchronization.
 
-Interaction is boundary-relative. It can occur over a [[Network]], between processes on one host, between threads in one process, between tasks in a runtime, between actors and mailboxes, between CPU cores through cache coherence, or between a program and memory/register state.
+Interaction is boundary-relative. It can occur over a [[Network|network]], between processes on one host, between threads in one process, between tasks in a runtime, between actors and mailboxes, between CPU cores through cache coherence, or between a program and memory/register state.
 
 Network distribution is the common case when discussing distributed systems, but it is not the only case. A system is distributed whenever interaction crosses a boundary where observation, ordering, visibility, failure, or commitment is not trivial.
 
@@ -36,7 +36,7 @@ Interaction modes are edge configurations at a chosen abstraction layer. They ar
 
 Modes describe the edge shape. They do not determine the semantic role of the value crossing the edge.
 
-A request may be interpreted as a [[Command]] when the receiver treats it as intent to cause a state transition. It may be interpreted as a [[Query]] when the receiver treats it as a request to observe or compute a value with no semantic state transition requested. It may also be a subscription request, negotiation, acknowledgment, policy decision, observation, or event notification.
+A request may be interpreted as a [[Command|command]] when the receiver treats it as intent to cause a state transition. It may be interpreted as a [[Query|query]] when the receiver treats it as a request to observe or compute a value with no semantic state transition requested. It may also be a subscription request, negotiation, acknowledgment, policy decision, observation, or event notification.
 
 Operational state can still change during a [[Query|query]]: caches may fill, metrics may record, cursors may advance, locks may be acquired, and acknowledgments may be emitted. The distinction is that the modeled semantic entity transition is not being requested.
 
@@ -46,13 +46,13 @@ Actor message send is the case where the addressed target is itself an observer 
 
 Interaction modes compose across layers:
 
-- Request/reply can be framed over a stream, as with HTTP or RPC over TCP. RPC realizes application-level message-based request/reply by adding framing, correlation, multiplexing, dispatch, status, and metadata over a lower-level stream/session edge; see [[Network]].
+- Request/reply can be framed over a stream, as with HTTP or RPC over TCP. RPC realizes application-level message-based request/reply by adding framing, correlation, multiplexing, dispatch, status, and metadata over a lower-level stream/session edge; see [[Network|network]].
 - Request/reply can be realized over queues by carrying a reply address and correlation identifier.
 - Publish/consume systems often expose lower-level request/reply operations to publish records, poll or fetch records, commit offsets, manage cursors, and create subscriptions.
 - Shared memory can realize request/reply-like reads, one-way writes, publish/observe patterns, and synchronization through locking or waiting.
 - UDP multicast and a broker topic are both one-to-many publication configurations at different abstraction layers, even though their delivery, durability, addressing, and retention semantics differ.
 
-Systems build domain-level flows and [[Business Transactions]] by composing these edge configurations and then interpreting the values as commands, queries, events, observations, decisions, or acknowledgments.
+Systems build domain-level flows and [[Business Transactions|business transactions]] by composing these edge configurations and then interpreting the values as commands, queries, events, observations, decisions, or acknowledgments.
 
 ## Interaction Graphs
 
@@ -91,9 +91,9 @@ An interaction edge can be classified by:
 - Acknowledgment and commit boundary.
 - Failure boundary.
 - Coordination role.
-- Carried semantic roles: [[Command]], [[Query]], [[Event]], [[Observation]], acknowledgment, policy decision.
-- Realization layer: memory, runtime, IPC, [[Network]], broker, database, workflow engine.
+- Carried semantic roles: [[Command|command]], [[Query|query]], [[Event|event]], [[Observation|observation]], acknowledgment, policy decision.
+- Realization layer: memory, runtime, IPC, [[Network|network]], broker, database, workflow engine.
 
 Interaction does not by itself define whether a domain transition committed. That depends on the receiver's observer-relative interpretation, validation, persistence, and delivery semantics.
 
-Related concepts: [[Observer]], [[Command]], [[Query]], [[Event]], [[Relations]], [[Flows]], [[Projections]], [[Delivery Semantics]], [[Coordination]], [[Synchrony and Asynchrony]], [[Network]], [[Brokers]], [[Actor Systems]], [[Trace and Feedback]], [[Duality and Symmetry]].
+Related concepts: [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Relations|relations]], [[Flows|flows]], [[Projections|projections]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].

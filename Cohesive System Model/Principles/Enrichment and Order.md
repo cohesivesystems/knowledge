@@ -3,7 +3,7 @@ realm: Principles
 kind: principle
 ---
 
-# Enrichment And Order
+# Enrichment and Order
 
 Enrichment adds structure to relationships. Instead of merely asking whether a relationship exists, an enriched view asks what kind of value the relationship has: order, distance, cost, probability, time, authority, confidence, or information.
 
@@ -34,4 +34,4 @@ Examples:
 - [[Delivery Semantics]] enrich interaction edges with guarantees.
 - [[Rate Limiting]] and retry policies enrich interactions with control behavior.
 
-Related concepts: [[Ordering]], [[Version]], [[Time]], [[Delivery Semantics]], [[Rate Limiting]], [[Boundaries]], [[Concurrency Control]].
+Related concepts: [[Ordering|ordering]], [[Version|version]], [[Time|time]], [[Delivery Semantics|delivery semantics]], [[Rate Limiting|rate limiting]], [[Boundaries|boundaries]], [[Concurrency Control|concurrency control]].

@@ -7,9 +7,9 @@ kind: operational-semantics
 
 Weak Isolation Patterns are design techniques used when one [[ACID]] transaction or [[Two-Phase Commit|two-phase commit]] boundary is unavailable, too expensive, or not aligned with the business process.
 
-As an architecture practice, these patterns are discussed in [[Weak Isolation Patterns as Architecture Practice]].
+As an architecture practice, these patterns are discussed in [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]].
 
-They do not make weak isolation disappear. They replace implicit transactional guarantees with explicit rules about [[Ordering]], [[Idempotency]], [[Retry]], [[Recovery]], compensation, reconciliation, and invariant preservation.
+They do not make weak isolation disappear. They replace implicit transactional guarantees with explicit rules about [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], compensation, reconciliation, and invariant preservation.
 
 ## Common Patterns
 
@@ -31,9 +31,9 @@ Each pattern must name the guarantee it replaces.
 
 For example, an outbox replaces atomic commit between a database and broker with local atomicity plus asynchronous publication responsibility. An inbox complements it on the consumer side by making redelivery safe through local atomicity and deduplication. A saga replaces one atomic transaction with a process whose partial progress, compensation, and recovery semantics are explicit. A reservation replaces global serializable allocation with a bounded right to consume capacity later.
 
-Weak isolation patterns must be checked against [[Invariants]]. If the invariant is non-monotonic or requires a globally current view, avoiding coordination may be impossible without changing the model, accepting weaker semantics, or introducing escrow, reservation, or coordination at a narrower boundary.
+Weak isolation patterns must be checked against [[Invariants|invariants]]. If the invariant is non-monotonic or requires a globally current view, avoiding coordination may be impossible without changing the model, accepting weaker semantics, or introducing escrow, reservation, or coordination at a narrower boundary.
 
-The [[CALM Theorem]] supplies a useful diagnostic: when adding facts can invalidate an earlier conclusion, the transition or projection is non-monotone and should not be treated as safely coordination-free. The model must then introduce coordination, versioned dependencies, pending state, reservation, reconciliation, or a deliberately weaker guarantee.
+The [[CALM Theorem|CALM theorem]] supplies a useful diagnostic: when adding facts can invalidate an earlier conclusion, the transition or projection is non-monotone and should not be treated as safely coordination-free. The model must then introduce coordination, versioned dependencies, pending state, reservation, reconciliation, or a deliberately weaker guarantee.
 
 ## External References
 
@@ -41,4 +41,4 @@ The [[CALM Theorem]] supplies a useful diagnostic: when adding facts can invalid
 - Hector Garcia-Molina and Kenneth Salem, [Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf), Princeton CS-TR-070-87, 1987.
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Weak Isolation Patterns as Architecture Practice]], [[ACID]], [[Two-Phase Commit]], [[Isolation]], [[Coordination]], [[CALM Theorem]], [[Concurrency Control]], [[Consistency Models]], [[Commit Boundaries]], [[Effects]], [[Ordering]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[Outbox]], [[Transactional Inbox]], [[Dual-Write Problem]], [[CRDTs]], [[Invariants]], [[Business Transactions]].
+Related concepts: [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Isolation|isolation]], [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs]], [[Invariants|invariants]], [[Business Transactions|business transactions]].

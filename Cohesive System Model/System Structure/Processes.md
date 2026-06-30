@@ -40,4 +40,4 @@ Examples include:
 
 Processes compose when outputs of one process feed another process as observations, commands, events, artifacts, or decisions. Such compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
 
-Related concepts: [[Business Transactions]], [[Coordination]], [[Durable Execution]], [[Workflow Engines]], [[Durable Execution Engines]], [[Observer]], [[Entity]], [[Event]], [[Command]], [[State]], [[Recovery]], [[Policies]], [[Invariants]].
+Related concepts: [[Business Transactions|business transactions]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Command|command]], [[State|state]], [[Recovery|recovery]], [[Policies|policies]], [[Invariants|invariants]].

@@ -9,7 +9,7 @@ Isolation describes what concurrent operations are allowed to observe of one ano
 
 In the Cohesive model, isolation is boundary-relative. It may describe a database transaction, an entity transition boundary, an actor turn, a workflow step, a projection update, a read model, or another realization context. It answers: which concurrent effects are visible, hidden, delayed, rejected, serialized, or allowed to interleave?
 
-Isolation is related to, but not identical with, [[Consistency Models]]. A consistency model constrains which histories and observations are valid. Isolation describes how concurrent operations are separated or exposed while those histories are being produced.
+Isolation is related to, but not identical with, [[Consistency Models|consistency models]]. A consistency model constrains which histories and observations are valid. Isolation describes how concurrent operations are separated or exposed while those histories are being produced.
 
 ## Isolation Levels and Anomalies
 
@@ -26,7 +26,7 @@ Common anomalies include dirty reads, non-repeatable reads, phantoms, lost updat
 
 ## Isolation and Entity Transitions
 
-For an [[Entity]], isolation is often realized by expected-version checks, actor serialization, compare-and-swap operations, locks, or transaction isolation in a storage system.
+For an [[Entity|entity]], isolation is often realized by expected-version checks, actor serialization, compare-and-swap operations, locks, or transaction isolation in a storage system.
 
 Isolation for an entity transition is not only about the target entity row or actor state. A transition often validates against additional [[Observation|observations]] or facts: related entities, policy state, capacity, inventory, account balances, read models, external facts, or environmental state.
 
@@ -36,12 +36,12 @@ Strong isolation can make a transition easier to reason about because the observ
 
 One weak-isolation pattern is to carry additional versioning information in the transition context: related entity versions, read-model positions, policy versions, inventory reservation versions, or causal metadata. The transition can then reject, retry, compensate, reserve, or accept based on whether those related observations are still valid enough for the invariant being protected.
 
-## Relationship To ACID
+## Relationship to ACID
 
-In [[ACID]], isolation is one part of a transaction contract. Outside a single ACID boundary, isolation must be reconstructed with explicit [[Concurrency Control]], [[Coordination]], [[Ordering]], idempotency, compensation, reservations, escrow, or other [[Weak Isolation Patterns|weak isolation patterns]].
+In [[ACID]], isolation is one part of a transaction contract. Outside a single ACID boundary, isolation must be reconstructed with explicit [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Ordering|ordering]], idempotency, compensation, reservations, escrow, or other [[Weak Isolation Patterns|weak isolation patterns]].
 
 ## External References
 
 - Hal Berenson, Philip A. Bernstein, Jim Gray, Jim Melton, Elizabeth J. O'Neil, and Patrick E. O'Neil, [A Critique of ANSI SQL Isolation Levels](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf), SIGMOD 1995.
 
-Related concepts: [[ACID]], [[Consistency Models]], [[Concurrency Control]], [[Coordination]], [[Version]], [[Ordering]], [[Entity]], [[Transition]], [[Observation]], [[Weak Isolation Patterns]].
+Related concepts: [[ACID]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Version|version]], [[Ordering|ordering]], [[Entity|entity]], [[Transition|transition]], [[Observation|observation]], [[Weak Isolation Patterns|weak isolation patterns]].

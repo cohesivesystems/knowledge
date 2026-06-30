@@ -3,7 +3,7 @@ realm: Architecture Practices
 kind: architecture-practice
 ---
 
-# CQRS As Architecture Practice
+# CQRS as Architecture Practice
 
 CQRS is often described as an architectural pattern or style. In the Cohesive System Model, the technical mechanics are captured by [[CQRS]] as a realization substrate pattern.
 
@@ -21,8 +21,8 @@ The central separation is:
 write-side persistence -> read-side reconstitution
 ```
 
-## Practice Interpretation
+## In the Model
 
 As an architecture practice, CQRS makes the read/write split a deliberate boundary. That boundary introduces consistency-under-asynchrony concerns: projection lag, read-your-writes, monotonic reads, ordering scope, idempotent updates, and recovery.
 
-Related concepts: [[CQRS]], [[Command]], [[Query]], [[Transition]], [[Persistence]], [[Reconstitution]], [[Projections]], [[Observation]], [[Event Sourcing as Architecture Practice]].
+Related concepts: [[CQRS]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projections|projections]], [[Observation|observation]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]].

@@ -9,7 +9,7 @@ Business Transactions describe domain-level units of work whose progress, accept
 
 A business transaction is not the same as a database transaction. A database transaction is one possible coordination mechanism inside a business transaction. A business transaction may span observers, entities, services, brokers, workflow engines, humans, agents, external systems, and time.
 
-At the structure level, a business transaction arranges [[Processes]], their flows, [[Entity|entities]], [[Observer|observers]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Observation|observations]], and [[Transition|transitions]] into coherent domain work.
+At the structure level, a business transaction arranges [[Processes|processes]], their flows, [[Entity|entities]], [[Observer|observers]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Observation|observations]], and [[Transition|transitions]] into coherent domain work.
 
 Examples include:
 
@@ -22,7 +22,7 @@ Examples include:
 
 ## Composition
 
-Business transactions are examples of [[Compositionality]]. They are implemented by composing lower-level semantic, operational, and realization layers:
+Business transactions are examples of [[Compositionality|compositionality]]. They are implemented by composing lower-level semantic, operational, and realization layers:
 
 ```txt
 business transaction
@@ -41,7 +41,7 @@ business transaction
 
 Each layer contributes local guarantees. The business transaction is correct only when those guarantees compose into the intended domain semantics. For example, an RPC response, a broker acknowledgment, a workflow checkpoint, and an event-store append may each be successful at their own boundary while still meaning different things for the business transaction.
 
-Application-level pieces include [[Interaction|request/reply]], [[Interaction|publish/consume]], [[Durable Execution|durable execution]] through [[Durable Execution Engines]], and committed-event persistence through [[Event Sourcing]]. These pieces can be combined, but their guarantees remain scoped to their own boundaries unless coordination composes them into a business-level outcome.
+Application-level pieces include [[Interaction|request/reply]], [[Interaction|publish/consume]], [[Durable Execution|durable execution]] through [[Durable Execution Engines|durable execution engines]], and committed-event persistence through [[Event Sourcing|event sourcing]]. These pieces can be combined, but their guarantees remain scoped to their own boundaries unless coordination composes them into a business-level outcome.
 
 ## Modeling Questions
 
@@ -74,7 +74,7 @@ Invoicing may compose delivery and rating observations, invoice entity transitio
 
 Business transaction boundaries are domain boundaries. They define what counts as accepted, rejected, completed, cancelled, expired, compensated, or settled for the business.
 
-Those boundaries rarely coincide exactly with one protocol, process, transaction, or storage boundary. A business transaction may include several local [[ACID]] transactions, several RPC calls, several broker messages, several workflow activations, and several event-store commits. When [[Two-Phase Commit]] is not used or does not cover the whole business outcome, the model must name the [[Weak Isolation Patterns|weak isolation patterns]] that preserve the relevant invariants.
+Those boundaries rarely coincide exactly with one protocol, process, transaction, or storage boundary. A business transaction may include several local [[ACID]] transactions, several RPC calls, several broker messages, several workflow activations, and several event-store commits. When [[Two-Phase Commit|two-phase commit]] is not used or does not cover the whole business outcome, the model must name the [[Weak Isolation Patterns|weak isolation patterns]] that preserve the relevant invariants.
 
 Correct modeling therefore requires naming the boundary for each guarantee:
 
@@ -87,4 +87,4 @@ Correct modeling therefore requires naming the boundary for each guarantee:
 - Did another observer receive, process, or commit the follow-up work?
 - Did the business transaction reach its domain-defined completion condition?
 
-Related concepts: [[Processes]], [[Flows]], [[Coordination]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]], [[Durable Execution]], [[Interaction]], [[Delivery Semantics]], [[Persistence]], [[Recovery]], [[Idempotency]], [[Ordering]], [[Event Sourcing]], [[CQRS]], [[Workflow Engines]], [[Durable Execution Engines]], [[Brokers]], [[Network]], [[Compositionality]].
+Related concepts: [[Processes|processes]], [[Flows|flows]], [[Coordination|coordination]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Durable Execution|durable execution]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Persistence|persistence]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Event Sourcing|event sourcing]], [[CQRS]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Brokers|brokers]], [[Network|network]], [[Compositionality|compositionality]].

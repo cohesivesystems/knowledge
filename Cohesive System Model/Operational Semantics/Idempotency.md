@@ -20,8 +20,8 @@ Idempotency may be based on:
 - Receiver-side effect tracking.
 - [[Transactional Inbox|Transactional inbox]] records.
 
-In the model, duplicate input may be interpreted as a nil endogenous event for the target [[Entity]]: the observer saw the input, but no new domain transition was committed.
+In the model, duplicate input may be interpreted as a nil endogenous event for the target [[Entity|entity]]: the observer saw the input, but no new domain transition was committed.
 
 Idempotency is scoped to a semantic input and an effect boundary. An HTTP retry, broker redelivery, workflow replay, and outbox republication may each need a different idempotency key or deduplication record.
 
-Related concepts: [[Retry]], [[Delivery Semantics]], [[Acknowledgments]], [[Commit Boundaries]], [[Effects]], [[Command]], [[Transition]], [[Version]], [[Recovery]], [[Transactional Inbox]], [[Outbox]].
+Related concepts: [[Retry|retry]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Command|command]], [[Transition|transition]], [[Version|version]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]].

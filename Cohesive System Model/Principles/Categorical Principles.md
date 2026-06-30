@@ -42,4 +42,4 @@ Additional recurring principles:
 
 The point is not to force every concept into formal notation. The point is to use categorical language as a precision check: if a mapping does not preserve the required relations, if a duality is mistaken for identity, or if "the" object is named without its defining diagram, the model is probably hiding an assumption.
 
-Related concepts: [[Realization]], [[Event-State Duality]], [[Behavior]], [[Persistence]], [[Reconstitution]], [[Concurrency Control]], [[Boundaries]].
+Related concepts: [[Realization|realization]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Concurrency Control|concurrency control]], [[Boundaries|boundaries]].

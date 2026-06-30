@@ -33,12 +33,12 @@ This lens helps ask:
 
 Examples:
 
-- An [[Entity]] is stuff, while its [[Transition|transitions]], state history, and emitted events give it structure.
-- A [[Transition]] is structure on entity state, observations, commands, authority, and versions.
+- An [[Entity|entity]] is stuff, while its [[Transition|transitions]], state history, and emitted events give it structure.
+- A [[Transition|transition]] is structure on entity state, observations, commands, authority, and versions.
 - An [[Invariants|invariant]] is a property constraining which transitions may commit.
-- A [[Projections|Projection]] adds structure that relates a derived view back to source state or events.
-- A [[Realization]] maps semantic stuff, structure, and properties into substrate stuff, structure, and properties.
+- A [[Projections|projection]] adds structure that relates a derived view back to source state or events.
+- A [[Realization|realization]] maps semantic stuff, structure, and properties into substrate stuff, structure, and properties.
 
 This distinction also clarifies forgetting. A mapping may forget properties, such as validation constraints; forget structure, such as ordering or causality; or forget stuff, such as collapsing several entities into one aggregate view. These are different losses and should not be treated as the same.
 
-Related concepts: [[Entity]], [[Transition]], [[Invariants]], [[Policies]], [[Relations]], [[Projections]], [[Realization]], [[Functoriality]], [[Equivalence vs Equality]], [[Universal Constructions]].
+Related concepts: [[Entity|entity]], [[Transition|transition]], [[Invariants|invariants]], [[Policies|policies]], [[Relations|relations]], [[Projections|projections]], [[Realization|realization]], [[Functoriality|functoriality]], [[Equivalence vs Equality|equivalence vs equality]], [[Universal Constructions|universal constructions]].

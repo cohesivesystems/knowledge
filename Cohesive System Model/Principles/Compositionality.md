@@ -27,4 +27,4 @@ Examples:
 
 Compositionality fails when two parts are individually correct but their combination changes meaning. For example, an idempotent command handler and an at-least-once broker do not compose into exactly-once domain semantics unless the boundary, persistence, and concurrency rules also compose.
 
-Related concepts: [[Business Transactions]], [[Process]], [[Processes]], [[Flows]], [[Relations]], [[Boundaries]], [[Coordination]], [[Realization]], [[Functoriality]].
+Related concepts: [[Business Transactions|business transactions]], [[Process|process]], [[Processes|processes]], [[Flows|flows]], [[Relations|relations]], [[Boundaries|boundaries]], [[Coordination|coordination]], [[Realization|realization]], [[Functoriality|functoriality]].

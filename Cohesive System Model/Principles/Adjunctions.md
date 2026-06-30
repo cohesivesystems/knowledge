@@ -20,10 +20,10 @@ Modeling questions:
 Examples:
 
 - Syntax and semantics: syntax may freely generate expressions, while semantics interprets them in a model.
-- [[Persistence]] and [[Reconstitution]]: persistence selects durable material, while reconstitution recovers usable observations from that material.
+- [[Persistence]] and [[Reconstitution|reconstitution]]: persistence selects durable material, while reconstitution recovers usable observations from that material.
 - Specification and implementation: a specification constrains possible implementations; an implementation realizes or satisfies the specification only up to declared boundaries.
 - Free process descriptions and workflow realizations: a process model may describe possible steps, while a workflow engine realizes a constrained executable form.
 
 Adjunctions are useful because many important pairs are not equalities or isomorphisms. They are structured approximations with explicit directionality.
 
-Related concepts: [[Duality and Symmetry]], [[Persistence]], [[Reconstitution]], [[Realization]], [[Command]], [[Transition]], [[Workflow Engines]].
+Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Realization|realization]], [[Command|command]], [[Transition|transition]], [[Workflow Engines|workflow engines]].

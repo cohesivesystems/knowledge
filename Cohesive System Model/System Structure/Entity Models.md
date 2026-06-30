@@ -5,11 +5,11 @@ kind: structural-construct
 
 # Entity Models
 
-Entity models describe how the semantic [[Entity]] role is arranged in the system graph.
+Entity models describe how the semantic [[Entity|entity]] role is arranged in the system graph.
 
 At the structure level, entity models organize placement, ownership, and composition around stable [[Identity|identities]], versioned state histories, transitions, invariants, policies, and effects. This page describes structural use of the entity role, not the primitive definition of entity and not a specific runtime or storage implementation.
 
-An entity collection, aggregate, actor, record, workflow subject, or domain object may all occupy the entity role when the model treats it as an identifiable subject whose [[State]] evolves over time. Concrete mechanisms such as actor placement, database rows, documents, tables, or storage records belong to substrate concerns such as [[Actor Systems]] and [[Storage Systems]].
+An entity collection, aggregate, actor, record, workflow subject, or domain object may all occupy the entity role when the model treats it as an identifiable subject whose [[State|state]] evolves over time. Concrete mechanisms such as actor placement, database rows, documents, tables, or storage records belong to substrate concerns such as [[Actor Systems|actor systems]] and [[Storage Systems|storage systems]].
 
 This structural concept may also be called an entity model: a model-specific arrangement of the semantic entity role.
 
@@ -38,4 +38,4 @@ Entity models provide structure for:
 - Emitting endogenous events.
 - Relating observations across time as versions of the same subject.
 
-Related concepts: [[Entity]], [[Observer]], [[State]], [[Identity]], [[Version]], [[Transition]], [[Query]], [[Invariants]], [[Policies]], [[Boundaries]], [[Relations]], [[Projections]], [[Realization]], [[Concurrency Control]].
+Related concepts: [[Entity|entity]], [[Observer|observer]], [[State|state]], [[Identity|identity]], [[Version|version]], [[Transition|transition]], [[Query|query]], [[Invariants|invariants]], [[Policies|policies]], [[Boundaries|boundaries]], [[Relations|relations]], [[Projections|projections]], [[Realization|realization]], [[Concurrency Control|concurrency control]].

@@ -29,11 +29,11 @@ The duality can be summarized as:
 | Local observation                                | Common observation                   |
 | Interleaving                                     | Atomicity                            |
 | Eventual relation                                | Simultaneous boundary                |
-| Coordination absent, deferred, or explicit later | Coordination present at the boundary |
+| Coordination absent, deferred, or explicit later | coordination present at the boundary |
 
 A synchronous event can therefore be modeled as a coordinated join of multiple events into one boundary-relative occurrence. The join may be logical rather than physical: the events need not happen at the same wall-clock instant, but the model treats them as one unit for observation, ordering, commitment, or progress.
 
-In [[Systems Sheaf Semantics]], this coordinated join can be read as descent: compatible local sections over independently advanced contexts glue into a larger section at a synchronization boundary.
+In [[Systems Sheaf Semantics|systems sheaf semantics]], this coordinated join can be read as descent: compatible local sections over independently advanced contexts glue into a larger section at a synchronization boundary.
 
 ## Senses of Synchrony
 
@@ -68,4 +68,4 @@ In distributed systems, synchrony may be realized by quorum protocols, consensus
 
 The same definitions apply in both settings when stated boundary-relatively: asynchrony means independent occurrence relative to the boundary; synchrony means coordinated co-occurrence relative to the boundary.
 
-Related concepts: [[Duality and Symmetry]], [[Systems Sheaf Semantics]], [[Interaction]], [[Coordination]], [[Delivery Semantics]], [[Ordering]], [[Time]], [[Consensus]], [[Progress Conditions]], [[Safety and Liveness]], [[Runtimes]], [[Actor Systems]], [[Workflow Engines]], [[Event]], [[Observation]], [[Transition]].
+Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Interaction|interaction]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Time|time]], [[Consensus|consensus]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Event|event]], [[Observation|observation]], [[Transition|transition]].

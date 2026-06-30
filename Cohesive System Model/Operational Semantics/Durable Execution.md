@@ -7,7 +7,7 @@ kind: operational-semantics
 
 Durable Execution is the operational semantics by which a process can continue coherently across failure, restart, suspension, timeout, or delayed external work.
 
-Durable execution is not a workflow engine. It is the guarantee that process progress, pending decisions, timers, signals, retries, and recovery context are preserved well enough for execution to resume without changing the semantic meaning of the [[Process]].
+Durable execution is not a workflow engine. It is the guarantee that process progress, pending decisions, timers, signals, retries, and recovery context are preserved well enough for execution to resume without changing the semantic meaning of the [[Process|process]].
 
 Durable execution depends on:
 
@@ -34,6 +34,6 @@ Durable execution concerns include:
 - Human, external-system, and long-delay interactions.
 - Versioning and migration of process definitions and persisted histories.
 
-Durable execution is [[Realization|realized]] by [[Durable Execution Engines]], workflow engines, job processors with durable queues, actor reminders plus state providers, database-backed process managers, saga runtimes, transaction managers, or custom coordination code.
+Durable execution is [[Realization|realized]] by [[Durable Execution Engines|durable execution engines]], workflow engines, job processors with durable queues, actor reminders plus state providers, database-backed process managers, saga runtimes, transaction managers, or custom coordination code.
 
-Related concepts: [[Process]], [[Processes]], [[Coordination]], [[Persistence]], [[Reconstitution]], [[Recovery]], [[Retry]], [[Idempotency]], [[Ordering]], [[Delivery Semantics]], [[Durable Execution Engines]], [[Workflow Engines]], [[Business Transactions]], [[Realization]].
+Related concepts: [[Process|process]], [[Processes|processes]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Retry|retry]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Delivery Semantics|delivery semantics]], [[Durable Execution Engines|durable execution engines]], [[Workflow Engines|workflow engines]], [[Business Transactions|business transactions]], [[Realization|realization]].

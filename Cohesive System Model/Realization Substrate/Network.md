@@ -7,9 +7,9 @@ kind: realization-substrate
 
 Network is the realization substrate for interaction across link, network, transport, and application protocol boundaries.
 
-Network mechanisms [[Realization|realize]] interaction edges, but they are not the definition of [[Interaction]]. Interaction also occurs locally between processes, threads, runtime tasks, actors, CPU cores, memory cells, and synchronization primitives. Networked interaction is one important family of realization.
+Network mechanisms [[Realization|realize]] interaction edges, but they are not the definition of [[Interaction|interaction]]. Interaction also occurs locally between processes, threads, runtime tasks, actors, CPU cores, memory cells, and synchronization primitives. Networked interaction is one important family of realization.
 
-## Application Interaction From Async Send/Receive
+## Application Interaction from Async Send/Receive
 
 At the bottom of the software network stack, interaction can be modeled as asynchronous send and receive:
 
@@ -24,11 +24,11 @@ Protocol layers add structure to this minimal edge:
 - TCP adds ordering, retransmission, flow control, and congestion control, forming a full-duplex connection with an ordered byte stream in each direction. It orders bytes within a connection, not application messages, and TCP acknowledgments do not imply application processing or durable commit.
 - HTTP, RPC, WebSockets, gRPC, and custom protocols add application-level framing, correlation, multiplexing, status, metadata, request/reply, and streaming semantics.
 - Queues, logs, topics, and brokers reify channel state as system entities. Clients typically interact with them through lower-level request/reply protocols, thereby implementing higher-level publish/consume, subscription, cursor, retention, and delivery semantics.
-- Application flows compose those protocols into domain-level interactions and [[Business Transactions]] involving services, humans, agents, policies, entities, and processes.
+- Application flows compose those protocols into domain-level interactions and [[Business Transactions|business transactions]] involving services, humans, agents, policies, entities, and processes.
 
 This ladder is not a strict hierarchy of concepts. The same interaction edge shape can reappear at different layers. UDP multicast and a Kafka topic are both one-to-many publication configurations at different realization boundaries, with very different addressing, durability, ordering, retention, and acknowledgment semantics.
 
-## RPC Over TCP
+## RPC over TCP
 
 TCP realizes a bidirectional ordered byte-stream interaction edge. It does not provide application messages, method calls, request/reply correlation, or domain commitment.
 
@@ -42,7 +42,7 @@ RPC coordinates atop TCP by adding an application-level protocol over the byte s
 - **Status and errors**: distinguish success, application rejection, protocol error, timeout, cancellation, and transport failure.
 - **Metadata**: carries headers, deadlines, authentication, tracing, content type, compression, or feature negotiation.
 
-These additions realize application-level [[Interaction|request/reply]] over a lower-level stream/session edge. The request may then be interpreted semantically as a [[Command]], [[Query]], subscription request, negotiation, or another input role by the receiving [[Observer]].
+These additions realize application-level [[Interaction|request/reply]] over a lower-level stream/session edge. The request may then be interpreted semantically as a [[Command|command]], [[Query|query]], subscription request, negotiation, or another input role by the receiving [[Observer|observer]].
 
 ```mermaid
 sequenceDiagram
@@ -92,8 +92,8 @@ Network guarantees must be mapped to the boundary where they hold:
 - What is durable or replayable?
 - What interpretation turns transmitted values into commands, [[Query|queries]], events, observations, or decisions?
 
-Network behavior does not automatically equal domain commitment. The receiving [[Observer]] still interprets the value relative to its boundary, validates it, and may or may not commit a transition.
+Network behavior does not automatically equal domain commitment. The receiving [[Observer|observer]] still interprets the value relative to its boundary, validates it, and may or may not commit a transition.
 
-Network partitions expose the distinction between [[Safety and Liveness|safety and liveness]]. A system may preserve a consistency claim by refusing progress across the partition, or preserve availability by accepting progress whose global order or freshness cannot yet be known. The [[CAP Theorem]] is the named form of this tradeoff for linearizable shared data.
+Network partitions expose the distinction between [[Safety and Liveness|safety and liveness]]. A system may preserve a consistency claim by refusing progress across the partition, or preserve availability by accepting progress whose global order or freshness cannot yet be known. The [[CAP Theorem|CAP theorem]] is the named form of this tradeoff for linearizable shared data.
 
-Related concepts: [[Realization]], [[Interaction]], [[Delivery Semantics]], [[Ordering]], [[Observer]], [[Command]], [[Query]], [[Event]], [[Brokers]], [[Application Hosts]], [[Coordination]], [[Safety and Liveness]], [[CAP Theorem]].
+Related concepts: [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Brokers|brokers]], [[Application Hosts|application hosts]], [[Coordination|coordination]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]].

@@ -3,7 +3,7 @@ realm: Principles
 kind: principle
 ---
 
-# Equivalence Vs Equality
+# Equivalence vs Equality
 
 Equivalence and equality should not be confused.
 
@@ -27,4 +27,4 @@ Examples:
 
 Equivalence is often the right concept for abstraction. Equality is often too strong. But equivalence must be declared and preserved by the operations that rely on it.
 
-Related concepts: [[Value]], [[State]], [[Event]], [[Observation]], [[Observer]], [[Realization]], [[Projections]], [[Naturality]].
+Related concepts: [[Value|value]], [[State|state]], [[Event|event]], [[Observation|observation]], [[Observer|observer]], [[Realization|realization]], [[Projections|projections]], [[Naturality|naturality]].

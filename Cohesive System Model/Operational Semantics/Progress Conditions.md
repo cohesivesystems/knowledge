@@ -32,7 +32,7 @@ The implication is one-way. A lock-free algorithm may starve one participant for
 
 ## Coordination
 
-Progress conditions matter for [[Coordination]] because stronger progress guarantees reduce dependence on other participants. A wait-free operation does not need another participant to release a lock or complete a protocol step before it can finish. A blocking operation may be simpler and faster in the uncontended case, but it couples progress to the participant currently holding the resource.
+Progress conditions matter for [[Coordination|coordination]] because stronger progress guarantees reduce dependence on other participants. A wait-free operation does not need another participant to release a lock or complete a protocol step before it can finish. A blocking operation may be simpler and faster in the uncontended case, but it couples progress to the participant currently holding the resource.
 
 [[Synchrony and Asynchrony]] should not be reduced to blocking and non-blocking. A logical operation may synchronously wait for a result while the runtime implements that wait non-blockingly by suspending the continuation and freeing the physical thread. Conversely, a non-blocking API can still coordinate a later synchronous commit or observation boundary.
 
@@ -66,7 +66,7 @@ In Cohesive terms, consensus numbers help separate two questions:
 - What semantic object or transition rule is being implemented?
 - Which substrate primitive is strong enough to provide the required progress condition without adding stronger coordination elsewhere?
 
-The [[Asynchronous Computability Theorem]] picks up the wait-free question from a different angle. Instead of classifying object types by consensus number, it models tasks topologically and asks whether a wait-free protocol complex can be mapped continuously into the legal output complex.
+The [[Asynchronous Computability Theorem|asynchronous computability theorem]] picks up the wait-free question from a different angle. Instead of classifying object types by consensus number, it models tasks topologically and asks whether a wait-free protocol complex can be mapped continuously into the legal output complex.
 
 ## Operational Use
 
@@ -87,4 +87,4 @@ Progress conditions are therefore not only implementation details. They shape wh
 - Maurice Herlihy, Victor Luchangco, and Mark Moir, [Obstruction-Free Synchronization: Double-Ended Queues as an Example](https://cs.brown.edu/people/mph/HerlihyLM03/main.pdf), ICDCS 2003.
 - Maurice Herlihy and Nir Shavit, [The Art of Multiprocessor Programming](https://books.google.com/books/about/The_Art_of_Multiprocessor_Programming.html?id=7MqcBAAAQBAJ), Morgan Kaufmann.
 
-Related concepts: [[Safety and Liveness]], [[Asynchronous Computability Theorem]], [[Synchrony and Asynchrony]], [[Coordination]], [[Consensus]], [[Consensus Protocols]], [[Concurrency Control]], [[Consistency Models]], [[CAP Theorem]], [[CALM Theorem]], [[Ordering]], [[Retry]], [[Recovery]], [[CRDTs]], [[Weak Isolation Patterns]], [[Actor Systems]], [[Storage Systems]].
+Related concepts: [[Safety and Liveness|safety and liveness]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[CRDTs]], [[Weak Isolation Patterns|weak isolation patterns]], [[Actor Systems|actor systems]], [[Storage Systems|storage systems]].

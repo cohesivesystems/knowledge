@@ -25,7 +25,7 @@ Algebras are useful for folds, accumulation, interpretation, and summarization.
 
 Examples:
 
-- Folding committed [[Event|events]] into [[State]] samples.
+- Folding committed [[Event|events]] into [[State|state]] samples.
 - Accumulating observations into a projection.
 - Interpreting a command value into a transition decision.
 - Reducing validation results into accept, reject, or nil.
@@ -41,6 +41,6 @@ Examples:
 - A behavior exposing current value and future evolution.
 - An observer exposing what it can observe, emit, or request next.
 
-Algebras and coalgebras are connected to [[Event-State Duality]]. Folding events into state is algebraic. Observing state for possible events or future behavior is coalgebraic. Neither side fully replaces the other.
+Algebras and coalgebras are connected to [[Event-State Duality|event-state duality]]. Folding events into state is algebraic. Observing state for possible events or future behavior is coalgebraic. Neither side fully replaces the other.
 
-Related concepts: [[Behavior]], [[Event-State Duality]], [[Event]], [[State]], [[Transition]], [[Observer]], [[Processes]], [[Duality and Symmetry]].
+Related concepts: [[Behavior|behavior]], [[Event-State Duality|event-state duality]], [[Event|event]], [[State|state]], [[Transition|transition]], [[Observer|observer]], [[Processes|processes]], [[Duality and Symmetry|duality and symmetry]].

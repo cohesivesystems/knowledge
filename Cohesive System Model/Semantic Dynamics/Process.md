@@ -5,13 +5,13 @@ kind: semantic-construct
 
 # Process
 
-A Process is coherent work unfolding over time.
+A process is coherent work unfolding over time.
 
-A process gives semantic unity to a related sequence of [[Observation|observations]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Transition|transitions]], decisions, effects, and participant activity. It is not defined by any particular runtime, workflow engine, scheduler, thread, transaction manager, or broker. Those belong to [[Realization]].
+A process gives semantic unity to a related sequence of [[Observation|observations]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Transition|transitions]], decisions, effects, and participant activity. It is not defined by any particular runtime, workflow engine, scheduler, thread, transaction manager, or broker. Those belong to [[Realization|realization]].
 
 A process is characterized by:
 
-- A subject, purpose, or correlation [[Identity]].
+- A subject, purpose, or correlation [[Identity|identity]].
 - Participants such as [[Observer|observers]], [[Entity|entities]], people, agents, services, stores, models, or external systems.
 - Inputs it observes or receives.
 - Decisions, policies, and invariants that govern progression.
@@ -47,4 +47,4 @@ Process composition requires attention to boundary, identity, ordering, idempote
 
 ## Related Concepts
 
-Related concepts: [[Behavior]], [[Observer]], [[Entity]], [[Observation]], [[Event]], [[Command]], [[Query]], [[Transition]], [[Identity]], [[State]], [[Processes]], [[Coordination]], [[Durable Execution]], [[Recovery]], [[Realization]], [[Workflow Engines]], [[Durable Execution Engines]], [[Trace and Feedback]], [[Compositionality]].
+Related concepts: [[Behavior|behavior]], [[Observer|observer]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Identity|identity]], [[State|state]], [[Processes|processes]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].

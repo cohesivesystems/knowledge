@@ -5,11 +5,11 @@ kind: pattern
 
 # CQRS
 
-CQRS, Command Query Responsibility Segregation, is a realization pattern that separates the write side that interprets [[Command|commands]] and persists authoritative change from the read side that answers [[Query|queries]] by reconstituting queryable observations.
+CQRS, command query Responsibility Segregation, is a realization pattern that separates the write side that interprets [[Command|commands]] and persists authoritative change from the read side that answers [[Query|queries]] by reconstituting queryable observations.
 
-In the Cohesive System Model, CQRS can be understood as a separation of [[Persistence]] and [[Reconstitution]]:
+In the Cohesive System Model, CQRS can be understood as a separation of [[Persistence|persistence]] and [[Reconstitution|reconstitution]]:
 
-- The command side interprets input as [[Command|commands]] relative to an [[Observer]], [[Boundaries|boundary]], current entity state, invariants, policies, authority, and expected version.
+- The command side interprets input as [[Command|commands]] relative to an [[Observer|observer]], [[Boundaries|boundary]], current entity state, invariants, policies, authority, and expected version.
 - Accepted transitions commit authoritative state changes, often as current-state records, [[Event Sourcing|event-sourced]] committed events, or transactional writes.
 - The query side interprets input as [[Query|queries]] and reconstitutes read-oriented [[Observation|observations]] through projections, indexes, materialized views, caches, or derived state.
 
@@ -22,7 +22,7 @@ The separation is useful because command handling and query answering often have
 - Write models usually protect semantic consistency.
 - Read models usually optimize visibility and access patterns.
 
-## Consistency Under Asynchrony
+## Consistency under Asynchrony
 
 CQRS often updates read models asynchronously from the write side. That creates operational semantics that must be explicit:
 
@@ -36,7 +36,7 @@ CQRS often updates read models asynchronously from the write side. That creates 
 
 The consistency question is therefore boundary-relative. A command boundary may be strongly consistent while a query boundary is eventually consistent. A projection may be current for one entity and stale for another. A UI, API, process, or downstream observer must know which boundary its observation comes from and what freshness guarantee applies.
 
-## Relationship To Event Sourcing
+## Relationship to Event Sourcing
 
 Event sourcing and CQRS are often combined but remain distinct.
 
@@ -54,4 +54,4 @@ In this combined pattern, event sourcing supplies the committed event history, w
 - Greg Young, [CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf), 2010. See also the [CQRS Documents page](https://cqrs.wordpress.com/documents/).
 - Microsoft Azure Architecture Center, [CQRS pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs).
 
-Related concepts: [[Command]], [[Query]], [[Transition]], [[Observer]], [[Entity]], [[Persistence]], [[Reconstitution]], [[Projections]], [[Observation]], [[Event Sourcing]], [[Concurrency Control]], [[Ordering]], [[Idempotency]], [[Recovery]], [[Delivery Semantics]], [[Realization]].
+Related concepts: [[Command|command]], [[Query|query]], [[Transition|transition]], [[Observer|observer]], [[Entity|entity]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projections|projections]], [[Observation|observation]], [[Event Sourcing|event sourcing]], [[Concurrency Control|concurrency control]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].

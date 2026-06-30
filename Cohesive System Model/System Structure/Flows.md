@@ -25,4 +25,4 @@ Flows provide structure for:
 
 Flows must be described with their interaction pattern, delivery semantics, ordering scope, failure boundary, and acknowledgment meaning.
 
-Related concepts: [[Process]], [[Processes]], [[Business Transactions]], [[Event]], [[Command]], [[Observer]], [[Interaction]], [[Delivery Semantics]], [[Coordination]], [[Ordering]], [[Trace and Feedback]], [[Compositionality]].
+Related concepts: [[Process|process]], [[Processes|processes]], [[Business Transactions|business transactions]], [[Event|event]], [[Command|command]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Ordering|ordering]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].

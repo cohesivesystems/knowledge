@@ -11,6 +11,10 @@ model. Treat the Markdown graph as the canonical artifact.
   `Cohesive System Model/`.
 - Use frontmatter `realm` values that match the model realms in GRAPH.md.
 - Use frontmatter `kind` values from the controlled vocabulary in GRAPH.md.
+- When graph entries are referenced or mentioned, do not capitalize them unless
+  they are the first word in a sentence.
+- Use lowercase for connectives and prepositions in titles, such as `and`,
+  `of`, `for`, `in`, and `by`.
 - Keep private implementation details, customer specifics, credentials,
   unreleased Ari modules, paid-feed block content, and private realization
   mappings out of this repository.

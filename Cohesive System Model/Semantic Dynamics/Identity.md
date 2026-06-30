@@ -7,7 +7,7 @@ kind: semantic-construct
 
 Identity is what allows a sequence of state observations to be understood as successive versions of the same thing.
 
-For an [[Entity]], identity is stable across the entity lifetime. It is paired with [[Version]] to address a particular state in the entity history.
+For an [[Entity|entity]], identity is stable across the entity lifetime. It is paired with [[Version|version]] to address a particular state in the entity history.
 
 Observers also have identities, distinct from entity identities. Observer identity may be globally addressable, local, transient, or operationally derived depending on the runtime.
 
@@ -21,4 +21,4 @@ Identity participates in:
 - Concurrency checks.
 - Ordered delivery per key or subject.
 
-Related concepts: [[Entity]], [[Observer]], [[Version]], [[Interaction]], [[Delivery Semantics]], [[Actor Systems]], [[Fibrations and Indexed Structure]], [[Equivalence vs Equality]].
+Related concepts: [[Entity|entity]], [[Observer|observer]], [[Version|version]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Actor Systems|actor systems]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]].

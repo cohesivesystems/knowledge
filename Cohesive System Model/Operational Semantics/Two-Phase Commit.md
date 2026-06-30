@@ -13,7 +13,7 @@ It attempts to make several resource managers act like one commitment boundary. 
 
 Two-phase commit provides atomic agreement about commit or abort for the participants covered by the protocol. It is a realization mechanism for a distributed transaction boundary, not a business guarantee by itself.
 
-The protocol does not eliminate the need to define [[Isolation]], [[Persistence|durability]], recovery behavior, participant membership, timeout meaning, idempotency, or what external observers may see while the protocol is in progress.
+The protocol does not eliminate the need to define [[Isolation|isolation]], [[Persistence|durability]], recovery behavior, participant membership, timeout meaning, idempotency, or what external observers may see while the protocol is in progress.
 
 ## Costs and Failure Modes
 
@@ -31,4 +31,4 @@ These alternatives do not provide the same semantics as two-phase commit. They r
 
 - Jim Gray and Andreas Reuter, [Transaction Processing: Concepts and Techniques](https://www.microsoft.com/en-us/research/publication/transaction-processing-concepts-and-techniques/), Morgan Kaufmann, 1993.
 
-Related concepts: [[ACID]], [[Isolation]], [[Coordination]], [[Concurrency Control]], [[Persistence]], [[Recovery]], [[Durable Execution]], [[Business Transactions]], [[Weak Isolation Patterns]].
+Related concepts: [[ACID]], [[Isolation|isolation]], [[Coordination|coordination]], [[Concurrency Control|concurrency control]], [[Persistence|persistence]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Business Transactions|business transactions]], [[Weak Isolation Patterns|weak isolation patterns]].

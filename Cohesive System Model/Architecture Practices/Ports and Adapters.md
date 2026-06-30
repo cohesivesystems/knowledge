@@ -18,12 +18,12 @@ The practice asks:
 - Which observer interprets the input?
 - What protocol, storage, UI, or external system realizes the edge?
 
-## Practice Interpretation
+## In the Model
 
-An inbound adapter turns an external occurrence into an input event, command, or query relative to an [[Observer]]. An outbound adapter turns an endogenous event, query, command, or observation into a protocol-specific effect.
+An inbound adapter turns an external occurrence into an input event, command, or query relative to an [[Observer|observer]]. An outbound adapter turns an endogenous event, query, command, or observation into a protocol-specific effect.
 
 ## Failure Modes
 
 The pattern fails when adapters leak substrate semantics into the domain, or when ports are treated as technical interfaces without stating the semantic boundary and authority they represent.
 
-Related concepts: [[Boundaries]], [[Observer]], [[Command]], [[Query]], [[Observation]], [[Event]], [[Interaction]], [[Network]], [[Application Hosts]], [[Realization]], [[Anti-Corruption Layer]].
+Related concepts: [[Boundaries|boundaries]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Observation|observation]], [[Event|event]], [[Interaction|interaction]], [[Network|network]], [[Application Hosts|application hosts]], [[Realization|realization]], [[Anti-Corruption Layer|anti-corruption layer]].

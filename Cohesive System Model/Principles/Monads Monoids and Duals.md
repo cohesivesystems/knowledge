@@ -3,7 +3,7 @@ realm: Principles
 kind: principle
 ---
 
-# Monads Monoids And Duals
+# Monads Monoids and Duals
 
 Monads, monoids, and their duals provide recurring patterns for sequencing, accumulation, context, observation, and composition.
 
@@ -60,4 +60,4 @@ Comonad-like structure appears when values are interpreted with surrounding cont
 
 These structures are not naming decorations. They matter when the model needs laws: associativity, identity, sequencing coherence, context preservation, or lawful extraction.
 
-Related concepts: [[Behavior]], [[Observation]], [[Observer]], [[Event]], [[Transition]], [[Projections]], [[Duality and Symmetry]], [[Compositionality]].
+Related concepts: [[Behavior|behavior]], [[Observation|observation]], [[Observer|observer]], [[Event|event]], [[Transition|transition]], [[Projections|projections]], [[Duality and Symmetry|duality and symmetry]], [[Compositionality|compositionality]].

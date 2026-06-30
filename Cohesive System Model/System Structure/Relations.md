@@ -21,4 +21,4 @@ Examples of relations include:
 
 Relations make the system graph navigable and explain how changes in one part of the model may be observed or interpreted elsewhere.
 
-Related concepts: [[Entity]], [[Observer]], [[Identity]], [[State]], [[Observation]], [[Event]], [[Projections]], [[Boundaries]].
+Related concepts: [[Entity|entity]], [[Observer|observer]], [[Identity|identity]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Projections|projections]], [[Boundaries|boundaries]].

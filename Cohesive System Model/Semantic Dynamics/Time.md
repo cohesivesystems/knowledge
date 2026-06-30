@@ -9,11 +9,11 @@ kind: semantic-construct
 
 Time is the dimension in which occurrences, changes, histories, and behaviors are ordered or compared.
 
-In the model, [[Value|values]] and [[Observation|observations]] do not carry intrinsic occurrence time. Time belongs to [[Event|Events]], version histories, and [[Behavior|Behaviors]].
+In the model, [[Value|values]] and [[Observation|observations]] do not carry intrinsic occurrence time. Time belongs to [[Event|events]], version histories, and [[Behavior|behaviors]].
 
 ## Entity Histories
 
-For an [[Entity]], time is reflected operationally by its ordered sequence of versions. A state becomes current at the version or time produced by the event that caused it.
+For an [[Entity|entity]], time is reflected operationally by its ordered sequence of versions. A state becomes current at the version or time produced by the event that caused it.
 
 ## Representations
 
@@ -36,7 +36,7 @@ $$
 
 Here $A \prec B$ means that event or observation `A` happens before `B`. The implication is one-way for ordinary logical clocks: ordered versions preserve happened-before, but comparing versions does not always recover the full causal relation unless the version representation carries enough causal metadata.
 
-**Vector clocks** refine logical time by tracking causal position across multiple participants. They are useful when a model must distinguish causally ordered events or state observations from concurrent or incomparable ones rather than forcing everything into one total order. A [[Version]] in a distributed or replicated history may use vector-clock-like metadata as its realization.
+**Vector clocks** refine logical time by tracking causal position across multiple participants. They are useful when a model must distinguish causally ordered events or state observations from concurrent or incomparable ones rather than forcing everything into one total order. A [[Version|version]] in a distributed or replicated history may use vector-clock-like metadata as its realization.
 
 Logical and causal time also support the notion of a consistent cut: a causally closed selection of events, versions, or observations used to define a coherent snapshot across distributed participants.
 
@@ -47,4 +47,4 @@ Logical and causal time also support the notion of a consistent cut: a causally 
 - Leslie Lamport, [Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf), Communications of the ACM, 21(7):558-565, July 1978.
 - Friedemann Mattern, [Virtual Time and Global States of Distributed Systems](https://homes.cs.washington.edu/~arvind/cs425/doc/mattern89virtual.pdf), 1989.
 
-Related concepts: [[Value]], [[Event]], [[Behavior]], [[Version]], [[State]], [[Ordering]], [[Synchrony and Asynchrony]], [[Consistency Models]].
+Related concepts: [[Value|value]], [[Event|event]], [[Behavior|behavior]], [[Version|version]], [[State|state]], [[Ordering|ordering]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Consistency Models|consistency models]].

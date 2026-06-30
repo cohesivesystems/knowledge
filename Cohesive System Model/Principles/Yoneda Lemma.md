@@ -23,11 +23,11 @@ Yoneda-style questions:
 
 Examples:
 
-- An [[Entity]] is understood through identity, versions, observations, transitions, emitted events, and invariants.
-- An [[Observer]] is understood through what it can observe, interpret, receive, emit, route, and commit.
+- An [[Entity|entity]] is understood through identity, versions, observations, transitions, emitted events, and invariants.
+- An [[Observer|observer]] is understood through what it can observe, interpret, receive, emit, route, and commit.
 - A [[Boundaries|boundary]] is understood through what crosses it, what it includes, what it excludes, and which guarantees hold inside it.
-- A [[Realization]] is understood through the semantic relationships it preserves and the substrate guarantees it exposes.
+- A [[Realization|realization]] is understood through the semantic relationships it preserves and the substrate guarantees it exposes.
 
 The Yoneda lemma is a discipline against representation-only definitions. If two things cannot be distinguished by any relevant observation, interaction, transition, or relation within a boundary, then they may be equivalent for that model even if they differ internally.
 
-Related concepts: [[Entity]], [[Observer]], [[Observation]], [[Interaction]], [[Boundaries]], [[Realization]], [[Equivalence vs Equality]].
+Related concepts: [[Entity|entity]], [[Observer|observer]], [[Observation|observation]], [[Interaction|interaction]], [[Boundaries|boundaries]], [[Realization|realization]], [[Equivalence vs Equality|equivalence vs equality]].

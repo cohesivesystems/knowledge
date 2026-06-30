@@ -105,7 +105,7 @@ Restriction can forget, hide, project, aggregate, reconstitute, redact, or trans
 
 ## Labeled Transition Systems
 
-A labeled transition system is a familiar software-engineering model: states are connected by labeled transitions, and a run is a path through those transitions. In Cohesive terms, this relates [[State]], [[Transition]], [[Event]], and [[Behavior]].
+A labeled transition system is a familiar software-engineering model: states are connected by labeled transitions, and a run is a path through those transitions. In Cohesive terms, this relates [[State|state]], [[Transition|transition]], [[Event|event]], and [[Behavior|behavior]].
 
 Sheaf language shifts the emphasis. Instead of treating an object primarily as state with methods, it treats a system through observed behavior over contexts. A run of the system corresponds to a compatible family of local observations. Each observer may see only a projection of the execution: a subset of labels, a partial trace, a local state history, a read model, a clock interval, a participant-local view, or a redacted explanation.
 
@@ -164,18 +164,18 @@ Several recurring structures in distributed systems can be read as sheaves or sh
 
 | Sheaf | Base category | Sections |
 | --- | --- | --- |
-| Evidence sheaf | Observers, sources, services, logs, sensors, or trust domains ordered by visibility, authority, or projection. | Observations, records, measurements, messages, logs, or attestations attached to each observer or source. |
+| Evidence sheaf | observers, sources, services, logs, sensors, or trust domains ordered by visibility, authority, or projection. | Observations, records, measurements, messages, logs, or attestations attached to each observer or source. |
 | State sheaf | Consistent cuts, version intervals, entity scopes, aggregates, snapshots, or event-history prefixes ordered by inclusion or causality. | Reconstructed entity state over compatible evidence, versions, events, or snapshots. |
 | Process sheaf | Workflow steps, saga phases, participant subsets, signal scopes, process cuts, or business-transaction boundaries. | Workflow, saga, or business-process progress over subsets of participants, steps, signals, and effects. |
-| Projection sheaf | Query contexts, API shapes, read-model schemas, report scopes, DTO fields, or consumer-visible view boundaries. | DTOs, read models, reports, materialized views, and API responses derived from state or evidence. |
-| Command sheaf | Transition contexts ordered by available state, authority, policy, version, boundary, and required observations. | Admissible transitions enabled by local state, policy, authority, and observed context. |
+| Projection sheaf | query contexts, API shapes, read-model schemas, report scopes, DTO fields, or consumer-visible view boundaries. | DTOs, read models, reports, materialized views, and API responses derived from state or evidence. |
+| Command sheaf | transition contexts ordered by available state, authority, policy, version, boundary, and required observations. | Admissible transitions enabled by local state, policy, authority, and observed context. |
 | Version sheaf | Stream prefixes, offsets, vector-clock regions, causal heads, replica views, or history positions ordered by causality. | Visible version identifiers, stream offsets, vector clocks, causal heads, or history positions over observers and cuts. |
 | Identity sheaf | Bounded contexts, identifier namespaces, entity-resolution scopes, account graphs, or subject-continuity regions. | Identifier correspondence, entity resolution, aliases, and subject continuity across observers or bounded contexts. |
 | Lineage sheaf | Derivation graphs, source scopes, transformation steps, causal dependency regions, or evidence chains. | Source records, derivation paths, causal dependencies, transformation history, and trust evidence for reconstructed views. |
-| Policy sheaf | Observer roles, tenants, jurisdictions, process phases, data classifications, or authority boundaries. | Local authorization, validation, routing, retention, or admissibility rules scoped by observer, boundary, tenant, or process phase. |
-| Invariant sheaf | Entity scopes, aggregate boundaries, relation scopes, process windows, or consistency-checking regions. | Constraints that can be checked locally, on overlaps, or only after gluing a larger context. |
+| Policy sheaf | observer roles, tenants, jurisdictions, process phases, data classifications, or authority boundaries. | Local authorization, validation, routing, retention, or admissibility rules scoped by observer, boundary, tenant, or process phase. |
+| Invariant sheaf | entity scopes, aggregate boundaries, relation scopes, process windows, or consistency-checking regions. | Constraints that can be checked locally, on overlaps, or only after gluing a larger context. |
 | Recovery sheaf | Failure domains, restart contexts, checkpoint intervals, retry scopes, compensation scopes, or durable log prefixes. | Checkpoints, logs, retry state, compensation state, and reconstitution material available over failure and restart contexts. |
-| Knowledge sheaf | Observers, principals, monitors, bounded contexts, evidence scopes, or epistemic accessibility relations. | What each observer can know, distinguish, trust, or prove from the evidence visible in its context. |
+| Knowledge sheaf | observers, principals, monitors, bounded contexts, evidence scopes, or epistemic accessibility relations. | What each observer can know, distinguish, trust, or prove from the evidence visible in its context. |
 
 Not every useful structure satisfies the sheaf condition. Some structures are only presheaves. Some glue only partially, only with coordination, or only up to [[Equivalence vs Equality|equivalence]]. Some require authority, lineage, time, ordering, or consensus before compatibility can be tested. Those failures are part of the model rather than defects in the vocabulary.
 
@@ -185,4 +185,4 @@ Not every useful structure satisfies the sheaf condition. Some structures are on
 - [Sheaf (mathematics)](https://en.wikipedia.org/wiki/Sheaf_%28mathematics%29), Wikipedia.
 - [sheaf](https://ncatlab.org/nlab/show/sheaf), nLab.
 
-Related concepts: [[Systems Sheaf Semantics]], [[Database Sheaf Semantics]], [[Categorical Principles]], [[Functoriality]], [[Naturality]], [[Universal Constructions]], [[Compositionality]], [[Equivalence vs Equality]], [[Observer]], [[Observation]], [[State]], [[Transition]], [[Event]], [[Behavior]], [[Version]], [[Process]], [[Command]], [[Projections]], [[Consistency Models]], [[Coordination]], [[Consensus]], [[Boundaries]].
+Related concepts: [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Compositionality|compositionality]], [[Equivalence vs Equality|equivalence vs equality]], [[Observer|observer]], [[Observation|observation]], [[State|state]], [[Transition|transition]], [[Event|event]], [[Behavior|behavior]], [[Version|version]], [[Process|process]], [[Command|command]], [[Projections|projections]], [[Consistency Models|consistency models]], [[Coordination|coordination]], [[Consensus|consensus]], [[Boundaries|boundaries]].

@@ -7,7 +7,7 @@ kind: operational-semantics
 
 Concurrency Control answers: how are conflicting attempts to change the same semantic subject constrained?
 
-In the model, commands may carry an expected version or etag: the [[Version]] of [[Entity]] state the [[Observer]] believed was current when it formulated the [[Command]].
+In the model, commands may carry an expected version or etag: the [[Version|version]] of [[Entity|entity]] state the [[Observer|observer]] believed was current when it formulated the [[Command|command]].
 
 Concurrency-control mechanisms include:
 
@@ -23,7 +23,7 @@ These mechanisms have different [[Progress Conditions|progress conditions]]. A l
 
 If an expected-version check fails, the attempted transition is rejected, no accepted state change occurs for the target entity, and the entity version remains unchanged.
 
-Entity transitions require the [[Observer]] that interprets the attempted transition to remain coherently aligned with the realization context that commits it. There are two common patterns:
+Entity transitions require the [[Observer|observer]] that interprets the attempted transition to remain coherently aligned with the realization context that commits it. There are two common patterns:
 
 - A serialized observer owns the transition boundary, such as an actor that hosts an entity and processes commands for that entity one at a time.
 - A temporary observer performs the operation, such as an HTTP request handler that loads entity state, interprets a command, and commits only if the expected version still matches.
@@ -38,6 +38,6 @@ A sequential entity behaves like a linear state machine: its endogenous events f
 
 Not all useful state machines are sequential. Git, for example, allows non-sequential state histories: commits form a directed acyclic graph, branches name different heads, and merges explicitly combine histories. In that model, concurrency control is not merely "is the current version still V?" It asks whether the proposed successor is based on acceptable parent states, whether a reference may advance, and whether concurrent heads must be rejected, merged, or preserved.
 
-Event schedules and state histories are therefore related by [[Event-State Duality]], but not interchangeable. A linear entity history can be represented as alternating events and state versions. A non-sequential history may require partial orders, parent links, branch heads, merge events, patch residuals, or conflict records. The concurrency mechanism must match the history shape the system intends to preserve.
+Event schedules and state histories are therefore related by [[Event-State Duality|event-state duality]], but not interchangeable. A linear entity history can be represented as alternating events and state versions. A non-sequential history may require partial orders, parent links, branch heads, merge events, patch residuals, or conflict records. The concurrency mechanism must match the history shape the system intends to preserve.
 
-Related concepts: [[Command]], [[Transition]], [[Version]], [[Version Histories]], [[Consistency Models]], [[Progress Conditions]], [[Isolation]], [[ACID]], [[Weak Isolation Patterns]], [[Entity]], [[Event]], [[State]], [[Event-State Duality]], [[Event Sourcing]], [[CRDTs]], [[Behavior]], [[Realization]], [[Ordering]], [[Actor Systems]], [[Storage Systems]].
+Related concepts: [[Command|command]], [[Transition|transition]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Isolation|isolation]], [[ACID]], [[Weak Isolation Patterns|weak isolation patterns]], [[Entity|entity]], [[Event|event]], [[State|state]], [[Event-State Duality|event-state duality]], [[Event Sourcing|event sourcing]], [[CRDTs]], [[Behavior|behavior]], [[Realization|realization]], [[Ordering|ordering]], [[Actor Systems|actor systems]], [[Storage Systems|storage systems]].

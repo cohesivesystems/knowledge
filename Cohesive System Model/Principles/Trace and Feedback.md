@@ -3,7 +3,7 @@ realm: Principles
 kind: principle
 ---
 
-# Trace And Feedback
+# Trace and Feedback
 
 Trace and feedback describe systems where outputs are fed back as future inputs.
 
@@ -19,7 +19,7 @@ Feedback questions:
 
 Examples:
 
-- An endogenous event emitted by one [[Observer]] becomes an exogenous event for another.
+- An endogenous event emitted by one [[Observer|observer]] becomes an exogenous event for another.
 - A process observes an event and emits a command that later produces another event.
 - A projection feeds a decision process, which emits commands that affect future projection state.
 - Retry and recovery loops re-drive incomplete work.
@@ -27,4 +27,4 @@ Examples:
 
 Feedback must be modeled with boundaries, ordering, idempotency, and recovery semantics. Otherwise the system may accidentally turn a legitimate loop into duplicate effects, livelock, or uncontrolled amplification.
 
-Related concepts: [[Behavior]], [[Flows]], [[Processes]], [[Observer]], [[Event]], [[Command]], [[Retry]], [[Recovery]], [[Rate Limiting]], [[Fixed Points and Recursion]].
+Related concepts: [[Behavior|behavior]], [[Flows|flows]], [[Processes|processes]], [[Observer|observer]], [[Event|event]], [[Command|command]], [[Retry|retry]], [[Recovery|recovery]], [[Rate Limiting|rate limiting]], [[Fixed Points and Recursion|fixed points and recursion]].

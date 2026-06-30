@@ -13,7 +13,7 @@ Clean Architecture can be expressed as a separation between semantic dynamics, s
 
 The domain core defines entities, values, transitions, invariants, policies, and events. Outer layers realize interaction, persistence, reconstitution, protocols, and application hosting.
 
-## Practice Interpretation
+## In the Model
 
 The dependency rule says that substrate choices should realize semantic roles without defining them. A database, web framework, broker, or UI can realize an observer or interaction edge, but it should not determine the meaning of entity state, command interpretation, or invariant scope.
 
@@ -21,4 +21,4 @@ The dependency rule says that substrate choices should realize semantic roles wi
 
 The pattern fails when layer names replace boundary definitions, when DTOs become the domain model, or when framework lifecycle and storage shape determine semantic behavior.
 
-Related concepts: [[Realization]], [[Application Hosts]], [[Storage Systems]], [[Network]], [[Functoriality]], [[Ports and Adapters]].
+Related concepts: [[Realization|realization]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Network|network]], [[Functoriality|functoriality]], [[Ports and Adapters|ports and adapters]].

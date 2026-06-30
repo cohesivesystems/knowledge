@@ -26,11 +26,11 @@ Describe modeling disciplines used across the system model.
 - [[Asynchronous Computability Theorem]]
 - [[Functoriality]]
 - [[Naturality]]
-- [[Duality and Symmetry]], [[Event-State Duality]], [[Synchrony and Asynchrony]]
+- [[Duality and Symmetry]], [[Event-State Duality|event-state duality]], [[Synchrony and Asynchrony|synchrony and asynchrony]]
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
-- [[Monads Monoids and Duals]], [[Algebras and Coalgebras]], [[Yoneda Lemma]], [[Adjunctions]]
-- [[Fibrations and Indexed Structure]], [[Systems Sheaf Semantics]], [[Database Sheaf Semantics]], [[Fixed Points and Recursion]], [[Enrichment and Order]], [[Optics and Lenses]], [[Trace and Feedback]]
+- [[Monads Monoids and Duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Yoneda Lemma|Yoneda lemma]], [[Adjunctions|adjunctions]]
+- [[Fibrations and Indexed Structure]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Fixed Points and Recursion|fixed points and recursion]], [[Enrichment and Order|enrichment and order]], [[Optics and Lenses|optics and lenses]], [[Trace and Feedback|trace and feedback]]
 
 ### 1. Semantic Dynamics
 
@@ -65,11 +65,11 @@ Describes how semantic dynamics are made executable and reliable.
 - [[Commit Boundaries]]
 - [[Coordination]]  
 - [[Consensus]]
-- [[Safety and Liveness]], [[Progress Conditions]], [[CAP Theorem]]
+- [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[CAP Theorem|CAP theorem]]
 - [[Durable Execution]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
-- [[ACID]], [[Two-Phase Commit]], [[Weak Isolation Patterns]]
+- [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]]
 - [[Dual-Write Problem]]
 - [[Version Histories]]
 - [[Consistency Models]]  
@@ -118,131 +118,131 @@ Provides concrete mechanisms.
 Contextualizes named architecture practices as cross-realm bundles of problems, constraints, and realization choices.
 
 - [[Architecture Practices]]
-- [[Domain-Driven Design]], [[Ports and Adapters]], [[Clean Architecture]]
-- [[Modular Monolith]], [[Microservices]], [[Event-Driven Architecture]]
-- [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice]]
-- [[Sagas and Process Managers]], [[Actor Model]], [[Anti-Corruption Layer]]
-- [[Transactional Outbox]], [[Transactional Inbox]], [[Weak Isolation Patterns as Architecture Practice]], [[CRDTs as Architecture Practice]], [[Data Mesh]]
+- [[Domain-Driven Design]], [[Ports and Adapters|ports and adapters]], [[Clean Architecture|clean architecture]]
+- [[Modular Monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]]
+- [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
+- [[Sagas and Process Managers]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
+- [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
 
 ## Semantic Dynamics
 
 ### State
 
-A **[[State]]** is the condition or configuration of a subject within a model [[Boundaries|boundary]]. It represents what *is*, relative to a subject, boundary, [[Shape|shape]], and time or version.
+A **[[State|state]]** is the condition or configuration of a subject within a model [[Boundaries|boundary]]. It represents what *is*, relative to a subject, boundary, [[Shape|shape]], and time or version.
 
-State is not the same thing as the [[Value|value]] used to read, write, transmit, or compare it. State becomes usable through values and contextualized **[[Observation|Observations]]** produced by [[Observable|observables]].
+State is not the same thing as the [[Value|value]] used to read, write, transmit, or compare it. State becomes usable through values and contextualized **[[Observation|observations]]** produced by [[Observable|observables]].
 
-State does not inherently carry [[Identity]], [[Version]], or lineage. For an [[Entity]], entity state is state attributed to an [[Identity]] at a [[Version]].
+State does not inherently carry [[Identity|identity]], [[Version|version]], or lineage. For an [[Entity|entity]], entity state is state attributed to an [[Identity|identity]] at a [[Version|version]].
 
-In [[Event-State Duality]]:
+In [[Event-State Duality|event-state duality]]:
 - [[Event|Events]] carry time and change information.  
 - States carry information and become current at a specific version/time.
 
-For a sequential entity, State at Version *V* is the result of applying the Event that produced version *V*. [[Event-State Duality]] does not imply isomorphism: event histories and state histories are dual views of [[Behavior]], not interchangeable representations.
+For a sequential entity, state at version *V* is the result of applying the event that produced version *V*. [[Event-State Duality]] does not imply isomorphism: event histories and state histories are dual views of [[Behavior|behavior]], not interchangeable representations.
 
 ### Value
 
-A **[[Value]]** is pure structured data. It is the concrete information used to read, write, transmit, compare, validate, transform, or carry state.
+A **[[Value|value]]** is pure structured data. It is the concrete information used to read, write, transmit, compare, validate, transform, or carry state.
 
-Values are identity-free, version-free, lineage-free, and timeless. A Value may be empty, scalar, or composite. It may be understood through a [[Shape|shape]] and represented as a record, map, array, vector, bytes, dictionary-backed object, ordinal layout, sparse buffer, packed presence bits, columnar storage, or struct-of-arrays storage.
+Values are identity-free, version-free, lineage-free, and timeless. A value may be empty, scalar, or composite. It may be understood through a [[Shape|shape]] and represented as a record, map, array, vector, bytes, dictionary-backed object, ordinal layout, sparse buffer, packed presence bits, columnar storage, or struct-of-arrays storage.
 
 Representation is not semantic identity. Two values with the same logical content are the same value even if their physical representations differ.
 
 ### Shape
 
-A [[Shape]] is the logical structure expected of a [[Value]], [[Observation]], state view, event payload, command input, query result, or projection result within a model [[Boundaries|boundary]].
+A [[Shape|shape]] is the logical structure expected of a [[Value|value]], [[Observation|observation]], state view, event payload, command input, query result, or projection result within a model [[Boundaries|boundary]].
 
 Shape is distinct from both value and representation. A value is the concrete structured data. A representation is the physical or substrate form. Shape is the declared structure under which the value can be interpreted, validated, compared, transformed, observed, or transmitted.
 
 ### Observable
 
-An [[Observable]] is a probe, projection, measurement, or accessor that produces an Observation from State.
+An [[Observable|observable]] is a probe, projection, measurement, or accessor that produces an observation from state.
 
-Observables define how State becomes visible to an [[Observer]]. Different Observables may produce different Observations from the same underlying State.
+Observables define how state becomes visible to an [[Observer|observer]]. Different observables may produce different observations from the same underlying state.
 
-The current state of an [[Entity]] is not itself an Observable; it is State. The accessor, [[Reconstitution|reconstitution]] procedure, projection, cache read, or subscription that exposes that current state is a current-state Observable, producing an entity-scoped Observation at a declared boundary, version, and consistency expectation.
+The current state of an [[Entity|entity]] is not itself an observable; it is state. The accessor, [[Reconstitution|reconstitution]] procedure, projection, cache read, or subscription that exposes that current state is a current-state observable, producing an entity-scoped observation at a declared boundary, version, and consistency expectation.
 
 Observables include field accessors, read models, metrics, sensors, UI views, policy-shaped views, derived computations, and stream subscriptions. Reactive-programming observables are one operational realization when they emit observations of state; physics offers a useful informal analogy in which an observable names what can be measured rather than the state itself.
 
 ### Observation
 
-An **[[Observation]]** is a contextualized [[Value|value]] produced by an observable acting on State. It is the form in which state becomes usable by an [[Observer]] relative to a [[Boundaries|boundary]].
+An **[[Observation|observation]]** is a contextualized [[Value|value]] produced by an observable acting on state. It is the form in which state becomes usable by an [[Observer|observer]] relative to a [[Boundaries|boundary]].
 
-An Observation has:
+An observation has:
 - A **[[Value|value]]** (scalar, array, vector, map, record, bytes, null, or another composite)
 - A **[[Shape|shape]] or representation** (schema, projection, record layout, or optimized internal buffer)
 - A **subject, source, or address** indicating what state the value was read from or derived from
 - Optional **context** such as version, observer, source, and field-level lineage
 
-The value inside an Observation is identity-free, version-free, lineage-free, and timeless. Observation metadata supplies attribution and provenance when correctness requires it. Observations do not carry intrinsic occurrence time; time and occurrence belong to Events.
+The value inside an observation is identity-free, version-free, lineage-free, and timeless. Observation metadata supplies attribution and provenance when correctness requires it. Observations do not carry intrinsic occurrence time; time and occurrence belong to events.
 
-When an Entity is [[Reconstitution|reconstituted]], its current State is delivered as an entity-scoped Observation. [[Command|Commands]] are validated against observations of current entity state, related state, policy state, and environmental state. [[Query|Queries]] request observations or values from state, projections, read models, or computations.
+When an entity is [[Reconstitution|reconstituted]], its current state is delivered as an entity-scoped observation. [[Command|Commands]] are validated against observations of current entity state, related state, policy state, and environmental state. [[Query|Queries]] request observations or values from state, projections, read models, or computations.
 
-Entity state is a specialized Observation whose subject is an Entity.
+Entity state is a specialized observation whose subject is an entity.
 
 ### Event
 
-An [[Event]] is a time-bearing occurrence with a [[Value|value]]. It marks, reports, or induces change depending on how it is interpreted by an [[Observer]] relative to a [[Boundaries|boundary]].
+An [[Event|event]] is a time-bearing occurrence with a [[Value|value]]. It marks, reports, or induces change depending on how it is interpreted by an [[Observer|observer]] relative to a [[Boundaries|boundary]].
 
 Structurally, an event is a value with occurrence. Semantically, an event may be exogenous, input, command-bearing, query-bearing, endogenous, or output depending on the observer [[Boundaries|boundary]].
 
 ### Behavior
 
-[[Behavior]] is a time-varying [[Value|value]]: a trajectory through state space. For an Entity, behavior can be viewed as both an event schedule and a state history.
+[[Behavior]] is a time-varying [[Value|value]]: a trajectory through state space. For an entity, behavior can be viewed as both an event schedule and a state history.
 
 ### Process
 
-A [[Process]] is coherent work unfolding over time. It gives semantic unity to related observations, commands, queries, events, transitions, decisions, effects, artifacts, and participant activity.
+A [[Process|process]] is coherent work unfolding over time. It gives semantic unity to related observations, commands, queries, events, transitions, decisions, effects, artifacts, and participant activity.
 
-A Process is not defined by a workflow engine, scheduler, thread, transaction manager, application host, or broker. Those mechanisms may realize a Process, execute one activation of it, or host one step of it. The semantic Process is defined by its subject or correlation identity, participants, inputs, decisions, state or history, effects, completion meanings, and flows of movement between participants.
+A process is not defined by a workflow engine, scheduler, thread, transaction manager, application host, or broker. Those mechanisms may realize a process, execute one activation of it, or host one step of it. The semantic process is defined by its subject or correlation identity, participants, inputs, decisions, state or history, effects, completion meanings, and flows of movement between participants.
 
 Processes compose when the outputs of one process become future inputs to another. Compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
 
 ### Observer
 
-An [[Observer]] is a locus of interpretation: the participant, context, or execution locus relative to which values, observations, events, commands, queries, boundaries, and state acquire meaning. Every runtime participant is a potential Observer, but an Observer is realized only when a context supplies boundary, state view, authority, and interpretation rules.
+An [[Observer|observer]] is a locus of interpretation: the participant, context, or execution locus relative to which values, observations, events, commands, queries, boundaries, and state acquire meaning. Every runtime participant is a potential observer, but an observer is realized only when a context supplies boundary, state view, authority, and interpretation rules.
 
-An Observer is characterized by:  
-- Its own **[[Identity]]** (distinct from Entity identities)  
+An observer is characterized by:
+- Its own **[[Identity|identity]]** (distinct from entity identities)
 - Its own **[[Boundaries|boundary]]**  
 - A realization context or logical execution context in which interpretation occurs
-- The ability to observe observables, producing **Observations** of State  
-- The ability to host, observe, route, or project **Entities** and their **Events** within its [[Boundaries|boundary]]
-- The ability to receive events from other Observers as **exogenous events**
+- The ability to observe observables, producing **observations** of state
+- The ability to host, observe, route, or project **entities** and their **events** within its [[Boundaries|boundary]]
+- The ability to receive events from other observers as **exogenous events**
 
-Addressability of an Observer is an operational concern (part of [[Interaction]] and [[Delivery Semantics]]), not intrinsic to the definition. Some Observers have globally addressable identities, such as actors. Others have transient or local identities, such as a request handler or logical execution context created for one operation.
+Addressability of an observer is an operational concern (part of [[Interaction|interaction]] and [[Delivery Semantics|delivery semantics]]), not intrinsic to the definition. Some observers have globally addressable identities, such as actors. Others have transient or local identities, such as a request handler or logical execution context created for one operation.
 
-An Observer may be realized by an OS thread, logical thread, fiber, coroutine, task, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler. In green-thread, fiber, or async runtimes, the Observer follows the logical execution context governed by a scheduler, not necessarily the OS thread.
+An observer may be realized by an OS thread, logical thread, fiber, coroutine, task, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler. In green-thread, fiber, or async runtimes, the observer follows the logical execution context governed by a scheduler, not necessarily the OS thread.
 
-Actor systems make Observers addressable: an actor address gives other Observers a delivery path to a receiving Observer boundary. Entities and [[Process|processes]] can also be modeled as Observers when they interpret inputs relative to their own state, history, policies, and boundary.
+Actor systems make observers addressable: an actor address gives other observers a delivery path to a receiving observer boundary. Entities and [[Process|processes]] can also be modeled as observers when they interpret inputs relative to their own state, history, policies, and boundary.
 
-An endogenous event emitted inside one Observer’s [[Boundaries|boundary]] can be observed as an exogenous event by another Observer.
+An endogenous event emitted inside one observer’s [[Boundaries|boundary]] can be observed as an exogenous event by another observer.
 
-Commands and queries are **observer-relative interpretations**: the same incoming [[Value|value]] or event may be interpreted differently (or rejected) depending on the Observer’s current view of Entity state, projections, required observations, [[Invariants|invariants]], [[Policies|policies]], authority, and consistency expectations.
+Commands and queries are **observer-relative interpretations**: the same incoming [[Value|value]] or event may be interpreted differently (or rejected) depending on the observer’s current view of entity state, projections, required observations, [[Invariants|invariants]], [[Policies|policies]], authority, and consistency expectations.
 
 ### Entity
 
-An [[Entity]] is an enduring, identifiable subject whose state evolves over time under controlled transitions.
+An [[Entity|entity]] is an enduring, identifiable subject whose state evolves over time under controlled transitions.
 
-An Entity is defined by:
-- A stable **Identity** that persists across its lifetime
-- A **family of entity-state Observations** across time, indexed by Version
-- A **current State** at any point in time, attributed to Identity + Version
+An entity is defined by:
+- A stable **identity** that persists across its lifetime
+- A **family of entity-state observations** across time, indexed by version
+- A **current state** at any point in time, attributed to identity + version
 - **[[Transition|Transitions]]** that define how its state may change
-- **[[Invariants]]** and **[[Policies]]** that constrain valid changes
-- **[[Effects]]**, primarily the endogenous Events it produces when transitions are committed
+- **[[Invariants]]** and **[[Policies|policies]]** that constrain valid changes
+- **[[Effects]]**, primarily the endogenous events it produces when transitions are committed
 
-An Entity is therefore State + Identity + Version history + transitions + invariants + policies + effects.
+An entity is therefore state + identity + version history + transitions + invariants + policies + effects.
 
 Entity state is a specialized observation: a shaped [[Value|value]] attributed to an entity identity at a version. It may be complete or partial only relative to a declared [[Shape|shape]], projection, transition, or [[Boundaries|boundary]]. Related entities, policies, projections, and environmental facts that affect a transition belong to the transition context, not automatically to the entity's own state.
 
-Identity is what allows a sequence of state Observations to be understood as successive versions of *the same thing*.
+Identity is what allows a sequence of state observations to be understood as successive versions of *the same thing*.
 
-An Entity is not automatically an Observer, but it may be modeled or realized as one when it interprets inputs relative to its own state and boundary. Correct entity transitions require the interpreting Observer to remain aligned with the realization context that commits the transition: actor hosting can provide this through serialized message handling, while stateless request handlers usually require expected-version checks.
+An entity is not automatically an observer, but it may be modeled or realized as one when it interprets inputs relative to its own state and boundary. Correct entity transitions require the interpreting observer to remain aligned with the realization context that commits the transition: actor hosting can provide this through serialized message handling, while stateless request handlers usually require expected-version checks.
 
 ### Command
 
-A [[Command]] is an observer-relative interpretation of an input event or incoming [[Value|value]] as an attempted transition.
+A [[Command|command]] is an observer-relative interpretation of an input event or incoming [[Value|value]] as an attempted transition.
 
 ```txt
 Exogenous event
@@ -252,16 +252,16 @@ Exogenous event
   -> endogenous event | nil
 ```
 
-Commands are not mere messages. They are interpretations made relative to:  
-- The specific Observer  
-- The Observer’s [[Boundaries|boundary]] and current view of state
+Commands are not mere messages. They are interpretations made relative to:
+- The specific observer
+- The observer’s [[Boundaries|boundary]] and current view of state
 - Authority, invariants, and policies  
 - The intended transition  
-- An optional expected version / etag (the version of Entity state the Observer believed was current when formulating the command)
+- An optional expected version / etag (the version of entity state the observer believed was current when formulating the command)
 
 ### Query
 
-A [[Query]] is an observer-relative interpretation of an input event, request, or incoming [[Value|value]] as a request to observe, compute, or return information without requesting a modeled semantic state transition.
+A [[Query|query]] is an observer-relative interpretation of an input event, request, or incoming [[Value|value]] as a request to observe, compute, or return information without requesting a modeled semantic state transition.
 
 ```txt
 Exogenous event or incoming value
@@ -272,9 +272,9 @@ Exogenous event or incoming value
 ```
 
 Queries are not mere messages. They are interpretations made relative to:
-- The specific Observer
-- The Observer's [[Boundaries|boundary]] and current view of state
-- The requested [[Observable]], projection, read model, or computation
+- The specific observer
+- The observer's [[Boundaries|boundary]] and current view of state
+- The requested [[Observable|observable]], projection, read model, or computation
 - Authority, access policy, and disclosure rules
 - Freshness, ordering, and consistency expectations
 
@@ -301,22 +301,22 @@ Behavior -> Events
 - Event history
 - Behavior samples
 - [[Workflow Engines|Workflow]] history
-- [[Projections|Projection]] state (derived Observations)
+- [[Projections|Projection]] state (derived observations)
 - Derived observations
 
 ## Exogenous and Endogenous Events
 
-Relative to an **Observer’s [[Boundaries|boundary]]**:
+Relative to an **observer’s [[Boundaries|boundary]]**:
 
-- **Exogenous event**: An event arriving from outside the Observer’s [[Boundaries|boundary]]. It may originate from another Observer’s endogenous event, a runtime, a clock, a user, a sensor, or the external environment.
-- **Input event**: An exogenous event in the role of entering the Observer [[Boundaries|boundary]].
+- **Exogenous event**: An event arriving from outside the observer’s [[Boundaries|boundary]]. It may originate from another observer’s endogenous event, a runtime, a clock, a user, a sensor, or the external environment.
+- **Input event**: An exogenous event in the role of entering the observer [[Boundaries|boundary]].
 - **Command**: An input event interpreted as an attempted transition for a target subject.
 - **Query**: An input event or incoming value interpreted as a request to observe, compute, or return information without requesting a modeled semantic state transition.
-- **Endogenous event**: An event committed within the Observer’s own semantic history (emitted by an Entity it hosts).
+- **Endogenous event**: An event committed within the observer’s own semantic history (emitted by an entity it hosts).
 - **Output event**: An endogenous event emitted across a [[Boundaries|boundary]].
-- **Nil endogenous event**: The Observer observed the input but no domain transition event was committed for the target Entity (version unchanged).
+- **Nil endogenous event**: The observer observed the input but no domain transition event was committed for the target entity (version unchanged).
 
-Some systems may still record rejection, audit, telemetry, or diagnostic events when interpretation yields `nil`. Those records are operational traces or events for another subject, not a committed domain transition for the target Entity.
+Some systems may still record rejection, audit, telemetry, or diagnostic events when interpretation yields `nil`. Those records are operational traces or events for another subject, not a committed domain transition for the target entity.
 
 Interpretation flow:
 
@@ -335,16 +335,16 @@ Examples of `nil`:
 - Version conflict (expected version mismatch)  
 - Telemetry-only or correlation-only signal
 
-One Observer’s endogenous event may become another Observer’s exogenous event.
+One observer’s endogenous event may become another observer’s exogenous event.
 
 ## Commands (Expanded Flow with Versioning)
 
-A Command carries an optional **expected version / etag** — the version of Entity state the Observer believed was current when it decided to issue the command.
+A command carries an optional **expected version / etag** — the version of entity state the observer believed was current when it decided to issue the command.
 
-The entity transition runtime, aligned with the interpreting Observer, performs:
+The entity transition runtime, aligned with the interpreting observer, performs:
 - Validation against current entity state + required observations + invariants + policies
 - [[Concurrency Control|Expected version check]] (if provided)
-- Decision: commit endogenous Event → new State Version, or reject → `nil` (version unchanged)
+- Decision: commit endogenous event → new state version, or reject → `nil` (version unchanged)
 
 ## Operational Semantics
 
@@ -375,7 +375,7 @@ How is usable state recovered?
 
 ### Interaction
 
-How do Observers address, observe, notify, or invoke one another?
+How do observers address, observe, notify, or invoke one another?
 
 - One-way send
 - Request/reply
@@ -398,7 +398,7 @@ What guarantees does an interaction edge provide?
 
 ### Coordination
 
-How is multi-step or multi-participant work made coherent across Observers?
+How is multi-step or multi-participant work made coherent across observers?
 
 - Local transaction  
 - Distributed transaction / [[Transactional Outbox|transactional outbox]]
@@ -432,21 +432,21 @@ What constrains execution?
 
 ## Protocol Layering and Space
 
-Guarantees are always relative to a semantic space and an Observer’s [[Boundaries|boundary]].
+Guarantees are always relative to a semantic space and an observer’s [[Boundaries|boundary]].
 
-- **Addressing space**: What kind of thing is addressed? (Entity, Observer, actor, etc.)  
-- **Message space**: What unit is delivered or interpreted? (Observation, Event, Command, Query)
+- **Addressing space**: What kind of thing is addressed? (Entity, observer, actor, etc.)
+- **Message space**: What unit is delivered or interpreted? (Observation, event, command, query)
 - **[[Acknowledgments|Acknowledgment]] space**: What has actually been accepted, persisted, processed, or committed?
 - **[[Ordering|Ordering space]]**: Ordered relative to which key, stream, partition, actor, or transaction?  
 - **Failure space**: What [[Boundaries|boundary]] can fail independently?
 
-None of these automatically mean “the business transition committed” unless the Observer’s application semantics define that [[Boundaries|boundary]].
+None of these automatically mean “the business transition committed” unless the observer’s application semantics define that [[Boundaries|boundary]].
 
 ## Runtime
 
 [[Realization]] is the relation by which semantic dynamics, system structure, and operational semantics are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Durable Execution Engines|durable execution engine]], [[Brokers|broker]], or database can realize operational semantics, but the semantics should be described separately from any specific runtime.
 
-Different runtimes realize Observers differently (e.g., actor placement and supervision vs. HTTP request pipeline), while the semantic model (Observer, Entity, Observation, Event, Command, Query) remains consistent. In async, fiber, or green-thread runtimes, the Observer follows the logical execution context rather than a fixed OS thread.
+Different runtimes realize observers differently (e.g., actor placement and supervision vs. HTTP request pipeline), while the semantic model (observer, entity, observation, event, command, query) remains consistent. In async, fiber, or green-thread runtimes, the observer follows the logical execution context rather than a fixed OS thread.
 
 ## Cohesive Role
 
@@ -459,6 +459,6 @@ Semantic dynamics (State, Observation, Event, Observer, Entity, Command, Query, 
   -> Realization substrate (Realization, Compute, Runtimes, Network, Storage, Workflow engines, Durable execution engines, Actor systems, ...)
 ```
 
-It lets a domain be modeled in terms of entities, observers, states, observations, events, commands, queries, relations, and flows, then projects those primitives into operational systems running on existing infrastructure while maintaining semantic fidelity across layers and across different Observers.
+It lets a domain be modeled in terms of entities, observers, states, observations, events, commands, queries, relations, and flows, then projects those primitives into operational systems running on existing infrastructure while maintaining semantic fidelity across layers and across different observers.
 
 [[Architecture Practices]] contextualize named industry patterns and methodologies as cross-realm bundles of problems, constraints, and realization choices expressible in Cohesive terms.

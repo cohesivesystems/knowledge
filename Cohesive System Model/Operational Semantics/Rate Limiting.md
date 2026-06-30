@@ -19,4 +19,4 @@ A rate limit should define:
 
 Rate limiting often appears with backpressure, retry, queueing, and admission control.
 
-Related concepts: [[Retry]], [[Ordering]], [[Recovery]], [[Interaction]], [[Brokers]], [[Application Hosts]].
+Related concepts: [[Retry|retry]], [[Ordering|ordering]], [[Recovery|recovery]], [[Interaction|interaction]], [[Brokers|brokers]], [[Application Hosts|application hosts]].

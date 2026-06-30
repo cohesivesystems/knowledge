@@ -5,17 +5,17 @@ kind: semantic-construct
 
 # Observer
 
-An Observer is a locus of interpretation. It is the participant, context, or execution locus relative to which [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], [[Query|queries]], [[Boundaries|boundaries]], and [[State|state]] acquire meaning.
+An observer is a locus of interpretation. It is the participant, context, or execution locus relative to which [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], [[Query|queries]], [[Boundaries|boundaries]], and [[State|state]] acquire meaning.
 
 Every runtime participant is a potential observer, but an observer is not defined by a particular substrate mechanism. It is realized when some execution context supplies the boundary, state view, authority, and interpretation rules needed to observe and act.
 
 An observer is characterized by:
 
-- Its own [[Identity]], distinct from entity identities.
+- Its own [[Identity|identity]], distinct from entity identities.
 - Its own [[Boundaries|boundary]].
 - A realization context or logical execution context in which interpretation occurs.
-- The ability to observe observables, producing [[Observation|Observations]] of [[State]].
-- The ability to host, observe, route, or project [[Entity|Entities]] and their [[Event|Events]] within its boundary.
+- The ability to observe observables, producing [[Observation|observations]] of [[State|state]].
+- The ability to host, observe, route, or project [[Entity|entities]] and their [[Event|events]] within its boundary.
 - The ability to receive events from other observers as exogenous events.
 
 An observer may be realized by an OS thread, logical thread, fiber, coroutine, task, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler. In green-thread, fiber, or async runtimes, the observer follows the logical execution context managed by a scheduler, not necessarily the OS thread on which code happens to run.
@@ -30,4 +30,4 @@ One observer's endogenous event may become another observer's exogenous event.
 
 [[Command|Commands]] and [[Query|queries]] are observer-relative interpretations. The same incoming observation may be interpreted differently or rejected depending on the observer's current view of entity state, projections, invariants, policies, authority, and consistency expectations.
 
-Related concepts: [[Observation]], [[Event]], [[Command]], [[Query]], [[Entity]], [[Process]], [[Boundaries]], [[Realization]], [[Interaction]], [[Delivery Semantics]], [[Concurrency Control]], [[Actor Systems]], [[Runtimes]].
+Related concepts: [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Entity|entity]], [[Process|process]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]].

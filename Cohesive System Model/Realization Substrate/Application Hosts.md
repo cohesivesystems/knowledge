@@ -19,10 +19,10 @@ Application hosts commonly provide:
 - Health checks.
 - Graceful shutdown and restart behavior.
 
-In the model, an application host is a concrete [[Realization|realization]] mechanism for one or more [[Observer|Observers]] and their interaction edges.
+In the model, an application host is a concrete [[Realization|realization]] mechanism for one or more [[Observer|observers]] and their interaction edges.
 
-In stateless web hosts, a request handler often realizes a short-lived observer for one operation. It may load an entity state observation, interpret an input as a command, and attempt a transition, but it usually does not own the entity's transition boundary across requests. Correctness therefore depends on explicit [[Concurrency Control]], such as expected-version checks, rather than on the request observer itself.
+In stateless web hosts, a request handler often realizes a short-lived observer for one operation. It may load an entity state observation, interpret an input as a command, and attempt a transition, but it usually does not own the entity's transition boundary across requests. Correctness therefore depends on explicit [[Concurrency Control|concurrency control]], such as expected-version checks, rather than on the request observer itself.
 
 Session affinity can preserve locality for cached state or repeated interactions, but it does not by itself provide exclusive transition ownership unless the host also guarantees serialized access to the entity boundary.
 
-Related concepts: [[Realization]], [[Runtimes]], [[Observer]], [[Entity]], [[Interaction]], [[Network]], [[Compute]], [[Infrastructure]], [[Concurrency Control]].
+Related concepts: [[Realization|realization]], [[Runtimes|runtimes]], [[Observer|observer]], [[Entity|entity]], [[Interaction|interaction]], [[Network|network]], [[Compute|compute]], [[Infrastructure|infrastructure]], [[Concurrency Control|concurrency control]].

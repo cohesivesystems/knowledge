@@ -38,4 +38,4 @@ Some well-known patterns & practices:
 - [[CRDTs as Architecture Practice]]
 - [[Data Mesh]]
 
-Related concepts: [[Categorical Principles]], [[Stuff Structure Property]], [[Boundaries]], [[Observer]], [[Entity]], [[Transition]], [[Persistence]], [[Reconstitution]], [[Effects]], [[Commit Boundaries]], [[Realization]].
+Related concepts: [[Categorical Principles|categorical principles]], [[Stuff Structure Property|stuff structure property]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].

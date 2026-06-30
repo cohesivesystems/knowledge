@@ -5,9 +5,9 @@ kind: principle
 
 # Asynchronous Computability Theorem
 
-The Asynchronous Computability Theorem characterizes which distributed tasks can be solved wait-free in an asynchronous read/write system.
+The asynchronous computability theorem characterizes which distributed tasks can be solved wait-free in an asynchronous read/write system.
 
-Where [[Progress Conditions|wait-free synchronization]] classifies the power of shared objects through consensus numbers, the Asynchronous Computability Theorem gives a topological model of task solvability. It represents distributed configurations as simplicial complexes and solvability as the existence of an appropriate map between those complexes.
+Where [[Progress Conditions|wait-free synchronization]] classifies the power of shared objects through consensus numbers, the asynchronous computability theorem gives a topological model of task solvability. It represents distributed configurations as simplicial complexes and solvability as the existence of an appropriate map between those complexes.
 
 A distributed task is modeled by:
 
@@ -27,12 +27,12 @@ The model does not require wall-clock time as a primitive. Time is displaced int
 
 ## Relationship to Consensus
 
-The theorem provides a formal account of why [[Consensus]] cannot be solved wait-free in the basic asynchronous read/write model for more than one process. This is adjacent to, but distinct from, FLP:
+The theorem provides a formal account of why [[Consensus|consensus]] cannot be solved wait-free in the basic asynchronous read/write model for more than one process. This is adjacent to, but distinct from, FLP:
 
 - FLP concerns deterministic message-passing consensus with crash failures and shows that termination cannot be guaranteed in a fully asynchronous system with one faulty process.
-- The Asynchronous Computability Theorem concerns wait-free task solvability and describes the topological obstruction in the read/write model.
+- The asynchronous computability theorem concerns wait-free task solvability and describes the topological obstruction in the read/write model.
 
-Both results connect [[Safety and Liveness]] to model structure. Consensus safety can be stated, but the progress condition cannot be satisfied under the stated assumptions.
+Both results connect [[Safety and Liveness|safety and liveness]] to model structure. Consensus safety can be stated, but the progress condition cannot be satisfied under the stated assumptions.
 
 ## External References
 
@@ -40,4 +40,4 @@ Both results connect [[Safety and Liveness]] to model structure. Consensus safet
 - Maurice Herlihy and Nir Shavit, [The Topological Structure of Asynchronous Computability](https://cs.brown.edu/people/mph/HerlihyS99/p858-herlihy.pdf), Journal of the ACM, 46(6):858-923, November 1999.
 - Leo Gorodinski, [The Asynchronous Computability Theorem](https://medium.com/@eulerfx/the-asynchronous-computability-theorem-171e9d7b9423), 2019.
 
-Related concepts: [[Progress Conditions]], [[Consensus]], [[Safety and Liveness]], [[Coordination]], [[CALM Theorem]], [[Universal Constructions]], [[Compositionality]], [[Enrichment and Order]], [[State]], [[Observation]], [[Process]].
+Related concepts: [[Progress Conditions|progress conditions]], [[Consensus|consensus]], [[Safety and Liveness|safety and liveness]], [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Universal Constructions|universal constructions]], [[Compositionality|compositionality]], [[Enrichment and Order|enrichment and order]], [[State|state]], [[Observation|observation]], [[Process|process]].

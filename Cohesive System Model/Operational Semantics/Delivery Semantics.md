@@ -25,4 +25,4 @@ The meaning of an [[Acknowledgments|acknowledgment]] must be defined explicitly.
 
 Delivery semantics are one way [[Synchrony and Asynchrony|asynchronous]] interaction gains stronger structure. Ordered delivery, durable delivery, acknowledgment, replay, and deduplication do not necessarily make the interaction synchronous, but they define which independent occurrences are later related, joined, or observed as coherent.
 
-Related concepts: [[Interaction]], [[Acknowledgments]], [[Ordering]], [[Commit Boundaries]], [[Effects]], [[Idempotency]], [[Recovery]], [[CRDTs]], [[Synchrony and Asynchrony]], [[Observer]], [[Brokers]], [[Network]].
+Related concepts: [[Interaction|interaction]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[CRDTs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Observer|observer]], [[Brokers|brokers]], [[Network|network]].

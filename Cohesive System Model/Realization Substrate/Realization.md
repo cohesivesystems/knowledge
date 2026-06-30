@@ -9,7 +9,7 @@ Realization is the relation by which semantic roles, system structure, and opera
 
 A realization does not make the semantic concept identical to the substrate mechanism. It says that a concrete mechanism hosts, carries, preserves, or implements the relevant meaning under an explicit [[Boundaries|boundary]] and operational context.
 
-In [[Stuff Structure Property]] terms, realization maps semantic stuff, structure, and properties into substrate stuff, structure, and properties. Correct realization requires preserving the distinctions that matter, not merely finding similarly named implementation artifacts.
+In [[Stuff Structure Property|stuff structure property]] terms, realization maps semantic stuff, structure, and properties into substrate stuff, structure, and properties. Correct realization requires preserving the distinctions that matter, not merely finding similarly named implementation artifacts.
 
 Realization answers:
 
@@ -23,9 +23,9 @@ Realization answers:
 
 Examples include:
 
-- An [[Observer]] realized by an OS thread, logical task, fiber, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler.
-- An [[Entity]] realized by an actor-hosted aggregate, database record plus optimistic concurrency, event stream plus reconstitution, workflow subject, or storage document.
-- A [[Transition]] realized by a serialized actor turn, database transaction with expected-version check, compare-and-swap operation, workflow decision, or command handler plus durable commit.
+- An [[Observer|observer]] realized by an OS thread, logical task, fiber, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler.
+- An [[Entity|entity]] realized by an actor-hosted aggregate, database record plus optimistic concurrency, event stream plus reconstitution, workflow subject, or storage document.
+- A [[Transition|transition]] realized by a serialized actor turn, database transaction with expected-version check, compare-and-swap operation, workflow decision, or command handler plus durable commit.
 - A [[Boundaries|boundary]] realized by a transaction, actor identity, process, broker partition, service API, deployment unit, or persistence scope.
 - [[Persistence]] realized by records, logs, event streams, snapshots, workflow histories, [[Outbox|outbox]] records, [[Transactional Inbox|inbox]] records, or projection state.
 - [[Behavior]] realized by an event schedule plus fold and interpolation, a workflow history, sampled state history, or live stream processor.
@@ -71,7 +71,7 @@ A coherent architecture selects realizations that preserve the intended correspo
 
 ## Categorical Discipline
 
-When one coherent implementation has been selected, realization can be viewed through [[Functoriality]]: a functor from a semantic or system model category into a substrate model category. This is useful as a discipline because realization should preserve the relationships that matter, not merely map names to implementation artifacts.
+When one coherent implementation has been selected, realization can be viewed through [[Functoriality|functoriality]]: a functor from a semantic or system model category into a substrate model category. This is useful as a discipline because realization should preserve the relationships that matter, not merely map names to implementation artifacts.
 
 That view is too strict for design work because a semantic role may have many possible realizations, or none. A more flexible formulation assigns each semantic object `s` a category `Real(s)` of possible realizations. Objects of `Real(s)` are possible concrete realizations, and morphisms describe refinements, substitutions, migrations, compatibility relations, or implementation-preserving transformations.
 
@@ -87,4 +87,4 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[Stuff Structure Property]], [[Functoriality]], [[Naturality]], [[Universal Constructions]], [[Fibrations and Indexed Structure]], [[Equivalence vs Equality]], [[Observer]], [[Entity]], [[Transition]], [[Boundaries]], [[Effects]], [[Commit Boundaries]], [[Persistence]], [[Reconstitution]], [[Durable Execution]], [[Concurrency Control]], [[CRDTs]], [[Event Sourcing]], [[Outbox]], [[CQRS]], [[Runtimes]], [[Actor Systems]], [[Application Hosts]], [[Storage Systems]], [[Workflow Engines]], [[Durable Execution Engines]], [[Infrastructure]].
+Related concepts: [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].

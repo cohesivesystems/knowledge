@@ -5,7 +5,7 @@ kind: realization-substrate
 
 # Durable Execution Engines
 
-Durable Execution Engines are concrete runtimes or substrate mechanisms that [[Realization|realize]] [[Durable Execution]].
+Durable Execution Engines are concrete runtimes or substrate mechanisms that [[Realization|realize]] [[Durable Execution|durable execution]].
 
 A durable execution engine persists enough execution material to resume, replay, retry, or recover process execution after interruption. It may present itself as a workflow engine, durable task runtime, state-machine runtime, saga runtime, process-manager framework, durable job processor, actor runtime with reminders and persisted state, or transaction manager.
 
@@ -23,6 +23,6 @@ Durable execution engine concerns include:
 - Versioning, migration, and compatibility of persisted execution history.
 - Operational visibility, inspection, and repair.
 
-Workflow engines are one common family of durable execution engine, but the concepts are not identical. Some [[Workflow Engines]] provide rich process modeling without strong durable execution guarantees. Some durable execution engines expose only tasks, jobs, transactions, or state machines rather than workflows.
+Workflow engines are one common family of durable execution engine, but the concepts are not identical. Some [[Workflow Engines|workflow engines]] provide rich process modeling without strong durable execution guarantees. Some durable execution engines expose only tasks, jobs, transactions, or state machines rather than workflows.
 
-Related concepts: [[Durable Execution]], [[Workflow Engines]], [[Realization]], [[Runtimes]], [[Processes]], [[Process]], [[Observer]], [[Coordination]], [[Persistence]], [[Reconstitution]], [[Recovery]], [[Retry]], [[Idempotency]], [[Ordering]].
+Related concepts: [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Realization|realization]], [[Runtimes|runtimes]], [[Processes|processes]], [[Process|process]], [[Observer|observer]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Retry|retry]], [[Idempotency|idempotency]], [[Ordering|ordering]].

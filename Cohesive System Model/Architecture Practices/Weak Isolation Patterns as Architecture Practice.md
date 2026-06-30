@@ -7,7 +7,7 @@ kind: architecture-practice
 
 Weak isolation patterns are architecture practices for preserving useful correctness when one [[ACID]] transaction or [[Two-Phase Commit|two-phase commit]] boundary is unavailable, too expensive, or misaligned with the domain process.
 
-The operational semantics are captured by [[Weak Isolation Patterns]]. The architecture practice is deciding which weaker guarantees become explicit parts of the domain protocol, entity model, process state, and recovery behavior.
+The operational semantics are captured by [[Weak Isolation Patterns|weak isolation patterns]]. The architecture practice is deciding which weaker guarantees become explicit parts of the domain protocol, entity model, process state, and recovery behavior.
 
 ## Problem
 
@@ -31,11 +31,11 @@ Weak isolation design makes the missing transaction guarantees explicit in the m
 
 Each choice says which stronger guarantee has been replaced and which invariant, ordering, recovery, or visibility rule now carries the correctness burden.
 
-The [[CALM Theorem]] is a useful filter for these choices: monotone parts of the process can often remain asynchronous and coordination-free, while non-monotone decisions need a coordination boundary or an explicit domain protocol for pending, reserved, compensating, or reconciled progress.
+The [[CALM Theorem|CALM theorem]] is a useful filter for these choices: monotone parts of the process can often remain asynchronous and coordination-free, while non-monotone decisions need a coordination boundary or an explicit domain protocol for pending, reserved, compensating, or reconciled progress.
 
 ## Pattern Families
 
-### Version And Dependency Patterns
+### Version and Dependency Patterns
 
 - **Expected-version checks** reject stale updates to the target entity.
 - **Related-version checks** carry versions, etags, read-model positions, policy versions, or causal metadata for related facts used during validation.
@@ -44,7 +44,7 @@ The [[CALM Theorem]] is a useful filter for these choices: monotone parts of the
 - **Consistent-prefix reads** prevent an observer from seeing later effects without earlier prerequisite effects.
 - **Compare-and-set or conditional writes** accept a write only if a declared value, version, or predicate still holds.
 
-### Ownership And Claim Patterns
+### Ownership and Claim Patterns
 
 - **Fencing tokens** give each owner a monotonically ordered authority token so stale workers cannot commit after losing ownership.
 - **Leases** grant time-bounded authority to act, with explicit clock and expiry assumptions.
@@ -93,7 +93,7 @@ Examples include:
 
 Pending states should define their allowed inputs, timeout behavior, retry policy, cancellation, compensation, observation requirements, and completion meanings. Otherwise "pending" becomes an unbounded limbo rather than a protocol state.
 
-## Practice Interpretation
+## In the Model
 
 Weak isolation patterns do not claim the system is secretly strongly isolated. They make incompleteness, delay, and uncertainty explicit.
 
@@ -113,4 +113,4 @@ The practice fails when pending states are not first-class, when asynchronous wo
 
 It also fails when eventual consistency is used as a slogan. Eventuality must say what will eventually happen, under which delivery and recovery assumptions, and what observers may see before convergence.
 
-Related concepts: [[Weak Isolation Patterns]], [[Isolation]], [[ACID]], [[Two-Phase Commit]], [[Coordination]], [[CALM Theorem]], [[Consistency Models]], [[Commit Boundaries]], [[Effects]], [[Acknowledgments]], [[Version]], [[Observation]], [[Entity]], [[Transition]], [[Idempotency]], [[Retry]], [[Recovery]], [[Durable Execution]], [[Transactional Outbox]], [[Outbox]], [[Transactional Inbox]], [[Dual-Write Problem]], [[Sagas and Process Managers]], [[CRDTs as Architecture Practice]], [[Business Transactions]].
+Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Sagas and Process Managers|sagas and process managers]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Business Transactions|business transactions]].

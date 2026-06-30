@@ -13,13 +13,13 @@ Scope answers what is included, excluded, owned, visible, controlled, or guarant
 
 As a modeling discipline, a boundary should be treated as a kind of [[Universal Constructions|universal construction]] only when its scope and context are determined by the relevant inclusions, exclusions, authorities, guarantees, and interaction edges.
 
-Interpretation is performed by an [[Observer]] relative to a boundary. An observer interprets [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], and [[Query|queries]] within the scope and context defined by that boundary.
+Interpretation is performed by an [[Observer|observer]] relative to a boundary. An observer interprets [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], and [[Query|queries]] within the scope and context defined by that boundary.
 
 An observer boundary determines whether an event is exogenous, input, endogenous, or output relative to that [[Observer|observer]]. It also frames which state is visible, which policies apply, which authority is available, which [[Effects|effects]] can be committed, and what command or query interpretation can mean.
 
 Boundary types include:
 
-- **Observer boundaries**: define what an [[Observer]] can see, interpret, authorize, and commit.
+- **Observer boundaries**: define what an [[Observer|observer]] can see, interpret, authorize, and commit.
 - **Entity or aggregate boundaries**: define the subject whose state, invariants, transitions, and version history are controlled together.
 - **Transaction and [[Commit Boundaries|commit boundaries]]**: define which reads, writes, and effects commit or roll back atomically.
 - **Process or workflow boundaries**: define the scope of a long-running behavior, its durable progress, retries, compensations, and recovery.
@@ -48,4 +48,4 @@ Different guarantees apply at different boundaries:
 
 So a system can acknowledge a message and preserve broker ordering while still failing to commit the domain transition. It can also receive the same message more than once while committing the domain transition only once through idempotency and concurrency control.
 
-Related concepts: [[Observer]], [[Value]], [[Observation]], [[State]], [[Event]], [[Command]], [[Query]], [[Universal Constructions]], [[Effects]], [[Commit Boundaries]], [[Acknowledgments]], [[Interaction]], [[Delivery Semantics]], [[Coordination]], [[Recovery]], [[Dual-Write Problem]].
+Related concepts: [[Observer|observer]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].

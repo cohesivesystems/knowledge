@@ -18,6 +18,6 @@ Infrastructure shapes the boundaries within which the system runs:
 - Deployment boundaries.
 - Persistence and recovery boundaries.
 
-Infrastructure can support or undermine the model's operational semantics. Its concrete guarantees should be mapped back through [[Realization]] to interaction, delivery, coordination, concurrency, and recovery meanings.
+Infrastructure can support or undermine the model's operational semantics. Its concrete guarantees should be mapped back through [[Realization|realization]] to interaction, delivery, coordination, concurrency, and recovery meanings.
 
-Related concepts: [[Realization]], [[Compute]], [[Runtimes]], [[Application Hosts]], [[Network]], [[Storage Systems]], [[Brokers]], [[Recovery]].
+Related concepts: [[Realization|realization]], [[Compute|compute]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Network|network]], [[Storage Systems|storage systems]], [[Brokers|brokers]], [[Recovery|recovery]].

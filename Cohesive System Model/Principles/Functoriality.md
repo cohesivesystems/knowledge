@@ -32,11 +32,11 @@ Examples in the Cohesive System Model:
 - [[Realization]] relates semantic roles and operational semantics to substrate mechanisms while preserving the meanings that matter for correctness.
 - [[Projections]] map one semantic view into another while preserving selected identity, version, dependency, or derivation structure.
 - [[Reconstitution]] maps persisted material back into usable observations of state.
-- Folding an event schedule into [[Behavior]] maps event occurrences and ordering into state samples and time-varying values through an interpretation function.
-- A protocol mapping should preserve the intended [[Interaction]], [[Delivery Semantics]], acknowledgment meaning, and failure boundary rather than merely transmit bytes.
+- Folding an event schedule into [[Behavior|behavior]] maps event occurrences and ordering into state samples and time-varying values through an interpretation function.
+- A protocol mapping should preserve the intended [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], acknowledgment meaning, and failure boundary rather than merely transmit bytes.
 
 Functoriality is violated when two layers are related only by names. For example, saying that an actor realizes an entity is not enough; routing, ordering, state access, persistence, recovery, and concurrency control must preserve the entity transition semantics.
 
 Functoriality also clarifies partial or lossy mappings. A projection may forget fields. A state sample may forget event causality. A serialization may forget object identity. A realization may preserve command interpretation while not preserving locality or timing. These are acceptable only when the forgotten structure is outside the relevant boundary or explicitly accounted for.
 
-Related concepts: [[Realization]], [[Projections]], [[Reconstitution]], [[Behavior]], [[Interaction]], [[Delivery Semantics]], [[Boundaries]].
+Related concepts: [[Realization|realization]], [[Projections|projections]], [[Reconstitution|reconstitution]], [[Behavior|behavior]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Boundaries|boundaries]].

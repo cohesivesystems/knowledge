@@ -30,7 +30,7 @@ In this sense, sheaf semantics is a modeling discipline for [[Consistency Models
 For a distributed execution, let the event structure be a partially ordered set:
 
 $$
-E = (\operatorname{Events}, \leq)
+E = (\operatorname{events}, \leq)
 $$
 
 where
@@ -286,4 +286,4 @@ The practical value is diagnostic. When a system claims one coherent state, quer
 
 Not every useful systems structure is literally a sheaf. Some structures are only presheaves. Some have partial gluing. Some glue only up to equivalence. Some require extra operational mechanisms before compatibility can be checked. The failure to satisfy the sheaf condition is itself meaningful: it identifies where lineage, authority, evidence, ordering, or coordination is missing.
 
-Related concepts: [[Sheaves and Gluing]], [[Categorical Principles]], [[Fibrations and Indexed Structure]], [[Universal Constructions]], [[Functoriality]], [[Naturality]], [[Consistency Models]], [[Version Histories]], [[Synchrony and Asynchrony]], [[Observer]], [[Observation]], [[State]], [[Version]], [[Event]], [[Command]], [[Projections]], [[Reconstitution]], [[Coordination]], [[Consensus]], [[Boundaries]].
+Related concepts: [[Sheaves and Gluing|sheaves and gluing]], [[Categorical Principles|categorical principles]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Universal Constructions|universal constructions]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Consistency Models|consistency models]], [[Version Histories|version histories]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Observer|observer]], [[Observation|observation]], [[State|state]], [[Version|version]], [[Event|event]], [[Command|command]], [[Projections|projections]], [[Reconstitution|reconstitution]], [[Coordination|coordination]], [[Consensus|consensus]], [[Boundaries|boundaries]].

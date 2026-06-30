@@ -3,7 +3,7 @@ realm: Principles
 kind: principle
 ---
 
-# Fibrations And Indexed Structure
+# Fibrations and Indexed Structure
 
 Fibrations and indexed structure describe situations where each object in a base domain has a category of things lying over it.
 
@@ -37,6 +37,6 @@ Examples:
 
 Fibrational thinking prevents context from being erased. It keeps clear that an observation is not just a value, a version is not just a number, and a realization is not just an implementation artifact. Each is something over a subject, identity, boundary, or semantic role.
 
-Observer-indexed fibers can also support [[Systems Sheaf Semantics]], where each observer has local sections over the cuts, boundaries, and views available to it.
+Observer-indexed fibers can also support [[Systems Sheaf Semantics|systems sheaf semantics]], where each observer has local sections over the cuts, boundaries, and views available to it.
 
-Related concepts: [[Realization]], [[Observation]], [[Identity]], [[Version]], [[Boundaries]], [[Observer]], [[Processes]], [[Systems Sheaf Semantics]].
+Related concepts: [[Realization|realization]], [[Observation|observation]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Observer|observer]], [[Processes|processes]], [[Systems Sheaf Semantics|systems sheaf semantics]].

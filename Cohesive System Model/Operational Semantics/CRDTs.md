@@ -25,7 +25,7 @@ CRDTs are useful when:
 
 CRDTs do not remove consistency concerns. They move some consistency requirements into the algebra of the data type and into the delivery, persistence, and metadata rules around it.
 
-The [[CALM Theorem]] explains the broader principle behind this coordination avoidance: monotone computations can converge without synchronous coordination, while non-monotone decisions require coordination or an explicit protocol for incompleteness.
+The [[CALM Theorem|CALM theorem]] explains the broader principle behind this coordination avoidance: monotone computations can converge without synchronous coordination, while non-monotone decisions require coordination or an explicit protocol for incompleteness.
 
 Operational requirements include:
 
@@ -47,4 +47,4 @@ CRDT convergence is not the same as immediate consistency. At a given observatio
 - Marc Shapiro, Nuno Preguiça, Carlos Baquero, and Marek Zawirski, [Conflict-free Replicated Data Types](https://inria.hal.science/hal-00932836v1/document), SSS 2011.
 - Nuno Preguiça, Carlos Baquero, and Marc Shapiro, [Conflict-free Replicated Data Types](https://arxiv.org/abs/1805.06358), arXiv, 2018.
 
-Related concepts: [[Coordination]], [[CALM Theorem]], [[Persistence]], [[Reconstitution]], [[Delivery Semantics]], [[Ordering]], [[State]], [[Observation]], [[Projections]], [[Recovery]], [[Storage Systems]], [[Boundaries]], [[Compositionality]], [[Monads Monoids and Duals]], [[Algebras and Coalgebras]].
+Related concepts: [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[State|state]], [[Observation|observation]], [[Projections|projections]], [[Recovery|recovery]], [[Storage Systems|storage systems]], [[Boundaries|boundaries]], [[Compositionality|compositionality]], [[Monads Monoids and Duals|monads monoids and duals]], [[Algebras and Coalgebras|algebras and coalgebras]].

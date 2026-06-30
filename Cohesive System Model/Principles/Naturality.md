@@ -27,11 +27,11 @@ In modeling terms, naturality asks:
 
 Examples:
 
-- A [[Value]] transform should not depend on whether the value is dictionary-backed, layout-buffer-backed, or columnar, unless representation is explicitly part of the boundary.
+- A [[Value|value]] transform should not depend on whether the value is dictionary-backed, layout-buffer-backed, or columnar, unless representation is explicitly part of the boundary.
 - [[Reconstitution]] should produce semantically equivalent observations from different persisted representations when those representations are intended to be equivalent.
-- A [[Projections|Projection]] should preserve its declared meaning across schema, storage, or transport changes.
+- A [[Projections|projection]] should preserve its declared meaning across schema, storage, or transport changes.
 - [[Realization]] should preserve observer, entity, transition, and boundary meaning across runtime choices.
 
 Naturality is useful for detecting hidden coupling. If a model says two representations are equivalent but an operation behaves differently for one of them, the operation is not natural with respect to that equivalence.
 
-Related concepts: [[Functoriality]], [[Value]], [[Observation]], [[Reconstitution]], [[Projections]], [[Realization]], [[Equivalence vs Equality]].
+Related concepts: [[Functoriality|functoriality]], [[Value|value]], [[Observation|observation]], [[Reconstitution|reconstitution]], [[Projections|projections]], [[Realization|realization]], [[Equivalence vs Equality|equivalence vs equality]].
