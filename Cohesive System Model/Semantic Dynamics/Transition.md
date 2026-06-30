@@ -7,8 +7,6 @@ kind: semantic-construct
 
 A transition is the semantic decision relation that determines whether an attempted change is accepted for a subject.
 
-Under the [[Stuff Structure Property|stuff structure property]] lens, a transition is structure: an operation or relation that organizes how entity state, command values, observations, authority, policies, and versions may produce an accepted endogenous event, nil outcome, or rejection.
-
 For entities, a transition is evaluated from a transition context:
 
 ```txt
@@ -33,5 +31,7 @@ Examples of rejected transitions include:
 - Unauthorized request.
 - Expected-version conflict.
 - Telemetry-only or correlation-only input.
+
+Under the [[Stuff Structure Property|stuff structure property]] lens, a transition is structure: an operation or relation that organizes how entity state, command values, observations, authority, policies, and versions may produce an accepted endogenous event, nil outcome, or rejection.
 
 Related concepts: [[Value|value]], [[Shape|shape]], [[Command|command]], [[Observer|observer]], [[Entity|entity]], [[State|state]], [[Event|event]], [[Version|version]], [[Stuff Structure Property|stuff structure property]], [[Universal Constructions|universal constructions]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Monads Monoids and Duals|monads monoids and duals]], [[Realization|realization]], [[Concurrency Control|concurrency control]].

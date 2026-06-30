@@ -29,7 +29,7 @@ Describe modeling disciplines used across the system model.
 - [[Duality and Symmetry]], [[Event-State Duality|event-state duality]], [[Synchrony and Asynchrony|synchrony and asynchrony]]
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
-- [[Monads Monoids and Duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Yoneda Lemma|Yoneda lemma]], [[Adjunctions|adjunctions]]
+- [[Monads Monoids and Duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[State Machines|state machines]], [[Yoneda Lemma|Yoneda lemma]], [[Adjunctions|adjunctions]]
 - [[Fibrations and Indexed Structure]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Fixed Points and Recursion|fixed points and recursion]], [[Enrichment and Order|enrichment and order]], [[Optics and Lenses|optics and lenses]], [[Trace and Feedback|trace and feedback]]
 
 ### 1. Semantic Dynamics

@@ -7,7 +7,7 @@ kind: semantic-construct
 
 Behavior is a time-varying [[Value|value]]: a trajectory through state space:
 
-$$\text{time}\to\text{value}$$
+$$\text{Time}\to\text{Value}$$
 
 This follows the classic Functional Reactive Programming notion of behavior introduced by Conal Elliott and Paul Hudak: a first-class value that varies over time.
 

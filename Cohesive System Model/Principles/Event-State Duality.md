@@ -58,8 +58,6 @@ The parallel is not a formal identification. In the Cohesive model, state and ev
 
 This also suggests a notion of indeterminate state. An indeterminate state is not necessarily the absence of state. It is a recognized subject, possibility, external process, or pending situation whose relevant dimensions are not yet determined relative to an [[Observer|observer]], [[Boundaries|boundary]], [[Shape|shape]], or [[Version|version]]. Indeterminacy may be epistemic, shape-relative, operational, semantic, or external. State becomes determinate for the model through observation, event interpretation, or a commitment boundary.
 
-Lawvere's categorical discussions of Being and Becoming are related mathematical-philosophical background. They are useful here as orientation toward structure and change, not as replacements for the model's semantic definitions.
-
 ## External References
 
 - G. W. F. Hegel, [Book I of *Science of Logic*: Being](https://www.marxists.org/reference/archive/hegel/works/hl/hlbeing.htm).

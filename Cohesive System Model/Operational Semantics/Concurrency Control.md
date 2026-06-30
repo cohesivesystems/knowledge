@@ -5,13 +5,13 @@ kind: operational-semantics
 
 # Concurrency Control
 
-Concurrency Control answers: how are conflicting attempts to change the same semantic subject constrained?
+Concurrency Control answers: How can multiple concurrent histories be reconciled into a single valid history?
 
 In the model, commands may carry an expected version or etag: the [[Version|version]] of [[Entity|entity]] state the [[Observer|observer]] believed was current when it formulated the [[Command|command]].
 
 Concurrency-control mechanisms include:
 
-- Optimistic concurrency using expected-version checks.
+- Optimistic concurrency using [[Version|expected-version]] checks.
 - Pessimistic locking.
 - Fencing tokens.
 - Actor identity serialization.
@@ -19,9 +19,7 @@ Concurrency-control mechanisms include:
 - Transactional [[Isolation|isolation]].
 - [[CRDTs|CRDT]] merge or commutative-update semantics for compatible replicated state.
 
-These mechanisms have different [[Progress Conditions|progress conditions]]. A lock can be blocking if progress depends on the lock holder. Optimistic retry loops may be obstruction-free, lock-free, or wait-free only under additional assumptions about contention, scheduling, bounded retries, helping, or backoff. Actor serialization gives clear per-entity ordering, but progress still depends on mailbox delivery, scheduler fairness, and actor recovery.
-
-If an expected-version check fails, the attempted transition is rejected, no accepted state change occurs for the target entity, and the entity version remains unchanged.
+These mechanisms have different [[Progress Conditions|progress conditions]]. A lock can be blocking if progress depends on the lock holder. Optimistic retry loops may be obstruction-free, lock-free, or wait-free only under additional assumptions about contention, scheduling, bounded retries, helping, or backoff. Actor serialization gives clear per-entity ordering, but progress still depends on mailbox delivery, scheduler fairness, and actor recovery. If an expected-version check fails, the attempted transition is rejected, no accepted state change occurs for the target entity, and the entity version remains unchanged.
 
 Entity transitions require the [[Observer|observer]] that interprets the attempted transition to remain coherently aligned with the realization context that commits it. There are two common patterns:
 

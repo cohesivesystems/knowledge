@@ -51,7 +51,7 @@ Blocking and non-blocking are realization and [[Progress Conditions|progress-con
 
 Blocking may mean that a physical thread is parked, a lock owner prevents other workers from progressing, or a logical operation is waiting for a result. These should not be collapsed. Often the logical process should wait while the physical thread should not.
 
-Async programming models reconcile this distinction. A logical operation can remain pending until an asynchronous operation completes, while the runtime releases the physical thread to run other work. In continuation- or callback-shaped models, such as an F# async computation, the computation can be understood as arranging what continuation should run when the operation completes rather than occupying a thread for the whole wait.
+Async programming models reconcile this distinction. A logical operation can remain pending until an asynchronous operation completes, while the runtime releases the physical thread to run other work. In continuation or callback-shaped models, such as an F# async computation, the computation can be understood as arranging what continuation should run when the operation completes rather than occupying a thread for the whole wait.
 
 This gives two different questions:
 

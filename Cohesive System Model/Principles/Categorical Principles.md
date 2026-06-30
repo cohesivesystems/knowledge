@@ -29,6 +29,7 @@ Additional recurring principles:
 
 - [[Monads Monoids and Duals]]: sequencing, accumulation, context, observation, and dual structure.
 - [[Algebras and Coalgebras]]: folding structure into values and unfolding values into behavior.
+- [[State Machines|State machines]]: transition-based models of behavior that relate inputs, state, outputs, and runs.
 - [[Yoneda Lemma]]: objects are understood by their relationships, observations, and interactions.
 - [[Adjunctions]]: paired translations that are structured but not inverse.
 - [[Fibrations and Indexed Structure]]: context-dependent families over identities, boundaries, subjects, or semantic roles.

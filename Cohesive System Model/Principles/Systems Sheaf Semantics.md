@@ -16,7 +16,7 @@ aliases:
 
 Systems Sheaf Semantics uses [[Sheaves and Gluing|sheaf-theoretic local-to-global structure]] to model how [[Observation|observations]], [[State|state]], [[Version|versions]], histories, process state, and knowledge vary over contexts such as observers, boundaries, and causally valid cuts of execution.
 
-The point is not to make every system topological. The point is to give precise language for a recurring systems question:
+The goal is to give precise language for a recurring systems question:
 
 - What can be observed locally?
 - How does a richer context restrict to a smaller context?
@@ -69,7 +69,7 @@ $$
 C_1 \vee C_2 = C_1 \cup C_2
 $$
 
-This lattice can serve as a base of contexts. A cut is a causally coherent snapshot of an execution.
+This lattice can serve as a base of contexts. A cut is thus a causally coherent snapshot of an execution.
 
 ## Presheaves over Cuts
 
@@ -79,13 +79,13 @@ $$
 \mathcal{F} : \mathcal{C}(E)^{op} \to \mathbf{Set}
 $$
 
-For each cut $C\subseteq E$, the set $\mathcal{F}(C)$ contains the sections applicable at that cut. For a Set-valued sheaf, a section over a context is an element of the set assigned to that context:
+For each cut $C\subseteq E$, the set $\mathcal{F}(C)$ contains the sections applicable at that cut. For a Set-valued sheaf, a section (examples below) over a context is an element of the set assigned to that context:
 
 $$
 s \in \mathcal{F}(C)
 $$
 
-In bundle or fibration language, a section can be pictured as a compatible choice of data lying over that part of the base. In a systems sheaf, a section is a coherent semantic assignment over the chosen cut.
+In bundle or fibration language, a section can be pictured as a compatible choice of data lying over that part of the base. In a systems sheaf, a section is a coherent semantic assignment of data over the chosen cut.
 
 A familiar mathematical example is the sheaf of continuous real-valued functions on a topological space $X$:
 
@@ -103,8 +103,8 @@ Compatible continuous functions on overlapping open sets glue to a continuous fu
 
 For systems, a section is not necessarily a numerical function. It is a coherent assignment of state, observation, evidence, knowledge, or control information over a context. Let $U \subseteq E$ be a particular consistent cut, understood as an object of $\mathcal{C}(E)$. Depending on the semantic layer, a section might be:
 
-- An entity state observation. A section $s \in \mathcal{F}_{state}(U)$ assigns each relevant entity the state reconstructed after the events in $U$.
-- A set of current version identifiers. A section $s \in \mathcal{F}_{version}(U)$ assigns each relevant subject the version, offset, causal head, or history position visible at $U$.
+- An entity state observation. A section $s \in \mathcal{F}_{state}(U)$ assigns to each relevant entity the state reconstructed based on the events in $U$.
+- A set of current version identifiers. A section $s \in \mathcal{F}_{version}(U)$ assigns to each relevant subject the version, offset, causal head, or history position visible at $U$.
 - A workflow or process state. A section $s \in \mathcal{F}_{process}(U)$ assigns each relevant process instance its phase, pending signals, emitted effects, and completion status at $U$.
 - A projection state. A section $s \in \mathcal{F}_{projection}(U)$ gives the derived read model or materialized view obtained by applying the projection rules to the events or observations in $U$.
 - A set of observed evidence. A section $s \in \mathcal{F}_{evidence}(U)$ contains the evidence records admitted by the events, observers, or sources present in $U$.
