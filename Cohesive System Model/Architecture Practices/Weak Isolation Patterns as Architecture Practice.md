@@ -7,7 +7,7 @@ kind: architecture-practice
 
 Weak isolation patterns are architecture practices for preserving useful correctness when one [[ACID]] transaction or [[Two-Phase Commit|two-phase commit]] boundary is unavailable, too expensive, or misaligned with the domain process.
 
-The operational semantics are captured by [[Weak Isolation Patterns|weak isolation patterns]]. The architecture practice is deciding which weaker guarantees become explicit parts of the domain protocol, entity model, process state, and recovery behavior.
+The operational concerns are captured by [[Weak Isolation Patterns|weak isolation patterns]]. The architecture practice is deciding which weaker guarantees become explicit parts of the domain protocol, entity model, process state, and recovery behavior.
 
 ## Problem
 

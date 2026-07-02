@@ -5,7 +5,7 @@ kind: realization-substrate
 
 # Realization
 
-Realization is the relation by which semantic roles, system structure, and operational semantics are made concrete in a substrate.
+Realization is the relation by which semantic roles, system graph, and operational concerns are made concrete in a substrate.
 
 A realization does not make the semantic concept identical to the substrate mechanism. It says that a concrete mechanism hosts, carries, preserves, or implements the relevant meaning under an explicit [[Boundaries|boundary]] and operational context.
 
@@ -41,7 +41,7 @@ The absence of a realization does not make the semantic concept invalid. It only
 
 ## Layered Realization
 
-Realization is usually layered. A semantic construct may be realized in terms of system structure and infrastructure, while that infrastructure can itself be modeled as realized by lower-level constructs.
+Realization is usually layered. A semantic construct may be realized in terms of the system graph and infrastructure, while that infrastructure can itself be modeled as realized by lower-level constructs.
 
 For example:
 
@@ -67,7 +67,7 @@ Realization choices must be coherent across relationships. It is not enough to c
 
 For example, if an actor realizes an entity observer, then routing, ordering, persistence, recovery, and concurrency control must preserve the fact that the actor hosts the entity transition boundary. If a request handler realizes only a temporary observer, then transition correctness must be preserved by another mechanism, such as expected-version checks.
 
-A coherent architecture selects realizations that preserve the intended correspondence between domain semantics, system structure, operational semantics, and substrate behavior.
+A coherent architecture selects realizations that preserve the intended correspondence between domain semantics, system graph, operational concerns, and substrate behavior.
 
 ## Categorical Discipline
 

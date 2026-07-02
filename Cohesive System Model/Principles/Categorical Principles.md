@@ -5,7 +5,7 @@ kind: reference
 
 # Categorical Principles
 
-Categorical principles provide modeling discipline for the Cohesive System Model. They are not the entry point for ordinary readers, but they help keep distinctions precise when relating domain semantics, system structure, operational semantics, and realization substrate.
+Categorical principles provide modeling discipline for the Cohesive System Model. They are not the entry point for ordinary readers, but they help keep distinctions precise when relating domain semantics, system graph, operational concerns, and realization substrate.
 
 These principles are used to ask:
 

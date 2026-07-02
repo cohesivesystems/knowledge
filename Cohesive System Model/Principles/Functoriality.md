@@ -29,7 +29,7 @@ In modeling terms, functoriality asks:
 
 Examples in the Cohesive System Model:
 
-- [[Realization]] relates semantic roles and operational semantics to substrate mechanisms while preserving the meanings that matter for correctness.
+- [[Realization]] relates semantic roles and operational concerns to substrate mechanisms while preserving the meanings that matter for correctness.
 - [[Projections]] map one semantic view into another while preserving selected identity, version, dependency, or derivation structure.
 - [[Reconstitution]] maps persisted material back into usable observations of state.
 - Folding an event schedule into [[Behavior|behavior]] maps event occurrences and ordering into state samples and time-varying values through an interpretation function.

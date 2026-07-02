@@ -7,7 +7,7 @@ web pages, search indexes, and other derived artifacts are projections.
 ## Source Layers
 
 - Conceptual graph: public concepts, definitions, distinctions, and relations.
-- System graph: authored system structure and correspondence across concepts.
+- System graph: authored semantic structure and correspondence across concepts.
 - Realization graph: mappings from system graph nodes to code, runtime,
   infrastructure, or content artifacts.
 
@@ -20,8 +20,8 @@ Allowed public realms:
 
 - `Principles`
 - `Domain Semantics`
-- `Operational Semantics`
-- `System Structure`
+- `Operational Concerns`
+- `System Graph`
 - `Realization Substrate`
 - `Architecture Practices`
 
@@ -43,7 +43,7 @@ Allowed kinds:
 - `principle`: modeling discipline used to keep distinctions precise.
 - `semantic-construct`: meaning-bearing construct in domain semantics.
 - `structural-construct`: system-graph arrangement or composition construct.
-- `operational-semantics`: correctness, execution, reliability, or control semantics.
+- `operational-concern`: correctness, execution behavior, reliability, or control concern.
 - `realization-substrate`: concrete mechanism family or substrate category.
 - `architecture-practice`: named architecture practice or methodology.
 - `pattern`: reusable narrower technique that can appear inside practices or substrates.

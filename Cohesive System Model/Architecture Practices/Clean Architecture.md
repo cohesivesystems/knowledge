@@ -9,7 +9,7 @@ Clean Architecture addresses the problem of dependency direction: keeping high-v
 
 ## Cohesive Formulation
 
-Clean Architecture can be expressed as a separation between domain semantics, system structure, operational semantics, and realization substrate.
+Clean Architecture can be expressed as a separation between domain semantics, system graph, operational concerns, and realization substrate.
 
 The domain core defines entities, values, transitions, invariants, policies, and events. Outer layers realize interaction, persistence, reconstitution, protocols, and application hosting.
 

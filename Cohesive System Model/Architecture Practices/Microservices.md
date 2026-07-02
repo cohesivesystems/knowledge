@@ -9,7 +9,7 @@ Microservices address the problem of independent ownership, deployment, scaling,
 
 ## Cohesive Formulation
 
-A microservice is not just a process or network endpoint. It is a realization of a service boundary with its own observers, interaction edges, persistence choices, failure modes, and operational semantics.
+A microservice is not just a process or network endpoint. It is a realization of a service boundary with its own observers, interaction edges, persistence choices, failure modes, and operational concerns.
 
 The practice asks:
 

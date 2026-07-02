@@ -55,7 +55,7 @@ assigning operational guarantees or realization mechanisms.
 - [[Identity]]  
 - [[Version]]
 
-### 2. Operational Semantics
+### 2. Operational Concerns
 
 Describes how domain semantics are made executable and reliable.
 
@@ -78,10 +78,11 @@ Describes how domain semantics are made executable and reliable.
 - [[CRDTs]]
 - [[Retry]], [[Rate Limiting|rate limiting]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
 
-### 3. System Structure
+### 3. System Graph
 
-Organizes domain semantics into a system graph. System Structure describes placement, composition, ownership, boundaries, dependencies, and graph shape; it is distinct from primitive semantic definitions and concrete realization substrate.
+Organizes domain semantics into a system graph. The system graph describes placement, composition, ownership, boundaries, dependencies, and graph shape; it is distinct from primitive semantic definitions and concrete realization substrate.
 
+- [[System Graph]]
 - [[Entity Models]]
 - [[Observers]]  
 - [[Relations]]  
@@ -348,7 +349,7 @@ The entity transition runtime, aligned with the interpreting observer, performs:
 - [[Concurrency Control|Expected version check]] (if provided)
 - Decision: commit endogenous event → new state version, or reject → `nil` (version unchanged)
 
-## Operational Semantics
+## Operational Concerns
 
 ### Persistence
 
@@ -446,7 +447,7 @@ None of these automatically mean “the business transition committed” unless 
 
 ## Runtime
 
-[[Realization]] is the relation by which domain semantics, system structure, and operational semantics are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Durable Execution Engines|durable execution engine]], [[Brokers|broker]], or database can realize operational semantics, but the semantics should be described separately from any specific runtime.
+[[Realization]] is the relation by which domain semantics, system graph, and operational concerns are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Durable Execution Engines|durable execution engine]], [[Brokers|broker]], or database can realize operational concerns, but those concerns should be described separately from any specific runtime.
 
 Different runtimes realize observers differently (e.g., actor placement and supervision vs. HTTP request pipeline), while the semantic model (observer, entity, observation, event, command, query) remains consistent. In async, fiber, or green-thread runtimes, the observer follows the logical execution context rather than a fixed OS thread.
 
@@ -456,8 +457,8 @@ Cohesive preserves correspondence across realms:
 
 ```txt  
 Semantic dynamics (State, Observation, Event, Observer, Entity, Command, Query, ...)
-  -> System structure (Entity Models, Observers, Relations, Projections, Flows, Boundaries, ...)
-  -> Operational semantics (Persistence, Reconstitution, Interaction, Delivery, Coordination, Durable Execution, Control)  
+  -> System graph (Entity Models, Observers, Relations, Projections, Flows, Boundaries, ...)
+  -> Operational concerns (Persistence, Reconstitution, Interaction, Delivery, Coordination, Durable Execution, Control)  
   -> Realization substrate (Realization, Compute, Runtimes, Network, Storage, Workflow engines, Durable execution engines, Actor systems, ...)
 ```
 

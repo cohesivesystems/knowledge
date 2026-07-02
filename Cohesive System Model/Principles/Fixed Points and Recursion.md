@@ -21,7 +21,7 @@ Examples:
 - A process can define its next state in terms of prior state and incoming events.
 - Retry and recovery loops continue until success, rejection, exhaustion, or compensation.
 - Projections may be rebuilt by replaying all source events until the projected state reaches the same result as incremental updates.
-- Recursive system structure appears when processes spawn sub-processes or observers route to observers.
+- Recursive structure appears in the system graph when processes spawn sub-processes or observers route to observers.
 
 Fixed-point thinking helps distinguish productive recursion from accidental loops. A retry policy without limits, backoff, idempotency, or recovery semantics is not a meaningful fixed point; it is an uncontrolled loop.
 

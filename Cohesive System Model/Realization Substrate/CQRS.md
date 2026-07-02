@@ -24,7 +24,7 @@ The separation is useful because command handling and query answering often have
 
 ## Consistency under Asynchrony
 
-CQRS often updates read models asynchronously from the write side. That creates operational semantics that must be explicit:
+CQRS often updates read models asynchronously from the write side. That creates operational concerns that must be explicit:
 
 - Projection lag: a committed write may not be visible to a [[Query|query]] immediately.
 - Read-your-writes: a caller may need a way to observe its own committed change.

@@ -7,7 +7,7 @@ kind: reference
 
 Architecture practices are named bundles of modeling choices, constraints, and implementation habits that address recurring system-engineering problems.
 
-In the Cohesive System Model, these practices are not primitives. They are ways of arranging domain semantics, system structure, operational semantics, and realization substrate to solve particular problems.
+In the Cohesive System Model, these practices are not primitives. They are ways of arranging domain semantics, system graph, operational concerns, and realization substrate to solve particular problems.
 
 Cohesive provides language for expressing the problem each practice addresses, and a compiler-like discipline for projecting that expression into structures, operations, and realizations while preserving meaning.
 

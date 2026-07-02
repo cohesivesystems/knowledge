@@ -12,8 +12,8 @@ from typing import Any
 ALLOWED_REALMS = {
     "Principles",
     "Domain Semantics",
-    "Operational Semantics",
-    "System Structure",
+    "Operational Concerns",
+    "System Graph",
     "Realization Substrate",
     "Architecture Practices",
 }
@@ -24,7 +24,7 @@ ALLOWED_KINDS = {
     "principle",
     "semantic-construct",
     "structural-construct",
-    "operational-semantics",
+    "operational-concern",
     "realization-substrate",
     "architecture-practice",
     "pattern",
