@@ -1,6 +1,6 @@
 ---
 realm: Principles
-kind: glossary
+kind: principle
 status: draft
 aliases:
   - Sheaf
@@ -16,7 +16,9 @@ aliases:
 
 # Sheaves and Gluing
 
-Sheaves and gluing provide local vocabulary for describing systems of observations: many observers, contexts, processors, time intervals, schemas, views, or execution cuts may each see part of a system, and the model needs to say when those partial views agree enough to form a coherent larger view.
+Sheaves and gluing provide a local-to-global principle for systems of observations: many observers, contexts, processors, time intervals, schemas, views, or execution cuts may each see part of a system, and the model needs to say when those partial views agree enough to form a coherent larger view.
+
+As a modeling principle, sheaves and gluing describe how local [[Observation|observations]] must be reconciled into global views before the model can claim a consistent picture of system [[State|state]].
 
 The mathematical term **sheaf** is useful here because it separates several questions that are often collapsed in system design:
 
