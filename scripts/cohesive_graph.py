@@ -11,7 +11,7 @@ from typing import Any
 
 ALLOWED_REALMS = {
     "Principles",
-    "Semantic Dynamics",
+    "Domain Semantics",
     "Operational Semantics",
     "System Structure",
     "Realization Substrate",

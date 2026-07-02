@@ -5,11 +5,11 @@
 Domains can be described as semantic system graphs composed of:
 
 - [[Entity Models|Entity models]] with stable [[Identity|identities]]
-- [[Relations]] between identities, states, observations, and observers 
-- [[State|States]], [[Value|values]], [[Transition|transitions]], [[Event|events]] and [[Observation|observations]]  
+- [[Relations]] between entities and observations
+- [[State|States]], [[Value|values]], [[Transition|transitions]], and [[Event|events]]
 - [[Observers]] as active participants 
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
-- [[Process|Processes]] over time, including the flows and [[Effects|effects]] by which work moves between participants
+- [[Process|Processes]] evolving entities and emitting effects over time
 
 Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
@@ -32,9 +32,11 @@ Describe modeling disciplines used across the system model.
 - [[Monads Monoids and Duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[State Machines|state machines]], [[Yoneda Lemma|Yoneda lemma]], [[Adjunctions|adjunctions]]
 - [[Fibrations and Indexed Structure]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Fixed Points and Recursion|fixed points and recursion]], [[Enrichment and Order|enrichment and order]], [[Optics and Lenses|optics and lenses]], [[Trace and Feedback|trace and feedback]]
 
-### 1. Semantic Dynamics
+### 1. Domain Semantics
 
-Describes change, time, observation, and participation.
+Defines the meaning-bearing constructs used to describe domain state, events,
+values, observation, identity, behavior, processes, and transitions before
+assigning operational guarantees or realization mechanisms.
 
 - [[State]]  
 - [[Value]]
@@ -55,7 +57,7 @@ Describes change, time, observation, and participation.
 
 ### 2. Operational Semantics
 
-Describes how semantic dynamics are made executable and reliable.
+Describes how domain semantics are made executable and reliable.
 
 - [[Persistence]]  
 - [[Reconstitution]]  
@@ -78,7 +80,7 @@ Describes how semantic dynamics are made executable and reliable.
 
 ### 3. System Structure
 
-Organizes semantic dynamics into a system graph. System Structure describes placement, composition, ownership, boundaries, dependencies, and graph shape; it is distinct from primitive semantic definitions and concrete realization substrate.
+Organizes domain semantics into a system graph. System Structure describes placement, composition, ownership, boundaries, dependencies, and graph shape; it is distinct from primitive semantic definitions and concrete realization substrate.
 
 - [[Entity Models]]
 - [[Observers]]  
@@ -124,7 +126,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Sagas and Process Managers]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
 - [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
 
-## Semantic Dynamics
+## Domain Semantics
 
 ### State
 
@@ -444,7 +446,7 @@ None of these automatically mean “the business transition committed” unless 
 
 ## Runtime
 
-[[Realization]] is the relation by which semantic dynamics, system structure, and operational semantics are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Durable Execution Engines|durable execution engine]], [[Brokers|broker]], or database can realize operational semantics, but the semantics should be described separately from any specific runtime.
+[[Realization]] is the relation by which domain semantics, system structure, and operational semantics are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Durable Execution Engines|durable execution engine]], [[Brokers|broker]], or database can realize operational semantics, but the semantics should be described separately from any specific runtime.
 
 Different runtimes realize observers differently (e.g., actor placement and supervision vs. HTTP request pipeline), while the semantic model (observer, entity, observation, event, command, query) remains consistent. In async, fiber, or green-thread runtimes, the observer follows the logical execution context rather than a fixed OS thread.
 

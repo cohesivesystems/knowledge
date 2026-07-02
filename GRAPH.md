@@ -19,7 +19,7 @@ realization graph data should live elsewhere unless explicitly published.
 Allowed public realms:
 
 - `Principles`
-- `Semantic Dynamics`
+- `Domain Semantics`
 - `Operational Semantics`
 - `System Structure`
 - `Realization Substrate`
@@ -41,7 +41,7 @@ Allowed kinds:
 
 - `discipline`: source discipline or body of theory, such as category theory.
 - `principle`: modeling discipline used to keep distinctions precise.
-- `semantic-construct`: meaning-bearing construct in semantic dynamics.
+- `semantic-construct`: meaning-bearing construct in domain semantics.
 - `structural-construct`: system-graph arrangement or composition construct.
 - `operational-semantics`: correctness, execution, reliability, or control semantics.
 - `realization-substrate`: concrete mechanism family or substrate category.
@@ -53,11 +53,11 @@ Allowed kinds:
 - `overview`: reserved for the top-level `Cohesive System Model.md` overview.
 
 Use `kind` by the primary role of the note, not by the concepts it references.
-A `semantic-construct` is a meaning-bearing modeling primitive in semantic
-dynamics. A `principle` is a modeling discipline, distinction, or relationship
+A `semantic-construct` is a meaning-bearing modeling primitive in domain
+semantics. A `principle` is a modeling discipline, distinction, or relationship
 that constrains how primitives are interpreted. If a note primarily relates,
 compares, or disciplines constructs such as `Event` and `State`, classify it as
-`principle` even when it is heavily referenced from semantic dynamics.
+`principle` even when it is heavily referenced from domain semantics.
 
 Recommended:
 

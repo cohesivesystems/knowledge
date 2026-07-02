@@ -5,7 +5,7 @@ kind: operational-semantics
 
 # Weak Isolation Patterns
 
-Weak Isolation Patterns are design techniques used when one [[ACID]] transaction or [[Two-Phase Commit|two-phase commit]] boundary is unavailable, too expensive, or not aligned with the business process.
+Weak Isolation Patterns are design techniques used when [[ACID]] guarantees or [[Two-Phase Commit|two-phase commit]] are unavailable, too expensive, or not aligned with the business process.
 
 As an architecture practice, these patterns are discussed in [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]].
 

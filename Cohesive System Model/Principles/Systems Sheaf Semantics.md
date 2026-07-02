@@ -73,13 +73,13 @@ This lattice can serve as a base of contexts. A cut is thus a causally coherent 
 
 ## Presheaves over Cuts
 
-A systems presheaf over cuts assigns semantic data to each consistent cut:
+A systems presheaf over consistent cuts assigns semantic data to each consistent cut:
 
 $$
 \mathcal{F} : \mathcal{C}(E)^{op} \to \mathbf{Set}
 $$
 
-For each cut $C\subseteq E$, the set $\mathcal{F}(C)$ contains the sections applicable at that cut. For a Set-valued sheaf, a section (examples below) over a context is an element of the set assigned to that context:
+For each cut $C\subseteq E$, the set $\mathcal{F}(C)$ contains the sections (observations) applicable at that cut. For a Set-valued sheaf, a section (examples below) over a context is an element of the set assigned to that context:
 
 $$
 s \in \mathcal{F}(C)
@@ -128,7 +128,7 @@ Restriction forgets, hides, projects, or reconstitutes a larger context as a sma
 
 ## Compatibility and Descent
 
-A useful coverage on the cut lattice says that a family of cuts covers $U$ when their join is $U$:
+A coverage on the cut lattice says that a family of cuts covers $U$ when their join is $U$:
 
 $$
 U = \bigcup_i C_i
@@ -194,29 +194,29 @@ $$
 \rho_{C_1 \cup C_2,C_2}(s) = s_2
 $$
 
-The compatible local sections together with their agreement data are **descent data**. **Descent** is the passage from that cover-level data to a section over the covered context. In systems terms: independently evolved local histories can be assembled into a larger coherent history when their overlapping parts agree.
+The compatible local sections together with their agreement data are **descent data**. Descent is the passage from that cover-level data to a section over the covered context. In systems terms: independently evolved local histories can be assembled into a larger coherent history when their overlapping parts agree.
 
-Descent is therefore close to gluing, but the emphasis is slightly different. Gluing names the assembly of compatible local sections. Descent names the principle that compatible local data over a cover is enough to determine, reconstruct, or recognize the corresponding global section.
+Descent is therefore close to gluing (sheaf condition), but the emphasis is slightly different. Gluing names the assembly of compatible local sections. Descent names the principle that compatible local data over a cover is enough to determine, reconstruct, or recognize the corresponding global section.
 
 ## Synchrony as Descent
 
-[[Synchrony and Asynchrony|Asynchrony]] preserves multiplicity: participants can advance through incomparable cuts. A system therefore accumulates local sections that need not share a total order.
+[[Synchrony and Asynchrony|Asynchrony]] preserves event multiplicity: participants can advance through incomparable cuts. A system therefore accumulates local observations that need not share a total order.
 
-Synchronization can be understood as a descent operation: a boundary, protocol, transaction, barrier, consensus decision, or workflow step requires local sections to become compatible and records or selects the glued section.
+Synchronization can be understood as a descent operation: a boundary, protocol, transaction, barrier, consensus decision, or workflow step requires local observations to become compatible and records or selects the glued observation.
 
 This makes a useful distinction:
 
 - No gluing means the local observations are incompatible.
 - More than one gluing means the local observations are ambiguous or indeterminate.
-- Unique gluing means the local observations determine one coherent larger section.
+- Unique gluing means the local observations determine one coherent larger observation.
 
-Atomic commits, workflow barriers, replicated-object decisions, projection checkpoints, and coordinated state transitions can all be read as different ways of enforcing or recording compatibility across local sections.
+Atomic commits, linearization points, workflow barriers, replicated-object decisions, projection checkpoints, and coordinated state transitions can all be read as different ways of enforcing or recording compatibility across local sections.
 
 ## Observer-Indexed Semantics
 
-Cuts alone are not enough for Cohesive, because meaning is [[Observer|observer-relative]]. Each observer has its own semantic fiber: events it can observe, commands it can interpret, state it can see, policies it can apply, and versions it can distinguish.
+Consistent cuts alone are not enough for Cohesive, because meaning is [[Observer|observer-relative]]. Each observer has its own semantic context (fiber): events it can observe, commands it can interpret, state it can see, policies it can apply, and versions it can distinguish.
 
-A fibered presentation writes:
+A fibered (contextualized) presentation writes:
 
 $$
 \pi : \mathsf{Sem} \to \mathsf{Obs}
@@ -228,7 +228,7 @@ $$
 (O,x)
 $$
 
-where $O$ is an observer and $x$ is meaningful over that observer.
+where $O$ is an observer and $x$ is meaningful for that observer.
 
 A semantic translation between observers has the shape:
 

@@ -26,11 +26,11 @@ The mathematical term **sheaf** is useful here because it separates several ques
 - When can compatible local views be glued into a larger view?
 - Is the glued view unique, absent, or underdetermined?
 
-In the Cohesive System Model, a sheaf should usually be read as a structured system of observer-relative sections, not as a claim that the implemented system literally uses sheaf theory.
+In the Cohesive System Model, a sheaf should usually be read as a structured system of observations, not as a claim that the implemented system literally uses sheaf theory.
 
 ## Local Definition
 
-A **presheaf** is a structure-preserving assignment from a base category of information contexts to a category of observation collections. The base category might consist of schemas, consistent cuts, execution contexts, communication neighborhoods, time intervals, processors, observers, or boundaries. Its morphisms represent relationships among those contexts: inclusion, restriction, refinement, projection, causal extension, visibility, or comparison.
+A **presheaf** is a structure-preserving assignment from a base category of information contexts to a category of observations. The base category might consist of schemas, consistent cuts, execution contexts, communication neighborhoods, time intervals, processors, observers, or boundaries. Its morphisms represent relationships among those contexts: inclusion, restriction, refinement, projection, causal extension, visibility, or comparison.
 
 Formally, a presheaf has the shape:
 
@@ -40,7 +40,7 @@ $$
 
 where $\mathsf{Ctx}$ is the base category and $\mathsf{Obs}$ is a category of observation spaces, often $\mathbf{Set}$ but sometimes a category of structured collections such as ordered sets, histories, traces, schemas, or evidence objects.
 
-The opposite category is important. With the common convention that a morphism
+The opposite category is important (although relative). With the common convention that a morphism
 
 $$
 i : V \to U
@@ -54,7 +54,7 @@ $$
 
 For example, a relationship between schemas induces restriction from database instances over a larger schema to views over a smaller schema. A relationship between execution cuts induces restriction from observations over the broader cut to observations over the narrower cut.
 
-This functorial aspect is crucial: relationships in the information base are mapped to relationships among observations while preserving identities and composition. Restricting from $U$ to $U$ changes nothing, and restricting from $W$ to $V$ through $U$ agrees with restricting directly when the base relationships compose that way.
+The functorial aspect is crucial: relationships in the information base are mapped to relationships among observations while preserving identities and composition. Restricting from $U$ to $U$ changes nothing, and restricting from $W$ to $V$ through $U$ agrees with restricting directly when the base relationships compose that way.
 
 A **sheaf** is a presheaf with an additional local-to-global condition for a chosen notion of cover. If local observations over a cover agree on their overlaps, then they can be glued into a unique observation over the covered context. The sheaf condition says that compatible local perspectives determine a coherent larger perspective.
 
@@ -89,7 +89,7 @@ This is the topological aspect of sheaf language in system modeling. The chosen 
 
 ## Sections and Restriction
 
-For each context $U$, the collection $\mathcal{F}(U)$ contains the sections meaningful over $U$:
+For each context $U$, the collection $\mathcal{F}(U)$ contains the sections (e.g., observations) meaningful over $U$:
 
 $$
 s \in \mathcal{F}(U)
@@ -107,7 +107,7 @@ Restriction can forget, hide, project, aggregate, reconstitute, redact, or trans
 
 A labeled transition system is a familiar software-engineering model: states are connected by labeled transitions, and a run is a path through those transitions. In Cohesive terms, this relates [[State|state]], [[Transition|transition]], [[Event|event]], and [[Behavior|behavior]].
 
-Sheaf language shifts the emphasis. Instead of treating an object primarily as state with methods, it treats a system through observed behavior over contexts. A run of the system corresponds to a compatible family of local observations. Each observer may see only a projection of the execution: a subset of labels, a partial trace, a local state history, a read model, a clock interval, a participant-local view, or a redacted explanation.
+Sheaf language shifts the emphasis. Instead of treating an object primarily as state with methods, it treats a system of objects through observed behavior over contexts. A run of the system corresponds to a compatible family of local observations. Each observer may see only a projection of the execution: a subset of labels, a partial trace, a local state history, a read model, a clock interval, a participant-local view, or a redacted explanation.
 
 The sheaf organizes those partial views into one mathematical object:
 
@@ -150,7 +150,7 @@ $$
 
 whose restrictions recover $s_U$ and $s_V$.
 
-For systems, the existence and uniqueness clauses are diagnostic:
+For systems, the existence and uniqueness clauses diagnose consistency:
 
 - No gluing means the local views are inconsistent, unauthorized, causally invalid, or missing required evidence.
 - More than one gluing means the local views are compatible but underdetermined.
@@ -160,22 +160,22 @@ The sheaf condition therefore gives precise language for observer-relative disag
 
 ## Example Sheaves
 
-Several recurring structures in distributed systems can be read as sheaves or sheaf-like presheaves:
+Several recurring structures in distributed systems can be read as sheaves:
 
-| Sheaf | Base category | Sections |
-| --- | --- | --- |
-| Evidence sheaf | observers, sources, services, logs, sensors, or trust domains ordered by visibility, authority, or projection. | Observations, records, measurements, messages, logs, or attestations attached to each observer or source. |
-| State sheaf | Consistent cuts, version intervals, entity scopes, aggregates, snapshots, or event-history prefixes ordered by inclusion or causality. | Reconstructed entity state over compatible evidence, versions, events, or snapshots. |
-| Process sheaf | Workflow steps, saga phases, participant subsets, signal scopes, process cuts, or business-transaction boundaries. | Workflow, saga, or business-process progress over subsets of participants, steps, signals, and effects. |
-| Projection sheaf | query contexts, API shapes, read-model schemas, report scopes, DTO fields, or consumer-visible view boundaries. | DTOs, read models, reports, materialized views, and API responses derived from state or evidence. |
-| Command sheaf | transition contexts ordered by available state, authority, policy, version, boundary, and required observations. | Admissible transitions enabled by local state, policy, authority, and observed context. |
-| Version sheaf | Stream prefixes, offsets, vector-clock regions, causal heads, replica views, or history positions ordered by causality. | Visible version identifiers, stream offsets, vector clocks, causal heads, or history positions over observers and cuts. |
-| Identity sheaf | Bounded contexts, identifier namespaces, entity-resolution scopes, account graphs, or subject-continuity regions. | Identifier correspondence, entity resolution, aliases, and subject continuity across observers or bounded contexts. |
-| Lineage sheaf | Derivation graphs, source scopes, transformation steps, causal dependency regions, or evidence chains. | Source records, derivation paths, causal dependencies, transformation history, and trust evidence for reconstructed views. |
-| Policy sheaf | observer roles, tenants, jurisdictions, process phases, data classifications, or authority boundaries. | Local authorization, validation, routing, retention, or admissibility rules scoped by observer, boundary, tenant, or process phase. |
-| Invariant sheaf | entity scopes, aggregate boundaries, relation scopes, process windows, or consistency-checking regions. | Constraints that can be checked locally, on overlaps, or only after gluing a larger context. |
-| Recovery sheaf | Failure domains, restart contexts, checkpoint intervals, retry scopes, compensation scopes, or durable log prefixes. | Checkpoints, logs, retry state, compensation state, and reconstitution material available over failure and restart contexts. |
-| Knowledge sheaf | observers, principals, monitors, bounded contexts, evidence scopes, or epistemic accessibility relations. | What each observer can know, distinguish, trust, or prove from the evidence visible in its context. |
+| Sheaf            | Base category                                                                                                                          | Sections                                                                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Evidence sheaf   | observers, sources, services, logs, sensors, or trust domains ordered by visibility, authority, or projection.                         | Observations, records, measurements, messages, logs, or attestations attached to each observer or source.                           |
+| State sheaf      | Consistent cuts, version intervals, entity scopes, aggregates, snapshots, or event-history prefixes ordered by inclusion or causality. | Reconstructed entity state over compatible evidence, versions, events, or snapshots.                                                |
+| Process sheaf    | Workflow steps, saga phases, participant subsets, signal scopes, process cuts, or business-transaction boundaries.                     | Workflow, saga, or business-process progress over subsets of participants, steps, signals, and effects.                             |
+| Projection sheaf | query contexts, API shapes, read-model schemas, report scopes, DTO fields, or consumer-visible view boundaries.                        | DTOs, read models, reports, materialized views, and API responses derived from state or evidence.                                   |
+| Command sheaf    | transition contexts ordered by available state, authority, policy, version, boundary, and required observations.                       | Admissible transitions enabled by local state, policy, authority, and observed contex no t.                                         |
+| Version sheaf    | Stream prefixes, offsets, vector-clock regions, causal heads, replica views, or history positions ordered by causality.                | Visible version identifiers, stream offsets, vector clocks, causal heads, or history positions over observers and cuts.             |
+| Identity sheaf   | Bounded contexts, identifier namespaces, entity-resolution scopes, account graphs, or subject-continuity regions.                      | Identifier correspondence, entity resolution, aliases, and subject continuity across observers or bounded contexts.                 |
+| Lineage sheaf    | Derivation graphs, source scopes, transformation steps, causal dependency regions, or evidence chains.                                 | Source records, derivation paths, causal dependencies, transformation history, and trust evidence for reconstructed views.          |
+| Policy sheaf     | observer roles, tenants, jurisdictions, process phases, data classifications, or authority boundaries.                                 | Local authorization, validation, routing, retention, or admissibility rules scoped by observer, boundary, tenant, or process phase. |
+| Invariant sheaf  | entity scopes, aggregate boundaries, relation scopes, process windows, or consistency-checking regions.                                | Constraints that can be checked locally, on overlaps, or only after gluing a larger context.                                        |
+| Recovery sheaf   | Failure domains, restart contexts, checkpoint intervals, retry scopes, compensation scopes, or durable log prefixes.                   | Checkpoints, logs, retry state, compensation state, and reconstitution material available over failure and restart contexts.        |
+| Knowledge sheaf  | observers, principals, monitors, bounded contexts, evidence scopes, or epistemic accessibility relations.                              | What each observer can know, distinguish, trust, or prove from the evidence visible in its context.                                 |
 
 Not every useful structure satisfies the sheaf condition. Some structures are only presheaves. Some glue only partially, only with coordination, or only up to [[Equivalence vs Equality|equivalence]]. Some require authority, lineage, time, ordering, or consensus before compatibility can be tested. Those failures are part of the model rather than defects in the vocabulary.
 

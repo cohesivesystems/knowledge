@@ -35,7 +35,7 @@ Recommended note frontmatter:
 
 ```yaml
 ---
-realm: Semantic Dynamics
+realm: Domain Semantics
 kind: semantic-construct
 status: draft
 aliases: []

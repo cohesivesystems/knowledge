@@ -4,7 +4,7 @@ This repository is the public conceptual source for the Cohesive system model.
 The canonical authored form is Markdown intended for graph navigation in
 Obsidian.
 
-The graph describes concepts such as semantic dynamics, operational semantics,
+The graph describes concepts such as domain semantics, operational semantics,
 system structure, realization substrate, architecture practices, and the
 relations among them. Curated publication belongs in the broader Cohesive
 website; this repository remains the source graph that those editorial surfaces

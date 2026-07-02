@@ -67,7 +67,7 @@ Realization choices must be coherent across relationships. It is not enough to c
 
 For example, if an actor realizes an entity observer, then routing, ordering, persistence, recovery, and concurrency control must preserve the fact that the actor hosts the entity transition boundary. If a request handler realizes only a temporary observer, then transition correctness must be preserved by another mechanism, such as expected-version checks.
 
-A coherent architecture selects realizations that preserve the intended correspondence between semantic dynamics, system structure, operational semantics, and substrate behavior.
+A coherent architecture selects realizations that preserve the intended correspondence between domain semantics, system structure, operational semantics, and substrate behavior.
 
 ## Categorical Discipline
 

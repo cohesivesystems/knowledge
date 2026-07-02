@@ -7,7 +7,7 @@ kind: principle
 
 Compositionality is the principle that complex systems should be understood from parts and the rules by which those parts compose.
 
-In the Cohesive System Model, compositionality asks whether semantic dynamics, system structure, operational semantics, and realization choices can be assembled without changing their intended meanings.
+In the Cohesive System Model, compositionality asks whether domain semantics, system structure, operational semantics, and realization choices can be assembled without changing their intended meanings.
 
 Compositionality helps ask:
 

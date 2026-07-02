@@ -11,7 +11,7 @@ Domain-Driven Design, or DDD, addresses the problem of preserving domain meaning
 
 ## Cohesive Formulation
 
-DDD can be expressed as a discipline for making semantic dynamics explicit:
+DDD can be expressed as a discipline for making domain semantics explicit:
 
 - [[Entity|Entities]] identify enduring domain subjects.
 - [[Value|Values]] represent identity-free domain information.

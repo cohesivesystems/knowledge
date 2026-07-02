@@ -1,5 +1,5 @@
 ---
-realm: Semantic Dynamics
+realm: Domain Semantics
 kind: semantic-construct
 tags:
 ---
