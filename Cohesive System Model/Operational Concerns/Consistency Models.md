@@ -65,7 +65,7 @@ This model is naturally related to [[Time|logical time]], happened-before, vecto
 
 ## Consistent Cut
 
-A **consistent cut** is a selected set of events, versions, or observations that is closed under causality: if the cut includes an event, it must also include the causal prerequisites of that event.
+A **[[Glossary#consistent cut|consistent cut]]** is a selected set of events, versions, or observations that is closed under causality: if the cut includes an event, it must also include the causal prerequisites of that event.
 
 In a distributed system, a consistent cut represents a coherent global snapshot relative to a partial order. It may include concurrent events in different combinations, but it must not include an effect while omitting a cause that happened before it.
 
@@ -111,4 +111,4 @@ The design question is not simply "strong" or "weak" consistency. It is which ob
 - Douglas B. Terry, Alan J. Demers, Karin Petersen, Mike Spreitzer, Marvin Theimer, and Brent Welch, [Session Guarantees for Weakly Consistent Replicated Data](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html), PDIS 1994.
 - Werner Vogels, [Eventually Consistent](https://queue.acm.org/detail.cfm?id=1466448), ACM Queue, 2008.
 
-Related concepts: [[Ordering|ordering]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Version Histories|version histories]], [[Version|version]], [[Time|time]], [[Observation|observation]], [[Observer|observer]], [[Boundaries|boundaries]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], [[CQRS]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].
+Related concepts: [[Glossary|glossary]], [[Ordering|ordering]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Version Histories|version histories]], [[Version|version]], [[Time|time]], [[Observation|observation]], [[Observer|observer]], [[Boundaries|boundaries]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], [[CQRS]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].

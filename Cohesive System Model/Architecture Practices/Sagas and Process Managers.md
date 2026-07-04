@@ -9,7 +9,9 @@ Sagas and process managers address the problem of coordinating long-running, mul
 
 ## Cohesive Formulation
 
-The sagas practice is about [[Processes|processes]], [[Coordination|coordination]], and sometimes [[Durable Execution|durable execution]]:
+A [[Sagas and Process Managers|process manager]] is the broader coordinating role: it gives a [[Process|process]] identity, records progress or history, observes inputs, decides next steps, and emits commands or events across boundaries.
+
+The sagas and process managers practice is about [[Processes|processes]], [[Coordination|coordination]], and sometimes [[Durable Execution|durable execution]]:
 
 - A process has identity, state, progress, and recovery behavior.
 - It observes events or signals.
@@ -17,6 +19,18 @@ The sagas practice is about [[Processes|processes]], [[Coordination|coordination
 - It may compensate, retry, time out, or escalate.
 
 Sagas and process managers can be implemented without a workflow engine, but they still need explicit persistence, recovery, idempotency, and delivery semantics when they are expected to survive failure or long delays.
+
+## Distinction
+
+Viewed through the process-management role, sagas and [[Durable Execution Engines|durable execution engines]] are both process managers. The key difference is what is being recovered.
+
+A saga is a business-recovery process manager. It treats failure as an invalid, undesirable, or no-longer-achievable business state. Recovery may involve undoing prior business actions, issuing compensating commands, negotiating with external systems, choosing an alternate path, requesting human intervention, or partially completing the process.
+
+A [[Durable Execution Engines|durable execution engine]] is an execution-recovery process manager. It treats failure as an interruption of execution. Recovery restores enough execution context for the same logical computation to continue through persisted workflow state or history, deterministic replay when applicable, durable checkpoints, activity retry, timers, signals, and process, VM, or machine restart.
+
+A saga can be implemented on [[Durable Execution|durable execution]] by making compensation decisions inside resumable workflow code. During resumed execution, the saga checks whether compensation or an alternate path is required, then performs the specific business operation. The saga does not require full durable execution, however. It can also coordinate and recover from event-sourced process history, current-state process records, [[Transactional Outbox|outbox]] and [[Transactional Inbox|inbox]] records, or event subscriptions when those mechanisms preserve identity, ordering, idempotency, and recovery.
+
+In short, durable execution says "continue the same computation." Saga recovery says "the world has changed; decide how the business process should proceed."
 
 ## In the Model
 

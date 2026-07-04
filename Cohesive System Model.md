@@ -13,6 +13,8 @@ Domains can be described as semantic system graphs composed of:
 
 Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
+Base terms that recur across realms are collected in the [[Glossary|glossary]].
+
 ## Realms of Description
 
 ### 0. Principles
@@ -72,7 +74,7 @@ Describes how domain semantics are made executable and reliable.
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
 - [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]]
-- [[Dual-Write Problem]]
+- [[Distributed Failure Scenarios|Distributed failure scenarios]], [[Dual-Write Problem|dual-write problem]]
 - [[Version Histories]]
 - [[Consistency Models]]  
 - [[CRDTs]]

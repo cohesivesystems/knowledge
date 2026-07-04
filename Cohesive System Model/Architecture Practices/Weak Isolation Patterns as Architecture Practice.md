@@ -15,6 +15,8 @@ Distributed work often crosses databases, brokers, APIs, workflow engines, repli
 
 Without an explicit weak-isolation design, systems often rely on accidental timing: a message arrives soon enough, a read model catches up, a retry is harmless, a downstream system is available, or a related fact has not changed. Those assumptions are not a correctness model.
 
+[[Distributed Failure Scenarios|Distributed failure scenarios]] name common ways those assumptions break across independently governed boundaries.
+
 ## Cohesive Formulation
 
 Weak isolation design makes the missing transaction guarantees explicit in the model:
@@ -113,4 +115,4 @@ The practice fails when pending states are not first-class, when asynchronous wo
 
 It also fails when eventual consistency is used as a slogan. Eventuality must say what will eventually happen, under which delivery and recovery assumptions, and what observers may see before convergence.
 
-Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Sagas and Process Managers|sagas and process managers]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Business Transactions|business transactions]].
+Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Sagas and Process Managers|sagas and process managers]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Business Transactions|business transactions]].

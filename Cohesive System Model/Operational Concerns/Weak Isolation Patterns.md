@@ -11,6 +11,8 @@ As an architecture practice, these patterns are discussed in [[Weak Isolation Pa
 
 They do not make weak isolation disappear. They replace implicit transactional guarantees with explicit rules about [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], compensation, reconciliation, and invariant preservation.
 
+Common hazard shapes that motivate these patterns are cataloged in [[Distributed Failure Scenarios|distributed failure scenarios]].
+
 ## Common Patterns
 
 - **Optimistic concurrency**: use expected-version or etag checks to reject stale transitions.
@@ -41,4 +43,4 @@ The [[CALM Theorem|CALM theorem]] supplies a useful diagnostic: when adding fact
 - Hector Garcia-Molina and Kenneth Salem, [Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf), Princeton CS-TR-070-87, 1987.
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Isolation|isolation]], [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs]], [[Invariants|invariants]], [[Business Transactions|business transactions]].
+Related concepts: [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Isolation|isolation]], [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs]], [[Invariants|invariants]], [[Business Transactions|business transactions]].
