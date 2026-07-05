@@ -41,4 +41,4 @@ Fibrational thinking prevents context from being erased. It keeps clear that an 
 
 Observer-indexed fibers can also support [[Systems Sheaf Semantics|systems sheaf semantics]], where each observer has local sections over the cuts, boundaries, and views available to it.
 
-Related concepts: [[Realization|realization]], [[Observation|observation]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Observer|observer]], [[Processes|processes]], [[Systems Sheaf Semantics|systems sheaf semantics]].
+Related concepts: [[Realization|realization]], [[Observation|observation]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Systems Sheaf Semantics|systems sheaf semantics]].

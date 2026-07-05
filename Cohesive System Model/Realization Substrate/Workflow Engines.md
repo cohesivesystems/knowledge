@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-04
+updated: 2026-07-05
 ---
 
 # Workflow Engines
@@ -11,7 +11,7 @@ Workflow Engines are runtimes for defining, coordinating, and operating multi-st
 
 They commonly provide workflow identity, workflow state or history, timers, activity scheduling, retries, compensation, signals, [[Query|queries]], inspection, and operational controls. Many workflow engines also provide [[Durable Execution|durable execution]], but durable execution is an architecture practice, not the definition of a workflow engine.
 
-In the model, workflow engines often [[Realization|realize]] [[Processes|processes]], [[Coordination|coordination]], [[Durability|durability]] of workflow material, [[Recovery|recovery]], [[Durable Execution|durable execution]], and long-lived [[Observer|observer]] behavior.
+In the model, workflow engines often [[Realization|realize]] [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Durability|durability]] of workflow material, [[Recovery|recovery]], [[Durable Execution|durable execution]], and long-lived [[Observer|observer]] behavior.
 
 A workflow activation may realize an observer for a process step. The process itself may also be modeled as an entity-observer when it has identity, durable state/history, and rules for interpreting incoming events or signals over time.
 
@@ -28,6 +28,6 @@ Workflow engine concerns include:
 - Retry and compensation.
 - External interaction boundaries.
 
-A workflow history is a persistence choice. It must still be related back to entity versions, committed events, projections, policies, and invariants.
+A workflow history is a persistence choice. It must still be related back to entity versions, committed events, projection models, policy scopes, and invariant scopes.
 
-Related concepts: [[Realization|realization]], [[Processes|processes]], [[Process|process]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Query|query]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Retry|retry]], [[Recovery|recovery]], [[Ordering|ordering]].
+Related concepts: [[Realization|realization]], [[Process Graphs|process graphs]], [[Process|process]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Query|query]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Retry|retry]], [[Recovery|recovery]], [[Ordering|ordering]].

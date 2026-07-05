@@ -30,4 +30,4 @@ CRDTs are suitable when the domain can tolerate temporary divergence and the int
 
 The [[CALM Theorem|CALM theorem]] generalizes this practice beyond CRDT implementations: monotone application logic is the part of the system that can usually remain coordination-free.
 
-Related concepts: [[CRDTs]], [[CALM Theorem|CALM theorem]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Invariants|invariants]], [[Storage Systems|storage systems]], [[Compositionality|compositionality]].
+Related concepts: [[CRDTs]], [[CALM Theorem|CALM theorem]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Invariant|invariants]], [[Storage Systems|storage systems]], [[Compositionality|compositionality]].

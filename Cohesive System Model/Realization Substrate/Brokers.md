@@ -22,4 +22,4 @@ Brokers can realize interaction patterns such as:
 
 Broker guarantees must be interpreted through the model's delivery semantics. Ordering, durability, deduplication, [[Acknowledgments|acknowledgment]], and replay are always scoped to the broker's own boundaries and keys.
 
-Related concepts: [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Retry|retry]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Flows|flows]].
+Related concepts: [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Retry|retry]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Flow Views|flow views]].

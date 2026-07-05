@@ -25,7 +25,7 @@ Exogenous event
 Commands are not mere messages. They are interpretations made relative to:
 
 - The specific [[Observer|observer]], its [[Boundaries|boundary]] and its current view of state.
-- Authority, [[Invariants|invariants]], and [[Policies|policies]].
+- Authority, [[Invariant|invariants]], and [[Policy|policies]].
 - The intended transition.
 - An optional expected [[Version|version]] or etag.
 

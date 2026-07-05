@@ -27,4 +27,4 @@ write-side persistence -> read-side reconstitution
 
 As an architecture practice, CQRS makes the read/write split a deliberate boundary. That boundary introduces consistency-under-asynchrony concerns: projection lag, read-your-writes, monotonic reads, ordering scope, idempotent updates, and recovery.
 
-Related concepts: [[CQRS]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projections|projections]], [[Observation|observation]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]].
+Related concepts: [[CQRS]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Observation|observation]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]].

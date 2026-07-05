@@ -27,4 +27,4 @@ Examples:
 
 Fixed-point thinking helps distinguish productive recursion from accidental loops. A retry policy without limits, backoff, idempotency, or recovery semantics is not a meaningful fixed point; it is an uncontrolled loop.
 
-Related concepts: [[Behavior|behavior]], [[Processes|processes]], [[Retry|retry]], [[Recovery|recovery]], [[Projections|projections]], [[Event-State Duality|event-state duality]], [[Trace and Feedback|trace and feedback]].
+Related concepts: [[Behavior|behavior]], [[Process Graphs|process graphs]], [[Retry|retry]], [[Recovery|recovery]], [[Projection Models|projection models]], [[Event-State Duality|event-state duality]], [[Trace and Feedback|trace and feedback]].

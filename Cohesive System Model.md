@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-07-04
+updated: 2026-07-05
 ---
 
 # Cohesive System Model
@@ -21,14 +21,14 @@ See [[System Language and Realization|system language and realization]] for the 
 
 ## Core Thesis
 
-Domains can be described as semantic system graphs composed of:
+Domains can be described as cohesive system graphs composed from semantic constructs and arranged as:
 
 - [[Entity Models|Entity models]] with stable [[Identity|identities]]
-- [[Relations]] between entities and observations
+- [[Relation Models|Relation models]] over semantic [[Relation|relations]]
 - [[State|States]], [[Value|values]], [[Transition|transitions]], and [[Event|events]]
-- [[Observers]] as active participants 
+- [[Observer Models|Observer models]] for active participants
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
-- [[Process|Processes]] evolving entities and emitting effects over time
+- [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and effects over time
 
 Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
@@ -71,6 +71,9 @@ assigning operational guarantees or realization mechanisms.
 - [[Process]]
 - [[Observer]]  
 - [[Entity]]  
+- [[Relation]]
+- [[Invariant]]
+- [[Policy]]
 - [[Command]]  
 - [[Query]]
 - [[Transition]]  
@@ -103,20 +106,21 @@ Describes how domain semantics are made executable and reliable.
 
 ### 3. System Graph
 
-Organizes domain semantics into a system graph. The system graph describes placement, composition, ownership, boundaries, dependencies, and graph shape; it is distinct from primitive semantic definitions and concrete realization substrate.
+Organizes domain semantics into a cohesive system graph. The system graph describes placement, composition, ownership, boundaries, dependencies, graph shape, and public substrate-facing projections; it is distinct from primitive semantic definitions, operational guarantees, and concrete realization substrate.
 
 - [[System Graph]]
 - [[Entity Models]]
-- [[Observers]]  
-- [[Relations]]  
-- [[Projections]]  
-- [[Processes]]  
+- [[Observer Models]]
+- [[Relation Models]]
+- [[Projection Models]]
+- [[Process Graphs]]
 - [[Effects]]
-- [[Flows]] as movement views within or between processes
+- [[Flow Views]] as movement views within or between process graphs
 - [[Business Transactions]]
-- [[Policies]]  
-- [[Invariants]]  
+- [[Policy Scopes]]
+- [[Invariant Scopes]]
 - [[Boundaries]]
+- [[Infrastructure Graph]]
 
 ### 4. Realization Substrate
 
@@ -244,7 +248,7 @@ Actor systems make observers addressable: an actor address gives other observers
 
 An endogenous event emitted inside one observer’s [[Boundaries|boundary]] can be observed as an exogenous event by another observer.
 
-Commands and queries are **observer-relative interpretations**: the same incoming [[Value|value]] or event may be interpreted differently (or rejected) depending on the observer’s current view of entity state, projections, required observations, [[Invariants|invariants]], [[Policies|policies]], authority, and consistency expectations.
+Commands and queries are **observer-relative interpretations**: the same incoming [[Value|value]] or event may be interpreted differently (or rejected) depending on the observer’s current view of entity state, [[Projection Models|projection models]], required observations, [[Invariant|invariants]], [[Policy|policies]], authority, and consistency expectations.
 
 ### Entity
 
@@ -255,7 +259,7 @@ An entity is defined by:
 - A **family of entity-state observations** across time, indexed by version
 - A **current state** at any point in time, attributed to identity + version
 - **[[Transition|Transitions]]** that define how its state may change
-- **[[Invariants]]** and **[[Policies|policies]]** that constrain valid changes
+- **[[Invariant|Invariants]]** and **[[Policy|policies]]** that constrain valid changes
 - **[[Effects]]**, primarily the endogenous events it produces when transitions are committed
 
 An entity is therefore state + identity + version history + transitions + invariants + policies + effects.
@@ -327,7 +331,7 @@ Behavior -> Events
 - Event history
 - Behavior samples
 - [[Workflow Engines|Workflow]] history
-- [[Projections|Projection]] state (derived observations)
+- [[Projection Models|Projection]] state (derived observations)
 - Derived observations
 
 ## Exogenous and Endogenous Events
@@ -478,12 +482,12 @@ Different runtimes realize observers differently (e.g., actor placement and supe
 Cohesive preserves correspondence across realms:
 
 ```txt  
-Semantic dynamics (State, Observation, Event, Observer, Entity, Command, Query, ...)
-  -> System graph (Entity Models, Observers, Relations, Projections, Flows, Boundaries, ...)
+Semantic dynamics (State, Observation, Event, Observer, Entity, Relation, Command, Query, ...)
+  -> System graph (Entity Models, Observer Models, Relation Models, Projection Models, Process Graphs, Boundaries, Infrastructure Graph, ...)
   -> Operational concerns (Persistence, Durability, Reconstitution, Interaction, Delivery, Coordination, Recovery, Control)
   -> Realization substrate (Realization, Compute, Runtimes, Network, Storage, Workflow engines, Durable execution engines, Actor systems, ...)
 ```
 
-It lets a domain be modeled in terms of entities, observers, states, observations, events, commands, queries, relations, and flows, then projects those primitives into operational systems running on existing infrastructure while maintaining semantic fidelity across layers and across different observers.
+It lets a domain be modeled in terms of entities, observers, states, observations, events, commands, queries, relations, and process graphs, then projects those primitives into operational systems running on existing infrastructure while maintaining semantic fidelity across layers and across different observers.
 
 [[Architecture Practices]] contextualize named industry patterns and methodologies as cross-realm bundles of problems, constraints, and realization choices expressible in Cohesive terms.

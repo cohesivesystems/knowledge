@@ -46,4 +46,4 @@ Examples in the Cohesive System Model:
 
 Universal constructions are not always implemented literally. Their value is disciplinary: they force the model to say what relationships make an object canonical, and what related information has been included, excluded, merged, or quotiented away.
 
-Related concepts: [[Transition|transition]], [[Observation|observation]], [[Projections|projections]], [[Boundaries|boundaries]], [[Behavior|behavior]], [[Realization|realization]], [[Version Histories|version histories]], [[Consensus|consensus]], [[State|state]], [[Event|event]], [[Value|value]].
+Related concepts: [[Transition|transition]], [[Observation|observation]], [[Projection Models|projection models]], [[Boundaries|boundaries]], [[Behavior|behavior]], [[Realization|realization]], [[Version Histories|version histories]], [[Consensus|consensus]], [[State|state]], [[Event|event]], [[Value|value]].

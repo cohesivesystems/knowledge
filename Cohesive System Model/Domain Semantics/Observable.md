@@ -21,7 +21,7 @@ Examples of observables include:
 
 - A field accessor such as `order.status`, which observes one dimension of order state.
 - A current-state observable for an [[Entity|entity]], such as the accessor, [[Reconstitution|reconstitution]] procedure, projection, or subscription that produces an entity-scoped observation at a declared [[Version|version]], boundary, and consistency expectation.
-- A [[Projections|projection]] or read model such as account balance derived from ledger events.
+- A [[Projection Models|projection]] or read model such as account balance derived from ledger events.
 - A metric, probe, or sensor such as queue depth, process memory, CPU load, or room temperature.
 - A UI view such as a filtered task list, selected row, or visible validation state.
 - A policy-shaped view such as a customer profile with private fields redacted for a particular observer.
@@ -51,4 +51,4 @@ Reactive programming often uses "observable" for a subscribable source that emit
 
 The physics analogy is useful but informal. A physical observable names something measurable about a system, while an observation is the result obtained through a particular measurement context. Similarly, in this model an observable is not the underlying state. It is the rule, probe, or apparatus by which state becomes visible to an observer.
 
-Related concepts: [[State|state]], [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Query|query]], [[Observer|observer]], [[Projections|projection]], [[Entity|entity]], [[Version|version]], [[Event|event]], [[Behavior|behavior]], [[CQRS]].
+Related concepts: [[State|state]], [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Query|query]], [[Observer|observer]], [[Projection Models|projection]], [[Entity|entity]], [[Version|version]], [[Event|event]], [[Behavior|behavior]], [[CQRS]].

@@ -15,7 +15,7 @@ An entity is defined by:
 - A family of entity-state [[Observation|observations]] across time, indexed by [[Version|version]].
 - A current [[State|state]] at any point in time, attributed to identity + version.
 - [[Transition|Transitions]] that define how its state may change.
-- [[Invariants]] and [[Policies|policies]] that constrain valid changes.
+- [[Invariant|Invariants]] and [[Policy|policies]] that constrain valid changes.
 - Effects, primarily the endogenous [[Event|events]] it produces when transitions are committed.
 
 An entity is therefore state + identity + version history + transitions + invariants + policies + effects.

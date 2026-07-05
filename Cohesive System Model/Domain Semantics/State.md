@@ -21,7 +21,7 @@ State does not inherently carry [[Identity|identity]], [[Version|version]], or l
 
 For an [[Entity|entity]], entity state is state attributed to an [[Identity|identity]] at a [[Version|version]]. The version identifies the point in the entity history at which that state became current. Entity state is not merely a value with metadata; values represent, observe, persist, compare, or update entity state, while identity, version, and events locate it within an entity history. Entity state may be full or partial only relative to a declared [[Shape|shape]], model [[Boundaries|boundary]], or operation.
 
-System state is broader than entity state. It may assign values across multiple subjects, [[Observer|observers]], [[Relations|relations]], stores, queues, [[Processes|processes]], policies, and environmental dimensions inside a boundary. Observers interact with state by observing it and, when authorized, by interpreting input events as [[Command|commands]] that may advance or mutate it through [[Transition|transitions]].
+System state is broader than entity state. It may assign values across multiple subjects, [[Observer|observers]], [[Relation|relations]], stores, queues, [[Process Graphs|process graphs]], policies, and environmental dimensions inside a boundary. Observers interact with state by observing it and, when authorized, by interpreting input events as [[Command|commands]] that may advance or mutate it through [[Transition|transitions]].
 
 In [[Event-State Duality|event-state duality]]:
 
@@ -34,4 +34,4 @@ In [[Event-State Duality|event-state duality]]:
 
 - Leslie Lamport, [The Temporal Logic of Actions](https://lamport.azurewebsites.net/pubs/lamport-actions.pdf), ACM Transactions on Programming Languages and Systems, 16(3):872-923, May 1994. Section 2.1 defines state in terms of assigning values to variables.
 
-Related concepts: [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Observable|observable]], [[Observer|observer]], [[Event|event]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Entity|entity]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Transition|transition]], [[Relations|relations]], [[Processes|processes]].
+Related concepts: [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Observable|observable]], [[Observer|observer]], [[Event|event]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Entity|entity]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Transition|transition]], [[Relation|relations]], [[Process Graphs|process graphs]].

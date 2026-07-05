@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-05
 ---
 
 # Infrastructure
@@ -20,6 +20,6 @@ Infrastructure shapes the boundaries within which the system runs:
 - Deployment boundaries.
 - Persistence and recovery boundaries.
 
-Infrastructure can support or undermine the model's operational concerns. Its concrete guarantees should be mapped back through [[Realization|realization]] to interaction, delivery, coordination, concurrency, and recovery meanings.
+Infrastructure can support or undermine the model's operational concerns. Its concrete guarantees should be mapped back through [[Realization|realization]] and, when public structure is needed, through an [[Infrastructure Graph|infrastructure graph]] to interaction, delivery, coordination, concurrency, and recovery meanings.
 
-Related concepts: [[Realization|realization]], [[Compute|compute]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Network|network]], [[Storage Systems|storage systems]], [[Brokers|brokers]], [[Recovery|recovery]].
+Related concepts: [[Realization|realization]], [[Infrastructure Graph|infrastructure graph]], [[Compute|compute]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Network|network]], [[Storage Systems|storage systems]], [[Brokers|brokers]], [[Recovery|recovery]].

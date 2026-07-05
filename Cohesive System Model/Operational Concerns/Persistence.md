@@ -23,7 +23,7 @@ Persistent material may include:
 - Workflow histories.
 - Process execution histories, checkpoints, timers, signals, and pending work.
 - Process state.
-- [[Projections|Projection]] state as derived observations.
+- [[Projection Models|Projection]] state as derived observations.
 - [[CRDTs|CRDT]] replica state, deltas, operations, and causal metadata.
 
 Persistence is not a single technology choice. It is a semantic decision about what the system treats as recoverable truth inside a boundary. Durability is the separate claim that this material survives declared failures and remains usable after them.

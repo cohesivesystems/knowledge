@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-05
 ---
 
 # Interaction
@@ -98,4 +98,4 @@ An interaction edge can be classified by:
 
 Interaction does not by itself define whether a domain transition committed. That depends on the receiver's observer-relative interpretation, validation, persistence, and delivery semantics.
 
-Related concepts: [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Relations|relations]], [[Flows|flows]], [[Projections|projections]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].
+Related concepts: [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Relation Models|relation models]], [[Flow Views|flow views]], [[Projection Models|projection models]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].

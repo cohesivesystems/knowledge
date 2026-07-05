@@ -21,7 +21,7 @@ In modeling, optics are useful for understanding observations, projections, part
 Examples:
 
 - An [[Observable|observable]] focuses on part of state and produces an [[Observation|observation]].
-- A [[Projections|projection]] derives a view from source state or events.
+- A [[Projection Models|projection]] derives a view from source state or events.
 - A command may target a partial aspect of entity state while requiring broader context for validation.
 - A boundary may expose a view of an entity without exposing its full internal state.
 
@@ -29,4 +29,4 @@ Lawful optics preserve round-trip expectations. For example, if a view is update
 
 Optics help keep partial observation distinct from full state and derived views distinct from canonical history.
 
-Related concepts: [[Observable|observable]], [[Observation|observation]], [[State|state]], [[Projections|projections]], [[Command|command]], [[Boundaries|boundaries]], [[Equivalence vs Equality|equivalence vs equality]].
+Related concepts: [[Observable|observable]], [[Observation|observation]], [[State|state]], [[Projection Models|projection models]], [[Command|command]], [[Boundaries|boundaries]], [[Equivalence vs Equality|equivalence vs equality]].

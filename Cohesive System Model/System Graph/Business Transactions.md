@@ -2,16 +2,16 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-05
 ---
 
 # Business Transactions
 
 Business Transactions describe domain-level units of work whose progress, acceptance, rejection, compensation, or completion matters to the business.
 
-A business transaction is not the same as a database transaction. A database transaction is one possible coordination mechanism inside a business transaction. A business transaction may span observers, entities, services, brokers, workflow engines, humans, agents, external systems, and time.
+A business transaction is not the same as a database transaction. A database transaction is one possible coordination mechanism inside a business transaction. A business transaction may span observer models, entity models, services, brokers, workflow engines, humans, agents, external systems, and time.
 
-At the structure level, a business transaction arranges [[Processes|processes]], their flows, [[Entity|entities]], [[Observer|observers]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Observation|observations]], and [[Transition|transitions]] into coherent domain work.
+At the structure level, a business transaction arranges [[Process Graphs|process graphs]], their [[Flow Views|flow views]], [[Entity Models|entity models]], [[Observer Models|observer models]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Observation|observations]], and [[Transition|transitions]] into coherent domain work.
 
 Examples include:
 
@@ -28,7 +28,7 @@ Business transactions are examples of [[Compositionality|compositionality]]. The
 
 ```txt
 business transaction
-  -> process structure and movement flows
+  -> process graph and flow views
   -> commands, queries, events, observations, transitions
   -> application-level interaction protocols
      (request/reply, publish/consume, durable execution, event-sourced commit)
@@ -50,7 +50,7 @@ Application-level pieces include [[Interaction|request/reply]], [[Interaction|pu
 A business transaction should identify:
 
 - The business subject or correlation identity.
-- Participating entities, observers, people, agents, and external systems.
+- Participating entity models, observer models, people, agents, and external systems.
 - Commands that request state transitions.
 - Queries and observations needed for decisions.
 - Endogenous events that mark accepted domain change.
@@ -76,7 +76,7 @@ Invoicing may compose delivery and rating observations, invoice entity transitio
 
 Business transaction boundaries are domain boundaries. They define what counts as accepted, rejected, completed, cancelled, expired, compensated, or settled for the business.
 
-Those boundaries rarely coincide exactly with one protocol, process, transaction, or storage boundary. A business transaction may include several local [[ACID]] transactions, several RPC calls, several broker messages, several workflow activations, and several event-store commits. When [[Two-Phase Commit|two-phase commit]] is not used or does not cover the whole business outcome, the model must name the [[Weak Isolation Patterns|weak isolation patterns]] that preserve the relevant invariants.
+Those boundaries rarely coincide exactly with one protocol, process, transaction, or storage boundary. A business transaction may include several local [[ACID]] transactions, several RPC calls, several broker messages, several workflow activations, and several event-store commits. When [[Two-Phase Commit|two-phase commit]] is not used or does not cover the whole business outcome, the model must name the [[Weak Isolation Patterns|weak isolation patterns]] that preserve the relevant [[Invariant|invariants]].
 
 Correct modeling therefore requires naming the boundary for each guarantee:
 
@@ -89,4 +89,4 @@ Correct modeling therefore requires naming the boundary for each guarantee:
 - Did another observer receive, process, or commit the follow-up work?
 - Did the business transaction reach its domain-defined completion condition?
 
-Related concepts: [[Processes|processes]], [[Flows|flows]], [[Coordination|coordination]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Durable Execution|durable execution]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Persistence|persistence]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Event Sourcing|event sourcing]], [[CQRS]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Brokers|brokers]], [[Network|network]], [[Compositionality|compositionality]].
+Related concepts: [[Process Graphs|process graphs]], [[Flow Views|flow views]], [[Coordination|coordination]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Durable Execution|durable execution]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Persistence|persistence]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Event Sourcing|event sourcing]], [[CQRS]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Brokers|brokers]], [[Network|network]], [[Compositionality|compositionality]].

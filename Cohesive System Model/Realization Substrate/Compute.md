@@ -21,4 +21,4 @@ Compute concerns include:
 - Failure and restart behavior.
 - Locality to storage, brokers, or dependencies.
 
-Related concepts: [[Realization|realization]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]], [[Observer|observer]], [[Processes|processes]], [[Recovery|recovery]].
+Related concepts: [[Realization|realization]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Recovery|recovery]].

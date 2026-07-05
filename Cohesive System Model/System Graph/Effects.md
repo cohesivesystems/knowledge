@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-29
-updated: 2026-07-04
+updated: 2026-07-05
 aliases:
   - Effect
   - Effect Boundary
@@ -15,7 +15,7 @@ Effects are modeled consequences of an accepted interpretation, transition, proc
 
 An effect may be local to an [[Observer|observer]] or [[Entity|entity]] boundary, or it may cross a boundary through [[Interaction|interaction]]. Effects include committed endogenous [[Event|events]], output events, state writes, projection updates, outbox records, inbox records, messages, acknowledgments, offset commits, timers, workflow signals, documents, and calls to external systems.
 
-Perhaps counterintuitively, a request to perform asynchronous computation can itself be modeled as an effect, not only the later response or result. Enqueuing work, sending a [[Command|command]], scheduling a timer, or signaling a [[Processes|process]] changes what some observer, runtime, or boundary is now committed to attempt. The completion event, returned observation, timeout, or failure is a later effect at another boundary.
+Perhaps counterintuitively, a request to perform asynchronous computation can itself be modeled as an effect, not only the later response or result. Enqueuing work, sending a [[Command|command]], scheduling a timer, or signaling a [[Process Graphs|process graph]] changes what some observer model, runtime, or boundary is now committed to attempt. The completion event, returned observation, timeout, or failure is a later effect at another boundary.
 
 In a coherent system model, each important effect should have an explicit subject, boundary, commitment meaning, ordering scope, failure behavior, and recovery rule.
 

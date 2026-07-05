@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-05
 status: draft
 aliases:
   - cohesive vision
@@ -15,9 +15,9 @@ aliases:
 
 Cohesive aims to provide a standard language for describing systems and a family of compiler-like realizations that project that language into working infrastructure.
 
-The language goal is conceptual: define stable, boundary-relative meanings for [[Observer|observers]], [[Entity|entities]], [[Process|processes]], [[Transition|transitions]], [[Event|events]], [[State|state]], [[Observation|observations]], [[Effects|effects]], [[Boundaries|boundaries]], [[Coordination|coordination]], and other system concepts. The same term should not silently mean one thing in domain modeling, another in distributed systems, and a third in implementation code.
+The language goal is conceptual: define stable, boundary-relative meanings for [[Observer|observers]], [[Entity|entities]], [[Process|processes]], [[Relation|relations]], [[Transition|transitions]], [[Event|events]], [[State|state]], [[Observation|observations]], [[Invariant|invariants]], [[Policy|policies]], [[Effects|effects]], [[Boundaries|boundaries]], [[Coordination|coordination]], and other system concepts. The same term should not silently mean one thing in domain modeling, another in distributed systems, and a third in implementation code.
 
-The realization goal is practical: a model should be precise enough to guide construction. A compiler-like realization lowers semantic roles, process structures, operational guarantees, and graph relationships into substrate choices such as actors, transactions, logs, brokers, durable workflows, storage systems, protocols, schedulers, and deployment topology while preserving the meanings that matter.
+The realization goal is practical: a model should be precise enough to guide construction. A compiler-like realization lowers semantic roles, [[Process Graphs|process graphs]], operational guarantees, and graph relationships into substrate choices such as actors, transactions, logs, brokers, durable workflows, storage systems, protocols, schedulers, and deployment topology while preserving the meanings that matter.
 
 This is why [[Realization|realization]] is not a synonym for implementation. Implementation creates concrete artifacts. Realization relates the artifact back to the semantic role it hosts, carries, preserves, or partially approximates.
 
@@ -45,6 +45,7 @@ A realization compiler should make these correspondences explicit:
 
 - Which semantic objects and relations are being lowered.
 - Which [[System Graph|system graph]] structures arrange those objects.
+- Which [[Infrastructure Graph|infrastructure graph]] projection relates those structures to public substrate roles.
 - Which operational concerns must hold at which boundary.
 - Which substrate mechanisms realize each role.
 - Which diagrams, invariants, orderings, and effects must be preserved.
@@ -53,9 +54,9 @@ A realization compiler should make these correspondences explicit:
 
 Examples:
 
-- A process description may lower into a workflow engine, a database-backed process manager, an actor, an event-sourced coordinator, a queue consumer, or a set of cooperating observers.
+- A process graph may lower into a workflow engine, a database-backed process manager, an actor, an event-sourced coordinator, a queue consumer, or a set of cooperating observer models.
 - An entity model may lower into an actor-hosted aggregate, a database row with expected-version checks, an event stream plus reconstitution, or a replicated object.
-- A flow may lower into a call, channel, broker topic, log subscription, shared-state interaction, or protocol session.
+- A flow view may lower into a call, channel, broker topic, log subscription, shared-state interaction, or protocol session.
 - A transition may lower into a transaction, actor turn, compare-and-swap, replicated-log application, workflow decision, or command handler plus effect boundary.
 
 These are valid only when the chosen realization preserves the required identity, boundary, ordering, persistence, recovery, interaction, and effect semantics.
@@ -79,7 +80,7 @@ When reconciling a building block against the graph, ask:
 
 This repository is the public conceptual graph. It can define concepts, distinctions, relations, and public realization families. Private implementation details, customer-specific mappings, unreleased modules, credentials, and paid-feed content belong outside this repository.
 
-The public graph should still be strong enough to support private system graph and realization graph work. A private realization graph may map a public concept to concrete code, runtime, infrastructure, or product artifacts, but the public concept remains the source of meaning.
+The public graph should still be strong enough to support private system graph and realization graph work. A public [[Infrastructure Graph|infrastructure graph]] can name substrate roles and guarantee boundaries, while a private realization graph may map a public concept to concrete code, runtime, infrastructure, or product artifacts. The public concept remains the source of meaning.
 
 ## Guiding Checks
 
@@ -91,4 +92,4 @@ The public graph should still be strong enough to support private system graph a
 - Treat multiple realizations as normal, not as ambiguity to erase.
 - Treat working systems as the validation target for the language.
 
-Related concepts: [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Realization|realization]], [[System Graph|system graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Transition|transition]], [[Coordination|coordination]], [[Effects|effects]].
+Related concepts: [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Realization|realization]], [[System Graph|system graph]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Coordination|coordination]], [[Effects|effects]].

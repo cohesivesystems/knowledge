@@ -60,4 +60,4 @@ In FRP, switching changes which behavior is currently followed. In event-sourced
 
 - Conal Elliott and Paul Hudak, [Functional Reactive Animation](https://dl.acm.org/doi/10.1145/258948.258973), Proceedings of the Second ACM SIGPLAN International Conference on Functional Programming, ICFP '97, pages 263-273, 1997. Author copy: [conal.net/papers/icfp97](https://conal.net/papers/icfp97/).
 
-Related concepts: [[Value|value]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Event-State Duality|event-state duality]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Fixed Points and Recursion|fixed points and recursion]], [[Trace and Feedback|trace and feedback]], [[Entity|entity]], [[Version|version]], [[Flows|flow]].
+Related concepts: [[Value|value]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Event-State Duality|event-state duality]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Fixed Points and Recursion|fixed points and recursion]], [[Trace and Feedback|trace and feedback]], [[Entity|entity]], [[Version|version]], [[Flow Views|flow]].

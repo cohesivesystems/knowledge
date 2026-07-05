@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-05
 ---
 
 # Compositionality
@@ -21,12 +21,12 @@ Compositionality helps ask:
 
 Examples:
 
-- [[Business Transactions]] compose processes, process flows, semantic roles, application protocols, operational guarantees, and realization substrate into domain-level work.
-- [[Processes]] compose multiple transitions, observers, decisions, effects, and flows across time.
-- [[Flows]] compose observers, events, commands, and delivery semantics into movement paths within or between processes.
+- [[Business Transactions]] compose process graphs, flow views, semantic roles, application protocols, operational guarantees, and realization substrate into domain-level work.
+- [[Process Graphs]] compose multiple transitions, observer models, decisions, effects, and flow views across time.
+- [[Flow Views]] compose observers, events, commands, and delivery semantics into movement paths within or between process graphs.
 - [[Realization]] choices compose only when their guarantees preserve the intended semantic relations.
 - [[Coordination]] is needed when local transitions must compose into coherent multi-participant work.
 
 Compositionality fails when two parts are individually correct but their combination changes meaning. For example, an idempotent command handler and an at-least-once broker do not compose into exactly-once domain semantics unless the boundary, persistence, and concurrency rules also compose.
 
-Related concepts: [[Business Transactions|business transactions]], [[Process|process]], [[Processes|processes]], [[Flows|flows]], [[Relations|relations]], [[Boundaries|boundaries]], [[Coordination|coordination]], [[Realization|realization]], [[Functoriality|functoriality]].
+Related concepts: [[Business Transactions|business transactions]], [[Process|process]], [[Process Graphs|process graphs]], [[Flow Views|flow views]], [[Relation Models|relation models]], [[Relation|relations]], [[Boundaries|boundaries]], [[Coordination|coordination]], [[Realization|realization]], [[Functoriality|functoriality]].

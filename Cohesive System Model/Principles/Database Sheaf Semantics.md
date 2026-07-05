@@ -29,7 +29,7 @@ This glossary follows the direction of Spivak's functorial data migration model:
 | Foreign key                           | A morphism $f : T \to U$ between table objects.                                                                                                                                              | A declared dependency or relationship between record scopes.                                                   |     |
 | Foreign key path                      | A composite of morphisms.                                                                                                                                                                    | Multi-step navigation whose meaning depends on composition.                                                    |     |
 | Primary key                           | The identity arrow $\operatorname{id}_T : T \to T$ in Spivak's categorical normal form.                                                                                                      | The self-identity of a table's row scope.                                                                      |     |
-| Path equivalence                      | A commutative diagram in the schema category.                                                                                                                                                | A schema-level [[Invariants|invariants]] saying that two navigations must produce the same observation.                   |     |
+| Path equivalence                      | A commutative diagram in the schema category.                                                                                                                                                | A schema-level [[Invariant|invariants]] saying that two navigations must produce the same observation.                   |     |
 | Database instance or database state   | A functor $I : \mathcal{S} \to \mathbf{Set}$, or more generally $I : \mathcal{S} \to \mathcal{V}$ for a value category $\mathcal{V}$.                                                        | The populated database observation over a schema at a point in time.                                           |     |
 | Rows of a table                       | The set $I(T)$ assigned to table object $T$.                                                                                                                                                 | Local sections over one schema object.                                                                         |     |
 | Column or foreign-key values          | The function $I(f) : I(T) \to I(U)$ assigned to a schema morphism.                                                                                                                           | Record-level navigation induced by the declared schema relation.                                               |     |
@@ -55,9 +55,9 @@ $$
 
 Objects represent entity types, relation symbols, attribute domains, or typed [[Shape|record shapes]]. Morphisms represent foreign keys, attribute projections, relationships, inclusion maps, or declared dependencies.
 
-Constraints add equations and admissibility conditions to this structure. Path equalities, keys, cardinality constraints, referential integrity, and domain [[Invariants|invariants]] say which diagrams must commute and which sections count as valid.
+Constraints add equations and admissibility conditions to this structure. Path equalities, keys, cardinality constraints, referential integrity, and domain [[Invariant|invariants]] say which diagrams must commute and which sections count as valid.
 
-This gives [[Relations|relations]] a semantic role beyond storage layout. A relation is a navigable dependency in the schema category, not merely a join condition chosen by a query planner.
+This gives [[Relation|relations]] a semantic role beyond storage layout. A relation is a navigable dependency in the schema category, not merely a join condition chosen by a query planner.
 
 ## Instances as Functors
 
@@ -194,8 +194,8 @@ Database Sheaf Semantics connects database structure to several Cohesive concept
 | Cohesive concept       | Database sheaf interpretation                                                    |                                                   |
 | ---------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------- |
 | [[Entity Models]]      | Schema objects and typed record shapes                                           |                                                   |
-| [[Relations]]          | Navigable morphisms, foreign keys, dependencies, and overlap structure           |                                                   |
-| [[Projections]]        | Restrictions or derived local sections                                           |                                                   |
+| [[Relation|Relations]]          | Navigable morphisms, foreign keys, dependencies, and overlap structure           |                                                   |
+| [[Projection Models]]        | Restrictions or derived local sections                                           |                                                   |
 | [[Query]]              | queries                                                                          | Requests for local sections                       |
 | [[Persistence]]        | Durable storage of sections, histories, or constraints                           |                                                   |
 | [[Reconstitution]]     | Recovering a section from stored rows, events, snapshots, or indexes             |                                                   |
@@ -217,4 +217,4 @@ This frames mapping as a structure-preserving correspondence between local secti
 
 - David I. Spivak, [Functorial Data Migration](https://arxiv.org/abs/1009.1166), arXiv, 2010; Information and Computation, 217:31-51, 2012. [DOI](https://doi.org/10.1016/j.ic.2012.05.001)
 
-Related concepts: [[Sheaves and Gluing|sheaves and gluing]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Entity Models|entity models]], [[Relations|relations]], [[Projections|projections]], [[Query|query]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Consistency Models|consistency models]], [[Boundaries|boundaries]], [[Storage Systems|storage systems]].
+Related concepts: [[Sheaves and Gluing|sheaves and gluing]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Entity Models|entity models]], [[Relation|relations]], [[Projection Models|projection models]], [[Query|query]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Consistency Models|consistency models]], [[Boundaries|boundaries]], [[Storage Systems|storage systems]].

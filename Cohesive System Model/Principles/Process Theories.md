@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-05
 status: draft
 aliases:
   - Process Theory
@@ -15,7 +15,7 @@ aliases:
 
 Process theories are modeling disciplines for work, interaction, change, and behavior that unfold over time.
 
-In Cohesive, process theories provide a shared language for [[Process|processes]], [[Processes|process structures]], workflows, [[Process Managers|process managers]], [[Sagas|sagas]], durable executions, choreographies, orchestrations, feedback loops, control loops, and physical processes without making all of those things identical.
+In Cohesive, process theories provide a shared language for [[Process|processes]], [[Process Graphs|process graphs]], workflows, [[Process Managers|process managers]], [[Sagas|sagas]], durable executions, choreographies, orchestrations, feedback loops, control loops, and physical processes without making all of those things identical.
 
 The goal is not to choose one universal formalism. Open systems, Petri nets, process calculi, session types, string diagrams, compositional games, dynamical systems, control theory, quantum processes, and compositional concurrency each emphasize different structure. Cohesive uses them as sources of discipline for asking what composes, what is observed, what crosses a boundary, and what must be preserved by realization.
 
@@ -39,7 +39,7 @@ This makes process language compositional. A process is not merely a named blob 
 The word "process" is overloaded. Cohesive keeps the layers separate:
 
 - A semantic [[Process|process]] is coherent work unfolding over time.
-- [[Processes|Process structures]] arrange semantic processes across observers, entities, flows, states, decisions, and external systems.
+- [[Process Graphs|Process graphs]] arrange semantic processes across observer models, entity models, flow views, states, decisions, and external systems.
 - [[Coordination]] describes how multi-participant process work is made coherent.
 - [[Durability]] and [[Recovery|recovery]] describe how process execution material survives failure and is used after interruption.
 - [[Durable Execution|Durable execution]] is an architecture practice that applies those concerns to logical execution.
@@ -116,4 +116,4 @@ When modeling a process, ask:
 - What is the equivalence relation between two executions of the process?
 - Which realization mechanisms preserve the process theory, and where do they weaken it?
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Process|process]], [[Processes|processes]], [[State Machines|state machines]], [[Behavior|behavior]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effects|effects]], [[Boundaries|boundaries]], [[Realization|realization]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Process|process]], [[Process Graphs|process graphs]], [[State Machines|state machines]], [[Behavior|behavior]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effects|effects]], [[Boundaries|boundaries]], [[Realization|realization]].

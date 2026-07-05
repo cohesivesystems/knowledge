@@ -7,7 +7,9 @@ web pages, search indexes, and other derived artifacts are projections.
 ## Source Layers
 
 - Conceptual graph: public concepts, definitions, distinctions, and relations.
-- System graph: authored semantic structure and correspondence across concepts.
+- System graph: authored composition of semantic constructs into modeled systems,
+  including public graph projections such as entity models, relation models,
+  process graphs, and infrastructure graphs.
 - Realization graph: mappings from system graph nodes to code, runtime,
   infrastructure, or content artifacts.
 

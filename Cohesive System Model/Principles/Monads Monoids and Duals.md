@@ -62,4 +62,4 @@ Comonad-like structure appears when values are interpreted with surrounding cont
 
 These structures are not naming decorations. They matter when the model needs laws: associativity, identity, sequencing coherence, context preservation, or lawful extraction.
 
-Related concepts: [[Behavior|behavior]], [[Observation|observation]], [[Observer|observer]], [[Event|event]], [[Transition|transition]], [[Projections|projections]], [[Duality and Symmetry|duality and symmetry]], [[Compositionality|compositionality]].
+Related concepts: [[Behavior|behavior]], [[Observation|observation]], [[Observer|observer]], [[Event|event]], [[Transition|transition]], [[Projection Models|projection models]], [[Duality and Symmetry|duality and symmetry]], [[Compositionality|compositionality]].
