@@ -1,4 +1,18 @@
 
+# Cohesive System Model
+
+## Vision
+
+Cohesive has two linked goals:
+
+- Establish a standard language for describing systems.
+- Build a family of compiler-like realizations that lower that language into working infrastructure while preserving meaning.
+
+The Markdown graph is the public source of truth for that language. It should make Cohesive building blocks traceable to well-defined concepts, and it should make important concepts precise enough to guide realization.
+
+The model is inspired by [[Categorical Principles|categorical principles]], including the Lawvere tradition of using category theory to organize mathematical knowledge. The practical test, however, is executable systems: semantic descriptions should be reconcilable with actors, transactions, logs, brokers, workflows, storage systems, networks, runtimes, and other infrastructure through explicit [[Realization|realization]] relations.
+
+See [[System Language and Realization|system language and realization]] for the broader vision and [[Process Theories|process theories]] for the first guiding principle under active refinement.
 
 ## Core Thesis
 
@@ -11,7 +25,7 @@ Domains can be described as semantic system graphs composed of:
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
 - [[Process|Processes]] evolving entities and emitting effects over time
 
-Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
+Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
 Base terms that recur across realms are collected in the [[Glossary|glossary]].
 
@@ -21,7 +35,9 @@ Base terms that recur across realms are collected in the [[Glossary|glossary]].
 
 Describe modeling disciplines used across the system model.
 
+- [[System Language and Realization]]
 - [[Categorical Principles]]
+- [[Process Theories]]
 - [[Stuff Structure Property]]
 - [[Compositionality]]
 - [[CALM Theorem]]
@@ -62,6 +78,7 @@ assigning operational guarantees or realization mechanisms.
 Describes how domain semantics are made executable and reliable.
 
 - [[Persistence]]  
+- [[Durability]]
 - [[Reconstitution]]  
 - [[Interaction]]  
 - [[Delivery Semantics|Delivery semantics]]  
@@ -70,7 +87,6 @@ Describes how domain semantics are made executable and reliable.
 - [[Coordination]]  
 - [[Consensus]]
 - [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[CAP Theorem|CAP theorem]]
-- [[Durable Execution]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
 - [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]]
@@ -126,7 +142,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Domain-Driven Design]], [[Ports and Adapters|ports and adapters]], [[Clean Architecture|clean architecture]]
 - [[Modular Monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
-- [[Sagas and Process Managers]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
+- [[Sagas and Process Managers]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
 - [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
 
 ## Domain Semantics
@@ -355,7 +371,7 @@ The entity transition runtime, aligned with the interpreting observer, performs:
 
 ### Persistence
 
-What is made durable and authoritative?
+What is recorded as authoritative material?
 
 - Current-state records (as entity-scoped observations)
 - Event histories
@@ -363,9 +379,19 @@ What is made durable and authoritative?
 - [[Transactional Inbox|Inbox]] and deduplication records
 - Actor state providers
 - Workflow histories
-- Durable execution histories, checkpoints, timers, signals, and pending work
+- Process execution histories, checkpoints, timers, signals, and pending work
 - Process state
 - Projection state (derived observations)
+
+### Durability
+
+Which facts, histories, effects, decisions, or execution material survive which failures?
+
+- Declare the failure boundary and fate-sharing assumptions
+- Protect state, histories, decisions, timers, acknowledgments, and recovery material
+- Preserve enough material for reconstitution, replay, retry, repair, or audit
+- Distinguish local durability from end-to-end completion
+- Bind the claim to explicit storage, replication, log, queue, acknowledgment, or commit boundaries
 
 ### Reconstitution
 
@@ -374,7 +400,7 @@ How is usable state recovered?
 - Load latest record → produce an observation
 - Replay events → fold into a current state sample
 - Load snapshot + events
-- Resume durable execution state, checkpoints, or workflow history
+- Reconstitute process execution state, checkpoints, or workflow history
 - Activate actor by identity
 - Rebuild projection as a derived observation
 
@@ -409,21 +435,10 @@ How is multi-step or multi-participant work made coherent across observers?
 - Distributed transaction / [[Transactional Outbox|transactional outbox]]
 - [[Transactional Inbox|Transactional inbox]] or idempotent receiver
 - Saga with compensation  
-- [[Durable Execution|Durable execution]] with resume  
+- [[Durable Execution|Durable execution]] practice with resume
 - Choreography through events  
 - Process manager  
 - Projection update protocol
-
-### Durable Execution
-
-How does process execution remain coherent across failure, restart, suspension, timeout, or delayed external work?
-
-- Persist execution state, history, checkpoints, timers, signals, or pending work
-- Reconstitute usable process context after interruption
-- Resume, replay, retry, compensate, or escalate without changing semantic history
-- Preserve idempotency at effect boundaries
-- Preserve [[Commit Boundaries|commit boundaries]] and acknowledgment meanings
-- Bind the guarantee to an explicit execution boundary
 
 ### Control
 
@@ -449,7 +464,7 @@ None of these automatically mean “the business transition committed” unless 
 
 ## Runtime
 
-[[Realization]] is the relation by which domain semantics, system graph, and operational concerns are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Durable Execution Engines|durable execution engine]], [[Brokers|broker]], or database can realize operational concerns, but those concerns should be described separately from any specific runtime.
+[[Realization]] is the relation by which domain semantics, system graph, operational concerns, and architecture practices are made concrete in a substrate. Realization is layered: a substrate at one layer can itself be modeled as semantic structure realized by lower-level substrate. [[Runtimes|Runtime]] is part of the realization substrate. An [[Actor Systems|actor system]], ASP.NET host, [[Workflow Engines|workflow engine]], [[Durable Execution Engines|durable execution engine]], [[Brokers|broker]], or database can realize operational concerns and architecture practices, but those concerns and practices should be described separately from any specific runtime.
 
 Different runtimes realize observers differently (e.g., actor placement and supervision vs. HTTP request pipeline), while the semantic model (observer, entity, observation, event, command, query) remains consistent. In async, fiber, or green-thread runtimes, the observer follows the logical execution context rather than a fixed OS thread.
 
@@ -460,7 +475,7 @@ Cohesive preserves correspondence across realms:
 ```txt  
 Semantic dynamics (State, Observation, Event, Observer, Entity, Command, Query, ...)
   -> System graph (Entity Models, Observers, Relations, Projections, Flows, Boundaries, ...)
-  -> Operational concerns (Persistence, Reconstitution, Interaction, Delivery, Coordination, Durable Execution, Control)  
+  -> Operational concerns (Persistence, Durability, Reconstitution, Interaction, Delivery, Coordination, Recovery, Control)
   -> Realization substrate (Realization, Compute, Runtimes, Network, Storage, Workflow engines, Durable execution engines, Actor systems, ...)
 ```
 

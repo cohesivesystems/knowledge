@@ -18,6 +18,8 @@ The sagas and process managers practice is about [[Processes|processes]], [[Coor
 - It emits commands to participants.
 - It may compensate, retry, time out, or escalate.
 
+[[Process Theories|Process theories]] provide the broader vocabulary for this practice: the process interface, composition shape, feedback loops, equivalence of executions, recovery meaning, and realization obligations should all be explicit.
+
 Sagas and process managers can be implemented without a workflow engine, but they still need explicit persistence, recovery, idempotency, and delivery semantics when they are expected to survive failure or long delays.
 
 ## Distinction
@@ -49,4 +51,4 @@ The pattern fails when the process boundary is implicit, when compensation is as
 - Hector Garcia-Molina and Kenneth Salem, [Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf), Princeton CS-TR-070-87, 1987.
 - C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992.
 
-Related concepts: [[Processes|processes]], [[Coordination|coordination]], [[Weak Isolation Patterns|weak isolation patterns]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Observer|observer]], [[Entity|entity]], [[Command|command]], [[Event|event]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]].
+Related concepts: [[Process Theories|process theories]], [[Processes|processes]], [[Coordination|coordination]], [[Weak Isolation Patterns|weak isolation patterns]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Observer|observer]], [[Entity|entity]], [[Command|command]], [[Event|event]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]].

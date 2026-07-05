@@ -1,18 +1,21 @@
 ---
-realm: Operational Concerns
-kind: operational-concern
+realm: Architecture Practices
+kind: pattern
 ---
 
 # Durable Execution
 
-Durable execution is the operational concern by which a process can continue coherently across failure, restart, suspension, timeout, or delayed external work.
+Durable execution is an architecture practice for keeping a logical execution coherent across failure, restart, suspension, timeout, or delayed external work.
 
-Durable execution is not a workflow engine. It is the guarantee that process progress, pending decisions, timers, signals, retries, and recovery context are preserved well enough for execution to resume without changing the semantic meaning of the [[Process|process]].
+Durable execution is not the general operational concern of [[Durability|durability]], and it is not a workflow engine. It is a solution pattern that combines durability of execution material with [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Ordering|ordering]], and [[Coordination|coordination]] so execution can resume without changing the semantic meaning of the [[Process|process]].
 
 Its core recovery goal is execution recovery: recover the execution of the same logical computation after failure. A failure is treated as an interruption of execution, not necessarily as a failed business outcome.
 
-Durable execution depends on:
+Durable execution addresses failure modes where process progress, pending decisions, timers, signals, retries, and recovery context would otherwise be lost or duplicated when the execution host, worker, VM, process, runtime, network path, or external dependency fails independently.
 
+Durable execution composes:
+
+- [[Durability]] of execution material across the relevant failure boundary.
 - [[Persistence]] of execution state, history, checkpoints, timers, signals, or pending work.
 - [[Reconstitution]] of usable process context after interruption.
 - [[Recovery]] behavior that resumes, replays, retries, compensates, or escalates without inventing different semantic history.
@@ -38,6 +41,6 @@ Durable execution concerns include:
 - Human, external-system, and long-delay interactions.
 - Versioning and migration of process definitions and persisted histories.
 
-Durable execution is [[Realization|realized]] by [[Durable Execution Engines|durable execution engines]], workflow engines, job processors with durable queues, actor reminders plus state providers, database-backed process managers, saga runtimes, transaction managers, or custom coordination code.
+Durable execution is [[Realization|realized]] by [[Durable Execution Engines|durable execution engines]], workflow engines, job processors with durable queues, actor reminders plus state providers, database-backed process managers, saga runtimes, transaction managers, or custom coordination code. [[Process Theories|Process theories]] help distinguish this execution-recovery pattern from the broader semantic process and from business-recovery patterns such as sagas.
 
-Related concepts: [[Process|process]], [[Processes|processes]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Retry|retry]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Delivery Semantics|delivery semantics]], [[Sagas and Process Managers|sagas and process managers]], [[Durable Execution Engines|durable execution engines]], [[Workflow Engines|workflow engines]], [[Business Transactions|business transactions]], [[Realization|realization]].
+Related concepts: [[Durability|durability]], [[Process Theories|process theories]], [[Process|process]], [[Processes|processes]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Retry|retry]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Delivery Semantics|delivery semantics]], [[Sagas and Process Managers|sagas and process managers]], [[Durable Execution Engines|durable execution engines]], [[Workflow Engines|workflow engines]], [[Business Transactions|business transactions]], [[Realization|realization]].

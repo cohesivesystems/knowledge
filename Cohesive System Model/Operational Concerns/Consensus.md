@@ -5,11 +5,11 @@ kind: operational-concern
 
 # Consensus
 
-Consensus answers: how do multiple [[Observer|observers]] agree on one decision, value, or ordered position despite concurrency, delay, partial failure, or independent local views?
+Consensus answers: how do multiple [[Observer|observers]] agree on one value despite concurrency, delay, partial failure, or independent local views?
 
 Consensus is a form of [[Coordination|coordination]] used to achieve a desired [[Consistency Models|consistency model]] at a declared boundary. It converts competing proposals into one agreed outcome, which can then be interpreted as a committed operation, log entry, leader term, membership change, or version position.
 
-A consensus object is usually characterized by:
+A consensus object is usually characterized by the following properties:
 
 - **Agreement**: correct participants decide the same value.
 - **Validity**: the decided value comes from the proposed values.

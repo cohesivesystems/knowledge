@@ -3,6 +3,29 @@
 This repository is the conceptual source of truth for the public Cohesive system
 model. Treat the Markdown graph as the canonical artifact.
 
+## Modeling Vision
+
+Cohesive has two linked goals:
+
+- Establish a standard language for describing systems.
+- Build compiler-like realizations that lower that language into working
+  infrastructure while preserving meaning.
+
+When adding or revising concepts, preserve the distinction between semantic
+language, system graph structure, operational concern, and realization
+substrate. Do not collapse a graph concept into one implementation mechanism
+unless the note is explicitly about that mechanism.
+
+For Cohesive building blocks, make the conceptual trace explicit: link to the
+graph concepts that define the block's meaning, state the boundary of its
+guarantees, and identify realization choices only at the public level suitable
+for this repository.
+
+For process-related language, consult [[Process Theories|process theories]] and
+preserve distinctions among semantic processes, process structures, process
+managers, sagas, durable execution, workflows, orchestration, choreography, and
+runtime or physical processes.
+
 ## Working Rules
 
 - Preserve Obsidian wikilinks such as `[[Process]]` and

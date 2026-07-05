@@ -9,7 +9,7 @@ Architecture practices are named bundles of modeling choices, constraints, and i
 
 In the Cohesive System Model, these practices are not primitives. They are ways of arranging domain semantics, system graph, operational concerns, and realization substrate to solve particular problems.
 
-Cohesive provides language for expressing the problem each practice addresses, and a compiler-like discipline for projecting that expression into structures, operations, and realizations while preserving meaning.
+Cohesive provides language for expressing the problem each practice addresses, and a compiler-like discipline for projecting that expression into structures, operations, and realizations while preserving meaning. See [[System Language and Realization|system language and realization]] for the broader vision.
 
 For each practice, ask:
 
@@ -30,6 +30,7 @@ Some well-known patterns & practices:
 - [[CQRS as Architecture Practice]]
 - [[Event Sourcing as Architecture Practice]]
 - [[Sagas and Process Managers]]
+- [[Durable Execution]]
 - [[Actor Model]]
 - [[Anti-Corruption Layer]]
 - [[Transactional Outbox]]
@@ -38,4 +39,4 @@ Some well-known patterns & practices:
 - [[CRDTs as Architecture Practice]]
 - [[Data Mesh]]
 
-Related concepts: [[Categorical Principles|categorical principles]], [[Stuff Structure Property|stuff structure property]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Stuff Structure Property|stuff structure property]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].

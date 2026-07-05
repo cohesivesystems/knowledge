@@ -5,12 +5,12 @@ kind: operational-concern
 
 # Persistence
 
-Persistence answers: what is made durable and authoritative?
+Persistence answers: what is recorded as authoritative material?
 
-In the cohesive system model, persistence chooses which view of the system is recorded as the durable basis for future execution, reconstitution, coordination, or audit.
+In the cohesive system model, persistence chooses which view of the system is recorded as the authoritative basis for future execution, reconstitution, coordination, recovery, or audit. [[Durability]] then states which failures that material is expected to survive.
 
 
-Durable forms may include:
+Persistent material may include:
 
 - Current-state records as [[Observation|observations]].
 - [[Event Sourcing|Event-sourced]] histories of committed endogenous [[Event|events]].
@@ -19,12 +19,12 @@ Durable forms may include:
 - [[Transactional Inbox|Inbox]] and deduplication records.
 - Actor state providers.
 - Workflow histories.
-- Durable execution histories, checkpoints, timers, signals, and pending work.
+- Process execution histories, checkpoints, timers, signals, and pending work.
 - Process state.
 - [[Projections|Projection]] state as derived observations.
 - [[CRDTs|CRDT]] replica state, deltas, operations, and causal metadata.
 
-Persistence is not a single technology choice. It is a semantic decision about what the system treats as recoverable truth inside a boundary.
+Persistence is not a single technology choice. It is a semantic decision about what the system treats as recoverable truth inside a boundary. Durability is the separate claim that this material survives declared failures and remains usable after them.
 
 For [[CRDTs]], persistence must preserve enough replica state, operation history, delta history, and causal metadata for merge and convergence semantics to remain valid after restart, compaction, replication, or recovery.
 
@@ -34,4 +34,4 @@ In database transaction systems, the transaction log may be the authoritative re
 
 Persistence and [[Reconstitution|reconstitution]] form a useful [[Duality and Symmetry|duality]]: persistence makes selected material durable, while reconstitution turns durable material back into usable observations. The duality is not perfect because persistence choices determine what can later be reconstituted.
 
-Related concepts: [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Duality and Symmetry|duality and symmetry]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[CRDTs]], [[CQRS]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Actor Systems|actor systems]].
+Related concepts: [[Durability|durability]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Duality and Symmetry|duality and symmetry]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[CRDTs]], [[CQRS]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Actor Systems|actor systems]].

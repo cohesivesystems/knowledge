@@ -45,6 +45,8 @@ Processes compose. One process may produce outputs, artifacts, observations, com
 
 Process composition requires attention to boundary, identity, ordering, idempotency, persistence, retry, recovery, and compensation. Without those semantics, individually valid process steps may fail to compose into coherent work.
 
+[[Process Theories|Process theories]] provide the broader discipline for this composition. They ask what a process exposes at its interface, which observations and effects cross boundaries, how sequential, concurrent, nested, choice, and feedback compositions are formed, and which realization obligations must be preserved by workflows, process managers, sagas, durable executions, actors, transactions, brokers, or lower physical processes.
+
 ## Related Concepts
 
-Related concepts: [[Behavior|behavior]], [[Observer|observer]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Identity|identity]], [[State|state]], [[Processes|processes]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].
+Related concepts: [[Process Theories|process theories]], [[Behavior|behavior]], [[Observer|observer]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Identity|identity]], [[State|state]], [[Processes|processes]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].

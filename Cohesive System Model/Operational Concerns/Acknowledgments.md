@@ -37,6 +37,6 @@ Acknowledging too early can lose work. For example, a consumer that commits an o
 
 Acknowledging too late can duplicate work. For example, a consumer that commits local state but crashes before acknowledging the broker may receive the same input again and must rely on [[Idempotency|idempotency]], expected versions, or a [[Transactional Inbox|transactional inbox]].
 
-Acknowledgment therefore belongs with [[Delivery Semantics|delivery semantics]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], and [[Effects|effect]] design.
+Acknowledgment therefore belongs with [[Delivery Semantics|delivery semantics]], [[Commit Boundaries|commit boundaries]], [[Durability|durability]], [[Recovery|recovery]], and [[Effects|effect]] design.
 
-Related concepts: [[Delivery Semantics|delivery semantics]], [[Interaction|interaction]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Brokers|brokers]], [[Network|network]].
+Related concepts: [[Delivery Semantics|delivery semantics]], [[Interaction|interaction]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Durability|durability]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Brokers|brokers]], [[Network|network]].

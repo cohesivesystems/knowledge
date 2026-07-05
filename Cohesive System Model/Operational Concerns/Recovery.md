@@ -7,7 +7,7 @@ kind: operational-concern
 
 Recovery defines how a system returns to coherent operation after failure, interruption, conflict, timeout, overload, or partial progress.
 
-Recovery depends on the durable material provided by [[Persistence|persistence]] and the method used for [[Reconstitution|reconstitution]].
+Recovery depends on the material selected by [[Persistence|persistence]], the [[Durability|durability]] claims for that material, and the method used for [[Reconstitution|reconstitution]].
 
 Retry is one recovery mechanism, but recovery is broader than retry. Some failures are recovered by re-driving incomplete work, while others require replay, reconstitution, compensation, rebuilding, or operator intervention.
 
@@ -21,7 +21,7 @@ Recovery may include:
 - Re-driving [[Outbox|outbox]] records.
 - Rechecking [[Transactional Inbox|inbox]] or deduplication records before repeating local effects.
 - Retrying incomplete work.
-- Resuming durable execution state or replaying durable execution history.
+- Resuming execution state or replaying durable execution history.
 - Compensating completed work.
 - Activating an actor by identity.
 
@@ -35,4 +35,4 @@ In [[Safety and Liveness|safety and liveness]] terms, recovery is a liveness mec
 
 - C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992. [IBM Research](https://research.ibm.com/publications/aries-a-transaction-recovery-method-supporting-fine-granularity-locking-and-partial-rollbacks-using-write-ahead-logging)
 
-Related concepts: [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Retry|retry]], [[Idempotency|idempotency]], [[Safety and Liveness|safety and liveness]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Coordination|coordination]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[CRDTs]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Actor Systems|actor systems]].
+Related concepts: [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Retry|retry]], [[Idempotency|idempotency]], [[Safety and Liveness|safety and liveness]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Coordination|coordination]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[CRDTs]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Actor Systems|actor systems]].

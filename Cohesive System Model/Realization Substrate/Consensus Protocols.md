@@ -18,11 +18,11 @@ A consensus protocol usually provides:
 - A commit rule that determines when a value is durable enough to expose.
 - Recovery behavior that preserves decided values across crashes, restarts, and leader changes.
 
-Consensus protocols are a realization choice, not a domain concept. They can support [[Consistency Models|linearizability]], strict serializability, and coherent replicated state, but only at the boundary they actually govern. Read routing, follower reads, caches, projections, asynchronous replication, membership changes, and clock or lease assumptions can weaken the guarantee exposed to observers.
+Consensus protocols are a realization choice, not typically a domain concept. They can support [[Consistency Models|linearizability]], strict serializability, and coherent replicated state, but only at the boundary they actually govern. Read routing, follower reads, caches, projections, asynchronous replication, membership changes, and clock or lease assumptions can weaken the guarantee exposed to observers.
 
 The cost is coordination. Consensus protocols preserve a chosen [[Ordering|order]] by requiring communication, durable metadata, quorum participation, and failure detection or timing assumptions. This can increase latency, reduce availability during partitions, and create operational coupling, but it lets systems construct distributed behavior that can be reasoned about using a sequential specification.
 
-Operationally, consensus protocols tend to preserve [[Safety and Liveness|safety]] even when progress is temporarily impossible. Their liveness depends on enough participants, storage, network behavior, and timing assumptions becoming available again.
+Operationally, consensus protocols tend to preserve [[Safety and Liveness|safety]] even when progress is temporarily impossible. Their liveness depends on the behavior of participants, storage, and network, and on timing assumptions.
 
 ## External References
 

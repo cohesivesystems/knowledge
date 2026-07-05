@@ -15,7 +15,11 @@ Processes may maintain their own process state and may coordinate several partic
 
 A process may be modeled as a special kind of [[Entity|entity]] and [[Observer|observer]] when it has its own identity, durable state or history, and rules for interpreting incoming events, signals, or commands over time.
 
+[[Process Theories|Process theories]] give the guiding language for process structure. They distinguish the semantic process from its coordination shape, operational guarantees, and realization substrate while preserving how processes compose, interact, recover, and feed back over time.
+
 Processes have flows. A flow describes how process inputs, outputs, signals, observations, commands, events, effects, or artifacts move between participants. Flow is therefore a useful view of process movement, but it is not the whole process. The process also includes subject identity, participant roles, state, decisions, policies, transitions, recovery, compensation, and completion meanings.
+
+Orchestration and choreography are process coordination shapes. In orchestration, a coordinating observer or process manager owns more of the decision surface. In choreography, participants advance the process through events, protocols, subscriptions, and local reactions. Many systems mix both shapes, so the model should state where process identity, authority, ordering, recovery, and completion meaning live.
 
 Process concerns include:
 
@@ -40,4 +44,4 @@ Examples include:
 
 Processes compose when outputs of one process feed another process as observations, commands, events, artifacts, or decisions. Such compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
 
-Related concepts: [[Business Transactions|business transactions]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Command|command]], [[State|state]], [[Recovery|recovery]], [[Policies|policies]], [[Invariants|invariants]].
+Related concepts: [[Process Theories|process theories]], [[Business Transactions|business transactions]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Command|command]], [[State|state]], [[Recovery|recovery]], [[Policies|policies]], [[Invariants|invariants]].

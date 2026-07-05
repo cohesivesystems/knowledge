@@ -9,6 +9,7 @@ Categorical principles provide modeling discipline for the Cohesive System Model
 
 These principles are used to ask:
 
+- Which semantic language is being realized, and what must a compiler-like lowering preserve?
 - What structure is preserved when one domain is related to another?
 - Which concepts are dual, symmetric, or adjoint rather than identical?
 - When can a model refer to "the" thing determined by a diagram of related things?
@@ -18,10 +19,12 @@ These principles are used to ask:
 
 Core principles:
 
+- [[System Language and Realization]]: the public graph defines the standard language, while compiler-like realization preserves meaning into working infrastructure.
 - [[Equivalence vs Equality]]: sameness must be scoped to the equality or equivalence relation relevant within a boundary.
 - [[Functoriality]]: mappings between domains should preserve the relationships and changes that matter.
 - [[Stuff Structure Property]]: distinguish what the model contains, how it is organized, and what constraints it satisfies.
 - [[Compositionality]]: composite meanings should be built from parts and their composition rules.
+- [[Process Theories]]: processes should have explicit interfaces, composition rules, observations, effects, feedback, recovery, and realization obligations.
 - [[Duality and Symmetry]]: paired concepts should be studied together without collapsing them into one thing or separating them too far.
 - [[Naturality]]: avoid accidental dependence on implementation detail.
 - [[Sheaves and Gluing]]: local observations must agree on overlaps before they can be glued into a coherent global view of system [[State|state]].
@@ -42,6 +45,6 @@ Additional recurring principles:
 - [[Optics and Lenses]]: focused observation, partial state, and view/update structure.
 - [[Trace and Feedback]]: outputs feeding later inputs through modeled loops.
 
-The point is not to force every concept into formal notation. The point is to use categorical language as a precision check: if a mapping does not preserve the required relations, if a duality is mistaken for identity, or if "the" object is named without its defining diagram, the model is probably hiding an assumption.
+The point is not to force every concept into formal notation. The point is to use categorical language as a precision check: if a mapping does not preserve the required relations, if a duality is mistaken for identity, if "the" object is named without its defining diagram, or if a realization cannot say what semantic structure it preserves, the model is probably hiding an assumption.
 
-Related concepts: [[Realization|realization]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Concurrency Control|concurrency control]], [[Boundaries|boundaries]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Process Theories|process theories]], [[Realization|realization]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Concurrency Control|concurrency control]], [[Boundaries|boundaries]].

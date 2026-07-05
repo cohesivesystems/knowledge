@@ -28,7 +28,7 @@ Coordination mechanisms include:
 - Process managers.
 - Projection update protocols.
 
-## Ordering, Intent, And Avoidance
+## Ordering, Intent, and Coordination Avoidance
 
 [[Ordering]] preserves distinctions that may matter semantically. If `A then B` and `B then A` collapse into the same result, the model may lose intent, causality, auditability, or invariant context. Ordered, non-commutative histories are therefore valuable when the domain needs to preserve what happened before what.
 

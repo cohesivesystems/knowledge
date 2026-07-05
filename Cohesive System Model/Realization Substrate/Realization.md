@@ -5,9 +5,11 @@ kind: realization-substrate
 
 # Realization
 
-Realization is the relation by which semantic roles, system graph, and operational concerns are made concrete in a substrate.
+Realization is the relation by which semantic roles, system graph, operational concerns, and architecture practices are made concrete in a substrate.
 
 A realization does not make the semantic concept identical to the substrate mechanism. It says that a concrete mechanism hosts, carries, preserves, or implements the relevant meaning under an explicit [[Boundaries|boundary]] and operational context.
+
+[[System Language and Realization|System language and realization]] frames this as the practical half of the Cohesive vision: the system language should be precise enough to support compiler-like lowering into working infrastructure while preserving the semantic relationships that matter.
 
 In [[Stuff Structure Property|stuff structure property]] terms, realization maps semantic stuff, structure, and properties into substrate stuff, structure, and properties. Correct realization requires preserving the distinctions that matter, not merely finding similarly named implementation artifacts.
 
@@ -28,8 +30,9 @@ Examples include:
 - A [[Transition|transition]] realized by a serialized actor turn, database transaction with expected-version check, compare-and-swap operation, workflow decision, or command handler plus durable commit.
 - A [[Boundaries|boundary]] realized by a transaction, actor identity, process, broker partition, service API, deployment unit, or persistence scope.
 - [[Persistence]] realized by records, logs, event streams, snapshots, workflow histories, [[Outbox|outbox]] records, [[Transactional Inbox|inbox]] records, or projection state.
+- [[Durability]] realized by storage durability, write-ahead logging, replication, broker retention, workflow histories, stable timers, durable queues, backups, or consensus-backed logs.
 - [[Behavior]] realized by an event schedule plus fold and interpolation, a workflow history, sampled state history, or live stream processor.
-- [[Durable Execution]] realized by a durable execution engine, workflow engine, transaction log, durable task runtime, database-backed process manager, or actor runtime with persisted state and reminders.
+- [[Durable Execution]] realized by a durable execution engine, workflow engine, durable task runtime, database-backed process manager, or actor runtime with persisted state and reminders.
 
 ## Multiplicity
 
@@ -87,4 +90,4 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].

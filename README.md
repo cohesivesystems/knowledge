@@ -10,6 +10,26 @@ relations among them. Curated publication belongs in the broader Cohesive
 website; this repository remains the source graph that those editorial surfaces
 can consume.
 
+## Vision
+
+Cohesive has two linked goals:
+
+- Establish a standard language for describing systems.
+- Build compiler-like realizations that lower that language into working
+  infrastructure while preserving meaning.
+
+The graph is therefore more than documentation. It is the public conceptual
+contract for Cohesive building blocks. Concepts should be precise enough to
+guide realization into actors, storage systems, brokers, workflows, protocols,
+runtimes, and other infrastructure without collapsing semantic roles into the
+mechanisms that host them.
+
+Category theory is an important source of modeling discipline for this work:
+compositionality, functoriality, naturality, duality, universal constructions,
+local-to-global consistency, and feedback all help expose hidden assumptions.
+The practical test is whether the language can be realized in systems that
+run.
+
 ## Repository Shape
 
 - `Cohesive System Model.md` is the top-level model overview.

@@ -11,7 +11,7 @@ aliases:
 
 # Distributed Failure Scenarios
 
-Distributed failure scenarios are recurring hazard shapes that appear when [[Effects|effects]], [[Observation|observations]], [[Commit Boundaries|commit boundaries]], [[Isolation|isolation]], [[Coordination|coordination]], and [[Recovery|recovery]] cross independently governed boundaries.
+Distributed failure scenarios are recurring hazard shapes that appear when [[Effects|effects]], [[Observation|observations]], [[Commit Boundaries|commit boundaries]], [[Durability|durability]], [[Isolation|isolation]], [[Coordination|coordination]], and [[Recovery|recovery]] cross independently governed boundaries.
 
 They are diagnostic names, not solution names. Each scenario should identify the missing guarantee, the boundary where the hazard appears, and the [[Weak Isolation Patterns|weak isolation patterns]] or stronger coordination mechanism that replaces the missing guarantee.
 
@@ -21,6 +21,7 @@ Useful scenario descriptions usually name:
 - The observations used for a decision, including versions or freshness expectations.
 - The effects that may commit, abort, retry, duplicate, or remain ambiguous.
 - The acknowledgment that transfers responsibility.
+- The durable material, if any, that survives the relevant failure boundary.
 - The recovery rule when progress is partial or uncertain.
 
 ## Dual write
@@ -149,4 +150,4 @@ The queue serializes or buffers work, but it does not by itself provide an await
 
 Typical resolutions include process identity, durable process state, result observations, workflow queries, callbacks, signals, pending states, timeouts, cancellation, and explicit completion events.
 
-Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Dual-Write Problem|dual-write problem]], [[Isolation|isolation]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas and Process Managers|sagas and process managers]], [[Actor Systems|actor systems]], [[Business Transactions|business transactions]], [[Invariants|invariants]].
+Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Dual-Write Problem|dual-write problem]], [[Isolation|isolation]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Durability|durability]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas and Process Managers|sagas and process managers]], [[Actor Systems|actor systems]], [[Business Transactions|business transactions]], [[Invariants|invariants]].
