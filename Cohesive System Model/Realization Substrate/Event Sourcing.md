@@ -41,7 +41,7 @@ Event sourcing is often combined with [[CQRS]], but the patterns are distinct. E
 
 ## Relationship to Outbox
 
-Event sourcing can also act as a coordination substrate when the committed event history is the source from which projections, process managers, subscribers, and outbound publications are driven.
+Event sourcing can also act as a coordination substrate when the committed event history is the source from which projections, [[Process Managers|process managers]], subscribers, and outbound publications are driven.
 
 This gives an atomic unification of persistence and orchestration:
 
@@ -67,4 +67,4 @@ The logs therefore have different semantics. ARIES log records are recovery reco
 - Microsoft Azure Architecture Center, [Event Sourcing pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing).
 - C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992.
 
-Related concepts: [[Event|event]], [[State|state]], [[Transition|transition]], [[Entity|entity]], [[Version|version]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Write-Ahead Logging|write-ahead logging]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Concurrency Control|concurrency control]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Outbox|outbox]], [[Transactional Outbox|transactional outbox]], [[Dual-Write Problem|dual-write problem]], [[CQRS]], [[Storage Systems|storage systems]], [[Realization|realization]].
+Related concepts: [[Event|event]], [[State|state]], [[Transition|transition]], [[Entity|entity]], [[Version|version]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Write-Ahead Logging|write-ahead logging]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Concurrency Control|concurrency control]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Outbox|outbox]], [[Transactional Outbox|transactional outbox]], [[Dual-Write Problem|dual-write problem]], [[Process Managers|process managers]], [[CQRS]], [[Storage Systems|storage systems]], [[Realization|realization]].

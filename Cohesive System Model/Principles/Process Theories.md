@@ -13,7 +13,7 @@ aliases:
 
 Process theories are modeling disciplines for work, interaction, change, and behavior that unfold over time.
 
-In Cohesive, process theories provide a shared language for [[Process|processes]], [[Processes|process structures]], workflows, process managers, sagas, durable executions, choreographies, orchestrations, feedback loops, control loops, and physical processes without making all of those things identical.
+In Cohesive, process theories provide a shared language for [[Process|processes]], [[Processes|process structures]], workflows, [[Process Managers|process managers]], [[Sagas|sagas]], durable executions, choreographies, orchestrations, feedback loops, control loops, and physical processes without making all of those things identical.
 
 The goal is not to choose one universal formalism. Open systems, Petri nets, process calculi, session types, string diagrams, compositional games, dynamical systems, control theory, quantum processes, and compositional concurrency each emphasize different structure. Cohesive uses them as sources of discipline for asking what composes, what is observed, what crosses a boundary, and what must be preserved by realization.
 
@@ -50,8 +50,8 @@ These layers can be related, but they should not be collapsed. An operating-syst
 
 Process theories give tighter language for common architecture terms:
 
-- A process manager is a coordinating role with process identity. It observes inputs, records progress or history, decides next steps, and emits commands, events, signals, or effects across boundaries.
-- A saga is a business-recovery process manager. It handles business failure, partial completion, compensation, alternate paths, negotiation, escalation, or human intervention.
+- A [[Process Managers|process manager]] is an orchestration role with process identity. It observes inputs, records progress or history, decides next steps, and emits commands, events, signals, or effects across boundaries.
+- A [[Sagas|saga]] is a business-recovery process manager. It handles business failure, partial completion, compensation, alternate paths, negotiation, escalation, or human intervention.
 - [[Durable Execution|Durable execution]] is an execution-recovery practice. It resumes the same logical computation after interruption through persisted progress, history, timers, signals, checkpoints, retry state, or pending work.
 - A workflow is an authored or runtime-managed process description. A workflow engine may realize workflow execution, durable execution, inspection, timers, signals, activities, retries, and compensation, but the engine is not the semantic process itself.
 
@@ -59,11 +59,13 @@ This distinction is practical. A saga implemented on durable execution still con
 
 ## Orchestration and Choreography
 
-Orchestration and choreography are coordination shapes, not claims that one style is inherently better than the other.
+[[Orchestration and Choreography|Orchestration and choreography]] are coordination shapes, not claims that one style is inherently better than the other.
 
-In orchestration, a coordinating observer or process manager owns more of the decision surface. It observes process state, issues commands, waits for replies or events, handles timeouts, and decides next steps. Orchestration makes control explicit, but can concentrate authority, coupling, and failure impact.
+In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the decision surface. It observes process state, issues commands, waits for replies or events, handles timeouts, and decides next steps. Orchestration makes control explicit, but can concentrate authority, coupling, and failure impact.
 
-In choreography, participants advance the process through published events, protocols, subscriptions, and local reactions. Choreography distributes control and can reduce central coupling, but it can also hide the process boundary, make global progress harder to observe, and leave compensation or timeout behavior implicit.
+In choreography, participants advance the process through published events, protocols, subscriptions, shared logs, shared media, and local reactions. Choreography does not mean there is no process or no global protocol. It means the process is not controlled by one explicit process manager. Choreography distributes control and can reduce central coupling, but it can also hide the process boundary, make global progress harder to observe, and leave compensation or timeout behavior implicit.
+
+The distinction is a matter of degree. [[Consensus Protocols|Consensus protocols]] such as Paxos use a shared global protocol and may use a leader or proposer, but the leader is a dynamic protocol role constrained by quorum rules rather than a process manager that owns the whole execution.
 
 Both shapes need the same basic questions answered:
 
@@ -112,4 +114,4 @@ When modeling a process, ask:
 - What is the equivalence relation between two executions of the process?
 - Which realization mechanisms preserve the process theory, and where do they weaken it?
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Process|process]], [[Processes|processes]], [[State Machines|state machines]], [[Behavior|behavior]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Interaction|interaction]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Sagas and Process Managers|sagas and process managers]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effects|effects]], [[Boundaries|boundaries]], [[Realization|realization]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Process|process]], [[Processes|processes]], [[State Machines|state machines]], [[Behavior|behavior]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effects|effects]], [[Boundaries|boundaries]], [[Realization|realization]].

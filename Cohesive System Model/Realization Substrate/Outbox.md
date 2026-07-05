@@ -48,10 +48,10 @@ Outbox therefore replaces unsafe dual writes with local atomicity plus asynchron
 [[Event Sourcing]] can act like an atomic unification of persistence and coordination when committed endogenous events are both:
 
 - The authoritative durable history used to reconstitute entity state.
-- The durable source from which projections, process managers, subscribers, or outbound publications are driven.
+- The durable source from which projections, [[Process Managers|process managers]], subscribers, or outbound publications are driven.
 
 In that arrangement, the system does not separately write state and then separately decide whether orchestration should happen. The committed event history is the shared basis for both persistence and follow-up coordination.
 
 This unification is required when consistency depends on downstream work being causally tied to accepted state transitions. If a system commits an event-sourced transition and then publishes a separate broker message through an independent write with no recovery link, the [[Dual-Write Problem|dual-write problem]] returns. A separate outbox record can still be used, but it must be committed atomically with the event append or derived reliably from the committed event history.
 
-Related concepts: [[Transactional Outbox|transactional outbox]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[CQRS]], [[Brokers|brokers]], [[Storage Systems|storage systems]], [[Realization|realization]].
+Related concepts: [[Transactional Outbox|transactional outbox]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[CQRS]], [[Brokers|brokers]], [[Storage Systems|storage systems]], [[Realization|realization]].

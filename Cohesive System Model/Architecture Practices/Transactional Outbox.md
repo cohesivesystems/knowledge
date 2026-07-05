@@ -30,7 +30,7 @@ Outbox is therefore not "exactly-once messaging." It is local atomicity plus asy
 
 [[Event Sourcing]] and transactional outbox both use durable committed material to tie persistence to coordination.
 
-In event sourcing, the committed endogenous event history can be the atomic source of both entity reconstitution and downstream orchestration. Projections, process managers, subscribers, and publications can follow the same committed history that defines the entity state.
+In event sourcing, the committed endogenous event history can be the atomic source of both entity reconstitution and downstream orchestration. Projections, [[Process Managers|process managers]], subscribers, and publications can follow the same committed history that defines the entity state.
 
 In transactional outbox, the domain state change and an outbound obligation are committed together in one local transaction. This gives a similar consistency shape even when the authoritative state is a current-state record rather than an event stream.
 
@@ -52,4 +52,4 @@ When the delivery substrate can redeliver, consumers usually need [[Idempotency|
 
 The pattern fails when downstream consumers assume broker delivery means immediate domain consistency, when the relay lacks idempotency, ordering scope, recovery, and duplicate-publication handling, or when consumer-side processing lacks an inbox or equivalent idempotent receiver.
 
-Related concepts: [[Outbox|outbox]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Brokers|brokers]], [[Boundaries|boundaries]], [[Event-Driven Architecture|event-driven architecture]].
+Related concepts: [[Outbox|outbox]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[Brokers|brokers]], [[Boundaries|boundaries]], [[Event-Driven Architecture|event-driven architecture]].

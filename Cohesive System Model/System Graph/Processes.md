@@ -7,7 +7,7 @@ kind: structural-construct
 
 Processes describe how [[Process|semantic processes]] are arranged across time, observers, entities, and external systems.
 
-A process may be a domain process, saga, process manager, durable workflow, orchestration, choreography, operational procedure, transaction, runtime operation, scheduler-managed logical process, or resumable maintenance procedure. The model treats it as structure when it gives coherence to a series of related observations, commands, events, transitions, decisions, effects, and artifacts. This describes coordination shape and participant roles, not the workflow engine, scheduler, transaction manager, application host, or operating-system mechanism that realizes it.
+A process may be a domain process, [[Sagas|saga]], [[Process Managers|process manager]], durable workflow, orchestration, choreography, operational procedure, transaction, runtime operation, scheduler-managed logical process, or resumable maintenance procedure. The model treats it as structure when it gives coherence to a series of related observations, commands, events, transitions, decisions, effects, and artifacts. This describes coordination shape and participant roles, not the workflow engine, scheduler, transaction manager, application host, or operating-system mechanism that realizes it.
 
 [[Business Transactions]] are domain-level process structures whose progress, acceptance, rejection, compensation, or completion matters to the business. They may use one process or several cooperating processes.
 
@@ -19,7 +19,7 @@ A process may be modeled as a special kind of [[Entity|entity]] and [[Observer|o
 
 Processes have flows. A flow describes how process inputs, outputs, signals, observations, commands, events, effects, or artifacts move between participants. Flow is therefore a useful view of process movement, but it is not the whole process. The process also includes subject identity, participant roles, state, decisions, policies, transitions, recovery, compensation, and completion meanings.
 
-Orchestration and choreography are process coordination shapes. In orchestration, a coordinating observer or process manager owns more of the decision surface. In choreography, participants advance the process through events, protocols, subscriptions, and local reactions. Many systems mix both shapes, so the model should state where process identity, authority, ordering, recovery, and completion meaning live.
+[[Orchestration and Choreography|Orchestration and choreography]] are process coordination shapes. In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the decision surface. In choreography, participants advance the process through events, protocols, subscriptions, shared media, and local reactions. Choreography can still have a shared global protocol and singular goal; it lacks one explicit process manager controlling the whole execution. Many systems mix both shapes, so the model should state where process identity, authority, ordering, recovery, and completion meaning live.
 
 Process concerns include:
 
@@ -38,10 +38,10 @@ Examples include:
 - ASP.NET operations that perform multiple steps, possibly wrapped by [[Durable Execution|durable execution]].
 - Driver onboarding, coordinated across entity state transitions, runtime listeners, effect emitters, concurrency control, UI activity, and durable step advancement.
 - Index rebuilds, backfills, data repairs, and migrations that must resume after a crash.
-- Sagas whose selected steps have compensating actions.
+- [[Sagas|Sagas]] whose selected steps have compensating actions.
 - RDBMS transactions that attach ACID commit and rollback semantics to database operations.
 - ML workflows that normalize training examples, generate or project datasets, run models, transform and persist model artifacts, evaluate outcomes, and promote selected models.
 
 Processes compose when outputs of one process feed another process as observations, commands, events, artifacts, or decisions. Such compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
 
-Related concepts: [[Process Theories|process theories]], [[Business Transactions|business transactions]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Command|command]], [[State|state]], [[Recovery|recovery]], [[Policies|policies]], [[Invariants|invariants]].
+Related concepts: [[Process Theories|process theories]], [[Business Transactions|business transactions]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Command|command]], [[State|state]], [[Recovery|recovery]], [[Policies|policies]], [[Invariants|invariants]].

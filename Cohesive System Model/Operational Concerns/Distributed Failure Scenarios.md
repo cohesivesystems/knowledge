@@ -30,7 +30,7 @@ A [[Dual-Write Problem|dual write]] occurs when one operation tries to commit tw
 
 The hazard is partial commitment: one effect commits while another fails, remains ambiguous, or is retried without a shared recovery record.
 
-Typical resolutions include [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[Durable Execution|durable execution]], [[Sagas and Process Managers|sagas or process managers]], or [[Two-Phase Commit|two-phase commit]] when the participants and costs justify it.
+Typical resolutions include [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[Durable Execution|durable execution]], [[Sagas|sagas]] or [[Process Managers|process managers]], or [[Two-Phase Commit|two-phase commit]] when the participants and costs justify it.
 
 See [[Dual-Write Problem|dual-write problem]].
 
@@ -42,7 +42,7 @@ This is a better name than "distributed lock scenario" when the lock is only one
 
 Common examples include charging a payment, creating a shipment, issuing a refund, sending a one-time credential, or invoking an external command whose result must be known by the caller.
 
-Typical resolutions include [[Idempotency|idempotency]] keys accepted by the external boundary, receiver-side deduplication, expected-version checks, actor serialization at the entity boundary, fencing tokens, durable process state, or a [[Sagas and Process Managers|process manager]] that records the external attempt and its observed result.
+Typical resolutions include [[Idempotency|idempotency]] keys accepted by the external boundary, receiver-side deduplication, expected-version checks, actor serialization at the entity boundary, fencing tokens, durable process state, or a [[Process Managers|process manager]] that records the external attempt and its observed result.
 
 ## Ambiguous external outcome
 
@@ -150,4 +150,4 @@ The queue serializes or buffers work, but it does not by itself provide an await
 
 Typical resolutions include process identity, durable process state, result observations, workflow queries, callbacks, signals, pending states, timeouts, cancellation, and explicit completion events.
 
-Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Dual-Write Problem|dual-write problem]], [[Isolation|isolation]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Durability|durability]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Coordination|coordination]], [[Durable Execution|durable execution]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas and Process Managers|sagas and process managers]], [[Actor Systems|actor systems]], [[Business Transactions|business transactions]], [[Invariants|invariants]].
+Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Dual-Write Problem|dual-write problem]], [[Isolation|isolation]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Durability|durability]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Actor Systems|actor systems]], [[Business Transactions|business transactions]], [[Invariants|invariants]].

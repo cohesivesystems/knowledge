@@ -24,10 +24,12 @@ The cost is coordination. Consensus protocols preserve a chosen [[Ordering|order
 
 Operationally, consensus protocols tend to preserve [[Safety and Liveness|safety]] even when progress is temporarily impossible. Their liveness depends on the behavior of participants, storage, and network, and on timing assumptions.
 
+In terms of [[Orchestration and Choreography|orchestration and choreography]], Paxos is closer to choreography than to an index rebuild coordinated by one process manager. It has a shared global protocol and a singular replicated-state-machine goal, and a leader or proposer may coordinate a round. But the leader is a dynamic protocol role constrained by quorum rules, acceptor state, ballots, and recovery behavior. No single node monitors and controls the whole execution in the way an index rebuild coordinator assigns work, records progress, retries workers, and decides completion.
+
 ## External References
 
 - Leslie Lamport, [Paxos Made Simple](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf), ACM SIGACT News, 32(4):51-58, December 2001.
 - Diego Ongaro and John Ousterhout, [In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf), USENIX ATC, 2014.
 - Barbara Liskov and James Cowling, [Viewstamped Replication Revisited](https://www.cs.princeton.edu/courses/archive/fall19/cos418/papers/vr-revisited.pdf), MIT CSAIL, 2012.
 
-Related concepts: [[Consensus|consensus]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[Coordination|coordination]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Time|time]], [[Version|version]], [[Persistence|persistence]], [[Recovery|recovery]], [[Storage Systems|storage systems]], [[Infrastructure|infrastructure]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]].
+Related concepts: [[Consensus|consensus]], [[Orchestration and Choreography|orchestration and choreography]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[Coordination|coordination]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Time|time]], [[Version|version]], [[Persistence|persistence]], [[Recovery|recovery]], [[Storage Systems|storage systems]], [[Infrastructure|infrastructure]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]].

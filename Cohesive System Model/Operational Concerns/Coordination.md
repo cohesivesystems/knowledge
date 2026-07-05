@@ -22,11 +22,21 @@ Coordination mechanisms include:
 - [[Transactional Outbox]] and [[Outbox|outbox]].
 - [[Transactional Inbox]] and idempotent receivers.
 - [[CRDTs]].
-- Sagas with compensation.
+- [[Sagas|Sagas]] with compensation.
 - [[Durable Execution|Durable execution]] with resume.
-- Choreography through events.
-- Process managers.
+- [[Orchestration and Choreography|Choreography]] through events, protocols, or shared media.
+- [[Process Managers|Process managers]] as orchestration.
 - Projection update protocols.
+
+## Orchestration and Choreography
+
+[[Orchestration and Choreography|Orchestration and choreography]] describe where process control lives.
+
+In orchestration, one logical [[Process Managers|process manager]] owns enough process execution state to decide next steps, direct participants, observe progress, retry, compensate, or complete the process. A [[Sagas|saga]] orchestrator, durable workflow, index rebuild coordinator, backfill controller, or approval workflow is orchestrated when that logical process manager controls the run, even if the physical node holding the role changes after restart or failover.
+
+In choreography, no single process manager controls the whole execution. Participants follow local rules over shared events, messages, logs, topics, membership state, or protocols. Choreography can still have a shared global protocol and a singular goal; the process exists, but its execution is distributed across participant behavior.
+
+Paxos is closer to choreography than an orchestrated index rebuild. It has a shared replicated-state-machine goal and often a leader or proposer, but no node simply runs the whole algorithm. Proposers, acceptors, and learners follow protocol-local rules, and a value is authorized by quorum state rather than by a process manager's private execution state. An index rebuild coordinator, by contrast, commonly assigns work, monitors workers, records progress, retries failed ranges, and decides completion for one logical rebuild process.
 
 ## Ordering, Intent, and Coordination Avoidance
 
@@ -60,4 +70,4 @@ The right mechanism depends on the failure boundaries, persistence choices, deli
 
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Interaction|interaction]], [[Ordering|ordering]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Durable Execution|durable execution]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]], [[Business Transactions|business transactions]], [[Processes|processes]], [[CRDTs]], [[CQRS]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Brokers|brokers]], [[Invariants|invariants]].
+Related concepts: [[Interaction|interaction]], [[Ordering|ordering]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Durable Execution|durable execution]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]], [[Business Transactions|business transactions]], [[Processes|processes]], [[CRDTs]], [[CQRS]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Brokers|brokers]], [[Invariants|invariants]].

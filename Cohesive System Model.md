@@ -142,7 +142,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Domain-Driven Design]], [[Ports and Adapters|ports and adapters]], [[Clean Architecture|clean architecture]]
 - [[Modular Monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
-- [[Sagas and Process Managers]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
+- [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
 - [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
 
 ## Domain Semantics

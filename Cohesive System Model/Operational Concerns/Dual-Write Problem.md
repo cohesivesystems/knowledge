@@ -38,7 +38,7 @@ Common resolutions include:
 - Use [[Two-Phase Commit|two-phase commit]] or another distributed atomic commit protocol when the covered participants support it and the cost is acceptable.
 - Use an [[Outbox|outbox]] so local state and publication responsibility commit atomically, then publish asynchronously with retry and recovery.
 - Use a [[Transactional Inbox|transactional inbox]] or idempotent receiver so redelivered inputs do not duplicate local effects.
-- Use [[Sagas and Process Managers|sagas]], [[Durable Execution|durable execution]], compensation, reservations, or reconciliation when one atomic boundary is unavailable or misaligned with the business process.
+- Use [[Sagas|sagas]], [[Process Managers|process managers]], [[Durable Execution|durable execution]], compensation, reservations, or reconciliation when one atomic boundary is unavailable or misaligned with the business process.
 - Use [[Event Sourcing|event sourcing]] so committed endogenous events are the authoritative durable basis for state reconstitution and downstream orchestration, when that history is the intended source of coordination.
 
 Each option must state which stronger guarantee it replaces and what guarantees remain at each boundary.

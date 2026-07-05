@@ -13,7 +13,7 @@ In the model, workflow engines often [[Realization|realize]] [[Processes|process
 
 A workflow activation may realize an observer for a process step. The process itself may also be modeled as an entity-observer when it has identity, durable state/history, and rules for interpreting incoming events or signals over time.
 
-A workflow engine may also be a [[Durable Execution Engines|durable execution engine]] when it persists enough execution material to resume, replay, retry, or recover coherent execution. A saga runtime, process manager, DAG runner, human-workflow system, or state-machine engine may be a workflow engine without exposing the same durable execution semantics.
+A workflow engine may also be a [[Durable Execution Engines|durable execution engine]] when it persists enough execution material to resume, replay, retry, or recover coherent execution. A saga runtime, [[Process Managers|process manager]], DAG runner, human-workflow system, or state-machine engine may be a workflow engine without exposing the same durable execution semantics.
 
 Workflow engine concerns include:
 
