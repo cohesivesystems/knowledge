@@ -10,16 +10,14 @@ updated: 2026-06-29
 Algebras and coalgebras provide complementary ways to model construction and behavior.
 
 An algebra consumes structure into a value:
-
-```txt
-F A -> A
-```
+$$
+F A\to A
+$$
 
 A coalgebra unfolds a value into observable structure or next behavior:
-
-```txt
-A -> F A
-```
+$$
+A\to FA
+$$
 
 ## Algebras
 

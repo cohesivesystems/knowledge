@@ -1,57 +1,40 @@
 ---
 realm: Architecture Practices
-kind: pattern
+kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-04
+updated: 2026-07-05
 ---
 
 # Transactional Outbox
 
-The transactional outbox addresses the problem of committing local state change and publishing a message without relying on a distributed transaction between the database and broker.
+Transactional outbox is the architecture practice of using an [[Outbox|outbox]] to tie an accepted local state change to downstream publication responsibility without a distributed transaction between storage and a broker, stream, API, projection, or process.
 
-The concrete substrate pattern is [[Outbox|outbox]]. The architecture practice is deciding where that outbox belongs, which transition or process creates the obligation, which relay publishes it, and what downstream delivery, idempotency, and recovery semantics are required.
+The concrete realization pattern is [[Outbox|outbox]]. This note keeps the architectural context: when to choose it, where it belongs in a system boundary, and how it composes with adjacent practices.
 
-## Cohesive Formulation
+## Architectural Context
 
-The practice separates domain commitment from publication:
+Use transactional outbox when an accepted [[Transition|transition]] or semantic [[Process|process]] step must cause follow-up work outside the local commit boundary, but the system should not rely on [[Two-Phase Commit|two-phase commit]] across all participants.
 
-```txt
-entity transition + outbox record commit in one persistence boundary
-outbox relay -> broker interaction boundary
-```
+The architecture decision is not "add an outbox table" in isolation. It includes:
 
-The outbox record is durable operational material that represents responsibility to publish after the domain transition commits.
+- Which observer, entity, service, stream, or process boundary owns the local commit.
+- What semantic obligation the outbox record represents: event publication, command dispatch, projection update, notification, or another effect.
+- Which relay, projector, process manager, or runtime component reads the obligation.
+- What ordering scope, retry policy, recovery path, acknowledgment timing, and duplicate-publication behavior apply.
+- What downstream [[Idempotency|idempotency]], deduplication, or [[Transactional Inbox|transactional inbox]] mechanism protects consumers.
 
-## In the Model
+These choices determine the actual consistency claim. The outbox prevents a local [[Dual-Write Problem|dual-write problem]] between authoritative persistence and publication responsibility; it does not make downstream processing immediate, globally atomic, or exactly once.
 
-The outbox makes [[Commit Boundaries|commit boundaries]] and [[Acknowledgments|acknowledgment]] spaces explicit. A database transaction can commit the entity transition and outbox record. Broker publication and downstream observation happen later, with their own delivery, ordering, retry, and idempotency semantics.
+## Relation to Adjacent Practices
 
-Outbox is therefore not "exactly-once messaging." It is local atomicity plus asynchronous publication responsibility. It prevents the local [[Dual-Write Problem|dual-write problem]] between state persistence and outbound publication responsibility, but it does not prove that another observer received, processed, or committed follow-up work.
+In [[Event-Driven Architecture|event-driven architecture]], transactional outbox is a producer-side handoff mechanism. It helps publish facts or commands after local commitment, but the architecture still needs explicit event meanings, subscription boundaries, ordering scopes, and consumer guarantees.
 
-## Relationship to Event Sourcing
+In [[Event Sourcing|event sourcing]], the committed event history can already be the durable source for projections, subscriptions, process managers, and publications. A separate outbox is useful only when it is committed atomically with that history or derived reliably from it.
 
-[[Event Sourcing]] and transactional outbox both use durable committed material to tie persistence to coordination.
-
-In event sourcing, the committed endogenous event history can be the atomic source of both entity reconstitution and downstream orchestration. Projections, [[Process Managers|process managers]], subscribers, and publications can follow the same committed history that defines the entity state.
-
-In transactional outbox, the domain state change and an outbound obligation are committed together in one local transaction. This gives a similar consistency shape even when the authoritative state is a current-state record rather than an event stream.
-
-The shared principle is:
-
-```txt
-do not commit authoritative state and coordination trigger as independent writes
-```
-
-If the trigger that tells the rest of the system to act is not committed atomically with the authoritative transition, or reliably derived from the committed history, the system can diverge.
-
-## Consumer Side
-
-Outbox solves the producer-side handoff. Consumers still need a receiving mechanism.
-
-When the delivery substrate can redeliver, consumers usually need [[Idempotency|idempotency]], expected-version checks, deduplication records, or a [[Transactional Inbox|transactional inbox]]. Without that consumer-side mechanism, outbox retry can produce duplicate downstream effects.
+In designs built around [[Sagas|sagas]], [[Process Managers|process managers]], or [[Durable Execution|durable execution]], an outbox may be one material used to preserve pending effects. It is not the saga, process manager, workflow, or durable execution itself; those practices define broader process identity, progress, recovery, compensation, and coordination meanings.
 
 ## Failure Modes
 
-The pattern fails when downstream consumers assume broker delivery means immediate domain consistency, when the relay lacks idempotency, ordering scope, recovery, and duplicate-publication handling, or when consumer-side processing lacks an inbox or equivalent idempotent receiver.
+Transactional outbox is being overclaimed when broker delivery is treated as proof of domain consistency, when consumers lack idempotent receiving behavior, when the relay has no durable progress or recovery model, or when the outbox record is written outside the same commit boundary as the state change that requires publication.
 
-Related concepts: [[Outbox|outbox]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[Brokers|brokers]], [[Boundaries|boundaries]], [[Event-Driven Architecture|event-driven architecture]].
+Related concepts: [[Outbox|outbox]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Brokers|brokers]], [[Boundaries|boundaries]], [[Event-Driven Architecture|event-driven architecture]].
