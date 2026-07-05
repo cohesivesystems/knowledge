@@ -1,6 +1,8 @@
 ---
 realm: System Graph
 kind: reference
+created: 2026-07-01
+updated: 2026-07-01
 ---
 
 # System Graph

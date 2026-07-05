@@ -1,6 +1,8 @@
 ---
 realm: Principles
 kind: principle
+created: 2026-06-28
+updated: 2026-06-29
 ---
 
 # Asynchronous Computability Theorem

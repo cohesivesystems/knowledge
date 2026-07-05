@@ -1,6 +1,8 @@
 ---
 realm: System Graph
 kind: structural-construct
+created: 2026-06-29
+updated: 2026-07-04
 aliases:
   - Effect
   - Effect Boundary

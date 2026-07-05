@@ -4,10 +4,15 @@
 from __future__ import annotations
 
 from collections import Counter
+from datetime import date
 from pathlib import Path
+import re
 import sys
 
 from cohesive_graph import ALLOWED_KINDS, ALLOWED_REALMS, load_nodes, repo_root_from, resolve_links
+
+
+ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 def main() -> int:
@@ -59,6 +64,14 @@ def main() -> int:
 
 
 def validate_node(node, errors: list[str], warnings: list[str]) -> None:
+    created = validate_date_field(node, "created", errors)
+    updated = validate_date_field(node, "updated", errors)
+    if created and updated and updated < created:
+        errors.append(
+            f"Updated date precedes created date in {node.path}: "
+            f"created={node.created!r}, updated={node.updated!r}"
+        )
+
     if node.path == "Cohesive System Model.md":
         if node.kind != "overview":
             errors.append(f"Top-level overview must have kind 'overview': {node.kind!r}")
@@ -87,6 +100,23 @@ def validate_node(node, errors: list[str], warnings: list[str]) -> None:
 
     if node.status and node.status not in {"draft", "stable", "deprecated"}:
         warnings.append(f"Unexpected status in {node.path}: {node.status!r}")
+
+
+def validate_date_field(node, field: str, errors: list[str]) -> date | None:
+    value = getattr(node, field)
+    if value is None:
+        errors.append(f"Missing {field} date in {node.path}")
+        return None
+
+    if not ISO_DATE_RE.fullmatch(value):
+        errors.append(f"Invalid {field} date in {node.path}: {value!r}")
+        return None
+
+    try:
+        return date.fromisoformat(value)
+    except ValueError:
+        errors.append(f"Invalid {field} date in {node.path}: {value!r}")
+        return None
 
 
 if __name__ == "__main__":

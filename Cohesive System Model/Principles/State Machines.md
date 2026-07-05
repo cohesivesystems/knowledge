@@ -1,6 +1,8 @@
 ---
 realm: Principles
 kind: principle
+created: 2026-06-30
+updated: 2026-06-30
 aliases:
   - State Machine
   - Transition System

@@ -65,6 +65,8 @@ def main() -> int:
                 "title": node.title,
                 "realm": node.realm,
                 "kind": node.kind,
+                "created": node.created,
+                "updated": node.updated,
                 "status": node.status,
                 "aliases": node.aliases,
                 "summary": node.summary,

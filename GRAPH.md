@@ -31,10 +31,13 @@ The top-level `Cohesive System Model.md` file acts as the overview.
 
 A graph node is a Markdown note that defines or organizes a concept.
 
-Required for notes inside `Cohesive System Model/`:
+Required for graph nodes:
 
-- A frontmatter `realm` matching one of the allowed realms.
+- A frontmatter `realm` matching one of the allowed realms, except for the
+  top-level overview.
 - A frontmatter `kind` matching one of the allowed kinds.
+- A frontmatter `created` date in `YYYY-MM-DD` format.
+- A frontmatter `updated` date in `YYYY-MM-DD` format.
 - A first-level heading naming the concept.
 
 Allowed kinds:
@@ -63,6 +66,15 @@ Recommended:
 
 - `status`: `draft`, `stable`, or `deprecated`.
 - `aliases`: alternate titles or search names.
+
+Date metadata is authored graph metadata, not filesystem metadata:
+
+- `created` is the date the note was first authored as a public graph node.
+- `updated` is the date of the last substantive conceptual edit.
+
+Use ISO calendar dates. `updated` must be equal to or later than `created`.
+Mechanical metadata changes, export regeneration, or website projection changes
+should not by themselves advance `updated`.
 
 ## Relations
 

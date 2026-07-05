@@ -1,6 +1,8 @@
 ---
 realm: Operational Concerns
 kind: reference
+created: 2026-07-04
+updated: 2026-07-04
 status: draft
 aliases:
   - Distributed Failure Modes

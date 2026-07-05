@@ -1,6 +1,8 @@
 ---
 realm: Realization Substrate
 kind: pattern
+created: 2026-06-29
+updated: 2026-07-04
 aliases:
   - Outbox Pattern
 ---

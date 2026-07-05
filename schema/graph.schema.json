@@ -48,6 +48,8 @@
         "title",
         "realm",
         "kind",
+        "created",
+        "updated",
         "status",
         "aliases",
         "summary",
@@ -83,6 +85,14 @@
             "reference",
             "glossary"
           ]
+        },
+        "created": {
+          "type": "string",
+          "format": "date"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date"
         },
         "status": {
           "type": ["string", "null"]

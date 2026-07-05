@@ -1,6 +1,8 @@
 ---
 realm: Operational Concerns
 kind: operational-concern
+created: 2026-06-29
+updated: 2026-07-04
 aliases:
   - Commit Boundary
   - Commitment

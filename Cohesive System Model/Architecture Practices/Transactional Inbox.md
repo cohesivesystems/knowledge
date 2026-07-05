@@ -1,6 +1,8 @@
 ---
 realm: Architecture Practices
 kind: pattern
+created: 2026-06-29
+updated: 2026-06-29
 aliases:
   - Inbox
   - Inbox Pattern

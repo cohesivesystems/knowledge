@@ -1,3 +1,8 @@
+---
+kind: overview
+created: 2026-06-24
+updated: 2026-07-04
+---
 
 # Cohesive System Model
 

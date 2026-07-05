@@ -54,6 +54,8 @@ class Node:
     title: str
     realm: str
     kind: str
+    created: str | None
+    updated: str | None
     status: str | None
     aliases: list[str] = field(default_factory=list)
     summary: str = ""
@@ -167,6 +169,10 @@ def parse_node(path: Path, root: Path) -> Node:
     title, has_h1 = extract_title(path, body)
     realm = infer_realm(path, root, frontmatter)
     kind = str(frontmatter.get("kind") or ("overview" if rel_path == "Cohesive System Model.md" else ""))
+    created_value = frontmatter.get("created")
+    created = str(created_value) if created_value is not None else None
+    updated_value = frontmatter.get("updated")
+    updated = str(updated_value) if updated_value is not None else None
     status_value = frontmatter.get("status")
     status = str(status_value) if status_value is not None else None
     aliases = normalize_aliases(frontmatter.get("aliases"))
@@ -177,6 +183,8 @@ def parse_node(path: Path, root: Path) -> Node:
         title=title,
         realm=realm,
         kind=kind,
+        created=created,
+        updated=updated,
         status=status,
         aliases=aliases,
         summary=extract_summary(body),

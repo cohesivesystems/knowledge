@@ -1,6 +1,8 @@
 ---
 realm: Principles
 kind: principle
+created: 2026-07-04
+updated: 2026-07-04
 status: draft
 aliases:
   - Process Theory

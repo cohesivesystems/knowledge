@@ -1,6 +1,8 @@
 ---
 realm: Domain Semantics
 kind: semantic-construct
+created: 2026-06-28
+updated: 2026-07-04
 ---
 
 # Process
