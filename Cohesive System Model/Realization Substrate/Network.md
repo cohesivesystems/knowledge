@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-07-06
 ---
 
 # Network
@@ -10,6 +10,8 @@ updated: 2026-06-29
 Network is the realization substrate for interaction across link, network, transport, and application protocol boundaries.
 
 Network mechanisms [[Realization|realize]] interaction edges, but they are not the definition of [[Interaction|interaction]]. Interaction also occurs locally between processes, threads, runtime tasks, actors, CPU cores, memory cells, and synchronization primitives. Networked interaction is one important family of realization.
+
+This note specializes [[Interaction|interaction]] for network substrates. Use [[Interaction|interaction]] for the general boundary-relative model of observers, modes, semantic roles, and guarantees; use this note for how those edges are realized through protocol layers and physical links.
 
 ## Application Interaction from Async Send/Receive
 
@@ -29,6 +31,14 @@ Protocol layers add structure to this minimal edge:
 - Application flows compose those protocols into domain-level interactions and [[Business Transactions|business transactions]] involving services, humans, agents, policies, entities, and processes.
 
 This ladder is not a strict hierarchy of concepts. The same interaction edge shape can reappear at different layers. UDP multicast and a Kafka topic are both one-to-many publication configurations at different realization boundaries, with very different addressing, durability, ordering, retention, and acknowledgment semantics.
+
+## Link and Physical Realization
+
+Application protocols can also be followed downward. A single application request may lower into framed bytes, transport segments, network packets, link-layer frames, media-access decisions, encoded symbols, clocking, electrical or optical signal changes, buffering, and retransmission or error-handling rules at several layers.
+
+At a link boundary, a frame transmission may be treated as the interaction unit. The link can add local addressing, framing, error detection, arbitration, pause or flow-control behavior, and sometimes link-local acknowledgment or retry. At the physical boundary, the same frame is realized through signal encoding, timing, modulation, propagation, reception, and decoding. These lower-layer interactions realize the higher protocol without inheriting its semantic meaning. A received symbol or valid frame is not an HTTP response, a broker publish, or a committed domain transition.
+
+This is why protocol guarantees must be mapped to the boundary where they hold. A physical signal can be detected, a frame can pass an error check, a packet can be routed, a TCP peer can acknowledge bytes, an RPC layer can correlate a response, and an application observer can commit a transition. Those are different claims joined by protocol layering, not one undifferentiated notion of delivery.
 
 ## RPC over TCP
 
