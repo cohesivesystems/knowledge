@@ -28,4 +28,4 @@ Examples of modeled relations include:
 
 Relation models make the system graph navigable and explain how changes in one part of the model may be observed, derived, constrained, or interpreted elsewhere.
 
-Related concepts: [[Relation|relation]], [[Entity Models|entity models]], [[Observer Models|observer models]], [[Process Graphs|process graphs]], [[Projection Models|projection models]], [[Entity|entity]], [[Observer|observer]], [[Identity|identity]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Boundaries|boundaries]], [[Realization|realization]].
+Related concepts: [[Relation|relation]], [[Entity Models|entity models]], [[Observer Models|observer models]], [[Process Graphs|process graphs]], [[Projection Models|projection models]], [[Entity|entity]], [[Observer|observer]], [[Identity|identity]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Boundaries|boundaries]], [[Relational and Logic Programming|relational and logic programming]], [[Realization|realization]].

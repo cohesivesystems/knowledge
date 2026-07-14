@@ -34,6 +34,7 @@ Core principles:
 
 Additional recurring principles:
 
+- [[Relational and Logic Programming]]: relations as admissible tuples, declarative queries, derivation rules, multi-mode logic programs, and their distinct evaluation strategies.
 - [[Monads Monoids and Duals]]: sequencing, accumulation, context, observation, and dual structure.
 - [[Algebras and Coalgebras]]: folding structure into values and unfolding values into behavior.
 - [[State Machines|State machines]]: transition-based models of behavior that relate inputs, state, outputs, and runs.

@@ -31,4 +31,4 @@ Projection concerns include:
 - Rebuild and recovery.
 - Idempotent update handling.
 
-Related concepts: [[Functoriality|functoriality]], [[Observation|observation]], [[Observable|observable]], [[Shape|shape]], [[Query|query]], [[State|state]], [[Event|event]], [[Relation Models|relation models]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[CRDTs]], [[CQRS]], [[Ordering|ordering]], [[Recovery|recovery]], [[Realization|realization]].
+Related concepts: [[Functoriality|functoriality]], [[Observation|observation]], [[Observable|observable]], [[Shape|shape]], [[Query|query]], [[State|state]], [[Event|event]], [[Relation Models|relation models]], [[Relational and Logic Programming|relational and logic programming]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[CRDTs]], [[CQRS]], [[Ordering|ordering]], [[Recovery|recovery]], [[Realization|realization]].
