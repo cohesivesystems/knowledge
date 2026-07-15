@@ -50,7 +50,7 @@ Preserving order across distributed boundaries usually requires coordination. Co
 
 In terms of [[Synchrony and Asynchrony|synchrony and asynchrony]], coordination is the work of synchronizing: it joins otherwise independent events, observations, transitions, or participants into a shared boundary such as a transaction, barrier, actor turn, consensus decision, or process step.
 
-The [[Safety and Liveness|safety and liveness]] view explains this cost. Coordination often preserves safety by delaying, rejecting, or serializing work until enough information is available. Those choices may weaken liveness unless the system also supplies recovery, retry, failure detection, or partial synchrony assumptions that restore progress.
+The [[Safety and Liveness|safety and liveness]] view explains the cost of coordination. Coordination often preserves safety by delaying, rejecting, or serializing work until enough information is available. Those choices may weaken liveness unless the system also supplies recovery, retry, failure detection, or partial synchrony assumptions that restore progress.
 
 [[Progress Conditions]] make this tradeoff operational. A blocking coordination mechanism may allow one stalled participant to prevent others from finishing. Lock-free, wait-free, monotone, or commutative designs can reduce that dependency, but only when their assumptions and weaker guarantees fit the domain.
 

@@ -2,7 +2,7 @@
 realm: Principles
 kind: discipline
 created: 2026-07-13
-updated: 2026-07-13
+updated: 2026-07-14
 status: draft
 aliases:
   - Relational Programming
@@ -122,7 +122,7 @@ depends_on(X, Z) :- direct_dependency(X, Y), depends_on(Y, Z).
 
 The declarative semantics of a positive Datalog program over an extensional database is its least Herbrand model. Equivalently, that model is the least fixed point of the program's immediate-consequence operator. In the standard finite Datalog setting, it can be computed by iterating the operator from the extensional facts until no new facts are derived. Operational techniques such as semi-naive evaluation avoid repeatedly deriving the same facts while preserving that meaning.
 
-This makes Datalog a natural language for recursive graph reachability, authorization inheritance, classification, dependency closure, program analysis, and the derivation of read models from facts. It also connects directly to [[Fixed Points and Recursion|fixed points and recursion]].
+This makes Datalog a natural language for recursive graph reachability, authorization inheritance, classification, dependency closure, program analysis, and the derivation of read models from facts. It connects [[Recursion|recursive]] rules to [[Fixed Points|fixed-point]] semantics.
 
 Negation and absence require additional care. Positive Datalog is monotone: adding facts cannot invalidate a previously derived positive fact. Closed-world negation, aggregates, retractions, priority, and non-monotone rules require a more specific semantics, such as stratification, well-founded semantics, stable-model semantics, or a deliberately scoped completeness boundary. The distinction matters operationally because non-monotone conclusions often require coordination or evidence that a relevant fact set is complete; see the [[CALM Theorem|CALM theorem]].
 
@@ -246,4 +246,4 @@ This keeps an ontology from being reduced to a graph schema and keeps a stored e
 - W3C OWL Working Group, [OWL 2 Web Ontology Language Document Overview, Second Edition](https://www.w3.org/TR/owl2-overview/), W3C Recommendation, 2012.
 - R. V. Guha and Douglas B. Lenat, [CYC: A Midterm Report](https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/842), *AI Magazine* 11(3):32-59, 1990. [DOI](https://doi.org/10.1609/aimag.v11i3.842)
 
-Related concepts: [[Relation|relation]], [[Relation Models|relation models]], [[Query|query]], [[Projection Models|projection models]], [[Shape|shape]], [[Observer|observer]], [[Boundaries|boundaries]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Fixed Points and Recursion|fixed points and recursion]], [[CALM Theorem|CALM theorem]], [[Optics and Lenses|optics and lenses]], [[Database Sheaf Semantics|database sheaf semantics]], [[Policy|policy]], [[Process|process]], [[Effects|effects]], [[Realization|realization]].
+Related concepts: [[Relation|relation]], [[Relation Models|relation models]], [[Query|query]], [[Projection Models|projection models]], [[Shape|shape]], [[Observer|observer]], [[Boundaries|boundaries]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[CALM Theorem|CALM theorem]], [[Optics and Lenses|optics and lenses]], [[Database Sheaf Semantics|database sheaf semantics]], [[Policy|policy]], [[Process|process]], [[Effects|effects]], [[Realization|realization]].

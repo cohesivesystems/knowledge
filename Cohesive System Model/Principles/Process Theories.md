@@ -21,7 +21,7 @@ The goal is not to choose one universal formalism. Open systems, Petri nets, pro
 
 ## Cohesive Formulation
 
-A process theory should make these elements explicit:
+A process theory makes these elements explicit:
 
 - The units treated as processes.
 - The interfaces or [[Boundaries|boundaries]] through which processes interact.
@@ -90,7 +90,7 @@ Cohesive does not identify these physical and mathematical theories with distrib
 
 ## Compiler Discipline for Processes
 
-A process realization should preserve:
+A process realization preserves:
 
 - Process identity and correlation.
 - Participant roles and authority.

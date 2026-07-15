@@ -53,7 +53,7 @@ Describe modeling disciplines used across the system model.
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
 - [[Monads Monoids and Duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[State Machines|state machines]], [[Yoneda Lemma|Yoneda lemma]], [[Adjunctions|adjunctions]]
-- [[Fibrations and Indexed Structure]], [[Sheaves and Gluing|sheaves and gluing]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Fixed Points and Recursion|fixed points and recursion]], [[Enrichment and Order|enrichment and order]], [[Optics and Lenses|optics and lenses]], [[Trace and Feedback|trace and feedback]]
+- [[Fibrations and Indexed Structure]], [[Sheaves and Gluing|sheaves and gluing]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Enrichment and Order|enrichment and order]], [[Optics and Lenses|optics and lenses]], [[Trace and Feedback|trace and feedback]]
 
 ### 1. Domain Semantics
 

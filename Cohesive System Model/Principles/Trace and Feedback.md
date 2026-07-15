@@ -29,4 +29,4 @@ Examples:
 
 Feedback must be modeled with boundaries, ordering, idempotency, and recovery semantics. Otherwise the system may accidentally turn a legitimate loop into duplicate effects, livelock, or uncontrolled amplification.
 
-Related concepts: [[Behavior|behavior]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Observer|observer]], [[Event|event]], [[Command|command]], [[Retry|retry]], [[Recovery|recovery]], [[Rate Limiting|rate limiting]], [[Fixed Points and Recursion|fixed points and recursion]].
+Related concepts: [[Behavior|behavior]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Observer|observer]], [[Event|event]], [[Command|command]], [[Retry|retry]], [[Recovery|recovery]], [[Rate Limiting|rate limiting]], [[Recursion|recursion]], [[Fixed Points|fixed points]].

@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-06-24
-updated: 2026-07-04
+updated: 2026-07-14
 ---
 
 # Categorical Principles
@@ -43,7 +43,8 @@ Additional recurring principles:
 - [[Fibrations and Indexed Structure]]: context-dependent families over identities, boundaries, subjects, or semantic roles.
 - [[Systems Sheaf Semantics]]: local-to-global consistency for observer-relative sections of observations, states, versions, histories, and explanations.
 - [[Database Sheaf Semantics]]: local-to-global consistency for relational schemas, database instances, views, joins, and mappings.
-- [[Fixed Points and Recursion]]: recursive definitions, loops, stabilization, and repeated behavior.
+- [[Recursion]]: self-referential definitions, recurrence, recursive derivation, and nested structure.
+- [[Fixed Points]]: invariant solutions, stable behavior, and semantics for recursive definitions.
 - [[Enrichment and Order]]: relationships enriched with ordering, time, cost, authority, confidence, or guarantees.
 - [[Optics and Lenses]]: focused observation, partial state, and view/update structure.
 - [[Trace and Feedback]]: outputs feeding later inputs through modeled loops.
