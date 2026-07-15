@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-07-15
 ---
 
 # Compute
@@ -21,4 +21,6 @@ Compute concerns include:
 - Failure and restart behavior.
 - Locality to storage, brokers, or dependencies.
 
-Related concepts: [[Realization|realization]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Recovery|recovery]].
+Compute resources are allocated through [[Scheduling|scheduling]] and local [[Arbitration|arbitration]]. A substrate can expose priority, preemption, affinity, quotas, deadlines, or best-effort execution without defining the fairness or domain-authority semantics expected by the system above it.
+
+Related concepts: [[Realization|realization]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Recovery|recovery]].

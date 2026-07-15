@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-04
+updated: 2026-07-15
 ---
 
 # Consistency Models
@@ -17,6 +17,14 @@ Most consistency models are [[Safety and Liveness|safety]] properties: they forb
 
 [[Isolation]] is adjacent but distinct. Isolation describes what concurrent operations may observe while they execute. Consistency models describe which histories and observations are valid at the boundary being claimed.
 
+## Executions, Scheduling, and Fairness
+
+A transition system or process model defines possible executions. [[Scheduling]] and [[Arbitration|arbitration]] resolve enabled work into concrete execution histories. A consistency model does not normally prescribe that scheduler; it accepts or rejects the histories exposed to observers.
+
+Scheduler-selection order, message reception order, execution order, commit order, consensus-log order, linearization order, and visibility order may all differ. A consistency claim must state which abstract ordering witnesses correctness and how the realization relates that ordering to physical execution.
+
+Most consistency models are safety properties and should hold even on unfair executions. [[Fairness]] constrains liveness by excluding indefinite postponement under stated assumptions. A scheduler can be fair while producing an inconsistent history, and an unfair scheduler can preserve consistency while starving an operation. Eventual convergence additionally needs delivery, reconciliation, and continued-execution assumptions that should be stated separately.
+
 ## Linearizability
 
 Linearizability requires each operation to appear as if it took effect at a single point between invocation and response. The resulting history must be equivalent to a legal sequential history and must preserve real-time order for non-overlapping operations.
@@ -29,7 +37,7 @@ Linearizability is a strong model for shared objects and entity boundaries becau
 
 A SQL table row can realize a linearizable read/write register when all reads and writes go through one authoritative transaction boundary and reads observe the latest committed value for that boundary.
 
-The **linearization point** is the point at which each operation takes effect in the abstract history. For a row update, this is usually the successful atomic update or transaction commit. For a read, it is the point at which the database returns the committed row version being observed.
+The [[Linearization Points|linearization point]] is the logical instant at which each operation takes effect in the abstract history. For a row update, this is usually the successful atomic update or transaction commit. For a read, it is the point at which the database returns the committed row version being observed.
 
 For example, an expected-version update can realize an atomic compare-and-set operation:
 
@@ -61,19 +69,25 @@ Sequential consistency is therefore weaker than linearizability. It can preserve
 
 ## Causal Consistency
 
-Causal consistency preserves the order of causally related operations while allowing concurrent or unrelated operations to be observed in different orders.
+Causal consistency preserves the order of [[Causality|causally]] related operations while allowing concurrent or unrelated operations to be observed in different orders.
 
-This model is naturally related to [[Time|logical time]], happened-before, vector clocks, and causal metadata. It is useful when the model needs to preserve potential causation without imposing one global total order on independent work.
+This model is naturally related to [[Time|logical time]], [[Happened-Before|happened-before]], vector clocks, and causal metadata. It is useful when the model needs to preserve potential causal influence without imposing one global total order on independent work.
 
 ## Consistent Cut
 
-A **[[Glossary#consistent cut|consistent cut]]** is a selected set of events, versions, or observations that is closed under causality: if the cut includes an event, it must also include the causal prerequisites of that event.
+A **[[Consistent Cuts|consistent cut]]** is a selected set of events, versions, or observations that is closed under causality: if the cut includes an event, it must also include the causal prerequisites of that event.
 
 In a distributed system, a consistent cut represents a coherent global snapshot relative to a partial order. It may include concurrent events in different combinations, but it must not include an effect while omitting a cause that happened before it.
 
 Consistent cuts matter for snapshots, checkpoints, debugging, projection rebuilds, workflow recovery, replicated reads, and cross-entity observations. A read that spans multiple entities, partitions, replicas, or projections may need to declare whether it observes a consistent cut, a stale cut, a session-relative cut, or merely independent local observations.
 
 [[Systems Sheaf Semantics]] treats consistent cuts as contexts over which state, observations, versions, or knowledge can be restricted, compared on overlaps, and sometimes glued into a coherent larger explanation.
+
+## Consensus and Authority
+
+[[Consensus]] is one mechanism for constructing a shared decision or total order from distributed proposals. A leader or scheduler may decide which proposal is considered first, while quorum state and protocol rules determine which value is chosen. [[Authority]] explains why that protocol outcome counts for the governed object or boundary.
+
+Agreement does not make a proposal domain-valid. The decided command or operation must still be interpreted through the subject's transition rules, invariants, policies, versions, and commit boundary. Conversely, one authoritative transition owner can provide a consistency guarantee without running a distributed consensus protocol when the governed boundary is not replicated across independent failure domains.
 
 ## Session Consistency
 
@@ -96,7 +110,7 @@ Eventual consistency alone does not say what intermediate observations are allow
 
 Consistency models choose how much history shape must be preserved.
 
-Linearizability and sequential consistency require a legal total order, though they differ on real-time constraints. Causal consistency preserves a partial order. Session consistency preserves an observer-relative slice of history. Eventual consistency focuses on convergence and may tolerate temporary divergence, stale observations, or concurrent incomparable versions.
+Linearizability and sequential consistency require a legal total order, though they differ on real-time constraints. Causal consistency preserves a partial causal order. Session consistency preserves an observer-relative slice of history. Eventual consistency focuses on convergence and may tolerate temporary divergence, stale observations, or concurrent incomparable versions.
 
 Consensus-based replication is one way to manufacture a total order from a distributed history. Coordination-avoidance designs instead preserve less order, use merge semantics, or expose eventuality as part of the domain protocol.
 
@@ -113,4 +127,4 @@ The design question is not simply "strong" or "weak" consistency. It is which ob
 - Douglas B. Terry, Alan J. Demers, Karin Petersen, Mike Spreitzer, Marvin Theimer, and Brent Welch, [Session Guarantees for Weakly Consistent Replicated Data](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html), PDIS 1994.
 - Werner Vogels, [Eventually Consistent](https://queue.acm.org/detail.cfm?id=1466448), ACM Queue, 2008.
 
-Related concepts: [[Glossary|glossary]], [[Ordering|ordering]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Version Histories|version histories]], [[Version|version]], [[Time|time]], [[Observation|observation]], [[Observer|observer]], [[Boundaries|boundaries]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], [[CQRS]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].
+Related concepts: [[Glossary|glossary]], [[Ordering|ordering]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Version Histories|version histories]], [[Version|version]], [[Time|time]], [[Observation|observation]], [[Observer|observer]], [[Boundaries|boundaries]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], [[CQRS]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].

@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-04
+updated: 2026-07-15
 ---
 
 # Consensus
@@ -23,6 +23,24 @@ These properties split across [[Safety and Liveness|safety and liveness]]. Agree
 [[Progress Conditions]] make the liveness side more precise. In the wait-free synchronization model, every operation must complete despite the speed or failure of other participants. In asynchronous message-passing consensus, termination depends on different assumptions, such as partial synchrony, randomized progress, or eventual leadership.
 
 The [[Asynchronous Computability Theorem|asynchronous computability theorem]] gives a topological account of this impossibility in the asynchronous read/write model: consensus would require a map from possible protocol configurations into disjoint decision configurations, but the required continuous, color-preserving map does not exist.
+
+## Scheduling, Fairness, and Authority
+
+Consensus protocols execute under [[Nondeterminism and Choice|nondeterministic]] message delivery, participant scheduling, timeouts, failures, and proposal order. Their safety properties must hold across every execution admitted by the failure model, including unfair executions. Their termination properties depend on additional [[Fairness|fairness]], timing, quorum, recovery, randomization, or eventual-leadership assumptions.
+
+A [[Scheduling|scheduler]] or leader can choose which proposal to process first without having unilateral [[Authority|authority]] to decide the value. [[Arbitration]] can select a proposer, ballot, or local winner, while quorum intersection and persisted protocol state determine which outcome the consensus boundary accepts as chosen.
+
+Consensus therefore separates several roles:
+
+```txt
+scheduling selects an opportunity
+arbitration resolves local contention
+the protocol establishes agreement
+authority makes the protocol outcome count
+domain interpretation validates the proposed transition
+```
+
+The agreed order can extend [[Causality|causal]] constraints into a total log order, but comparisons introduced between concurrent proposals should not be mistaken for new semantic causes.
 
 Consensus is powerful because it supplies an agreed order or decision where the distributed system otherwise has only partial, observer-relative knowledge. Once operations are agreed in a common sequence, replicas can apply the same deterministic sequential specification and produce equivalent state. This is the basis of state-machine replication and of the **universality of consensus**: consensus can be used to construct a distributed, linearizable implementation of an object from its sequential specification.
 
@@ -46,4 +64,4 @@ This connects [[Universal Constructions|universal constructions]] to operational
 - Michael J. Fischer, Nancy A. Lynch, and Michael S. Paterson, [Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf), Journal of the ACM, 32(2):374-382, April 1985.
 - Rachid Guerraoui and Michel Raynal, [The Alpha of Indulgent Consensus](https://doi.org/10.1093/comjnl/bxl046), The Computer Journal, 50(1):53-67, January 2007.
 
-Related concepts: [[Coordination|coordination]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[CAP Theorem|CAP theorem]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Version Histories|version histories]], [[Time|time]], [[Version|version]], [[State|state]], [[Event|event]], [[Command|command]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Universal Constructions|universal constructions]].
+Related concepts: [[Authority|authority]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Causality|causality]], [[Coordination|coordination]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[CAP Theorem|CAP theorem]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Version Histories|version histories]], [[Time|time]], [[Version|version]], [[State|state]], [[Event|event]], [[Command|command]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Universal Constructions|universal constructions]].

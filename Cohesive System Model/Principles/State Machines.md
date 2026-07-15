@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-15
 aliases:
   - State Machine
   - Transition System
@@ -24,6 +24,8 @@ A common input-output step form is:
 ```
 
 This form makes explicit that an input is interpreted relative to current state, producing both an output and a next state. The output may be empty, observational, or effectful depending on the model boundary.
+
+A deterministic machine assigns at most one next outcome to a state and input. A nondeterministic transition system admits a set of successors. [[Nondeterminism and Choice]] asks where that multiplicity comes from and how it is resolved; [[Scheduling]] selects enabled execution steps; [[Reduction, Evaluation, and Confluence|confluence]] asks whether different paths can later join or remain observationally equivalent.
 
 State-machine thinking is not tied to functional programming, imperative programming, object orientation, actors, workflows, databases, or distributed protocols. The same transition structure may be expressed as a pure reducer, a method on a mutable object, an actor turn, a database transaction, a workflow step, an event-sourced aggregate, or a replicated log application. Those are realization choices over the same underlying behavioral shape.
 
@@ -87,4 +89,4 @@ Restriction maps can hide labels, select a time interval, project to one [[Obser
 
 This is especially useful when the state machine is distributed, observer-relative, partially observed, or non-sequential. The question is not only "what is the next state?" but also "which local state-machine views are compatible, and what global behavior do they determine, if any?"
 
-Related concepts: [[State|state]], [[Transition|transition]], [[Behavior|behavior]], [[Event|event]], [[Command|command]], [[Observation|observation]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Reconstitution|reconstitution]], [[Persistence|persistence]], [[Effects|effects]], [[Ordering|ordering]], [[Concurrency Control|concurrency control]], [[Event-State Duality|event-state duality]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Trace and Feedback|trace and feedback]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]].
+Related concepts: [[State|state]], [[Transition|transition]], [[Behavior|behavior]], [[Event|event]], [[Command|command]], [[Observation|observation]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Reconstitution|reconstitution]], [[Persistence|persistence]], [[Effects|effects]], [[Ordering|ordering]], [[Concurrency Control|concurrency control]], [[Event-State Duality|event-state duality]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Trace and Feedback|trace and feedback]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]].

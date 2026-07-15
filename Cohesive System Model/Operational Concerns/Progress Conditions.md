@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-01
+updated: 2026-07-15
 ---
 
 # Progress Conditions
@@ -31,6 +31,8 @@ wait-free => lock-free => obstruction-free
 ```
 
 The implication is one-way. A lock-free algorithm may starve one participant forever while some other participant keeps completing operations. An obstruction-free algorithm may require a contention manager, backoff, or scheduler behavior to avoid livelock under interference.
+
+[[Scheduling]] selects among enabled occurrences; [[Fairness]] restricts which complete schedules are admissible. Neither is implicit in a progress name. A starvation-free claim normally depends on a stated fairness assumption, while wait-freedom bounds an operation by its own steps under the computation model and is intended not to depend on fair service by other participants. Runtime scheduling can still determine whether the participant receives physical steps at all.
 
 ## Coordination
 
@@ -89,4 +91,4 @@ Progress conditions are therefore not only implementation details. They shape wh
 - Maurice Herlihy, Victor Luchangco, and Mark Moir, [Obstruction-Free Synchronization: Double-Ended Queues as an Example](https://cs.brown.edu/people/mph/HerlihyLM03/main.pdf), ICDCS 2003.
 - Maurice Herlihy and Nir Shavit, [The Art of Multiprocessor Programming](https://books.google.com/books/about/The_Art_of_Multiprocessor_Programming.html?id=7MqcBAAAQBAJ), Morgan Kaufmann.
 
-Related concepts: [[Safety and Liveness|safety and liveness]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[CRDTs]], [[Weak Isolation Patterns|weak isolation patterns]], [[Actor Systems|actor systems]], [[Storage Systems|storage systems]].
+Related concepts: [[Safety and Liveness|safety and liveness]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[CRDTs]], [[Weak Isolation Patterns|weak isolation patterns]], [[Actor Systems|actor systems]], [[Storage Systems|storage systems]].

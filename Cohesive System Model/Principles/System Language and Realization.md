@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-07-04
-updated: 2026-07-05
+updated: 2026-07-15
 status: draft
 aliases:
   - cohesive vision
@@ -15,7 +15,7 @@ aliases:
 
 Cohesive aims to provide a standard language for describing systems and a family of compiler-like realizations that project that language into working infrastructure.
 
-The language goal is conceptual: define stable, boundary-relative meanings for [[Observer|observers]], [[Entity|entities]], [[Process|processes]], [[Relation|relations]], [[Transition|transitions]], [[Event|events]], [[State|state]], [[Observation|observations]], [[Invariant|invariants]], [[Policy|policies]], [[Effects|effects]], [[Boundaries|boundaries]], [[Coordination|coordination]], and other system concepts. The same term should not silently mean one thing in domain modeling, another in distributed systems, and a third in implementation code.
+The language goal is conceptual: define stable, boundary-relative meanings for [[Observer|observers]], [[Entity|entities]], [[Process|processes]], [[Relation|relations]], [[Transition|transitions]], [[Event|events]], [[State|state]], [[Observation|observations]], [[Invariant|invariants]], [[Policy|policies]], [[Authority|authority]], [[Causality|causality]], [[Effects|effects]], [[Boundaries|boundaries]], [[Coordination|coordination]], and other system concepts. The same term should not silently mean one thing in domain modeling, another in distributed systems, and a third in implementation code.
 
 The realization goal is practical: a model should be precise enough to guide construction. A compiler-like realization lowers semantic roles, [[Process Graphs|process graphs]], operational guarantees, and graph relationships into substrate choices such as actors, transactions, logs, brokers, durable workflows, storage systems, protocols, schedulers, and deployment topology while preserving the meanings that matter.
 
@@ -34,6 +34,8 @@ For Cohesive, category theory is not decoration and not a requirement that every
 - [[Sheaves and Gluing|Sheaves and gluing]] asks when local observations agree enough to assemble into a coherent global view.
 - [[Trace and Feedback|Trace and feedback]] asks how outputs become later inputs without losing boundary, delay, ordering, or recovery semantics.
 - [[Process Theories|Process theories]] ask how work unfolds, composes, interacts, and feeds back over time.
+- [[Nondeterminism and Choice|Nondeterminism and choice]] asks which continuations are possible and where their resolution belongs.
+- [[Reduction, Evaluation, and Confluence|Reduction, evaluation, and confluence]] asks whether different computational paths preserve or rejoin the intended meaning.
 
 The practical test is whether these disciplines help build systems that run. A Cohesive description should support realization into infrastructure without erasing the semantic distinctions that made the description useful.
 
@@ -86,10 +88,11 @@ The public graph should still be strong enough to support private system graph a
 
 - Start with semantic meaning before naming infrastructure.
 - State the boundary at which a term, guarantee, or equivalence holds.
+- State which choices remain open, who has authority to resolve them, and which scheduling or fairness assumptions shape executions.
 - Distinguish semantic roles from system graph structures, operational concerns, and substrate mechanisms.
 - Prefer structure-preserving mappings over name matching.
 - Make loss of information explicit.
 - Treat multiple realizations as normal, not as ambiguity to erase.
 - Treat working systems as the validation target for the language.
 
-Related concepts: [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Realization|realization]], [[System Graph|system graph]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Coordination|coordination]], [[Effects|effects]].
+Related concepts: [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Realization|realization]], [[System Graph|system graph]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects|effects]].

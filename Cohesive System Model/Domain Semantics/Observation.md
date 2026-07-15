@@ -26,4 +26,4 @@ Entity state is a specialized observation whose subject is an entity. Non-entity
 
 An event can be understood structurally as a time-bearing value. When the event is interpreted by an observer relative to a [[Boundaries|boundary]], it may become an input event, command, endogenous event, output event, or ignored/rejected input.
 
-Related concepts: [[Value|value]], [[Shape|shape]], [[State|state]], [[Observable|observable]], [[Observer|observer]], [[Boundaries|boundaries]], [[Event|event]], [[Command|command]], [[Query|query]], [[Reconstitution|reconstitution]], [[Optics and Lenses|optics and lenses]], [[Fibrations and Indexed Structure|fibrations and indexed structure]].
+Related concepts: [[Value|value]], [[Shape|shape]], [[State|state]], [[Observable|observable]], [[Observer|observer]], [[Uncertainty|uncertainty]], [[Boundaries|boundaries]], [[Event|event]], [[Command|command]], [[Query|query]], [[Reconstitution|reconstitution]], [[Optics and Lenses|optics and lenses]], [[Fibrations and Indexed Structure|fibrations and indexed structure]].

@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-06-24
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 # Categorical Principles
@@ -34,7 +34,11 @@ Core principles:
 
 Additional recurring principles:
 
+- [[Programming Paradigms|Programming paradigms]]: complementary computational languages and the semantic distinctions their realizations preserve.
+- [[Functional Programming|Functional programming]]: expression evaluation, immutable values, effects, equational reasoning, and compositional program structure.
 - [[Relational and Logic Programming]]: relations as admissible tuples, declarative queries, derivation rules, multi-mode logic programs, and their distinct evaluation strategies.
+- [[Nondeterminism and Choice]]: multiplicity of continuations, the algebra of alternatives, and who or what resolves a choice.
+- [[Reduction, Evaluation, and Confluence]]: alternative reduction paths, evaluation strategies, joining behavior, and observational equivalence.
 - [[Monads Monoids and Duals]]: sequencing, accumulation, context, observation, and dual structure.
 - [[Algebras and Coalgebras]]: folding structure into values and unfolding values into behavior.
 - [[State Machines|State machines]]: transition-based models of behavior that relate inputs, state, outputs, and runs.
@@ -51,4 +55,4 @@ Additional recurring principles:
 
 The point is not to force every concept into formal notation. The point is to use categorical language as a precision check: if a mapping does not preserve the required relations, if a duality is mistaken for identity, if "the" object is named without its defining diagram, or if a realization cannot say what semantic structure it preserves, the model is probably hiding an assumption.
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Process Theories|process theories]], [[Realization|realization]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Concurrency Control|concurrency control]], [[Boundaries|boundaries]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Process Theories|process theories]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Realization|realization]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Concurrency Control|concurrency control]], [[Boundaries|boundaries]].

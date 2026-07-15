@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-01
+updated: 2026-07-15
 ---
 
 # Version Histories
@@ -20,9 +20,9 @@ Common history shapes include:
 - **Patch histories**, where morphisms between states represent patches, edits, or state actions.
 - **Join histories**, where updates converge through a semilattice join or other merge algebra.
 
-Scalar versions, stream offsets, vector clocks, causal contexts, Git commit graphs, event streams, workflow histories, and CRDT metadata are different realizations of version-history shape. The realization must preserve the distinctions the model needs: succession, causality, concurrency, incompatibility, mergeability, replay, audit, or convergence.
+Scalar versions, stream offsets, vector clocks, causal contexts, Git commit graphs, event streams, workflow histories, and CRDT metadata are different realizations of version-history shape. The realization must preserve the distinctions the model needs: succession, [[Causality|causality]], concurrency, incompatibility, mergeability, replay, audit, or convergence.
 
-A consistent cut selects versions, events, or observations from a history while respecting causal prerequisites. It is useful when a read, checkpoint, projection rebuild, or recovery process must observe several parts of a history coherently.
+A [[Consistent Cuts|consistent cut]] selects versions, events, or observations from a history while respecting causal prerequisites. It is useful when a read, checkpoint, projection rebuild, or recovery process must observe several parts of a history coherently.
 
 ## Patch Histories and Pushout Merge
 
@@ -59,4 +59,4 @@ The history shape determines what kind of consistency claim can be meaningful. A
 
 - Samuel Mimram and Cinzia Di Giusto, [A Categorical Theory of Patches](https://arxiv.org/abs/1311.3903), 2013.
 
-Related concepts: [[Version|version]], [[Ordering|ordering]], [[Time|time]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Event-State Duality|event-state duality]], [[Event|event]], [[State|state]], [[Transition|transition]], [[CRDTs]], [[Universal Constructions|universal constructions]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].
+Related concepts: [[Version|version]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Time|time]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Event-State Duality|event-state duality]], [[Event|event]], [[State|state]], [[Transition|transition]], [[CRDTs]], [[Universal Constructions|universal constructions]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].

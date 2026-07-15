@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-07-15
 ---
 
 # Monads Monoids and Duals
@@ -49,6 +49,19 @@ bind : M A -> (A -> M B) -> M B
 
 Monadic structure appears when operations must be sequenced through effects such as validation, persistence, retries, asynchronous execution, command interpretation, or transition decisions.
 
+### Nondeterminism Monads
+
+[[Nondeterminism and Choice|Nondeterministic]] computations illustrate why the particular monad matters:
+
+- A list monad represents ordered enumeration with multiplicity.
+- A powerset monad represents extensional alternatives where order and duplicates are forgotten.
+- A multiset monad retains multiplicity without presentation order.
+- A discrete distribution monad represents weighted outcomes.
+- The Giry monad extends probabilistic computation to probability measures on measurable spaces.
+- A lazy stream or logic monad can expose potentially infinite search and its fairness behavior.
+
+The choice operation can separately be associative, commutative, idempotent, or none of these beyond the laws explicitly supplied. Monad associativity governs rebracketing of sequencing; it does not imply commutativity of independent effects or [[Reduction, Evaluation, and Confluence|confluence]] of evaluation paths.
+
 ## Comonads
 
 A comonad is the dual pattern: it emphasizes context, observation, extraction, and context-dependent transformation:
@@ -62,4 +75,9 @@ Comonad-like structure appears when values are interpreted with surrounding cont
 
 These structures are not naming decorations. They matter when the model needs laws: associativity, identity, sequencing coherence, context preservation, or lawful extraction.
 
-Related concepts: [[Behavior|behavior]], [[Observation|observation]], [[Observer|observer]], [[Event|event]], [[Transition|transition]], [[Projection Models|projection models]], [[Duality and Symmetry|duality and symmetry]], [[Compositionality|compositionality]].
+## External References
+
+- Eugenio Moggi, [Notions of Computation and Monads](https://doi.org/10.1016/0890-5401(91)90052-4), *Information and Computation* 93(1):55-92, 1991.
+- Michèle Giry, [A Categorical Approach to Probability Theory](https://doi.org/10.1007/BFb0079007), in *Categorical Aspects of Topology and Analysis*, 1982.
+
+Related concepts: [[Programming Paradigms|programming paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Behavior|behavior]], [[Observation|observation]], [[Observer|observer]], [[Event|event]], [[Transition|transition]], [[Projection Models|projection models]], [[Duality and Symmetry|duality and symmetry]], [[Compositionality|compositionality]].

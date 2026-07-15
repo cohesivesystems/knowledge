@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-04
-updated: 2026-07-05
+updated: 2026-07-15
 status: draft
 aliases:
   - Process Theory
@@ -26,7 +26,7 @@ A process theory makes these elements explicit:
 - The units treated as processes.
 - The interfaces or [[Boundaries|boundaries]] through which processes interact.
 - The observations, events, commands, queries, signals, artifacts, and effects that may cross those boundaries.
-- The allowed composition operations: sequential composition, parallel composition, nesting, choice, synchronization, hiding, restriction, merge, and feedback.
+- The allowed composition operations: sequential composition, parallel composition, nesting, [[Nondeterminism and Choice|choice]], synchronization, hiding, restriction, merge, and feedback.
 - The state, history, trace, run, schedule, or behavior used to describe process evolution.
 - The equivalence or refinement relation used to say when two process descriptions are the same enough.
 - The failure, cancellation, compensation, retry, timeout, and recovery meanings.
@@ -43,7 +43,7 @@ The word "process" is overloaded. Cohesive keeps the layers separate:
 - [[Coordination]] describes how multi-participant process work is made coherent.
 - [[Durability]] and [[Recovery|recovery]] describe how process execution material survives failure and is used after interruption.
 - [[Durable Execution|Durable execution]] is an architecture practice that applies those concerns to logical execution.
-- [[Workflow Engines|Workflow engines]], [[Durable Execution Engines|durable execution engines]], actors, brokers, schedulers, transaction managers, and operating-system processes are realization substrate.
+- [[Workflow Engines|Workflow engines]], [[Durable Execution Engines|durable execution engines]], actors, brokers, [[Scheduling|schedulers]], transaction managers, and operating-system processes are realization substrate.
 - Physical processes are lower-layer behavior through which the infrastructure itself is ultimately realized.
 
 These layers can be related, but they should not be collapsed. An operating-system process may realize part of a runtime. A runtime task may realize one observer turn. A workflow activation may realize one process step. None of those mechanisms is automatically identical to the semantic process being modeled.
@@ -63,7 +63,7 @@ This distinction is practical. A saga implemented on durable execution still con
 
 [[Orchestration and Choreography|Orchestration and choreography]] are coordination shapes, not claims that one style is inherently better than the other.
 
-In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the decision surface. It observes process state, issues commands, waits for replies or events, handles timeouts, and decides next steps. Orchestration makes control explicit, but can concentrate authority, coupling, and failure impact.
+In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the decision surface. It observes process state, issues commands, waits for replies or events, handles timeouts, and decides next steps. Orchestration makes control explicit, but can concentrate [[Authority|authority]], coupling, and failure impact.
 
 In choreography, participants advance the process through published events, protocols, subscriptions, shared logs, shared media, and local reactions. Choreography does not mean there is no process or no global protocol. It means the process is not controlled by one explicit process manager. Choreography distributes control and can reduce central coupling, but it can also hide the process boundary, make global progress harder to observe, and leave compensation or timeout behavior implicit.
 
@@ -93,9 +93,9 @@ Cohesive does not identify these physical and mathematical theories with distrib
 A process realization preserves:
 
 - Process identity and correlation.
-- Participant roles and authority.
+- Participant roles and [[Authority|authority]].
 - Interface boundaries and carried semantic roles.
-- Causality, ordering, and synchronization requirements.
+- [[Causality]], ordering, and synchronization requirements.
 - State, history, trace, checkpoint, or behavior needed for progress.
 - Commit, acknowledgment, and effect boundaries.
 - Retry, timeout, cancellation, recovery, and compensation meanings.
@@ -116,4 +116,11 @@ When modeling a process, ask:
 - What is the equivalence relation between two executions of the process?
 - Which realization mechanisms preserve the process theory, and where do they weaken it?
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Process|process]], [[Process Graphs|process graphs]], [[State Machines|state machines]], [[Behavior|behavior]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effects|effects]], [[Boundaries|boundaries]], [[Realization|realization]].
+## External References
+
+- C. A. R. Hoare, [Communicating Sequential Processes](https://doi.org/10.1145/359576.359585), *Communications of the ACM* 21(8):666-677, 1978.
+- Robin Milner, [A Calculus of Communicating Systems](https://doi.org/10.1007/3-540-10235-3), LNCS 92, Springer, 1980.
+- Robin Milner, Joachim Parrow, and David Walker, [A Calculus of Mobile Processes, I](https://doi.org/10.1016/0890-5401(92)90008-4) and [II](https://doi.org/10.1016/0890-5401(92)90009-5), *Information and Computation* 100(1):1-77, 1992.
+- Robin Milner, [Communication and Concurrency](https://www.research.ed.ac.uk/en/publications/communication-and-concurrency/), Prentice Hall, 1989.
+
+Related concepts: [[System Language and Realization|system language and realization]], [[Process|process]], [[Process Graphs|process graphs]], [[State Machines|state machines]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Causality|causality]], [[Authority|authority]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effects|effects]], [[Boundaries|boundaries]], [[Realization|realization]].

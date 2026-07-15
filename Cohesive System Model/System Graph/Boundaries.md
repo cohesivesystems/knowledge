@@ -7,7 +7,7 @@ updated: 2026-07-01
 
 # Boundaries
 
-Boundaries define the scope and context in which observation, interpretation, authority, failure, persistence, delivery, and coordination apply.
+Boundaries define the scope and context in which observation, interpretation, [[Authority|authority]], failure, persistence, delivery, and coordination apply.
 
 At the structure level, boundaries describe semantic and operational scoping in the system graph, not a specific process, network, storage, or deployment mechanism.
 
@@ -50,4 +50,4 @@ Different guarantees apply at different boundaries:
 
 So a system can acknowledge a message and preserve broker ordering while still failing to commit the domain transition. It can also receive the same message more than once while committing the domain transition only once through idempotency and concurrency control.
 
-Related concepts: [[Observer|observer]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].
+Related concepts: [[Observer|observer]], [[Authority|authority]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].

@@ -2,7 +2,7 @@
 realm: Principles
 kind: discipline
 created: 2026-07-13
-updated: 2026-07-14
+updated: 2026-07-15
 status: draft
 aliases:
   - Relational Programming
@@ -148,6 +148,12 @@ In Cohesive terms:
 
 Logic programming expresses a program as logical clauses. Facts assert that particular relations hold, rules describe how further relations follow, and queries ask which values make a goal derivable. A proof procedure and control strategy determine how the system searches for those answers. Kowalski summarized this separation as algorithm = logic + control.
 
+### Multi-Result Computation
+
+A relation's denotation can contain several answers for one query mode. The operational search procedure must decide how to enumerate them. A list represents an ordered sequence of answers and preserves duplicate derivations; a set forgets order and multiplicity; a lazy stream can represent potentially unbounded search.
+
+This is a form of [[Nondeterminism and Choice|multi-result computation]], but the representation must not be confused with the relation itself. A depth-first list enumeration can diverge before reaching an available answer, while an interleaved search can improve fairness. Search order, multiplicity, completeness, termination, and fairness belong to the operational interpretation even when the logical relation is direction-neutral.
+
 Prolog operationalizes Horn-clause logic through unification and a particular search procedure. Its predicates often support several query modes, but search order and extra-logical features such as cut, instantiation tests, arithmetic evaluation, and stateful effects can make some modes practical and others divergent or semantically different.
 
 miniKanren emphasizes relational programming with a small logical core, unification, fresh variables, constraints, and interleaved search. For example, a relational evaluator can relate expressions to their results. Supplying an expression computes possible results; supplying a desired result can synthesize expressions that produce it; constraining both narrows the possible expression-result pairs. This illustrates the expressive gain from not assigning permanent input and output roles.
@@ -246,4 +252,4 @@ This keeps an ontology from being reduced to a graph schema and keeps a stored e
 - W3C OWL Working Group, [OWL 2 Web Ontology Language Document Overview, Second Edition](https://www.w3.org/TR/owl2-overview/), W3C Recommendation, 2012.
 - R. V. Guha and Douglas B. Lenat, [CYC: A Midterm Report](https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/842), *AI Magazine* 11(3):32-59, 1990. [DOI](https://doi.org/10.1609/aimag.v11i3.842)
 
-Related concepts: [[Relation|relation]], [[Relation Models|relation models]], [[Query|query]], [[Projection Models|projection models]], [[Shape|shape]], [[Observer|observer]], [[Boundaries|boundaries]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[CALM Theorem|CALM theorem]], [[Optics and Lenses|optics and lenses]], [[Database Sheaf Semantics|database sheaf semantics]], [[Policy|policy]], [[Process|process]], [[Effects|effects]], [[Realization|realization]].
+Related concepts: [[Programming Paradigms|programming paradigms]], [[Functional Programming|functional programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Fairness|fairness]], [[Scheduling|scheduling]], [[Relation|relation]], [[Relation Models|relation models]], [[Query|query]], [[Projection Models|projection models]], [[Shape|shape]], [[Observer|observer]], [[Boundaries|boundaries]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[CALM Theorem|CALM theorem]], [[Optics and Lenses|optics and lenses]], [[Database Sheaf Semantics|database sheaf semantics]], [[Policy|policy]], [[Process|process]], [[Effects|effects]], [[Realization|realization]].

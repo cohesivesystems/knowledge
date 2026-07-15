@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-07-15
 ---
 
 # Cohesive System Model
@@ -42,16 +42,20 @@ Describe modeling disciplines used across the system model.
 
 - [[System Language and Realization]]
 - [[Categorical Principles]]
+- [[Programming Paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]]
 - [[Process Theories]]
 - [[Stuff Structure Property]]
 - [[Compositionality]]
+- [[Nondeterminism and Choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]]
 - [[CALM Theorem]]
 - [[Asynchronous Computability Theorem]]
+- [[Glitch Principle]]
 - [[Functoriality]]
 - [[Naturality]]
 - [[Duality and Symmetry]], [[Event-State Duality|event-state duality]], [[Synchrony and Asynchrony|synchrony and asynchrony]]
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
+- [[Happened-Before]]
 - [[Monads Monoids and Duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[State Machines|state machines]], [[Yoneda Lemma|Yoneda lemma]], [[Adjunctions|adjunctions]]
 - [[Fibrations and Indexed Structure]], [[Sheaves and Gluing|sheaves and gluing]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Enrichment and Order|enrichment and order]], [[Optics and Lenses|optics and lenses]], [[Trace and Feedback|trace and feedback]]
 
@@ -80,6 +84,9 @@ assigning operational guarantees or realization mechanisms.
 - [[Time]]  
 - [[Identity]]  
 - [[Version]]
+- [[Authority]]
+- [[Causality]]
+- [[Uncertainty]]
 
 ### 2. Operational Concerns
 
@@ -94,6 +101,7 @@ Describes how domain semantics are made executable and reliable.
 - [[Commit Boundaries]]
 - [[Coordination]]  
 - [[Consensus]]
+- [[Scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]]
 - [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[CAP Theorem|CAP theorem]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
@@ -101,6 +109,7 @@ Describes how domain semantics are made executable and reliable.
 - [[Distributed Failure Scenarios|Distributed failure scenarios]], [[Dual-Write Problem|dual-write problem]]
 - [[Version Histories]]
 - [[Consistency Models]]  
+- [[Consistent Cuts]], [[Linearization Points|linearization points]]
 - [[CRDTs]]
 - [[Retry]], [[Rate Limiting|rate limiting]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
 

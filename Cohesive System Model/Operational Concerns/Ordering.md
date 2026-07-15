@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-04
+updated: 2026-07-15
 ---
 
 # Ordering
@@ -29,11 +29,30 @@ Ordering supports [[Version Histories|version histories]], replay, projection up
 
 [[Consensus]] can impose an agreed order where the system otherwise has concurrent or incomparable observations. In replicated state-machine designs, a consensus protocol decides each log position so that replicas apply the same operations in the same order.
 
+## Ordering Spaces
+
+One execution can contain several non-identical orders:
+
+| Ordering space | Meaning |
+| --- | --- |
+| program order | operations as issued by one participant |
+| [[Happened-Before|happened-before]] | potential causal influence through local order, communication, and transitive closure |
+| reception or delivery order | the order in which a boundary admits messages or records |
+| scheduler-selection order | the order in which [[Scheduling|scheduling]] grants execution opportunity |
+| execution or completion order | the order in which work starts, advances, or finishes |
+| commit or version order | the order in which accepted transitions become authoritative |
+| consensus-log order | the order of protocol-decided log positions |
+| linearization order | the abstract sequential history used to justify linearizability |
+| visibility order | the order in which observations become available to an observer |
+| real-time order | precedence between non-overlapping invocations and responses |
+
+These orders coincide only when the realization establishes an explicit correspondence. Work selected first may block or retry and commit later. A total consensus-log order may not be visible immediately through caches or projections. A linearization proof may order overlapping operations differently from their invocation or completion order.
+
 ## Ordering and Causality
 
-Ordering may represent causation or potential causation in models that define the order relation that way, but ordering should not be treated as causal by default. The meaning of an ordering relation is boundary- and mechanism-relative.
+Ordering may represent [[Causality|causation]] or potential causal influence in models that define the order relation that way, but ordering should not be treated as causal by default. The meaning of an ordering relation is boundary- and mechanism-relative.
 
-Lamport's happened-before relation is a causal-ordering example: if `A` happened before `B`, then information from `A` could have influenced `B`. It preserves possible causal dependence, not proof that `A` actually caused `B`.
+Lamport's [[Happened-Before|happened-before]] relation is a causal-ordering example: if `A` happened before `B`, then information from `A` could have influenced `B`. It preserves possible causal dependence, not proof that `A` actually caused `B`.
 
 Different ordering spaces carry different causal force. Wall-clock order says one timestamp compares before another, but does not by itself imply causation. Broker or delivery order says one message was delivered before another within a stated boundary. [[Version|Version]] order for a sequential [[Entity|entity]] is stronger because a later state is produced from an earlier state by an accepted [[Transition|transition]]. A total order may serialize concurrent work for operational reasons while introducing artificial before/after relations between events that were otherwise independent.
 
@@ -41,8 +60,8 @@ When using an ordering relation, the model should state whether it means causal 
 
 In distributed systems, [[Time|time]] often arises through ordering rather than wall-clock measurement. A clock, timestamp, stream offset, or [[Version|version]] can be understood as an order-valued projection: categorically, a monotone map or order-valued functor from events or state observations into an ordering space. When that projection is order-preserving, the ordering of versions or timestamps preserves the relevant happened-before relation. Richer metadata such as vector clocks can determine causal order and incomparability more precisely; scalar logical clocks generally preserve causality in one direction without fully characterizing it.
 
-A [[Glossary#consistent cut|consistent cut]] is an ordering-sensitive snapshot: it includes the causal prerequisites of the events, versions, or observations it includes. It is coherent relative to the declared ordering space.
+A [[Consistent Cuts|consistent cut]] is an ordering-sensitive snapshot: it includes the causal prerequisites of the events, versions, or observations it includes. It is coherent relative to the declared ordering space.
 
 For [[CRDTs]], ordering requirements are type-specific. Some merge functions are insensitive to message order, while operation-based CRDTs may require causal ordering or explicit causal metadata.
 
-Related concepts: [[Glossary|glossary]], [[Delivery Semantics|delivery semantics]], [[Time|time]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Consensus|consensus]], [[Event|event]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Enrichment and Order|enrichment and order]], [[Functoriality|functoriality]], [[Brokers|brokers]], [[Workflow Engines|workflow engines]], [[Actor Systems|actor systems]].
+Related concepts: [[Glossary|glossary]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Delivery Semantics|delivery semantics]], [[Time|time]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Consensus|consensus]], [[Event|event]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Enrichment and Order|enrichment and order]], [[Functoriality|functoriality]], [[Brokers|brokers]], [[Workflow Engines|workflow engines]], [[Actor Systems|actor systems]].

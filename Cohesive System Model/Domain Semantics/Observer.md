@@ -9,7 +9,7 @@ updated: 2026-07-01
 
 An observer is a locus of interpretation. It is the participant, context, or execution locus relative to which [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], [[Query|queries]], [[Boundaries|boundaries]], and [[State|state]] acquire meaning.
 
-Every runtime participant is a potential observer, but an observer is not defined by a particular substrate mechanism. It is realized when some execution context supplies the boundary, state view, authority, and interpretation rules needed to observe and act.
+Every runtime participant is a potential observer, but an observer is not defined by a particular substrate mechanism. It is realized when some execution context supplies the boundary, state view, [[Authority|authority]], and interpretation rules needed to observe and act.
 
 An observer is characterized by:
 
@@ -32,4 +32,4 @@ One observer's endogenous event may become another observer's exogenous event.
 
 [[Command|Commands]] and [[Query|queries]] are observer-relative interpretations. The same incoming observation may be interpreted differently or rejected depending on the observer's current view of entity state, projections, invariants, policies, authority, and consistency expectations.
 
-Related concepts: [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Entity|entity]], [[Process|process]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]].
+Related concepts: [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Entity|entity]], [[Process|process]], [[Authority|authority]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]].

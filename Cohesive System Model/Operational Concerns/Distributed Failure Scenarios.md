@@ -84,7 +84,7 @@ Typical resolutions include freshness contracts, dependency tokens, read-your-wr
 
 ## Fractured read
 
-A fractured read occurs when one decision uses several observations that do not belong to one coherent [[Glossary#consistent cut|consistent cut]].
+A fractured read occurs when one decision uses several observations that do not belong to one coherent [[Consistent Cuts|consistent cut]].
 
 Each observation may be individually valid, but their combination may never have been true together. This matters for cross-entity validation, policy decisions, reports, projections, and workflows that join independently updated facts.
 

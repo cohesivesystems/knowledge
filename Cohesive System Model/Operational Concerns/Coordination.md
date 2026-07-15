@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-04
+updated: 2026-07-15
 ---
 
 # Coordination
@@ -42,7 +42,7 @@ Paxos is closer to choreography than an orchestrated index rebuild. It has a sha
 
 ## Ordering, Intent, and Coordination Avoidance
 
-[[Ordering]] preserves distinctions that may matter semantically. If `A then B` and `B then A` collapse into the same result, the model may lose intent, causality, auditability, or invariant context. Ordered, non-commutative histories are therefore valuable when the domain needs to preserve what happened before what.
+When sequence carries semantic meaning, [[Ordering|ordering]] makes it explicit in the model. If `A then B` and `B then A` collapse into the same result, the model may lose intent, causality, auditability, or invariant context. Ordered, non-commutative histories are therefore valuable when the domain needs to preserve what happened before what.
 
 Preserving order across distributed boundaries usually requires coordination. Coordination may add latency, reduce availability under partitions, constrain throughput, or create operational coupling. The design question is whether the domain invariant really requires the order being preserved.
 

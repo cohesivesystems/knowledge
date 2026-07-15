@@ -25,7 +25,7 @@ Exogenous event
 Commands are not mere messages. They are interpretations made relative to:
 
 - The specific [[Observer|observer]], its [[Boundaries|boundary]] and its current view of state.
-- Authority, [[Invariant|invariants]], and [[Policy|policies]].
+- [[Authority]], [[Invariant|invariants]], and [[Policy|policies]].
 - The intended transition.
 - An optional expected [[Version|version]] or etag.
 
@@ -37,4 +37,4 @@ A [[Query|query]] is the corresponding observer-relative interpretation of input
 
 In [[CQRS]], commands belong to the write side: they are interpreted against the authoritative model and may commit transitions that later become visible to [[Query|queries]] through projections, read models, or other reconstitution paths.
 
-Related concepts: [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Query|query]], [[CQRS]], [[Observer|observer]], [[Boundaries|boundaries]], [[Entity|entity]], [[Transition|transition]], [[Version|version]], [[Concurrency Control|concurrency control]], [[Monads Monoids and Duals|monads monoids and duals]], [[Adjunctions|adjunctions]].
+Related concepts: [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Query|query]], [[CQRS]], [[Observer|observer]], [[Authority|authority]], [[Boundaries|boundaries]], [[Entity|entity]], [[Transition|transition]], [[Version|version]], [[Concurrency Control|concurrency control]], [[Monads Monoids and Duals|monads monoids and duals]], [[Adjunctions|adjunctions]].
