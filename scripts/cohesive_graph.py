@@ -283,7 +283,9 @@ def extract_wikilinks(source_path: str, body: str, start_line: int = 1) -> list[
 
 
 def split_wikilink(raw: str) -> tuple[str, str | None]:
-    if "|" in raw:
+    if r"\|" in raw:
+        target_part, label = raw.split(r"\|", 1)
+    elif "|" in raw:
         target_part, label = raw.split("|", 1)
     else:
         target_part, label = raw, None

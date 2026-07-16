@@ -18,14 +18,14 @@ Paradigms overlap. A language, program, or system can be functional in its value
 
 | Paradigm view | Primary structure | Characteristic questions |
 | --- | --- | --- |
-| [[Functional Programming|functional programming]] | values, functions, composition, evaluation, explicit effects | What value does this expression denote, and how do computations compose? |
-| [[Relational and Logic Programming|relational and logic programming]] | facts, relations, constraints, proofs, queries, search | Which tuples or substitutions satisfy the relation, and how are answers found? |
+| [[Functional Programming\|functional programming]] | values, functions, composition, evaluation, explicit effects | What value does this expression denote, and how do computations compose? |
+| [[Relational and Logic Programming\|relational and logic programming]] | facts, relations, constraints, proofs, queries, search | Which tuples or substitutions satisfy the relation, and how are answers found? |
 | imperative programming | commands, stores, sequencing, mutation | Which command changes which state, and in what order? |
 | object-oriented programming | identity-bearing objects, encapsulation, dispatch | Which object interprets the operation, and what state or behavior does it own? |
-| [[State Machines|state-machine modeling]] | states, inputs, transitions, outputs, runs | Which transitions are admissible from the current state? |
+| [[State Machines\|state-machine modeling]] | states, inputs, transitions, outputs, runs | Which transitions are admissible from the current state? |
 | dataflow and reactive programming | dependencies, signals, events, time-varying values | How does change propagate through a dependency graph? |
 | concurrent and actor-oriented programming | participants, messages, local state, scheduling | Which occurrences are independent, and how is reception or execution ordered? |
-| [[Process Theories|process-oriented programming]] | interfaces, interactions, composition, feedback, traces | How does work unfold and compose across participants and time? |
+| [[Process Theories\|process-oriented programming]] | interfaces, interactions, composition, feedback, traces | How does work unfold and compose across participants and time? |
 
 This table names interpretive centers, not exclusive language categories. For example, an actor handler can be a pure function from current state and input to a new state and effects. A relational query engine can use imperative indexes and a functional expression tree. A workflow can be compiled into state machines and executed by an actor runtime.
 
