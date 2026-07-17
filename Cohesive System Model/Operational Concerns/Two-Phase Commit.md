@@ -35,7 +35,7 @@ In [[Orchestration and Choreography|orchestration and choreography]] terms, two-
 
 ## Alternatives
 
-When a single distributed transaction boundary is unavailable or too costly, systems often use [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]] such as transactional outbox, [[Sagas|sagas]], compensation, idempotent retry, escrow, reservations, reconciliation, or [[CRDTs|CRDT]]-compatible updates.
+When a single distributed transaction boundary is unavailable or too costly, systems often use [[Weak Isolation Patterns|weak isolation patterns]] such as transactional outbox, [[Sagas|sagas]], compensation, idempotent retry, escrow, reservations, reconciliation, or [[CRDTs|CRDT]]-compatible updates.
 
 These alternatives do not provide the same semantics as two-phase commit. They replace one atomic boundary with explicit process, recovery, and invariant-preservation rules.
 
@@ -43,4 +43,4 @@ These alternatives do not provide the same semantics as two-phase commit. They r
 
 - Jim Gray and Andreas Reuter, [Transaction Processing: Concepts and Techniques](https://www.microsoft.com/en-us/research/publication/transaction-processing-concepts-and-techniques/), Morgan Kaufmann, 1993.
 
-Related concepts: [[ACID]], [[Isolation|isolation]], [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Concurrency Control|concurrency control]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Business Transactions|business transactions]], [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]].
+Related concepts: [[ACID]], [[Isolation|isolation]], [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Concurrency Control|concurrency control]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Business Transactions|business transactions]], [[Weak Isolation Patterns|weak isolation patterns]].

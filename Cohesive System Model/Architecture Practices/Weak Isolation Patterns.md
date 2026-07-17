@@ -2,12 +2,14 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-28
-updated: 2026-07-04
+updated: 2026-07-17
 ---
 
-# Weak Isolation Patterns as Architecture Practice
+# Weak Isolation Patterns
 
 Weak isolation patterns are architecture practices for preserving useful correctness when one [[ACID]] transaction or [[Two-Phase Commit|two-phase commit]] boundary is unavailable, too expensive, or misaligned with the domain process. This is mostly about deciding which weaker guarantees become explicit parts of the domain protocol, entity model, process state, and recovery behavior.
+
+They do not make weak isolation disappear. They replace implicit transactional guarantees with explicit rules about [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], compensation, reconciliation, and invariant preservation.
 
 ## Problem
 
@@ -32,6 +34,10 @@ Weak isolation design makes the missing transaction guarantees explicit in the m
 - [[Durable Execution]] for resumable progress across failures.
 
 Each choice says which stronger guarantee has been replaced and which invariant, ordering, recovery, or visibility rule now carries the correctness burden.
+
+For example, an outbox replaces atomic commit between a database and broker with local atomicity plus asynchronous publication responsibility. An inbox complements it on the consumer side by making redelivery safe through local atomicity and deduplication. A saga replaces one atomic transaction with a process whose partial progress, compensation, and recovery semantics are explicit. A reservation replaces global serializable allocation with a bounded right to consume capacity later.
+
+Weak isolation patterns must be checked against [[Invariant|invariants]]. If an invariant is non-monotonic or requires a globally current view, avoiding coordination may be impossible without changing the model, accepting weaker semantics, or introducing escrow, reservation, or coordination at a narrower boundary.
 
 The [[CALM Theorem|CALM theorem]] is a useful filter for these choices: monotone parts of the process can often remain asynchronous and coordination-free, while non-monotone decisions need a coordination boundary or an explicit domain protocol for pending, reserved, compensating, or reconciled progress.
 
@@ -115,4 +121,10 @@ The practice fails when pending states are not first-class, when asynchronous wo
 
 It also fails when eventual consistency is used as a slogan. Eventuality must say what will eventually happen, under which delivery and recovery assumptions, and what observers may see before convergence.
 
-Related concepts: [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[CALM Theorem|CALM theorem]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Business Transactions|business transactions]].
+## External References
+
+- Pat Helland, [Life beyond Distributed Transactions: an Apostate's Opinion](https://www.ics.uci.edu/~cs223/papers/cidr07p15.pdf), CIDR 2007.
+- Hector Garcia-Molina and Kenneth Salem, [Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf), Princeton CS-TR-070-87, 1987.
+- Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
+
+Related concepts: [[Distributed Failure Scenarios|distributed failure scenarios]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[CALM Theorem|CALM theorem]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Invariant|invariants]], [[Business Transactions|business transactions]].

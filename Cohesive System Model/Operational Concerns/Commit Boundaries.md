@@ -39,6 +39,6 @@ For any claimed commit, ask:
 - What acknowledgment, if any, reports it?
 - What remains pending, retryable, compensating, or outside the boundary?
 
-When required effects cross commit boundaries, the model needs a coordination mechanism, such as [[Two-Phase Commit|two-phase commit]], [[Consensus|consensus]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas|sagas]], [[Process Managers|process managers]], [[Durable Execution|durable execution]], compensation, reconciliation, or another [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation pattern]].
+When required effects cross commit boundaries, the model needs a coordination mechanism, such as [[Two-Phase Commit|two-phase commit]], [[Consensus|consensus]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas|sagas]], [[Process Managers|process managers]], [[Durable Execution|durable execution]], compensation, reconciliation, or another [[Weak Isolation Patterns|weak isolation pattern]].
 
 Related concepts: [[Boundaries|boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Business Transactions|business transactions]].

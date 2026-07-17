@@ -105,7 +105,7 @@ Describes how domain semantics are made executable and reliable.
 - [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[CAP Theorem|CAP theorem]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
-- [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]]
+- [[ACID]], [[Two-Phase Commit|two-phase commit]]
 - [[Distributed Failure Scenarios|Distributed failure scenarios]], [[Dual-Write Problem|dual-write problem]]
 - [[Version Histories]]
 - [[Consistency Models]]  
@@ -161,7 +161,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Modular Monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
 - [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
-- [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Cohesive System Model/Architecture Practices/Weak Isolation Patterns|weak isolation patterns as architecture practice]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
+- [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
 
 ## Domain Semantics
 
