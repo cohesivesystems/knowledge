@@ -39,7 +39,7 @@ Some well-known patterns & practices:
 - [[Anti-Corruption Layer]]
 - [[Transactional Outbox]]
 - [[Transactional Inbox]]
-- [[Weak Isolation Patterns as Architecture Practice]]
+- [[Cohesive System Model/Architecture Practices/Weak Isolation Patterns]]
 - [[CRDTs as Architecture Practice]]
 - [[Data Mesh]]
 

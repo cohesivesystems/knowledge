@@ -28,7 +28,7 @@ ACID is powerful because it composes several guarantees inside one commitment bo
 
 A local ACID transaction may commit entity state and an outbox record. It does not prove that a broker delivered the output event, that another observer processed it, that a read model caught up, or that the broader business transaction completed.
 
-When the work crosses multiple ACID boundaries, the model must choose a coordination strategy. [[Two-Phase Commit]] can try to create one atomic commit across participants. If that is unavailable, too expensive, or undesirable, the system must use explicit [[Weak Isolation Patterns|weak isolation patterns]].
+When the work crosses multiple ACID boundaries, the model must choose a coordination strategy. [[Two-Phase Commit]] can try to create one atomic commit across participants. If that is unavailable, too expensive, or undesirable, the system must use explicit [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]].
 
 ## Transaction Logs and Recovery
 
@@ -41,4 +41,4 @@ This matters for the Cohesive model because a transaction's visible state is bac
 - Jim Gray and Andreas Reuter, [Transaction Processing: Concepts and Techniques](https://www.microsoft.com/en-us/research/publication/transaction-processing-concepts-and-techniques/), Morgan Kaufmann, 1993.
 - C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992. [IBM Research](https://research.ibm.com/publications/aries-a-transaction-recovery-method-supporting-fine-granularity-locking-and-partial-rollbacks-using-write-ahead-logging)
 
-Related concepts: [[Isolation|isolation]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Business Transactions|business transactions]], [[Transactional Outbox|transactional outbox]].
+Related concepts: [[Isolation|isolation]], [[Two-Phase Commit|two-phase commit]], [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Business Transactions|business transactions]], [[Transactional Outbox|transactional outbox]].

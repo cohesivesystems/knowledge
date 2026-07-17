@@ -7,13 +7,11 @@ updated: 2026-07-04
 
 # Weak Isolation Patterns as Architecture Practice
 
-Weak isolation patterns are architecture practices for preserving useful correctness when one [[ACID]] transaction or [[Two-Phase Commit|two-phase commit]] boundary is unavailable, too expensive, or misaligned with the domain process.
-
-The operational concerns are captured by [[Weak Isolation Patterns|weak isolation patterns]]. The architecture practice is deciding which weaker guarantees become explicit parts of the domain protocol, entity model, process state, and recovery behavior.
+Weak isolation patterns are architecture practices for preserving useful correctness when one [[ACID]] transaction or [[Two-Phase Commit|two-phase commit]] boundary is unavailable, too expensive, or misaligned with the domain process. This is mostly about deciding which weaker guarantees become explicit parts of the domain protocol, entity model, process state, and recovery behavior.
 
 ## Problem
 
-Distributed work often crosses databases, brokers, APIs, workflow engines, replicas, caches, and external systems. A single transaction manager rarely controls every read, write, effect, and observation involved in the business outcome.
+Distributed work often crosses databases, brokers, APIs, workflow engines, and external systems. A single transaction manager rarely controls every read, write, effect, and observation involved in the business outcome.
 
 Without an explicit weak-isolation design, systems often rely on accidental timing: a message arrives soon enough, a read model catches up, a retry is harmless, a downstream system is available, or a related fact has not changed. Those assumptions are not a correctness model.
 
@@ -24,14 +22,14 @@ Without an explicit weak-isolation design, systems often rely on accidental timi
 Weak isolation design makes the missing transaction guarantees explicit in the model:
 
 - [[Version|Version]] and etag checks for target entities and related observations.
-- [[Idempotency]] records for retryable inputs and effects.
+- [[Idempotency]] records for retryable operations.
 - [[Transactional Outbox|Transactional outbox]] records for local commit plus asynchronous publication responsibility.
 - [[Transactional Inbox|Transactional inbox]] records for consumer-side deduplication and idempotent receipt.
 - [[Sagas|Sagas]] and [[Process Managers|process managers]] for long-running coordination.
 - Reservations, escrow, leases, or holds for scarce capacity.
 - Compensation and reconciliation when later facts invalidate earlier progress.
-- [[CRDTs as Architecture Practice|CRDT-compatible]] or monotone updates when order can be safely forgotten or merged.
-- [[Durable Execution]] for resumable progress across failures and delays.
+- [[CRDTs as Architecture Practice|CRDT-compatible]] or monotone updates when order can be safely forgotten.
+- [[Durable Execution]] for resumable progress across failures.
 
 Each choice says which stronger guarantee has been replaced and which invariant, ordering, recovery, or visibility rule now carries the correctness burden.
 
@@ -117,4 +115,4 @@ The practice fails when pending states are not first-class, when asynchronous wo
 
 It also fails when eventual consistency is used as a slogan. Eventuality must say what will eventually happen, under which delivery and recovery assumptions, and what observers may see before convergence.
 
-Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[CALM Theorem|CALM theorem]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Business Transactions|business transactions]].
+Related concepts: [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[CALM Theorem|CALM theorem]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Business Transactions|business transactions]].

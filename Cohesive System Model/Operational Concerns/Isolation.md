@@ -40,10 +40,10 @@ One weak-isolation pattern is to carry additional versioning information in the 
 
 ## Relationship to ACID
 
-In [[ACID]], isolation is one part of a transaction contract. Outside a single ACID boundary, isolation must be reconstructed with explicit [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Ordering|ordering]], idempotency, compensation, reservations, escrow, or other [[Weak Isolation Patterns|weak isolation patterns]].
+In [[ACID]], isolation is one part of a transaction contract. Outside a single ACID boundary, isolation must be reconstructed with explicit [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Ordering|ordering]], idempotency, compensation, reservations, escrow, or other [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]].
 
 ## External References
 
 - Hal Berenson, Philip A. Bernstein, Jim Gray, Jim Melton, Elizabeth J. O'Neil, and Patrick E. O'Neil, [A Critique of ANSI SQL Isolation Levels](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf), SIGMOD 1995.
 
-Related concepts: [[ACID]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Version|version]], [[Ordering|ordering]], [[Entity|entity]], [[Transition|transition]], [[Observation|observation]], [[Weak Isolation Patterns|weak isolation patterns]].
+Related concepts: [[ACID]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Version|version]], [[Ordering|ordering]], [[Entity|entity]], [[Transition|transition]], [[Observation|observation]], [[Cohesive System Model/Operational Concerns/Weak Isolation Patterns|weak isolation patterns]].

@@ -7,15 +7,13 @@ updated: 2026-07-05
 
 # Transactional Outbox
 
-Transactional outbox is the architecture practice of using an [[Outbox|outbox]] to tie an accepted local state change to downstream publication responsibility without a distributed transaction between storage and a broker, stream, API, projection, or process.
-
-The concrete realization pattern is [[Outbox|outbox]]. This note keeps the architectural context: when to choose it, where it belongs in a system boundary, and how it composes with adjacent practices.
+Transactional outbox is the architecture practice of using an [[Outbox|outbox]] to tie an accepted local state change to downstream publication responsibility without a distributed transaction between storage and consumer.
 
 ## Architectural Context
 
 Use transactional outbox when an accepted [[Transition|transition]] or semantic [[Process|process]] step must cause follow-up work outside the local commit boundary, but the system should not rely on [[Two-Phase Commit|two-phase commit]] across all participants.
 
-The architecture decision is not "add an outbox table" in isolation. It includes:
+The architecture decision considers:
 
 - Which observer, entity, service, stream, or process boundary owns the local commit.
 - What semantic obligation the outbox record represents: event publication, command dispatch, projection update, notification, or another effect.
@@ -37,4 +35,4 @@ In designs built around [[Sagas|sagas]], [[Process Managers|process managers]], 
 
 Transactional outbox is being overclaimed when broker delivery is treated as proof of domain consistency, when consumers lack idempotent receiving behavior, when the relay has no durable progress or recovery model, or when the outbox record is written outside the same commit boundary as the state change that requires publication.
 
-Related concepts: [[Outbox|outbox]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Brokers|brokers]], [[Boundaries|boundaries]], [[Event-Driven Architecture|event-driven architecture]].
+Related concepts: [[Outbox|outbox]], [[Cohesive System Model/Architecture Practices/Weak Isolation Patterns|weak isolation patterns as architecture practice]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Brokers|brokers]], [[Boundaries|boundaries]], [[Event-Driven Architecture|event-driven architecture]].

@@ -16,7 +16,7 @@ The transactional inbox addresses the consumer-side problem of processing a deli
 
 ## Cohesive Formulation
 
-The practice commits input receipt, deduplication state, and local effects in one local persistence boundary:
+A transactional inbox commits input receipt, deduplication state, and local effects in one local persistence boundary:
 
 ```txt
 receive input
@@ -46,4 +46,4 @@ This composition is often called effectively-once processing, but the guarantee 
 
 The pattern fails when the consumer acknowledges before committing the inbox and local state, when deduplication is not in the same commit boundary as the effects it protects, when the deduplication key does not identify the semantic input, or when non-idempotent external effects happen before the local commit.
 
-Related concepts: [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Idempotency|idempotency]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Recovery|recovery]], [[Retry|retry]], [[Interaction|interaction]], [[Dual-Write Problem|dual-write problem]], [[Weak Isolation Patterns as Architecture Practice|weak isolation patterns as architecture practice]].
+Related concepts: [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Idempotency|idempotency]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Recovery|recovery]], [[Retry|retry]], [[Interaction|interaction]], [[Dual-Write Problem|dual-write problem]], [[Cohesive System Model/Architecture Practices/Weak Isolation Patterns|weak isolation patterns as architecture practice]].
