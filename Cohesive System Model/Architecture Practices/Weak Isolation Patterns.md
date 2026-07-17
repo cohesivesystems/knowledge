@@ -3,6 +3,9 @@ realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-28
 updated: 2026-07-17
+aliases:
+  - Consistency beyond Transaction Boundaries
+  - Cross-Boundary Consistency Patterns
 ---
 
 # Weak Isolation Patterns
@@ -11,6 +14,8 @@ Weak isolation patterns are architecture practices for preserving useful correct
 
 They do not make weak isolation disappear. They replace implicit transactional guarantees with explicit rules about [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], compensation, reconciliation, and invariant preservation.
 
+Here, weak isolation does not mean choosing a weak database isolation level. It means that the larger business process is not enclosed by one isolation and commit boundary. **Consistency beyond transaction boundaries** is a more explicit name for this design problem and avoids making the note sound like a catalog of database isolation levels.
+
 ## Problem
 
 Distributed work often crosses databases, brokers, APIs, workflow engines, and external systems. A single transaction manager rarely controls every read, write, effect, and observation involved in the business outcome.
@@ -18,6 +23,8 @@ Distributed work often crosses databases, brokers, APIs, workflow engines, and e
 Without an explicit weak-isolation design, systems often rely on accidental timing: a message arrives soon enough, a read model catches up, a retry is harmless, a downstream system is available, or a related fact has not changed. Those assumptions are not a correctness model.
 
 [[Distributed Failure Scenarios|Distributed failure scenarios]] name common ways those assumptions break across independently governed boundaries.
+
+This note is intentionally narrower than [[Asynchronous Interaction Design|asynchronous interaction design]]. It focuses on semantic correctness and invariant preservation after a shared transaction boundary is lost. Asynchronous interaction design also covers liveness and operating obligations such as capacity, backlog, lag, retention, replay, topology, observability, schema evolution, and consumer bootstrap.
 
 ## Cohesive Formulation
 
@@ -127,4 +134,4 @@ It also fails when eventual consistency is used as a slogan. Eventuality must sa
 - Hector Garcia-Molina and Kenneth Salem, [Sagas](https://www.cs.princeton.edu/techreports/1987/070.pdf), Princeton CS-TR-070-87, 1987.
 - Peter Bailis, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, and Ion Stoica, [Coordination Avoidance in Database Systems](https://www.vldb.org/pvldb/vol8/p185-bailis.pdf), PVLDB 8(3):185-196, 2014.
 
-Related concepts: [[Distributed Failure Scenarios|distributed failure scenarios]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[CALM Theorem|CALM theorem]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Invariant|invariants]], [[Business Transactions|business transactions]].
+Related concepts: [[Asynchronous Interaction Design|asynchronous interaction design]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[CALM Theorem|CALM theorem]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Version|version]], [[Observation|observation]], [[Entity|entity]], [[Transition|transition]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[CRDTs]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Invariant|invariants]], [[Business Transactions|business transactions]].

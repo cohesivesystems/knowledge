@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-17
 ---
 
 # Rate Limiting
@@ -21,4 +21,4 @@ A rate limit should define:
 
 Rate limiting often appears with backpressure, retry, queueing, and admission control.
 
-Related concepts: [[Retry|retry]], [[Ordering|ordering]], [[Recovery|recovery]], [[Interaction|interaction]], [[Brokers|brokers]], [[Application Hosts|application hosts]].
+Related concepts: [[Queueing Theory|queueing theory]], [[Retry|retry]], [[Ordering|ordering]], [[Recovery|recovery]], [[Interaction|interaction]], [[Brokers|brokers]], [[Application Hosts|application hosts]].

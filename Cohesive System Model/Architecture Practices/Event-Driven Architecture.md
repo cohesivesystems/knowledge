@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-07-17
 ---
 
 # Event-Driven Architecture
@@ -22,8 +22,10 @@ The practice is about [[Flow Views|flow views]] between [[Observer|observers]] t
 
 Events decouple producers and consumers only when boundaries and meanings are explicit. One observer's endogenous event may become another observer's exogenous event. A receiving observer still interprets the event relative to its state, policies, authority, and boundary.
 
+Adopting event flow also creates the capacity, failure, retention, replay, topology, evolution, and observability obligations described by [[Asynchronous Interaction Design|asynchronous interaction design]]. Those obligations apply to the operational edge even when its broker reports no errors.
+
 ## Failure Modes
 
 The pattern fails when event schemas are treated as shared semantics, when broker delivery is mistaken for domain commitment, or when downstream consumers assume ordering, durability, or causality that the event flow does not guarantee.
 
-Related concepts: [[Event|event]], [[Observer|observer]], [[Flow Views|flow views]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Brokers|brokers]], [[Trace and Feedback|trace and feedback]], [[Event-State Duality|event-state duality]].
+Related concepts: [[Event|event]], [[Observer|observer]], [[Flow Views|flow views]], [[Interaction|interaction]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Brokers|brokers]], [[Trace and Feedback|trace and feedback]], [[Event-State Duality|event-state duality]].

@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-07-17
 ---
 
 # CQRS as Architecture Practice
@@ -27,4 +27,4 @@ write-side persistence -> read-side reconstitution
 
 As an architecture practice, CQRS makes the read/write split a deliberate boundary. That boundary introduces consistency-under-asynchrony concerns: projection lag, read-your-writes, monotonic reads, ordering scope, idempotent updates, and recovery.
 
-Related concepts: [[CQRS]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Observation|observation]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]].
+Related concepts: [[CQRS]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Observation|observation]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]].

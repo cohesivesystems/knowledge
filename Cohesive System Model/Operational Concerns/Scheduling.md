@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-07-17
 status: draft
 aliases:
   - Scheduler
@@ -80,4 +80,4 @@ Scheduling also allocates finite compute, memory, I/O, concurrency slots, and qu
 
 - Nissim Francez, [Fairness](https://doi.org/10.1007/978-1-4612-4886-6), especially the treatment of explicit schedulers, Springer, 1986.
 
-Related concepts: [[Nondeterminism and Choice|nondeterminism and choice]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Rate Limiting|rate limiting]], [[Interaction|interaction]], [[Process|process]], [[Observer|observer]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Compute|compute]], [[Workflow Engines|workflow engines]], [[Realization|realization]].
+Related concepts: [[Queueing Theory|queueing theory]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Rate Limiting|rate limiting]], [[Interaction|interaction]], [[Process|process]], [[Observer|observer]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Compute|compute]], [[Workflow Engines|workflow engines]], [[Realization|realization]].

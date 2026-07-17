@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-07-15
+updated: 2026-07-17
 ---
 
 # Cohesive System Model
@@ -44,6 +44,7 @@ Describe modeling disciplines used across the system model.
 - [[Categorical Principles]]
 - [[Programming Paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]]
 - [[Process Theories]]
+- [[Queueing Theory]]
 - [[Stuff Structure Property]]
 - [[Compositionality]]
 - [[Nondeterminism and Choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]]
@@ -158,7 +159,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 
 - [[Architecture Practices]]
 - [[Domain-Driven Design]], [[Ports and Adapters|ports and adapters]], [[Clean Architecture|clean architecture]]
-- [[Modular Monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]]
+- [[Modular Monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
 - [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
 - [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
