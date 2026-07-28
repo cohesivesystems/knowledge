@@ -30,7 +30,7 @@ Domains can be described as cohesive system graphs composed from semantic constr
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
 - [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and [[Effect|effects]] over time
 
-Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
+Cohesive arranges interactions among these primitives through its system graph, states the required [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control properties, then realizes the resulting structure and property demands through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
 Base terms that recur across realms are collected in the [[Glossary|glossary]].
 
@@ -65,7 +65,7 @@ Describe modeling disciplines used across the system model.
 ### 1. Domain Semantics
 
 Defines the meaning-bearing constructs used to describe domain state, events, effects,
-values, observation, identity, behavior, processes, and transitions before
+values, observation, identity, behavior, processes, interactions, and transitions before
 assigning operational guarantees or realization mechanisms.
 
 - [[State]]  
@@ -77,6 +77,7 @@ assigning operational guarantees or realization mechanisms.
 - [[Effect]]
 - [[Behavior]]  
 - [[Process]]
+- [[Interaction]]
 - [[Observer]]  
 - [[Entity]]  
 - [[Relation]]
@@ -94,12 +95,11 @@ assigning operational guarantees or realization mechanisms.
 
 ### 2. Operational Concerns
 
-Describes how domain semantics are made executable and reliable.
+Describes the properties required for domain semantics and system-graph structure to be made executable and reliable.
 
 - [[Persistence]]  
 - [[Durability]]
 - [[Reconstitution]]  
-- [[Interaction]]  
 - [[Delivery Semantics|Delivery semantics]]  
 - [[Acknowledgments]]
 - [[Commit Boundaries]]
@@ -259,6 +259,14 @@ Processes compose when the outputs of one process become future inputs to anothe
 
 An executable long-lived process advances through finite activations separated by quiescence or explicit durable cuts. It owns coordination state such as active tokens, waits, correlations, interaction results, compensation progress, and terminal outcome; it does not own a copied authoritative version of aggregate business state.
 
+### Interaction
+
+[[Interaction]] names boundary-relative participation among subjects: how observers, processes, entities, or other participants affect, observe, request, notify, answer, share state with, wait for, or synchronize with one another.
+
+Interaction is described across realms. Its semantic description identifies participant roles, meanings, occurrences, continuations, and obligations. The system graph makes interactions explicit as compositional structure. Operational concerns state the boundary-relative properties interactions require or exhibit, and [[Realization|realization]] relates that structure and those property demands to substrate mechanisms and capability evidence.
+
+Under the [[Stuff Structure Property|stuff structure property]] lens, an interaction may be structure when it relates participants and occurrences, stuff when reified as a modeled object, or the subject of properties constraining valid interaction. The aspect being described depends on the model boundary and purpose.
+
 ### Observer
 
 An [[Observer|observer]] is a locus of interpretation: the participant, context, or execution locus relative to which values, observations, events, commands, queries, boundaries, and state acquire meaning. Every runtime participant is a potential observer, but an observer is realized only when a context supplies boundary, state view, authority, and interpretation rules.
@@ -271,7 +279,7 @@ An observer is characterized by:
 - The ability to host, observe, route, or project **entities** and their **events** within its [[Boundaries|boundary]]
 - The ability to receive events from other observers as **exogenous events**
 
-Addressability of an observer is an operational concern (part of [[Interaction|interaction]] and [[Delivery Semantics|delivery semantics]]), not intrinsic to the definition. Some observers have globally addressable identities, such as actors. Others have transient or local identities, such as a request handler or logical execution context created for one operation.
+Addressability is not intrinsic to the definition of an observer. A semantic [[Interaction|interaction]] can identify an intended participant or role; system-graph channels and routing models arrange the addressable path; operational concerns specify its delivery properties; and realization supplies concrete addresses and mechanisms. Some observers have globally addressable identities, such as actors. Others have transient or local identities, such as a request handler or logical execution context created for one operation.
 
 An observer may be realized by an OS thread, logical thread, fiber, coroutine, task, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler. In green-thread, fiber, or async runtimes, the observer follows the logical execution context governed by a scheduler, not necessarily the OS thread.
 
@@ -460,17 +468,6 @@ How is usable state recovered?
 - Activate actor by identity
 - Rebuild projection as a derived observation
 
-### Interaction
-
-How do observers address, observe, notify, or invoke one another?
-
-- One-way send
-- Request/reply
-- Publish/consume
-- Stream/session
-- Shared-state interaction
-- Synchronization/rendezvous
-
 ### Delivery Semantics
 
 What guarantees does an interaction edge provide?
@@ -529,12 +526,12 @@ Different runtimes realize observers differently (e.g., actor placement and supe
 Cohesive preserves correspondence across realms:
 
 ```txt  
-Semantic dynamics (State, Observation, Event, Observer, Entity, Relation, Command, Query, ...)
-  -> System graph (Entity Models, Observer Models, Relation Models, Projection Models, Process Graphs, Boundaries, Infrastructure Graph, ...)
-  -> Operational concerns (Persistence, Durability, Reconstitution, Interaction, Delivery, Coordination, Recovery, Control)
+Semantic description (State, Observation, Event, Observer, Entity, Process, Interaction, Relation, Command, Query, ...)
+  -> System graph (Entity Models, Observer Models, Relation Models, Projection Models, Process Graphs, Flow Views, Interaction Channels, Boundaries, Infrastructure Graph, ...)
+  -> Operational concerns (Persistence, Durability, Reconstitution, Delivery, Acknowledgment, Ordering, Coordination, Recovery, Control)
   -> Realization substrate (Realization, Compute, Runtimes, Network, Storage, Workflow engines, Durable execution engines, Actor systems, ...)
 ```
 
-It lets a domain be modeled in terms of entities, observers, states, observations, events, commands, queries, relations, and process graphs, then projects those primitives into operational systems running on existing infrastructure while maintaining semantic fidelity across layers and across different observers.
+It lets a domain be modeled in terms of entities, observers, states, observations, events, commands, queries, relations, interactions, and processes, arranges them in a system graph, and realizes them as operational systems running on existing infrastructure while maintaining fidelity across layers and across different observers.
 
 [[Architecture Practices]] contextualize named industry patterns and methodologies as cross-realm bundles of problems, constraints, and realization choices expressible in Cohesive terms.

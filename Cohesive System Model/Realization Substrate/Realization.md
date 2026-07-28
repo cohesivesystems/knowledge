@@ -32,6 +32,7 @@ Examples include:
 
 - An [[Observer|observer]] realized by an OS thread, logical task, fiber, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler.
 - An [[Entity|entity]] realized by an actor-hosted aggregate, database record plus optimistic concurrency, event stream plus reconstitution, workflow subject, or storage document.
+- An [[Interaction|interaction]] realized by a local call, runtime channel, actor mailbox, shared-state protocol, network exchange, broker-mediated flow, file exchange, or workflow signal while preserving its participant roles and required properties.
 - A [[Transition Models|transition model]] interpreted to produce a decision, with its accepted patch and local obligations committed by a serialized actor turn, database transaction with expected-version check, compare-and-swap operation, event-stream append, or another capability-compatible mechanism.
 - A [[Boundaries|boundary]] realized by a transaction, actor identity, process, broker partition, service API, deployment unit, or persistence scope.
 - [[Persistence]] realized by records, logs, event streams, snapshots, workflow histories, [[Outbox|outbox]] records, [[Transactional Inbox|inbox]] records, or projection-model state.

@@ -2,7 +2,7 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-07-27
+updated: 2026-07-28
 ---
 
 # System Graph
@@ -13,9 +13,9 @@ It asks how semantic roles are placed, composed, owned, related, scoped, and pre
 
 This realm sits between primitive meaning and concrete implementation:
 
-- Domain semantics defines meaning-bearing primitives such as [[Entity|entities]], [[Observer|observers]], [[Process|processes]], [[Relation|relations]], [[Invariant|invariants]], [[Policy|policies]], [[State|state]], [[Event|events]], [[Command|commands]], and [[Query|queries]].
+- Domain semantics defines meaning-bearing primitives such as [[Entity|entities]], [[Observer|observers]], [[Process|processes]], [[Interaction|interactions]], [[Relation|relations]], [[Invariant|invariants]], [[Policy|policies]], [[State|state]], [[Event|events]], [[Command|commands]], and [[Query|queries]].
 - The system graph arranges those primitives into model-specific ownership, dependency, composition, authority, scope, and correspondence.
-- Operational concerns assign guarantees such as [[Persistence|persistence]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Isolation|isolation]], and [[Recovery|recovery]].
+- Operational concerns state required properties and guarantees such as [[Persistence|persistence]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Isolation|isolation]], and [[Recovery|recovery]].
 - Realization substrate supplies concrete mechanisms such as [[Compute|compute]], [[Runtimes|runtimes]], [[Storage Systems|storage systems]], [[Brokers|brokers]], and [[Workflow Engines|workflow engines]].
 
 Use this realm to answer questions such as:
@@ -23,6 +23,7 @@ Use this realm to answer questions such as:
 - What are the system's entity models, transition models, observer models, process graphs, relation models, projection models, and boundaries?
 - Which participant owns or interprets a piece of state, a transition, a policy, or an invariant?
 - How do observations, commands, events, effects, and artifacts move through flow views and business transactions?
+- How are interactions among participants arranged through occurrences, flows, messages, channels, routes, and boundaries?
 - Which relation models make the graph navigable, dependent, constrained, derived, or causally connected?
 - Where does a semantic role change meaning because it crosses a boundary?
 - Which infrastructure graph projection binds modeled structure to public substrate roles?

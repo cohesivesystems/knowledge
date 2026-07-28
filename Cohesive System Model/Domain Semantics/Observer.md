@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-28
 ---
 
 # Observer
@@ -22,7 +22,7 @@ An observer is characterized by:
 
 An observer may be realized by an OS thread, logical thread, fiber, coroutine, task, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler. In green-thread, fiber, or async runtimes, the observer follows the logical execution context managed by a scheduler, not necessarily the OS thread on which code happens to run.
 
-Addressability of an observer is an operational concern. Some observers have globally addressable identities, such as actors. Others have transient or local identities, such as a request handler or a logical execution context created for a single operation.
+Addressability is not intrinsic to the definition of an observer. A semantic [[Interaction|interaction]] can identify an intended participant or role; [[Interaction Channels|interaction channels]] and [[Routing Models|routing models]] arrange the addressable path in the system graph; operational concerns specify its delivery properties; and realization supplies concrete addresses and mechanisms. Some observers have globally addressable identities, such as actors. Others have transient or local identities, such as a request handler or a logical execution context created for a single operation.
 
 Actor systems are important because they make observers addressable: an actor address gives other observers a delivery path to a receiving observer boundary. The address does not necessarily expose state, and it is not automatically the same as an entity identity, though an actor may be used to realize an entity observer.
 
