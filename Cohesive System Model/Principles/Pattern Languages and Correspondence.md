@@ -47,6 +47,28 @@ In plain language, a correspondence should preserve the relationships that make 
 
 Many useful correspondences are partial, one-to-many, or relational rather than total functions. One semantic process may have several workflow realizations; one message channel may carry several semantic roles; one catalog pattern may decompose into several Cohesive nodes. The framework is called functorial because it demands structure-preserving correspondence, not because every crosswalk must be formalized as one mathematical functor.
 
+## Cross-Realm Category Errors
+
+Much of the recurring confusion around systems patterns comes from **cross-realm category errors**: a semantic construct, system-graph structure, operational property, architecture practice, or realization mechanism is treated as though it were an object or claim of another realm. The problem is not crossing realms. Patterns must cross realms to become useful systems. The error is collapsing the realms without naming the correspondence, its boundary, and what it preserves.
+
+In Cohesive, **realm collapse** is the shorter name for this failure mode. The term avoids suggesting that every such mistake is a formal error in category theory. It identifies an unexamined change in descriptive perspective: a carrier becomes the meaning it carries, a mechanism becomes the role it realizes, a local guarantee becomes an end-to-end outcome, or a projection becomes an authoritative source.
+
+Common forms include:
+
+| Realm collapse | Representative mistaken claim | Missing distinction |
+| --- | --- | --- |
+| Realization mechanism becomes semantic meaning. | "The actor is the entity." | An actor may [[Realization|realize]] an entity observer without being identical to the [[Entity|entity]]. |
+| Carrier becomes interpreted role. | "This broker record is a domain event" or "this HTTP request is a command." | A message carries evidence; an observer assigns boundary-relative [[Event|event]] or [[Command|command]] meaning. |
+| Graph structure becomes an operational guarantee. | "The queue decouples the systems." | A channel arrangement does not establish capacity, time, delivery, failure, or responsibility-transfer properties by itself. |
+| Local guarantee becomes an end-to-end result. | "The broker acknowledged the message, so the business operation completed." | [[Acknowledgments|Acknowledgment]] meaning and [[Commit Boundaries|commit boundaries]] remain scoped to the observer and mechanism that can establish them. |
+| Runtime execution becomes semantic process. | "The workflow execution is the business process." | A workflow engine may execute or recover a [[Process|process]] without defining its purpose, authority, participants, or completion meaning. |
+| Projection becomes authority. | "The read model is the entity's state." | A [[Projection Models|projection model]] derives observations; derivation does not silently transfer semantic authority. |
+| Similarly named operational and semantic properties become identical. | "Exactly-once delivery gives exactly one domain effect." | A single semantic discharge may require stable identity, deduplication, serialized commitment, and recovery rather than a same-named transport guarantee. |
+
+Pattern names are especially susceptible because a pattern often bundles semantic intent, graph arrangement, operational obligations, and realization guidance under one convenient label. Its name can be used across several communities and abstraction levels even when the underlying claims differ. A realm signature makes that variation reviewable instead of forcing one interpretation to stand for the whole pattern.
+
+Every cross-realm claim should therefore name the relation being asserted, such as **carries**, **arranges**, **constrains**, **requires**, **realizes**, **preserves**, **approximates**, or **forgets**. It should also state the boundary at which the relation holds and the structure or properties that survive it. Similar names, adjacency in a diagram, or common implementation practice are not by themselves evidence of correspondence.
+
 ## Reusable Realm Correspondence Profile
 
 Every catalog entry adopted into the graph should record:
@@ -182,12 +204,6 @@ A disciplined reconciliation proceeds in this order:
 5. Select brokers, stores, application hosts, runtimes, protocols, or file exchange as realizations.
 
 For example, an EIP Command Message is a carrier whose contract strongly indicates command intent. Its receipt is still an exogenous [[Event|event]] at the receiving boundary, and the receiving observer still interprets the carried value as a [[Command|command]] relative to its model. An Event Message carries a reported occurrence, but message receipt and the reported domain event remain distinct occurrences. An EIP Process Manager can realize part of a semantic [[Process|process]], but the routing mechanism does not define the process purpose, authority, state, or completion meaning.
-
-## Overlap Is Evidence, Not Duplication
-
-CQRS, Saga, Repository, Data Mapper, Pipes and Filters, Broker, Observer, Command, and Process Manager appear in several catalogs or nearby vocabularies. Cohesive should not create one peer primitive for every occurrence of a name. It should preserve source provenance, map each occurrence to its realm profile, and record whether the sources are equivalent, specialize one another, overlap partially, or merely share terminology.
-
-The result is a connected pattern language over the Cohesive graph: source catalogs remain citable bodies of experience, while Cohesive supplies the stable distinctions and correspondence rules needed to compare and realize them.
 
 ## External References
 
