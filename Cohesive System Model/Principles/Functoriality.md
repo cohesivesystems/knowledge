@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-28
 ---
 
 # Functoriality
@@ -10,6 +10,8 @@ updated: 2026-07-01
 Functoriality is the principle that a mapping between domains should preserve the structure that matters: identities, relationships, composition, and change.
 
 Informally, it lets the model relate distinct semantic domains without collapsing them. The cave-shadow analogy is useful only if changes in the source are also related to changes in the shadows. A functorial view does not merely map things to things; it maps transformations to transformations in a way that preserves how they compose.
+
+The practical idea is simpler than the terminology: when a concept is translated, projected, or realized, preserve the identities, relationships, changes, and compositions that made it meaningful. If the target adds mechanics or loses information, say so. [[Pattern Languages and Correspondence|Pattern languages and correspondence]] applies this test to architecture and analysis catalogs without requiring their users to know category theory.
 
 In categorical terms, a functor maps:
 
@@ -41,4 +43,4 @@ Functoriality is violated when two layers are related only by names. For example
 
 Functoriality also clarifies partial or lossy mappings. A projection may forget fields. A state sample may forget event causality. A serialization may forget object identity. A realization may preserve command interpretation while not preserving locality or timing. These are acceptable only when the forgotten structure is outside the relevant boundary or explicitly accounted for.
 
-Related concepts: [[Realization|realization]], [[Projection Models|projection models]], [[Reconstitution|reconstitution]], [[Behavior|behavior]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Boundaries|boundaries]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Realization|realization]], [[Projection Models|projection models]], [[Reconstitution|reconstitution]], [[Behavior|behavior]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Boundaries|boundaries]].

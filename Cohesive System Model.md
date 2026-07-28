@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-07-28
 ---
 
 # Cohesive System Model
@@ -42,6 +42,7 @@ Describe modeling disciplines used across the system model.
 
 - [[System Language and Realization]]
 - [[Execution Kernel]]
+- [[Pattern Languages and Correspondence]]
 - [[Categorical Principles]]
 - [[Programming Paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]]
 - [[Process Theories]]
@@ -168,9 +169,10 @@ Provides concrete mechanisms.
 Contextualizes named architecture practices as cross-realm bundles of problems, constraints, and realization choices.
 
 - [[Architecture Practices]]
-- [[Enterprise Integration Patterns]]
-- [[Domain-Driven Design]], [[Ports and Adapters|ports and adapters]], [[Clean Architecture|clean architecture]]
-- [[Modular Monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]]
+- [[Analysis Patterns]], [[Domain-Driven Design|domain-driven design]]
+- [[Patterns of Enterprise Application Architecture]], [[Enterprise Integration Patterns|enterprise integration patterns]]
+- [[Workflow Patterns]], [[Microservice Patterns|microservice patterns]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]]
+- [[Ports and Adapters]], [[Clean Architecture|clean architecture]], [[Modular Monolith|modular monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
 - [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
 - [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]

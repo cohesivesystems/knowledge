@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-07-28
 ---
 
 # Realization
@@ -12,6 +12,8 @@ Realization is the relation by which semantic roles, system graph, operational c
 A realization does not make the semantic concept identical to the substrate mechanism. It says that a concrete mechanism hosts, carries, preserves, or implements the relevant meaning under an explicit [[Boundaries|boundary]] and operational context.
 
 [[System Language and Realization|System language and realization]] frames this as the practical half of the Cohesive vision: the system language should be precise enough to support compiler-like lowering into working infrastructure while preserving the semantic relationships that matter.
+
+[[Pattern Languages and Correspondence|Pattern languages and correspondence]] uses this relation to separate a source pattern's semantic trace, graph structure, operational obligations, and possible mechanisms. A named pattern may contribute realization guidance without becoming identical to the substrate pattern that implements it.
 
 In [[Stuff Structure Property|stuff structure property]] terms, realization maps semantic stuff, structure, and properties into substrate stuff, structure, and properties. Correct realization requires preserving the distinctions that matter, not merely finding similarly named implementation artifacts.
 
@@ -111,4 +113,4 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effect|effect]], [[Effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effect|effect]], [[Effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].

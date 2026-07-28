@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-28
 ---
 
 # Microservices
@@ -24,8 +24,16 @@ The practice asks:
 
 Microservices turn semantic and structural boundaries into deployment and operational boundaries. That can increase autonomy, but it also turns local composition problems into distributed coordination, delivery, and recovery problems.
 
+## Pattern-Language Context
+
+[[Microservice Patterns|The microservice pattern language]] expands this practice into decomposition, collaboration, data ownership, transactional messaging, communication, discovery, reliability, observability, security, testing, and deployment patterns. [[Pattern Languages and Correspondence|Realm correspondence]] keeps those decisions connected without making service, subdomain, bounded context, aggregate, database, team, and deployment unit synonyms.
+
 ## Failure Modes
 
 The pattern fails when services are split by technical layer, table, team preference, or endpoint count rather than semantic ownership and operational boundary. Distributed deployment does not create bounded context clarity by itself.
 
-Related concepts: [[Boundaries|boundaries]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Brokers|brokers]], [[Network|network]], [[Modular Monolith|modular monolith]].
+## External References
+
+- Chris Richardson, [A Pattern Language for Microservices](https://microservices.io/patterns/).
+
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Microservice Patterns|microservice patterns]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Brokers|brokers]], [[Network|network]], [[Modular Monolith|modular monolith]].

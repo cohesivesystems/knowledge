@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-07-28
 aliases:
   - EIP
   - Enterprise Integration Pattern Language
@@ -33,6 +33,22 @@ The original EIP catalog mainly depicts the data flow of messages through endpoi
 The extension distinguishes active senders and fetchers from passive sinks and sources. Applying those roles independently to both ports of a stage yields pushers, pullers, queues, and drivers. A queue accepts an active producer on one side and serves an active fetcher on the other, separating arrival cadence from departure cadence. A driver actively fetches and pushes, giving it direct control over polling, batching, and rate.
 
 This is not a sixty-sixth peer pattern or a new semantic primitive. It is a cross-cutting operational facet of the original patterns, especially Pipes and Filters, Message Channel, Polling Consumer, Event-Driven Consumer, Competing Consumers, and broker-backed routing. A pattern diagram should state whether each arrow depicts message or data movement, interaction control, causal order, or process progression because those directions can differ.
+
+## Realm Orientation and Domain Reconciliation
+
+EIP patterns tend to gravitate toward System Graph, Operational Concerns, and Realization Substrate. They are strongest at describing carriers, paths, endpoints, transformations, routing, delivery arrangements, and management structures. [[Domain-Driven Design|DDD]] gravitates toward Domain Semantics and the architecture practices that preserve semantic boundaries, authority, invariants, and ubiquitous language.
+
+The two vocabularies meet through explicit correspondence rather than identification:
+
+| EIP construct | Semantic reconciliation |
+| --- | --- |
+| Command Message | A carrier whose contract strongly indicates command intent; ingress remains an exogenous event and command interpretation remains relative to the receiving observer. |
+| Event Message | A carrier reporting an occurrence; the reported domain event and the message-receipt event are distinct occurrences at different boundaries. |
+| Message Channel | An interaction locus that does not decide the semantic role, authority, or business completion meaning of what it carries. |
+| Process Manager | A routing and coordination pattern that may realize part of a semantic process but does not define its purpose, state authority, recovery policy, or terminal outcomes. |
+| Canonical Data Model | A selected integration representation that does not become canonical domain meaning or one enterprise-wide ubiquitous language. |
+
+[[Pattern Languages and Correspondence|The realm correspondence framework]] starts with the DDD meaning and boundary, places that meaning into messages, channels, observers, effects, and process graphs, assigns EIP structures and operational obligations, and only then selects a broker, runtime, store, protocol, or file exchange.
 
 ## Catalog Coverage
 
@@ -151,4 +167,4 @@ Cohesive encompasses these patterns by making their semantic inputs, structural 
 - Enterprise Integration Patterns, [Messaging Patterns Overview](https://www.enterpriseintegrationpatterns.com/patterns/messaging/index.html) and [Table of Contents](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html).
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Architecture Practices|architecture practices]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Observer Models|observer models]], [[Effect|effect]], [[Event|event]], [[Command|command]], [[Process|process]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Domain-Driven Design|domain-driven design]], [[Architecture Practices|architecture practices]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Observer Models|observer models]], [[Effect|effect]], [[Event|event]], [[Command|command]], [[Process|process]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].

@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-07-04
-updated: 2026-07-27
+updated: 2026-07-28
 status: draft
 aliases:
   - cohesive vision
@@ -38,6 +38,8 @@ For Cohesive, category theory is not decoration and not a requirement that every
 - [[Reduction, Evaluation, and Confluence|Reduction, evaluation, and confluence]] asks whether different computational paths preserve or rejoin the intended meaning.
 
 The practical test is whether these disciplines help build systems that run. A Cohesive description should support realization into infrastructure without erasing the semantic distinctions that made the description useful.
+
+[[Pattern Languages and Correspondence|Pattern languages and correspondence]] applies this orientation to established catalogs. Each catalog is treated as a source vocabulary with a characteristic center of gravity. Its entries are decomposed into semantic trace, system-graph structure, operational obligations, architecture-practice role, and realization choices, with explicit preservation conditions between them.
 
 ## Compiler-Like Realization
 
@@ -113,4 +115,4 @@ The public graph should still be strong enough to support private system graph a
 - Treat multiple realizations as normal, not as ambiguity to erase.
 - Treat working systems as the validation target for the language.
 
-Related concepts: [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|effect]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|effect]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects]].

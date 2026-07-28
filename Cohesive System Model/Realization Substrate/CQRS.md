@@ -2,12 +2,14 @@
 realm: Realization Substrate
 kind: pattern
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-07-28
 ---
 
 # CQRS
 
 CQRS, command query Responsibility Segregation, is a realization pattern that separates the write side that interprets [[Command|commands]] and persists authoritative change from the read side that answers [[Query|queries]] by reconstituting queryable observations.
+
+The broader forces, cross-realm bundle, preservation conditions, and catalog provenance belong to [[CQRS as Architecture Practice|CQRS as an architecture practice]]. This note focuses on the realization family and its operational consequences.
 
 In the Cohesive System Model, CQRS can be understood as a separation of [[Persistence|persistence]] and [[Reconstitution|reconstitution]]:
 
@@ -59,4 +61,4 @@ In this combined pattern, event sourcing supplies the committed event history, w
 - Greg Young, [CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf), 2010. See also the [CQRS Documents page](https://cqrs.wordpress.com/documents/).
 - Microsoft Azure Architecture Center, [CQRS pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs).
 
-Related concepts: [[Command|command]], [[Query|query]], [[Transition|transition]], [[Transition Models|transition models]], [[Observer|observer]], [[Entity|entity]], [[State|state]], [[Effect|effect]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Observation|observation]], [[Event Sourcing|event sourcing]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[CQRS as Architecture Practice|CQRS as an architecture practice]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Transition Models|transition models]], [[Observer|observer]], [[Entity|entity]], [[State|state]], [[Effect|effect]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Observation|observation]], [[Event Sourcing|event sourcing]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].

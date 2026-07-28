@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-04
-updated: 2026-07-27
+updated: 2026-07-28
 status: draft
 aliases:
   - Process Theory
@@ -62,6 +62,8 @@ Process theories give tighter language for common architecture terms:
 - A workflow is an authored or runtime-managed process description. A workflow engine may realize workflow execution, durable execution, inspection, timers, signals, activities, retries, and compensation, but the engine is not the semantic process itself.
 
 This distinction is practical. A saga implemented on durable execution still contains business recovery logic. Durable execution can keep the computation running; it does not decide whether a completed business action should be compensated. A hand-written process manager can be a valid realization when it preserves identity, ordering, persistence, idempotency, delivery, and recovery requirements.
+
+[[Workflow Patterns|Workflow patterns]] supply a complementary capability vocabulary for control-flow, data, resource, exception, and event-log perspectives. They help test the expressive adequacy of process languages and engines, but they do not replace the semantic process: a workflow join or cancellation region describes structure, not the domain purpose, authority, or business meaning of joining or cancellation.
 
 ## Orchestration and Choreography
 
@@ -127,4 +129,4 @@ When modeling a process, ask:
 - Robin Milner, Joachim Parrow, and David Walker, [A Calculus of Mobile Processes, I](https://doi.org/10.1016/0890-5401(92)90008-4) and [II](https://doi.org/10.1016/0890-5401(92)90009-5), *Information and Computation* 100(1):1-77, 1992.
 - Robin Milner, [Communication and Concurrency](https://www.research.ed.ac.uk/en/publications/communication-and-concurrency/), Prentice Hall, 1989.
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Process|process]], [[Process Graphs|process graphs]], [[Transition Models|transition models]], [[State Machines|state machines]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Causality|causality]], [[Authority|authority]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Realization|realization]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Workflow Patterns|workflow patterns]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Process|process]], [[Process Graphs|process graphs]], [[Transition Models|transition models]], [[State Machines|state machines]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Causality|causality]], [[Authority|authority]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Realization|realization]].
