@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-07-17
+updated: 2026-07-18
 ---
 
 # Cohesive System Model
@@ -222,9 +222,11 @@ Entity state is a specialized observation whose subject is an entity.
 
 ### Event
 
-An [[Event|event]] is a time-bearing occurrence with a [[Value|value]]. It marks, reports, or induces change depending on how it is interpreted by an [[Observer|observer]] relative to a [[Boundaries|boundary]].
+An [[Event|event]] is a time-bearing occurrence carrying a [[Value|value]]. It marks, reports, or induces change depending on how it is interpreted by an [[Observer|observer]] relative to a [[Boundaries|boundary]].
 
 Structurally, an event is a value with occurrence. Semantically, an event may be exogenous, input, command-bearing, query-bearing, endogenous, or output depending on the observer [[Boundaries|boundary]].
+
+An event answers what occurred. A [[Command|command]] answers how a receiving observer interpreted an input event. An [[Effects|effect]] answers what modeled consequence or obligation an action established. A request effect is an emitter-side effect that produces an output event and establishes a continuation expecting a later response; it becomes a command or query only through the receiver's interpretation.
 
 ### Behavior
 
@@ -258,7 +260,7 @@ Actor systems make observers addressable: an actor address gives other observers
 
 An endogenous event emitted inside one observer’s [[Boundaries|boundary]] can be observed as an exogenous event by another observer.
 
-Commands and queries are **observer-relative interpretations**: the same incoming [[Value|value]] or event may be interpreted differently (or rejected) depending on the observer’s current view of entity state, [[Projection Models|projection models]], required observations, [[Invariant|invariants]], [[Policy|policies]], authority, and consistency expectations.
+Commands and queries are **observer-relative interpretations**: the same incoming event may be interpreted differently (or rejected) depending on the observer’s current view of entity state, [[Projection Models|projection models]], required observations, [[Invariant|invariants]], [[Policy|policies]], authority, and consistency expectations.
 
 ### Entity
 
@@ -270,7 +272,7 @@ An entity is defined by:
 - A **current state** at any point in time, attributed to identity + version
 - **[[Transition|Transitions]]** that define how its state may change
 - **[[Invariant|Invariants]]** and **[[Policy|policies]]** that constrain valid changes
-- **[[Effects]]**, primarily the endogenous events it produces when transitions are committed
+- **[[Effects]]**, including endogenous events produced by accepted transitions and publication or request obligations established from them
 
 An entity is therefore state + identity + version history + transitions + invariants + policies + effects.
 
@@ -282,14 +284,16 @@ An entity is not automatically an observer, but it may be modeled or realized as
 
 ### Command
 
-A [[Command|command]] is an observer-relative interpretation of an input event or incoming [[Value|value]] as an attempted transition.
+A [[Command|command]] is the interpretation of an [[Event|event]] by a given [[Observer|observer]] as an attempted [[Transition|transition]] of a target subject.
+
+Relative to the interpreting observer, the event is an exogenous input event. Relative to the emitter, the carried event is an endogenous output event. The event does not become a command by structure or sender-assigned label alone.
 
 ```txt
-Exogenous event
-  -> input event at an Observer [[Boundaries|boundary]]
-  -> command intent (relative to the Observer and target subject)
-  -> validation against current Entity state + required observations + invariants + policies + authority + expected version
-  -> endogenous event | nil
+Endogenous output event at an emitter boundary
+  -> exogenous input event at an interpreting observer boundary
+  -> attempted transition, relative to the observer and target subject
+  -> validation against current entity state + required observations + invariants + policies + authority + expected version
+  -> accepted transition | nil outcome | rejection
 ```
 
 Commands are not mere messages. They are interpretations made relative to:
@@ -297,16 +301,17 @@ Commands are not mere messages. They are interpretations made relative to:
 - The observer’s [[Boundaries|boundary]] and current view of state
 - Authority, invariants, and policies  
 - The intended transition  
-- An optional expected version / etag (the version of entity state the observer believed was current when formulating the command)
+- An optional expected version or etag carried by the input event
+
+The expected version ordinarily represents the emitter's observation of entity state when it formed its request. The receiving observer decides whether that claim is relevant and validates it before accepting the transition.
 
 ### Query
 
-A [[Query|query]] is an observer-relative interpretation of an input event, request, or incoming [[Value|value]] as a request to observe, compute, or return information without requesting a modeled semantic state transition.
+A [[Query|query]] is an observer-relative interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
 
 ```txt
-Exogenous event or incoming value
-  -> input at an Observer [[Boundaries|boundary]]
-  -> query intent (relative to the Observer and target subject or view)
+Exogenous input event at an observer boundary
+  -> query intent (relative to the observer and target subject or view)
   -> selection of observable + projection + read model + authority + consistency expectation
   -> observation | value | stream | nil | rejection
 ```
@@ -350,41 +355,36 @@ Relative to an **observer’s [[Boundaries|boundary]]**:
 
 - **Exogenous event**: An event arriving from outside the observer’s [[Boundaries|boundary]]. It may originate from another observer’s endogenous event, a runtime, a clock, a user, a sensor, or the external environment.
 - **Input event**: An exogenous event in the role of entering the observer [[Boundaries|boundary]].
-- **Command**: An input event interpreted as an attempted transition for a target subject.
-- **Query**: An input event or incoming value interpreted as a request to observe, compute, or return information without requesting a modeled semantic state transition.
-- **Endogenous event**: An event committed within the observer’s own semantic history (emitted by an entity it hosts).
+- **Command**: The receiving observer's interpretation of an input event as an attempted transition for a target subject.
+- **Query**: The receiving observer's interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
+- **Endogenous event**: An event that occurs or is accepted within the observer’s own semantic history.
 - **Output event**: An endogenous event emitted across a [[Boundaries|boundary]].
-- **Nil endogenous event**: The observer observed the input but no domain transition event was committed for the target entity (version unchanged).
+- **Nil outcome**: The observer interpreted the input but no domain transition event was committed for the target entity. Nil is not an event.
 
-Some systems may still record rejection, audit, telemetry, or diagnostic events when interpretation yields `nil`. Those records are operational traces or events for another subject, not a committed domain transition for the target entity.
+Some systems may still record audit, telemetry, or diagnostic events when interpretation yields nil or rejection. Those records are operational traces or events for another subject, not a committed domain transition for the target entity.
 
 Interpretation flow:
 
 ```txt
 Exogenous event
   -> input event
-  -> Command | Query (observer-relative)
+  -> command | query (observer-relative)
   -> validation or observation selection
   -> endogenous event | observation | value | nil
 ```
 
-Examples of `nil`:  
-- Duplicate input  
-- Failed validation or precondition  
-- Unauthorized request  
-- Version conflict (expected version mismatch)  
-- Telemetry-only or correlation-only signal
+Examples of `nil` include duplicate input whose domain effect was already committed, a valid no-op against current state, and telemetry-only or correlation-only input. Failed validation, failed authority, and expected-version conflict are rejections rather than nil outcomes.
 
 One observer’s endogenous event may become another observer’s exogenous event.
 
 ## Commands (Expanded Flow with Versioning)
 
-A command carries an optional **expected version / etag** — the version of entity state the observer believed was current when it decided to issue the command.
+A command may carry an optional **expected version / etag** based on the emitter's observation of entity state when it formed the request. The receiving observer interprets and validates that claim.
 
 The entity transition runtime, aligned with the interpreting observer, performs:
 - Validation against current entity state + required observations + invariants + policies
 - [[Concurrency Control|Expected version check]] (if provided)
-- Decision: commit endogenous event → new state version, or reject → `nil` (version unchanged)
+- Decision: accept and commit an endogenous transition event → new state version, produce a nil outcome → version unchanged, or reject → version unchanged
 
 ## Operational Concerns
 

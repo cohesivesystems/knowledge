@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: pattern
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-07-18
 ---
 
 # Event Sourcing
@@ -24,7 +24,7 @@ The word committed is essential. Event sourcing is interested in committed event
 
 - Only committed events advance the entity [[Version|version]].
 - Rejected commands do not produce committed events for the target entity.
-- Nil endogenous events record no domain transition for the target entity.
+- Nil outcomes add no domain transition event to the target entity's history.
 - Expected-version checks, transactions, actor serialization, or compare-and-swap operations ensure that only valid successors enter the history.
 - Reconstitution, projections, audit, recovery, and downstream publication must be based on the committed history, not merely on attempted inputs.
 

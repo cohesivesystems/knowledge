@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-18
 ---
 
 # Entity
@@ -16,7 +16,7 @@ An entity is defined by:
 - A current [[State|state]] at any point in time, attributed to identity + version.
 - [[Transition|Transitions]] that define how its state may change.
 - [[Invariant|Invariants]] and [[Policy|policies]] that constrain valid changes.
-- Effects, primarily the endogenous [[Event|events]] it produces when transitions are committed.
+- [[Effects]], including the endogenous [[Event|events]] produced by accepted transitions and any publication or request obligations established from them.
 
 An entity is therefore state + identity + version history + transitions + invariants + policies + effects.
 

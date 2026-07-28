@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-06
+updated: 2026-07-18
 ---
 
 # Interaction
@@ -61,7 +61,7 @@ Addressing should not be collapsed into [[Identity|identity]]. An address names 
 Interaction modes are edge configurations at a chosen abstraction layer. One mode may be realized in terms of another at a lower layer.
 
 - **One-way send**: emit plus an address, channel, or location, with no modeled continuation. Examples include actor tell, asynchronous channel send, notification, fire-and-forget message send, and some event publication.
-- **Request/reply**: one send plus a modeled continuation path. The reply path may be direct, correlated, synchronous, asynchronous, multiplexed, or carried through another channel. RPC, HTTP request/response, actor ask, memory read, and queue-based request/reply are examples.
+- **Request/reply**: one send plus a modeled continuation that expects a later response. The reply path may be direct, correlated, synchronous, asynchronous, multiplexed, carried through another channel, or observed through shared state. RPC, HTTP request/response, actor ask, memory read, and queue-based request/reply are examples.
 - **Publish/consume**: one or more sends into a mediating channel from which consumers observe or consume. Queues, logs, topics, pub/sub buses, stream subscriptions, and multicast are configurations of publish/consume with different topology, retention, cursor ownership, and delivery semantics.
 - **Stream/session**: a session identity relating many sends and receives over time. TCP realizes a full-duplex connection with an ordered byte stream in each direction. Higher layers can frame request/reply, publish/consume, or multiplexed protocols over a stream.
 - **Shared-state interaction**: observers interact through a mediating state cell, register, memory location, table, log, lock, or object rather than by explicit point-to-point message. Examples include read, write, compare-and-swap, lock, wait, notify, memory barriers, cache coherence, and transactional memory.
@@ -84,6 +84,10 @@ At the instruction-set boundary, a `mov` instruction may be treated as one synch
 Modes describe the edge shape. They do not determine the semantic role of the value crossing the edge.
 
 A request may be interpreted as a [[Command|command]] when the receiver treats it as intent to cause a state transition. It may be interpreted as a [[Query|query]] when the receiver treats it as a request to observe or compute a value with no semantic state transition requested. It may also be a subscription request, negotiation, acknowledgment, policy decision, observation, or event notification.
+
+At the emitting boundary, initiating such an interaction may be modeled as a [[Effects|request effect]]: the emitter produces an endogenous output event and establishes a continuation that expects a later response. At the receiving boundary, the carried event is an exogenous input event and becomes a command, query, or another semantic role only through the receiver's interpretation. The response is a later effect and event at another boundary; it need not be synchronous or travel over the same channel.
+
+A request effect differs from one-way publication by intent and continuation rather than necessarily by publication mechanics. Both may use an outbox, queue, broker, log, mailbox, or network call. A delivery acknowledgment is not automatically the requested response: it may establish only admission, persistence, publication, or responsibility transfer.
 
 Operational state can still change during a [[Query|query]]: caches may fill, metrics may record, cursors may advance, locks may be acquired, and acknowledgments may be emitted. The distinction is that the modeled semantic entity transition is not being requested.
 
