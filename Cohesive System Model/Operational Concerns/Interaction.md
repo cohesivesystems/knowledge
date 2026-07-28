@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-18
+updated: 2026-07-27
 ---
 
 # Interaction
@@ -15,7 +15,7 @@ Every interaction edge is relative to observer boundaries. A successful interact
 
 Interaction is boundary-relative. It can occur over a [[Network|network]], between processes on one host, between threads in one process, between tasks in a runtime, between actors and mailboxes, between CPU cores through cache coherence, or between a program and memory/register state.
 
-Network distribution is the common case when discussing distributed systems, but it is not the only case. A system is distributed whenever interaction crosses a boundary where observation, ordering, visibility, failure, authority, or commitment is not trivial.
+Network distribution is the common case when discussing distributed systems, but it is not the only case. A system is distributed whenever interaction crosses a boundary where observation, ordering, visibility, failure, authority, or commitment is nontrivial.
 
 For the network-specific realization ladder from physical signaling through link, network, transport, and application protocols, see [[Network|network]].
 
@@ -85,9 +85,17 @@ Modes describe the edge shape. They do not determine the semantic role of the va
 
 A request may be interpreted as a [[Command|command]] when the receiver treats it as intent to cause a state transition. It may be interpreted as a [[Query|query]] when the receiver treats it as a request to observe or compute a value with no semantic state transition requested. It may also be a subscription request, negotiation, acknowledgment, policy decision, observation, or event notification.
 
-At the emitting boundary, initiating such an interaction may be modeled as a [[Effects|request effect]]: the emitter produces an endogenous output event and establishes a continuation that expects a later response. At the receiving boundary, the carried event is an exogenous input event and becomes a command, query, or another semantic role only through the receiver's interpretation. The response is a later effect and event at another boundary; it need not be synchronous or travel over the same channel.
+At the emitting boundary, initiating such an interaction may be modeled as a request [[Effect|effect]]: the emitter establishes a typed terminal-response or terminal-failure obligation and a continuation that consumes it. The request is a distinct emission role rather than an event subtype. At the receiving boundary, its payload or arrival may become an exogenous event and is interpreted as a command, query, negotiation, subscription, or another semantic role. The response is a later reply or terminal result at another boundary; it need not be synchronous or travel over the same channel.
 
-A request effect differs from one-way publication by intent and continuation rather than necessarily by publication mechanics. Both may use an outbox, queue, broker, log, mailbox, or network call. A delivery acknowledgment is not automatically the requested response: it may establish only admission, persistence, publication, or responsibility transfer.
+A request differs from one-way publication by response obligation and continuation rather than necessarily by publication mechanics. Both may use an outbox, queue, broker, log, mailbox, or network call. A delivery acknowledgment is not automatically the requested response: it may establish only admission, persistence, publication, or responsibility transfer.
+
+### Implicit Request Protocols
+
+An **implicit request protocol** occurs when a publication is presented as an event even though the emitter's continuation depends on a responsible receiver eventually producing a correlated terminal result. The transport may be asynchronous, but the emission has the semantic role of a request [[Effect|effect]], not a domain-event emission.
+
+This case is stronger than merely expecting some receiver to act. An event-styled one-way action obligation is a command or signal disguised as event publication. When the emitter requires a correlated terminal response or terminal failure in order to continue, the interaction is asynchronous request/reply and should declare its request identity, reply path or result-observation rule, correlation, timeout, and failure meanings explicitly.
+
+Martin Fowler describes the broader modeling failure as using an event as a "passive-aggressive command." Cohesive uses **implicit request protocol** for the narrower case with a response obligation and treats the informal label only as external provenance.
 
 Operational state can still change during a [[Query|query]]: caches may fill, metrics may record, cursors may advance, locks may be acquired, and acknowledgments may be emitted. The distinction is that the modeled semantic entity transition is not being requested.
 
@@ -166,5 +174,11 @@ An interaction edge can be classified by:
 - Realization layer: memory, runtime, IPC, [[Network|network]], broker, database, workflow engine.
 
 Interaction does not by itself define whether a domain transition committed. That depends on the receiver's observer-relative interpretation, validation, persistence, and delivery semantics.
+
+## External References
+
+- Gregor Hohpe and Bobby Woolf, [Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html), *Enterprise Integration Patterns*, 2003.
+- AsyncAPI Initiative, [Adding Reply Info](https://www.asyncapi.com/docs/concepts/asyncapi-document/reply-info).
+- Martin Fowler, [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html), 2017.
 
 Related concepts: [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Relation Models|relation models]], [[Flow Views|flow views]], [[Projection Models|projection models]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].

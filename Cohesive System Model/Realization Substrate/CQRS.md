@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: pattern
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-27
 ---
 
 # CQRS
@@ -12,7 +12,8 @@ CQRS, command query Responsibility Segregation, is a realization pattern that se
 In the Cohesive System Model, CQRS can be understood as a separation of [[Persistence|persistence]] and [[Reconstitution|reconstitution]]:
 
 - The command side interprets input as [[Command|commands]] relative to an [[Observer|observer]], [[Boundaries|boundary]], current entity state, invariants, policies, authority, and expected version.
-- Accepted transitions commit authoritative state changes, often as current-state records, [[Event Sourcing|event-sourced]] committed events, or transactional writes.
+- Transition evaluation produces a typed decision with a sparse patch, outcome, emissions, and guarantee demands; it does not itself commit state.
+- Accepted transition decisions commit authoritative state changes, often as current-state records, [[Event Sourcing|event-sourced]] persistence events, or transactional writes.
 - The query side interprets input as [[Query|queries]] and reconstitutes read-oriented [[Observation|observations]] through projections, indexes, materialized views, caches, or derived state.
 
 CQRS does not require event sourcing. Event sourcing is one possible write-side persistence strategy. CQRS can also use current-state records, relational tables, documents, actor state, workflow state, or other persistence mechanisms.
@@ -38,12 +39,14 @@ CQRS often updates read models asynchronously from the write side. That creates 
 
 The consistency question is therefore boundary-relative. A command boundary may be strongly consistent while a query boundary is eventually consistent. A projection may be current for one entity and stale for another. A UI, API, process, or downstream observer must know which boundary its observation comes from and what freshness guarantee applies.
 
+Command-side interpretation may use a finite sparse observation rather than fully materialized entity state. Unobserved, absent, null, unknown, failed, and concrete paths must remain distinct. Every observation that influenced the decision must retain the required freshness or consistency through the commit boundary.
+
 ## Relationship to Event Sourcing
 
 Event sourcing and CQRS are often combined but remain distinct.
 
 ```txt
-command -> transition -> committed event history
+command -> transition decision -> committed state or persistence-event history
                          -> projections/read models
                          -> queries
 ```
@@ -56,4 +59,4 @@ In this combined pattern, event sourcing supplies the committed event history, w
 - Greg Young, [CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf), 2010. See also the [CQRS Documents page](https://cqrs.wordpress.com/documents/).
 - Microsoft Azure Architecture Center, [CQRS pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs).
 
-Related concepts: [[Command|command]], [[Query|query]], [[Transition|transition]], [[Observer|observer]], [[Entity|entity]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Observation|observation]], [[Event Sourcing|event sourcing]], [[Concurrency Control|concurrency control]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].
+Related concepts: [[Command|command]], [[Query|query]], [[Transition|transition]], [[Transition Models|transition models]], [[Observer|observer]], [[Entity|entity]], [[State|state]], [[Effect|effect]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Observation|observation]], [[Event Sourcing|event sourcing]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].

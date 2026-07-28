@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-07-18
+updated: 2026-07-27
 ---
 
 # Cohesive System Model
@@ -23,12 +23,12 @@ See [[System Language and Realization|system language and realization]] for the 
 
 Domains can be described as cohesive system graphs composed from semantic constructs and arranged as:
 
-- [[Entity Models|Entity models]] with stable [[Identity|identities]]
+- [[Entity Models|Entity models]] with stable [[Identity|identities]] and [[Transition Models|transition models]]
 - [[Relation Models|Relation models]] over semantic [[Relation|relations]]
 - [[State|States]], [[Value|values]], [[Transition|transitions]], and [[Event|events]]
 - [[Observer Models|Observer models]] for active participants
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
-- [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and effects over time
+- [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and [[Effect|effects]] over time
 
 Cohesive operationalizes these primitives by assigning [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control semantics, then realizes them through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
@@ -41,6 +41,7 @@ Base terms that recur across realms are collected in the [[Glossary|glossary]].
 Describe modeling disciplines used across the system model.
 
 - [[System Language and Realization]]
+- [[Execution Kernel]]
 - [[Categorical Principles]]
 - [[Programming Paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]]
 - [[Process Theories]]
@@ -62,7 +63,7 @@ Describe modeling disciplines used across the system model.
 
 ### 1. Domain Semantics
 
-Defines the meaning-bearing constructs used to describe domain state, events,
+Defines the meaning-bearing constructs used to describe domain state, events, effects,
 values, observation, identity, behavior, processes, and transitions before
 assigning operational guarantees or realization mechanisms.
 
@@ -72,6 +73,7 @@ assigning operational guarantees or realization mechanisms.
 - [[Observable]]  
 - [[Observation]]  
 - [[Event]]  
+- [[Effect]]
 - [[Behavior]]  
 - [[Process]]
 - [[Observer]]  
@@ -120,6 +122,7 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 
 - [[System Graph]]
 - [[Entity Models]]
+- [[Transition Models]]
 - [[Observer Models]]
 - [[Relation Models]]
 - [[Projection Models]]
@@ -174,6 +177,8 @@ State is not the same thing as the [[Value|value]] used to read, write, transmit
 
 State does not inherently carry [[Identity|identity]], [[Version|version]], or lineage. For an [[Entity|entity]], entity state is state attributed to an [[Identity|identity]] at a [[Version|version]].
 
+Entity business state, process coordination state, projection state, and execution material have different authorities even when stored together. A sparse observation must distinguish an unobserved path from absent, null, unknown, failed, and concrete values; a sparse patch becomes authoritative state only when committed.
+
 In [[Event-State Duality|event-state duality]]:
 - [[Event|Events]] carry time and change information.  
 - States carry information and become current at a specific version/time.
@@ -226,7 +231,9 @@ An [[Event|event]] is a time-bearing occurrence carrying a [[Value|value]]. It m
 
 Structurally, an event is a value with occurrence. Semantically, an event may be exogenous, input, command-bearing, query-bearing, endogenous, or output depending on the observer [[Boundaries|boundary]].
 
-An event answers what occurred. A [[Command|command]] answers how a receiving observer interpreted an input event. An [[Effects|effect]] answers what modeled consequence or obligation an action established. A request effect is an emitter-side effect that produces an output event and establishes a continuation expecting a later response; it becomes a command or query only through the receiver's interpretation.
+An event answers what occurred. A [[Command|command]] answers how a receiving observer interpreted an input event. An [[Effect|effect]] answers what modeled consequence or obligation a decision established. Domain events, requests, signals, and replies are distinct emission roles: a request creates an emitter-side response obligation, while an event does not.
+
+Persistence events record reconstruction, audit, or storage mechanics. They are domain events only when the domain independently assigns them that meaning.
 
 ### Behavior
 
@@ -239,6 +246,8 @@ A [[Process|process]] is coherent work unfolding over time. It gives semantic un
 A process is not defined by a workflow engine, scheduler, thread, transaction manager, application host, or broker. Those mechanisms may realize a process, execute one activation of it, or host one step of it. The semantic process is defined by its subject or correlation identity, participants, inputs, decisions, state or history, effects, completion meanings, and flows of movement between participants.
 
 Processes compose when the outputs of one process become future inputs to another. Compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
+
+An executable long-lived process advances through finite activations separated by quiescence or explicit durable cuts. It owns coordination state such as active tokens, waits, correlations, interaction results, compensation progress, and terminal outcome; it does not own a copied authoritative version of aggregate business state.
 
 ### Observer
 
@@ -272,15 +281,36 @@ An entity is defined by:
 - A **current state** at any point in time, attributed to identity + version
 - **[[Transition|Transitions]]** that define how its state may change
 - **[[Invariant|Invariants]]** and **[[Policy|policies]]** that constrain valid changes
-- **[[Effects]]**, including endogenous events produced by accepted transitions and publication or request obligations established from them
+- **[[Effect|Effects]]**, including transition effects, endogenous events, and publication, request, signal, or reply obligations established by accepted transitions
 
 An entity is therefore state + identity + version history + transitions + invariants + policies + effects.
 
 Entity state is a specialized observation: a shaped [[Value|value]] attributed to an entity identity at a version. It may be complete or partial only relative to a declared [[Shape|shape]], projection, transition, or [[Boundaries|boundary]]. Related entities, policies, projections, and environmental facts that affect a transition belong to the transition context, not automatically to the entity's own state.
 
+An aggregate authority boundary may span several physical records, while independently authoritative entities require process coordination. Evaluating a transition produces a decision; only a successful commit establishes the transition effect and authoritative new state.
+
 Identity is what allows a sequence of state observations to be understood as successive versions of *the same thing*.
 
 An entity is not automatically an observer, but it may be modeled or realized as one when it interprets inputs relative to its own state and boundary. Correct entity transitions require the interpreting observer to remain aligned with the realization context that commits the transition: actor hosting can provide this through serialized message handling, while stateless request handlers usually require expected-version checks.
+
+### Transition
+
+A [[Transition|transition]] is a deterministic semantic decision relation over one subject or aggregate boundary. It consumes typed input and finite explicit observations and produces a typed outcome, sparse patch, emissions, movements, trace, and guarantee demands.
+
+```txt
+transition definition + input + observations
+  -> transition decision
+  -> capability-checked commit
+  -> authoritative state effect and durable obligations
+```
+
+The decision does not commit state. Portable transition structure is finite and acyclic and contains no hidden I/O, waits, retries, service lookup, or arbitrary callbacks. [[Transition Models|Transition models]] arrange this structure in the system graph, and concrete interpreters and storage mechanisms realize it.
+
+### Effect
+
+An [[Effect|effect]] is a modeled consequence or obligation established by a semantic decision. Effect declaration, accepted responsibility, local commit, physical attempt, acknowledgment or result, and downstream interpretation are distinct boundaries.
+
+A domain-event emission creates no response obligation. A request creates a typed terminal-response or terminal-failure obligation. A signal is addressed one-way input, and a reply discharges one admitted request. Effect handlers are impure realization adapters; they do not become semantic authority or mutate authoritative entity state directly.
 
 ### Command
 
@@ -293,7 +323,7 @@ Endogenous output event at an emitter boundary
   -> exogenous input event at an interpreting observer boundary
   -> attempted transition, relative to the observer and target subject
   -> validation against current entity state + required observations + invariants + policies + authority + expected version
-  -> accepted transition | nil outcome | rejection
+  -> typed applied, no-change, alternate, conflict, or rejection outcome
 ```
 
 Commands are not mere messages. They are interpretations made relative to:
@@ -359,9 +389,9 @@ Relative to an **observer’s [[Boundaries|boundary]]**:
 - **Query**: The receiving observer's interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
 - **Endogenous event**: An event that occurs or is accepted within the observer’s own semantic history.
 - **Output event**: An endogenous event emitted across a [[Boundaries|boundary]].
-- **Nil outcome**: The observer interpreted the input but no domain transition event was committed for the target entity. Nil is not an event.
+- **Applied no-change outcome**: The input was admitted but the accepted decision changed no entity value. The outcome is not an event.
 
-Some systems may still record audit, telemetry, or diagnostic events when interpretation yields nil or rejection. Those records are operational traces or events for another subject, not a committed domain transition for the target entity.
+Some systems may still record audit, telemetry, or diagnostic events when interpretation yields no change or rejection. Those records are operational traces or events for another subject, not a committed domain transition for the target entity.
 
 Interpretation flow:
 
@@ -370,10 +400,10 @@ Exogenous event
   -> input event
   -> command | query (observer-relative)
   -> validation or observation selection
-  -> endogenous event | observation | value | nil
+  -> typed transition outcome | observation | value | nil query result
 ```
 
-Examples of `nil` include duplicate input whose domain effect was already committed, a valid no-op against current state, and telemetry-only or correlation-only input. Failed validation, failed authority, and expected-version conflict are rejections rather than nil outcomes.
+Examples of explicit no-change or alternate transition outcomes include duplicate input whose domain effect was already committed, a valid no-op against current state, and telemetry-only or correlation-only input. Failed validation and failed authority are rejections; an expected-version mismatch is a concurrency conflict.
 
 One observer’s endogenous event may become another observer’s exogenous event.
 
@@ -381,10 +411,7 @@ One observer’s endogenous event may become another observer’s exogenous even
 
 A command may carry an optional **expected version / etag** based on the emitter's observation of entity state when it formed the request. The receiving observer interprets and validates that claim.
 
-The entity transition runtime, aligned with the interpreting observer, performs:
-- Validation against current entity state + required observations + invariants + policies
-- [[Concurrency Control|Expected version check]] (if provided)
-- Decision: accept and commit an endogenous transition event → new state version, produce a nil outcome → version unchanged, or reject → version unchanged
+The entity transition interpreter, aligned with the interpreting observer, evaluates the definition against current entity state, required observations, invariants, policies, authority, and expected version. It produces a typed transition decision. A storage or runtime realization then validates the commit demands and either commits the patch and local obligations, reports a concurrency conflict, or reports another explicit failure.
 
 ## Operational Concerns
 

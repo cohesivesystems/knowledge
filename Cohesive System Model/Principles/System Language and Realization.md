@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-07-04
-updated: 2026-07-15
+updated: 2026-07-27
 status: draft
 aliases:
   - cohesive vision
@@ -54,6 +54,24 @@ A realization compiler should make these correspondences explicit:
 - Which information is intentionally forgotten, delayed, approximated, quotiented, or made commutative.
 - Which guarantees are local to one substrate boundary and which compose across the whole system.
 
+## Canonical Execution Definitions
+
+Compiler-like realization may use a persisted, versioned canonical execution definition as the intermediate authority between authoring and interpretation. [[Transition Models|Transition models]] and [[Process Graphs|process graphs]] are especially suited to this form because their branches, observations, outcomes, patches, emissions, waits, joins, recovery policy, and guarantee demands must remain stable across several interpreters and long-lived executions.
+
+```txt
+authoring or import
+  -> canonical system-graph definition
+  -> validation and requirement extraction
+  -> reference or concrete interpretation
+  -> commit, continuation, effects, and observations
+```
+
+This intermediate authority does not collapse domain semantics into serialization. The semantic entity, transition, process, state, event, and effect remain defined by the conceptual graph. The canonical definition is the selected portable structure that makes their executable relationships inspectable, comparable, and attributable.
+
+Host-language control flow, generated code, runtime registrations, checkpoints, storage schemas, backend plans, and deployment artifacts are derived artifacts or interpretations. When one conflicts with its canonical definition, the definition remains authoritative unless an explicit accepted semantic change creates a new revision.
+
+[[Execution Kernel|An execution kernel]] supplies the shared identity, versioning, portable-value, validation, interpretation, requirement, trace, and conformance contracts for this boundary without requiring one monolithic runtime or package.
+
 Examples:
 
 - A process graph may lower into a workflow engine, a database-backed process manager, an actor, an event-sourced coordinator, a queue consumer, or a set of cooperating observer models.
@@ -95,4 +113,4 @@ The public graph should still be strong enough to support private system graph a
 - Treat multiple realizations as normal, not as ambiguity to erase.
 - Treat working systems as the validation target for the language.
 
-Related concepts: [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Realization|realization]], [[System Graph|system graph]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects|effects]].
+Related concepts: [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|effect]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects]].

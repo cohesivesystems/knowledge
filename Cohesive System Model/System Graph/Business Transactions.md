@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-07-27
 ---
 
 # Business Transactions
@@ -24,21 +24,26 @@ Examples include:
 
 ## Composition
 
-Business transactions are examples of [[Compositionality|compositionality]]. They are implemented by composing lower-level semantic, operational, and realization layers:
+Business transactions can be expressed in [[Compositionality|compositional terms]]. They are implemented by composing lower-level semantic, operational, and realization layers:
 
-```txt
-business transaction
-  -> process graph and flow views
-  -> commands, queries, events, observations, transitions
-  -> application-level interaction protocols
-     (request/reply, publish/consume, durable execution, event-sourced commit)
-  -> operational concerns
-     (persistence, delivery, ordering, retry, idempotency, recovery, coordination)
-  -> realization substrate
-     (RPC, brokers, workflow engines, event stores, databases)
-  -> transport, network, and link protocols
-     (TCP, UDP, IP, Ethernet)
-  -> physical or electrical protocols
+```mermaid
+flowchart TD
+  business["business transaction"]
+  process["process graph and flow views"]
+  semantics["commands, queries, events,<br/>observations, transitions"]
+  interaction["application-level interaction protocols<br/>request/reply, publish/consume,<br/>durable execution, event-sourced commit"]
+  concerns["operational concerns<br/>persistence, delivery, ordering, retry,<br/>idempotency, recovery, coordination"]
+  substrate["realization substrate<br/>RPC, brokers, workflow engines,<br/>event stores, databases"]
+  transport["transport, network, and link protocols<br/>TCP, UDP, IP, Ethernet"]
+  physical["physical or electrical protocols"]
+
+  business --> process
+  process --> semantics
+  semantics --> interaction
+  interaction --> concerns
+  concerns --> substrate
+  substrate --> transport
+  transport --> physical
 ```
 
 Each layer contributes local guarantees. The business transaction is correct only when those guarantees compose into the intended domain semantics. For example, an RPC response, a broker acknowledgment, a workflow checkpoint, and an event-store append may each be successful at their own boundary while still meaning different things for the business transaction.

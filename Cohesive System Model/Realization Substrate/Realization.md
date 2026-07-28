@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-07-27
 ---
 
 # Realization
@@ -30,12 +30,28 @@ Examples include:
 
 - An [[Observer|observer]] realized by an OS thread, logical task, fiber, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler.
 - An [[Entity|entity]] realized by an actor-hosted aggregate, database record plus optimistic concurrency, event stream plus reconstitution, workflow subject, or storage document.
-- A [[Transition|transition]] realized by a serialized actor turn, database transaction with expected-version check, compare-and-swap operation, workflow decision, or command handler plus durable commit.
+- A [[Transition Models|transition model]] interpreted to produce a decision, with its accepted patch and local obligations committed by a serialized actor turn, database transaction with expected-version check, compare-and-swap operation, event-stream append, or another capability-compatible mechanism.
 - A [[Boundaries|boundary]] realized by a transaction, actor identity, process, broker partition, service API, deployment unit, or persistence scope.
 - [[Persistence]] realized by records, logs, event streams, snapshots, workflow histories, [[Outbox|outbox]] records, [[Transactional Inbox|inbox]] records, or projection-model state.
 - [[Durability]] realized by storage durability, write-ahead logging, replication, broker retention, workflow histories, stable timers, durable queues, backups, or consensus-backed logs.
 - [[Behavior]] realized by an event schedule plus fold and interpolation, a workflow history, sampled state history, or live stream processor.
 - [[Durable Execution]] realized by a durable execution engine, workflow engine, durable task runtime, database-backed process manager, or actor runtime with persisted state and reminders.
+
+## Canonical Definitions and Interpreters
+
+[[Execution Kernel|Canonical execution definitions]] can serve as the stable authority between authoring and realization. Host-language syntax, source generators, importers, and editors produce definitions. Validators and compilers derive requirements and candidate plans. Reference or concrete interpreters execute the definitions. Storage systems, runtimes, workflow engines, actor systems, brokers, and adapters realize their commit, continuation, interaction, and recovery demands.
+
+```txt
+canonical definition
+  -> semantic decision or finite activation
+  -> structural requirements and guarantee demands
+  -> capability evidence and realization judgment
+  -> commit, continuation, effects, and observations
+```
+
+The canonical definition is not identical to the semantic entity, process, state, event, or effect. It is the portable system-graph structure selected to make those meanings executable and independently interpretable. A checkpoint, generated handler, backend plan, or runtime registration remains derived material and must not become a parallel source of semantic authority.
+
+A realization judgment should state whether a requirement is native, composed from several mechanisms, available only under constraints, accepted through an explicit authorized override, unavailable, or unknown. A realization may select a stronger semantically equivalent mechanism. It must not silently weaken a requirement or substitute compensation, retry, best effort, or name-based compatibility for stronger authored semantics.
 
 ## Multiplicity
 
@@ -75,6 +91,8 @@ For example, if an actor realizes an entity observer, then routing, ordering, pe
 
 A coherent architecture selects realizations that preserve the intended correspondence between domain semantics, system graph, operational concerns, and substrate behavior.
 
+Conformance compares normalized semantic evidence rather than accidental runtime details. Stable definition, node, branch, instance, attempt, activation, token, emission, correlation, causation, outcome, and commit meanings should agree across interpreters even when worker identities, timestamps, storage layouts, or informational diagnostics differ.
+
 ## Categorical Discipline
 
 When one coherent implementation has been selected, realization can be viewed through [[Functoriality|functoriality]]: a functor from a semantic or system model category into a substrate model category. This is useful as a discipline because realization should preserve the relationships that matter, not merely map names to implementation artifacts.
@@ -93,4 +111,4 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[Infrastructure Graph|infrastructure graph]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effect|effect]], [[Effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].

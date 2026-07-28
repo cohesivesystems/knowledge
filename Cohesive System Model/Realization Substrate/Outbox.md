@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: pattern
 created: 2026-06-29
-updated: 2026-07-05
+updated: 2026-07-27
 aliases:
   - Outbox Pattern
 ---
@@ -12,6 +12,8 @@ aliases:
 An outbox is a realization pattern that stores an outbound effect obligation in durable persistence, usually in the same local commit boundary as the state change that created the obligation.
 
 The outbox record is not the downstream effect itself. It is durable operational material that says the local boundary accepted responsibility to publish, notify, project, call, or otherwise drive follow-up work.
+
+The obligation should preserve stable semantic identity and enough contract information to interpret it independently of one dispatcher implementation. Depending on the [[Effect|effect]] role, that includes emission and contract identity, payload revision, origin definition and node, entity or process subject, correlation, causation, tenant or authority scope, idempotency basis, ordering scope, durability and visibility demands, response obligation, and provenance.
 
 ```mermaid
 flowchart LR
@@ -46,6 +48,8 @@ An outbox may be realized by:
 
 The relay, dispatcher, projector, or publisher reads the durable obligation and attempts the external effect. It then records enough progress for retry, deduplication, ordering, or recovery.
 
+For a request, an outbox record is only part of the durable interaction state. An operation ledger may also need claim or lease state, physical attempt identities, acknowledgments, typed results, ambiguous outcomes, retry budget, cancellation, late or stale result disposition, reconciliation, and the continuation or wait that consumes the terminal result. Physical retries reuse the stable semantic request identity while receiving distinct operation-attempt identities.
+
 ## Guarantees
 
 Outbox guarantees are scoped:
@@ -55,6 +59,7 @@ Outbox guarantees are scoped:
 - Downstream processing is not guaranteed by the outbox alone.
 - Fanout is not guaranteed by the outbox alone. When multiple independent consumers need the effect, the relay usually publishes once to a fanout-capable [[Brokers|broker]] or stream, and that substrate owns subscriber fanout and delivery semantics.
 - Duplicate publication is common under retry and recovery, so consumers usually need [[Idempotency|idempotency]], deduplication, or a [[Transactional Inbox|transactional inbox]].
+- A stable logical identity can provide exactly-once logical consequences only with sufficient claim, acknowledgment, deduplication, concurrency, and reconciliation evidence. It does not prove physical exactly-once external execution.
 
 Outbox therefore replaces unsafe dual writes with local atomicity plus asynchronous responsibility. It does not turn asynchronous interaction into distributed atomic commit.
 
@@ -68,7 +73,7 @@ When the workflow is mostly a sequence of long-running activities, timers, exter
 
 ## Relationship to Event Sourcing
 
-[[Event Sourcing]] can act like an atomic unification of persistence and coordination when committed endogenous events are both:
+[[Event Sourcing]] can act like an atomic unification of persistence and coordination when committed persistence events are both:
 
 - The authoritative durable history used to reconstitute entity state.
 - The durable source from which projections, [[Process Managers|process managers]], subscribers, or outbound publications are driven.
@@ -77,4 +82,4 @@ In that arrangement, the system does not separately write state and then separat
 
 This unification is required when consistency depends on downstream work being causally tied to accepted state transitions. If a system commits an event-sourced transition and then publishes a separate broker message through an independent write with no recovery link, the [[Dual-Write Problem|dual-write problem]] returns. A separate outbox record can still be used, but it must be committed atomically with the event append or derived reliably from the committed event history.
 
-Related concepts: [[Transactional Outbox|transactional outbox]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[CQRS]], [[Brokers|brokers]], [[Storage Systems|storage systems]], [[Realization|realization]].
+Related concepts: [[Transactional Outbox|transactional outbox]], [[Effect|effect]], [[Effects]], [[Execution Kernel|execution kernel]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[CQRS]], [[Brokers|brokers]], [[Storage Systems|storage systems]], [[Realization|realization]].

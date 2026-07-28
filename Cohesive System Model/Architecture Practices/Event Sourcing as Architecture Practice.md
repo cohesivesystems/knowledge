@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-17
+updated: 2026-07-27
 ---
 
 # Event Sourcing as Architecture Practice
@@ -20,7 +20,7 @@ The practice realizes [[Persistence|persistence]] as a durable sequence of commi
 The important distinction is:
 
 ```txt
-attempted input != committed endogenous event
+attempted input != committed persistence event
 ```
 
 Only committed events are state actions for the target entity. That is why event sourcing is also a consistency practice: the event history is the authoritative history of valid state transitions.

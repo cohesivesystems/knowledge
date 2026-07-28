@@ -2,7 +2,7 @@
 realm: Principles
 kind: glossary
 created: 2026-07-04
-updated: 2026-07-15
+updated: 2026-07-27
 status: draft
 aliases:
   - base vocabulary
@@ -19,6 +19,12 @@ Promoted concepts:
 - [[Happened-Before|happened-before]]
 - [[Consistent Cuts|consistent cuts]]
 - [[Linearization Points|linearization points]]
+- [[Effect|effect]]
+- [[Execution Kernel|execution kernel]]
+
+## implicit request protocol
+
+An implicit request protocol occurs when a publication is presented as an event even though the emitter's continuation depends on a responsible receiver eventually producing a correlated terminal result. The transport may be asynchronous, but the emission is a request [[Effect|effect]] with a reply or terminal-failure obligation rather than a domain-event emission. See [[Interaction|interaction]].
 
 ## partial order
 
@@ -36,4 +42,4 @@ Real-time order is the external order in which non-overlapping operations occur:
 
 A total order compares every pair of positions in an ordering space. Total orders are useful for logs, replay, consensus decisions, and serial explanations, but they may impose artificial before/after relations on work that was concurrent in the domain.
 
-Related concepts: [[Authority|authority]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Ordering|ordering]], [[Time|time]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]], [[Observation|observation]], [[Event|event]], [[Version|version]], [[Observer|observer]], [[Boundaries|boundaries]].
+Related concepts: [[Authority|authority]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Effect|effect]], [[Execution Kernel|execution kernel]], [[Interaction|interaction]], [[Ordering|ordering]], [[Time|time]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]], [[Observation|observation]], [[Event|event]], [[Version|version]], [[Observer|observer]], [[Boundaries|boundaries]].

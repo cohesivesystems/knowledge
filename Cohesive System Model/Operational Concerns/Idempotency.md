@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-18
+updated: 2026-07-27
 ---
 
 # Idempotency
@@ -22,7 +22,7 @@ Idempotency may be based on:
 - Receiver-side effect tracking.
 - [[Transactional Inbox|Transactional inbox]] records.
 
-In the model, duplicate input may produce a nil outcome for the target [[Entity|entity]]: the observer saw and interpreted the input, but no new domain transition event was committed. Nil is the absence of a new event, not a kind of event.
+In the model, duplicate input may produce an applied no-change or prior-result outcome for the target [[Entity|entity]]: the observer saw and interpreted the input, but no new domain transition effect was committed. The typed outcome is not an event.
 
 Idempotency is scoped to a semantic input and an effect boundary. An HTTP retry, broker redelivery, workflow replay, and outbox republication may each need a different idempotency key or deduplication record.
 

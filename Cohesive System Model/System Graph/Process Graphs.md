@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-07-27
 aliases:
   - Processes
   - Process Structure
@@ -21,6 +21,17 @@ Process graphs may include process state and may coordinate several participants
 
 A process may be modeled as a special kind of [[Entity|entity]] and [[Observer|observer]] when it has its own identity, durable state or history, and rules for interpreting incoming events, signals, or commands over time.
 
+A process graph should distinguish its definition from execution material:
+
+- The **process definition** gives stable typed nodes, edges, ports, branches, regions, outcomes, recovery policy, and semantic revision.
+- A **process instance** is one durable logical journey through the definition.
+- A **process attempt** is one recovery or continuity epoch within the instance.
+- An **activation** is one finite execution slice.
+- A **token** represents one active control-flow branch.
+- Continuation state, checkpoints, inboxes, outboxes, and operation ledgers persist enough material to resume or recover execution.
+
+A display name or source position is not sufficient compatibility evidence for long-lived process state. A persisted continuation must identify the exact definition identity, semantic revision, and normalized content it interprets, unless an explicit migration establishes another correspondence.
+
 [[Process Theories|Process theories]] give the guiding language for process graphs. They distinguish the semantic process from its coordination shape, operational guarantees, and realization substrate while preserving how processes compose, interact, recover, and feed back over time.
 
 Process graphs have [[Flow Views|flow views]]. A flow view describes how process inputs, outputs, signals, observations, commands, events, effects, or artifacts move between participants. Flow is therefore a useful view of process movement, but it is not the whole process graph. The graph also includes subject identity, participant roles, state, decisions, policies, transitions, recovery, compensation, and completion meanings.
@@ -33,9 +44,17 @@ Process graph concerns include:
 - Participant observers and entities.
 - Current process state.
 - Steps, decisions, and transitions.
+- Stable typed branch, fork, join, wait, timer, recurrence, and terminal-outcome structure.
 - Inputs, outputs, effects, artifacts, and movement paths.
+- Explicit durable cuts at which one finite activation may yield and later continue.
 - Compensation or recovery behavior.
 - Delivery and retry expectations.
+
+Process graphs own coordination state: active branches, waits, correlation, interaction results, replies, compensation progress, recovery progress, and terminal outcomes. They do not own duplicated aggregate business state. Entity observations and [[Transition Models|transition models]] remain governed by their own entity and authority boundaries.
+
+Free graph cycles and arbitrary recursion hide progress and recovery obligations. Long-lived or recurrent processes should use explicit recurrence, feedback, polling, timers, signals, or scheduled reactivation with declared progress, cancellation, durable-cut, deadline, and failure meanings.
+
+Forks and joins should identify stable branches, join mode, failure and cancellation behavior, and whether completion order is semantically observable. Durable waits should define registration, buffering, identity, admission, claim, consumption, arbitration, timeout, late-input, stale-input, and retention meanings before a realization chooses a workflow engine, database, broker, or actor mechanism.
 
 Examples include:
 
@@ -50,4 +69,4 @@ Examples include:
 
 Process graphs compose when outputs of one process feed another process as observations, commands, events, artifacts, or decisions. Such compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
 
-Related concepts: [[Process Theories|process theories]], [[Process|process]], [[Business Transactions|business transactions]], [[Flow Views|flow views]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer Models|observer models]], [[Entity Models|entity models]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Command|command]], [[State|state]], [[Recovery|recovery]], [[Policy Scopes|policy scopes]], [[Invariant Scopes|invariant scopes]].
+Related concepts: [[Process Theories|process theories]], [[Process|process]], [[Execution Kernel|execution kernel]], [[Business Transactions|business transactions]], [[Flow Views|flow views]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer Models|observer models]], [[Entity Models|entity models]], [[Transition Models|transition models]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[State|state]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Policy Scopes|policy scopes]], [[Invariant Scopes|invariant scopes]].

@@ -2,33 +2,35 @@
 realm: Realization Substrate
 kind: pattern
 created: 2026-06-24
-updated: 2026-07-18
+updated: 2026-07-27
 ---
 
 # Event Sourcing
 
-Event sourcing is a realization pattern in which an entity's durable history is represented by committed [[Event|events]] rather than only by current-state records.
+Event sourcing is a realization pattern in which an entity's durable history is represented by committed persistence [[Event|events]] rather than only by current-state records.
 
-In the Cohesive System Model, event-sourced events are not merely time-bearing values. They are committed endogenous events: events accepted within an [[Observer|observer]] boundary as the result of a valid [[Transition|transition]]. Once committed, they can be treated as state actions:
+In the Cohesive System Model, event-sourced records are not merely received messages or uncommitted transition outputs. They are committed persistence events interpreted as state actions for an entity boundary:
 $$
 \mathrm{event}\colon\text{State}\to\text{State}
 $$
 Reconstitution then folds the committed event schedule from an initial state or snapshot to recover current entity state:
 ```mermaid
 flowchart LR
-    A["Initial State<br/>+<br/>Committed Endogenous Events"]
+    A["Initial State<br/>+<br/>Committed Persistence Events"]
     B["Current State"]
     A --> B
 ```
-The word committed is essential. Event sourcing is interested in committed events because they maintain consistency:
+The word committed is essential. Event sourcing is interested in committed persistence events because they maintain consistency:
 
-- Only committed events advance the entity [[Version|version]].
+- Only committed persistence events advance the entity [[Version|version]].
 - Rejected commands do not produce committed events for the target entity.
-- Nil outcomes add no domain transition event to the target entity's history.
+- Applied no-change, alternate, or prior-result outcomes add no persistence event unless the entity model explicitly defines one.
 - Expected-version checks, transactions, actor serialization, or compare-and-swap operations ensure that only valid successors enter the history.
 - Reconstitution, projections, audit, recovery, and downstream publication must be based on the committed history, not merely on attempted inputs.
 
-Exogenous events, messages, commands, retries, telemetry, and rejection records may be persisted elsewhere, but they are not automatically part of the entity's event-sourced state history. They become part of that history only if interpreted and committed as endogenous events for the entity boundary.
+Exogenous events, messages, commands, retries, telemetry, domain-event emissions, and rejection records may be persisted elsewhere, but they are not automatically part of the entity's event-sourced state history. They become state actions only if the entity model interprets and commits them as persistence events for that boundary.
+
+A persistence event may also be a domain event when it records a domain-relevant fact such as an accepted lifecycle change. The roles are not identical by definition. A storage-oriented reconstruction record can be a persistence event without being an event intended for domain publication, while a domain-event emission can be committed alongside entity state without serving as the state action used for reconstitution.
 
 Event sourcing therefore realizes several concepts together:
 
@@ -46,10 +48,10 @@ Event sourcing can also act as a coordination substrate when the committed event
 This gives an atomic unification of persistence and orchestration:
 ```mermaid
 flowchart LR
-events["committed endogenous event history"]
+events["committed persistence event history"]
 state["entity state"]
 projections["projections"]
-outputs["output events"]
+outputs["durable emission obligations"]
 
 events --> state
 events --> projections
@@ -57,7 +59,7 @@ events --> outputs
 
 ```
 
-The event append is the local commit that makes both state history and follow-up responsibility observable. Publication and downstream processing still have their own [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], retry, and idempotency requirements, but the trigger for that work is durably tied to the authoritative transition.
+The event append is the local commit for state history. It also makes follow-up responsibility durable only when an outbound obligation is part of the same commit or is reliably derived from the committed history. Publication and downstream processing still have their own [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], retry, and idempotency requirements.
 
 If an event-sourced system appends the event and separately writes an unrelated broker message with no recovery link, it reintroduces the [[Dual-Write Problem|dual-write problem]]. A separate [[Outbox|outbox]] may still be useful, but it must either be committed atomically with the event append or derived reliably from the committed event history.
 
@@ -101,7 +103,7 @@ This is not automatic geo-replication for every component. The guarantee depends
 One useful arrangement is a cross-region replication chain. The head accepts writes, replication carries committed events across data-center boundaries, and downstream consumers may attach to a middle or tail replica. A consumer of the tail can treat event visibility as evidence that the event has crossed the preceding replication boundary, but it also inherits the chain's latency, availability, data-loss, failover, and consistency tradeoffs.
 
 ## ARIES and Event Sourcing
-ARIES is relevant by analogy and contrast. In a database, the transaction log is often an internal [[Write-Ahead Logging|write-ahead]] recovery structure used for redo, undo, checkpoints, and crash recovery. In event-sourced systems, the event log is usually an addressable, first-class primitive of the application model: committed events define entity history, version succession, reconstitution, projection, audit, and sometimes publication. The logs therefore have different semantics. ARIES log records are recovery records for a storage engine. Event-sourced records are committed domain events for an entity boundary. Both make durable ordered history central to [[Persistence|persistence]], [[Reconstitution|reconstitution]], and [[Recovery|recovery]].
+ARIES is relevant by analogy and contrast. In a database, the transaction log is often an internal [[Write-Ahead Logging|write-ahead]] recovery structure used for redo, undo, checkpoints, and crash recovery. In event-sourced systems, the event log is usually an addressable, first-class primitive of the application model: committed persistence events define entity history, version succession, reconstitution, projection, audit, and sometimes publication. The logs therefore have different semantics. ARIES log records are internal recovery records for a storage engine. Event-sourced records are application-level persistence events for an entity boundary and may additionally carry domain-event meaning. Both make durable ordered history central to [[Persistence|persistence]], [[Reconstitution|reconstitution]], and [[Recovery|recovery]].
 
 ## External References
 
@@ -111,4 +113,4 @@ ARIES is relevant by analogy and contrast. In a database, the transaction log is
 - Leo Gorodinski, [Scaling Event-Sourcing at Jet](https://www.gorodinski.com/Scaling-event-sourcing-at-Jet-3188cf7881f9801fa107c32aaaace320), 2017.
 - C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992.
 
-Related concepts: [[Event|event]], [[State|state]], [[Transition|transition]], [[Entity|entity]], [[Version|version]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Write-Ahead Logging|write-ahead logging]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Concurrency Control|concurrency control]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Outbox|outbox]], [[Transactional Outbox|transactional outbox]], [[Dual-Write Problem|dual-write problem]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[CQRS]], [[Brokers|brokers]], [[Storage Systems|storage systems]], [[Projection Models|projection models]], [[Realization|realization]].
+Related concepts: [[Event|event]], [[Effect|effect]], [[State|state]], [[Transition|transition]], [[Transition Models|transition models]], [[Entity|entity]], [[Version|version]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Write-Ahead Logging|write-ahead logging]], [[Commit Boundaries|commit boundaries]], [[Effects]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Concurrency Control|concurrency control]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Outbox|outbox]], [[Transactional Outbox|transactional outbox]], [[Dual-Write Problem|dual-write problem]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[CQRS]], [[Brokers|brokers]], [[Storage Systems|storage systems]], [[Projection Models|projection models]], [[Realization|realization]].

@@ -2,14 +2,14 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-07-05
+updated: 2026-07-27
 ---
 
 # System Graph
 
 The system graph is the realm that composes domain semantics into the cohesive system graph of a modeled system.
 
-It asks how semantic roles are placed, composed, owned, related, scoped, and prepared for realization once they are part of a model of a whole system. It describes graph shape: which [[Entity Models|entity models]] exist, which [[Observer Models|observer models]] interpret which [[Boundaries|boundaries]], how [[Process Graphs|process graphs]] coordinate work, which [[Relation Models|relation models]] connect subjects, which [[Projection Models|projection models]] expose derived observations, which [[Policy Scopes|policy scopes]] and [[Invariant Scopes|invariant scopes]] constrain transitions, and where [[Effects|effects]] leave a boundary.
+It asks how semantic roles are placed, composed, owned, related, scoped, and prepared for realization once they are part of a model of a whole system. It describes graph shape: which [[Entity Models|entity models]] exist, how [[Transition Models|transition models]] govern their possible evolution, which [[Observer Models|observer models]] interpret which [[Boundaries|boundaries]], how [[Process Graphs|process graphs]] coordinate work, which [[Relation Models|relation models]] connect subjects, which [[Projection Models|projection models]] expose derived observations, which [[Policy Scopes|policy scopes]] and [[Invariant Scopes|invariant scopes]] constrain transitions, and where [[Effects|effects]] leave a boundary.
 
 This realm sits between primitive meaning and concrete implementation:
 
@@ -20,7 +20,7 @@ This realm sits between primitive meaning and concrete implementation:
 
 Use this realm to answer questions such as:
 
-- What are the system's entity models, observer models, process graphs, relation models, projection models, and boundaries?
+- What are the system's entity models, transition models, observer models, process graphs, relation models, projection models, and boundaries?
 - Which participant owns or interprets a piece of state, a transition, a policy, or an invariant?
 - How do observations, commands, events, effects, and artifacts move through flow views and business transactions?
 - Which relation models make the graph navigable, dependent, constrained, derived, or causally connected?
@@ -33,6 +33,7 @@ The system graph does not by itself choose a database, broker, scheduler, workfl
 Core system graph notes:
 
 - [[Entity Models|entity models]]
+- [[Transition Models|transition models]]
 - [[Observer Models|observer models]]
 - [[Relation Models|relation models]]
 - [[Projection Models|projection models]]
@@ -48,4 +49,4 @@ Secondary views and projections:
 
 - [[Flow Views|flow views]]
 
-Related concepts: [[Compositionality|compositionality]], [[Stuff Structure Property|stuff structure property]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Realization|realization]].
+Related concepts: [[Compositionality|compositionality]], [[Stuff Structure Property|stuff structure property]], [[Execution Kernel|execution kernel]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[State|state]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Realization|realization]].

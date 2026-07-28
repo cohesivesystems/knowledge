@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-28
-updated: 2026-07-04
+updated: 2026-07-27
 ---
 
 # Process
@@ -10,6 +10,8 @@ updated: 2026-07-04
 A process is coherent work unfolding over time.
 
 A process gives semantic unity to a related sequence of [[Observation|observations]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Transition|transitions]], decisions, effects, and participant activity. It is not defined by any particular runtime, workflow engine, scheduler, thread, transaction manager, or broker. Those belong to [[Realization|realization]].
+
+A process is required when declared behavior needs coordination across transitions, subjects, interactions, timelines, waits, or recovery boundaries. A transition may otherwise execute directly without being wrapped in an authored process.
 
 A process is characterized by:
 
@@ -25,7 +27,25 @@ A process is characterized by:
 
 The same semantic process may have several executions and several realizations. A long-running domain process may be advanced by many short [[Durable Execution|durable executions]]. A request operation may execute a short-lived process inside an application host. A database transaction may realize rollback semantics for a bounded sequence of database operations. An OS process, OS thread, fiber, workflow activation, actor turn, scheduler task, or HTTP request handler may realize part of a process without being identical to the semantic process.
 
+## Coordination State and Finite Activations
+
+An executable long-lived process may distinguish:
+
+- **process instance identity**: one durable logical journey.
+- **process attempt identity**: one recovery or continuity epoch within that journey.
+- **activation identity**: one finite execution slice.
+- **token identity**: one active control-flow branch.
+- **operation-attempt identity**: one physical retry attempt for a semantic operation.
+
+These identities are not interchangeable. Replay, operation retry, host recovery, restart of an attempt, pause and continue, cancellation, and definition migration preserve or replace different parts of this identity structure.
+
+One process activation must terminate, reach quiescence, or reach an explicit durable cut. A process may remain long-lived or recurrent through timers, signals, feedback, polling, or repeated finite activations. This does not require one live thread, unrestricted host-language loop, arbitrary recursion, or a hidden wait inside a callback.
+
+A process owns coordination facts such as active branches, waits, correlations, interaction results, replies, compensation progress, recovery state, and terminal outcome. It does not own duplicated aggregate business state. It references authoritative entity observations and invokes entity transitions at their own authority boundaries.
+
 Processes may be modeled as [[Entity|entities]] when they have identity, durable state, versioned history, or lifecycle transitions. Processes may be modeled as [[Observer|observers]] when they interpret inputs relative to their own state, history, policies, and boundary.
+
+Process identity or coordination state does not make every participant part of one atomic transaction. Atomicity, isolation, durability, response obligation, idempotency, recovery, compensation, and visibility are independent guarantee facets whose realizations must be established at explicit scopes. Unavailable atomicity must not be silently replaced with a saga; compensation and reconciliation are authored process semantics.
 
 Examples include:
 
@@ -52,4 +72,4 @@ Process composition requires attention to boundary, identity, ordering, idempote
 
 ## Related Concepts
 
-Related concepts: [[Process Theories|process theories]], [[Behavior|behavior]], [[Observer|observer]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Identity|identity]], [[State|state]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].
+Related concepts: [[Process Theories|process theories]], [[Behavior|behavior]], [[Observer|observer]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Effect|effect]], [[Identity|identity]], [[State|state]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].

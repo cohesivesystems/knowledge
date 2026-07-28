@@ -2,16 +2,18 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-07-27
 ---
 
 # Entity Models
 
 Entity models describe how the semantic [[Entity|entity]] role is arranged in the system graph.
 
-At the structure level, entity models organize placement, ownership, and composition around stable [[Identity|identities]], versioned state histories, transitions, [[Invariant|invariants]], [[Policy|policies]], and effects. This page describes structural use of the entity role, not the primitive definition of entity and not a specific runtime or storage implementation.
+At the structure level, entity models organize placement, ownership, and composition around stable [[Identity|identities]], versioned state histories, [[Transition Models|transition models]], [[Invariant|invariants]], [[Policy|policies]], and effects. This page describes structural use of the entity role, not the primitive definition of entity and not a specific runtime or storage implementation.
 
 An entity collection, aggregate, actor, record, workflow subject, or domain object may all occupy the entity role when the model treats it as an identifiable subject whose [[State|state]] evolves over time. Concrete mechanisms such as actor placement, database rows, documents, tables, or storage records belong to substrate concerns such as [[Actor Systems|actor systems]] and [[Storage Systems|storage systems]].
+
+An aggregate authority boundary may physically span multiple records or tables. Physical co-location does not merge independently authoritative entities, and physical separation does not necessarily split one entity. The entity model must state which state paths, invariants, transitions, and version rules form one authoritative boundary before a realization selects storage or hosting mechanisms.
 
 This structural concept may also be called an entity model: a model-specific arrangement of the semantic entity role.
 
@@ -36,8 +38,11 @@ Entity models provide structure for:
 
 - Addressing current and historical state.
 - Scoping transitions and invariant scopes.
+- Referencing stable transition definitions, revisions, observations, typed outcomes, and sparse patches.
 - Deciding which observer model, if any, hosts the entity transition boundary.
-- Emitting endogenous events.
+- Declaring transition effects and domain-event, request, signal, or reply emissions.
 - Relating observations across time as versions of the same subject.
 
-Related concepts: [[Entity|entity]], [[Observer Models|observer models]], [[Observer|observer]], [[State|state]], [[Identity|identity]], [[Version|version]], [[Transition|transition]], [[Query|query]], [[Invariant Scopes|invariant scopes]], [[Policy Scopes|policy scopes]], [[Boundaries|boundaries]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Realization|realization]], [[Concurrency Control|concurrency control]].
+Process coordination state, continuation tokens, wait registrations, operation ledgers, and projection state may refer to an entity model without becoming a second authoritative entity model. [[Process Graphs|Process graphs]] coordinate independently authoritative entity models by invoking their transitions rather than copying and mutating their business state.
+
+Related concepts: [[Entity|entity]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Observer Models|observer models]], [[Observer|observer]], [[State|state]], [[Identity|identity]], [[Version|version]], [[Transition|transition]], [[Effect|effect]], [[Query|query]], [[Invariant Scopes|invariant scopes]], [[Policy Scopes|policy scopes]], [[Boundaries|boundaries]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Realization|realization]], [[Concurrency Control|concurrency control]].

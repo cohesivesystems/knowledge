@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-15
+updated: 2026-07-27
 ---
 
 # Runtimes
@@ -23,4 +23,10 @@ This is where [[Synchrony and Asynchrony|blocking and non-blocking]] must be sep
 
 The same semantic model can be preserved across runtimes when observer, entity, event, command, state, and boundary meanings are kept explicit.
 
-Related concepts: [[Realization|realization]], [[Observer|observer]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Progress Conditions|progress conditions]], [[Application Hosts|application hosts]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Network|network]], [[Compute|compute]].
+A runtime may host an [[Execution Kernel|execution-kernel]] interpreter for canonical transition or process definitions. Conforming interpretation requires the runtime to declare supported definition and schema versions, intrinsic operations, capabilities, constraints, guarantees, and operating boundaries. Runtime registration, dependency injection, callbacks, or generated handlers do not become semantic authority.
+
+Each transition evaluation and process activation executes finite semantic work. A runtime may suspend and later resume a logical process through explicit continuation, waits, timers, signals, and durable cuts, but it must not hide ambient clock reads, randomness, external I/O, service lookup, waits, or unrestricted callbacks inside deterministic semantic computation.
+
+When a runtime cannot realize a required atomicity, durability, ordering, compatibility, response, or recovery guarantee, it must report the unsupported requirement rather than silently choose a weaker path. Conformance compares stable semantic decisions and traces, not thread identity, worker placement, or wall-clock scheduling accidents.
+
+Related concepts: [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Observer|observer]], [[Effect|effect]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Progress Conditions|progress conditions]], [[Application Hosts|application hosts]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Network|network]], [[Compute|compute]].

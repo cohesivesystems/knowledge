@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-15
+updated: 2026-07-27
 ---
 
 # Actor Systems
@@ -44,8 +44,14 @@ Actor identity serialization can provide a concrete concurrency-control mechanis
 
 If an actor only forwards, routes, caches, or partially observes an entity, actor serialization alone does not prove that the entity transition is correct. The semantic meaning of each message still depends on observer-relative command interpretation, and correctness may still require expected-version checks, durable persistence, idempotency, or coordination with another transition owner.
 
+An actor system may interpret canonical [[Transition Models|transition models]] or advance finite activations of [[Process Graphs|process graphs]]. The actor definition, mailbox handler, state provider, timer callback, or runtime registration is not semantic authority unless it is the declared canonical definition itself. Actor-specific code and storage remain derived interpretations whose supported versions and capability boundaries must be explicit.
+
+Actor serialization can be evidence for local transition exclusion, but it does not by itself prove atomic persistence of state and emissions, durable wait registration, logical exactly-once effects, multi-actor atomicity, or process recovery. Timers, reminders, persisted state, and mailboxes can realize process requirements only when stable identities, deduplication, definition compatibility, token state, acknowledgment, and crash boundaries are preserved.
+
+An effect adapter hosted by an actor must not mutate authoritative entity state outside the entity's transition boundary. External results and signals return through explicit admission, observer, continuation, and transition semantics.
+
 ## External References
 
 - Carl Hewitt, [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/abs/1008.1459), 2010.
 
-Related concepts: [[Realization|realization]], [[Identity|identity]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Glitch Principle|glitch principle]], [[Ordering|ordering]], [[Causality|causality]], [[Authority|authority]], [[Concurrency Control|concurrency control]], [[Delivery Semantics|delivery semantics]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].
+Related concepts: [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Identity|identity]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Effect|effect]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Glitch Principle|glitch principle]], [[Ordering|ordering]], [[Causality|causality]], [[Authority|authority]], [[Concurrency Control|concurrency control]], [[Delivery Semantics|delivery semantics]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].
