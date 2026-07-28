@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-06-24
-updated: 2026-07-17
+updated: 2026-07-27
 ---
 
 # Architecture Practices
@@ -23,6 +23,7 @@ For each practice, ask:
 
 Some well-known patterns & practices:
 
+- [[Enterprise Integration Patterns]]
 - [[Domain-Driven Design]]
 - [[Ports and Adapters]]
 - [[Clean Architecture]]
@@ -44,4 +45,4 @@ Some well-known patterns & practices:
 - [[CRDTs as Architecture Practice]]
 - [[Data Mesh]]
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Stuff Structure Property|stuff structure property]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Stuff Structure Property|stuff structure property]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].

@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-28
-updated: 2026-06-30
+updated: 2026-07-27
 ---
 
 # Synchrony and Asynchrony
@@ -45,7 +45,9 @@ Several meanings are often conflated:
 - **Commit or observation synchrony**: several effects become visible or committed as one unit. Examples include database transactions, actor turns, lock-protected critical sections, atomic compare-and-swap operations, and consensus-decided log entries.
 - **Timing-model synchrony**: the system assumes bounded message delay, bounded processing delay, clocks, or rounds. Distributed algorithms use this sense when contrasting synchronous, partially synchronous, and asynchronous models.
 
-These senses can vary independently. A request may be control-flow synchronous without providing atomic commit. A transaction may provide commit synchrony while being invoked through asynchronous control flow. A distributed algorithm may assume partial synchrony even when implemented with non-blocking runtime APIs.
+These senses can vary independently. A request may be control-flow synchronous without providing atomic commit. A transaction may provide commit synchrony while being invoked through asynchronous logical control flow. A distributed algorithm may assume partial synchrony even when implemented with non-blocking runtime APIs.
+
+Control-flow synchrony in this section asks whether one logical operation waits for another result. [[Interaction Control Flow|Interaction control flow]] asks a different question: which participant actively pushes or fetches at a distributed boundary. A fetcher can poll asynchronously without holding one logical call open, while a sender-driven push can activate a receiver whose subsequent work proceeds independently.
 
 ## Blocking and Non-Blocking
 
@@ -70,4 +72,4 @@ In distributed systems, synchrony may be realized by quorum protocols, consensus
 
 The same definitions apply in both settings when stated boundary-relatively: asynchrony means independent occurrence relative to the boundary; synchrony means coordinated co-occurrence relative to the boundary.
 
-Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Interaction|interaction]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Time|time]], [[Consensus|consensus]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Event|event]], [[Observation|observation]], [[Transition|transition]].
+Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Time|time]], [[Consensus|consensus]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Event|event]], [[Observation|observation]], [[Transition|transition]].

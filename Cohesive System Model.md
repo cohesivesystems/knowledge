@@ -115,6 +115,10 @@ Describes how domain semantics are made executable and reliable.
 - [[Consistent Cuts]], [[Linearization Points|linearization points]]
 - [[CRDTs]]
 - [[Retry]], [[Rate Limiting|rate limiting]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
+- [[Correlation and Conversations]], [[Consumer Coordination|consumer coordination]], [[Interaction Control Flow|interaction control flow]]
+- [[Compatibility and Evolution]]
+- [[Retention Expiration and Quarantine|Retention, expiration, and quarantine]]
+- [[Operational Control]], [[Observability and Provenance|observability and provenance]]
 
 ### 3. System Graph
 
@@ -129,6 +133,8 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Process Graphs]]
 - [[Effects]]
 - [[Flow Views]] as movement views within or between process graphs
+- [[Messages and Envelopes]], [[Interaction Channels|interaction channels]]
+- [[Routing Models]], [[Flow Operators|flow operators]]
 - [[Business Transactions]]
 - [[Policy Scopes]]
 - [[Invariant Scopes]]
@@ -154,6 +160,7 @@ Provides concrete mechanisms.
 - [[Workflow Engines|Workflow engines]]  
 - [[Durable Execution Engines|Durable execution engines]]
 - [[Actor Systems|Actor systems]]  
+- [[Batch and File Exchange]]
 - [[Infrastructure]]
 
 ### 5. Architecture Practices
@@ -161,6 +168,7 @@ Provides concrete mechanisms.
 Contextualizes named architecture practices as cross-realm bundles of problems, constraints, and realization choices.
 
 - [[Architecture Practices]]
+- [[Enterprise Integration Patterns]]
 - [[Domain-Driven Design]], [[Ports and Adapters|ports and adapters]], [[Clean Architecture|clean architecture]]
 - [[Modular Monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
@@ -316,7 +324,7 @@ A domain-event emission creates no response obligation. A request creates a type
 
 A [[Command|command]] is the interpretation of an [[Event|event]] by a given [[Observer|observer]] as an attempted [[Transition|transition]] of a target subject.
 
-Relative to the interpreting observer, the event is an exogenous input event. Relative to the emitter, the carried event is an endogenous output event. The event does not become a command by structure or sender-assigned label alone.
+Relative to the interpreting observer, the event is an exogenous input event. Relative to the emitter, the carried event is an endogenous output event. A message contract may express singular command intent toward an understood observer, making command interpretation expected and operationally unambiguous. The semantic command remains observer-relative because the receiver must admit and interpret the input in context.
 
 ```txt
 Endogenous output event at an emitter boundary

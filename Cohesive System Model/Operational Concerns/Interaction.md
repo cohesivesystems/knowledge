@@ -44,6 +44,7 @@ An interaction description should say:
 - Which participants or mediating loci are involved.
 - What local occurrences happen: emit, admit, observe, read, write, wait, notify, commit, abort, or complete.
 - How those occurrences are named: address, channel, topic, mailbox, location, lock, session, correlation identifier, cursor, or offset.
+- Which participant actively drives each push, fetch, poll, callback, or delivery operation and in which direction the carried value moves.
 - Which occurrences remain independent and which are joined by synchronization, acknowledgment, commit, reply, or rendezvous.
 - What guarantees enrich the edge: ordering, durability, isolation, delivery, retention, idempotency, retry, flow control, or recovery.
 - Which semantic role the carried value has when interpreted: [[Command|command]], [[Query|query]], [[Event|event]], [[Observation|observation]], policy decision, acknowledgment, or signal.
@@ -67,6 +68,12 @@ Interaction modes are edge configurations at a chosen abstraction layer. One mod
 - **Shared-state interaction**: observers interact through a mediating state cell, register, memory location, table, log, lock, or object rather than by explicit point-to-point message. Examples include read, write, compare-and-swap, lock, wait, notify, memory barriers, cache coherence, and transactional memory.
 - **Synchronization/rendezvous**: independent occurrences are joined so that progress, visibility, or commitment is coordinated. Examples include blocking handoff, CSP-style channel rendezvous, barrier, latch, semaphore acquire/release, join, await, and select/choice.
 
+## Data Flow and Interaction Control Flow
+
+[[Interaction Control Flow|Interaction control flow]] identifies which participant actively initiates an operation at each port. It is orthogonal to data flow. A sender actively pushes data to a passive sink, so the directions align. A fetcher actively polls or requests data from a passive source, so the data and driving directions oppose one another.
+
+This per-interaction notion is not the branching or token progression of a process graph, logical waiting in [[Synchrony and Asynchrony|control-flow synchrony]], orchestration authority, or backpressure policy. It exposes who owns cadence and where queues, drivers, polling, batching, buffering, and scheduling enter a realization.
+
 ## Interaction Duality
 
 Many interaction roles appear as duals or complements: send/receive, publish/consume, request/reply, write/read, lock/unlock, wait/notify, subscribe/publish, poll/offer, acquire/release. [[Duality and Symmetry|Duality and symmetry]] helps identify the paired structure without assuming both sides are equivalent.
@@ -85,7 +92,7 @@ Modes describe the edge shape. They do not determine the semantic role of the va
 
 A request may be interpreted as a [[Command|command]] when the receiver treats it as intent to cause a state transition. It may be interpreted as a [[Query|query]] when the receiver treats it as a request to observe or compute a value with no semantic state transition requested. It may also be a subscription request, negotiation, acknowledgment, policy decision, observation, or event notification.
 
-At the emitting boundary, initiating such an interaction may be modeled as a request [[Effect|effect]]: the emitter establishes a typed terminal-response or terminal-failure obligation and a continuation that consumes it. The request is a distinct emission role rather than an event subtype. At the receiving boundary, its payload or arrival may become an exogenous event and is interpreted as a command, query, negotiation, subscription, or another semantic role. The response is a later reply or terminal result at another boundary; it need not be synchronous or travel over the same channel.
+At the emitting boundary, initiating such an interaction may be modeled as a request [[Effect|effect]]: the emitter establishes a typed terminal-response or terminal-failure obligation and a continuation that consumes it. The request is a distinct emission role rather than an event subtype. At the receiving boundary, message ingress is an exogenous event. Its carried value and contract supply evidence for interpretation as a command, query, negotiation, subscription, or another semantic role. The response is a later reply or terminal result at another boundary; it need not be synchronous or travel over the same channel.
 
 A request differs from one-way publication by response obligation and continuation rather than necessarily by publication mechanics. Both may use an outbox, queue, broker, log, mailbox, or network call. A delivery acknowledgment is not automatically the requested response: it may establish only admission, persistence, publication, or responsibility transfer.
 
@@ -121,6 +128,8 @@ This section states the general principle. [[Network|Network]] develops the spec
 
 Backpressure is feedback over an interaction edge: a receiver, channel, broker, runtime, or dependency signals that it cannot accept or process work at the offered rate. Flow control is the protocol structure that turns that signal into admission, buffering, scheduling, throttling, dropping, batching, or slowing behavior.
 
+Flow control should not be confused with [[Interaction Control Flow|interaction control flow]]. Flow control regulates work in response to capacity; interaction control flow identifies which participant actively drives an operation. The driver constrains where and how a flow-control policy can act, but it is not the policy itself.
+
 Backpressure can be push-based or pull-based. Push-based systems need bounded channels, credits, windows, refusal, shedding, or blocking points to avoid unbounded accumulation. Pull-based systems let consumers control demand through polling, fetch size, cursor advancement, subscription demand, or lease acquisition. Topology matters: fan-in creates bottleneck pressure, fan-out can amplify work, and partitioned consumer groups distribute pressure only within the partitioning and assignment rules.
 
 Backpressure is related to [[Rate Limiting|rate limiting]], [[Trace and Feedback|trace and feedback]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], and [[Recovery|recovery]], but it is specifically about how capacity information travels through the interaction graph.
@@ -143,7 +152,7 @@ Other graph projections use different edge meanings:
 | --- | --- | --- |
 | Interaction graph | observers, channels, brokers, services, actors, shared-state cells | send, receive, request, reply, publish, consume, read, write, wait, notify, synchronize |
 | Entity relationship graph | entities, identities, aggregates, resources | semantic relation, reference, ownership, dependency, association |
-| Process or flow graph | activities, steps, observers, states, events | control flow, causal flow, sequencing, handoff, compensation |
+| Process or flow graph | activities, steps, observers, states, events | process progression, causal flow, sequencing, handoff, compensation |
 | State transition graph | states, versions, transition labels | possible state change under command, event, policy, or guard interpretation |
 | Projection graph | sources, projections, read models, indexes | derivation, materialization, reconstitution dependency |
 | Realization graph | runtimes, hosts, storage systems, brokers, networks | realizes, hosts, deploys, persists, routes, schedules |
@@ -159,6 +168,7 @@ An interaction edge can be classified by:
 - Abstraction level.
 - Addressing space.
 - Operation role: send, receive, request, reply, publish, consume, read, write, lock, wait, subscribe, poll.
+- Interaction-control role and direction: active sender or fetcher, passive sink or source, and pusher, puller, queue, or driver at composed stages.
 - Topology: one-to-one, one-to-any, one-to-many, one-to-all, many-to-one, many-to-many.
 - Channel form: socket stream, datagram, queue, log, topic, mailbox, shared memory cell, register, lock, condition variable.
 - Unit of transfer: byte, frame, datagram, record, message, event, command, observation, transaction.
@@ -177,8 +187,11 @@ Interaction does not by itself define whether a domain transition committed. Tha
 
 ## External References
 
+- Gregor Hohpe and Bobby Woolf, [Message Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageChannel.html), [Message](https://www.enterpriseintegrationpatterns.com/patterns/messaging/Message.html), and [Point-to-Point Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/PointToPointChannel.html), *Enterprise Integration Patterns*, 2003.
 - Gregor Hohpe and Bobby Woolf, [Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html), *Enterprise Integration Patterns*, 2003.
+- Gregor Hohpe and Bobby Woolf, [Return Address](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ReturnAddress.html) and [Correlation Identifier](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CorrelationIdentifier.html), *Enterprise Integration Patterns*, 2003.
 - AsyncAPI Initiative, [Adding Reply Info](https://www.asyncapi.com/docs/concepts/asyncapi-document/reply-info).
 - Martin Fowler, [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html), 2017.
+- Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Relation Models|relation models]], [[Flow Views|flow views]], [[Projection Models|projection models]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Effect|effect]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Interaction Control Flow|interaction control flow]], [[Routing Models|routing models]], [[Correlation and Conversations|correlation and conversations]], [[Consumer Coordination|consumer coordination]], [[Relation Models|relation models]], [[Flow Views|flow views]], [[Projection Models|projection models]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].

@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-07-27
 aliases:
   - Flow
   - Flows
@@ -30,4 +30,23 @@ Flow views provide structure for:
 
 Flow views must be described with their interaction pattern, delivery semantics, ordering scope, failure boundary, and acknowledgment meaning.
 
-Related concepts: [[Process|process]], [[Process Graphs|process graphs]], [[Business Transactions|business transactions]], [[Projection Models|projection models]], [[Event|event]], [[Command|command]], [[Observer Models|observer models]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Ordering|ordering]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].
+[[Flow Operators|Flow operators]] make repeated transformation, filtering, splitting, aggregation, resequencing, scatter-gather, and composed-processing structures explicit. [[Routing Models|Routing models]] make destination and path selection explicit. These structures can appear in a flow view without becoming the semantic process that owns the larger goal and completion meaning.
+
+## Flow Kinds and Arrow Discipline
+
+A flow view should state what each arrow means. At minimum, distinguish:
+
+- **Carried-value or message flow**: which observations, commands, events, effects, artifacts, or other values move between participants.
+- **[[Interaction Control Flow|Interaction control flow]]**: which participant actively pushes, fetches, polls, or delivers at each interaction boundary.
+- **Causal flow**: which occurrences may have influenced later occurrences.
+- **Process progression**: which step, branch, token, state, or decision can follow another.
+
+These relations can align, oppose one another, or exist at different abstraction layers. In a polling interaction, data moves from a source to a consumer while the consumer drives the fetch toward the source. A process-progression edge may lower into several such interactions, and a dataflow pipeline may hide local scheduling, queues, or drivers. An unqualified arrow should not be assumed to express all of these meanings.
+
+## External References
+
+- Gregor Hohpe and Bobby Woolf, [Pipes and Filters](https://www.enterpriseintegrationpatterns.com/patterns/messaging/PipesAndFilters.html), *Enterprise Integration Patterns*, 2003.
+- Enterprise Integration Patterns, [Message Routing and Transformation patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html).
+- Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
+
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Process|process]], [[Process Graphs|process graphs]], [[Business Transactions|business transactions]], [[Projection Models|projection models]], [[Event|event]], [[Command|command]], [[Observer Models|observer models]], [[Observer|observer]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Ordering|ordering]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].

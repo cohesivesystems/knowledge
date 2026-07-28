@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-27
 ---
 
 # Shape
@@ -33,4 +33,10 @@ Completeness is therefore shape-relative. A value or observation can be complete
 
 The word shape is also used informally for graph shape, process shape, interaction shape, or system topology. This entry refers specifically to semantic shape: the logical structure of values and observations used to make state visible and actionable.
 
-Related concepts: [[Value|value]], [[Observation|observation]], [[State|state]], [[Observable|observable]], [[Query|query]], [[Command|command]], [[Transition|transition]], [[Projection Models|projection models]], [[Boundaries|boundaries]], [[Naturality|naturality]], [[Equivalence vs Equality|equivalence vs equality]].
+A typed channel, format indicator, schema version, or message contract may select a shape for interpretation. Those markers are representational or protocol evidence; they do not prove semantic compatibility across versions or boundaries. See [[Compatibility and Evolution|compatibility and evolution]].
+
+## External References
+
+- Gregor Hohpe and Bobby Woolf, [Datatype Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/DatatypeChannel.html) and [Format Indicator](https://www.enterpriseintegrationpatterns.com/patterns/messaging/FormatIndicator.html), *Enterprise Integration Patterns*, 2003.
+
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Observable|observable]], [[Query|query]], [[Command|command]], [[Transition|transition]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Compatibility and Evolution|compatibility and evolution]], [[Projection Models|projection models]], [[Boundaries|boundaries]], [[Naturality|naturality]], [[Equivalence vs Equality|equivalence vs equality]].

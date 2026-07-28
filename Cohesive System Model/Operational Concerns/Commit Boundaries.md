@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-29
-updated: 2026-07-04
+updated: 2026-07-27
 aliases:
   - Commit Boundary
   - Commitment
@@ -41,4 +41,10 @@ For any claimed commit, ask:
 
 When required effects cross commit boundaries, the model needs a coordination mechanism, such as [[Two-Phase Commit|two-phase commit]], [[Consensus|consensus]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas|sagas]], [[Process Managers|process managers]], [[Durable Execution|durable execution]], compensation, reconciliation, or another [[Weak Isolation Patterns|weak isolation pattern]].
 
-Related concepts: [[Boundaries|boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Business Transactions|business transactions]].
+Enterprise Integration Patterns describes a **Transactional Client** as an endpoint that coordinates its messaging actions with a transaction. The transaction's actual participants and boundary must still be named; transaction-aware messaging does not automatically include domain storage, external effects, or downstream processing.
+
+## External References
+
+- Gregor Hohpe and Bobby Woolf, [Transactional Client](https://www.enterpriseintegrationpatterns.com/patterns/messaging/TransactionalClient.html), *Enterprise Integration Patterns*, 2003.
+
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Business Transactions|business transactions]].

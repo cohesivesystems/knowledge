@@ -38,4 +38,10 @@ If $s' = H_i(s)$, then $H_i(s') \sim s'$. The result is therefore a [[Fixed Poin
 
 This does not require every part of operational state to stop changing. A duplicate attempt may add a log entry, metric, trace, or audit observation while leaving the relevant domain effects unchanged. Idempotency is the scoped property of the handling transformation; the fixed point is its invariant result under that scope.
 
-Related concepts: [[Fixed Points|fixed points]], [[Equivalence vs Equality|equivalence vs equality]], [[Retry|retry]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Command|command]], [[Transition|transition]], [[Version|version]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]].
+Enterprise Integration Patterns calls the consumer-side application of this discipline an **Idempotent Receiver**. The pattern is one realization of scoped semantic idempotency; it does not make an arbitrary external effect idempotent merely by deduplicating message delivery.
+
+## External References
+
+- Gregor Hohpe and Bobby Woolf, [Idempotent Receiver](https://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html), *Enterprise Integration Patterns*, 2003.
+
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Fixed Points|fixed points]], [[Equivalence vs Equality|equivalence vs equality]], [[Retry|retry]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Command|command]], [[Transition|transition]], [[Version|version]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]].

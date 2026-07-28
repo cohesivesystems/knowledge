@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-17
+updated: 2026-07-27
 ---
 
 # Rate Limiting
@@ -21,4 +21,10 @@ A rate limit should define:
 
 Rate limiting often appears with backpressure, retry, queueing, and admission control.
 
-Related concepts: [[Queueing Theory|queueing theory]], [[Retry|retry]], [[Ordering|ordering]], [[Recovery|recovery]], [[Interaction|interaction]], [[Brokers|brokers]], [[Application Hosts|application hosts]].
+[[Interaction Control Flow|Interaction control flow]] determines which participant has a natural enforcement point. An active driver can reduce fetch cadence or batch size before pushing to a constrained sink. A passive sink in a sender-driven path may instead need to refuse, shed, block, or admit into a bounded queue. The control-flow role does not choose the rate policy; it determines where that policy can regulate progress.
+
+## External References
+
+- Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
+
+Related concepts: [[Queueing Theory|queueing theory]], [[Retry|retry]], [[Ordering|ordering]], [[Recovery|recovery]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Brokers|brokers]], [[Application Hosts|application hosts]].

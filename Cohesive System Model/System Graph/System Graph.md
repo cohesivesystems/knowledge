@@ -41,6 +41,10 @@ Core system graph notes:
 - [[Business Transactions|business transactions]]
 - [[Boundaries|boundaries]]
 - [[Effects|effects]]
+- [[Messages and Envelopes|messages and envelopes]]
+- [[Interaction Channels|interaction channels]]
+- [[Routing Models|routing models]]
+- [[Flow Operators|flow operators]]
 - [[Policy Scopes|policy scopes]]
 - [[Invariant Scopes|invariant scopes]]
 - [[Infrastructure Graph|infrastructure graph]]
@@ -49,4 +53,4 @@ Secondary views and projections:
 
 - [[Flow Views|flow views]]
 
-Related concepts: [[Compositionality|compositionality]], [[Stuff Structure Property|stuff structure property]], [[Execution Kernel|execution kernel]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[State|state]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Realization|realization]].
+Related concepts: [[Compositionality|compositionality]], [[Stuff Structure Property|stuff structure property]], [[Execution Kernel|execution kernel]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[State|state]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Realization|realization]].

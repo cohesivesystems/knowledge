@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-27
 aliases:
   - Process Manager
 ---
@@ -51,4 +51,8 @@ The physical owner can change across failures or leases. What makes the design o
 
 The pattern fails when the process boundary is implicit, when process state is not durable enough for the claimed recovery behavior, when emitted effects are not idempotent, or when the process manager's view of participant work is mistaken for the business outcome itself.
 
-Related concepts: [[Orchestration and Choreography|orchestration and choreography]], [[Sagas|sagas]], [[Process|process]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Observer|observer]], [[Entity|entity]], [[Durable Execution|durable execution]], [[Durable Execution Engines|durable execution engines]], [[Workflow Engines|workflow engines]], [[Recovery|recovery]], [[Retry|retry]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Boundaries|boundaries]], [[Business Transactions|business transactions]].
+## External References
+
+- Gregor Hohpe and Bobby Woolf, [Process Manager](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html), *Enterprise Integration Patterns*, 2003.
+
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Orchestration and Choreography|orchestration and choreography]], [[Sagas|sagas]], [[Process|process]], [[Process Graphs|process graphs]], [[Correlation and Conversations|correlation and conversations]], [[Coordination|coordination]], [[Observer|observer]], [[Entity|entity]], [[Durable Execution|durable execution]], [[Durable Execution Engines|durable execution engines]], [[Workflow Engines|workflow engines]], [[Recovery|recovery]], [[Retry|retry]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Boundaries|boundaries]], [[Business Transactions|business transactions]].

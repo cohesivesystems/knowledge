@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-07-27
 ---
 
 # Ports and Adapters
@@ -22,10 +22,16 @@ The practice asks:
 
 ## In the Model
 
-An inbound adapter turns an external occurrence into an input event, command, or query relative to an [[Observer|observer]]. An outbound adapter turns an endogenous event, query, command, or observation into a protocol-specific effect.
+An inbound adapter admits an external occurrence as an input event relative to an [[Observer|observer]] and supplies the carried value and contract for interpretation as a command, query, event notification, signal, or other role. An outbound adapter realizes an endogenous event, request, signal, reply, query, command intent, or observation as a protocol-specific effect. The adapter preserves a correspondence; it does not collapse transport classification into semantic interpretation.
+
+Enterprise Integration Patterns channel adapters, messaging gateways, messaging mappers, and service activators are specialized endpoint and adapter structures. They should remain outside the semantic authority that decides domain transitions.
 
 ## Failure Modes
 
 The pattern fails when adapters leak substrate semantics into the domain, or when ports are treated as technical interfaces without stating the semantic boundary and authority they represent.
 
-Related concepts: [[Boundaries|boundaries]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Observation|observation]], [[Event|event]], [[Interaction|interaction]], [[Network|network]], [[Application Hosts|application hosts]], [[Realization|realization]], [[Anti-Corruption Layer|anti-corruption layer]].
+## External References
+
+- Gregor Hohpe and Bobby Woolf, [Channel Adapter](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ChannelAdapter.html), [Messaging Gateway](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingGateway.html), and [Messaging Mapper](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingMapper.html), *Enterprise Integration Patterns*, 2003.
+
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Observer|observer]], [[Observer Models|observer models]], [[Command|command]], [[Query|query]], [[Observation|observation]], [[Event|event]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Compatibility and Evolution|compatibility and evolution]], [[Network|network]], [[Application Hosts|application hosts]], [[Realization|realization]], [[Anti-Corruption Layer|anti-corruption layer]].

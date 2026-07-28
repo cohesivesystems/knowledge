@@ -11,7 +11,9 @@ An event is a time-bearing occurrence carrying a [[Value|value]]. It marks, repo
 
 Structurally, an event is a value with a notion of occurrence. Semantically, an event's role is observer and boundary relative. An event answers what occurred; it does not by itself determine what another observer should do or whether an emitter expects a response.
 
-An incoming event becomes a [[Command|command]] only when an observer interprets it as an attempted [[Transition|transition]]. A request, signal, or reply is instead a distinct emission and interaction role. A request establishes an emitter-side response obligation; an event does not. These roles may use similar payloads or the same transport without becoming the same semantic construct.
+Message ingress at a receiving boundary is an exogenous event carrying a value. Message egress is an endogenous event at the emitting boundary. A message contract may strongly indicate how its value is intended to be interpreted, but transport classification and semantic interpretation remain distinct.
+
+An incoming event becomes a [[Command|command]] when an observer interprets it as an attempted [[Transition|transition]]. A request, signal, or reply is instead a distinct emission and interaction role. A request establishes an emitter-side response obligation; an event does not. These roles may use similar payloads or the same transport without becoming the same semantic construct.
 
 A publication presented as an event is therefore not a domain-event emission when its emitter must receive a correlated terminal result before its own process can continue. It participates in an [[Interaction|implicit request protocol]], even when dispatch and response are asynchronous.
 
@@ -71,6 +73,7 @@ Events participate in [[Event-State Duality|event-state duality]]:
 ## External References
 
 - Cloud Native Computing Foundation, [CloudEvents Specification](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md) and [CloudEvents Primer](https://github.com/cloudevents/spec/blob/main/cloudevents/primer.md).
+- Gregor Hohpe and Bobby Woolf, [Event Message](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html), *Enterprise Integration Patterns*, 2003.
 - Martin Fowler, [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html), 2017.
 
-Related concepts: [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[State|state]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Observer|observer]], [[Boundaries|boundaries]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Version|version]], [[Effect|effect]], [[Effects]], [[Interaction|interaction]], [[Event Sourcing|event sourcing]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[State|state]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Observer|observer]], [[Boundaries|boundaries]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Version|version]], [[Effect|effect]], [[Effects]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Event Sourcing|event sourcing]].

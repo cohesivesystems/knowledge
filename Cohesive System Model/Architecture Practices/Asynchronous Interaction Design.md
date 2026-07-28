@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-07-17
-updated: 2026-07-17
+updated: 2026-07-27
 status: draft
 aliases:
   - Async Interaction Design
@@ -16,11 +16,11 @@ Asynchronous interaction design is the architecture practice of making independe
 
 It commonly becomes important when teams adopt [[Event-Driven Architecture|event-driven architecture]], [[CQRS as Architecture Practice|CQRS]], [[Event Sourcing as Architecture Practice|event sourcing]], [[Transactional Outbox|transactional outbox]], [[Sagas|sagas]], [[Process Managers|process managers]], [[Brokers|brokers]], or stream processing. These practices often move work that was previously completed within a request into a pipeline of independently scheduled stages with distinct failure and recovery boundaries.
 
-Asynchrony does not remove coupling. It replaces some immediate control-flow and availability coupling with protocol, capacity, history, schema, recovery, and operational coupling.
+Asynchrony does not remove coupling. It replaces some immediate logical-wait and availability coupling with protocol, capacity, history, schema, recovery, and operational coupling.
 
 ## The Architectural Shift
 
-In a synchronous-looking interaction, a caller often waits for one response and treats that response as the operation boundary. The implementation may still be distributed and subject to partial failure, but control flow presents one bounded interval.
+In a synchronous-looking interaction, a caller often waits for one response and treats that response as the operation boundary. The implementation may still be distributed and subject to partial failure, but call/return control presents one bounded interval.
 
 An asynchronous handoff exposes more of the actual occurrence structure:
 
@@ -97,6 +97,8 @@ For an asynchronous stage, backlog $B$ can play the role of $L$ only when it cou
 Useful flow health usually combines backlog, oldest-work age, arrival and completion rates, retry rate, saturation, end-to-end completion or freshness latency, quarantine count, and loss or expiry. Metrics should be reported both end-to-end and per stage so that a healthy aggregate does not hide a blocked lane.
 
 [[Interaction|Backpressure and flow control]] communicate capacity through the interaction graph. [[Rate Limiting|Rate limiting]], admission control, bounded buffers, quotas, batching, concurrency limits, priority, and load shedding decide how the system responds. Fanout and retry can amplify one accepted input into many units of downstream work, so capacity planning must use effective work rather than only producer message count.
+
+[[Interaction Control Flow|Interaction control flow]] separately identifies which participant drives each operation. A producer may push into a queue while a consumer independently fetches from it; the queue decouples their cadences but creates retained backlog and needs flow-control policy. A driver that fetches from a source and pushes to a sink owns cadence more directly and can slow fetching under target pressure, but it does not inherently provide durable buffering. Data-flow arrows alone do not reveal these differences.
 
 ## Ordering, Time, and Scheduling
 
@@ -224,6 +226,7 @@ For every asynchronous edge or stage, ask:
 - How long are messages, histories, snapshots, offsets, deduplication records, schemas, and replay code retained?
 - How does a new consumer bootstrap and move from backfill to live processing without an unexplained gap or duplicate effect?
 - What topology provides fanout, competition, cursor ownership, retention, replay, and slow-consumer isolation?
+- Who actively pushes or fetches at each boundary, who owns cadence, and where do queues or drivers change that control relationship?
 - How are one operation, one causal chain, and one long-running process observed and correlated?
 - Which operator actions exist to pause, drain, inspect, quarantine, repair, replay, skip, reset, reshard, reconcile, and resume work?
 - Which data-governance and security rules apply to retained and quarantined copies?
@@ -234,4 +237,10 @@ The practice fails when enqueue acknowledgment is presented as business completi
 
 It also fails when a dead-letter queue has no owner or repair path, when retention is shorter than the recovery horizon, when a new consumer has no coherent bootstrap protocol, when backfill competes blindly with live traffic or repeats external effects, when “exactly once” is claimed without a boundary, when a protocol name is mistaken for a topology, or when one transient trace is expected to explain an arbitrarily long business process.
 
-Related concepts: [[Queueing Theory|queueing theory]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Interaction|interaction]], [[Safety and Liveness|safety and liveness]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Rate Limiting|rate limiting]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Durability|durability]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Weak Isolation Patterns|weak isolation patterns]], [[Event-Driven Architecture|event-driven architecture]], [[CQRS as Architecture Practice|CQRS]], [[Event Sourcing as Architecture Practice|event sourcing]], [[Transactional Outbox|transactional outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas|sagas]], [[Process Managers|process managers]], [[Process Graphs|process graphs]], [[Flow Views|flow views]], [[Brokers|brokers]], [[Event Sourcing|event sourcing substrate]], [[CQRS|CQRS substrate]], [[Outbox|outbox substrate]], [[Trace and Feedback|trace and feedback]].
+## External References
+
+- Enterprise Integration Patterns, [Messaging Patterns Overview](https://www.enterpriseintegrationpatterns.com/patterns/messaging/index.html), especially Guaranteed Delivery, Invalid Message Channel, Dead Letter Channel, Message Expiration, Durable Subscriber, and the consumer endpoint patterns.
+- Gregor Hohpe and Bobby Woolf, [Dead Letter Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/DeadLetterChannel.html) and [Competing Consumers](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html), *Enterprise Integration Patterns*, 2003.
+- Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
+
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Queueing Theory|queueing theory]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Interaction Channels|interaction channels]], [[Consumer Coordination|consumer coordination]], [[Compatibility and Evolution|compatibility and evolution]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]], [[Safety and Liveness|safety and liveness]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Rate Limiting|rate limiting]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Durability|durability]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Weak Isolation Patterns|weak isolation patterns]], [[Event-Driven Architecture|event-driven architecture]], [[CQRS as Architecture Practice|CQRS]], [[Event Sourcing as Architecture Practice|event sourcing]], [[Transactional Outbox|transactional outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas|sagas]], [[Process Managers|process managers]], [[Process Graphs|process graphs]], [[Flow Views|flow views]], [[Brokers|brokers]], [[Event Sourcing|event sourcing substrate]], [[CQRS|CQRS substrate]], [[Outbox|outbox substrate]], [[Trace and Feedback|trace and feedback]].

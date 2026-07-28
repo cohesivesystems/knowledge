@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-06-29
-updated: 2026-06-29
+updated: 2026-07-27
 aliases:
   - Inbox
   - Inbox Pattern
@@ -46,4 +46,8 @@ This composition is often called effectively-once processing, but the guarantee 
 
 The pattern fails when the consumer acknowledges before committing the inbox and local state, when deduplication is not in the same commit boundary as the effects it protects, when the deduplication key does not identify the semantic input, or when non-idempotent external effects happen before the local commit.
 
-Related concepts: [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Idempotency|idempotency]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Recovery|recovery]], [[Retry|retry]], [[Interaction|interaction]], [[Dual-Write Problem|dual-write problem]], [[Weak Isolation Patterns|weak isolation patterns]].
+## External References
+
+- Gregor Hohpe and Bobby Woolf, [Idempotent Receiver](https://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html) and [Transactional Client](https://www.enterpriseintegrationpatterns.com/patterns/messaging/TransactionalClient.html), *Enterprise Integration Patterns*, 2003.
+
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Transactional Outbox|transactional outbox]], [[Outbox|outbox]], [[Idempotency|idempotency]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Recovery|recovery]], [[Retry|retry]], [[Interaction|interaction]], [[Consumer Coordination|consumer coordination]], [[Dual-Write Problem|dual-write problem]], [[Weak Isolation Patterns|weak isolation patterns]].

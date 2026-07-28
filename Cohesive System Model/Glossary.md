@@ -21,6 +21,7 @@ Promoted concepts:
 - [[Linearization Points|linearization points]]
 - [[Effect|effect]]
 - [[Execution Kernel|execution kernel]]
+- [[Interaction Control Flow|interaction control flow]]
 
 ## implicit request protocol
 
@@ -42,4 +43,4 @@ Real-time order is the external order in which non-overlapping operations occur:
 
 A total order compares every pair of positions in an ordering space. Total orders are useful for logs, replay, consensus decisions, and serial explanations, but they may impose artificial before/after relations on work that was concurrent in the domain.
 
-Related concepts: [[Authority|authority]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Effect|effect]], [[Execution Kernel|execution kernel]], [[Interaction|interaction]], [[Ordering|ordering]], [[Time|time]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]], [[Observation|observation]], [[Event|event]], [[Version|version]], [[Observer|observer]], [[Boundaries|boundaries]].
+Related concepts: [[Authority|authority]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Effect|effect]], [[Execution Kernel|execution kernel]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Ordering|ordering]], [[Time|time]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]], [[Observation|observation]], [[Event|event]], [[Version|version]], [[Observer|observer]], [[Boundaries|boundaries]].
