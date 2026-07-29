@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-15
+updated: 2026-07-29
 ---
 
 # Consensus
@@ -29,6 +29,8 @@ The [[Asynchronous Computability Theorem|asynchronous computability theorem]] gi
 Consensus protocols execute under [[Nondeterminism and Choice|nondeterministic]] message delivery, participant scheduling, timeouts, failures, and proposal order. Their safety properties must hold across every execution admitted by the failure model, including unfair executions. Their termination properties depend on additional [[Fairness|fairness]], timing, quorum, recovery, randomization, or eventual-leadership assumptions.
 
 A [[Scheduling|scheduler]] or leader can choose which proposal to process first without having unilateral [[Authority|authority]] to decide the value. [[Arbitration]] can select a proposer, ballot, or local winner, while quorum intersection and persisted protocol state determine which outcome the consensus boundary accepts as chosen.
+
+[[Quorum Intersection|Quorum intersection]] supplies the overlap argument used by many consensus protocols: incompatible decisions cannot both gather the required protocol evidence when their deciding quorums intersect and participants preserve the relevant accepted state. Intersection is not the whole protocol. Membership revision, ballot or term ordering, persistence, recovery, proposal validity, and liveness rules determine what the overlap means and whether another quorum can eventually form.
 
 Consensus therefore separates several roles:
 
@@ -64,4 +66,4 @@ This connects [[Universal Constructions|universal constructions]] to operational
 - Michael J. Fischer, Nancy A. Lynch, and Michael S. Paterson, [Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf), Journal of the ACM, 32(2):374-382, April 1985.
 - Rachid Guerraoui and Michel Raynal, [The Alpha of Indulgent Consensus](https://doi.org/10.1093/comjnl/bxl046), The Computer Journal, 50(1):53-67, January 2007.
 
-Related concepts: [[Authority|authority]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Causality|causality]], [[Coordination|coordination]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[CAP Theorem|CAP theorem]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Version Histories|version histories]], [[Time|time]], [[Version|version]], [[State|state]], [[Event|event]], [[Command|command]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Universal Constructions|universal constructions]].
+Related concepts: [[Authority|authority]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Causality|causality]], [[Coordination|coordination]], [[Quorum Intersection|quorum intersection]], [[Consensus Protocols|consensus protocols]], [[Replica Models|replica models]], [[Failure Models|failure models]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[CAP Theorem|CAP theorem]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Version Histories|version histories]], [[Time|time]], [[Version|version]], [[State|state]], [[Event|event]], [[Command|command]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Universal Constructions|universal constructions]].

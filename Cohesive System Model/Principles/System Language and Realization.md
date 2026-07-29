@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-07-04
-updated: 2026-07-28
+updated: 2026-07-29
 status: draft
 aliases:
   - cohesive vision
@@ -15,31 +15,33 @@ aliases:
 
 Cohesive aims to provide a standard language for describing systems and a family of compiler-like realizations that project that language into working infrastructure.
 
-The language goal is conceptual: define stable, boundary-relative meanings for [[Observer|observers]], [[Entity|entities]], [[Process|processes]], [[Relation|relations]], [[Transition|transitions]], [[Event|events]], [[State|state]], [[Observation|observations]], [[Invariant|invariants]], [[Policy|policies]], [[Authority|authority]], [[Causality|causality]], [[Effects|effects]], [[Boundaries|boundaries]], [[Coordination|coordination]], and other system concepts. The same term should not silently mean one thing in domain modeling, another in distributed systems, and a third in implementation code.
+The language goal begins with conceptual precision: define stable, boundary-relative meanings for what constitutes a system, how its parts are related and behave, and how that behavior is observed, constrained, authorized, and coordinated. The same term should not silently mean one thing in domain modeling, another in distributed systems, and a third in implementation code.
 
-The realization goal is practical: a model should be precise enough to guide construction. A compiler-like realization lowers semantic roles, [[Process Graphs|process graphs]], operational guarantees, and graph relationships into substrate choices such as actors, transactions, logs, brokers, durable workflows, storage systems, protocols, schedulers, and deployment topology while preserving the meanings that matter.
+The language is more than a descriptive vocabulary. Concepts that determine behavior should have explicit composition, evaluation, and observation rules, or explicit mappings to system-graph structures that do. A model can therefore characterize possible executions and their required guarantees before any substrate is selected. [[Execution Kernel|Canonical execution definitions]], reference interpreters, and compiler-like lowerings can make this executable meaning concrete without making a particular runtime the source of meaning.
 
-This is why [[Realization|realization]] is not a synonym for implementation. Implementation creates concrete artifacts. Realization relates the artifact back to the semantic role it hosts, carries, preserves, or partially approximates.
+The realization goal is practical: carry those meanings and execution rules into working infrastructure. A compiler-like realization lowers semantic roles, executable system-graph structures such as [[Process Graphs|process graphs]], operational guarantees, and graph relationships into substrate choices such as actors, transactions, logs, brokers, durable workflows, storage systems, protocols, schedulers, and deployment topology while preserving the meanings that matter.
+
+> **[[Realization|Realization]] is not a synonym for implementation.** Implementation creates concrete artifacts. Realization relates an artifact back to the semantic role it hosts, carries, preserves, or partially approximates.
+>
+> For example, an actor runtime implements message dispatch; realization asks which semantic transitions are carried by that dispatch, which ordering guarantees it preserves, and which failure boundaries limit those guarantees.
 
 ## Categorical Orientation
 
-The name Cohesive points to cohesive topoi and to the broader Lawvere style of using category theory to organize mathematical knowledge through structure-preserving relationships.
-
 For Cohesive, category theory is not decoration and not a requirement that every note be formalized. It is a precision discipline:
 
-- [[Functoriality]] asks which identities, transitions, dependencies, observations, and compositions must be preserved by a mapping.
-- [[Naturality]] asks whether a transformation depends on accidental representation choices.
-- [[Universal Constructions|Universal constructions]] ask what diagram makes an object canonical.
-- [[Duality and Symmetry]] asks which paired concepts should be kept together without being collapsed.
-- [[Sheaves and Gluing|Sheaves and gluing]] asks when local observations agree enough to assemble into a coherent global view.
-- [[Trace and Feedback|Trace and feedback]] asks how outputs become later inputs without losing boundary, delay, ordering, or recovery semantics.
-- [[Process Theories|Process theories]] ask how work unfolds, composes, interacts, and feeds back over time.
-- [[Nondeterminism and Choice|Nondeterminism and choice]] asks which continuations are possible and where their resolution belongs.
-- [[Reduction, Evaluation, and Confluence|Reduction, evaluation, and confluence]] asks whether different computational paths preserve or rejoin the intended meaning.
+- For [[Functoriality|functoriality]], ask which identities, transitions, dependencies, observations, and compositions must be preserved by a mapping.
+- For [[Naturality|naturality]], ask whether a transformation depends on accidental representation choices.
+- For [[Universal Constructions|universal constructions]], ask what diagram makes an object canonical.
+- For [[Duality and Symmetry|duality and symmetry]], ask which paired concepts should be kept together without being collapsed—for example, keeping an event schedule and the state history derived from it as related views of [[Behavior|behavior]] rather than identical representations.
+- For [[Sheaves and Gluing|sheaves and gluing]], ask when local observations agree enough to assemble into a coherent global view—for example, requiring independently evolved local histories to agree on shared events before assembling a larger history.
+- For [[Trace and Feedback|trace and feedback]], ask how outputs become later inputs without losing boundary, delay, ordering, or recovery semantics—for example, retaining correlation and causation when an emitted message later resumes a waiting process.
+- For [[Process Theories|process theories]], ask how work unfolds, composes, interacts, and feeds back over time.
+- For [[Nondeterminism and Choice|nondeterminism and choice]], ask which continuations are possible and where their resolution belongs.
+- For [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], ask whether different computational paths preserve or rejoin the intended meaning.
 
 The practical test is whether these disciplines help build systems that run. A Cohesive description should support realization into infrastructure without erasing the semantic distinctions that made the description useful.
 
-[[Pattern Languages and Correspondence|Pattern languages and correspondence]] applies this orientation to established catalogs. Each catalog is treated as a source vocabulary with a characteristic center of gravity. Its entries are decomposed into semantic trace, system-graph structure, operational obligations, architecture-practice role, and realization choices, with explicit preservation conditions between them.
+[[Pattern Languages and Correspondence|Pattern languages and correspondence]] applies this orientation to established pattern catalogs. Each catalog is treated as a source vocabulary with a characteristic center of gravity: the dominant structural, behavioral, operational, or organizational concern around which its entries cluster. Its entries are decomposed into semantic trace, system-graph structure, operational obligations, architecture-practice role, and realization choices, with explicit preservation conditions between them.
 
 ## Compiler-Like Realization
 
@@ -55,6 +57,33 @@ A realization compiler should make these correspondences explicit:
 - Which diagrams, invariants, orderings, and effects must be preserved.
 - Which information is intentionally forgotten, delayed, approximated, quotiented, or made commutative.
 - Which guarantees are local to one substrate boundary and which compose across the whole system.
+
+## Layered Data Models
+
+Data-intensive systems commonly pass through several models before reaching physical representation:
+
+```txt
+domain meaning
+  -> semantic entities, relations, values, events, and observations
+  -> system-graph models, shapes, queries, projections, and interfaces
+  -> relational, document, graph, key-value, columnar, log, or stream model
+  -> records, indexes, pages, segments, buffers, and bytes
+```
+
+Each arrow is a realization or interpretation relation, not an identity. A semantic [[Relation|relation]] is not a foreign key or graph edge; an [[Entity|entity]] is not a row or document; an [[Event|event]] is not any record in an append-only log; and a [[Shape|shape]] is not its serialization layout. One substrate model may realize several semantic structures, and one semantic structure may be distributed across several substrate representations.
+
+Model choice shapes which relationships, access paths, updates, constraints, and evolution operations are direct or expensive. Embedding can preserve aggregate locality while making independently evolving many-to-many relations awkward. Normalized relations can make joins and constraints explicit while requiring query planning and indexes. Graph representations can expose traversal structure without establishing the domain meaning or authority of an edge. Columnar and log-oriented representations optimize other access and update patterns. These are realization tradeoffs, not competing definitions of the semantic concepts.
+
+A lowering should therefore state:
+
+- Which semantic identities, relations, shapes, orders, and constraints are preserved directly.
+- Which joins, traversals, indexes, materializations, or application procedures reconstruct omitted structure.
+- Which information is duplicated, denormalized, approximated, or forgotten.
+- Which access patterns and update paths the representation privileges.
+- Which transaction, consistency, locality, retention, and compatibility boundaries the mapping introduces.
+- How schema and representation evolution preserve old stored material and independently deployed readers.
+
+This layered view also localizes impedance mismatch. A mismatch is not merely between objects and tables; it is any point where the source and target models express identity, relationship, multiplicity, absence, ordering, version, or authority differently. Compiler-like realization should expose that difference and the law or validation evidence by which the translation remains acceptable.
 
 ## Cross-Realm Projection
 
@@ -131,9 +160,10 @@ The public graph should still be strong enough to support private system graph a
 - State the boundary at which a term, guarantee, or equivalence holds.
 - State which choices remain open, who has authority to resolve them, and which scheduling or fairness assumptions shape executions.
 - Distinguish semantic roles from system graph structures, operational concerns, and substrate mechanisms.
+- Distinguish language-level execution semantics from the substrate mechanisms that interpret or realize them.
 - Prefer structure-preserving mappings over name matching.
 - Make loss of information explicit.
 - Treat multiple realizations as normal, not as ambiguity to erase.
 - Treat working systems as the validation target for the language.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|effect]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Programming Paradigms|programming paradigms]], [[Relational and Logic Programming|relational and logic programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Shape|shape]], [[Query|query]], [[Compatibility and Evolution|compatibility and evolution]], [[Storage Systems|storage systems]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|effect]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects]].

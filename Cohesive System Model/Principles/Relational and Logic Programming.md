@@ -2,7 +2,7 @@
 realm: Principles
 kind: discipline
 created: 2026-07-13
-updated: 2026-07-15
+updated: 2026-07-29
 status: draft
 aliases:
   - Relational Programming
@@ -24,7 +24,7 @@ This perspective connects several traditions that should be related without bein
 
 These traditions share declarative and relational structure, but they differ in what counts as a fact, how relations are derived, which variables may be supplied by a query, how absence and negation are interpreted, and which operational procedure searches for answers.
 
-For Cohesive, relational programming exposes common computational structure across several otherwise distinct problems: expressing correspondences between shapes, querying across data sources, deriving views and dependencies, tracing the effects of change, and working with ontology-backed semantics. Formulating these problems in terms of relations, facts, constraints, rules, and queries makes a unified programming model possible, with shared composition and tooling, without erasing the differences among the problems. This also reflects the broader Cohesive practice of giving structure multiple explicit interpretations: the same relational structure may support navigation, query, derivation, validation, or explanation. Compiler-like [[System Language and Realization|realization]] can lower each interpretation to suitable query languages, databases, graph stores, or runtimes while keeping semantic meaning, evidence, evaluation strategy, and guarantee boundaries explicit.
+For Cohesive, relational programming exposes common computational structure across several otherwise distinct problems: expressing correspondences between shapes, querying across data sources, deriving views and dependencies, tracing the effects of change, and working with ontology-backed semantics. Formulating these problems in terms of relations, facts, constraints, rules, and queries makes a unified programming model possible, with shared composition and tooling, without erasing the differences among the problems. This also reflects the broader Cohesive practice of giving structure multiple explicit interpretations: the same relational structure may support navigation, query, derivation, validation, or explanation. Compiler-like [[Realization|realization]] can lower each interpretation to suitable query languages, databases, graph stores, or runtimes while keeping semantic meaning, evidence, evaluation strategy, and guarantee boundaries explicit.
 
 ## Relations and Functions
 
@@ -85,7 +85,7 @@ For a lens, the two directions are represented by a getter $S \to A$, which extr
 | LINQ                             | Query expressions embedded in a general-purpose language                                         | Local sequence evaluation or provider-specific expression translation | Typed query representation and compiler-like lowering |
 | Datalog                          | Extensional facts and intensional rules                                                          | Least-fixed-point evaluation, often using semi-naive iteration        | Recursive derivation, dependency, and impact analysis |
 | Graph and triple systems         | Nodes, edges, or subject-predicate-object facts                                                  | Traversal, graph-pattern matching, and indexes                        | [[Relation Models]] realization                       |
-| Ontology languages               | Vocabulary, axioms, individuals, properties, and constraints                                     | Entailment under a declared formal semantics                          | Ontology framework in `Cohesive.AI/Semantics`         |
+| Ontology languages               | Vocabulary, axioms, individuals, properties, and constraints                                     | Entailment under a declared formal semantics                          | Ontology-backed vocabulary and semantic constraints   |
 | Prolog and miniKanren            | Predicates or goals over logical terms                                                           | Unification, constraint solving, and search                           | Multi-mode queries, inverse problems, and synthesis   |
 
 The table describes a family resemblance, not an equivalence. A graph database does not become a logic programming system merely because it stores edges. A SQL query is declarative but is not normally a general multi-directional relation solver. An ontology defines terms and admissible interpretations but need not prescribe a query engine. A logic program may denote a relation while its operational behavior remains highly sensitive to goal order and search control.

@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-28
-updated: 2026-07-27
+updated: 2026-07-29
 ---
 
 # Process
@@ -25,7 +25,7 @@ A process is characterized by:
 - Optional process state, history, or checkpoints.
 - Flows that describe how process inputs, outputs, signals, and effects move between participants.
 
-The same semantic process may have several executions and several realizations. A long-running domain process may be advanced by many short [[Durable Execution|durable executions]]. A request operation may execute a short-lived process inside an application host. A database transaction may realize rollback semantics for a bounded sequence of database operations. An OS process, OS thread, fiber, workflow activation, actor turn, scheduler task, or HTTP request handler may realize part of a process without being identical to the semantic process.
+The same semantic process may have several executions and several realizations. A long-running domain process may be advanced through many finite activations whose continuity is governed by [[Durable Execution|durable execution]]. A request operation may execute a short-lived process inside an application host. A database transaction may realize rollback semantics for a bounded sequence of database operations. An OS process, OS thread, fiber, workflow activation, actor turn, scheduler task, or HTTP request handler may realize part of a process without being identical to the semantic process.
 
 ## Coordination State and Finite Activations
 
@@ -68,7 +68,7 @@ Processes compose. One process may produce outputs, artifacts, observations, com
 
 Process composition requires attention to boundary, identity, ordering, idempotency, persistence, retry, recovery, and compensation. Without those semantics, individually valid process steps may fail to compose into coherent work.
 
-[[Process Theories|Process theories]] provide the broader discipline for this composition. They ask what a process exposes at its interface, which observations and effects cross boundaries, how sequential, concurrent, nested, choice, and feedback compositions are formed, and which realization obligations must be preserved by workflows, [[Process Managers|process managers]], [[Sagas|sagas]], durable executions, actors, transactions, brokers, or lower physical processes.
+[[Process Theories|Process theories]] provide the broader discipline for this composition. They ask what a process exposes at its interface, which observations and effects cross boundaries, how sequential, concurrent, nested, choice, and feedback compositions are formed, and which realization obligations must be preserved by workflows, [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Actor Systems|actor systems]], transaction mechanisms, [[Brokers|brokers]], or lower-layer physical processes.
 
 ## Related Concepts
 

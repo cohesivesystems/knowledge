@@ -17,7 +17,7 @@ Compute concerns include:
 - Scheduling.
 - Resource limits.
 - Isolation.
-- [[Scaling Mechanisms|Scaling]].
+- [[Scaling Mechanisms|Scaling mechanisms]].
 - Failure and restart behavior.
 - [[Locality]] to storage, brokers, or dependencies.
 

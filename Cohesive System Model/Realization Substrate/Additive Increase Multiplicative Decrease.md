@@ -59,7 +59,7 @@ The classical AIMD analysis shows convergence toward efficient and fair sharing 
 
 Independent controllers can synchronize their decreases and increases, producing aggregate sawtooth load and unused capacity after a common congestion event. Jitter, randomized update times, per-scope budgets, or hierarchical control can reduce correlation. They do not correct a feedback signal that identifies the wrong bottleneck.
 
-Per-instance AIMD limits can also violate a global capacity envelope when replica count changes. If every new instance initializes with the same window, autoscaling can multiply aggregate admission before feedback catches up. The controlled scope, state initialization, and relation to [[Scaling Mechanisms|scaling]] must be explicit.
+Per-instance AIMD limits can also violate a global capacity envelope when replica count changes. If every new instance initializes with the same window, autoscaling can multiply aggregate admission before feedback catches up. The controlled scope, state initialization, and relation to [[Scaling Mechanisms|scaling mechanisms]] must be explicit.
 
 ## Configuration and Stability
 

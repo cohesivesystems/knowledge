@@ -70,7 +70,7 @@ observations + target + controller state
   -> bounded action proposal + next controller state
 ```
 
-The decision does not itself change the controlled system. An [[Effects|effect]] or interaction carries the action to an actuator, and later evidence establishes whether the action was accepted, applied, and effective. Controller state and action responsibility may need one [[Commit Boundaries|commit boundary]] when a lost or duplicated actuation would be harmful.
+The decision does not itself change the controlled system. An [[Effect|effect]] or interaction carries the action to an actuator, and later evidence establishes whether the action was accepted, applied, and effective. Controller state and action responsibility may need one [[Commit Boundaries|commit boundary]] when a lost or duplicated actuation would be harmful.
 
 Evaluation cadence can be periodic, event-driven, completion-driven, or hybrid. The model should specify how missing data, sparse traffic, counter resets, partial windows, outliers, stale observations, and delayed actuation affect the next decision. A controller that evaluates faster than the controlled system settles can repeatedly react to its own unfinished actions.
 
@@ -88,7 +88,7 @@ Composition must identify overlapping observation and actuation scopes. A local 
 
 ## Realization and Lowering
 
-A `cohesive.control` realization can lower into:
+A `Cohesive.Control` realization lowers into:
 
 - An [[Observer Models|observer model]] that samples or receives observations and evaluates the controller policy.
 - A scheduler, timer, completion callback, stream window, or runtime activation that supplies evaluation cadence.

@@ -13,7 +13,7 @@ aliases:
 
 # Service Models
 
-A service model is a system-graph view that bundles semantic responsibilities into logical [[Service|services]] and connects those services through provided and required [[Interfaces|interfaces]]. It mediates between the domain's entities, relations, queries, and processes and the concrete repositories, deployments, runtimes, and schedulers that realize them.
+A service model is a system-graph view that bundles semantic responsibilities into logical [[Service|services]] and connects their provided and required [[Interfaces|interfaces]] through [[Interaction Channels|interaction channels]]. [[Interaction Protocols|Interaction protocols]] and operational envelopes qualify how those interactions may proceed. It mediates between the domain's entities, relations, queries, and processes and the concrete repositories, deployments, runtimes, and schedulers that realize them.
 
 A logical service is not identical to a code module, repository, deployable, process, container, host, or runtime instance. Those are possible realization units, and their relationship to the logical service must be stated rather than assumed.
 
@@ -51,7 +51,7 @@ The correspondence is many-to-many. A service can host several entity types; one
 A service model makes several allocation relations explicit:
 
 ```text
-semantic responsibility -> logical service
+semantic responsibility  -> logical service
 logical service          -> code modules
 code modules             -> repository and build graph
 logical service          -> owning or operating team

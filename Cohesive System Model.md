@@ -60,6 +60,7 @@ Describe modeling disciplines used across the system model.
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
 - [[Happened-Before]]
+- [[Quorum Intersection]]
 - [[Monads Monoids and Duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[State Machines|state machines]], [[Yoneda Lemma|Yoneda lemma]], [[Adjunctions|adjunctions]]
 - [[Fibrations and Indexed Structure]], [[Sheaves and Gluing|sheaves and gluing]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Enrichment and Order|enrichment and order]], [[Optics and Lenses|optics and lenses]], [[Trace and Feedback|trace and feedback]]
 
@@ -108,7 +109,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Consensus]]
 - [[Scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]]
 - [[Scalability]], [[Locality|locality]]
-- [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[CAP Theorem|CAP theorem]], [[Metastability|metastability]]
+- [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[Failure Models|failure models]], [[Deadlock and Livelock|deadlock and livelock]], [[CAP Theorem|CAP theorem]], [[Metastability|metastability]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
 - [[ACID]], [[Two-Phase Commit|two-phase commit]]
@@ -120,6 +121,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Retry]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
 - [[Correlation and Conversations]], [[Consumer Coordination|consumer coordination]], [[Interaction Control Flow|interaction control flow]]
 - [[Compatibility and Evolution]]
+- [[Temporal Completeness]]
 - [[Retention Expiration and Quarantine|Retention, expiration, and quarantine]]
 - [[Service Levels]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]]
 
@@ -134,6 +136,8 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Control Models]]
 - [[Relation Models]]
 - [[Projection Models]]
+- [[Replica Models]]
+- [[Partition Models]]
 - [[Process Graphs]]
 - [[Effects]]
 - [[Flow Views]] as movement views within or between process graphs

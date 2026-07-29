@@ -12,7 +12,7 @@ aliases:
 
 # Locality
 
-Locality is the operational relationship between work and the information, authority, resources, or participants it repeatedly uses, such that their relative placement or recent availability materially changes access cost, latency, capacity, or progress.
+Locality is an operational property of the relationship between a workload and its dependencies. It describes how placement and reuse affect the cost of accessing, moving, or reconstructing those dependencies.
 
 Locality is boundary-relative and time-dependent. Two operations may be local within one process but remote across memory domains, storage devices, zones, or authority boundaries. State that is local now may become remote after scheduling, migration, failover, eviction, rebalancing, or a change of owner.
 
@@ -49,7 +49,7 @@ The same pattern recurs across layers: a near access is usually cheaper, but pre
 
 ## Locality and Scaling
 
-[[Scaling Mechanisms|Scaling]] changes locality as well as resource quantity. Scale-out may introduce cold caches, new connections, state transfer, partition reassignment, and remote coordination before it supplies effective capacity. Scale-in can evict warm state, concentrate working sets, or move work away from data. Autoscaling that ignores these costs can create churn and oscillation.
+[[Scaling Mechanisms|Scaling mechanisms]] change locality as well as resource quantity. Scale-out may introduce cold caches, new connections, state transfer, partition reassignment, and remote coordination before it supplies effective capacity. Scale-in can evict warm state, concentrate working sets, or move work away from data. Autoscaling that ignores these costs can create churn and oscillation.
 
 Locality can improve [[Scalability|scalability]] by reducing service demand per useful completion. It can also limit scalability when affinity creates hot units, singular ownership prevents distribution, or replicated locality requires global invalidation. A local improvement does not necessarily compose into an end-to-end improvement; see [[Compositionality|compositionality]].
 

@@ -11,7 +11,7 @@ aliases:
 
 # Authority
 
-Authority is the boundary-relative standing by which an [[Observer|observer]], role, protocol outcome, or source is accepted as able to make a claim, decision, [[Transition|transition]], or [[Effects|effect]] count for a modeled subject.
+Authority is the boundary-relative standing by which an [[Observer|observer]], role, protocol outcome, or source is accepted as able to make a claim, decision, [[Transition|transition]], or [[Effect|effect]] count for a modeled subject.
 
 Authority answers:
 

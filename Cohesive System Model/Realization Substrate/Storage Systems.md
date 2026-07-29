@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-07-29
 ---
 
 # Storage Systems
@@ -17,7 +17,7 @@ For [[CQRS]], write-side storage and read-side storage may have different shapes
 
 For [[CRDTs]], storage must preserve the data type's convergence requirements, including replica identifiers, causal metadata, tombstones, deltas, or operation history when those are part of the merge semantics.
 
-Some replicated storage systems use [[Consensus Protocols|consensus protocols]] to elect leaders, replicate logs, commit writes, and expose stronger consistency guarantees at a partition or key range. Those guarantees depend on the exact read and write path, not merely on the presence of a consensus implementation inside the storage system.
+Some replicated storage systems realize [[Replica Models|replica models]] with [[Consensus Protocols|consensus protocols]] to elect leaders, replicate logs, commit writes, and expose stronger consistency guarantees at a [[Partition Models|partition]] or key range. Those guarantees depend on the exact read and write path, not merely on the presence of a consensus implementation inside the storage system.
 
 Transaction-oriented storage systems may also maintain internal [[Write-Ahead Logging|write-ahead logs]] for recovery. ARIES is the classic example: the storage engine uses log sequence numbers, checkpoints, redo, undo, and Compensation Log Records to recover transaction state after failure.
 
@@ -65,4 +65,4 @@ Shared-database integration and message stores are specialized uses of storage a
 
 - Enterprise Integration Patterns, [Shared Database, Message Store, and integration patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html).
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Messages and Envelopes|messages and envelopes]], [[Batch and File Exchange|batch and file exchange]], [[Observability and Provenance|observability and provenance]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Concurrency Control|concurrency control]], [[Consensus Protocols|consensus protocols]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Commit Boundaries|commit boundaries]], [[Effect|effect]], [[Effects]], [[State|state]], [[Event|event]], [[Query|query]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[CRDTs]], [[CQRS]], [[Projection Models|projection models]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Replica Models|replica models]], [[Partition Models|partition models]], [[Messages and Envelopes|messages and envelopes]], [[Batch and File Exchange|batch and file exchange]], [[Observability and Provenance|observability and provenance]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Concurrency Control|concurrency control]], [[Consensus Protocols|consensus protocols]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Commit Boundaries|commit boundaries]], [[Effect|effect]], [[Effects]], [[State|state]], [[Event|event]], [[Query|query]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[CRDTs]], [[CQRS]], [[Projection Models|projection models]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]].

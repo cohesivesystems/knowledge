@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-29
 ---
 
 # Delivery Semantics
@@ -25,6 +25,52 @@ For [[CRDTs]], delivery requirements depend on the CRDT family. State-based CRDT
 
 The meaning of an [[Acknowledgments|acknowledgment]] must be defined explicitly. It may mean accepted, persisted, processed, committed, responsibility transferred, or something narrower.
 
+## Delivery and Effect Occurrences
+
+One interaction can produce several distinct occurrences:
+
+```txt
+emitted
+  -> admitted by a channel
+  -> delivered to a receiver
+  -> processed by a handler
+  -> committed at a local boundary
+  -> acknowledged
+  -> made externally visible or effective
+  -> discharged as the intended semantic obligation
+```
+
+The sequence is descriptive rather than universal: an acknowledgment may occur before or after local commitment, visibility may lag commitment, and an external effect may remain ambiguous after the handler returns. A guarantee must identify which occurrence it covers and which identities relate retries or repeated observations across the boundaries.
+
+A broker offset, delivery tag, handler attempt, local transaction, external operation, and business interaction have different identities and commitment rules. Exactly one occurrence in one space does not imply exactly one occurrence in another.
+
+## At-Most-Once, At-Least-Once, and Effectively-Once
+
+At-most-once delivery avoids redelivery after selected failures by tolerating possible loss. At-least-once delivery retries or replays until the receiver or sender observes the required acknowledgment, so duplicate delivery is an admitted outcome. Neither property alone determines whether the receiver's semantic effect occurs zero, one, or several times.
+
+An effectively-once semantic effect is usually a composed property rather than a transport feature. It may require:
+
+- Stable semantic operation or emission identity.
+- Retryable at-least-once delivery.
+- Receiver-side idempotency or deduplication.
+- Atomic commitment of local effects with receipt or progress evidence.
+- Durable recovery of the prior result for a repeated request.
+- Target-side identity when an external non-idempotent effect is involved.
+
+Even this composition is boundary-relative. A transaction can atomically update local state and a consumer cursor while a payment, email, or other external effect remains outside that boundary. The external target must participate in the identity and recovery protocol, or the larger outcome remains possibly duplicated or ambiguous.
+
+Replay also differs from redelivery. Redelivery repeats an interaction occurrence under its delivery protocol. Replay intentionally reads retained history again, often for a new consumer, repaired projection, or changed interpretation. Replay needs its own effect, version, compatibility, and provenance policy.
+
 Delivery semantics are one way [[Synchrony and Asynchrony|asynchronous]] interaction gains stronger structure. Ordered delivery, durable delivery, acknowledgment, replay, and deduplication do not necessarily make the interaction synchronous, but they define which independent occurrences are later related, joined, or observed as coherent.
 
-Related concepts: [[Interaction|interaction]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[CRDTs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Observer|observer]], [[Brokers|brokers]], [[Network|network]].
+## Modeling Checks
+
+- Which emitted, admitted, delivered, processed, committed, acknowledged, visible, or semantic occurrence does the guarantee describe?
+- Which identity relates duplicates, retries, replays, and recovered results?
+- Can acknowledgment happen before or after local commitment, and what loss or duplication follows from each gap?
+- Which effects share an atomic commit with receipt or progress evidence?
+- Which external effects remain outside the local boundary?
+- What retained material, schema, and handler interpretation make replay safe?
+- Does "exactly once" name a transport occurrence, local state transition, external effect, or semantic obligation?
+
+Related concepts: [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]], [[Recovery|recovery]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[Temporal Completeness|temporal completeness]], [[CRDTs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Observer|observer]], [[Brokers|brokers]], [[Network|network]].

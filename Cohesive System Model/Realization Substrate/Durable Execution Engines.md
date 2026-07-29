@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-28
-updated: 2026-07-27
+updated: 2026-07-29
 ---
 
 # Durable Execution Engines
@@ -13,7 +13,7 @@ A durable execution engine provides [[Durability|durability]] for enough executi
 
 Viewed as [[Process Managers|process managers]], durable execution engines manage execution recovery. They recover the execution context of the same logical computation: workflow state or history, checkpoints, timers, signals, scheduled activities, retry state, and pending work. They may host [[Sagas|sagas]], but the saga logic is what decides whether completed business actions require compensation, alternate paths, negotiation, partial completion, or human intervention.
 
-Durable execution engines are not identical to [[Process|processes]]. A semantic process may be advanced by many durable executions, and one durable execution engine may host many different process structures. A durable workflow instance, job record, activation, or transaction may realize one execution attempt, one step, one boundary, or one long-lived process instance depending on the model.
+Durable execution engines are not identical to [[Process|processes]]. A semantic process may be advanced through many finite activations or execution attempts governed by [[Durable Execution|durable execution]], and one durable execution engine may host many different process structures. A durable workflow instance, job record, activation, or transaction may realize one execution attempt, one step, one boundary, or one long-lived process instance depending on the model.
 
 A conforming engine interprets a pinned canonical [[Process Graphs|process graph]] rather than treating engine-native delegates, registrations, current code, or workflow names as semantic authority. The continuation identifies the exact supported definition identity, semantic revision, and normalized content identity unless an explicit migration establishes another correspondence.
 

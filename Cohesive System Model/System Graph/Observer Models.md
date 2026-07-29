@@ -4,7 +4,6 @@ kind: structural-construct
 created: 2026-06-24
 updated: 2026-07-27
 aliases:
-  - Observers
   - Observer Placement
   - Observer Placements
 ---

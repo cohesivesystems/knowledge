@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-27
-updated: 2026-07-28
+updated: 2026-07-29
 aliases:
   - Integration Flow Operators
   - Pipes and Filters
@@ -25,7 +25,7 @@ An operator describes graph structure and declared interpretation, not a specifi
 - **Scatter-gather** distributes related requests or work and combines selected replies or results.
 - **Composed processing** connects several operators while preserving the identity and completion rule of the larger flow.
 
-Split, aggregation, and scatter-gather require explicit correlation, cardinality, completion, timeout, duplicate, missing-part, late-part, cancellation, and failure meanings. An aggregator cannot infer completeness merely because no more messages are currently visible. Without a rule for a missing, skipped, cancelled, or failed part, the operator can create a structural [[Deadlock and Livelock|deadlock]]. A resequencer cannot wait indefinitely without a gap, expiration, or recovery policy.
+Split, aggregation, and scatter-gather require explicit correlation, cardinality, completion, timeout, duplicate, missing-part, late-part, cancellation, and failure meanings. An aggregator cannot infer completeness merely because no more messages are currently visible. [[Temporal Completeness|Temporal completeness]] states how windows, watermarks, triggers, and late-input policy qualify that decision for time-bounded asynchronous input. Without a rule for a missing, skipped, cancelled, or failed part, the operator can create a structural [[Deadlock and Livelock|deadlock]]. A resequencer cannot wait indefinitely without a gap, expiration, or recovery policy.
 
 Aggregation is distinct from [[Multiplexing and Demultiplexing|multiplexing]]. Aggregation combines several values into a new composite value under a semantic or structural completion rule; multiplexing lets distinguishable logical flows share a locus while retaining their identities.
 
@@ -39,4 +39,4 @@ An operator's transformation meaning is distinct from its [[Interaction Control 
 - Enterprise Integration Patterns, [Message Routing and Transformation patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html).
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Transition Models|transition models]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Interaction Control Flow|interaction control flow]], [[Shape|shape]], [[Observation|observation]], [[Correlation and Conversations|correlation and conversations]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Deadlock and Livelock|deadlock and livelock]], [[Compositionality|compositionality]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Transition Models|transition models]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Interaction Control Flow|interaction control flow]], [[Shape|shape]], [[Observation|observation]], [[Correlation and Conversations|correlation and conversations]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Temporal Completeness|temporal completeness]], [[Deadlock and Livelock|deadlock and livelock]], [[Compositionality|compositionality]].

@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-28
+updated: 2026-07-29
 ---
 
 # Consistency Models
@@ -98,7 +98,7 @@ Consistency models choose how much history shape must be preserved.
 
 Linearizability and sequential consistency require a legal total order, though they differ on real-time constraints. Causal consistency preserves a partial order. Session consistency preserves an observer-relative slice of history. Eventual consistency focuses on convergence and may tolerate temporary divergence, stale observations, or concurrent incomparable versions.
 
-Consensus-based replication is one way to manufacture a total order from a distributed history. Coordination-avoidance designs instead preserve less order, use merge semantics, or expose eventuality as part of the domain protocol.
+Consensus-based replication is one way to manufacture a total order from a distributed history. Its [[Replica Models|replica model]] still determines which reads use that order, which replicas may lag, and how failover or reconfiguration preserves authority. [[Quorum Intersection|Quorum intersection]] may preserve overlap among deciding or read/write sets, but the complete protocol determines which values the overlap exposes and which consistency model results. Coordination-avoidance designs instead preserve less order, use merge semantics, or expose eventuality as part of the domain protocol.
 
 The [[CALM Theorem|CALM theorem]] relates consistency to program shape rather than only storage behavior: monotone programs can preserve consistent results without coordination because additional facts do not retract prior conclusions. Non-monotone programs need coordination or an explicit weaker protocol before exposing decisions that depend on completeness, absence, or exclusion.
 
@@ -113,4 +113,4 @@ The design question is not simply "strong" or "weak" consistency. It is which ob
 - Douglas B. Terry, Alan J. Demers, Karin Petersen, Mike Spreitzer, Marvin Theimer, and Brent Welch, [Session Guarantees for Weakly Consistent Replicated Data](https://www.cs.cornell.edu/courses/cs734/2000FA/cached%20papers/SessionGuaranteesPDIS_1.html), PDIS 1994.
 - Werner Vogels, [Eventually Consistent](https://queue.acm.org/detail.cfm?id=1466448), ACM Queue, 2008.
 
-Related concepts: [[Ordering|ordering]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Version Histories|version histories]], [[Version|version]], [[Time|time]], [[Observation|observation]], [[Observer|observer]], [[Boundaries|boundaries]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], [[CQRS]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].
+Related concepts: [[Ordering|ordering]], [[Consensus|consensus]], [[Quorum Intersection|quorum intersection]], [[Consensus Protocols|consensus protocols]], [[Replica Models|replica models]], [[Partition Models|partition models]], [[Failure Models|failure models]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Version Histories|version histories]], [[Version|version]], [[Time|time]], [[Observation|observation]], [[Observer|observer]], [[Boundaries|boundaries]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], [[CQRS]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].

@@ -12,7 +12,7 @@ aliases:
 
 # Scalability
 
-Scalability is the relationship between changes in declared workload, resources, or topology and the useful service a system can sustain, subject to explicit latency, correctness, availability, backlog, and cost bounds at a declared [[Boundaries|boundary]].
+Scalability is a system property describing how its sustainable capacity, efficiency, and service quality change as workload, resources, or topology vary, subject to latency, correctness, availability, backlog, and cost bounds at a stated [[Boundaries|boundary]].
 
 A scalability claim is therefore a profile rather than a Boolean label. It must identify what grows, what is added or changed, which outcomes count as useful service, and which constraints must continue to hold. A system may scale with request rate but not dataset size, with independent tenants but not one hot entity, or with reads but not coordinated writes.
 
@@ -29,7 +29,7 @@ A scalability profile declares at least four groups of quantities:
 - **Service outcomes:** useful completion throughput, latency distribution, freshness, error and rejection rate, unfinished backlog, availability, recovery progress, and semantic correctness.
 - **Efficiency and cost:** resource consumed per useful completion, coordination and reconfiguration work, monetary cost, energy, and operational burden.
 
-Workload reaches capacity-bearing units through [[Interaction|interactions]], [[Interaction Channels|interaction channels]], [[Routing Models|routing]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], and [[Consumer Coordination|consumer coordination]]. Those structures determine fanout, skew, affinity, partition ownership, shared lanes, and head-of-line blocking, so they are part of the profile rather than neutral transport detail.
+A workload reaches capacity-bearing units through [[Interaction|interactions]], [[Interaction Channels|interaction channels]], [[Routing Models|routing]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], and [[Consumer Coordination|consumer coordination]]. Those structures determine fanout, skew, affinity, partition ownership, shared lanes, and head-of-line blocking, so they are part of the profile rather than neutral transport detail.
 
 The completion boundary matters. Offered work, admitted work, execution attempts, physical effects, acknowledged results, and semantically successful completions are different quantities. [[Delivery Semantics|Delivery semantics]], [[Acknowledgments|acknowledgments]], and [[Commit Boundaries|commit boundaries]] state which occurrence is being counted. Retries can increase attempt throughput while useful completion throughput falls. Early rejection can reduce admitted throughput while increasing successful completions at the protected boundary.
 
@@ -85,6 +85,8 @@ Here $N$ is the concurrency or resource population, $\alpha$ represents contenti
 $$
 N_{\mathrm{opt}}=\sqrt{\frac{1-\alpha}{\beta}}
 $$
+
+The USL is a capacity law, not a latency model; [[Queueing Theory|queueing theory]] provides the complementary vocabulary for utilization, waiting, and backlog.
 
 The law can be fitted to measured capacity across controlled configurations, but the fitted coefficients do not by themselves identify a causal mechanism. The boundary, workload mix, completion meaning, topology, and observation interval must remain comparable. Reconfiguration, nonstationary demand, changing service semantics, or persistent failures can make one fit misleading.
 

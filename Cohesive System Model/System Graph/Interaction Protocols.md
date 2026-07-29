@@ -21,7 +21,7 @@ An interface answers *what may be attempted*. A protocol answers *how attempts m
 A protocol may declare:
 
 - initiator and responder roles;
-- request, reply, notification, acknowledgement, and streaming sequences;
+- request, reply, notification, acknowledgment, and streaming sequences;
 - conversational states and allowed transitions;
 - correlation and causation rules;
 - ordering and concurrency constraints;
@@ -46,7 +46,7 @@ These rules may be explicit in a specification or merely assumed by implementati
 
 ## Operational Envelope
 
-A protocol can expose backpressure, admission, acknowledgement, or maximum-in-flight rules, but throughput and queueing behavior are not properties of a schema alone. They arise from the protocol together with arrival patterns, service time, resource capacity, scheduling, retries, and downstream dependencies.
+A protocol can expose backpressure, admission, acknowledgment, or maximum-in-flight rules, but throughput and queueing behavior are not properties of a schema alone. They arise from the protocol together with arrival patterns, service time, resource capacity, scheduling, retries, and downstream dependencies.
 
 The operational envelope therefore qualifies an interface-protocol binding with measurable operational concerns, including:
 
@@ -57,7 +57,7 @@ The operational envelope therefore qualifies an interface-protocol binding with 
 - flow-control and overload signals; and
 - fairness and priority expectations.
 
-See [[Queueing Theory]], [[Scheduling]], and [[Flow Control]] for the corresponding operational models.
+See [[Queueing Theory|queueing theory]], [[Scheduling|scheduling]], and [[Flow Control|flow control]] for the corresponding operational models.
 
 ## Opaque Protocols
 
@@ -68,7 +68,7 @@ A service may perform an operation whose domain meaning belongs to an external o
 - [[Service|Services]] realize capabilities under their interface protocols.
 - [[Interaction Channels]] carry protocol events but do not define their complete meaning.
 - [[Network]] protocols may realize part of a service protocol without being identical to it.
-- [[Process Theories|Process structures]] can describe longer-lived conversations that span several interface operations.
+- [[Process Graphs|Process structures]] can describe longer-lived conversations that span several interface operations.
 - [[Trace and Feedback|Traces]] provide evidence that observed conversations conform to their protocols.
 
 ## External References

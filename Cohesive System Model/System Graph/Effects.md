@@ -51,7 +51,7 @@ Must, may, and actual effects are different structural projections. A conditiona
 
 An effect handler is a realization adapter. Runtime registration does not make it semantic authority, and it must not mutate authoritative entity state directly. A result that changes entity state must return through an observer and transition boundary.
 
-## Effect scope and boundaries
+## Effect Scope and Boundaries
 
 An effect scope is the modeled extent within which an effect has a particular status, meaning, ordering rule, visibility, and recovery obligation.
 

@@ -15,7 +15,7 @@ aliases:
 
 Process theories are modeling disciplines for work, interaction, change, and behavior that unfold over time.
 
-In Cohesive, process theories provide a shared language for [[Process|processes]], [[Process Graphs|process graphs]], workflows, [[Process Managers|process managers]], [[Sagas|sagas]], durable executions, choreographies, orchestrations, feedback loops, control loops, and physical processes without making all of those things identical.
+In Cohesive, process theories provide a shared language for [[Process|processes]], [[Process Graphs|process graphs]], workflows, [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], choreography, orchestration, feedback loops, control loops, and physical processes without making all of those things identical.
 
 The goal is not to choose one universal formalism. Open systems, Petri nets, process calculi, session types, string diagrams, compositional games, dynamical systems, [[Control Theory|control theory]], quantum processes, and compositional concurrency each emphasize different structure. Cohesive uses them as sources of discipline for asking what composes, what is observed, what crosses a boundary, and what must be preserved by realization.
 

@@ -31,13 +31,13 @@ State-machine thinking is not tied to functional programming, imperative program
 
 ## Common Forms
 
-Labelled transition systems describe states connected by labelled transitions:
+Labeled transition systems describe states connected by labeled transitions:
 
 ```txt
 s --label--> s'
 ```
 
-The labels may represent inputs, events, actions, commands, observations, or protocol messages. A labelled transition system may be nondeterministic: a state and label can admit multiple possible successor states.
+The labels may represent inputs, events, actions, commands, observations, or protocol messages. A labeled transition system may be nondeterministic: a state and label can admit multiple possible successor states.
 
 Moore machines separate transition from output:
 

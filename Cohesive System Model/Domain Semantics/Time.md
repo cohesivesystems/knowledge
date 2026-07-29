@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-29
 ---
 
 # Time
@@ -27,6 +27,22 @@ Time may be represented by clocks, event positions, versions, sequence numbers, 
 
 Time data structures carry different semantics. An **instant** identifies a globally comparable point, usually represented in UTC. A **duration** measures an elapsed amount rather than a calendar position. **Civil time** combines calendar fields with an offset or timezone. A local or relative time such as `2pm` is not a global instant until a date, timezone, calendar, or scheduling context supplies the missing interpretation. Recurring civil times may not correspond to uniform durations because calendar and timezone rules can change.
 
+## Clocks and Uncertainty
+
+A wall clock estimates a time-of-day coordinate. Its readings can jump or repeat because of synchronization, administrator changes, leap handling, virtualization, restore, or hardware behavior. A monotonic clock instead supports elapsed-time measurement within its continuity boundary and should not be interpreted as a civil timestamp.
+
+Distributed clock readings have uncertainty from offset, drift, synchronization delay, and process pauses. Timestamp comparison therefore does not establish [[Happened-Before|happened-before]] or semantic causation unless the model supplies stronger clock bounds and a protocol that uses them. Last-write-wins ordering by physical timestamp is a conflict-resolution policy under those assumptions, not a discovery of the true causal order.
+
+Timeout and lease logic must name the clock and continuity boundary it depends on. A timeout proves that an observer did not see an expected occurrence before its local deadline; it does not prove that the remote participant failed. A lease based on bounded clock error or elapsed time also requires target-side fencing or another authority check when a former holder may continue acting after expiry.
+
+## Occurrence and Observation Times
+
+One semantic occurrence can acquire several later time observations: source occurrence time, ingestion time, processing time, commit time, and visibility time. These timestamps describe different events and may appear in different orders across participants.
+
+Source occurrence time is contextual evidence. It may come from an untrusted device, a civil-time report, an estimated sensor clock, or a participant whose clock uncertainty is unknown. The receiving observer should preserve the source, basis, precision, and uncertainty needed for interpretation rather than silently treating every timestamp as one global instant.
+
+[[Temporal Completeness|Temporal completeness]] uses these distinctions when windows, watermarks, triggers, and late-input policies decide when a time-bounded result is sufficiently complete to emit or finalize.
+
 ## Logical and Causal Time
 
 **Logical clocks** model time as event ordering rather than wall-clock measurement. In distributed systems, this may produce partial orders where some events are concurrent or incomparable.
@@ -49,4 +65,4 @@ Logical and causal time also support the notion of a consistent cut: a causally 
 - Leslie Lamport, [Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf), Communications of the ACM, 21(7):558-565, July 1978.
 - Friedemann Mattern, [Virtual Time and Global States of Distributed Systems](https://homes.cs.washington.edu/~arvind/cs425/doc/mattern89virtual.pdf), 1989.
 
-Related concepts: [[Value|value]], [[Event|event]], [[Behavior|behavior]], [[Version|version]], [[State|state]], [[Ordering|ordering]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Consistency Models|consistency models]].
+Related concepts: [[Value|value]], [[Event|event]], [[Observation|observation]], [[Observer|observer]], [[Behavior|behavior]], [[Version|version]], [[State|state]], [[Ordering|ordering]], [[Happened-Before|happened-before]], [[Uncertainty|uncertainty]], [[Authority|authority]], [[Failure Models|failure models]], [[Temporal Completeness|temporal completeness]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Consistency Models|consistency models]].
