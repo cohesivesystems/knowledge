@@ -24,7 +24,7 @@ DDD can be expressed as a discipline for making domain semantics explicit:
 
 ## In the Model
 
-Bounded contexts are semantic and structural boundaries. Aggregates are entity models that scope transitions and invariant scopes. Domain events are endogenous events relative to the boundary in which they are committed. Repositories and application services are realization and interaction choices, not the domain model itself.
+Bounded contexts are semantic and structural boundaries. Aggregates are entity models that scope transitions and invariant scopes. Domain events are endogenous events relative to the boundary in which they are committed. Repositories and [[Service|application services]] are realization and interaction choices, not the domain model itself; a domain service instead names domain behavior that does not naturally belong to one entity or value.
 
 ## Catalog Correspondence
 
@@ -48,4 +48,4 @@ DDD fails when names are preserved but semantics are not: entities become databa
 - Vaughn Vernon, [*Implementing Domain-Driven Design*](https://www.informit.com/store/implementing-domain-driven-design-9780321834577), Addison-Wesley Professional, 2013.
 - Vaughn Vernon, [*Domain-Driven Design Distilled*](https://www.informit.com/store/domain-driven-design-distilled-9780134434988), Addison-Wesley Professional, 2016.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Patterns|microservice patterns]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Event|event]], [[Boundaries|boundaries]], [[Entity Models|entity models]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Patterns|microservice patterns]], [[Service|service]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Event|event]], [[Boundaries|boundaries]], [[Entity Models|entity models]].

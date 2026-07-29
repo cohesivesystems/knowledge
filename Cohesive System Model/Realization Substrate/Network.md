@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-06
+updated: 2026-07-28
 ---
 
 # Network
@@ -11,7 +11,7 @@ Network is the realization substrate for interaction across link, network, trans
 
 Network mechanisms [[Realization|realize]] interaction edges, but they are not the definition of [[Interaction|interaction]]. Interaction also occurs locally between processes, threads, runtime tasks, actors, CPU cores, memory cells, and synchronization primitives. Networked interaction is one important family of realization.
 
-This note specializes [[Interaction|interaction]] for network substrates. Use [[Interaction|interaction]] for the general boundary-relative model of observers, modes, semantic roles, and guarantees; use this note for how those edges are realized through protocol layers and physical links.
+This note specializes [[Interaction|interaction]] for network substrates. Use [[Interaction|interaction]] for the general boundary-relative model of observers, modes, semantic roles, and guarantees; use [[Interfaces|interfaces]] and [[Interaction Protocols|interaction protocols]] for the logical interaction surface and conversation; use this note for how those structures are bound to protocol layers and physical links.
 
 ## Application Interaction from Async Send/Receive
 
@@ -48,7 +48,7 @@ RPC coordinates atop TCP by adding an application-level protocol over the byte s
 
 - **Framing**: divides the byte stream into application messages. Without framing, a receiver only sees bytes; it cannot know where one request or response ends and the next begins.
 - **Correlation**: associates a response with the request that caused it. This is required when multiple calls are in flight over one connection.
-- **Multiplexing and demultiplexing**: allow several logical request/reply interactions to share one stream or connection.
+- **[[Multiplexing and Demultiplexing|Multiplexing and demultiplexing]]**: allow several logical request/reply interactions to share one stream or connection.
 - **Dispatch**: names the operation, method, route, actor, service, or procedure the receiver should invoke.
 - **Payload shape**: declares how request and response values are encoded, decoded, validated, and interpreted.
 - **Status and errors**: distinguish success, application rejection, protocol error, timeout, cancellation, and transport failure.
@@ -108,4 +108,4 @@ Network behavior does not automatically equal domain commitment. The receiving [
 
 Network partitions expose the distinction between [[Safety and Liveness|safety and liveness]]. A system may preserve a consistency claim by refusing progress across the partition, or preserve availability by accepting progress whose global order or freshness cannot yet be known. The [[CAP Theorem|CAP theorem]] is the named form of this tradeoff for linearizable shared data.
 
-Related concepts: [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Brokers|brokers]], [[Application Hosts|application hosts]], [[Coordination|coordination]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]].
+Related concepts: [[Realization|realization]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Brokers|brokers]], [[Application Hosts|application hosts]], [[Coordination|coordination]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]].

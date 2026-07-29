@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-15
-updated: 2026-07-17
+updated: 2026-07-28
 status: draft
 aliases:
   - Scheduler
@@ -65,6 +65,8 @@ Scheduling authority is narrower than domain [[Authority|authority]]. A runtime 
 
 Scheduling also allocates finite compute, memory, I/O, concurrency slots, and queue capacity. Priority, admission, backpressure, rate limits, cancellation, and resource budgets shape which work remains enabled and whether fairness claims are meaningful.
 
+Priority can also introduce [[Deadlock and Livelock|priority inversion]] when higher-priority work waits on a resource owned by lower-priority work. Priority inheritance or ceiling protocols can change the effective schedule within a declared resource model, but do not grant domain authority or prove end-to-end progress outside that boundary.
+
 ## Modeling Checks
 
 - What is the schedulable unit and its boundary?
@@ -80,4 +82,4 @@ Scheduling also allocates finite compute, memory, I/O, concurrency slots, and qu
 
 - Nissim Francez, [Fairness](https://doi.org/10.1007/978-1-4612-4886-6), especially the treatment of explicit schedulers, Springer, 1986.
 
-Related concepts: [[Queueing Theory|queueing theory]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Rate Limiting|rate limiting]], [[Interaction|interaction]], [[Process|process]], [[Observer|observer]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Compute|compute]], [[Workflow Engines|workflow engines]], [[Realization|realization]].
+Related concepts: [[Queueing Theory|queueing theory]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Safety and Liveness|safety and liveness]], [[Rate Limiting|rate limiting]], [[Interaction|interaction]], [[Process|process]], [[Observer|observer]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Compute|compute]], [[Workflow Engines|workflow engines]], [[Realization|realization]].

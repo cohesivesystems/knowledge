@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-07-28
 aliases:
   - Processes
   - Process Structure
@@ -27,7 +27,7 @@ A process graph should distinguish its definition from execution material:
 - A **process instance** is one durable logical journey through the definition.
 - A **process attempt** is one recovery or continuity epoch within the instance.
 - An **activation** is one finite execution slice.
-- A **token** represents one active control-flow branch.
+- A **token** represents one active [[Control Flow|control-flow]] branch.
 - Continuation state, checkpoints, inboxes, outboxes, and operation ledgers persist enough material to resume or recover execution.
 
 A display name or source position is not sufficient compatibility evidence for long-lived process state. A persisted continuation must identify the exact definition identity, semantic revision, and normalized content it interprets, unless an explicit migration establishes another correspondence.
@@ -56,6 +56,8 @@ Free graph cycles and arbitrary recursion hide progress and recovery obligations
 
 Forks and joins should identify stable branches, join mode, failure and cancellation behavior, and whether completion order is semantically observable. Durable waits should define registration, buffering, identity, admission, claim, consumption, arbitration, timeout, late-input, stale-input, and retention meanings before a realization chooses a workflow engine, database, broker, or actor mechanism.
 
+A join that waits for a branch that was never enabled, was cancelled without changing the completion set, or can no longer produce its token creates a structural [[Deadlock and Livelock|workflow deadlock]]. Process-graph validation should distinguish such unreachable completion from a runtime wait on a slow or failed external participant.
+
 Examples include:
 
 - OS processes and OS threads executing work across one or more scheduling units.
@@ -74,4 +76,4 @@ Process graphs compose when outputs of one process feed another process as obser
 - Gregor Hohpe and Bobby Woolf, [Process Manager](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html), *Enterprise Integration Patterns*, 2003.
 - Enterprise Integration Patterns, [Message Routing patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html), including Routing Slip, Scatter-Gather, and Composed Message Processor.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Process Theories|process theories]], [[Process|process]], [[Execution Kernel|execution kernel]], [[Business Transactions|business transactions]], [[Flow Views|flow views]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Correlation and Conversations|correlation and conversations]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer Models|observer models]], [[Entity Models|entity models]], [[Transition Models|transition models]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[State|state]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Policy Scopes|policy scopes]], [[Invariant Scopes|invariant scopes]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Process Theories|process theories]], [[Process|process]], [[Control Flow|control flow]], [[Execution Kernel|execution kernel]], [[Business Transactions|business transactions]], [[Flow Views|flow views]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Correlation and Conversations|correlation and conversations]], [[Coordination|coordination]], [[Deadlock and Livelock|deadlock and livelock]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer Models|observer models]], [[Entity Models|entity models]], [[Transition Models|transition models]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[State|state]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Policy Scopes|policy scopes]], [[Invariant Scopes|invariant scopes]].

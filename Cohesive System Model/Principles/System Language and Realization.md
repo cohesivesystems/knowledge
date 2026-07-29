@@ -56,6 +56,27 @@ A realization compiler should make these correspondences explicit:
 - Which information is intentionally forgotten, delayed, approximated, quotiented, or made commutative.
 - Which guarantees are local to one substrate boundary and which compose across the whole system.
 
+## Cross-Realm Projection
+
+A complete system description can be viewed as a cross-realm realization of one related graph, not as several unrelated diagrams. Domain semantics supplies meaning-bearing objects and relations. The system graph bundles and connects them into entities, processes, services, interfaces, and flows. Realization maps that structure onto code and infrastructure. Operational concerns are requirements on the nodes, edges, and mappings in that projection.
+
+![Cross-realm projection from domain semantics through the system graph to the realization substrate](../../assets/diagrams/cross-realm-projection.svg)
+
+*Operational concerns qualify nodes, edges, and mappings at declared
+boundaries.*
+
+The arrows are typed correspondences, not identities. An entity may be authoritative in one service but projected by another. A process may span several services. A service may map to many modules, deployables, and instances, while a repository may contain many services. An interface may have local, HTTP, RPC, broker, or file-based bindings without changing its semantic contract.
+
+Let `G` be the semantic and system graph, `R` a candidate substrate graph, `ρ` a realization mapping, `P` the requirements attached to graph elements and mappings, and `B` the boundary at which they are claimed. A compact realization judgment is:
+
+```text
+G; P @ B ⊢ ρ : G -> R
+```
+
+The judgment is acceptable only when capability evidence for `R` demonstrates every required property in `P` at its declared boundary and the composed mappings preserve the relationships that matter. Concurrency, throughput, queue bounds, ordering, authority, consistency, failure isolation, recovery, scaling, and ownership can therefore qualify a projection without being mistaken for the semantic objects themselves.
+
+The word *projection* is also used for a view that intentionally forgets detail. A semantic view, [[Service Models|service model]], code graph, team graph, deployment topology, and runtime scheduling graph may all be projections of the same realized system. Each view must state which structure it preserves and which detail it omits.
+
 ## Canonical Execution Definitions
 
 Compiler-like realization may use a persisted, versioned canonical execution definition as the intermediate authority between authoring and interpretation. [[Transition Models|Transition models]] and [[Process Graphs|process graphs]] are especially suited to this form because their branches, observations, outcomes, patches, emissions, waits, joins, recovery policy, and guarantee demands must remain stable across several interpreters and long-lived executions.
@@ -115,4 +136,4 @@ The public graph should still be strong enough to support private system graph a
 - Treat multiple realizations as normal, not as ambiguity to erase.
 - Treat working systems as the validation target for the language.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|effect]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|effect]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects]].

@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-07-29
 ---
 
 # Architecture Practices
@@ -39,6 +39,7 @@ Some well-known patterns & practices:
 - [[Microservices]]
 - [[Event-Driven Architecture]]
 - [[Asynchronous Interaction Design]]
+- [[Capacity Planning]]
 - [[CQRS as Architecture Practice]]
 - [[Event Sourcing as Architecture Practice]]
 - [[Orchestration and Choreography]]
@@ -53,4 +54,4 @@ Some well-known patterns & practices:
 - [[CRDTs as Architecture Practice]]
 - [[Data Mesh]]
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Patterns|microservice patterns]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Stuff Structure Property|stuff structure property]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Patterns|microservice patterns]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[Capacity Planning|capacity planning]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Stuff Structure Property|stuff structure property]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].

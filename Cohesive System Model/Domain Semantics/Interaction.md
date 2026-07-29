@@ -17,6 +17,8 @@ Under the [[Stuff Structure Property|stuff structure property]] lens, an interac
 
 Every interaction description is relative to participant boundaries. A claim about a successful interaction must say which boundary observed success: sender-local acceptance, receiver-local admission, handler processing, durable persistence, responsibility transfer, or domain commitment.
 
+A designed interaction surface is an [[Interfaces|interface]]. The boundary establishes scope; the interface declares the roles and contracts by which selected interactions may cross it; the interaction is the actual or possible participation through that surface. An [[Interaction Channels|interaction channel]] carries occurrences between endpoints, while an [[Interaction Protocols|interaction protocol]] constrains how those occurrences may unfold over time.
+
 Interaction is boundary-relative. It can occur over a [[Network|network]], between processes on one host, between threads in one process, between tasks in a runtime, between actors and mailboxes, between CPU cores through cache coherence, or between a program and memory/register state.
 
 Network distribution is the common case when discussing distributed systems, but it is not the only case. A system is distributed whenever interaction crosses a boundary where observation, ordering, visibility, failure, authority, or commitment is nontrivial.
@@ -27,7 +29,7 @@ For the network-specific realization ladder from physical signaling through link
 
 From a semantic perspective, interaction is boundary-crossing participation: one [[Observer|observer]], [[Process|process]], or subject affects, observes, requests, notifies, answers, or synchronizes with another. Semantic properties can constrain authority, admissibility, causality, response obligations, continuation, completion, and valid composition without selecting a transport or runtime.
 
-From the system-graph perspective, an interaction description arranges participants, local occurrences, ports, directions, carried roles, channels, topology, and composition. Operational properties refine semantic constraints and structural requirements into scoped claims about addressing, timing, delivery, ordering, acknowledgment, durability, failure, commitment, and recovery. Realization selects or composes mechanisms capable of satisfying those claims and states the evidence and boundaries under which they hold.
+From the system-graph perspective, an interaction description arranges participants, interfaces, ports, local occurrences, directions, carried roles, protocols, channels, topology, and composition. Operational properties refine semantic constraints and structural requirements into scoped claims about addressing, timing, delivery, ordering, acknowledgment, durability, failure, commitment, and recovery. Realization selects or composes mechanisms capable of satisfying those claims and states the evidence and boundaries under which they hold.
 
 Cohesive keeps these descriptions related without collapsing them. A semantic [[Command|command]], [[Query|query]], [[Event|event]], or [[Observation|observation]] may be carried by many system-graph interaction shapes and substrate mechanisms. Neither an interaction edge nor its realization determines the semantic role of what crosses it.
 
@@ -51,7 +53,7 @@ The correspondence is generally many-to-many. Exactly one semantic discharge, fo
 
 At a low level for software modeling, interaction can be modeled as asynchronous send and receive. A send operation usually means the local boundary accepted data for transmission, publication, storage, or delivery. A receive operation observes data already admitted by the receiver's local substrate. Stronger meanings, such as remote receipt, application processing, durable persistence, visibility to another participant, or domain commitment, require additional protocol structure.
 
-Higher layers add addressing, atomicity, ordering, reliability, flow control, framing, multiplexing, persistence, cursoring, acknowledgment, correlation, and semantic interpretation.
+Higher layers add addressing, atomicity, ordering, reliability, [[Flow Control|flow control]], framing, [[Multiplexing and Demultiplexing|multiplexing]], persistence, cursoring, acknowledgment, correlation, and semantic interpretation.
 
 [[Synchrony and Asynchrony]] gives the governing distinction: asynchrony leaves sends, receives, observations, and effects as independently progressing occurrences; synchronization coordinates selected occurrences into one boundary-relative unit such as a call/return, rendezvous, transaction, barrier, actor turn, or commit point.
 
@@ -68,10 +70,10 @@ An interaction description should say:
 - How those occurrences are named: address, channel, topic, mailbox, location, lock, session, correlation identifier, cursor, or offset.
 - Which participant actively drives each push, fetch, poll, callback, or delivery operation and in which direction the carried value moves.
 - Which occurrences remain independent and which are joined by synchronization, acknowledgment, commit, reply, or rendezvous.
-- What guarantees enrich the edge: ordering, durability, isolation, delivery, retention, idempotency, retry, flow control, or recovery.
+- What guarantees enrich the edge: ordering, durability, isolation, delivery, retention, idempotency, retry, [[Flow Control|flow control]], or recovery.
 - Which semantic role the carried value has when interpreted: [[Command|command]], [[Query|query]], [[Event|event]], [[Observation|observation]], policy decision, acknowledgment, or signal.
 
-This makes interaction modes derived protocol shapes rather than disjoint categories.
+This makes interaction modes derived [[Interaction Protocols|protocol]] shapes rather than disjoint categories.
 
 ## Addressing and Identity
 
@@ -148,13 +150,9 @@ This section states the general principle. [[Network|Network]] develops the spec
 
 ## Backpressure and Flow Control
 
-Backpressure is feedback over an interaction edge: a receiver, channel, broker, runtime, or dependency signals that it cannot accept or process work at the offered rate. Flow control is the protocol structure that turns that signal into admission, buffering, scheduling, throttling, dropping, batching, or slowing behavior.
+Backpressure is capacity feedback over an interaction edge. [[Flow Control|Flow control]] is the operational protocol that turns capacity state or feedback into changed admission, demand, buffering, scheduling, batching, throttling, blocking, or shedding behavior.
 
-Flow control should not be confused with [[Interaction Control Flow|interaction control flow]]. Flow control regulates work in response to capacity; interaction control flow identifies which participant actively drives an operation. The driver constrains where and how a flow-control policy can act, but it is not the policy itself.
-
-Backpressure can be push-based or pull-based. Push-based systems need bounded channels, credits, windows, refusal, shedding, or blocking points to avoid unbounded accumulation. Pull-based systems let consumers control demand through polling, fetch size, cursor advancement, subscription demand, or lease acquisition. Topology matters: fan-in creates bottleneck pressure, fan-out can amplify work, and partitioned consumer groups distribute pressure only within the partitioning and assignment rules.
-
-Backpressure is related to [[Rate Limiting|rate limiting]], [[Trace and Feedback|trace and feedback]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], and [[Recovery|recovery]], but it is specifically about how capacity information travels through the interaction graph.
+Flow control should not be confused with [[Interaction Control Flow|interaction control flow]]. Flow control regulates how much work may progress in response to capacity; interaction control flow identifies which participant actively drives an operation. The interaction-control role constrains where a flow-control policy can act without defining that policy. The canonical [[Flow Control|flow-control]] concern defines push, pull, and mediated mechanisms together with their bounds, failure modes, and modeling requirements.
 
 ## Failure and Partial Failure
 
@@ -164,7 +162,7 @@ The structural ambiguity is that absence of response does not distinguish slow, 
 
 ## Interaction Graphs
 
-An interaction graph is one projection of the broader system graph. Its edges mean that one participant operationally affects, observes, invokes, signals, publishes to, consumes from, reads, writes, waits for, or synchronizes with another participant or channel.
+An interaction graph is one projection of the broader system graph. Its edges mean that one participant operationally affects, observes, invokes, signals, publishes to, consumes from, reads, writes, waits for, or synchronizes with another participant or channel through a declared or inferred interface.
 
 Interaction edges can also induce causal or happens-before structure when a protocol relates one local occurrence to another. In Lamport-style causal ordering, a send happens before the corresponding receive. Request/reply, publish/consume, shared-state updates, acknowledgments, and synchronization points similarly create possible-causality edges when the model records those relations. The force of that ordering remains boundary- and mechanism-relative; see [[Ordering|ordering]].
 
@@ -181,7 +179,7 @@ Other graph projections use different edge meanings:
 
 The same system element can appear in several graphs. An entity relationship does not imply direct interaction. An interaction edge does not imply a semantic entity relationship. A process-flow edge may be realized by several interaction edges. A broker, channel, mailbox, lock, or shared memory cell may be modeled as an edge at one abstraction layer and as a node at another.
 
-Interaction graphs are especially useful for reasoning about coordination, delivery, ordering, backpressure, failure, acknowledgment, durability, and commit boundaries. An interaction edge should therefore be annotated with the boundary where its guarantees hold, the mode it uses, the topology it creates, the semantic roles it carries, and the substrate layer that realizes it.
+Interaction graphs are especially useful for reasoning about coordination, delivery, ordering, backpressure, failure, acknowledgment, durability, and commit boundaries. An interaction edge should therefore be annotated with its provided and required interfaces, governing protocol, channel, boundary where guarantees hold, mode, topology, carried semantic roles, and realizing substrate layer.
 
 ## Dimensions
 
@@ -216,4 +214,4 @@ Interaction does not by itself define whether a domain transition committed. Tha
 - Martin Fowler, [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html), 2017.
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Effect|effect]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Interaction Control Flow|interaction control flow]], [[Routing Models|routing models]], [[Correlation and Conversations|correlation and conversations]], [[Consumer Coordination|consumer coordination]], [[Relation Models|relation models]], [[Flow Views|flow views]], [[Projection Models|projection models]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Effect|effect]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Interaction Control Flow|interaction control flow]], [[Flow Control|flow control]], [[Routing Models|routing models]], [[Correlation and Conversations|correlation and conversations]], [[Consumer Coordination|consumer coordination]], [[Relation Models|relation models]], [[Flow Views|flow views]], [[Projection Models|projection models]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].

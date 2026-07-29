@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-05
-updated: 2026-07-27
+updated: 2026-07-28
 aliases:
   - Infrastructure Graphs
 ---
@@ -15,11 +15,14 @@ It names how entity models, transition models, observer models, process graphs, 
 
 The mapping is not only from a semantic role to a similarly named mechanism. Transition models, process graphs, effect scopes, and business transactions produce structural requirements for observations, writes, waits, emissions, replies, atomicity, visibility, durability, idempotency, ordering, recovery, compensation, compatibility, ownership, and fencing. Candidate substrates supply evidence about which requirements they can realize and within which operating boundaries.
 
+Operational concerns are properties and requirements of this projection. They may qualify a source node, a target node, a system-graph edge, or the mapping between realms. Replica placement, for example, introduces scheduling, routing, identity, consistency, isolation, and recovery obligations on the relation between one logical role and its many runtime instances.
+
 The infrastructure graph is not a private deployment inventory. Concrete hosts, credentials, customer environments, unpublished modules, private routing rules, and implementation-specific realization mappings belong outside this public repository unless explicitly published.
 
 Use an infrastructure graph to ask:
 
 - Which substrate roles host, persist, route, schedule, observe, or recover each system graph structure?
+- Which code, repository, team, deployment, and runtime projections correspond to each [[Service Models|logical service]]?
 - Which operational guarantees are supplied by which substrate boundary?
 - Which requirements are realized natively, through composition, only under constraints, by an explicit authorized override, or not at all?
 - Which claimed capabilities remain unknown or lack sufficient evidence?
@@ -31,4 +34,4 @@ An infrastructure graph therefore sits at the boundary between [[System Graph|sy
 
 A realization compiler may select a stronger semantically equivalent mechanism, but it must not silently select a weaker one. Unavailable or unproven requirements remain explicit diagnostics or unrealized graph edges rather than hidden fallbacks. For example, unavailable multi-entity atomicity does not authorize automatic replacement with a saga; compensation and reconciliation must exist in the authored process graph.
 
-Related concepts: [[System Graph|system graph]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Infrastructure|infrastructure]], [[Entity Models|entity models]], [[Transition Models|transition models]], [[Observer Models|observer models]], [[Process Graphs|process graphs]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Interaction|interaction]], [[Coordination|coordination]].
+Related concepts: [[System Graph|system graph]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Infrastructure|infrastructure]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Entity Models|entity models]], [[Transition Models|transition models]], [[Observer Models|observer models]], [[Process Graphs|process graphs]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Interaction|interaction]], [[Coordination|coordination]].

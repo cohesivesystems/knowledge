@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-07-28
 ---
 
 # Infrastructure
@@ -24,4 +24,6 @@ Infrastructure can support or undermine the model's operational concerns. Its co
 
 Infrastructure also realizes [[Operational Control|operational control]] and [[Observability and Provenance|observability and provenance]] through administration surfaces, policy distribution, metrics, logs, traces, diagnostic routes, and retained evidence. Those mechanisms do not define their own authority, semantic completion, or provenance meaning.
 
-Related concepts: [[Realization|realization]], [[Infrastructure Graph|infrastructure graph]], [[Compute|compute]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Network|network]], [[Storage Systems|storage systems]], [[Brokers|brokers]], [[Batch and File Exchange|batch and file exchange]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]], [[Recovery|recovery]].
+Infrastructure supplies [[Scaling Mechanisms|scaling mechanisms]] such as resource resizing, replication, placement, partition movement, routing changes, and autoscaling controllers. Their effectiveness is judged against a declared [[Scalability|scalability]] profile; a successful infrastructure operation does not prove that ready or useful capacity increased.
+
+Related concepts: [[Realization|realization]], [[Scalability|scalability]], [[Scaling Mechanisms|scaling mechanisms]], [[Infrastructure Graph|infrastructure graph]], [[Compute|compute]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Network|network]], [[Storage Systems|storage systems]], [[Brokers|brokers]], [[Batch and File Exchange|batch and file exchange]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]], [[Recovery|recovery]].

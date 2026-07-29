@@ -56,6 +56,18 @@ The canonical definition is not identical to the semantic entity, process, state
 
 A realization judgment should state whether a requirement is native, composed from several mechanisms, available only under constraints, accepted through an explicit authorized override, unavailable, or unknown. A realization may select a stronger semantically equivalent mechanism. It must not silently weaken a requirement or substitute compensation, retry, best effort, or name-based compatibility for stronger authored semantics.
 
+## Cross-Realm Realization Judgment
+
+[[System Language and Realization|Cross-realm projection]] treats a realization mapping as carrying semantic and system-graph structure into a substrate graph while operational concerns qualify the mapping. For a graph element or edge `x`, a candidate realization `ρ(x)`, requirements `P(x)`, and claim boundary `B`, the essential check is:
+
+```text
+capability evidence(ρ(x), B) satisfies P(x, B)
+```
+
+Requirements may also belong to the mapping itself. For example, allocating one service to several replicas creates identity, routing, consistency, scheduling, and recovery obligations that belong neither to the logical service alone nor to an isolated runtime instance. A valid realization demonstrates those cross-realm properties for the composed mapping.
+
+This permits several related projections of one realized system—semantic, [[Service Models|service]], code, repository, ownership, deployment, and runtime—without treating any one projection as the whole graph.
+
 ## Multiplicity
 
 A semantic role may have several valid realizations. For example, an entity can be actor-hosted in one system, stored as a database row with optimistic concurrency in another, and represented by an event stream with reconstitution in a third.
@@ -114,4 +126,4 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effect|effect]], [[Effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[System Graph|system graph]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effect|effect]], [[Effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].

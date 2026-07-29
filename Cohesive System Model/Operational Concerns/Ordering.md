@@ -2,12 +2,14 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-15
+updated: 2026-07-28
 ---
 
 # Ordering
 
 Ordering defines the scope within which events, commands, observations, or effects are sequenced.
+
+## Order Relations
 
 An ordering relation may be total or partial. A reflexive order convention uses `x <= x`; transitivity means `x <= y` and `y <= z` imply `x <= z`; antisymmetry means `x <= y` and `y <= x` identify the same ordered position. Partiality means that some pairs may be incomparable. A total order adds comparability for every pair.
 
@@ -48,6 +50,10 @@ One execution can contain several non-identical orders:
 
 These orders coincide only when the realization establishes an explicit correspondence. Work selected first may block or retry and commit later. A total consensus-log order may not be visible immediately through caches or projections. A linearization proof may order overlapping operations differently from their invocation or completion order.
 
+Program order is the order of operations as issued by one participant, thread, process, observer, or session. [[Consistency Models|Sequential consistency]] preserves each participant's program order while allowing the global explanation to differ from wall-clock order among participants.
+
+Real-time order compares non-overlapping operations: if operation `A` completes before operation `B` begins, real-time order places `A` before `B`. [[Consistency Models|Linearizability]] preserves real-time order; sequential consistency does not require it.
+
 ## Ordering and Causality
 
 Ordering may represent [[Causality|causation]] or potential causal influence in models that define the order relation that way, but ordering should not be treated as causal by default. The meaning of an ordering relation is boundary- and mechanism-relative.
@@ -64,4 +70,4 @@ A [[Consistent Cuts|consistent cut]] is an ordering-sensitive snapshot: it inclu
 
 For [[CRDTs]], ordering requirements are type-specific. Some merge functions are insensitive to message order, while operation-based CRDTs may require causal ordering or explicit causal metadata.
 
-Related concepts: [[Glossary|glossary]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Delivery Semantics|delivery semantics]], [[Time|time]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Consensus|consensus]], [[Event|event]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Enrichment and Order|enrichment and order]], [[Functoriality|functoriality]], [[Brokers|brokers]], [[Workflow Engines|workflow engines]], [[Actor Systems|actor systems]].
+Related concepts: [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Delivery Semantics|delivery semantics]], [[Time|time]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Consensus|consensus]], [[Event|event]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Enrichment and Order|enrichment and order]], [[Functoriality|functoriality]], [[Brokers|brokers]], [[Workflow Engines|workflow engines]], [[Actor Systems|actor systems]].

@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-04
-updated: 2026-07-28
+updated: 2026-07-29
 status: draft
 aliases:
   - Process Theory
@@ -17,14 +17,14 @@ Process theories are modeling disciplines for work, interaction, change, and beh
 
 In Cohesive, process theories provide a shared language for [[Process|processes]], [[Process Graphs|process graphs]], workflows, [[Process Managers|process managers]], [[Sagas|sagas]], durable executions, choreographies, orchestrations, feedback loops, control loops, and physical processes without making all of those things identical.
 
-The goal is not to choose one universal formalism. Open systems, Petri nets, process calculi, session types, string diagrams, compositional games, dynamical systems, control theory, quantum processes, and compositional concurrency each emphasize different structure. Cohesive uses them as sources of discipline for asking what composes, what is observed, what crosses a boundary, and what must be preserved by realization.
+The goal is not to choose one universal formalism. Open systems, Petri nets, process calculi, session types, string diagrams, compositional games, dynamical systems, [[Control Theory|control theory]], quantum processes, and compositional concurrency each emphasize different structure. Cohesive uses them as sources of discipline for asking what composes, what is observed, what crosses a boundary, and what must be preserved by realization.
 
 ## Cohesive Formulation
 
 A process theory makes these elements explicit:
 
 - The units treated as processes.
-- The interfaces or [[Boundaries|boundaries]] through which processes interact.
+- The [[Interfaces|interfaces]] through which processes interact and the [[Boundaries|boundaries]] whose scopes those interfaces cross.
 - The observations, events, commands, queries, signals, artifacts, and effects that may cross those boundaries.
 - The allowed composition operations: sequential composition, parallel composition, nesting, [[Nondeterminism and Choice|choice]], synchronization, hiding, restriction, merge, and feedback.
 - The state, history, trace, run, schedule, or behavior used to describe process evolution.
@@ -90,7 +90,7 @@ Many real systems mix both shapes. A process may be orchestrated inside one boun
 
 Process theories must account for feedback. Outputs may become future inputs through event loops, control loops, retries, projections, workflow timers, actor messages, human review, or physical response. [[Trace and Feedback|Trace and feedback]] gives the vocabulary for these loops, while [[Ordering]], [[Idempotency]], [[Recovery]], and [[Rate Limiting|rate limiting]] keep them operationally honest.
 
-This matters because Cohesive should reconcile software processes with physical process theories rather than only with application architecture vocabulary. Dynamical systems emphasize state evolution over time. Control theory emphasizes observation, decision, actuation, and feedback. Petri-net style models emphasize concurrency, resources, and enabling conditions. Quantum and categorical process theories emphasize compositional interfaces, interaction, observation, and diagrammatic reasoning.
+This matters because Cohesive should reconcile software processes with physical process theories rather than only with application architecture vocabulary. Dynamical systems emphasize state evolution over time. [[Control Theory|Control theory]] emphasizes observation, decision, actuation, and feedback. Petri-net style models emphasize concurrency, resources, and enabling conditions. Quantum and categorical process theories emphasize compositional interfaces, interaction, observation, and diagrammatic reasoning.
 
 Cohesive does not identify these physical and mathematical theories with distributed-system workflows. It uses them as compatibility checks: if the language for a workflow, saga, or process manager cannot say what state evolves, what crosses the boundary, how processes compose, and how feedback works, the language is too weak.
 
@@ -100,7 +100,7 @@ A process realization preserves:
 
 - Process identity and correlation.
 - Participant roles and [[Authority|authority]].
-- Interface boundaries and carried semantic roles.
+- Provided and required interfaces, their governing [[Interaction Protocols|interaction protocols]], and carried semantic roles.
 - [[Causality]], ordering, and synchronization requirements.
 - State, history, trace, checkpoint, or behavior needed for progress.
 - Commit, acknowledgment, and effect boundaries.
@@ -129,4 +129,4 @@ When modeling a process, ask:
 - Robin Milner, Joachim Parrow, and David Walker, [A Calculus of Mobile Processes, I](https://doi.org/10.1016/0890-5401(92)90008-4) and [II](https://doi.org/10.1016/0890-5401(92)90009-5), *Information and Computation* 100(1):1-77, 1992.
 - Robin Milner, [Communication and Concurrency](https://www.research.ed.ac.uk/en/publications/communication-and-concurrency/), Prentice Hall, 1989.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Workflow Patterns|workflow patterns]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Process|process]], [[Process Graphs|process graphs]], [[Transition Models|transition models]], [[State Machines|state machines]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Causality|causality]], [[Authority|authority]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Realization|realization]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Workflow Patterns|workflow patterns]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Control Theory|control theory]], [[Control Models|control models]], [[Process|process]], [[Process Graphs|process graphs]], [[Transition Models|transition models]], [[State Machines|state machines]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Causality|causality]], [[Authority|authority]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Control Flow|interaction control flow]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Realization|realization]].

@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-01
+updated: 2026-07-28
 ---
 
 # Safety and Liveness
@@ -14,6 +14,8 @@ Safety and Liveness separate two kinds of operational property of a distributed 
 **Liveness** says that something good eventually happens. A liveness property is about progress: a request eventually returns, a command is eventually accepted or rejected, a message is eventually delivered, a replica eventually catches up, a process eventually recovers, or a consensus instance eventually decides.
 
 These properties are complementary but can be in tension. A system can preserve safety by refusing to act. A system can claim liveness by postponing correctness to an unbounded future. Useful operational concerns must therefore say both what is forbidden and what progress is promised under which failure, timing, retry, recovery, and fairness assumptions.
+
+A [[Metastability|metastable]] system can preserve safety while remaining trapped in a non-progressing or low-progress regime. Its liveness claim must include the load, capacity, feedback, and intervention assumptions under which the system can return to useful operation.
 
 ## Distributed Tension
 
@@ -52,4 +54,4 @@ This is why the slogan "choose two" is misleading. In the presence of a partitio
 - Rachid Guerraoui and Michel Raynal, [The Alpha of Indulgent Consensus](https://doi.org/10.1093/comjnl/bxl046), The Computer Journal, 50(1):53-67, January 2007.
 - Leo Gorodinski, [The Asynchronous Computability Theorem](https://www.gorodinski.com/The-Asynchronous-Computability-Theorem-3188cf7881f980d9b170dfbb0780a971), 2019.
 
-Related concepts: [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Progress Conditions|progress conditions]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[CAP Theorem|CAP theorem]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Recovery|recovery]], [[Retry|retry]], [[Delivery Semantics|delivery semantics]], [[Network|network]], [[Invariant|invariants]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs]].
+Related concepts: [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[CAP Theorem|CAP theorem]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Recovery|recovery]], [[Retry|retry]], [[Metastability|metastability]], [[Delivery Semantics|delivery semantics]], [[Network|network]], [[Invariant|invariants]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs]].

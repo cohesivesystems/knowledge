@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-29
-updated: 2026-07-27
+updated: 2026-07-28
 aliases:
   - Effect Boundary
   - Effect Boundaries
@@ -34,7 +34,7 @@ Important structures include:
 - A **transition effect** advances authoritative entity state when an accepted transition decision commits.
 - A **domain-event emission** records or externalizes a fact without creating an emitter-side response obligation.
 - A **request** creates a typed terminal-response or terminal-failure obligation and identifies where the result is consumed.
-- A **signal** carries an addressed one-way input with no response obligation.
+- A **signal** carries a one-way input toward a specified receiving participant or role without creating a response obligation.
 - A **reply** discharges one admitted request.
 - A **persistence effect** records reconstruction, audit, checkpoint, inbox, outbox, cursor, or ledger material without automatically becoming a domain event.
 - An **infrastructure effect** changes a runtime or infrastructure subject through logging, allocation, cache mutation, offset advancement, scheduling, I/O, or similar activity.

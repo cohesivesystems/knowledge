@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-07-29
 ---
 
 # Cohesive System Model
@@ -30,9 +30,7 @@ Domains can be described as cohesive system graphs composed from semantic constr
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
 - [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and [[Effect|effects]] over time
 
-Cohesive arranges interactions among these primitives through its system graph, states the required [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control properties, then realizes the resulting structure and property demands through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
-
-Base terms that recur across realms are collected in the [[Glossary|glossary]].
+Cohesive arranges interactions among these primitives through its system graph, bundles responsibilities into [[Service Models|service models]] with explicit [[Interfaces|interfaces]] and [[Interaction Protocols|interaction protocols]], states the required [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control properties, then realizes the resulting structure and property demands through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
 ## Realms of Description
 
@@ -46,6 +44,9 @@ Describe modeling disciplines used across the system model.
 - [[Categorical Principles]]
 - [[Programming Paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]]
 - [[Process Theories]]
+- [[Service]]
+- [[Control Flow]]
+- [[Control Theory]]
 - [[Queueing Theory]]
 - [[Stuff Structure Property]]
 - [[Compositionality]]
@@ -106,7 +107,8 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Coordination]]  
 - [[Consensus]]
 - [[Scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]]
-- [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[CAP Theorem|CAP theorem]]
+- [[Scalability]], [[Locality|locality]]
+- [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[CAP Theorem|CAP theorem]], [[Metastability|metastability]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
 - [[ACID]], [[Two-Phase Commit|two-phase commit]]
@@ -115,7 +117,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Consistency Models]]  
 - [[Consistent Cuts]], [[Linearization Points|linearization points]]
 - [[CRDTs]]
-- [[Retry]], [[Rate Limiting|rate limiting]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
+- [[Retry]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
 - [[Correlation and Conversations]], [[Consumer Coordination|consumer coordination]], [[Interaction Control Flow|interaction control flow]]
 - [[Compatibility and Evolution]]
 - [[Retention Expiration and Quarantine|Retention, expiration, and quarantine]]
@@ -129,13 +131,15 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Entity Models]]
 - [[Transition Models]]
 - [[Observer Models]]
+- [[Control Models]]
 - [[Relation Models]]
 - [[Projection Models]]
 - [[Process Graphs]]
 - [[Effects]]
 - [[Flow Views]] as movement views within or between process graphs
+- [[Service Models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]]
 - [[Messages and Envelopes]], [[Interaction Channels|interaction channels]]
-- [[Routing Models]], [[Flow Operators|flow operators]]
+- [[Routing Models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Flow Operators|flow operators]]
 - [[Business Transactions]]
 - [[Policy Scopes]]
 - [[Invariant Scopes]]
@@ -147,7 +151,9 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 Provides concrete mechanisms.
 
 - [[Realization]]
-- [[Compute]]  
+- [[Compute]]
+- [[Scaling Mechanisms|Scaling mechanisms]]
+- [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID control]]
 - [[Runtimes]]  
 - [[Application Hosts|Application hosts]]  
 - [[Network]]
@@ -172,7 +178,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Analysis Patterns]], [[Domain-Driven Design|domain-driven design]]
 - [[Patterns of Enterprise Application Architecture]], [[Enterprise Integration Patterns|enterprise integration patterns]]
 - [[Workflow Patterns]], [[Microservice Patterns|microservice patterns]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]]
-- [[Ports and Adapters]], [[Clean Architecture|clean architecture]], [[Modular Monolith|modular monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]]
+- [[Ports and Adapters]], [[Clean Architecture|clean architecture]], [[Modular Monolith|modular monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Capacity Planning|capacity planning]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
 - [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
 - [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
@@ -328,7 +334,7 @@ The decision does not commit state. Portable transition structure is finite and 
 
 An [[Effect|effect]] is a modeled consequence or obligation established by a semantic decision. Effect declaration, accepted responsibility, local commit, physical attempt, acknowledgment or result, and downstream interpretation are distinct boundaries.
 
-A domain-event emission creates no response obligation. A request creates a typed terminal-response or terminal-failure obligation. A signal is addressed one-way input, and a reply discharges one admitted request. Effect handlers are impure realization adapters; they do not become semantic authority or mutate authoritative entity state directly.
+A domain-event emission creates no response obligation. A request identifies an intended receiver and creates a typed terminal-response or terminal-failure obligation. A signal also identifies an intended receiver but creates no response obligation, and a reply discharges one admitted request. Effect handlers are impure realization adapters; they do not become semantic authority or mutate authoritative entity state directly.
 
 ### Command
 
@@ -500,7 +506,7 @@ What constrains execution?
 - Optimistic concurrency (via expected version)  
 - Pessimistic locking / fencing tokens  
 - Actor identity serialization  
-- Retries, rate limiting, backpressure  
+- Retries, [[Rate Limiting|rate limiting]], and [[Flow Control|flow control and backpressure]]
 - Idempotency
 
 ## Protocol Layering and Space

@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-28
 ---
 
 # Boundaries
@@ -10,6 +10,8 @@ updated: 2026-07-01
 Boundaries define the scope and context in which observation, interpretation, [[Authority|authority]], failure, persistence, delivery, and coordination apply.
 
 At the structure level, boundaries describe semantic and operational scoping in the system graph, not a specific process, network, storage, or deployment mechanism.
+
+A boundary is not necessarily an [[Interfaces|interface]]. A boundary separates scopes; an interface is a declared crossing at a boundary. One boundary may have several provided and required interfaces, and some boundaries intentionally expose none.
 
 Scope answers what is included, excluded, owned, visible, controlled, or guaranteed. Context answers which meanings, policies, identities, versions, capabilities, assumptions, and authorities apply inside that scope.
 
@@ -25,7 +27,8 @@ Boundary types include:
 - **Entity or aggregate boundaries**: define the subject whose state, invariants, transitions, and version history are controlled together.
 - **Transaction and [[Commit Boundaries|commit boundaries]]**: define which reads, writes, and effects commit or roll back atomically.
 - **Process or workflow boundaries**: define the scope of a long-running behavior, its durable progress, retries, compensations, and recovery.
-- **Service boundaries**: define an independently deployed or operated capability with its own API, policies, dependencies, and failure modes.
+- **Service boundaries**: define the semantic responsibility, authority, policy, dependencies, guarantees, and interfaces of a capability. Independent deployment or operation is a possible realization, not part of the unqualified definition.
+- **Interface boundaries**: define designed crossing points, their admitted interaction roles, and their semantic contracts.
 - **Protocol and broker boundaries**: define delivery, ordering, acknowledgment, retries, and message ownership for an interaction substrate.
 - **Failure boundaries**: define what can fail, restart, partition, or recover independently.
 - **Persistence boundaries**: define what is durably recorded and treated as recoverable truth.
@@ -50,4 +53,4 @@ Different guarantees apply at different boundaries:
 
 So a system can acknowledge a message and preserve broker ordering while still failing to commit the domain transition. It can also receive the same message more than once while committing the domain transition only once through idempotency and concurrency control.
 
-Related concepts: [[Observer|observer]], [[Authority|authority]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].
+Related concepts: [[Interfaces|interfaces]], [[Service|service]], [[Service Models|service models]], [[Observer|observer]], [[Authority|authority]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].

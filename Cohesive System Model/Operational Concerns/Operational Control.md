@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-07-29
 aliases:
   - Control Plane
   - Messaging Control
@@ -13,6 +13,10 @@ aliases:
 Operational control describes authorized interventions that inspect or change how a running system admits, routes, schedules, pauses, drains, replays, quarantines, purges, resumes, or tests work.
 
 Control interactions are ordinary modeled interactions with unusually broad operational authority. A control bus, administration API, CLI, workflow signal, operator console, or infrastructure controller may carry them. The control medium does not define their authority or semantic effect.
+
+Operational control is distinct from [[Control Flow|control flow]]. It changes or inspects how a running system behaves; control flow describes how actions or steps become enabled and follow one another at a declared layer.
+
+Operational control is also distinct from [[Control Theory|feedback control]]. A [[Control Models|control model]] may automatically exercise operational control, but its feedback law and its authority to actuate are separate claims. An authorized operator can change a limit without using a feedback controller, while a controller may compute an action that it lacks authority to apply.
 
 ## Control Operations
 
@@ -32,4 +36,4 @@ Control-plane success is boundary-relative. Acceptance of a pause command does n
 
 - Gregor Hohpe and Bobby Woolf, [Control Bus](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ControlBus.html), [Detour](https://www.enterpriseintegrationpatterns.com/patterns/messaging/Detour.html), and [Channel Purger](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ChannelPurger.html), *Enterprise Integration Patterns*, 2003.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Authority|authority]], [[Interaction|interaction]], [[Infrastructure Graph|infrastructure graph]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Scheduling|scheduling]], [[Acknowledgments|acknowledgments]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Observability and Provenance|observability and provenance]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Control Theory|control theory]], [[Control Models|control models]], [[Authority|authority]], [[Interaction|interaction]], [[Control Flow|control flow]], [[Infrastructure Graph|infrastructure graph]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Scheduling|scheduling]], [[Acknowledgments|acknowledgments]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Metastability|metastability]], [[Observability and Provenance|observability and provenance]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]].

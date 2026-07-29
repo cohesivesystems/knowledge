@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-07-28
 status: draft
 aliases:
   - Consistent Cut
@@ -42,6 +42,8 @@ Vector clocks, snapshot algorithms, transaction snapshots, log positions, barrie
 
 A set of individually fresh reads need not form a consistent cut. A set of stale reads can form one when their versions are mutually causally compatible. Freshness, atomicity, causal closure, and linearizability are therefore separate properties.
 
+Distributed [[Deadlock and Livelock|deadlock]] detection is one application. Combining wait-for edges observed at incompatible times can create a phantom cycle that never existed in one global state. A consistent cut, causally tracked probe, or equivalent validation protocol gives the detected dependency relation a coherent observation boundary.
+
 ## Modeling Checks
 
 - Which occurrences and causal relation define the history?
@@ -55,4 +57,4 @@ A set of individually fresh reads need not form a consistent cut. A set of stale
 
 - K. Mani Chandy and Leslie Lamport, [Distributed Snapshots: Determining Global States of a Distributed System](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/Determining-Global-States-of-a-Distributed-System.pdf), *ACM Transactions on Computer Systems* 3(1):63-75, 1985.
 
-Related concepts: [[Causality|causality]], [[Happened-Before|happened-before]], [[Ordering|ordering]], [[Consistency Models|consistency models]], [[Version Histories|version histories]], [[Observation|observation]], [[State|state]], [[Version|version]], [[Observer|observer]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Boundaries|boundaries]].
+Related concepts: [[Causality|causality]], [[Happened-Before|happened-before]], [[Ordering|ordering]], [[Consistency Models|consistency models]], [[Version Histories|version histories]], [[Observation|observation]], [[State|state]], [[Version|version]], [[Observer|observer]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]], [[Deadlock and Livelock|deadlock and livelock]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Boundaries|boundaries]].

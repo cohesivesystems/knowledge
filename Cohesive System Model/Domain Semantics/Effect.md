@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-07-28
 aliases:
   - Semantic Effect
 ---
@@ -29,7 +29,7 @@ Important semantic roles include:
 - A **transition effect** is the accepted evolution of an [[Entity|entity]] from one versioned [[State|state]] to another. Its occurrence is an endogenous [[Event|event]].
 - A **domain-event emission** declares a fact to be established or externalized without creating an emitter-side response obligation.
 - A **request** establishes a typed terminal-response or terminal-failure obligation and identifies where that response is consumed.
-- A **signal** is an addressed one-way input with no response obligation.
+- A **signal** is a one-way emission directed to an intended receiving participant or role. Like a domain-event emission, it creates no response obligation; like a request, it identifies a receiver, but unlike a request it establishes no reply or terminal-failure obligation.
 - A **reply** discharges one admitted request.
 
 An emission is therefore a boundary-crossing effect declaration. Domain events, requests, signals, and replies have different obligations even when their payloads use similar [[Shape|shapes]] or travel through the same substrate.

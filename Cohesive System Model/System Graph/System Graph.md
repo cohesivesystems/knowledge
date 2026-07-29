@@ -2,14 +2,14 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-07-28
+updated: 2026-07-29
 ---
 
 # System Graph
 
 The system graph is the realm that composes domain semantics into the cohesive system graph of a modeled system.
 
-It asks how semantic roles are placed, composed, owned, related, scoped, and prepared for realization once they are part of a model of a whole system. It describes graph shape: which [[Entity Models|entity models]] exist, how [[Transition Models|transition models]] govern their possible evolution, which [[Observer Models|observer models]] interpret which [[Boundaries|boundaries]], how [[Process Graphs|process graphs]] coordinate work, which [[Relation Models|relation models]] connect subjects, which [[Projection Models|projection models]] expose derived observations, which [[Policy Scopes|policy scopes]] and [[Invariant Scopes|invariant scopes]] constrain transitions, and where [[Effects|effects]] leave a boundary.
+It asks how semantic roles are placed, composed, owned, related, scoped, and prepared for realization once they are part of a model of a whole system. It describes graph shape: which [[Entity Models|entity models]] exist, how [[Transition Models|transition models]] govern their possible evolution, which [[Observer Models|observer models]] interpret which [[Boundaries|boundaries]], how [[Control Models|control models]] regulate selected variables through feedback and actuation, how [[Process Graphs|process graphs]] coordinate work, which [[Relation Models|relation models]] connect subjects, which [[Projection Models|projection models]] expose derived observations, how [[Service Models|service models]] bundle responsibilities behind [[Interfaces|interfaces]], which [[Interaction Protocols|interaction protocols]] govern their conversations, which [[Policy Scopes|policy scopes]] and [[Invariant Scopes|invariant scopes]] constrain transitions, and where [[Effects|effects]] leave a boundary.
 
 This realm sits between primitive meaning and concrete implementation:
 
@@ -20,10 +20,11 @@ This realm sits between primitive meaning and concrete implementation:
 
 Use this realm to answer questions such as:
 
-- What are the system's entity models, transition models, observer models, process graphs, relation models, projection models, and boundaries?
+- What are the system's entity models, transition models, observer models, control models, process graphs, relation models, projection models, and boundaries?
 - Which participant owns or interprets a piece of state, a transition, a policy, or an invariant?
 - How do observations, commands, events, effects, and artifacts move through flow views and business transactions?
-- How are interactions among participants arranged through occurrences, flows, messages, channels, routes, and boundaries?
+- How are interactions among participants arranged through interfaces, protocols, occurrences, flows, messages, channels, routes, multiplexing, and boundaries?
+- How are entities, relations, queries, and processes allocated to logical services without identifying those services with their code or deployment realizations?
 - Which relation models make the graph navigable, dependent, constrained, derived, or causally connected?
 - Where does a semantic role change meaning because it crosses a boundary?
 - Which infrastructure graph projection binds modeled structure to public substrate roles?
@@ -36,15 +37,20 @@ Core system graph notes:
 - [[Entity Models|entity models]]
 - [[Transition Models|transition models]]
 - [[Observer Models|observer models]]
+- [[Control Models|control models]]
 - [[Relation Models|relation models]]
 - [[Projection Models|projection models]]
 - [[Process Graphs|process graphs]]
 - [[Business Transactions|business transactions]]
 - [[Boundaries|boundaries]]
+- [[Interfaces|interfaces]]
+- [[Interaction Protocols|interaction protocols]]
+- [[Service Models|service models]]
 - [[Effects|effects]]
 - [[Messages and Envelopes|messages and envelopes]]
 - [[Interaction Channels|interaction channels]]
 - [[Routing Models|routing models]]
+- [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]]
 - [[Flow Operators|flow operators]]
 - [[Policy Scopes|policy scopes]]
 - [[Invariant Scopes|invariant scopes]]
@@ -54,4 +60,4 @@ Secondary views and projections:
 
 - [[Flow Views|flow views]]
 
-Related concepts: [[Compositionality|compositionality]], [[Stuff Structure Property|stuff structure property]], [[Execution Kernel|execution kernel]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[State|state]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Realization|realization]].
+Related concepts: [[Compositionality|compositionality]], [[Stuff Structure Property|stuff structure property]], [[Execution Kernel|execution kernel]], [[Control Theory|control theory]], [[Control Models|control models]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[State|state]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Flow Operators|flow operators]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Realization|realization]].

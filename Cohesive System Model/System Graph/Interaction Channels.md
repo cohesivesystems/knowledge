@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-07-28
 aliases:
   - Message Channel
   - Message Channels
@@ -11,9 +11,9 @@ aliases:
 
 # Interaction Channels
 
-Interaction channels describe the structural loci through which values, messages, observations, signals, requests, replies, and events can move between observer boundaries.
+Interaction channels describe the structural loci through which values, messages, observations, signals, requests, replies, and events can move between [[Interfaces|interface]] endpoints, whether within one boundary or across several boundaries.
 
-A channel is not the whole [[Interaction|interaction]] and does not determine the semantic role of what it carries. It names a path, shared medium, address space, subscription surface, queue, log, topic, mailbox, stream, or other mediating locus in the system graph. The same channel can carry several semantic roles when their contracts remain distinguishable.
+A channel is not the whole [[Interaction|interaction]], an interface, or an [[Interaction Protocols|interaction protocol]], and does not determine the semantic role of what it carries. It names a path, shared medium, address space, subscription surface, queue, log, topic, mailbox, stream, or other mediating locus in the system graph. The same channel can carry several semantic roles when their contracts remain distinguishable.
 
 ## Channel Topologies
 
@@ -23,6 +23,8 @@ A channel is not the whole [[Interaction|interaction]] and does not determine th
 - An **invalid-message or quarantine channel** separates material that cannot be admitted or processed under the active contract and policy.
 - A **bridge** relates channels or messaging systems with distinct addressing, formats, guarantees, or administrative boundaries.
 - A **message bus** arranges a shared integration surface over multiple channels, contracts, endpoints, and routing rules.
+
+Several logical flows may share one channel through [[Multiplexing and Demultiplexing|multiplexing]]. The discriminator that recovers a logical flow is part of the channel binding or protocol; shared transport does not erase the flows' distinct interfaces or semantics.
 
 Topology alone does not imply ordering, retention, durability, exactly-once effects, consumer progress, or business completion. Those are operational claims supplied by [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Durability|durability]], [[Consumer Coordination|consumer coordination]], and [[Retention Expiration and Quarantine|retention, expiration, and quarantine]].
 
@@ -42,4 +44,4 @@ At one abstraction layer a channel is an edge between observers. At another it i
 - Enterprise Integration Patterns, [Messaging Channels](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html).
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Messages and Envelopes|messages and envelopes]], [[Observer Models|observer models]], [[Flow Views|flow views]], [[Routing Models|routing models]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Consumer Coordination|consumer coordination]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Brokers|brokers]], [[Network|network]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Messages and Envelopes|messages and envelopes]], [[Observer Models|observer models]], [[Flow Views|flow views]], [[Routing Models|routing models]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Consumer Coordination|consumer coordination]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Brokers|brokers]], [[Network|network]].

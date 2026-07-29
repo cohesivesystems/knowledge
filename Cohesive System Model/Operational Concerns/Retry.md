@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-07-28
 ---
 
 # Retry
@@ -12,6 +12,8 @@ Retry is the controlled repetition of an operation after a transient failure, ti
 Retry changes the operational shape of a system because the same input may be observed more than once by the same or different [[Observer|observers]].
 
 Retry is one recovery strategy: it re-drives incomplete or transiently failed work when the original input remains valid and duplicate effects are controlled.
+
+Retry is also a feedback path. If timeouts cause enough additional attempts to keep effective demand above service capacity, retry can turn a transient overload into [[Metastability|a metastable regime]] that persists after the initiating fault has cleared.
 
 ## Time Replication
 
@@ -31,4 +33,4 @@ A retry policy should define:
 
 Retries are safe only when paired with explicit [[Idempotency|idempotency]], appropriate [[Delivery Semantics|delivery semantics]], and clear recovery behavior.
 
-Related concepts: [[Idempotency|idempotency]], [[Rate Limiting|rate limiting]], [[Ordering|ordering]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Command|command]], [[Time|time]], [[State|state]], [[Consensus|consensus]], [[Transition|transition]].
+Related concepts: [[Idempotency|idempotency]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Queueing Theory|queueing theory]], [[Trace and Feedback|trace and feedback]], [[Metastability|metastability]], [[Ordering|ordering]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Command|command]], [[Time|time]], [[State|state]], [[Consensus|consensus]], [[Transition|transition]].

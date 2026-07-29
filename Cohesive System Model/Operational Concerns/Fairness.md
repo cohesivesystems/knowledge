@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-07-28
 status: draft
 aliases:
   - Fair Scheduling
@@ -25,6 +25,8 @@ Fairness refines [[Safety and Liveness|liveness]]. It does not state that every 
 - **Probabilistic fairness**: starvation has probability zero under a declared stochastic model, which is weaker than a per-execution guarantee.
 
 Fairness claims are boundary- and failure-relative. A message cannot remain deliverable across a permanent partition under a model that treats the link as unavailable. A crashed participant is not continuously enabled unless recovery is part of the fairness assumption. Priority, cancellation, expiry, leases, and resource exhaustion can also change eligibility.
+
+Fairness can exclude [[Deadlock and Livelock|starvation]] among enabled actions, but it does not by itself break deadlock or prove that useful work completes. In a deadlock, the required action may no longer be enabled; in a livelock, fair execution may continue to select actions that collectively make no useful progress.
 
 ## Unbounded Delay
 
@@ -70,4 +72,4 @@ Most [[Consistency Models|consistency models]] constrain history safety rather t
 - Nissim Francez, [Fairness](https://doi.org/10.1007/978-1-4612-4886-6), Springer, 1986.
 - Daniel Lehmann, Amir Pnueli, and Jonathan Stavi, [Impartiality, Justice and Fairness: The Ethics of Concurrent Termination](https://doi.org/10.1007/3-540-10843-2_22), in *Automata, Languages and Programming*, LNCS 115:264-277, 1981.
 
-Related concepts: [[Nondeterminism and Choice|nondeterminism and choice]], [[Scheduling|scheduling]], [[Arbitration|arbitration]], [[Glitch Principle|glitch principle]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Consensus|consensus]], [[Consistency Models|consistency models]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Workflow Engines|workflow engines]], [[Relational and Logic Programming|relational and logic programming]].
+Related concepts: [[Nondeterminism and Choice|nondeterminism and choice]], [[Scheduling|scheduling]], [[Arbitration|arbitration]], [[Glitch Principle|glitch principle]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Safety and Liveness|safety and liveness]], [[Consensus|consensus]], [[Consistency Models|consistency models]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Workflow Engines|workflow engines]], [[Relational and Logic Programming|relational and logic programming]].

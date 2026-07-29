@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-15
+updated: 2026-07-29
 ---
 
 # Compute
@@ -17,10 +17,12 @@ Compute concerns include:
 - Scheduling.
 - Resource limits.
 - Isolation.
-- Scaling.
+- [[Scaling Mechanisms|Scaling]].
 - Failure and restart behavior.
-- Locality to storage, brokers, or dependencies.
+- [[Locality]] to storage, brokers, or dependencies.
 
 Compute resources are allocated through [[Scheduling|scheduling]] and local [[Arbitration|arbitration]]. A substrate can expose priority, preemption, affinity, quotas, deadlines, or best-effort execution without defining the fairness or domain-authority semantics expected by the system above it.
 
-Related concepts: [[Realization|realization]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Recovery|recovery]].
+Adding compute changes a resource dimension; it does not by itself establish [[Scalability|scalability]]. Effective capacity also depends on [[Admission Control and Load Shedding|admission]], useful parallelism, placement, locality, shared dependencies, contention, coordination, and the churn created while capacity is added, moved, warmed, drained, or removed.
+
+Related concepts: [[Realization|realization]], [[Scalability|scalability]], [[Scaling Mechanisms|scaling mechanisms]], [[Locality|locality]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Capacity Planning|capacity planning]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Recovery|recovery]].

@@ -2,7 +2,7 @@
 realm: Principles
 kind: discipline
 created: 2026-07-17
-updated: 2026-07-17
+updated: 2026-07-28
 status: draft
 aliases:
   - Queuing Theory
@@ -307,6 +307,8 @@ $$
 
 If $\mu\leq\lambda$, the stage cannot catch up under the sustained rates. This is an approximation rather than a stochastic queueing law: job sizes, retries, batching, partitions, failures, and time-varying capacity can materially change the result.
 
+[[Metastability]] makes those dependencies explicit. A disturbance can move a system into a regime where backlog or another accumulated condition raises the effective arrival rate through retry and feedback, lowers effective service capacity through contention and resource pressure, or does both. The backlog then fails to drain even after the initiating disturbance ends, and the same external workload can be sustainable in the healthy regime but unsustainable in the degraded one.
+
 The backlog vocabulary in [[Asynchronous Interaction Design|asynchronous interaction design]] is deliberately broader than $L$. Backlog may include queued, delayed, retrying, in-flight, blocked, or quarantined work across several stages. Little's Law applies only when the counted population and response-time boundary match exactly.
 
 ## Modeling and Measurement Discipline
@@ -331,7 +333,7 @@ Measurement windows create censoring: jobs present at the start, admitted but un
 
 Queueing theory is a source discipline, not a semantic claim that a domain [[Process|process]] or [[Event|event]] is “really” a queue. It provides operational language for finite capacity, accumulated work, residence time, and flow through realization boundaries.
 
-[[Asynchronous Interaction Design|Asynchronous interaction design]] applies the language to backlog, lag, stability, catch-up, replay, live work, and backfill. [[Interaction]] supplies backpressure and flow-control edges. [[Rate Limiting|Rate limiting]] and admission control shape arrival rates. [[Scheduling]] and [[Fairness|fairness]] determine service opportunity and queue discipline. [[Safety and Liveness|Safety and liveness]] distinguishes preserved correctness from eventual progress under capacity and failure assumptions.
+[[Asynchronous Interaction Design|Asynchronous interaction design]] applies the language to backlog, lag, stability, catch-up, replay, live work, and backfill. [[Interaction]] supplies backpressure and flow-control edges. [[Rate Limiting|Rate limiting]] and [[Admission Control and Load Shedding|admission control]] shape arrival rates. [[Capacity Planning|Capacity planning]] relates measured service demand and capacity to future workload scenarios. [[Scheduling]] and [[Fairness|fairness]] determine service opportunity and queue discipline. [[Safety and Liveness|Safety and liveness]] distinguishes preserved correctness from eventual progress under capacity and failure assumptions.
 
 [[Brokers|Brokers]], [[Runtimes|runtimes]], [[Compute|compute]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], actor mailboxes, and [[Network|network]] connections are realization substrates that may contain queueing centers. Their product names do not determine the queueing model; the actual admission, capacity, routing, scheduling, acknowledgment, and failure behavior does.
 
@@ -346,4 +348,4 @@ Queueing stability is also distinct from [[Progress Conditions|progress conditio
 - Gene M. Amdahl, [Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities](https://doi.org/10.1145/1465482.1465560), AFIPS Spring Joint Computer Conference, 1967.
 - Neil J. Gunther, [A General Theory of Computational Scalability Based on Rational Functions](https://arxiv.org/abs/0808.1431), 2008.
 
-Related concepts: [[Asynchronous Interaction Design|asynchronous interaction design]], [[Interaction|interaction]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Rate Limiting|rate limiting]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Trace and Feedback|trace and feedback]], [[Boundaries|boundaries]], [[Process|process]], [[Event|event]], [[Brokers|brokers]], [[Runtimes|runtimes]], [[Compute|compute]], [[Storage Systems|storage systems]], [[Network|network]], [[Workflow Engines|workflow engines]], [[Actor Systems|actor systems]].
+Related concepts: [[Asynchronous Interaction Design|asynchronous interaction design]], [[Interaction|interaction]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Rate Limiting|rate limiting]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Trace and Feedback|trace and feedback]], [[Metastability|metastability]], [[Boundaries|boundaries]], [[Process|process]], [[Event|event]], [[Brokers|brokers]], [[Runtimes|runtimes]], [[Compute|compute]], [[Storage Systems|storage systems]], [[Network|network]], [[Workflow Engines|workflow engines]], [[Actor Systems|actor systems]].

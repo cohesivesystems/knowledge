@@ -1,0 +1,286 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 820" role="img" aria-labelledby="title desc">
+  <title id="title">Cross-realm projection</title>
+  <desc id="desc">Entities and a semantic process interact in the domain-semantic realm. Those responsibilities are allocated to two logical services connected by explicit interfaces and an interaction channel in the system graph. The services and channel are realized by deployments, runtimes, state storage, and a broker or transport. Operational concerns qualify the nodes, edges, and realization mappings.</desc>
+  <style>
+    svg {
+      --canvas: #fbfbfa;
+      --text: #20252a;
+      --muted: #59626b;
+      --rule: #cfd4d8;
+      --grid: #c5cbd0;
+      --plate: #ffffff;
+      --semantic: #28699b;
+      --semantic-field: #eef5fa;
+      --semantic-node: #e1eef8;
+      --system: #a86226;
+      --system-field: #faf2e9;
+      --system-node: #f4e5d6;
+      --substrate: #2f7b4d;
+      --substrate-field: #eef7f1;
+      --substrate-node: #dfefe4;
+      --concern: #f0f1f2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --canvas: #17191b;
+        --text: #f2f3f4;
+        --muted: #a8adb2;
+        --rule: #3a3e42;
+        --grid: #464b50;
+        --plate: #25282b;
+        --semantic: #7dbdf0;
+        --semantic-field: #1e252a;
+        --semantic-node: #2a3945;
+        --system: #eda060;
+        --system-field: #2a231d;
+        --system-node: #49372a;
+        --substrate: #70d091;
+        --substrate-field: #1d2922;
+        --substrate-node: #294334;
+        --concern: #272a2d;
+      }
+    }
+
+    .canvas { fill: var(--canvas); }
+    .realm-field { stroke: var(--rule); stroke-width: 1.25; }
+    .semantic-field { fill: var(--semantic-field); }
+    .system-field { fill: var(--system-field); }
+    .substrate-field { fill: var(--substrate-field); }
+    .realm-rule, .structural-line { fill: none; stroke: var(--rule); stroke-width: 1.25; }
+    .realm-label {
+      fill: var(--muted);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 2.2px;
+    }
+    .node, .service-boundary, .deployment-boundary {
+      fill: var(--plate);
+      stroke-width: 1.6;
+    }
+    .semantic-node { fill: var(--semantic-node); stroke: var(--semantic); }
+    .system-node { fill: var(--system-node); stroke: var(--system); }
+    .substrate-node { fill: var(--substrate-node); stroke: var(--substrate); }
+    .service-boundary { fill: none; stroke: var(--system); }
+    .deployment-boundary { fill: none; stroke: var(--substrate); }
+    .interface-node { fill: var(--system-node); stroke: var(--system); stroke-width: 1.9; }
+    .interaction-line { fill: none; stroke: var(--semantic); stroke-width: 2.1; }
+    .channel-line { fill: none; stroke: var(--system); stroke-width: 2.1; }
+    .realization-line { fill: none; stroke: var(--substrate); stroke-width: 2.1; }
+    .projection-line {
+      fill: none;
+      stroke: var(--muted);
+      stroke-width: 1.4;
+      stroke-dasharray: 6 5;
+    }
+    .relation-line {
+      fill: none;
+      stroke: var(--muted);
+      stroke-width: 1.35;
+      stroke-dasharray: 2 6;
+    }
+    .node-title {
+      fill: var(--text);
+      font-size: 18px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+    .node-detail, .edge-label, .mapping-label {
+      fill: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+      text-anchor: middle;
+    }
+    .boundary-label {
+      fill: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .4px;
+    }
+    .interface-title {
+      fill: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+    .concern-band {
+      fill: var(--concern);
+      stroke: var(--rule);
+      stroke-width: 1.25;
+      stroke-dasharray: 3 4;
+    }
+    .concern-title {
+      fill: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+    .concern-detail {
+      fill: var(--muted);
+      font-size: 14px;
+      text-anchor: middle;
+    }
+    .label-plate, .formula-plate { fill: var(--plate); stroke: var(--rule); stroke-width: 1; }
+    .math-label {
+      fill: var(--text);
+      font-family: "Cambria Math", "STIX Two Text", Georgia, serif;
+      font-size: 17px;
+      font-style: italic;
+      text-anchor: middle;
+    }
+  </style>
+
+  <defs>
+    <pattern id="dot-grid" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".7" fill="var(--grid)" opacity=".52"/>
+    </pattern>
+    <marker id="arrow-semantic" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 8 4 0 8Z" fill="var(--semantic)"/>
+    </marker>
+    <marker id="arrow-system" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 8 4 0 8Z" fill="var(--system)"/>
+    </marker>
+    <marker id="arrow-substrate" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 8 4 0 8Z" fill="var(--substrate)"/>
+    </marker>
+    <marker id="arrow-projection" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 8 4 0 8Z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect class="canvas" width="1120" height="820" rx="14"/>
+
+  <rect class="realm-field semantic-field" x="14" y="14" width="1092" height="216" rx="10"/>
+  <rect x="14" y="14" width="1092" height="216" rx="10" fill="url(#dot-grid)" opacity=".45"/>
+  <text class="realm-label" x="40" y="45">DOMAIN SEMANTICS</text>
+  <path class="realm-rule" d="M244 40H1080"/>
+
+  <path class="relation-line" d="M208 119C360 54 708 54 858 119"/>
+  <text class="edge-label" x="533" y="73">relation r</text>
+
+  <ellipse class="node semantic-node" cx="180" cy="143" rx="99" ry="51"/>
+  <text class="node-title" x="180" y="134">entity α</text>
+  <text class="node-detail" x="180" y="157">identity · state</text>
+  <text class="node-detail" x="180" y="175">controlled transitions</text>
+
+  <path class="interaction-line" d="M279 143H373" marker-end="url(#arrow-semantic)"/>
+  <text class="edge-label" x="323" y="130">request</text>
+
+  <path class="node semantic-node" d="M392 143 434 99H515L557 143 515 187H434Z"/>
+  <text class="node-title" x="474" y="132">process π</text>
+  <text class="node-detail" x="474" y="155">identity · decisions</text>
+  <text class="node-detail" x="474" y="173">completion meanings</text>
+
+  <path class="interaction-line" d="M557 143H766" marker-end="url(#arrow-semantic)"/>
+  <text class="edge-label" x="661" y="130">interaction i</text>
+
+  <ellipse class="node semantic-node" cx="862" cy="143" rx="99" ry="51"/>
+  <text class="node-title" x="862" y="134">entity β</text>
+  <text class="node-detail" x="862" y="157">identity · state</text>
+  <text class="node-detail" x="862" y="175">controlled transitions</text>
+
+  <path class="interaction-line" d="M850 194C816 225 610 229 533 181" marker-end="url(#arrow-semantic)"/>
+  <rect class="label-plate" x="631" y="185" width="120" height="26" rx="13"/>
+  <text class="edge-label" x="691" y="203">event / reply</text>
+
+  <rect class="realm-field system-field" x="14" y="256" width="1092" height="274" rx="10"/>
+  <rect x="14" y="256" width="1092" height="274" rx="10" fill="url(#dot-grid)" opacity=".34"/>
+  <text class="realm-label" x="40" y="287">SYSTEM GRAPH</text>
+  <path class="realm-rule" d="M206 282H1080"/>
+
+  <path class="projection-line" d="M180 194C180 242 260 265 260 312V365H179V379" marker-end="url(#arrow-projection)"/>
+  <path class="projection-line" d="M474 187V365H359V379" marker-end="url(#arrow-projection)"/>
+  <path class="projection-line" d="M862 194C862 252 1002 278 1002 312V365H879V379" marker-end="url(#arrow-projection)"/>
+  <path class="projection-line" d="M661 145C650 161 620 170 615 182 608 229 604 309 601 376" marker-end="url(#arrow-projection)"/>
+  <text class="mapping-label" x="315" y="245">allocate responsibility</text>
+  <text class="mapping-label" x="726" y="245">preserve the interaction</text>
+
+  <rect class="service-boundary" x="74" y="314" width="416" height="177" rx="14"/>
+  <text class="boundary-label" x="96" y="341">logical service A</text>
+  <path class="structural-line" d="M96 351H468"/>
+  <rect class="node system-node" x="105" y="382" width="146" height="81" rx="10"/>
+  <text class="node-title" x="178" y="409">entity model α</text>
+  <text class="node-detail" x="178" y="432">authoritative state</text>
+  <text class="node-detail" x="178" y="449">+ transitions</text>
+  <rect class="node system-node" x="285" y="382" width="146" height="81" rx="10"/>
+  <text class="node-title" x="358" y="409">process graph π</text>
+  <text class="node-detail" x="358" y="432">cross-boundary</text>
+  <text class="node-detail" x="358" y="449">progress</text>
+  <path class="channel-line" d="M251 422H282" marker-end="url(#arrow-system)"/>
+  <path class="channel-line" d="M431 422H445" marker-end="url(#arrow-system)"/>
+
+  <rect class="interface-node" x="448" y="395" width="84" height="54" rx="10"/>
+  <text class="interface-title" x="490" y="418">required</text>
+  <text class="interface-title" x="490" y="436">interface</text>
+
+  <rect class="node system-node" x="548" y="379" width="104" height="86" rx="42"/>
+  <path class="structural-line" d="M566 397H634M566 409H634M566 421H634"/>
+  <text class="node-title" x="600" y="441">channel χ</text>
+  <text class="node-detail" x="600" y="456">route · buffer</text>
+
+  <rect class="service-boundary" x="710" y="314" width="328" height="177" rx="14"/>
+  <text class="boundary-label" x="732" y="341">logical service B</text>
+  <path class="structural-line" d="M732 351H1016"/>
+
+  <rect class="interface-node" x="668" y="395" width="84" height="54" rx="10"/>
+  <text class="interface-title" x="710" y="418">provided</text>
+  <text class="interface-title" x="710" y="436">interface</text>
+
+  <rect class="node system-node" x="790" y="382" width="180" height="81" rx="10"/>
+  <text class="node-title" x="880" y="409">entity model β</text>
+  <text class="node-detail" x="880" y="432">observer + authoritative</text>
+  <text class="node-detail" x="880" y="449">transitions</text>
+  <path class="channel-line" d="M752 422H787" marker-end="url(#arrow-system)"/>
+
+  <path class="channel-line" d="M532 411H545" marker-end="url(#arrow-system)"/>
+  <path class="channel-line" d="M652 411H665" marker-end="url(#arrow-system)"/>
+  <path class="channel-line" d="M665 435H652"/>
+  <path class="channel-line" d="M548 435H535" marker-end="url(#arrow-system)"/>
+
+  <rect class="concern-band" x="111" y="542" width="898" height="49" rx="24"/>
+  <text class="concern-title" x="249" y="572">operational concerns · P @ B</text>
+  <text class="concern-detail" x="683" y="572">identity · authority · ordering · delivery · durability · recovery</text>
+
+  <rect class="realm-field substrate-field" x="14" y="603" width="1092" height="203" rx="10"/>
+  <rect x="14" y="603" width="1092" height="203" rx="10" fill="url(#dot-grid)" opacity=".28"/>
+  <text class="realm-label" x="40" y="634">REALIZATION SUBSTRATE</text>
+  <path class="realm-rule" d="M312 629H1080"/>
+
+  <path class="projection-line" d="M286 491C286 516 275 529 275 539"/>
+  <path class="projection-line" d="M305 594V643H275V652" marker-end="url(#arrow-projection)"/>
+  <path class="projection-line" d="M600 465V539"/>
+  <path class="projection-line" d="M600 594V652" marker-end="url(#arrow-projection)"/>
+  <path class="projection-line" d="M874 491C874 516 864 529 864 539"/>
+  <path class="projection-line" d="M864 594V652" marker-end="url(#arrow-projection)"/>
+  <text class="mapping-label" x="373" y="621">realized by ρ</text>
+  <text class="mapping-label" x="792" y="621">realized by ρ</text>
+
+  <rect class="deployment-boundary" x="79" y="655" width="348" height="112" rx="14"/>
+  <text class="boundary-label" x="101" y="682">deployment A</text>
+  <rect class="node substrate-node" x="103" y="698" width="178" height="48" rx="9"/>
+  <text class="node-title" x="192" y="720">module + runtime</text>
+  <text class="node-detail" x="192" y="739">entity α · process π</text>
+  <path class="substrate-node" d="M323 700H388V737C388 750 323 750 323 737Z"/>
+  <path class="structural-line" d="M323 700C323 688 388 688 388 700S323 712 323 700"/>
+  <text class="node-detail" x="355" y="731">state</text>
+
+  <rect class="node substrate-node" x="512" y="674" width="166" height="73" rx="36"/>
+  <path class="structural-line" d="M537 695H653M537 707H653M537 719H653"/>
+  <text class="node-title" x="595" y="741">broker / transport</text>
+
+  <rect class="deployment-boundary" x="738" y="655" width="300" height="112" rx="14"/>
+  <text class="boundary-label" x="760" y="682">deployment B</text>
+  <rect class="node substrate-node" x="755" y="698" width="169" height="48" rx="9"/>
+  <text class="node-title" x="839" y="720">module + runtime</text>
+  <text class="node-detail" x="839" y="739">entity β observer</text>
+  <path class="substrate-node" d="M941 700H1005V737C1005 750 941 750 941 737Z"/>
+  <path class="structural-line" d="M941 700C941 688 1005 688 1005 700S941 712 941 700"/>
+  <text class="node-detail" x="973" y="731">state</text>
+
+  <path class="realization-line" d="M427 711H503" marker-end="url(#arrow-substrate)"/>
+  <path class="realization-line" d="M678 711H729" marker-end="url(#arrow-substrate)"/>
+
+  <rect class="formula-plate" x="383" y="778" width="354" height="32" rx="16"/>
+  <text class="math-label" x="560" y="800">G; P @ B ⊢ ρ : G → R</text>
+</svg>

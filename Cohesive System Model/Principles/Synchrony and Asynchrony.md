@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-28
-updated: 2026-07-27
+updated: 2026-07-28
 ---
 
 # Synchrony and Asynchrony
@@ -41,7 +41,7 @@ In [[Systems Sheaf Semantics|systems sheaf semantics]], this coordinated join ca
 
 Several meanings are often conflated:
 
-- **Control-flow synchrony**: one operation waits for another result before continuing. A local function call, blocking RPC, or `await` point can have this shape.
+- **[[Control Flow|Control-flow synchrony]]**: one operation waits for another result before continuing. A local function call, blocking RPC, or `await` point can have this shape.
 - **Commit or observation synchrony**: several effects become visible or committed as one unit. Examples include database transactions, actor turns, lock-protected critical sections, atomic compare-and-swap operations, and consensus-decided log entries.
 - **Timing-model synchrony**: the system assumes bounded message delay, bounded processing delay, clocks, or rounds. Distributed algorithms use this sense when contrasting synchronous, partially synchronous, and asynchronous models.
 
@@ -72,4 +72,4 @@ In distributed systems, synchrony may be realized by quorum protocols, consensus
 
 The same definitions apply in both settings when stated boundary-relatively: asynchrony means independent occurrence relative to the boundary; synchrony means coordinated co-occurrence relative to the boundary.
 
-Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Time|time]], [[Consensus|consensus]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Event|event]], [[Observation|observation]], [[Transition|transition]].
+Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Interaction|interaction]], [[Control Flow|control flow]], [[Interaction Control Flow|interaction control flow]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Time|time]], [[Consensus|consensus]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Event|event]], [[Observation|observation]], [[Transition|transition]].

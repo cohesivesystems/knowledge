@@ -46,6 +46,14 @@ runtime or physical processes.
 - Do not commit `.obsidian/` local settings or workspace state.
 - Prefer small, conceptually coherent edits over broad rewrites.
 
+## Diagram Guidance
+
+When creating or revising an authored diagram, follow
+[DIAGRAM_STYLE_GUIDE.md](DIAGRAM_STYLE_GUIDE.md). Store published diagram
+assets under `assets/diagrams/`. Treat each diagram as a projection of the
+Markdown graph: the surrounding note remains authoritative, and the diagram
+must preserve realm distinctions and typed correspondences.
+
 ## Before Finishing Changes
 
 Run:

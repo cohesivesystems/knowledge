@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-01
+updated: 2026-07-28
 ---
 
 # Progress Conditions
@@ -16,7 +16,7 @@ Progress conditions are model-relative. A guarantee stated for shared-memory alg
 ## Common Conditions
 
 - **Blocking**: progress may depend on another participant releasing a lock, completing a critical section, or recovering. If that participant stalls or crashes, others may be unable to proceed.
-- **Deadlock-free**: the system as a whole does not get permanently stuck, but an individual participant may still starve.
+- **[[Deadlock and Livelock|Deadlock-free]]**: the system as a whole does not get permanently stuck, but an individual participant may still starve.
 - **Starvation-free** or **lockout-free**: every eligible participant eventually completes under the stated fairness assumptions.
 - **Obstruction-free**: an operation completes if it eventually runs in isolation for long enough.
 - **Lock-free**: the system as a whole makes progress; some operation completes in a finite number of steps, though individual operations may starve.
@@ -31,6 +31,8 @@ wait-free => lock-free => obstruction-free
 ```
 
 The implication is one-way. A lock-free algorithm may starve one participant forever while some other participant keeps completing operations. An obstruction-free algorithm may require a contention manager, backoff, or scheduler behavior to avoid livelock under interference.
+
+Deadlock freedom does not imply completion for every participant or exclude [[Deadlock and Livelock|livelock]]. A system may always have another enabled step while repeatedly changing state without completing useful work.
 
 ## Coordination
 
@@ -89,4 +91,4 @@ Progress conditions are therefore not only implementation details. They shape wh
 - Maurice Herlihy, Victor Luchangco, and Mark Moir, [Obstruction-Free Synchronization: Double-Ended Queues as an Example](https://cs.brown.edu/people/mph/HerlihyLM03/main.pdf), ICDCS 2003.
 - Maurice Herlihy and Nir Shavit, [The Art of Multiprocessor Programming](https://books.google.com/books/about/The_Art_of_Multiprocessor_Programming.html?id=7MqcBAAAQBAJ), Morgan Kaufmann.
 
-Related concepts: [[Safety and Liveness|safety and liveness]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[CRDTs]], [[Weak Isolation Patterns|weak isolation patterns]], [[Actor Systems|actor systems]], [[Storage Systems|storage systems]].
+Related concepts: [[Safety and Liveness|safety and liveness]], [[Deadlock and Livelock|deadlock and livelock]], [[Asynchronous Computability Theorem|asynchronous computability theorem]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[CAP Theorem|CAP theorem]], [[CALM Theorem|CALM theorem]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[CRDTs]], [[Weak Isolation Patterns|weak isolation patterns]], [[Actor Systems|actor systems]], [[Storage Systems|storage systems]].

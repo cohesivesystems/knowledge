@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-04
+updated: 2026-07-28
 ---
 
 # Recovery
@@ -33,8 +33,10 @@ Database recovery systems such as ARIES make this explicit through [[Write-Ahead
 
 In [[Safety and Liveness|safety and liveness]] terms, recovery is a liveness mechanism constrained by safety. It should restore progress without inventing histories, duplicating non-idempotent effects, losing committed facts, or weakening the boundary's consistency claim.
 
+Recovery from [[Metastability|metastability]] must break the feedback sustaining the degraded regime. Repeating the ordinary recovery action may worsen the condition when replay, retry, cache warming, replica repair, or synchronized restart competes with useful work for the same constrained capacity.
+
 ## External References
 
 - C. Mohan, Don Haderle, Bruce Lindsay, Hamid Pirahesh, and Peter Schwarz, [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](https://web.stanford.edu/class/cs345d-01/rl/aries.pdf), ACM Transactions on Database Systems, 17(1):94-162, March 1992. [IBM Research](https://research.ibm.com/publications/aries-a-transaction-recovery-method-supporting-fine-granularity-locking-and-partial-rollbacks-using-write-ahead-logging)
 
-Related concepts: [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Retry|retry]], [[Idempotency|idempotency]], [[Safety and Liveness|safety and liveness]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Coordination|coordination]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[CRDTs]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Actor Systems|actor systems]].
+Related concepts: [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[ACID]], [[Write-Ahead Logging|write-ahead logging]], [[Durable Execution|durable execution]], [[Retry|retry]], [[Metastability|metastability]], [[Deadlock and Livelock|deadlock and livelock]], [[Idempotency|idempotency]], [[Safety and Liveness|safety and liveness]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Coordination|coordination]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[CRDTs]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Actor Systems|actor systems]].

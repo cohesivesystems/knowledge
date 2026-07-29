@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: reference
 created: 2026-07-04
-updated: 2026-07-04
+updated: 2026-07-28
 status: draft
 aliases:
   - Distributed Failure Modes
@@ -84,7 +84,7 @@ Typical resolutions include freshness contracts, dependency tokens, read-your-wr
 
 ## Fractured read
 
-A fractured read occurs when one decision uses several observations that do not belong to one coherent [[Glossary#consistent cut|consistent cut]].
+A fractured read occurs when one decision uses several observations that do not belong to one coherent [[Consistent Cuts|consistent cut]].
 
 Each observation may be individually valid, but their combination may never have been true together. This matters for cross-entity validation, policy decisions, reports, projections, and workflows that join independently updated facts.
 
@@ -152,4 +152,4 @@ The queue serializes or buffers work, but it does not by itself provide an await
 
 Typical resolutions include process identity, durable process state, result observations, workflow queries, callbacks, signals, pending states, timeouts, cancellation, and explicit completion events.
 
-Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Dual-Write Problem|dual-write problem]], [[Isolation|isolation]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Durability|durability]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Actor Systems|actor systems]], [[Business Transactions|business transactions]], [[Invariant|invariants]].
+Related concepts: [[Weak Isolation Patterns|weak isolation patterns]], [[Dual-Write Problem|dual-write problem]], [[Isolation|isolation]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Durability|durability]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Metastability|metastability]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Actor Systems|actor systems]], [[Business Transactions|business transactions]], [[Invariant|invariants]].

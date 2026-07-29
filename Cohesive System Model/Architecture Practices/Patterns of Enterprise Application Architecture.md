@@ -17,7 +17,7 @@ Patterns of Enterprise Application Architecture, or PoEAA, catalogs recurring st
 
 | PoEAA family | Representative patterns | Cohesive correspondence |
 | --- | --- | --- |
-| Domain logic | Transaction Script, Domain Model, Table Module, Service Layer | semantic transitions and processes, application observer boundaries, architecture practices, and host-language realization |
+| Domain logic | Transaction Script, Domain Model, Table Module, [[Service\|Service Layer]] | semantic transitions and processes, application observer boundaries, architecture practices, and host-language realization |
 | Data source architecture | Table Data Gateway, Row Data Gateway, Active Record, Data Mapper | persistence and reconstitution correspondences, ports, storage systems, and separation or collapse of domain and storage shapes |
 | Object-relational behavior | Unit of Work, Identity Map, Lazy Load | commit boundaries, identity correspondence, observation, caching, concurrency, and reconstitution |
 | Object-relational structure | Identity Field, association and inheritance mappings, Embedded Value, Serialized LOB | entity and value correspondence to storage schemas, shapes, relations, and compatibility |
@@ -37,4 +37,4 @@ Patterns such as Active Record deliberately combine concerns that Data Mapper se
 - Martin Fowler, with David Rice, Matthew Foemmel, Edward Hieatt, Robert Mee, and Randy Stafford, [*Patterns of Enterprise Application Architecture*](https://martinfowler.com/books/eaa.html), Addison-Wesley Professional, 2002.
 - Martin Fowler, [Catalog of Patterns of Enterprise Application Architecture](https://martinfowler.com/eaaCatalog/).
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Observer Models|observer models]], [[Projection Models|projection models]], [[Interaction|interaction]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Commit Boundaries|commit boundaries]], [[Concurrency Control|concurrency control]], [[Ports and Adapters|ports and adapters]], [[Storage Systems|storage systems]], [[Application Hosts|application hosts]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Service|service]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Observer Models|observer models]], [[Projection Models|projection models]], [[Interaction|interaction]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Commit Boundaries|commit boundaries]], [[Concurrency Control|concurrency control]], [[Ports and Adapters|ports and adapters]], [[Storage Systems|storage systems]], [[Application Hosts|application hosts]].
