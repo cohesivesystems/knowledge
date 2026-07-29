@@ -7,7 +7,6 @@ status: draft
 aliases:
   - cohesive vision
   - systems language
-  - realization compilers
   - compiler-like realization
 ---
 
@@ -55,7 +54,7 @@ A realization compiler should make these correspondences explicit:
 - Which operational concerns must hold at which boundary.
 - Which substrate mechanisms realize each role.
 - Which diagrams, invariants, orderings, and effects must be preserved.
-- Which information is intentionally forgotten, delayed, approximated, quotiented, or made commutative.
+- Which information is intentionally forgotten, delayed, approximated, quotiented (identified under a declared equivalence), or made commutative (allowed to reorder without changing meaning).
 - Which guarantees are local to one substrate boundary and which compose across the whole system.
 
 ## Layered Data Models
@@ -89,10 +88,8 @@ This layered view also localizes impedance mismatch. A mismatch is not merely be
 
 A complete system description can be viewed as a cross-realm realization of one related graph, not as several unrelated diagrams. Domain semantics supplies meaning-bearing objects and relations. The system graph bundles and connects them into entities, processes, services, interfaces, and flows. Realization maps that structure onto code and infrastructure. Operational concerns are requirements on the nodes, edges, and mappings in that projection.
 
-![Cross-realm projection from domain semantics through the system graph to the realization substrate](../../assets/diagrams/cross-realm-projection.svg)
-
-*Operational concerns qualify nodes, edges, and mappings at declared
-boundaries.*
+![Cross-realm projection from domain semantics through the system graph to the realization substrate](../../assets/diagrams/cross-realm-projection.svg)  
+*Operational concerns qualify nodes, edges, and mappings at declared boundaries.*
 
 The arrows are typed correspondences, not identities. An entity may be authoritative in one service but projected by another. A process may span several services. A service may map to many modules, deployables, and instances, while a repository may contain many services. An interface may have local, HTTP, RPC, broker, or file-based bindings without changing its semantic contract.
 
@@ -102,7 +99,16 @@ Let `G` be the semantic and system graph, `R` a candidate substrate graph, `ρ` 
 G; P @ B ⊢ ρ : G -> R
 ```
 
-The judgment is acceptable only when capability evidence for `R` demonstrates every required property in `P` at its declared boundary and the composed mappings preserve the relationships that matter. Concurrency, throughput, queue bounds, ordering, authority, consistency, failure isolation, recovery, scaling, and ownership can therefore qualify a projection without being mistaken for the semantic objects themselves.
+`G` appears on both sides because the semantic and system graph is both the context in which `P` is defined and the source graph that `ρ` lowers.
+
+The judgment is acceptable only when capability evidence for `R` demonstrates every required property in `P` at its declared boundary and the composed mappings preserve the relationships that matter. Requirements that qualify the projection include [[Cohesive System Model#2. Operational Concerns|operational concerns]] and other boundary-relative demands, for example:
+
+- Concurrency, ordering, and consistency.
+- Throughput, queue bounds, and scaling.
+- Failure isolation and recovery.
+- Authority and ownership.
+
+These requirements constrain the projection without becoming semantic objects themselves.
 
 The word *projection* is also used for a view that intentionally forgets detail. A semantic view, [[Service Models|service model]], code graph, team graph, deployment topology, and runtime scheduling graph may all be projections of the same realized system. Each view must state which structure it preserves and which detail it omits.
 
@@ -118,9 +124,13 @@ authoring or import
   -> commit, continuation, effects, and observations
 ```
 
+For instance, a [[Process Graphs|process graph]] authored in a DSL may be serialized as a versioned canonical JSON definition, validated against declared invariants and effect boundaries, and interpreted by a workflow runtime that commits state transitions and emits events.
+
 This intermediate authority does not collapse domain semantics into serialization. The semantic entity, transition, process, state, event, and effect remain defined by the conceptual graph. The canonical definition is the selected portable structure that makes their executable relationships inspectable, comparable, and attributable.
 
-Host-language control flow, generated code, runtime registrations, checkpoints, storage schemas, backend plans, and deployment artifacts are derived artifacts or interpretations. When one conflicts with its canonical definition, the definition remains authoritative unless an explicit accepted semantic change creates a new revision.
+Host-language control flow, generated code, runtime registrations, checkpoints, storage schemas, backend plans, and deployment artifacts are derived artifacts or interpretations.
+
+> **Canonical-definition authority.** When a derived artifact conflicts with its canonical definition, the definition remains authoritative. Only an explicitly accepted semantic change recorded as a new revision can replace it.
 
 [[Execution Kernel|An execution kernel]] supplies the shared identity, versioning, portable-value, validation, interpretation, requirement, trace, and conformance contracts for this boundary without requiring one monolithic runtime or package.
 
@@ -135,9 +145,9 @@ These are valid only when the chosen realization preserves the required identity
 
 ## Traceability
 
-Every public Cohesive building block should be traceable to a well-defined concept in this graph. The reverse direction should also be pursued when practical: important graph concepts should say how they constrain, guide, or appear in building blocks.
+Every public Cohesive building block should be traceable to a well-defined concept in this graph. The reverse direction is equally important: graph concepts should state how they constrain, guide, or appear in building blocks.
 
-Traceability does not require a one-to-one mapping. A concept may have several realizations, no current realization, or only a partial realization. A building block may combine several concepts. The important requirement is that the relationship be explicit enough to review.
+Traceability need not be exhaustive or one-to-one. A concept may identify the building blocks it informs or could inform without claiming complete coverage; partial reverse traceability is acceptable and expected. A concept may have several realizations, no current realization, or only a partial realization, and a building block may combine several concepts. The important requirement is that the relationship be explicit enough to review.
 
 When reconciling a building block against the graph, ask:
 
@@ -156,14 +166,21 @@ The public graph should still be strong enough to support private system graph a
 
 ## Guiding Checks
 
-- Start with semantic meaning before naming infrastructure.
-- State the boundary at which a term, guarantee, or equivalence holds.
-- State which choices remain open, who has authority to resolve them, and which scheduling or fairness assumptions shape executions.
-- Distinguish semantic roles from system graph structures, operational concerns, and substrate mechanisms.
-- Distinguish language-level execution semantics from the substrate mechanisms that interpret or realize them.
-- Prefer structure-preserving mappings over name matching.
-- Make loss of information explicit.
-- Treat multiple realizations as normal, not as ambiguity to erase.
-- Treat working systems as the validation target for the language.
+- Does the description begin with semantic meaning before naming infrastructure?
+- Does it state the boundary at which each term, guarantee, or equivalence holds?
+- Does it identify which choices remain open, who has authority to resolve them, and which scheduling or fairness assumptions shape executions?
+- Does it distinguish semantic roles from system graph structures, operational concerns, and substrate mechanisms?
+- Does it distinguish language-level execution semantics from the substrate mechanisms that interpret or realize them?
+- Do its realization mappings preserve structure rather than merely match names?
+- Does it make each loss of information explicit?
+- Does it allow multiple valid realizations rather than treating them as ambiguity to erase?
+- Does it treat working systems as the validation target for the language?
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Programming Paradigms|programming paradigms]], [[Relational and Logic Programming|relational and logic programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Execution Kernel|execution kernel]], [[Realization|realization]], [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Shape|shape]], [[Query|query]], [[Compatibility and Evolution|compatibility and evolution]], [[Storage Systems|storage systems]], [[Infrastructure Graph|infrastructure graph]], [[Architecture Practices|architecture practices]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|effect]], [[Authority|authority]], [[Causality|causality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Coordination|coordination]], [[Effects]].
+Related concepts by realm:
+
+- **Principles:** [[Categorical Principles|categorical principles]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Process Theories|process theories]], [[Compositionality|compositionality]], and [[Execution Kernel|execution kernel]].
+- **Domain semantics:** [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|semantic effect]], and [[Authority|authority]].
+- **System graph:** [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Effects|effect structure]], and [[Infrastructure Graph|infrastructure graph]].
+- **Operational concerns:** [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], and [[Fairness|fairness]].
+- **Architecture practices:** [[Architecture Practices|architecture practices]].
+- **Realization substrate:** [[Realization|realization]] and [[Storage Systems|storage systems]].
