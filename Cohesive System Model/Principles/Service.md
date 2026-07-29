@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-28
-updated: 2026-07-28
+updated: 2026-07-29
 status: draft
 aliases:
   - Services
@@ -19,9 +19,9 @@ aliases:
 
 # Service
 
-A service is a boundary-relative role in which a provider makes a capability available to a consumer through a contract. The role says what can be requested, observed, or relied upon at that boundary; it does not by itself determine where the behavior is implemented, whether it runs in another process, how it is deployed, or which team owns it.
+A service is a boundary-relative role in which a provider makes a capability available to a consumer through a contract, including declared semantic and operational guarantees. The role says what can be requested, observed, or relied upon at that boundary; it does not by itself determine where the behavior is implemented, whether it runs in another process, how it is deployed, or which team owns it.
 
-The unqualified word *service* is therefore incomplete in a system model. The capability, provider [[Observer|observer]], interaction contract, semantic [[Authority|authority]], code, deployment, runtime process, and organizational owner may have different identities and lifecycles.
+The unqualified word *service* is therefore incomplete in a system model. The capability, provider role, [[Observer|participant that interprets service interactions]], interaction contract, [[Service Levels|service-level commitments]], semantic [[Authority|authority]], code, deployment, runtime process, and organizational owner may have different identities and lifecycles.
 
 ## Qualified Meanings
 
@@ -30,7 +30,7 @@ The unqualified word *service* is therefore incomplete in a system model. The ca
 | Domain service | domain semantics and [[Domain-Driven Design\|DDD]] | A domain operation, policy, transition, or process expressed in the domain language when responsibility does not naturally belong to one entity or value. Its interface and decisions belong to the domain model. | An application coordinator, network endpoint, daemon, or independently deployed service. |
 | Application service or Service Layer | system graph and architecture practice | An application-boundary [[Observer Models\|observer role]] that admits commands or queries, coordinates domain work, transactions, and effects, and returns observations. | New domain meaning merely because it coordinates domain behavior. |
 | Background service or daemon | realization substrate | A runtime-managed process, worker, or [[Application Hosts\|application host]] activated by boot, timers, queues, files, messages, or other triggers and governed by lifecycle and [[Scheduling\|scheduling]] mechanisms. | A domain service, application boundary, or microservice. |
-| Microservice | architecture practice spanning several realms | An independently evolvable [[Microservices\|service boundary]] whose semantic responsibilities, interactions, guarantees, code, ownership, deployment, and runtime realization are deliberately aligned. | A fixed code size, one module, one repository, one process, one team, or one bounded context. |
+| Microservice | architecture practice spanning several realms | An independently evolvable [[Microservice Architecture\|service boundary]] whose semantic responsibilities, interactions, guarantees, code, ownership, deployment, and runtime realization are deliberately aligned. | A fixed code size, one module, one repository, one process, one team, or one bounded context. |
 | Queueing service | analytical and operational language | Processing supplied by a service center, described by service time, service rate, capacity, and queue discipline. | Any of the software-architecture meanings above. |
 
 ## Relationships among the Meanings
@@ -53,6 +53,8 @@ The internal subgraph may contain entities, policies, domain services, queries, 
 
 Encapsulation can be semantic, structural, operational, organizational, or some combination. A model should say which internal changes consumers are protected from and which guarantees remain valid across the interface.
 
+[[Service Levels|Service levels]] make selected operational outcomes measurable and, where an SLA applies, accountable between provider and consumer. They qualify the service boundary rather than the code or deployment alone: an SLI defines what is observed, an SLO defines the target, and an SLA makes selected objectives commitments with declared consequences.
+
 ### Facades, Gateways, and Services
 
 The GoF Facade pattern has a close structural correspondence: it provides a unified, simplified interface to a subsystem. A service can act as a facade, but *service* is the broader role. A service interface may carry semantic authority, remote failure, compatibility, security, throughput, and operational commitments that an object-oriented facade does not imply.
@@ -69,7 +71,7 @@ A single node can fulfill several of these roles, but naming each role separatel
 
 ## Capability and Composition Roles
 
-Industry terminology varies, so a service should be classified on two independent axes: whether it owns semantic authority and whether it primarily realizes behavior locally or composes dependencies.
+A service's semantic authority and realization role are independent dimensions: whether it owns domain meaning, and whether it primarily realizes behavior locally or composes dependencies.
 
 | Semantic role | Realization role | Recommended description |
 | --- | --- | --- |
@@ -78,7 +80,7 @@ Industry terminology varies, so a service should be classified on two independen
 | Does not own domain semantics | Provides reusable technical behavior | Technical or utility service |
 | Does not own domain semantics | Routes, translates, aggregates, or coordinates dependencies | Composition service, qualified as gateway, aggregator, facade, or orchestrator |
 
-Composition is not synonymous with semantic emptiness. A composition service owns domain semantics when it decides domain-valid sequencing, eligibility, policy, or outcomes; it is composition-only when it preserves the authority and meanings of downstream capabilities while changing their accessibility or presentation.
+Composing dependencies is independent of whether a service owns domain semantics. A composition service owns domain semantics when it decides domain-valid sequencing, eligibility, policy, or outcomes; it is composition-only when it preserves the authority and meanings of downstream capabilities while changing their accessibility or presentation.
 
 The same distinction applies at the operation level:
 
@@ -118,6 +120,7 @@ When using *service*, state:
 - Which [[Interaction Protocols|interaction protocols]] govern ordering, concurrency, completion, cancellation, and failure?
 - Which [[Interaction Channels|channels]] and network bindings realize those interfaces?
 - Which operational guarantees apply to delivery, ordering, consistency, recovery, and compatibility?
+- Which SLIs, SLOs, or SLAs qualify the service, and which evidence establishes whether they are met?
 - Which code modules, repositories, build artifacts, deployment units, runtime instances, and schedulers realize the role?
 - Which team owns semantic change, contract evolution, deployment, and operation?
 
@@ -132,4 +135,4 @@ Names such as `CustomerService`, a `/services` directory, a service-manager unit
 - Linux man-pages project, [daemon(7)](https://man7.org/linux/man-pages/man7/daemon.7.html).
 - James Lewis and Martin Fowler, [Microservices](https://martinfowler.com/articles/microservices.html), 2014.
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Domain-Driven Design|domain-driven design]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Microservices|microservices]], [[Modular Monolith|modular monolith]], [[Queueing Theory|queueing theory]], [[Observer|observer]], [[Observer Models|observer models]], [[Process|process]], [[Interaction|interaction]], [[Command|command]], [[Query|query]], [[Effect|effect]], [[Boundaries|boundaries]], [[Authority|authority]], [[Scheduling|scheduling]], [[Application Hosts|application hosts]], [[Runtimes|runtimes]], [[Realization|realization]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service Models|service models]], [[Service Levels|service levels]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Domain-Driven Design|domain-driven design]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Microservice Architecture|microservice architecture]], [[Modular Monolith|modular monolith]], [[Queueing Theory|queueing theory]], [[Observer|observer]], [[Observer Models|observer models]], [[Process|process]], [[Interaction|interaction]], [[Command|command]], [[Query|query]], [[Effect|effect]], [[Boundaries|boundaries]], [[Authority|authority]], [[Scheduling|scheduling]], [[Observability and Provenance|observability and provenance]], [[Capacity Planning|capacity planning]], [[Application Hosts|application hosts]], [[Runtimes|runtimes]], [[Realization|realization]].

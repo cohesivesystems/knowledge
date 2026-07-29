@@ -26,4 +26,4 @@ The monolith is a realization choice. The modules are the important semantic and
 
 The pattern fails when shared process and shared database are mistaken for shared semantics. Without explicit module boundaries, the result is only a monolith, not a modular one.
 
-Related concepts: [[Boundaries|boundaries]], [[Relation|relations]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Entity Models|entity models]], [[Application Hosts|application hosts]], [[Persistence|persistence]], [[Coordination|coordination]], [[Microservices|microservices]].
+Related concepts: [[Boundaries|boundaries]], [[Relation|relations]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Entity Models|entity models]], [[Application Hosts|application hosts]], [[Persistence|persistence]], [[Coordination|coordination]], [[Microservice Architecture|microservice architecture]].

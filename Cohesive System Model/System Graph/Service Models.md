@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-07-28
+updated: 2026-07-29
 status: draft
 aliases:
   - Service Model
@@ -24,7 +24,7 @@ Within a service model, a service is a node with:
 - an encapsulated internal subgraph;
 - provided interfaces expressing capabilities;
 - required interfaces expressing dependencies;
-- declared semantic and operational guarantees; and
+- declared semantic and [[Service Levels|service-level]] guarantees; and
 - ownership or accountability when those concerns are modeled.
 
 Edges denote interface-mediated interactions, not undifferentiated dependency. Their [[Interaction Protocols|protocols]], [[Shape|shapes]], [[Interaction Channels|channels]], and operational envelopes qualify what the topology means.
@@ -84,11 +84,16 @@ The same underlying system may be projected as:
 
 These are related projections, not interchangeable descriptions. Conflating them is a common source of architectural ambiguity.
 
+## Formal relations
+
+- `arranges`: [[Service]] — Represents the boundary-relative service role as logical graph nodes with encapsulated responsibilities, provided and required interfaces, guarantees, and allocation relations.
+
 ## Relationships
 
 - Domain semantics supplies the semantic responsibilities allocated to services.
 - [[Interfaces]] and [[Interaction Protocols]] define allowed service interactions.
-- [[Microservices]] describes one family of finer-grained service realizations and organizational arrangements.
+- [[Service Levels|Service levels]] qualify provided capabilities with measurable objectives and accountable commitments.
+- [[Microservice Architecture]] describes one family of finer-grained service realizations and organizational arrangements.
 - [[Infrastructure Graph]] records public realization mechanisms and evidence.
 - Operational concerns qualify nodes, edges, and allocation mappings with runtime requirements.
 

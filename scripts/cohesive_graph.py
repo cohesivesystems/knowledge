@@ -33,9 +33,29 @@ ALLOWED_KINDS = {
     "glossary",
 }
 
+RELATION_INVERSES = {
+    "mentions": "mentioned_by",
+    "refines": "refined_by",
+    "arranges": "arranged_by",
+    "qualifies": "qualified_by",
+    "constrains": "constrained_by",
+    "requires": "required_by",
+    "bundles": "bundled_by",
+    "documents": "documented_by",
+    "may_realize": "may_be_realized_by",
+    "realizes": "realized_by",
+    "corresponds_to": "corresponds_to",
+}
+
+ALLOWED_FORMAL_RELATION_TYPES = set(RELATION_INVERSES) - {"mentions"}
+
 DEFAULT_SOURCES = ("Cohesive System Model.md", "Cohesive System Model")
 
 WIKILINK_RE = re.compile(r"(?<!!)\[\[([^\]]+)\]\]")
+FORMAL_RELATION_RE = re.compile(
+    r"^\s*-\s+`(?P<relation_type>[a-z][a-z0-9_]*)`:\s*"
+    r"\[\[(?P<raw>[^\]]+)\]\]\s+—\s+(?P<description>\S.*)\s*$"
+)
 
 
 @dataclass(frozen=True)
@@ -45,6 +65,20 @@ class Link:
     raw: str
     target: str
     label: str | None = None
+
+
+@dataclass(frozen=True)
+class FormalRelation:
+    link: Link
+    relation_type: str
+    description: str
+
+
+@dataclass(frozen=True)
+class ParseIssue:
+    source_path: str
+    line: int
+    message: str
 
 
 @dataclass
@@ -61,6 +95,8 @@ class Node:
     summary: str = ""
     frontmatter: dict[str, Any] = field(default_factory=dict)
     links: list[Link] = field(default_factory=list)
+    formal_relations: list[FormalRelation] = field(default_factory=list)
+    relation_issues: list[ParseIssue] = field(default_factory=list)
     has_h1: bool = False
 
 
@@ -176,6 +212,9 @@ def parse_node(path: Path, root: Path) -> Node:
     status_value = frontmatter.get("status")
     status = str(status_value) if status_value is not None else None
     aliases = normalize_aliases(frontmatter.get("aliases"))
+    formal_relations, relation_issues = extract_formal_relations(
+        rel_path, body, body_start_line
+    )
 
     return Node(
         id=node_id_for_path(path, root),
@@ -190,6 +229,8 @@ def parse_node(path: Path, root: Path) -> Node:
         summary=extract_summary(body),
         frontmatter=frontmatter,
         links=extract_wikilinks(rel_path, body, body_start_line),
+        formal_relations=formal_relations,
+        relation_issues=relation_issues,
         has_h1=has_h1,
     )
 
@@ -280,6 +321,85 @@ def extract_wikilinks(source_path: str, body: str, start_line: int = 1) -> list[
                 )
 
     return links
+
+
+def extract_formal_relations(
+    source_path: str, body: str, start_line: int = 1
+) -> tuple[list[FormalRelation], list[ParseIssue]]:
+    relations: list[FormalRelation] = []
+    issues: list[ParseIssue] = []
+    in_fence = False
+    in_section = False
+    found_section = False
+
+    for line_number, line in enumerate(body.splitlines(), start=start_line):
+        stripped = line.strip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+
+        if stripped.startswith("#"):
+            if stripped == "## Formal relations":
+                if found_section:
+                    issues.append(
+                        ParseIssue(
+                            source_path=source_path,
+                            line=line_number,
+                            message="Duplicate '## Formal relations' section.",
+                        )
+                    )
+                found_section = True
+                in_section = True
+            elif in_section:
+                in_section = False
+            continue
+
+        if not in_section or not stripped:
+            continue
+
+        match = FORMAL_RELATION_RE.fullmatch(line)
+        if not match:
+            issues.append(
+                ParseIssue(
+                    source_path=source_path,
+                    line=line_number,
+                    message=(
+                        "Formal relations must use '- `type`: [[Target]] — rationale' "
+                        "on one physical line."
+                    ),
+                )
+            )
+            continue
+
+        raw = match.group("raw").strip()
+        target, label = split_wikilink(raw)
+        if not target:
+            issues.append(
+                ParseIssue(
+                    source_path=source_path,
+                    line=line_number,
+                    message="Formal relation target cannot be empty.",
+                )
+            )
+            continue
+
+        relations.append(
+            FormalRelation(
+                link=Link(
+                    source_path=source_path,
+                    line=line_number,
+                    raw=raw,
+                    target=target,
+                    label=label,
+                ),
+                relation_type=match.group("relation_type"),
+                description=match.group("description").strip(),
+            )
+        )
+
+    return relations, issues
 
 
 def split_wikilink(raw: str) -> tuple[str, str | None]:

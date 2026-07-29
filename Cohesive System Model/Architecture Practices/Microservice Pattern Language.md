@@ -2,21 +2,22 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-07-28
-updated: 2026-07-28
+updated: 2026-07-29
 aliases:
+  - Microservice Patterns
   - Microservices Patterns
   - Microservice Architecture Pattern Language
 ---
 
-# Microservice Patterns
+# Microservice Pattern Language
 
-Microservice patterns are [[Architecture Practices|architecture-practice]] patterns that allocate semantic responsibility and [[Authority|authority]] to independently evolvable [[Service|services]], connect them in [[Service Models|service models]] through provided and required [[Interfaces|interfaces]], govern their conversations with [[Interaction Protocols|interaction protocols]], state their operational guarantees, and select [[Realization|realization]] mechanisms. Together, they form a pattern language for decomposition, collaboration, data ownership, transactional messaging, communication, deployment, discovery, reliability, security, observability, testing, and migration.
+The microservice pattern language collects [[Architecture Practices|architecture-practice]] patterns that allocate semantic responsibility and [[Authority|authority]] to independently evolvable [[Service|services]], connect them in [[Service Models|service models]] through provided and required [[Interfaces|interfaces]], govern their conversations with [[Interaction Protocols|interaction protocols]], state their operational guarantees, and select [[Realization|realization]] mechanisms. It covers decomposition, collaboration, data ownership, transactional messaging, communication, deployment, discovery, reliability, security, observability, testing, and migration.
 
 ## Cohesive Correspondence
 
 | Pattern family | Cohesive correspondence |
 | --- | --- |
-| Monolith or microservice architecture | [[Modular Monolith\|modular monolith]] and [[Microservices\|microservice]] practices over semantic, ownership, deployment, and failure boundaries |
+| Monolith or microservice architecture | [[Modular Monolith\|modular-monolith]] and [[Microservice Architecture\|microservice-architecture]] practices over semantic, ownership, deployment, and failure boundaries |
 | Decomposition by business capability or subdomain | [[Domain-Driven Design\|DDD]], [[Service Models\|service models]], [[Entity Models\|entity models]], [[Process Graphs\|process graphs]], authority, and team ownership |
 | Service collaboration | [[Interfaces\|interfaces]], [[Interaction Protocols\|interaction protocols]], [[Interaction\|interaction]], [[Business Transactions\|business transactions]], [[Sagas\|sagas]], [[CQRS as Architecture Practice\|CQRS]], API composition, and domain-event publication |
 | Transactional messaging | [[Transactional Outbox\|transactional outbox]], [[Transactional Inbox\|transactional inbox]], log tailing, polling publication, idempotency, and commit boundaries |
@@ -30,10 +31,14 @@ Microservice patterns connect DDD's semantic boundary and ownership concerns wit
 
 Saga, CQRS, Event Sourcing, Transactional Outbox, Idempotent Consumer, Messaging, Shared Database, API Gateway, and Anti-Corruption Layer overlap DDD, EIP, enterprise application patterns, cloud patterns, and distributed-systems patterns. Cohesive preserves the source provenance while mapping them onto shared concepts rather than duplicating primitives.
 
+## Formal relations
+
+- `documents`: [[Microservice Architecture]] — Organizes recurring decisions, alternatives, and realization techniques associated with the architecture practice without identifying the catalog with the practice itself.
+
 ## External References
 
 - Chris Richardson, [A Pattern Language for Microservices](https://microservices.io/patterns/).
 - Chris Richardson, [*Microservices Patterns*](https://microservices.io/book), Manning, 2018.
 - Microsoft, [Design patterns for microservices](https://learn.microsoft.com/en-us/azure/architecture/microservices/design/patterns), Azure Architecture Center.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Microservices|microservices]], [[Modular Monolith|modular monolith]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Interaction|interaction]], [[Sagas|sagas]], [[CQRS as Architecture Practice|CQRS]], [[Transactional Outbox|transactional outbox]], [[Transactional Inbox|transactional inbox]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[Realization|realization]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Microservice Architecture|microservice architecture]], [[Modular Monolith|modular monolith]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Interaction|interaction]], [[Sagas|sagas]], [[CQRS as Architecture Practice|CQRS]], [[Transactional Outbox|transactional outbox]], [[Transactional Inbox|transactional inbox]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[Realization|realization]].

@@ -9,10 +9,24 @@ from pathlib import Path
 import re
 import sys
 
-from cohesive_graph import ALLOWED_KINDS, ALLOWED_REALMS, load_nodes, repo_root_from, resolve_links
+from cohesive_graph import (
+    ALLOWED_FORMAL_RELATION_TYPES,
+    ALLOWED_KINDS,
+    ALLOWED_REALMS,
+    load_nodes,
+    repo_root_from,
+    resolve_links,
+)
 
 
 ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+RELATION_SOURCE_REALMS = {
+    "arranges": "System Graph",
+    "qualifies": "Operational Concerns",
+    "bundles": "Architecture Practices",
+    "may_realize": "Realization Substrate",
+}
 
 
 def main() -> int:
@@ -34,6 +48,25 @@ def main() -> int:
         errors.append(
             f"Unresolved wikilink in {link.source_path}:{link.line}: [[{link.raw}]]"
         )
+
+    seen_relations: set[tuple[str, str, str]] = set()
+    for node in nodes:
+        for relation in node.formal_relations:
+            target = resolved.get(relation.link)
+            if target is None:
+                continue
+            key = (node.id, target.id, relation.relation_type)
+            if key in seen_relations:
+                errors.append(
+                    f"Duplicate formal relation in {node.path}:{relation.link.line}: "
+                    f"{relation.relation_type} -> {target.title}"
+                )
+            seen_relations.add(key)
+            if node.id == target.id:
+                errors.append(
+                    f"Self-referential formal relation in {node.path}:{relation.link.line}: "
+                    f"{relation.relation_type}"
+                )
 
     inbound = Counter(target.path for target in resolved.values())
     orphan_paths = [
@@ -64,6 +97,35 @@ def main() -> int:
 
 
 def validate_node(node, errors: list[str], warnings: list[str]) -> None:
+    for issue in node.relation_issues:
+        errors.append(f"{issue.source_path}:{issue.line}: {issue.message}")
+
+    for relation in node.formal_relations:
+        relation_type = relation.relation_type
+        if relation_type not in ALLOWED_FORMAL_RELATION_TYPES:
+            errors.append(
+                f"Unknown formal relation type in {node.path}:{relation.link.line}: "
+                f"{relation_type!r}"
+            )
+            continue
+
+        expected_realm = RELATION_SOURCE_REALMS.get(relation_type)
+        if expected_realm and node.realm != expected_realm:
+            errors.append(
+                f"Formal relation {relation_type!r} in {node.path}:{relation.link.line} "
+                f"must originate in realm {expected_realm!r}, not {node.realm!r}"
+            )
+
+        if relation_type == "documents" and node.kind not in {
+            "reference",
+            "glossary",
+            "overview",
+        }:
+            errors.append(
+                f"Formal relation 'documents' in {node.path}:{relation.link.line} "
+                f"must originate from a reference-like node, not kind {node.kind!r}"
+            )
+
     created = validate_date_field(node, "created", errors)
     updated = validate_date_field(node, "updated", errors)
     if created and updated and updated < created:

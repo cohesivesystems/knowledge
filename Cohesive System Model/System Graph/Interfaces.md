@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-07-28
+updated: 2026-07-29
 status: draft
 aliases:
   - Interface
@@ -32,7 +32,7 @@ An interface may declare:
 - semantic preconditions, postconditions, invariants, and failure meanings;
 - a governing [[Interaction Protocols|interaction protocol]];
 - compatibility and evolution rules; and
-- required guarantees at the crossing.
+- required [[Service Levels|service-level]] and other operational guarantees at the crossing.
 
 The interface need not reveal the internal entities, relations, processes, storage, or collaborating services that realize the capability.
 
@@ -55,6 +55,7 @@ The interface need not reveal the internal entities, relations, processes, stora
 - [[Ports and Adapters]] separate an interface role from the mechanisms that realize or consume it.
 - [[Service|Services]] encapsulate internal structure behind provided interfaces and declare dependencies through required interfaces.
 - [[Service Models|Service models]] connect logical services by their provided and required interfaces.
+- [[Service Levels|Service levels]] qualify interface outcomes with measurable objectives and accountable commitments.
 - [[Realization|Realization]] binds interfaces to concrete channels, protocols, addresses, and runtime mechanisms.
 
 ## External References

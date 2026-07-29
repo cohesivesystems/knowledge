@@ -16,13 +16,13 @@ POSA is especially relevant to Cohesive because it explicitly spans abstraction 
 
 ## Cohesive Correspondence
 
-| POSA emphasis | Representative patterns | Cohesive correspondence |
-| --- | --- | --- |
-| System organization | Layers, Pipes and Filters, Blackboard, Broker, Model-View-Controller, Microkernel | [[System Graph\|system graph]] structure, flow views, observer models, interaction channels, and architecture-practice bundles |
-| Event demultiplexing and dispatch | Reactor, Proactor, Acceptor-Connector, Asynchronous Completion Token | [[Multiplexing and Demultiplexing\|demultiplexing]], [[Interaction Control Flow\|interaction control flow]], correlation, scheduling, network, and runtime realization |
-| Concurrency and synchronization | Active Object, Monitor Object, Half-Sync/Half-Async, Leader/Followers, Guarded Suspension, Future | synchrony, scheduling, arbitration, concurrency control, progress conditions, and runtimes |
-| Distribution infrastructure | Broker, Client Proxy, Requestor, Invoker, message channels, endpoints, routers, and translators | [[Interfaces\|interfaces]], [[Interaction Protocols\|interaction protocols]], interaction channels, routing, ports and adapters, network, and brokers |
-| Adaptation and resource management | Adapter, Bridge, Interceptor, Strategy, Component Configurator, Object Manager, Pool, Cache, Activator, Evictor, Leasing | architecture practices and replaceable realization mechanisms with lifecycle and capability obligations |
+| POSA emphasis                      | Representative patterns                                                                                                  | Cohesive correspondence                                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| System organization                | Layers, Pipes and Filters, Blackboard, Broker, Model-View-Controller, Microkernel                                        | [[System Graph\|system graph]] structure, flow views, observer models, interaction channels, and architecture-practice bundles                                         |
+| Event demultiplexing and dispatch  | Reactor, Proactor, Acceptor-Connector, Asynchronous Completion Token                                                     | [[Multiplexing and Demultiplexing\|demultiplexing]], [[Interaction Control Flow\|interaction control flow]], correlation, scheduling, network, and runtime realization |
+| Concurrency and synchronization    | Active Object, Monitor Object, Half-Sync/Half-Async, Leader/Followers, Guarded Suspension, Future                        | synchrony, scheduling, arbitration, concurrency control, progress conditions, and runtimes                                                                             |
+| Distribution infrastructure        | Broker, Client Proxy, Requestor, Invoker, message channels, endpoints, routers, and translators                          | [[Interfaces\|interfaces]], [[Interaction Protocols\|interaction protocols]], interaction channels, routing, ports and adapters, network, and brokers                  |
+| Adaptation and resource management | Adapter, Bridge, Interceptor, Strategy, Component Configurator, Object Manager, Pool, Cache, Activator, Evictor, Leasing | architecture practices and replaceable realization mechanisms with lifecycle and capability obligations                                                                |
 
 ## Naming Discipline
 

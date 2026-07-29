@@ -24,13 +24,16 @@ body:
       label: Relation type
       options:
         - mentions
-        - defines
         - refines
-        - depends_on
+        - arranges
+        - qualifies
         - constrains
-        - observes
-        - realizes
+        - requires
+        - bundles
         - documents
+        - may_realize
+        - realizes
+        - corresponds_to
     validations:
       required: true
   - type: textarea

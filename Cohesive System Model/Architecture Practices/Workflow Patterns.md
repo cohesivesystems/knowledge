@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-07-28
-updated: 2026-07-28
+updated: 2026-07-29
 aliases:
   - Workflow Pattern Language
   - Workflow Patterns Initiative
@@ -16,11 +16,11 @@ Workflow Patterns is a research-based collection of recurring capabilities and p
 
 | Workflow perspective | Cohesive correspondence |
 | --- | --- |
-| Control-flow patterns | [[Process Graphs|process-graph]] sequencing, choice, concurrency, synchronization, merge, cancellation, recurrence, and completion structure |
-| Data patterns | [[Value|values]], [[Observation|observations]], process coordination state, [[Shape|shapes]], input/output placement, and [[Flow Views|flow views]] |
-| Resource patterns | [[Observer Models|observer models]], [[Authority|authority]], [[Scheduling|scheduling]], [[Arbitration|arbitration]], work assignment, people, agents, and [[Runtimes|runtimes]] |
-| Exception-handling patterns | Timeout, cancellation, retry, compensation, [[Recovery|recovery]], escalation, and terminal process outcomes |
-| Event-log imperfection patterns | [[Observability and Provenance|observability and provenance]], missing or ambiguous evidence, ordering, correlation, and process-mining data quality |
+| Control-flow patterns | [[Process Graphs\|process-graph]] sequencing, choice, concurrency, synchronization, merge, cancellation, recurrence, and completion structure |
+| Data patterns | [[Value\|values]], [[Observation\|observations]], process coordination state, [[Shape\|shapes]], input/output placement, and [[Flow Views\|flow views]] |
+| Resource patterns | [[Observer Models\|observer models]], [[Authority\|authority]], [[Scheduling\|scheduling]], [[Arbitration\|arbitration]], work assignment, people, agents, and [[Runtimes\|runtimes]] |
+| Exception-handling patterns | Timeout, cancellation, retry, compensation, [[Recovery\|recovery]], escalation, and terminal process outcomes |
+| Event-log imperfection patterns | [[Observability and Provenance\|observability and provenance]], missing or ambiguous evidence, ordering, correlation, and process-mining data quality |
 
 Workflow [[Control Flow|control flow]] means branch, token, and process progression. It is distinct from EIP's [[Interaction Control Flow|interaction control flow]], which identifies the active driver of a distributed interaction. One workflow edge may lower into several push, pull, queue, driver, call, timer, or shared-state interactions.
 

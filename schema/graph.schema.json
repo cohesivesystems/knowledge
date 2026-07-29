@@ -3,7 +3,7 @@
   "$id": "https://github.com/cohesivesystems/knowledge/schema/graph.schema.json",
   "title": "Cohesive Knowledge Graph Export",
   "type": "object",
-  "required": ["schema_version", "generated_at", "source", "nodes", "edges"],
+  "required": ["schema_version", "generated_at", "source", "relation_types", "nodes", "edges"],
   "additionalProperties": false,
   "properties": {
     "schema_version": {
@@ -26,6 +26,12 @@
         }
       }
     },
+    "relation_types": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relation_type"
+      }
+    },
     "nodes": {
       "type": "array",
       "items": {
@@ -40,6 +46,37 @@
     }
   },
   "$defs": {
+    "relation_type": {
+      "type": "object",
+      "required": ["type", "inverse", "symmetric"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/relation_name"
+        },
+        "inverse": {
+          "type": "string"
+        },
+        "symmetric": {
+          "type": "boolean"
+        }
+      }
+    },
+    "relation_name": {
+      "enum": [
+        "mentions",
+        "refines",
+        "arranges",
+        "qualifies",
+        "constrains",
+        "requires",
+        "bundles",
+        "documents",
+        "may_realize",
+        "realizes",
+        "corresponds_to"
+      ]
+    },
     "node": {
       "type": "object",
       "required": [
@@ -122,7 +159,7 @@
     },
     "edge": {
       "type": "object",
-      "required": ["source", "target", "type", "mentions"],
+      "required": ["source", "target", "type", "inverse", "cross_realm", "mentions"],
       "additionalProperties": false,
       "properties": {
         "source": {
@@ -132,7 +169,13 @@
           "type": "string"
         },
         "type": {
-          "enum": ["mentions"]
+          "$ref": "#/$defs/relation_name"
+        },
+        "inverse": {
+          "type": "string"
+        },
+        "cross_realm": {
+          "type": "boolean"
         },
         "mentions": {
           "type": "array",
@@ -150,6 +193,10 @@
               },
               "raw": {
                 "type": "string"
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
               }
             }
           }

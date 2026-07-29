@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-28
-updated: 2026-07-28
+updated: 2026-07-29
 status: draft
 aliases:
   - Catalog Correspondence
@@ -16,7 +16,7 @@ Pattern languages and catalogs preserve experience about recurring problems, for
 
 A source pattern is not automatically a new Cohesive primitive. It may name a semantic structure, a system-graph arrangement, an operational concern, a realization mechanism, or an [[Architecture Practices|architecture-practice]] bundle spanning several realms. Two catalogs may also use the same word for different roles or different words for corresponding roles.
 
-This framework lets Cohesive connect [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Patterns|microservice patterns]], [[Patterns of Distributed Systems|distributed-systems patterns]], and [[Pattern-Oriented Software Architecture|POSA]] without flattening their distinctions.
+This framework lets Cohesive connect [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], the [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], and [[Pattern-Oriented Software Architecture|POSA]] without flattening their distinctions.
 
 ## The Realm Lens
 
@@ -57,12 +57,12 @@ Common forms include:
 
 | Realm collapse | Representative mistaken claim | Missing distinction |
 | --- | --- | --- |
-| Realization mechanism becomes semantic meaning. | "The actor is the entity." | An actor may [[Realization|realize]] an entity observer without being identical to the [[Entity|entity]]. |
-| Carrier becomes interpreted role. | "This broker record is a domain event" or "this HTTP request is a command." | A message carries evidence; an observer assigns boundary-relative [[Event|event]] or [[Command|command]] meaning. |
+| Realization mechanism becomes semantic meaning. | "The actor is the entity." | An actor may [[Realization\|realize]] an entity observer without being identical to the [[Entity\|entity]]. |
+| Carrier becomes interpreted role. | "This broker record is a domain event" or "this HTTP request is a command." | A message carries evidence; an observer assigns boundary-relative [[Event\|event]] or [[Command\|command]] meaning. |
 | Graph structure becomes an operational guarantee. | "The queue decouples the systems." | A channel arrangement does not establish capacity, time, delivery, failure, or responsibility-transfer properties by itself. |
-| Local guarantee becomes an end-to-end result. | "The broker acknowledged the message, so the business operation completed." | [[Acknowledgments|Acknowledgment]] meaning and [[Commit Boundaries|commit boundaries]] remain scoped to the observer and mechanism that can establish them. |
-| Runtime execution becomes semantic process. | "The workflow execution is the business process." | A workflow engine may execute or recover a [[Process|process]] without defining its purpose, authority, participants, or completion meaning. |
-| Projection becomes authority. | "The read model is the entity's state." | A [[Projection Models|projection model]] derives observations; derivation does not silently transfer semantic authority. |
+| Local guarantee becomes an end-to-end result. | "The broker acknowledged the message, so the business operation completed." | [[Acknowledgments\|Acknowledgment]] meaning and [[Commit Boundaries\|commit boundaries]] remain scoped to the observer and mechanism that can establish them. |
+| Runtime execution becomes semantic process. | "The workflow execution is the business process." | A workflow engine may execute or recover a [[Process\|process]] without defining its purpose, authority, participants, or completion meaning. |
+| Projection becomes authority. | "The read model is the entity's state." | A [[Projection Models\|projection model]] derives observations; derivation does not silently transfer semantic authority. |
 | Similarly named operational and semantic properties become identical. | "Exactly-once delivery gives exactly one domain effect." | A single semantic discharge may require stable identity, deduplication, serialized commitment, and recovery rather than a same-named transport guarantee. |
 
 Pattern names are especially susceptible because a pattern often bundles semantic intent, graph arrangement, operational obligations, and realization guidance under one convenient label. Its name can be used across several communities and abstraction levels even when the underlying claims differ. A realm signature makes that variation reviewable instead of forcing one interpretation to stand for the whole pattern.
@@ -185,7 +185,7 @@ The catalogs emphasize different parts of the same landscape:
 | [[Patterns of Enterprise Application Architecture]] | Architecture Practices, System Graph, and Realization Substrate | Separate domain logic, application boundaries, persistence mapping, presentation, distribution, and concurrency mechanisms. |
 | [[Enterprise Integration Patterns]] | System Graph, Operational Concerns, and Realization Substrate | Describe messages, channels, endpoints, routing, transformation, management, and interaction-control arrangements whose semantic roles remain boundary-relative. |
 | [[Workflow Patterns]] | System Graph and Operational Concerns | Describe process-language capabilities such as branching, joining, data flow, resource assignment, and exception handling without defining the domain purpose of the process. |
-| [[Microservice Patterns]] | Architecture Practices, System Graph, Operational Concerns, and Realization Substrate | Relate semantic ownership and service boundaries to distributed collaboration, data management, deployment, observability, and recovery. |
+| [[Microservice Pattern Language]] | Architecture Practices, System Graph, Operational Concerns, and Realization Substrate | Relate semantic ownership and service boundaries to distributed collaboration, data management, deployment, observability, and recovery. |
 | [[Patterns of Distributed Systems]] | Operational Concerns and Realization Substrate | Explain clocks, logs, replication, quorums, partitions, leases, and interaction mechanics that establish scoped guarantees rather than domain meaning. |
 | [[Pattern-Oriented Software Architecture]] | System Graph, Architecture Practices, and Realization Substrate | Supply architectural, concurrency, networking, interaction, and runtime structures across several abstraction levels. |
 
@@ -210,4 +210,4 @@ For example, an EIP Command Message is a carrier whose contract strongly indicat
 - Martin Fowler, [Patterns in Enterprise Software](https://martinfowler.com/articles/enterprisePatterns.html), 2005.
 - Frank Buschmann, Kevlin Henney, and Douglas C. Schmidt, [*Pattern-Oriented Software Architecture, Volume 4: A Pattern Language for Distributed Computing*](https://www.wiley.com/en-us/Pattern-Oriented+Software+Architecture%2C+Volume+4%2C+A+Pattern+Language+for+Distributed+Computing-p-9780470065303), Wiley, 2007.
 
-Related concepts: [[Functoriality|functoriality]], [[System Language and Realization|system language and realization]], [[Realization|realization]], [[Architecture Practices|architecture practices]], [[System Graph|system graph]], [[Process Theories|process theories]], [[Compositionality|compositionality]], [[Equivalence vs Equality|equivalence vs equality]], [[Boundaries|boundaries]], [[Authority|authority]], [[Compatibility and Evolution|compatibility and evolution]], [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Patterns|microservice patterns]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[CQRS as Architecture Practice|CQRS]].
+Related concepts: [[Functoriality|functoriality]], [[System Language and Realization|system language and realization]], [[Realization|realization]], [[Architecture Practices|architecture practices]], [[System Graph|system graph]], [[Process Theories|process theories]], [[Compositionality|compositionality]], [[Equivalence vs Equality|equivalence vs equality]], [[Boundaries|boundaries]], [[Authority|authority]], [[Compatibility and Evolution|compatibility and evolution]], [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[CQRS as Architecture Practice|CQRS]].

@@ -34,7 +34,7 @@ DDD supplies much of the semantic orientation needed to interpret patterns from 
 - [[Patterns of Enterprise Application Architecture|Enterprise application patterns]] arrange application logic, persistence mapping, presentation, and distribution around the domain model.
 - [[Enterprise Integration Patterns|EIP]] carries values across boundaries and arranges messages, channels, endpoints, routes, and transformations without defining the domain meaning of what is carried.
 - [[Workflow Patterns|Workflow patterns]] describe process-language structure; the domain model supplies the process purpose, authority, decisions, and completion meaning.
-- [[Microservice Patterns|Microservice patterns]] relate semantic ownership to deployable service, data, interaction, and team boundaries without making those boundaries automatically identical.
+- The [[Microservice Pattern Language|microservice pattern language]] relates semantic ownership to deployable service, data, interaction, and team boundaries without making those boundaries automatically identical.
 
 [[Pattern Languages and Correspondence|The realm correspondence framework]] makes these relationships explicit and records what must be preserved when domain meanings are placed into system structure and realized through enterprise mechanisms.
 
@@ -48,4 +48,4 @@ DDD fails when names are preserved but semantics are not: entities become databa
 - Vaughn Vernon, [*Implementing Domain-Driven Design*](https://www.informit.com/store/implementing-domain-driven-design-9780321834577), Addison-Wesley Professional, 2013.
 - Vaughn Vernon, [*Domain-Driven Design Distilled*](https://www.informit.com/store/domain-driven-design-distilled-9780134434988), Addison-Wesley Professional, 2016.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Patterns|microservice patterns]], [[Service|service]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Event|event]], [[Boundaries|boundaries]], [[Entity Models|entity models]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Service|service]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Event|event]], [[Boundaries|boundaries]], [[Entity Models|entity models]].

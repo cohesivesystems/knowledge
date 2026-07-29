@@ -30,7 +30,7 @@ Domains can be described as cohesive system graphs composed from semantic constr
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
 - [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and [[Effect|effects]] over time
 
-Cohesive arranges interactions among these primitives through its system graph, bundles responsibilities into [[Service Models|service models]] with explicit [[Interfaces|interfaces]] and [[Interaction Protocols|interaction protocols]], states the required [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control properties, then realizes the resulting structure and property demands through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
+Cohesive arranges interactions among these primitives through its system graph, bundles responsibilities into [[Service Models|service models]] with explicit [[Interfaces|interfaces]] and [[Interaction Protocols|interaction protocols]], states the required [[Service Levels|service levels]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control properties, then realizes the resulting structure and property demands through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
 ## Realms of Description
 
@@ -121,7 +121,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Correlation and Conversations]], [[Consumer Coordination|consumer coordination]], [[Interaction Control Flow|interaction control flow]]
 - [[Compatibility and Evolution]]
 - [[Retention Expiration and Quarantine|Retention, expiration, and quarantine]]
-- [[Operational Control]], [[Observability and Provenance|observability and provenance]]
+- [[Service Levels]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]]
 
 ### 3. System Graph
 
@@ -177,8 +177,8 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Architecture Practices]]
 - [[Analysis Patterns]], [[Domain-Driven Design|domain-driven design]]
 - [[Patterns of Enterprise Application Architecture]], [[Enterprise Integration Patterns|enterprise integration patterns]]
-- [[Workflow Patterns]], [[Microservice Patterns|microservice patterns]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]]
-- [[Ports and Adapters]], [[Clean Architecture|clean architecture]], [[Modular Monolith|modular monolith]], [[Microservices|microservices]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Capacity Planning|capacity planning]]
+- [[Workflow Patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]]
+- [[Ports and Adapters]], [[Clean Architecture|clean architecture]], [[Modular Monolith|modular monolith]], [[Microservice Architecture|microservice architecture]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Capacity Planning|capacity planning]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
 - [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
 - [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]

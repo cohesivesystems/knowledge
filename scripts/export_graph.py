@@ -10,10 +10,16 @@ import json
 from pathlib import Path
 import sys
 
-from cohesive_graph import load_nodes, repo_root_from, resolve_links
+from cohesive_graph import (
+    ALLOWED_FORMAL_RELATION_TYPES,
+    RELATION_INVERSES,
+    load_nodes,
+    repo_root_from,
+    resolve_links,
+)
 
 
-SCHEMA_VERSION = "0.1.0"
+SCHEMA_VERSION = "0.2.0"
 
 
 def main() -> int:
@@ -28,10 +34,18 @@ def main() -> int:
     root = repo_root_from()
     nodes = load_nodes(root)
     resolved, unresolved, collisions = resolve_links(nodes)
+    relation_issues = [issue for node in nodes for issue in node.relation_issues]
+    unknown_relations = [
+        relation
+        for node in nodes
+        for relation in node.formal_relations
+        if relation.relation_type not in ALLOWED_FORMAL_RELATION_TYPES
+    ]
 
-    if unresolved or collisions:
+    if unresolved or collisions or relation_issues or unknown_relations:
         print(
-            "Graph has unresolved or ambiguous links. Run scripts/validate_graph.py.",
+            "Graph has invalid formal relations or unresolved or ambiguous links. "
+            "Run scripts/validate_graph.py.",
             file=sys.stderr,
         )
         return 1
@@ -39,17 +53,26 @@ def main() -> int:
     backlinks: dict[str, list[str]] = defaultdict(list)
     edge_mentions: dict[tuple[str, str, str], list[dict[str, object]]] = defaultdict(list)
     nodes_by_path = {node.path: node for node in nodes}
+    nodes_by_id = {node.id: node for node in nodes}
+    formal_relations = {
+        relation.link: relation
+        for node in nodes
+        for relation in node.formal_relations
+    }
 
     for link, target in resolved.items():
         source = nodes_by_path[link.source_path]
+        formal_relation = formal_relations.get(link)
+        edge_type = formal_relation.relation_type if formal_relation else "mentions"
         backlinks[target.path].append(source.id)
-        edge_mentions[(source.id, target.id, "mentions")].append(
-            {
-                "path": link.source_path,
-                "line": link.line,
-                "raw": link.raw,
-            }
-        )
+        mention: dict[str, object] = {
+            "path": link.source_path,
+            "line": link.line,
+            "raw": link.raw,
+        }
+        if formal_relation:
+            mention["description"] = formal_relation.description
+        edge_mentions[(source.id, target.id, edge_type)].append(mention)
 
     export = {
         "schema_version": SCHEMA_VERSION,
@@ -58,6 +81,14 @@ def main() -> int:
             "repository": "https://github.com/cohesivesystems/knowledge",
             "root": "Cohesive System Model.md",
         },
+        "relation_types": [
+            {
+                "type": relation_type,
+                "inverse": inverse,
+                "symmetric": relation_type == inverse,
+            }
+            for relation_type, inverse in sorted(RELATION_INVERSES.items())
+        ],
         "nodes": [
             {
                 "id": node.id,
@@ -86,6 +117,8 @@ def main() -> int:
                 "source": source,
                 "target": target,
                 "type": edge_type,
+                "inverse": RELATION_INVERSES[edge_type],
+                "cross_realm": nodes_by_id[source].realm != nodes_by_id[target].realm,
                 "mentions": sorted(mentions, key=lambda item: (str(item["path"]), int(item["line"]))),
             }
             for (source, target, edge_type), mentions in sorted(edge_mentions.items())

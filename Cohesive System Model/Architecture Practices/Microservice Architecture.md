@@ -2,12 +2,16 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-07-29
+aliases:
+  - Microservices
+  - Microservice
+  - Microservices Architecture
 ---
 
-# Microservices
+# Microservice Architecture
 
-Microservices address the problem of independent ownership, deployment, scaling, and evolution across bounded capabilities. The prefix *micro* is relative to a coarser service, application, or deployment boundary; it does not prescribe a code size, endpoint count, process count, or team size.
+Microservice architecture addresses the problem of independent ownership, deployment, scaling, and evolution across bounded capabilities. The prefix *micro* is relative to a coarser service, application, or deployment boundary; it does not prescribe a code size, endpoint count, process count, or team size.
 
 ## Cohesive Formulation
 
@@ -62,15 +66,20 @@ The platform need not be one framework or repository, but these capabilities mus
 
 ## In the Model
 
-Microservices project selected semantic and structural boundaries into deployment and operational boundaries. That can increase autonomy, but it also turns local composition problems into distributed coordination, delivery, compatibility, and recovery problems. The projection is justified only when the independent change, scaling, failure, or ownership benefit exceeds that added cost.
+Microservice architecture projects selected semantic and structural boundaries into deployment and operational boundaries. That can increase autonomy, but it also turns local composition problems into distributed coordination, delivery, compatibility, and recovery problems. The projection is justified only when the independent change, scaling, failure, or ownership benefit exceeds that added cost.
 
 ## Pattern-Language Context
 
-[[Microservice Patterns|The microservice pattern language]] expands this practice into decomposition, collaboration, data ownership, transactional messaging, communication, discovery, reliability, observability, security, testing, and deployment patterns. [[Pattern Languages and Correspondence|Realm correspondence]] keeps those decisions connected without making service, subdomain, bounded context, aggregate, database, team, and deployment unit synonyms.
+[[Microservice Pattern Language|The microservice pattern language]] expands this practice into decomposition, collaboration, data ownership, transactional messaging, communication, discovery, reliability, observability, security, testing, and deployment patterns. [[Pattern Languages and Correspondence|Realm correspondence]] keeps those decisions connected without making service, subdomain, bounded context, aggregate, database, team, and deployment unit synonyms.
 
 ## Failure Modes
 
 The pattern fails when services are split by technical layer, table, team preference, or endpoint count rather than semantic ownership and operational boundary. It also fails when organization, repository, deployment, or scheduler boundaries are treated as proof of semantic independence; when supposedly independent services require coordinated releases; or when every team must rebuild the same communication, schema, deployment, scaling, and observability machinery. Distributed deployment does not create bounded-context clarity by itself.
+
+## Formal relations
+
+- `bundles`: [[Service]] — Adopts the boundary-relative service role as part of an alignment among semantic responsibility, ownership, deployment, and runtime realization.
+- `constrains`: [[Service Models]] — Requires logical-service allocations to make independent evolution and the correspondences among semantic, organizational, deployment, and runtime boundaries explicit.
 
 ## External References
 
@@ -80,4 +89,4 @@ The pattern fails when services are split by technical layer, table, team prefer
 - Rachel Potvin and Josh Levenberg, [Why Google Stores Billions of Lines of Code in a Single Repository](https://research.google/pubs/why-google-stores-billions-of-lines-of-code-in-a-single-repository/), *Communications of the ACM*, 2016.
 - Ben Sigelman, [What We Got Wrong: Lessons from the Birth of Microservices](https://archive.qconlondon.com/london2019/presentation/what-we-got-wrong-lessons-birth-microservices), QCon London, 2019.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Microservice Patterns|microservice patterns]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Authority|authority]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Infrastructure Graph|infrastructure graph]], [[Application Hosts|application hosts]], [[Brokers|brokers]], [[Network|network]], [[Realization|realization]], [[Modular Monolith|modular monolith]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Microservice Pattern Language|microservice pattern language]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Authority|authority]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Infrastructure Graph|infrastructure graph]], [[Application Hosts|application hosts]], [[Brokers|brokers]], [[Network|network]], [[Realization|realization]], [[Modular Monolith|modular monolith]].
