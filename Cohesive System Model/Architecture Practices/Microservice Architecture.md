@@ -11,7 +11,7 @@ aliases:
 
 # Microservice Architecture
 
-Microservice architecture addresses the problem of independent ownership, deployment, scaling, and evolution across bounded capabilities. The prefix *micro* is relative to a coarser service, application, or deployment boundary; it does not prescribe a code size, endpoint count, process count, or team size.
+Microservice architecture addresses the problem of independent ownership, deployment, scaling, and evolution across bounded capabilities. These benefits are not exclusive to microservices: a [[Modular Monolith|modular monolith]] can establish similar semantic and code boundaries and can selectively separate deployment or scaling units. The prefix *micro* is relative to a coarser service, application, or deployment boundary; it does not prescribe a code size, endpoint count, process count, or team size.
 
 ## Cohesive Formulation
 
@@ -51,6 +51,16 @@ Repository topology is orthogonal to service topology. A monorepo can preserve i
 
 A deployment architecture maps versioned artifacts into deployment units, runtime instances, networks, stores, and failure domains. A scheduler selects placement and execution opportunity within that architecture; it does not acquire domain authority merely by starting, stopping, or moving work. Stateful scaling additionally requires explicit partition identity, ownership, fencing, persistence, and recovery semantics.
 
+## Relationship to Modular Monolith
+
+Microservice architecture and a [[Modular Monolith|modular monolith]] can realize the same logical [[Service Models|service model]]. Both can provide encapsulation, semantic isolation, explicit interfaces, team ownership, and decomposition by capability. Both can also support independent scaling when demand can be routed to module- or service-specific capacity, and both can produce independently deployable artifacts when their contracts and build graph support versioned release.
+
+A modular monolith retains source and build cohesion by default: modules can share host-language types and carefully governed libraries, participate in whole-system static checking and atomic refactoring, and reuse repository, test, CI/CD, provenance, and release tooling. Module-specific pipelines or artifacts do not require abandoning those benefits. Microservices can also live in a monorepo and share tooling, but independent deployment makes compatibility among concurrently running versions an operational requirement that static checking of one source revision cannot discharge.
+
+The center-of-gravity difference is the default allocation. A conventional modular monolith maps several modules into one versioned deployment and runtime failure boundary, using local composition where useful. A microservice architecture deliberately maps selected service boundaries into independently versioned deployment, runtime, and operational boundaries. As modular-monolith modules acquire independent versions, network interactions, data ownership, failure domains, and operating lifecycles, their realization approaches microservice architecture even if the source and delivery system remains integrated.
+
+Choose the additional distribution boundary only where version independence, fault containment, ownership, security, placement, or separately controlled capacity justifies its compatibility, communication, delivery, observability, and recovery cost. Independent artifact count alone is not the benefit; the relevant question is which forms of change and operation are actually independent.
+
 ## Platform Preconditions
 
 Fine-grained services move composition work from host-language and build boundaries into a distributed operational environment. A manageable microservice architecture therefore depends on reusable platform mechanisms for:
@@ -89,4 +99,4 @@ The pattern fails when services are split by technical layer, table, team prefer
 - Rachel Potvin and Josh Levenberg, [Why Google Stores Billions of Lines of Code in a Single Repository](https://research.google/pubs/why-google-stores-billions-of-lines-of-code-in-a-single-repository/), *Communications of the ACM*, 2016.
 - Ben Sigelman, [What We Got Wrong: Lessons from the Birth of Microservices](https://archive.qconlondon.com/london2019/presentation/what-we-got-wrong-lessons-birth-microservices), QCon London, 2019.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Microservice Pattern Language|microservice pattern language]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Authority|authority]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Infrastructure Graph|infrastructure graph]], [[Application Hosts|application hosts]], [[Brokers|brokers]], [[Network|network]], [[Realization|realization]], [[Modular Monolith|modular monolith]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Microservice Pattern Language|microservice pattern language]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Authority|authority]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Scaling Mechanisms|scaling mechanisms]], [[Infrastructure Graph|infrastructure graph]], [[Application Hosts|application hosts]], [[Brokers|brokers]], [[Network|network]], [[Realization|realization]], [[Modular Monolith|modular monolith]].

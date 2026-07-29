@@ -38,9 +38,9 @@ The AKF scale cube distinguishes three broadly independent strategies:
 
 | Axis | Strategy | System-graph and realization obligations |
 | --- | --- | --- |
-| X | Clone or replicate equivalent units | [[Routing Models|Distribution]], replica identity, readiness, shared-state contention, failure and recovery |
-| Y | Decompose by function or capability | [[Service Models|Service]] boundaries, [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], ownership, compatibility, and cross-service coordination |
-| Z | Partition similar work or data by key, tenant, range, geography, or another rule | Partition identity, routing, skew, ownership, [[Consumer Coordination|assignment]], rebalancing, cross-partition operations, and recovery |
+| X | Clone or replicate equivalent units | [[Routing Models\|Distribution]], replica identity, readiness, shared-state contention, failure and recovery |
+| Y | Decompose by function or capability | [[Service Models\|Service]] boundaries, [[Interfaces\|interfaces]], [[Interaction Protocols\|interaction protocols]], ownership, compatibility, and cross-service coordination |
+| Z | Partition similar work or data by key, tenant, range, geography, or another rule | Partition identity, routing, skew, ownership, [[Consumer Coordination\|assignment]], rebalancing, cross-partition operations, and recovery |
 
 X-axis cloning is one form of horizontal scaling, not a synonym for all horizontal scaling. Z-axis partitioning also adds horizontal units. Y-axis decomposition changes the [[System Graph|system graph]] so capabilities can evolve, fail, and scale independently; it is not merely an infrastructure operation.
 
