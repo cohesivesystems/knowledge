@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-07-28
+updated: 2026-08-01
 status: draft
 aliases:
   - Multiplexing
@@ -45,6 +45,7 @@ A system may multiplex at one layer while demultiplexing at another.
 - [[Flow Operators|Splitting]] derives several output values from one input value. It does not necessarily recover pre-existing logical lanes.
 - Aggregation combines several values into one composite value. It is semantic or structural composition, whereas multiplexing allows distinguishable flows to share capacity without necessarily combining their values.
 - Fan-out copies or distributes an interaction to several destinations. It may follow demultiplexing but is not the same operation.
+- Temporal execution multiplexing lets several [[Concurrency|concurrent]] logical tasks share one execution resource through cooperative or preemptive [[Scheduling|scheduling]]. It can produce observational [[Parallelism|parallelism]] at a higher boundary, but it is not physical parallelism on that shared resource.
 
 ## Gateway Topologies
 

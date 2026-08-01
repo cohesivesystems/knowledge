@@ -2,10 +2,8 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-29
+updated: 2026-08-01
 aliases:
-  - Microservices
-  - Microservice
   - Microservices Architecture
 ---
 
@@ -15,7 +13,7 @@ Microservice architecture addresses the problem of independent ownership, deploy
 
 ## Cohesive Formulation
 
-A microservice is an architecture-practice [[Realization|realization]] of an independently evolvable [[Service|service]] boundary within a [[Service Models|service model]]. It aligns selected semantic responsibilities and authority with provided and required [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], operational guarantees, code, ownership, deployment, and runtime infrastructure. It is not just a process or network endpoint.
+At the system-graph level, a [[Microservice|microservice]] is an independently evolvable [[Service|service]] boundary within a [[Service Models|service model]]. Microservice architecture is the cross-realm practice of aligning that logical boundary's selected semantic responsibilities and authority with provided and required [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], operational guarantees, code, ownership, deployment, and runtime infrastructure. A microservice is not just a process or network endpoint.
 
 The practice asks:
 
@@ -88,6 +86,7 @@ The pattern fails when services are split by technical layer, table, team prefer
 
 ## Formal relations
 
+- `realm_peer_of`: [[Microservice]] — Treats the same nominal microservice notion as an architecture practice and cross-realm alignment, while the peer entry owns the logical system-graph node and its independent-evolution profile.
 - `bundles`: [[Service]] — Adopts the boundary-relative service role as part of an alignment among semantic responsibility, ownership, deployment, and runtime realization.
 - `constrains`: [[Service Models]] — Requires logical-service allocations to make independent evolution and the correspondences among semantic, organizational, deployment, and runtime boundaries explicit.
 
@@ -99,4 +98,4 @@ The pattern fails when services are split by technical layer, table, team prefer
 - Rachel Potvin and Josh Levenberg, [Why Google Stores Billions of Lines of Code in a Single Repository](https://research.google/pubs/why-google-stores-billions-of-lines-of-code-in-a-single-repository/), *Communications of the ACM*, 2016.
 - Ben Sigelman, [What We Got Wrong: Lessons from the Birth of Microservices](https://archive.qconlondon.com/london2019/presentation/what-we-got-wrong-lessons-birth-microservices), QCon London, 2019.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Microservice Pattern Language|microservice pattern language]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Authority|authority]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Scaling Mechanisms|scaling mechanisms]], [[Infrastructure Graph|infrastructure graph]], [[Application Hosts|application hosts]], [[Brokers|brokers]], [[Network|network]], [[Realization|realization]], [[Modular Monolith|modular monolith]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Microservice|microservice]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Microservice Pattern Language|microservice pattern language]], [[Domain-Driven Design|domain-driven design]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Authority|authority]], [[Observer|observer]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Scaling Mechanisms|scaling mechanisms]], [[Infrastructure Graph|infrastructure graph]], [[Application Hosts|application hosts]], [[Brokers|brokers]], [[Network|network]], [[Realization|realization]], [[Modular Monolith|modular monolith]].

@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-07-04
-updated: 2026-07-15
+updated: 2026-08-01
 aliases:
   - Orchestration
   - Choreography
@@ -10,9 +10,11 @@ aliases:
 
 # Orchestration and Choreography
 
-Orchestration and choreography are forms of [[Coordination|coordination]] that differ by where process control, [[Authority|authority]], and progress interpretation live in the realization.
+Orchestration and choreography are forms of [[Coordination|coordination]] distinguished primarily by where control of a coherent [[Process|process]] resides.
 
-Both forms can have a shared goal, a shared protocol, a process boundary, and durable state. The distinction is not one binary switch. It is a spectrum across several properties: whether one role owns process state, who decides next steps, who observes progress, who authorizes completion, and which protocol rules constrain participant behavior.
+Both forms can have a shared goal, global protocol, process boundary, and durable state. At that boundary, [[Control Flow|process control flow]] constrains which steps may follow, while orchestration and choreography describe where the [[Authority|authority]] to interpret process state, select or enable successors, observe progress, and authorize completion or recovery is placed.
+
+The distinction is a spectrum rather than one binary switch. Its dimensions include whether one role owns process state, who decides next steps, who observes progress, who authorizes completion, and which protocol rules constrain participant behavior. It is orthogonal to process-flow direction, [[Interaction Control Flow|interaction-control]] roles, callback shape, and [[Scheduling|runtime scheduling]]. Those mechanisms determine how participants become active and receive execution opportunity; orchestration and choreography determine how process authority and progress interpretation are distributed.
 
 ## Orchestration
 
@@ -30,9 +32,9 @@ Examples include:
 
 ## Choreography
 
-Choreography coordinates a process without one explicit process manager controlling the whole execution. Process progress emerges from participants following local rules over shared messages, events, logs, topics, membership state, or protocols.
+Choreography coordinates a process without one explicit process manager controlling the whole execution. Process-control responsibility is distributed across participants following local rules over shared messages, events, logs, topics, membership state, or protocols. Their compatible local transitions compose into coherent global process behavior.
 
-Choreography does not mean there is no process or no global protocol. The global protocol may be implicit in aligned configurations, topic contracts, schemas, command/event meanings, subscription rules, quorum rules, or shared state-machine specifications. What is absent, or weaker, is a single node that monitors and controls execution of the process.
+Choreography does not mean there is no process, control structure, or global protocol. The global protocol may be explicit or implicit in aligned configurations, topic contracts, schemas, command/event meanings, subscription rules, quorum rules, or shared state-machine specifications. It is a logical control structure rather than an operational controller: no single node necessarily owns the complete execution state, observes global progress, commands every participant, or decides completion.
 
 Examples include:
 
@@ -43,20 +45,34 @@ Examples include:
 - [[CRDTs|CRDT]] replication where replicas accept compatible local updates and merge by algebraic rules.
 - Domain event choreography where each participant owns its own transition and emits events for others to interpret.
 
+## Cross-Realm Process Control
+
+The same semantic process is present at both ends of the spectrum. In [[System Language and Realization|cross-realm projection]], the semantic process and its global protocol are arranged as participant roles, interactions, and process structure in the system graph, and those participant structures are then lowered through [[Realization]] into runtime mechanisms.
+
+In choreography, the global protocol restricts to participant-local rules. Compatible local behaviors must agree on their shared interactions and [[Sheaves and Gluing|glue]] into a coherent global run. The global process may therefore be drawn as a logical node with projection or conformance edges to every participant, but those are typed correspondence edges rather than command, scheduling, or runtime-control edges. No participant realizes that global node as an active controller.
+
+In orchestration, a substantial part of the global control structure is additionally allocated to a [[Process Managers|process manager]]. The manager becomes an active observer with process identity, execution state, next-step authority, and completion or recovery responsibility. Other participants still retain their own transition authority and may constrain which manager requests they accept.
+
+![Cross-realm process control in choreography and orchestration](../../assets/diagrams/orchestration-choreography-cross-realm.svg)
+
+*Choreography distributes process control through role projection and compatible local behavior; orchestration realizes more of the global control structure in an active process manager. Both system-graph shapes lower independently into replaceable runtime mechanisms.*
+
+The variance of these mappings depends on the chosen objects and arrow direction. Global-to-local role projection often behaves as contravariant restriction with respect to context inclusion; compatible local behavior glues in the reverse local-to-global direction. Participant-to-substrate lowering is commonly covariant when it preserves identities and composition, while provided and required interfaces may introduce mixed variance. [[Functoriality]] therefore requires every mapping to name its source, target, preserved structure, and direction rather than calling every cross-realm relation merely a projection.
+
 ## Coordination Spectrum
 
 The spectrum is more useful when decomposed into comparison properties:
 
-| Property | More choreographed | Mixed or leader-mediated | More orchestrated |
-| --- | --- | --- | --- |
-| Process description | Global protocol, shared rule set, or compatible local rules. | Global protocol with differentiated roles. | Executable process owned by one logical process manager. |
-| Control role | No participant controls the whole run. | A leader, proposer, coordinator, or primary controls a phase or proposal path. | One logical role directs the run from start to completion. |
-| Process state | Distributed across participant state, shared logs, local observations, or convergence behavior. | Split between leader state and durable participant or quorum state. | Explicit process record, workflow history, checkpoint, or command log. |
-| Next-step authority | Local transition rules and available interactions determine progress. | A leader proposes next work, but protocol rules constrain acceptance. | The process manager chooses and issues next commands or effects. |
-| Progress observation | No single participant necessarily sees global progress. | Progress is observed through quorums, leases, acknowledgments, or replicated metadata. | The process manager observes enough replies, events, and timers to advance. |
-| Completion meaning | Stable convergence, local output agreement, merge fixpoint, or protocol-defined global condition. | Quorum decision, replicated-log commit, atomic-commit decision, or view-specific completion. | Explicit completion, rejection, compensation, timeout, or escalation by the process manager. |
-| Failure handling | Fairness, retry, merge, local protocol rules, or eventual convergence. | Election, ballot/view change, durable participant metadata, quorum recovery. | Durable process recovery, retries, compensations, deadlines, and escalation. |
-| Typical examples | Population protocols, gossip, [[CRDTs|CRDT]] replication, event choreography. | Paxos, Multi-Paxos, Raft, Zab, Viewstamped Replication, [[Two-Phase Commit|two-phase commit]]. | [[Sagas|Saga]] orchestrators, durable workflows, index rebuild coordinators, CI pipeline controllers. |
+| Property             | More choreographed                                                                                | Mixed or leader-mediated                                                                        | More orchestrated                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Process description  | Global protocol, shared rule set, or compatible local rules.                                      | Global protocol with differentiated roles.                                                      | Executable process owned by one logical process manager.                                               |
+| Control role         | No participant controls the whole run.                                                            | A leader, proposer, coordinator, or primary controls a phase or proposal path.                  | One logical role directs the run from start to completion.                                             |
+| Process state        | Distributed across participant state, shared logs, local observations, or convergence behavior.   | Split between leader state and durable participant or quorum state.                             | Explicit process record, workflow history, checkpoint, or command log.                                 |
+| Next-step authority  | Local transition rules and available interactions determine progress.                             | A leader proposes next work, but protocol rules constrain acceptance.                           | The process manager chooses and issues next commands or effects.                                       |
+| Progress observation | No single participant necessarily sees global progress.                                           | Progress is observed through quorums, leases, acknowledgments, or replicated metadata.          | The process manager observes enough replies, events, and timers to advance.                            |
+| Completion meaning   | Stable convergence, local output agreement, merge fixpoint, or protocol-defined global condition. | Quorum decision, replicated-log commit, atomic-commit decision, or view-specific completion.    | Explicit completion, rejection, compensation, timeout, or escalation by the process manager.           |
+| Failure handling     | Fairness, retry, merge, local protocol rules, or eventual convergence.                            | Election, ballot/view change, durable participant metadata, quorum recovery.                    | Durable process recovery, retries, compensations, deadlines, and escalation.                           |
+| Typical examples     | Population protocols, gossip, [[CRDTs\|CRDT]] replication, event choreography.                    | Paxos, Multi-Paxos, Raft, Zab, Viewstamped Replication, [[Two-Phase Commit\|two-phase commit]]. | [[Sagas\|saga]] orchestrators, durable workflows, index rebuild coordinators, CI pipeline controllers. |
 
 This table should not be read as a ranking. It identifies where control and authority reside for a given process boundary. A system can be choreographed on one axis and orchestrated on another.
 
@@ -87,4 +103,4 @@ When classifying a process, ask:
 - Can the controller role change without changing the process identity?
 - Which state is durable enough to recover the process?
 
-Related concepts: [[Coordination|coordination]], [[Authority|authority]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Process|process]], [[Process Graphs|process graphs]], [[Observer|observer]], [[Event-Driven Architecture|event-driven architecture]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Two-Phase Commit|two-phase commit]], [[CRDTs]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Boundaries|boundaries]].
+Related concepts: [[Coordination|coordination]], [[Authority|authority]], [[Control Flow|control flow]], [[Interaction Control Flow|interaction control flow]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Process|process]], [[Process Graphs|process graphs]], [[Observer|observer]], [[System Language and Realization|system language and realization]], [[Realization|realization]], [[Functoriality|functoriality]], [[Sheaves and Gluing|sheaves and gluing]], [[Event-Driven Architecture|event-driven architecture]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Runtimes|runtimes]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Two-Phase Commit|two-phase commit]], [[CRDTs]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Boundaries|boundaries]].

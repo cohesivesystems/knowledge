@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-07-30
 aliases:
   - Command Query Responsibility Segregation as Architecture Practice
 ---
@@ -60,6 +60,10 @@ In a microservice context, CQRS may provide query views across service-owned dat
 ## Failure Modes
 
 The practice fails when read and write models are separated without distinct forces, when eventual consistency is hidden, when projection state is treated as authoritative entity state, when operational messages are mislabeled as domain events, or when rebuilding a view can repeat external effects.
+
+## Formal relations
+
+- `realm_peer_of`: [[CQRS]] — Treats the same named CQRS pattern as an architecture-practice bundle, while the peer entry owns the realization-substrate topology and its operational consequences.
 
 ## External References
 

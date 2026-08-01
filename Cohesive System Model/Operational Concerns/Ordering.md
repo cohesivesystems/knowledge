@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-08-01
 ---
 
 # Ordering
@@ -11,7 +11,7 @@ Ordering defines the scope within which events, commands, observations, or effec
 
 ## Order Relations
 
-An ordering relation may be total or partial. A reflexive order convention uses `x <= x`; transitivity means `x <= y` and `y <= z` imply `x <= z`; antisymmetry means `x <= y` and `y <= x` identify the same ordered position. Partiality means that some pairs may be incomparable. A total order adds comparability for every pair.
+An ordering relation may be total or partial. A reflexive order convention uses `x <= x`; transitivity means `x <= y` and `y <= z` imply `x <= z`; antisymmetry means `x <= y` and `y <= x` identify the same ordered position. Partiality means that some pairs may be incomparable and therefore [[Concurrency|concurrent]] relative to the relation and knowledge boundary. A total order adds comparability for every pair.
 
 Strict "before" relations use the non-reflexive form, often written `x < y`. The reflexive closure of a strict before relation gives the corresponding `<=` relation. Distributed systems often use happened-before as a strict partial order, while versions, timestamps, or causal metadata usually expose a reflexive order or preorder over recorded positions.
 
@@ -70,4 +70,4 @@ A [[Consistent Cuts|consistent cut]] is an ordering-sensitive snapshot: it inclu
 
 For [[CRDTs]], ordering requirements are type-specific. Some merge functions are insensitive to message order, while operation-based CRDTs may require causal ordering or explicit causal metadata.
 
-Related concepts: [[Causality|causality]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Delivery Semantics|delivery semantics]], [[Time|time]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Consensus|consensus]], [[Event|event]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Enrichment and Order|enrichment and order]], [[Functoriality|functoriality]], [[Brokers|brokers]], [[Workflow Engines|workflow engines]], [[Actor Systems|actor systems]].
+Related concepts: [[Causality|causality]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Happened-Before|happened-before]], [[Consistent Cuts|consistent cuts]], [[Linearization Points|linearization points]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Delivery Semantics|delivery semantics]], [[Time|time]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Consensus|consensus]], [[Event|event]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Enrichment and Order|enrichment and order]], [[Functoriality|functoriality]], [[Brokers|brokers]], [[Workflow Engines|workflow engines]], [[Actor Systems|actor systems]].

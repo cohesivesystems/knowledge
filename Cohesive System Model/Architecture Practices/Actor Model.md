@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-15
+updated: 2026-07-31
 aliases:
   - Actor System
 ---
@@ -32,3 +32,7 @@ Actor serialization only proves transition correctness when the actor owns the t
 - Carl Hewitt, [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/abs/1008.1459), 2010.
 
 Related concepts: [[Actor Systems|actor systems]], [[Observer|observer]], [[Entity|entity]], [[Identity|identity]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Interaction|interaction]], [[Concurrency Control|concurrency control]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].
+
+## Formal relations
+
+- `realm_peer_of`: [[Actor Systems]] — Treats the same named actor model and actor-system family as an architecture practice, while the peer entry owns runtime addressing, placement, mailboxes, supervision, and execution guarantees.

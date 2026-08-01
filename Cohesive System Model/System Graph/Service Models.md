@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-07-29
+updated: 2026-08-01
 status: draft
 aliases:
   - Service Model
@@ -87,13 +87,14 @@ These are related projections, not interchangeable descriptions. Conflating them
 ## Formal relations
 
 - `arranges`: [[Service]] — Represents the boundary-relative service role as logical graph nodes with encapsulated responsibilities, provided and required interfaces, guarantees, and allocation relations.
+- `realm_peer_of`: [[Service]] — Treats the same nominal service notion as a system-graph structure, while the peer entry owns the general boundary-relative provider role and its modeling discipline.
 
 ## Relationships
 
 - Domain semantics supplies the semantic responsibilities allocated to services.
 - [[Interfaces]] and [[Interaction Protocols]] define allowed service interactions.
 - [[Service Levels|Service levels]] qualify provided capabilities with measurable objectives and accountable commitments.
-- [[Microservice Architecture]] describes one family of finer-grained service realizations and organizational arrangements.
+- [[Microservice|Microservices]] are logical service nodes with an explicit independent-evolution profile; [[Microservice Architecture|microservice architecture]] owns the forces and cross-realm alignment practice that selects that profile.
 - [[Infrastructure Graph]] records public realization mechanisms and evidence.
 - Operational concerns qualify nodes, edges, and allocation mappings with runtime requirements.
 

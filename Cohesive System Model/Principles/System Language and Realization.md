@@ -112,17 +112,42 @@ These requirements constrain the projection without becoming semantic objects th
 
 The word *projection* is also used for a view that intentionally forgets detail. A semantic view, [[Service Models|service model]], code graph, team graph, deployment topology, and runtime scheduling graph may all be projections of the same realized system. Each view must state which structure it preserves and which detail it omits.
 
+Monotone co-design provides an instructive precedent for this cross-realm discipline. It distinguishes functionality provided, implementations selected, and resources required, then defines how design problems compose while those spaces retain their different meanings. Cohesive adopts the same broad commitment to composable, related descriptions without identifying its realms with those three spaces: domain semantics states meaning, the system graph states composition and placement, operational concerns qualify the required behavior at boundaries, and the realization substrate supplies candidate mechanisms and capability evidence.
+
 ## Canonical Execution Definitions
 
 Compiler-like realization may use a persisted, versioned canonical execution definition as the intermediate authority between authoring and interpretation. [[Transition Models|Transition models]] and [[Process Graphs|process graphs]] are especially suited to this form because their branches, observations, outcomes, patches, emissions, waits, joins, recovery policy, and guarantee demands must remain stable across several interpreters and long-lived executions.
 
-```txt
-authoring or import
-  -> canonical system-graph definition
-  -> validation and requirement extraction
-  -> reference or concrete interpretation
-  -> commit, continuation, effects, and observations
+```mermaid
+flowchart LR
+    subgraph Sources["Authoring surfaces"]
+        direction TB
+        A["Graph or DSL authoring"]
+        I["Imported definition"]
+    end
+
+    C["Canonical system-graph definition<br/>versioned · persisted · authoritative"]
+
+    V["Conformance gate<br/>validate · extract requirements"]
+
+    subgraph Interpreters["Conforming interpretations"]
+        direction TB
+        R["Reference interpreter"]
+        X["Concrete runtime"]
+    end
+
+    E["Execution evidence<br/>commit · continuation · effects · observations"]
+
+    A -->|"normalizes to"| C
+    I -->|"normalizes to"| C
+    C -->|"checked by"| V
+    V -->|"accepted definition"| R
+    V -->|"accepted definition"| X
+    R -->|"produces"| E
+    X -->|"produces"| E
 ```
+
+*One authoritative definition, multiple conforming interpretations.*
 
 For instance, a [[Process Graphs|process graph]] authored in a DSL may be serialized as a versioned canonical JSON definition, validated against declared invariants and effect boundaries, and interpreted by a workflow runtime that commits state transitions and emits events.
 
@@ -184,3 +209,8 @@ Related concepts by realm:
 - **Operational concerns:** [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], and [[Fairness|fairness]].
 - **Architecture practices:** [[Architecture Practices|architecture practices]].
 - **Realization substrate:** [[Realization|realization]] and [[Storage Systems|storage systems]].
+
+## External References
+
+- Brendan Fong and David I. Spivak, [*An Invitation to Applied Category Theory: Seven Sketches in Compositionality*](https://arxiv.org/abs/1803.05316), Cambridge University Press, 2019, especially Chapter 4 on collaborative design. [DOI](https://doi.org/10.1017/9781108668804)
+- Andrea Censi, [*A Mathematical Theory of Co-Design*](https://arxiv.org/abs/1512.08055), Laboratory for Information and Decision Systems, MIT, 2016.

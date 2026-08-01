@@ -2,12 +2,14 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-08-01
 ---
 
 # Concurrency Control
 
 Concurrency Control answers: How can multiple concurrent histories be reconciled into a single valid history?
+
+[[Concurrency]] itself is the absence of an established order between occurrences relative to a declared relation and boundary. Concurrency control is not its definition. It becomes necessary when concurrent attempts meet at state, invariant, authority, observation, or effect boundaries that require admission, rejection, serialization, merge, or conflict representation.
 
 In the model, commands may carry an expected version or etag: the [[Version|version]] of [[Entity|entity]] state the [[Observer|observer]] believed was current when it formulated the [[Command|command]].
 
@@ -40,4 +42,4 @@ Not all useful state machines are sequential. Git, for example, allows non-seque
 
 Event schedules and state histories are therefore related by [[Event-State Duality|event-state duality]], but not interchangeable. A linear entity history can be represented as alternating events and state versions. A non-sequential history may require partial orders, parent links, branch heads, merge events, patch residuals, or conflict records. The concurrency mechanism must match the history shape the system intends to preserve.
 
-Related concepts: [[Command|command]], [[Transition|transition]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Isolation|isolation]], [[ACID]], [[Weak Isolation Patterns|weak isolation patterns]], [[Entity|entity]], [[Event|event]], [[State|state]], [[Event-State Duality|event-state duality]], [[Event Sourcing|event sourcing]], [[CRDTs]], [[Behavior|behavior]], [[Realization|realization]], [[Ordering|ordering]], [[Actor Systems|actor systems]], [[Storage Systems|storage systems]].
+Related concepts: [[Concurrency|concurrency]], [[Command|command]], [[Transition|transition]], [[Version|version]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Isolation|isolation]], [[ACID]], [[Weak Isolation Patterns|weak isolation patterns]], [[Entity|entity]], [[Event|event]], [[State|state]], [[Event-State Duality|event-state duality]], [[Event Sourcing|event sourcing]], [[CRDTs]], [[Behavior|behavior]], [[Realization|realization]], [[Ordering|ordering]], [[Actor Systems|actor systems]], [[Storage Systems|storage systems]].

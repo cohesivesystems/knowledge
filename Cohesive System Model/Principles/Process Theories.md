@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-04
-updated: 2026-07-29
+updated: 2026-08-01
 status: draft
 aliases:
   - Process Theory
@@ -26,7 +26,7 @@ A process theory makes these elements explicit:
 - The units treated as processes.
 - The [[Interfaces|interfaces]] through which processes interact and the [[Boundaries|boundaries]] whose scopes those interfaces cross.
 - The observations, events, commands, queries, signals, artifacts, and effects that may cross those boundaries.
-- The allowed composition operations: sequential composition, parallel composition, nesting, [[Nondeterminism and Choice|choice]], synchronization, hiding, restriction, merge, and feedback.
+- The allowed composition operations: sequential composition, [[Concurrency|concurrent composition]]—often called parallel composition in process theories—nesting, [[Nondeterminism and Choice|choice]], synchronization, hiding, restriction, merge, and feedback.
 - The state, history, trace, run, schedule, or behavior used to describe process evolution.
 - The equivalence or refinement relation used to say when two process descriptions are the same enough.
 - The failure, cancellation, compensation, retry, timeout, and recovery meanings.
@@ -48,7 +48,9 @@ The word "process" is overloaded. Cohesive keeps the layers separate:
 
 These layers can be related, but they should not be collapsed. An operating-system process may realize part of a runtime. A runtime task may realize one observer turn. A workflow activation may realize one process step. None of those mechanisms is automatically identical to the semantic process being modeled.
 
-Control flow is likewise layer-relative. In a process graph it may mean branch, token, or step progression. In host code it may mean evaluation, call, return, loop, or continuation order. EIP's later [[Interaction Control Flow|interaction-control]] vocabulary instead asks which participant actively drives one distributed interaction and may point opposite the carried data. These relations can realize one another, but they should be named separately in a model.
+Control flow is likewise layer-relative. In a process graph it may mean branch, token, or step progression. In host code it may mean evaluation, call, return, loop, or continuation order. EIP's later [[Interaction Control Flow|interaction-control]] vocabulary instead asks which participant actively drives one distributed interaction and may point opposite the carried data. [[Scheduling]] asks which enabled activation receives execution opportunity and whether it yields cooperatively or may be preempted. Succession, interaction activation, and runtime execution can realize one another, but they should be named separately in a model.
+
+Concurrency and parallelism are also layer-relative. [[Concurrency]] belongs to the logical dependency structure: selected process occurrences are incomparable when neither ordering direction is established at the declared boundary. [[Parallelism]] belongs to execution behavior: work overlaps on distinct resources, or appears to do so at a higher observational boundary. A compiler may preserve one concurrent process structure across serialized, cooperatively interleaved, preemptively multiplexed, physically parallel, or distributed realizations.
 
 For portable execution, a long-lived process can be decomposed into finite activations separated by explicit durable cuts. Tokens, waits, timers, correlations, interaction results, and checkpoints describe coordination progress; they do not become copied aggregate business state. Explicit recurrence and feedback preserve long-lived meaning without embedding unrestricted host-language loops or hidden waits in the process definition.
 
@@ -115,7 +117,7 @@ When modeling a process, ask:
 
 - What is the process boundary, subject, or correlation identity?
 - What are the process inputs, outputs, observations, and effects?
-- Which parts are sequential, concurrent, nested, optional, compensating, or feedback-shaped?
+- Which parts are sequential, [[Concurrency|concurrent]], nested, optional, compensating, or feedback-shaped?
 - Which participant interprets each event, command, signal, or observation?
 - What must be synchronized, and what may remain asynchronous?
 - What state or history is needed to recover coherently?
@@ -129,4 +131,4 @@ When modeling a process, ask:
 - Robin Milner, Joachim Parrow, and David Walker, [A Calculus of Mobile Processes, I](https://doi.org/10.1016/0890-5401(92)90008-4) and [II](https://doi.org/10.1016/0890-5401(92)90009-5), *Information and Computation* 100(1):1-77, 1992.
 - Robin Milner, [Communication and Concurrency](https://www.research.ed.ac.uk/en/publications/communication-and-concurrency/), Prentice Hall, 1989.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Workflow Patterns|workflow patterns]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Control Theory|control theory]], [[Control Models|control models]], [[Process|process]], [[Process Graphs|process graphs]], [[Transition Models|transition models]], [[State Machines|state machines]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Causality|causality]], [[Authority|authority]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Control Flow|interaction control flow]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Realization|realization]].
+Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Workflow Patterns|workflow patterns]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Control Theory|control theory]], [[Control Models|control models]], [[Process|process]], [[Process Graphs|process graphs]], [[Fork and Join|fork and join]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Transition Models|transition models]], [[State Machines|state machines]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Causality|causality]], [[Authority|authority]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Control Flow|interaction control flow]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Realization|realization]].

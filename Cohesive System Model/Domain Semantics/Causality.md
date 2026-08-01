@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-08-01
 status: draft
 aliases:
   - Causal Relation
@@ -32,9 +32,11 @@ Actual causal explanation may require additional evidence: which observation was
 
 Wall-clock precedence is not enough. `A` can occur earlier than `B` without influencing it. A total order imposed by a log, scheduler, or sequencer can also compare independent work while introducing no new semantic dependency between the operations.
 
-## Concurrency and Independence
+## Concurrency and independence
 
-Two occurrences are concurrent relative to a causal relation when neither causally precedes the other. Causal incomparability does not by itself prove semantic independence. The occurrences may still contend for the same invariant, authority, resource, or effect boundary.
+Two occurrences are [[Concurrency|concurrent]] relative to an observer, boundary, and causal relation when neither causal-precedence direction is known or entailed there. If the relation is complete for that boundary, they are structurally incomparable. If the observer has incomplete evidence, absence of known order does not prove that no dependency exists outside its view.
+
+Causal incomparability does not by itself prove semantic independence. The occurrences may still contend for the same invariant, authority, resource, or effect boundary.
 
 Independence is stronger: the operations can be varied, reordered, or composed without changing the relevant outcome or invalidating a constraint. [[Reduction, Evaluation, and Confluence|Commutativity and confluence]] provide ways to show that causal-order alternatives are observationally harmless.
 
@@ -56,4 +58,4 @@ A view is causally closed when it includes the prerequisites of every occurrence
 
 - Leslie Lamport, [Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf), *Communications of the ACM* 21(7):558-565, 1978.
 
-Related concepts: [[Relation|relation]], [[Event|event]], [[Observation|observation]], [[Transition|transition]], [[Effects|effects]], [[Behavior|behavior]], [[Process|process]], [[Happened-Before|happened-before]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Observer|observer]], [[Authority|authority]], [[Boundaries|boundaries]].
+Related concepts: [[Relation|relation]], [[Event|event]], [[Observation|observation]], [[Transition|transition]], [[Effects|effects]], [[Behavior|behavior]], [[Process|process]], [[Concurrency|concurrency]], [[Happened-Before|happened-before]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Observer|observer]], [[Authority|authority]], [[Boundaries|boundaries]].

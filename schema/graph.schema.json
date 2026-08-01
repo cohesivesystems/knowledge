@@ -74,6 +74,7 @@
         "documents",
         "may_realize",
         "realizes",
+        "realm_peer_of",
         "corresponds_to"
       ]
     },
@@ -90,6 +91,7 @@
         "status",
         "aliases",
         "summary",
+        "realm_peers",
         "outbound",
         "backlinks"
       ],
@@ -142,6 +144,13 @@
         },
         "summary": {
           "type": "string"
+        },
+        "realm_peers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
         },
         "outbound": {
           "type": "array",

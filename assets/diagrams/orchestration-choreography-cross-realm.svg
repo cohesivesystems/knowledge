@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 860" role="img" aria-labelledby="title desc">
+  <title id="title">Cross-realm process control in choreography and orchestration</title>
+  <desc id="desc">A semantic process with a global protocol projects into two system-graph coordination shapes. In choreography, participant-local rules compose and glue into coherent global behavior. In orchestration, global control is allocated to an active process manager coordinating participants. Both shapes are realized by replaceable runtime mechanisms under operational requirements.</desc>
+  <style>
+    svg {
+      --canvas: #fbfbfa;
+      --text: #20252a;
+      --muted: #59626b;
+      --rule: #cfd4d8;
+      --grid: #c5cbd0;
+      --plate: #ffffff;
+      --semantic: #28699b;
+      --semantic-field: #eef5fa;
+      --semantic-node: #e1eef8;
+      --system: #a86226;
+      --system-field: #faf2e9;
+      --system-node: #f4e5d6;
+      --substrate: #2f7b4d;
+      --substrate-field: #eef7f1;
+      --substrate-node: #dfefe4;
+      --concern: #f0f1f2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      svg {
+        --canvas: #17191b;
+        --text: #f2f3f4;
+        --muted: #a8adb2;
+        --rule: #3a3e42;
+        --grid: #464b50;
+        --plate: #25282b;
+        --semantic: #7dbdf0;
+        --semantic-field: #1e252a;
+        --semantic-node: #2a3945;
+        --system: #eda060;
+        --system-field: #2a231d;
+        --system-node: #49372a;
+        --substrate: #70d091;
+        --substrate-field: #1d2922;
+        --substrate-node: #294334;
+        --concern: #272a2d;
+      }
+    }
+
+    .canvas { fill: var(--canvas); }
+    .realm-field { stroke: var(--rule); stroke-width: 1.25; }
+    .semantic-field { fill: var(--semantic-field); }
+    .system-field { fill: var(--system-field); }
+    .substrate-field { fill: var(--substrate-field); }
+    .realm-rule, .structural-line { fill: none; stroke: var(--rule); stroke-width: 1.25; }
+    .realm-label {
+      fill: var(--muted);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 2.2px;
+    }
+    .node, .coordination-boundary, .runtime-boundary {
+      fill: var(--plate);
+      stroke-width: 1.6;
+    }
+    .semantic-node { fill: var(--semantic-node); stroke: var(--semantic); }
+    .system-node { fill: var(--system-node); stroke: var(--system); }
+    .substrate-node { fill: var(--substrate-node); stroke: var(--substrate); }
+    .coordination-boundary { fill: none; stroke: var(--system); }
+    .runtime-boundary { fill: none; stroke: var(--substrate); }
+    .system-line { fill: none; stroke: var(--system); stroke-width: 2; }
+    .projection-line {
+      fill: none;
+      stroke: var(--muted);
+      stroke-width: 1.45;
+      stroke-dasharray: 6 5;
+    }
+    .gluing-line {
+      fill: none;
+      stroke: var(--muted);
+      stroke-width: 1.45;
+      stroke-dasharray: 2 5;
+    }
+    .node-title {
+      fill: var(--text);
+      font-size: 18px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+    .node-detail, .edge-label, .mapping-label {
+      fill: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+      text-anchor: middle;
+    }
+    .boundary-label {
+      fill: var(--text);
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .boundary-detail {
+      fill: var(--muted);
+      font-size: 13px;
+    }
+    .concern-band {
+      fill: var(--concern);
+      stroke: var(--rule);
+      stroke-width: 1.25;
+      stroke-dasharray: 3 4;
+    }
+    .concern-title {
+      fill: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      text-anchor: middle;
+    }
+    .concern-detail {
+      fill: var(--muted);
+      font-size: 14px;
+      text-anchor: middle;
+    }
+    .label-plate { fill: var(--plate); stroke: var(--rule); stroke-width: 1; }
+  </style>
+
+  <defs>
+    <pattern id="dot-grid" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".7" fill="var(--grid)" opacity=".52"/>
+    </pattern>
+    <marker id="arrow-system" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 8 4 0 8Z" fill="var(--system)"/>
+    </marker>
+    <marker id="arrow-projection" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 8 4 0 8Z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+
+  <rect class="canvas" width="1120" height="860" rx="14"/>
+
+  <rect class="realm-field semantic-field" x="14" y="14" width="1092" height="172" rx="10"/>
+  <rect x="14" y="14" width="1092" height="172" rx="10" fill="url(#dot-grid)" opacity=".45"/>
+  <text class="realm-label" x="40" y="45">DOMAIN SEMANTICS</text>
+  <path class="realm-rule" d="M244 40H1080"/>
+
+  <path class="node semantic-node" d="M438 108 480 62H640L682 108 640 154H480Z"/>
+  <text class="node-title" x="560" y="94">semantic process π</text>
+  <text class="node-detail" x="560" y="119">global protocol · valid progress</text>
+  <text class="node-detail" x="560" y="139">shared control structure</text>
+
+  <rect class="realm-field system-field" x="14" y="210" width="1092" height="348" rx="10"/>
+  <rect x="14" y="210" width="1092" height="348" rx="10" fill="url(#dot-grid)" opacity=".34"/>
+  <text class="realm-label" x="40" y="241">SYSTEM GRAPH</text>
+  <path class="realm-rule" d="M206 236H1080"/>
+
+  <path class="projection-line" d="M525 154V195H350V302" marker-end="url(#arrow-projection)"/>
+  <path class="gluing-line" d="M244 302V195H476V154" marker-end="url(#arrow-projection)"/>
+  <path class="projection-line" d="M612 154V195H823V302" marker-end="url(#arrow-projection)"/>
+
+  <rect class="label-plate" x="68" y="243" width="232" height="25" rx="12"/>
+  <text class="mapping-label" x="184" y="260">compatible local behavior glues</text>
+  <rect class="label-plate" x="320" y="243" width="216" height="25" rx="12"/>
+  <text class="mapping-label" x="428" y="260">role restriction / projection</text>
+  <rect class="label-plate" x="725" y="243" width="244" height="25" rx="12"/>
+  <text class="mapping-label" x="847" y="260">control allocated to manager</text>
+
+  <rect class="coordination-boundary" x="55" y="270" width="500" height="258" rx="14"/>
+  <text class="boundary-label" x="78" y="297">choreographed process structure</text>
+  <text class="boundary-detail" x="78" y="316">distributed process-control responsibility</text>
+  <path class="structural-line" d="M78 326H532"/>
+
+  <rect class="node system-node" x="82" y="352" width="128" height="67" rx="10"/>
+  <text class="node-title" x="146" y="378">participant α</text>
+  <text class="node-detail" x="146" y="399">local rule · state</text>
+  <rect class="node system-node" x="241" y="437" width="128" height="67" rx="10"/>
+  <text class="node-title" x="305" y="463">participant β</text>
+  <text class="node-detail" x="305" y="484">local rule · state</text>
+  <rect class="node system-node" x="400" y="352" width="128" height="67" rx="10"/>
+  <text class="node-title" x="464" y="378">participant γ</text>
+  <text class="node-detail" x="464" y="399">local rule · state</text>
+
+  <path class="system-line" d="M201 411 247 442" marker-end="url(#arrow-system)"/>
+  <path class="system-line" d="M363 442 409 411" marker-end="url(#arrow-system)"/>
+  <path class="system-line" d="M400 363C345 330 228 330 210 363" marker-end="url(#arrow-system)"/>
+  <text class="edge-label" x="305" y="346">shared protocol interactions</text>
+  <text class="edge-label" x="305" y="522">local transitions compose into global progress</text>
+
+  <rect class="coordination-boundary" x="575" y="270" width="490" height="258" rx="14"/>
+  <text class="boundary-label" x="598" y="297">orchestrated process structure</text>
+  <text class="boundary-detail" x="598" y="316">process control concentrated in one logical role</text>
+  <path class="structural-line" d="M598 326H1042"/>
+
+  <rect class="node system-node" x="710" y="344" width="226" height="75" rx="11"/>
+  <text class="node-title" x="823" y="371">process manager m</text>
+  <text class="node-detail" x="823" y="392">state · next-step authority</text>
+  <text class="node-detail" x="823" y="409">completion · recovery</text>
+
+  <rect class="node system-node" x="600" y="455" width="126" height="58" rx="10"/>
+  <text class="node-title" x="663" y="480">participant α</text>
+  <text class="node-detail" x="663" y="500">local transition</text>
+  <rect class="node system-node" x="760" y="455" width="126" height="58" rx="10"/>
+  <text class="node-title" x="823" y="480">participant β</text>
+  <text class="node-detail" x="823" y="500">local transition</text>
+  <rect class="node system-node" x="920" y="455" width="126" height="58" rx="10"/>
+  <text class="node-title" x="983" y="480">participant γ</text>
+  <text class="node-detail" x="983" y="500">local transition</text>
+
+  <path class="system-line" d="M775 419 689 452" marker-end="url(#arrow-system)"/>
+  <path class="system-line" d="M823 419V452" marker-end="url(#arrow-system)"/>
+  <path class="system-line" d="M871 419 957 452" marker-end="url(#arrow-system)"/>
+  <text class="edge-label" x="823" y="440">commands · outcomes</text>
+
+  <rect class="concern-band" x="99" y="576" width="922" height="50" rx="24"/>
+  <text class="concern-title" x="259" y="606">operational concerns qualify both</text>
+  <text class="concern-detail" x="704" y="606">identity · authority · ordering · delivery · durability · recovery</text>
+
+  <rect class="realm-field substrate-field" x="14" y="644" width="1092" height="202" rx="10"/>
+  <rect x="14" y="644" width="1092" height="202" rx="10" fill="url(#dot-grid)" opacity=".28"/>
+  <text class="realm-label" x="40" y="675">REALIZATION SUBSTRATE</text>
+  <path class="realm-rule" d="M312 670H1080"/>
+
+  <path class="projection-line" d="M305 528V576M305 626V636H460V716" marker-end="url(#arrow-projection)"/>
+  <path class="projection-line" d="M823 528V576M823 626V716" marker-end="url(#arrow-projection)"/>
+  <text class="mapping-label" x="535" y="697">realized by ρ</text>
+  <text class="mapping-label" x="743" y="697">realized by ρ</text>
+
+  <rect class="runtime-boundary" x="116" y="708" width="888" height="104" rx="14"/>
+  <text class="boundary-label" x="139" y="736">replaceable runtime mechanisms</text>
+  <rect class="node substrate-node" x="154" y="746" width="812" height="56" rx="10"/>
+  <text class="node-title" x="560" y="770">brokers · callbacks · handlers · tasks · schedulers · workflow runtimes</text>
+  <text class="node-detail" x="560" y="790">poll or push · cooperative or preemptive · declared process semantics preserved</text>
+</svg>

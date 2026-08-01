@@ -9,6 +9,7 @@ import argparse
 import json
 from pathlib import Path
 import sys
+from typing import Iterable
 
 from cohesive_graph import (
     ALLOWED_FORMAL_RELATION_TYPES,
@@ -19,7 +20,25 @@ from cohesive_graph import (
 )
 
 
-SCHEMA_VERSION = "0.2.0"
+SCHEMA_VERSION = "0.4.0"
+
+
+def collect_realm_peers(
+    edge_keys: Iterable[tuple[str, str, str]],
+) -> dict[str, list[str]]:
+    """Index realm peers symmetrically from the authored directed edges."""
+    peers: dict[str, set[str]] = defaultdict(set)
+
+    for source, target, edge_type in edge_keys:
+        if edge_type != "realm_peer_of":
+            continue
+        peers[source].add(target)
+        peers[target].add(source)
+
+    return {
+        node_id: sorted(peer_ids)
+        for node_id, peer_ids in sorted(peers.items())
+    }
 
 
 def main() -> int:
@@ -74,6 +93,8 @@ def main() -> int:
             mention["description"] = formal_relation.description
         edge_mentions[(source.id, target.id, edge_type)].append(mention)
 
+    realm_peers = collect_realm_peers(edge_mentions)
+
     export = {
         "schema_version": SCHEMA_VERSION,
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -101,6 +122,7 @@ def main() -> int:
                 "status": node.status,
                 "aliases": node.aliases,
                 "summary": node.summary,
+                "realm_peers": realm_peers.get(node.id, []),
                 "outbound": sorted(
                     {
                         resolved[link].id

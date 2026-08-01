@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-15
-updated: 2026-07-28
+updated: 2026-08-01
 status: draft
 aliases:
   - Scheduler
@@ -23,7 +23,7 @@ For a finite execution history `h`, a scheduler can be modeled as selecting an e
 scheduler : History -> EnabledAction
 ```
 
-A randomized scheduler instead returns a distribution over enabled actions. A distributed scheduler can consist of several local policies and arbitration points rather than one observer with a global view.
+This single-action form describes one execution resource. A scheduler for several resources may instead select a compatible set of enabled actions and map each action to a resource. A randomized scheduler returns a distribution over actions or compatible selections. A distributed scheduler can consist of several local policies and arbitration points rather than one observer with a global view.
 
 [[Nondeterminism and Choice|Nondeterminism]] defines the possible continuations. Scheduling resolves some of that multiplicity into one execution. The model should state which information the scheduler may use; a verification scheduler should not silently inspect hidden future random choices, inaccessible participant state, or facts outside its boundary.
 
@@ -37,6 +37,14 @@ Scheduler classifications include:
 - Work-conserving or intentionally reserving capacity.
 - Adversarial, policy-directed, or optimization-directed.
 - Fair, weakly fair, strongly fair, or explicitly unfair.
+
+## Preemptive and Cooperative Execution
+
+A preemptive scheduler may suspend a running unit at a scheduler-controlled point and give another unit execution opportunity. Under cooperative scheduling, the running unit retains execution until it completes, blocks, or reaches an explicit yield or await. Both forms can multiplex several logical tasks over the same resources, but they admit different interleavings, responsiveness, starvation risks, reentrancy conditions, and assumptions about what can change during an activation.
+
+On one execution resource, preemptive multitasking creates temporal overlap in task lifetimes and can present observational [[Parallelism|parallelism]] to a coarser boundary, but only one task executes there at an instant. This realizes [[Concurrency|concurrency]] through temporal multiplexing rather than physical parallelism. Several OS threads time-sliced on one core and several green threads preemptively multiplexed within one OS thread have different schedulers, but both remain single-resource execution at that boundary.
+
+This is execution control, not the successor relation of [[Control Flow|process control flow]]. Scheduling can decide when a broker poll, callback, handler, or continuation runs; it does not decide whether payment authorization semantically follows inventory reservation. A handler outcome may supply the observation used by an authorized transition or process decision, while the scheduler merely supplied the opportunity to compute it.
 
 ## Scheduling Order
 
@@ -82,4 +90,4 @@ Priority can also introduce [[Deadlock and Livelock|priority inversion]] when hi
 
 - Nissim Francez, [Fairness](https://doi.org/10.1007/978-1-4612-4886-6), especially the treatment of explicit schedulers, Springer, 1986.
 
-Related concepts: [[Queueing Theory|queueing theory]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Safety and Liveness|safety and liveness]], [[Rate Limiting|rate limiting]], [[Interaction|interaction]], [[Process|process]], [[Observer|observer]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Compute|compute]], [[Workflow Engines|workflow engines]], [[Realization|realization]].
+Related concepts: [[Queueing Theory|queueing theory]], [[Control Flow|control flow]], [[Interaction Control Flow|interaction control flow]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Safety and Liveness|safety and liveness]], [[Rate Limiting|rate limiting]], [[Interaction|interaction]], [[Process|process]], [[Observer|observer]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Compute|compute]], [[Workflow Engines|workflow engines]], [[Realization|realization]].

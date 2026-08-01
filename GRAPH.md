@@ -110,8 +110,10 @@ line.
 
 The source note owns the assertion. Do not author the inverse relation in the
 target merely to obtain a backlink; tooling derives inverse labels for
-navigation. Whether an edge crosses realms is likewise derived from the source
-and target node metadata rather than authored as a separate relation type.
+navigation. Whether an edge crosses realms is derived from the source and
+target node metadata. The `realm_peer_of` type does not replace that derived
+property: it makes the narrower assertion that two entries are realm-specific
+treatments of the same nominal notion.
 
 The target wikilink in a formal relation is exported under the asserted type
 instead of `mentions`. Other wikilinks in the note, including links used in the
@@ -133,6 +135,7 @@ Relation names are directed predicates from the source note to the target note:
 | `documents` | `documented_by` | A reference, catalog, glossary, or overview explains or organizes the target. |
 | `may_realize` | `may_be_realized_by` | A public substrate family is a candidate mechanism for the target when its requirements are met. |
 | `realizes` | `realized_by` | A selected concrete artifact or mechanism actually realizes the target at a declared boundary. |
+| `realm_peer_of` | `realm_peer_of` | Relates distinct entries in different realms that deliberately treat the same nominal notion from realm-specific perspectives. |
 | `corresponds_to` | `corresponds_to` | Records a symmetric structural correspondence when no stronger predicate is justified. |
 
 `arranges`, `qualifies`, `bundles`, and `may_realize` originate in the System
@@ -140,6 +143,23 @@ Graph, Operational Concerns, Architecture Practices, and Realization Substrate
 realms respectively. `documents` originates from a reference-like node.
 `realizes` is stronger than `may_realize`: the former asserts an actual selected
 mapping, while the latter records only a possible public realization family.
+
+`realm_peer_of` is symmetric and must cross realms. It asserts that the entries
+treat the same named notion, not graph-node identity, equality of claims,
+interchangeable meanings, bundle membership, or a realization mapping. Use it
+when one established term or named pattern is deliberately split into separate
+entries because its realm-specific claims need different kinds or boundaries.
+Do not use it merely because two entries are related and happen to be in
+different realms; use the stronger directed predicate or `corresponds_to`
+instead. Author the relation once, preferably from the more explicitly
+realm-qualified entry, and state each peer's scope in the rationale.
+
+The generated node projection includes `realm_peers`, a sorted array of peer
+node IDs derived from `realm_peer_of` edges. The exporter populates this array
+symmetrically on both endpoints even though the relation is authored once. An
+empty array means that no realm peer has been declared. The typed edge remains
+in the edge collection with its authored rationale; `realm_peers` is navigation
+metadata for consumers, not a second source of truth.
 
 A plain wikilink remains appropriate for ordinary conceptual adjacency. Formal
 relations are a reviewed semantic layer over the Markdown graph, not a

@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-28
-updated: 2026-07-29
+updated: 2026-07-30
 status: draft
 aliases:
   - Catalog Correspondence
@@ -46,6 +46,14 @@ In plain language, a correspondence should preserve the relationships that make 
 - Information that is forgotten, approximated, delayed, aggregated, or newly introduced is declared.
 
 Many useful correspondences are partial, one-to-many, or relational rather than total functions. One semantic process may have several workflow realizations; one message channel may carry several semantic roles; one catalog pattern may decompose into several Cohesive nodes. The framework is called functorial because it demands structure-preserving correspondence, not because every crosswalk must be formalized as one mathematical functor.
+
+### Nominal realm peers
+
+An established term or named pattern sometimes needs more than one graph entry because its claims have different primary roles in different realms. Those entries are **nominal realm peers**: distinct, realm-specific treatments of the same named notion. For example, an architecture-practice entry can own the problem, forces, and cross-realm bundle while a realization-substrate entry with the same nominal subject owns a technical mechanism family.
+
+The formal relation `realm_peer_of` records this case. It is symmetric, must connect different realms, and is authored once as a normal wikilink in a formal-relations section. Prefer to author it from the entry whose title is explicitly realm-qualified; the derived inverse makes the peer visible from both entries and allows projections to surface peers as navigation metadata.
+
+Nominal peerhood does not make the entries equal, interchangeable, or jointly authoritative. It also does not assert that one entry realizes the other. Each peer retains its own realm, kind, scope, and guarantees, and the relation rationale should summarize that division. Use a directed predicate such as `bundles`, `qualifies`, or `may_realize` for those stronger claims, and use `corresponds_to` for a structural correspondence between differently named notions.
 
 ## Cross-Realm Category Errors
 

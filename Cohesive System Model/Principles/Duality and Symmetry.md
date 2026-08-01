@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-08-01
 ---
 
 # Duality and Symmetry
@@ -19,7 +19,9 @@ Common dualities or symmetries in the model include:
 - Client and server: each side defines a complementary interaction role relative to a protocol boundary.
 - [[Persistence]] and [[Reconstitution|reconstitution]]: one makes material durable; the other turns durable material back into usable observations.
 - Monads and comonads: one commonly models effectful construction or sequencing; the other commonly models context, observation, or extraction.
-- Parallelism and [[Concurrency Control|concurrency]]: parallelism concerns simultaneous execution; concurrency concerns coordination of interleavings and conflicts.
+- [[Fork and Join|Fork and join]]: a fork expands one continuation into several branch activations; a join synchronizes selected completions and, where declared, combines their results into one continuation.
+
+Not every cross-realm pairing is a duality. [[Concurrency|Concurrency]] and [[Parallelism|parallelism]] correspond across logical structure and execution: concurrency exposes freedom left by the absence of established order, while parallelism is one possible realization of that freedom. One concurrent structure may be serialized, interleaved, physically parallelized, or distributed, and observing parallel execution does not reconstruct the logical dependency structure. The relationship is therefore boundary-relative realization and projection rather than reversal or mirrored structure.
 
 Duality helps the model ask:
 
@@ -33,4 +35,4 @@ Symmetry is often broken by boundaries, observers, time, authority, or commitmen
 
 Recognizing dualities keeps the model honest. It prevents event histories from being treated as identical to state histories, syntax from being mistaken for semantics, broker delivery from being mistaken for domain commitment, and realization substrate from being mistaken for the semantic role it realizes.
 
-Related concepts: [[Event-State Duality|event-state duality]], [[Event|event]], [[State|state]], [[Behavior|behavior]], [[Observer|observer]], [[Boundaries|boundaries]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Concurrency Control|concurrency control]].
+Related concepts: [[Event-State Duality|event-state duality]], [[Fork and Join|fork and join]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Event|event]], [[State|state]], [[Behavior|behavior]], [[Observer|observer]], [[Boundaries|boundaries]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Concurrency Control|concurrency control]].

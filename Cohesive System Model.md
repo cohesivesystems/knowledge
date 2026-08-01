@@ -59,7 +59,7 @@ Describe modeling disciplines used across the system model.
 - [[Duality and Symmetry]], [[Event-State Duality|event-state duality]], [[Synchrony and Asynchrony|synchrony and asynchrony]]
 - [[Universal Constructions]]
 - [[Equivalence vs Equality]]
-- [[Happened-Before]]
+- [[Concurrency]], [[Happened-Before|happened-before]]
 - [[Quorum Intersection]]
 - [[Monads Monoids and Duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[State Machines|state machines]], [[Yoneda Lemma|Yoneda lemma]], [[Adjunctions|adjunctions]]
 - [[Fibrations and Indexed Structure]], [[Sheaves and Gluing|sheaves and gluing]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Database Sheaf Semantics|database sheaf semantics]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Enrichment and Order|enrichment and order]], [[Optics and Lenses|optics and lenses]], [[Trace and Feedback|trace and feedback]]
@@ -107,7 +107,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Commit Boundaries]]
 - [[Coordination]]  
 - [[Consensus]]
-- [[Scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]]
+- [[Scheduling]], [[Parallelism|parallelism]], [[Fairness|fairness]], [[Arbitration|arbitration]]
 - [[Scalability]], [[Locality|locality]]
 - [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[Failure Models|failure models]], [[Deadlock and Livelock|deadlock and livelock]], [[CAP Theorem|CAP theorem]], [[Metastability|metastability]]
 - [[Concurrency Control|Concurrency control]]
@@ -138,7 +138,7 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Projection Models]]
 - [[Replica Models]]
 - [[Partition Models]]
-- [[Process Graphs]]
+- [[Process Graphs]], [[Fork and Join|fork and join]]
 - [[Effects]]
 - [[Flow Views]] as movement views within or between process graphs
 - [[Service Models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]]
@@ -265,7 +265,7 @@ A [[Process|process]] is coherent work unfolding over time. It gives semantic un
 
 A process is not defined by a workflow engine, scheduler, thread, transaction manager, application host, or broker. Those mechanisms may realize a process, execute one activation of it, or host one step of it. The semantic process is defined by its subject or correlation identity, participants, inputs, decisions, state or history, effects, completion meanings, and flows of movement between participants.
 
-Processes compose when the outputs of one process become future inputs to another. Compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
+Processes compose when the outputs of one process become future inputs to another. Compositions may be pipelines, nested sub-processes, [[Concurrency|concurrent]] processes, or feedback loops.
 
 An executable long-lived process advances through finite activations separated by quiescence or explicit durable cuts. It owns coordination state such as active tokens, waits, correlations, interaction results, compensation progress, and terminal outcome; it does not own a copied authoritative version of aggregate business state.
 

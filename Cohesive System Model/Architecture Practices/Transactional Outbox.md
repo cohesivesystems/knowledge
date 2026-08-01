@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-17
+updated: 2026-07-31
 ---
 
 # Transactional Outbox
@@ -36,3 +36,7 @@ In designs built around [[Sagas|sagas]], [[Process Managers|process managers]], 
 Transactional outbox is being overclaimed when broker delivery is treated as proof of domain consistency, when consumers lack idempotent receiving behavior, when the relay has no durable progress or recovery model, or when the outbox record is written outside the same commit boundary as the state change that requires publication.
 
 Related concepts: [[Outbox|outbox]], [[Weak Isolation Patterns|weak isolation patterns]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Dual-Write Problem|dual-write problem]], [[Event Sourcing|event sourcing]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Brokers|brokers]], [[Boundaries|boundaries]], [[Event-Driven Architecture|event-driven architecture]].
+
+## Formal relations
+
+- `realm_peer_of`: [[Outbox]] — Treats the same named outbox pattern as an architecture practice tying local commitment to publication responsibility, while the peer entry owns the durable obligation, relay, and recovery mechanism.

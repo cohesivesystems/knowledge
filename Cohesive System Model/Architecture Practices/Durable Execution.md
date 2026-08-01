@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-06-28
-updated: 2026-07-04
+updated: 2026-07-31
 ---
 
 # Durable Execution
@@ -46,3 +46,7 @@ Durable execution concerns include:
 Durable execution is [[Realization|realized]] by [[Durable Execution Engines|durable execution engines]], workflow engines, job processors with durable queues, actor reminders plus state providers, database-backed [[Process Managers|process managers]], saga runtimes, transaction managers, or custom coordination code. [[Process Theories|Process theories]] help distinguish this execution-recovery pattern from the broader semantic process and from business-recovery patterns such as [[Sagas|sagas]].
 
 Related concepts: [[Durability|durability]], [[Process Theories|process theories]], [[Process|process]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Retry|retry]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Delivery Semantics|delivery semantics]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution Engines|durable execution engines]], [[Workflow Engines|workflow engines]], [[Business Transactions|business transactions]], [[Realization|realization]].
+
+## Formal relations
+
+- `realm_peer_of`: [[Durable Execution Engines]] — Treats the same named durable-execution family as an architecture practice for coherent recovery, while the peer entry owns the concrete runtime and substrate mechanisms that preserve execution material.

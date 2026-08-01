@@ -2,18 +2,24 @@
 realm: Principles
 kind: principle
 created: 2026-06-28
-updated: 2026-07-28
+updated: 2026-08-01
 ---
 
 # Synchrony and Asynchrony
 
 Synchrony and Asynchrony describe whether events, observations, transitions, or participants are coupled into one boundary-relative unit.
 
-**Asynchrony** is the semantics of independent occurrence. Events, observations, transitions, messages, or effects may occur, be observed, be delivered, be persisted, or complete independently unless a model supplies a stronger shared boundary. An operation is asynchronous when the begin and end events are separate events.
+**Asynchrony** is the semantics of separate occurrence. Events, observations, transitions, messages, or effects are not treated as one coordinated occurrence unless a model supplies a stronger shared boundary. An operation is asynchronous when its begin and completion are separate events, even though the begin causally precedes the completion.
 
 **Synchrony** is the semantics of coordinated co-occurrence. A boundary couples several otherwise separate events, observations, or transitions so they are treated as one unit for some purpose: one call/return interaction, one actor turn, one critical section, one transaction, one barrier, one commit point, one consensus decision, one logical round, or one atomic observation.
 
 In this sense, asynchrony is the primitive absence of coordinated joining. Synchronization is the operation that turns asynchronous multiplicity into synchronous unity. Desynchronization exposes a formerly synchronous unit as separate events, phases, messages, observations, or effects.
+
+## Relationship to concurrency and parallelism
+
+Asynchrony, [[Concurrency|concurrency]], and [[Parallelism|parallelism]] are distinct. Asynchrony separates occurrences or phases that are not one coordinated unit. Concurrency says that neither of two occurrences is known or entailed to precede the other relative to a declared order and boundary. Parallelism says that execution intervals overlap on distinct resources, or that a higher observer sees behavior indistinguishable from such overlap under its declared observations.
+
+An asynchronous computation may remain sequential because each operation begins only after a prior completion. Conversely, concurrent work may be expressed without an async language feature and executed through preemptive scheduling. Asynchrony often exposes opportunities for concurrency by allowing one logical operation to remain pending while unrelated work advances, but it does not establish those missing dependency edges by itself.
 
 ## Duality
 
@@ -55,7 +61,7 @@ Blocking and non-blocking are realization and [[Progress Conditions|progress-con
 
 Blocking may mean that a physical thread is parked, a lock owner prevents other workers from progressing, or a logical operation is waiting for a result. These should not be collapsed. Often the logical process should wait while the physical thread should not.
 
-Async programming models reconcile this distinction. A logical operation can remain pending until an asynchronous operation completes, while the runtime releases the physical thread to run other work. In continuation or callback-shaped models, such as an F# async computation, the computation can be understood as arranging what continuation should run when the operation completes rather than occupying a thread for the whole wait.
+Async programming models reconcile this distinction. A logical operation can remain pending until an asynchronous operation completes, while the runtime releases the physical thread to run other work. In continuation or callback-shaped models, such as an F# async computation, the computation can be understood as arranging what continuation should run when the operation completes rather than occupying a thread for the whole wait. An `await` introduces a logical dependency from completion to continuation; sibling operations become concurrent only when the program starts or enables them without introducing an order among them.
 
 This gives two different questions:
 
@@ -72,4 +78,4 @@ In distributed systems, synchrony may be realized by quorum protocols, consensus
 
 The same definitions apply in both settings when stated boundary-relatively: asynchrony means independent occurrence relative to the boundary; synchrony means coordinated co-occurrence relative to the boundary.
 
-Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Interaction|interaction]], [[Control Flow|control flow]], [[Interaction Control Flow|interaction control flow]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Time|time]], [[Consensus|consensus]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Event|event]], [[Observation|observation]], [[Transition|transition]].
+Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Fork and Join|fork and join]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Interaction|interaction]], [[Control Flow|control flow]], [[Interaction Control Flow|interaction control flow]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Time|time]], [[Consensus|consensus]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Event|event]], [[Observation|observation]], [[Transition|transition]].

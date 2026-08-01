@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-08-01
 aliases:
   - Process Structure
   - Process Structures
@@ -35,6 +35,8 @@ A display name or source position is not sufficient compatibility evidence for l
 
 Process graphs have [[Flow Views|flow views]]. A flow view describes how process inputs, outputs, signals, observations, commands, events, effects, or artifacts move between participants. Flow is therefore a useful view of process movement, but it is not the whole process graph. The graph also includes subject identity, participant roles, state, decisions, policies, transitions, recovery, compensation, and completion meanings.
 
+A process edge constrains logical progression; it does not prescribe how a participant becomes active or receives compute time. The same edge may be realized through [[Interaction Control Flow|interaction-control]] arrangements such as broker polling or runtime push, callback or continuation handling, and cooperative or preemptive [[Scheduling|scheduling]]. Those lower-layer choices must preserve the edge's declared enabling, decision, ordering, and completion meaning rather than becoming implicit process structure.
+
 [[Orchestration and Choreography|Orchestration and choreography]] are process coordination shapes. In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the decision surface. In choreography, participants advance the process through events, protocols, subscriptions, shared media, and local reactions. Choreography can still have a shared global protocol and singular goal; it lacks one explicit process manager controlling the whole execution. Many systems mix both shapes, so the model should state where process identity, authority, ordering, recovery, and completion meaning live.
 
 Process graph concerns include:
@@ -53,7 +55,7 @@ Process graphs own coordination state: active branches, waits, correlation, inte
 
 Free graph cycles and arbitrary recursion hide progress and recovery obligations. Long-lived or recurrent processes should use explicit recurrence, feedback, polling, timers, signals, or scheduled reactivation with declared progress, cancellation, durable-cut, deadline, and failure meanings.
 
-Forks and joins should identify stable branches, join mode, failure and cancellation behavior, and whether completion order is semantically observable. Durable waits should define registration, buffering, identity, admission, claim, consumption, arbitration, timeout, late-input, stale-input, and retention meanings before a realization chooses a workflow engine, database, broker, or actor mechanism.
+[[Fork and Join|Fork and join]] structures should identify stable branches, the ordering edges deliberately absent between them, join mode, result-combination rule, failure and cancellation behavior, and whether completion order is semantically observable. The absent branch order establishes [[Concurrency|concurrency]] in the logical graph; it does not prescribe interleaving or physical [[Parallelism|parallelism]]. Durable waits should define registration, buffering, identity, admission, claim, consumption, arbitration, timeout, late-input, stale-input, and retention meanings before a realization chooses a workflow engine, database, broker, or actor mechanism.
 
 A join that waits for a branch that was never enabled, was cancelled without changing the completion set, or can no longer produce its token creates a structural [[Deadlock and Livelock|workflow deadlock]]. Process-graph validation should distinguish such unreachable completion from a runtime wait on a slow or failed external participant.
 
@@ -68,11 +70,11 @@ Examples include:
 - RDBMS transactions that attach ACID commit and rollback semantics to database operations.
 - ML workflows that normalize training examples, generate or project datasets, run models, transform and persist model artifacts, evaluate outcomes, and promote selected models.
 
-Process graphs compose when outputs of one process feed another process as observations, commands, events, artifacts, or decisions. Such compositions may be pipelines, nested sub-processes, concurrent processes, or feedback loops.
+Process graphs compose when outputs of one process feed another process as observations, commands, events, artifacts, or decisions. Such compositions may be pipelines, nested sub-processes, [[Concurrency|concurrent]] processes, or feedback loops.
 
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Process Manager](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html), *Enterprise Integration Patterns*, 2003.
 - Enterprise Integration Patterns, [Message Routing patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html), including Routing Slip, Scatter-Gather, and Composed Message Processor.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Process Theories|process theories]], [[Process|process]], [[Control Flow|control flow]], [[Execution Kernel|execution kernel]], [[Business Transactions|business transactions]], [[Flow Views|flow views]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Correlation and Conversations|correlation and conversations]], [[Coordination|coordination]], [[Deadlock and Livelock|deadlock and livelock]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Observer Models|observer models]], [[Entity Models|entity models]], [[Transition Models|transition models]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[State|state]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Policy Scopes|policy scopes]], [[Invariant Scopes|invariant scopes]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Process Theories|process theories]], [[Process|process]], [[Control Flow|control flow]], [[Concurrency|concurrency]], [[Fork and Join|fork and join]], [[Parallelism|parallelism]], [[Interaction Control Flow|interaction control flow]], [[Execution Kernel|execution kernel]], [[Business Transactions|business transactions]], [[Flow Views|flow views]], [[Routing Models|routing models]], [[Flow Operators|flow operators]], [[Correlation and Conversations|correlation and conversations]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Deadlock and Livelock|deadlock and livelock]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Runtimes|runtimes]], [[Observer Models|observer models]], [[Entity Models|entity models]], [[Transition Models|transition models]], [[Observer|observer]], [[Entity|entity]], [[Event|event]], [[Effect|effect]], [[Command|command]], [[State|state]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Policy Scopes|policy scopes]], [[Invariant Scopes|invariant scopes]].

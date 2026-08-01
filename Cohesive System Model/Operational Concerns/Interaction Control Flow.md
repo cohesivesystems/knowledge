@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-27
-updated: 2026-07-28
+updated: 2026-08-01
 aliases:
   - Distributed Control Flow
   - EIP Control Flow
@@ -25,6 +25,12 @@ The term is deliberately qualified as *interaction* control flow because [[Contr
 - **[[Flow Control|Flow control]]**, which applies backpressure, credits, buffering, admission, batching, throttling, or shedding in response to capacity.
 
 These notions can interact, but none can be inferred from another.
+
+## Activation and Continuation
+
+Interaction-control roles are boundary-relative and may compose across layers. A participant can actively poll a broker at one boundary, after which the broker client or runtime actively dispatches a delivery into a passive callback at another. The implementation therefore contains a pull followed by a push even when the public interface presents only one of them.
+
+Callback invocation is runtime activation, not automatically semantic process progression. The callback outcome becomes relevant to [[Control Flow|process control flow]] only when an authorized observer admits and interprets it as an observation, decision, event, or effect result that enables or selects a successor. [[Scheduling]] then determines when an enabled callback, handler, or continuation executes and whether its work is cooperatively yielded or preempted. Process progression, interaction drive, and execution opportunity may correspond in a realization, but they remain distinct relations.
 
 ## Boundary Roles
 

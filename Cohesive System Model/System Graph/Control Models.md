@@ -15,7 +15,7 @@ aliases:
 
 Control models place adaptive observation, decision, and actuation loops in the system graph.
 
-A `cohesive.control` block authors one control model. It identifies what is observed, what objective and policy govern regulation, what controller state is retained, what bounded action may be proposed, which participant is authorized to actuate it, and which later observations close the loop. It does not prescribe one algorithm, runtime, metric system, or infrastructure controller.
+A `Cohesive.Control` block authors one control model. It identifies what is observed, what objective and policy govern regulation, what controller state is retained, what bounded action may be proposed, which participant is authorized to actuate it, and which later observations close the loop. It does not prescribe one algorithm, runtime, metric system, or infrastructure controller.
 
 [[Control Theory|Control theory]] supplies the source discipline. [[Observable|Observables]], [[Observation|observations]], [[Policy|policies]], [[Observer Models|observer models]], [[Effects]], and [[Interaction|interactions]] supply the semantic and structural trace. [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID]], thresholds, hysteresis, and model-based controllers are possible realization choices.
 

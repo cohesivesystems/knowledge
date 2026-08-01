@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-07-30
 ---
 
 # Event Sourcing as Architecture Practice
@@ -30,3 +30,7 @@ Only committed events are state actions for the target entity. That is why event
 Event sourcing supports audit, replay, projection rebuild, temporal [[Query|queries]], and state reconstitution. It also raises operational concerns around schema evolution, idempotency, ordering, snapshots, retention, and event publication.
 
 Related concepts: [[Event Sourcing|event sourcing]], [[Event|event]], [[Transition|transition]], [[Query|query]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Version|version]], [[Event-State Duality|event-state duality]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[CQRS as Architecture Practice|CQRS as architecture practice]].
+
+## Formal relations
+
+- `realm_peer_of`: [[Event Sourcing]] — Treats the same named event-sourcing pattern as an architecture practice, while the peer entry owns the realization-substrate mechanics of committed event history and reconstitution.

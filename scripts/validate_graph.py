@@ -13,6 +13,7 @@ from cohesive_graph import (
     ALLOWED_FORMAL_RELATION_TYPES,
     ALLOWED_KINDS,
     ALLOWED_REALMS,
+    RELATION_INVERSES,
     load_nodes,
     repo_root_from,
     resolve_links,
@@ -50,22 +51,46 @@ def main() -> int:
         )
 
     seen_relations: set[tuple[str, str, str]] = set()
+    seen_symmetric_relations: set[tuple[str, str, str]] = set()
     for node in nodes:
         for relation in node.formal_relations:
             target = resolved.get(relation.link)
             if target is None:
                 continue
             key = (node.id, target.id, relation.relation_type)
-            if key in seen_relations:
+            duplicate = key in seen_relations
+            if duplicate:
                 errors.append(
                     f"Duplicate formal relation in {node.path}:{relation.link.line}: "
                     f"{relation.relation_type} -> {target.title}"
                 )
             seen_relations.add(key)
+
+            if RELATION_INVERSES.get(relation.relation_type) == relation.relation_type:
+                symmetric_key = (
+                    min(node.id, target.id),
+                    max(node.id, target.id),
+                    relation.relation_type,
+                )
+                if symmetric_key in seen_symmetric_relations and not duplicate:
+                    errors.append(
+                        f"Duplicate symmetric formal relation in "
+                        f"{node.path}:{relation.link.line}: "
+                        f"{relation.relation_type} <-> {target.title}; author it once"
+                    )
+                seen_symmetric_relations.add(symmetric_key)
+
             if node.id == target.id:
                 errors.append(
                     f"Self-referential formal relation in {node.path}:{relation.link.line}: "
                     f"{relation.relation_type}"
+                )
+
+            if relation.relation_type == "realm_peer_of" and node.realm == target.realm:
+                errors.append(
+                    f"Formal relation 'realm_peer_of' in "
+                    f"{node.path}:{relation.link.line} must cross realms, but both "
+                    f"entries are in {node.realm!r}"
                 )
 
     inbound = Counter(target.path for target in resolved.values())

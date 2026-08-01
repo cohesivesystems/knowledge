@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-28
-updated: 2026-07-04
+updated: 2026-07-31
 ---
 
 # Consensus Protocols
@@ -35,3 +35,7 @@ In terms of [[Orchestration and Choreography|orchestration and choreography]], P
 - Barbara Liskov and James Cowling, [Viewstamped Replication Revisited](https://www.cs.princeton.edu/courses/archive/fall19/cos418/papers/vr-revisited.pdf), MIT CSAIL, 2012.
 
 Related concepts: [[Consensus|consensus]], [[Quorum Intersection|quorum intersection]], [[Replica Models|replica models]], [[Failure Models|failure models]], [[Orchestration and Choreography|orchestration and choreography]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]], [[Coordination|coordination]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Time|time]], [[Version|version]], [[Persistence|persistence]], [[Recovery|recovery]], [[Storage Systems|storage systems]], [[Infrastructure|infrastructure]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]].
+
+## Formal relations
+
+- `realm_peer_of`: [[Consensus]] — Treats the same named consensus notion as a realization-protocol family, while the peer entry owns the operational agreement, validity, integrity, termination, and boundary-relative guarantee.

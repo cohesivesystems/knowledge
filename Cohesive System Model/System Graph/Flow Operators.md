@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-27
-updated: 2026-07-29
+updated: 2026-08-01
 aliases:
   - Integration Flow Operators
   - Pipes and Filters
@@ -19,8 +19,8 @@ An operator describes graph structure and declared interpretation, not a specifi
 - **Transform** maps one shaped value into another while preserving or explicitly changing meaning.
 - **Filter** selects or projects values under a declared predicate, policy, or shape.
 - **Enrich** combines a carried value with explicit observations or referenced material.
-- **Split** maps one composite input into correlated parts.
-- **Aggregate or join** combines correlated parts under a completeness, window, quorum, or terminal rule.
+- **Split** maps one composite input into correlated parts. It is distinct from the control-activation side of [[Fork and Join|fork and join]].
+- **Aggregate or join** combines correlated parts under a completeness, window, quorum, or terminal rule. Value aggregation is distinct from a control-flow join even when one process node performs both.
 - **Resequence** emits admitted values according to a declared ordering space.
 - **Scatter-gather** distributes related requests or work and combines selected replies or results.
 - **Composed processing** connects several operators while preserving the identity and completion rule of the larger flow.
@@ -39,4 +39,4 @@ An operator's transformation meaning is distinct from its [[Interaction Control 
 - Enterprise Integration Patterns, [Message Routing and Transformation patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html).
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Transition Models|transition models]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Interaction Control Flow|interaction control flow]], [[Shape|shape]], [[Observation|observation]], [[Correlation and Conversations|correlation and conversations]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Temporal Completeness|temporal completeness]], [[Deadlock and Livelock|deadlock and livelock]], [[Compositionality|compositionality]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Fork and Join|fork and join]], [[Transition Models|transition models]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Interaction Control Flow|interaction control flow]], [[Shape|shape]], [[Observation|observation]], [[Correlation and Conversations|correlation and conversations]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Temporal Completeness|temporal completeness]], [[Deadlock and Livelock|deadlock and livelock]], [[Compositionality|compositionality]].

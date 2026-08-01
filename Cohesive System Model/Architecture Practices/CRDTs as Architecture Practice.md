@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-07-30
 ---
 
 # CRDTs as Architecture Practice
@@ -31,3 +31,7 @@ CRDTs are suitable when the domain can tolerate temporary divergence and the int
 The [[CALM Theorem|CALM theorem]] generalizes this practice beyond CRDT implementations: monotone application logic is the part of the system that can usually remain coordination-free.
 
 Related concepts: [[CRDTs]], [[CALM Theorem|CALM theorem]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Invariant|invariants]], [[Storage Systems|storage systems]], [[Compositionality|compositionality]].
+
+## Formal relations
+
+- `realm_peer_of`: [[CRDTs]] — Treats the same named CRDT family as an architecture practice, while the peer entry owns its operational convergence semantics, delivery assumptions, and coordination boundary.

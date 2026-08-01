@@ -44,6 +44,7 @@ RELATION_INVERSES = {
     "documents": "documented_by",
     "may_realize": "may_be_realized_by",
     "realizes": "realized_by",
+    "realm_peer_of": "realm_peer_of",
     "corresponds_to": "corresponds_to",
 }
 
