@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-08-01
 aliases:
   - DDD
 ---
@@ -15,6 +15,7 @@ Domain-Driven Design, or DDD, addresses the problem of preserving domain meaning
 
 DDD can be expressed as a discipline for making domain semantics explicit:
 
+- A [[Ubiquitous Language|ubiquitous language]] gives a domain model shared, precise expression in discussion, scenarios, documentation, tests, interfaces, and code.
 - [[Entity|Entities]] identify enduring domain subjects.
 - [[Value|Values]] represent identity-free domain information.
 - [[Transition|Transitions]] encode valid domain change.
@@ -24,7 +25,9 @@ DDD can be expressed as a discipline for making domain semantics explicit:
 
 ## In the Model
 
-Bounded contexts are semantic and structural boundaries. Aggregates are entity models that scope transitions and invariant scopes. Domain events are endogenous events relative to the boundary in which they are committed. Repositories and [[Service|application services]] are realization and interaction choices, not the domain model itself; a domain service instead names domain behavior that does not naturally belong to one entity or value.
+[[Domain|Domains]] and [[Subdomain|subdomains]] identify problem-space subject matter in Domain Semantics. [[Bounded Context|Bounded contexts]] are [[Boundaries|system-graph boundaries]] within which a particular model and its [[Ubiquitous Language|ubiquitous language]] have defined applicability, consistency, and ownership. This is a useful primary alignment, not a forced one-to-one partition: one bounded context may model portions of several subdomains, and one subdomain may be represented by several bounded contexts with different purposes, languages, or histories.
+
+Aggregates are entity models that scope transitions and invariant scopes. Domain events are endogenous events relative to the boundary in which they are committed. Repositories and [[Service|application services]] are realization and interaction choices, not the domain model itself; a domain service instead names domain behavior that does not naturally belong to one entity or value.
 
 ## Catalog Correspondence
 
@@ -40,7 +43,7 @@ DDD supplies much of the semantic orientation needed to interpret patterns from 
 
 ## Failure Modes
 
-DDD fails when names are preserved but semantics are not: entities become database rows, value objects become DTOs, domain events become arbitrary messages, and aggregate boundaries are chosen for storage convenience rather than invariant scope.
+DDD fails when names are preserved but semantics are not: the ubiquitous language becomes a glossary of nouns, entities become database rows, value objects become DTOs, domain events become arbitrary messages, and aggregate or bounded-context boundaries are chosen for storage or deployment convenience rather than model coherence and invariant scope. It also fails when “ubiquitous” is mistaken for universal and distinct context languages are forced into one enterprise model.
 
 ## External References
 
@@ -48,4 +51,4 @@ DDD fails when names are preserved but semantics are not: entities become databa
 - Vaughn Vernon, [*Implementing Domain-Driven Design*](https://www.informit.com/store/implementing-domain-driven-design-9780321834577), Addison-Wesley Professional, 2013.
 - Vaughn Vernon, [*Domain-Driven Design Distilled*](https://www.informit.com/store/domain-driven-design-distilled-9780134434988), Addison-Wesley Professional, 2016.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Service|service]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Event|event]], [[Boundaries|boundaries]], [[Entity Models|entity models]].
+Related concepts: [[Domain|domain]], [[Subdomain|subdomain]], [[Bounded Context|bounded context]], [[Ubiquitous Language|ubiquitous language]], [[System Language and Realization|system language and realization]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Service|service]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Invariant|invariants]], [[Policy|policies]], [[Event|event]], [[Boundaries|boundaries]], [[Entity Models|entity models]].

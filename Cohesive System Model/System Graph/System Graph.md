@@ -54,6 +54,7 @@ Core system graph notes:
 - [[Process Graphs|process graphs]]
 - [[Business Transactions|business transactions]]
 - [[Boundaries|boundaries]]
+- [[Bounded Context|bounded contexts]]
 - [[Interfaces|interfaces]]
 - [[Interaction Protocols|interaction protocols]]
 - [[Service Models|service models]]

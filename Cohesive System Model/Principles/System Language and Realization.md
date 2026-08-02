@@ -14,6 +14,8 @@ aliases:
 
 Cohesive aims to provide a standard language for describing systems and a family of compiler-like realizations that project that language into working infrastructure.
 
+A standard whole-system language does not require one universal domain model. It provides a shared metalanguage for expressing multiple boundary-relative [[Ubiquitous Language|ubiquitous languages]] and for relating their semantic models to system structure, operational guarantees, and realization mechanisms without erasing their local meanings.
+
 The language goal begins with conceptual precision: define stable, boundary-relative meanings for what constitutes a system, how its parts are related and behave, and how that behavior is observed, constrained, authorized, and coordinated. The same term should not silently mean one thing in domain modeling, another in distributed systems, and a third in implementation code.
 
 The language is more than a descriptive vocabulary. Concepts that determine behavior should have explicit composition, evaluation, and observation rules, or explicit mappings to system-graph structures that do. A model can therefore characterize possible executions and their required guarantees before any substrate is selected. [[Execution Kernel|Canonical execution definitions]], reference interpreters, and compiler-like lowerings can make this executable meaning concrete without making a particular runtime the source of meaning.
@@ -203,7 +205,7 @@ The public graph should still be strong enough to support private system graph a
 
 Related concepts by realm:
 
-- **Principles:** [[Categorical Principles|categorical principles]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Process Theories|process theories]], [[Compositionality|compositionality]], and [[Execution Kernel|execution kernel]].
+- **Principles:** [[Ubiquitous Language|ubiquitous language]], [[Categorical Principles|categorical principles]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Process Theories|process theories]], [[Compositionality|compositionality]], and [[Execution Kernel|execution kernel]].
 - **Domain semantics:** [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|semantic effect]], and [[Authority|authority]].
 - **System graph:** [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Effects|effect structure]], and [[Infrastructure Graph|infrastructure graph]].
 - **Operational concerns:** [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], and [[Fairness|fairness]].
