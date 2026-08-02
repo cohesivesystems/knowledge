@@ -9,7 +9,7 @@ updated: 2026-08-01
 
 Synchrony and Asynchrony describe whether events, observations, transitions, or participants are coupled into one boundary-relative unit.
 
-**Asynchrony** is the semantics of separate occurrence. Events, observations, transitions, messages, or effects are not treated as one coordinated occurrence unless a model supplies a stronger shared boundary. An operation is asynchronous when its begin and completion are separate events, even though the begin causally precedes the completion.
+**Asynchrony** is the semantics of logically associated occurrences that remain separate. Events, observations, transitions, messages, or effects are not treated as one coordinated occurrence unless a model supplies a stronger shared boundary. An operation is asynchronous when its begin and completion are distinct events, even though the completion causally depends on the begin. This begin/completion split is the most familiar form in async programming models, but the same separation also appears between message send and receipt, request and reply, effect and observation, or the actions of independently advancing participants.
 
 **Synchrony** is the semantics of coordinated co-occurrence. A boundary couples several otherwise separate events, observations, or transitions so they are treated as one unit for some purpose: one call/return interaction, one actor turn, one critical section, one transaction, one barrier, one commit point, one consensus decision, one logical round, or one atomic observation.
 
@@ -34,7 +34,7 @@ The duality can be summarized as:
 | Separation                                       | Joining                              |
 | Independence                                     | Coupling                             |
 | Partial order                                    | Shared step or totalized moment      |
-| Local observation                                | Common observation                   |
+| Local observation                                | Combined observation                 |
 | Interleaving                                     | Atomicity                            |
 | Eventual relation                                | Simultaneous boundary                |
 | Coordination absent, deferred, or explicit later | coordination present at the boundary |

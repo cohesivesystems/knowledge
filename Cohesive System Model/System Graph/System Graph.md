@@ -7,9 +7,9 @@ updated: 2026-08-01
 
 # System Graph
 
-The system graph is the realm that composes domain semantics into the cohesive system graph of a modeled system.
+The system graph is the compositional, boundary-relative graph of a modeled system as a whole, in which semantic subjects and roles become explicit nodes and relations with declared placement, interaction, ownership, scope, and boundaries.
 
-It asks how semantic roles are placed, composed, owned, related, scoped, and prepared for realization once they are part of a model of a whole system. It describes graph shape: which [[Entity Models|entity models]] exist, how [[Transition Models|transition models]] govern their possible evolution, which [[Observer Models|observer models]] interpret which [[Boundaries|boundaries]], how [[Control Models|control models]] regulate selected variables through feedback and actuation, how [[Process Graphs|process graphs]] coordinate work, which [[Relation Models|relation models]] connect subjects, which [[Projection Models|projection models]] expose derived observations, how [[Replica Models|replica models]] arrange copies and authority roles, how [[Partition Models|partition models]] assign subjects and work to ownership and ordering scopes, how [[Service Models|service models]] bundle responsibilities behind [[Interfaces|interfaces]], which [[Microservice|microservice]] nodes select an independent-evolution profile, which [[Interaction Protocols|interaction protocols]] govern their conversations, which [[Policy Scopes|policy scopes]] and [[Invariant Scopes|invariant scopes]] constrain transitions, and where [[Effects|effects]] leave a boundary.
+It asks how semantic roles are placed, composed, owned, related, scoped, and prepared for realization once they are part of a model of a whole system. It describes graph shape: which [[Entity Models|entity models]] exist, how [[Transition Models|transition models]] govern their possible evolution, which [[Observer Models|observer models]] interpret which [[Boundaries|boundaries]], how [[Control Models|control models]] regulate selected variables through feedback and actuation, how [[Process Graphs|process graphs]] coordinate work, which [[Relation Models|relation models]] connect subjects, which [[Projection Models|projection models]] expose derived observations, how [[Replica Models|replica models]] arrange copies and authority roles, how [[Partition Models|partition models]] assign subjects and work to ownership and ordering scopes, how [[Service Models|service models]] bundle responsibilities behind [[Interfaces|interfaces]], which [[Interaction Protocols|interaction protocols]] govern their conversations, which [[Policy Scopes|policy scopes]] and [[Invariant Scopes|invariant scopes]] constrain transitions, and where [[Effects|effects]] leave a boundary.
 
 This realm sits between primitive meaning and concrete implementation:
 
@@ -17,6 +17,15 @@ This realm sits between primitive meaning and concrete implementation:
 - The system graph arranges those primitives into model-specific ownership, dependency, composition, authority, scope, and correspondence.
 - Operational concerns state required properties and guarantees such as [[Persistence|persistence]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Isolation|isolation]], and [[Recovery|recovery]].
 - Realization substrate supplies concrete mechanisms such as [[Compute|compute]], [[Runtimes|runtimes]], [[Storage Systems|storage systems]], [[Brokers|brokers]], and [[Workflow Engines|workflow engines]].
+
+## Cross-Realm Correspondence
+
+The domain-semantic graph states meaning-bearing subjects, roles, relations, and interactions. The system graph arranges that meaning into model-specific structure, and [[Realization|realization]] mappings relate the structure to substrate mechanisms that can preserve it at declared boundaries. These mappings are typed correspondences rather than identities: one semantic role may participate in several system-graph structures, and one system-graph structure may be distributed across several realization mechanisms.
+
+![Correspondence from domain semantics through the system graph to realization substrate](../../assets/diagrams/cross-realm-projection.svg)
+*The system graph makes composition, placement, interaction, ownership, scope, and boundaries explicit between domain meaning and concrete realization. Operational concerns qualify nodes, edges, and mappings.*
+
+See [[System Language and Realization#Cross-Realm Projection|cross-realm projection]] for the fuller realization judgment and its preservation requirements.
 
 Use this realm to answer questions such as:
 
@@ -48,7 +57,6 @@ Core system graph notes:
 - [[Interfaces|interfaces]]
 - [[Interaction Protocols|interaction protocols]]
 - [[Service Models|service models]]
-- [[Microservice|microservice]]
 - [[Effects|effects]]
 - [[Messages and Envelopes|messages and envelopes]]
 - [[Interaction Channels|interaction channels]]

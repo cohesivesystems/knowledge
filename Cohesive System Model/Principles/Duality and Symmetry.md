@@ -21,7 +21,7 @@ Common dualities or symmetries in the model include:
 - Monads and comonads: one commonly models effectful construction or sequencing; the other commonly models context, observation, or extraction.
 - [[Fork and Join|Fork and join]]: a fork expands one continuation into several branch activations; a join synchronizes selected completions and, where declared, combines their results into one continuation.
 
-Not every cross-realm pairing is a duality. [[Concurrency|Concurrency]] and [[Parallelism|parallelism]] correspond across logical structure and execution: concurrency exposes freedom left by the absence of established order, while parallelism is one possible realization of that freedom. One concurrent structure may be serialized, interleaved, physically parallelized, or distributed, and observing parallel execution does not reconstruct the logical dependency structure. The relationship is therefore boundary-relative realization and projection rather than reversal or mirrored structure.
+[[Concurrency|Concurrency]] and [[Parallelism|parallelism]] correspond across logical structure and execution. Concurrency exposes freedom left by the absence of established order, while parallelism is one possible realization of that freedom. One concurrent structure may be serialized, interleaved, physically parallelized, or distributed, and observing parallel execution does not reconstruct the logical dependency structure. Their relationship is boundary-relative realization and projection.
 
 Duality helps the model ask:
 

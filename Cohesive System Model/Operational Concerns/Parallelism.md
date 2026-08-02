@@ -41,7 +41,7 @@ Preemption can expose race conditions and harmful interleavings even without phy
 
 ## Relationship to concurrency
 
-Concurrency supplies logical scheduling freedom: the model does not establish an order between selected occurrences or branches. Parallelism is one possible execution strategy for exploiting that freedom. It is not the dual of concurrency and is not required to preserve a concurrent structure.
+Concurrency supplies logical scheduling freedom: the model does not establish an order between selected occurrences or branches. Parallelism is one possible execution strategy for exploiting that freedom. Physical parallelism is not required to realize a concurrent structure: interleaved execution can preserve its branch, dependency, and join rules.
 
 A realization may also introduce internal parallelism beneath one logically ordered step, provided the step's external dependency, observation, and completion meanings remain unchanged. Parallelism claims must therefore name both the logical unit and the physical resource boundary.
 

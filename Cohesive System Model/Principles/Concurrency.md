@@ -35,13 +35,13 @@ Concurrency also does not imply wall-clock overlap, different threads, or simult
 
 Async programming models make the separation useful by representing logical continuation dependencies without binding each pending operation to a physical thread. An `await` introduces a dependency from completion to continuation. Starting sibling operations before a later join can leave them concurrent when the program introduces no order among them.
 
-[[Parallelism]] is an execution property and a cross-realm correspondence rather than the dual of concurrency. The same concurrent structure may be realized through cooperative interleaving, preemptive temporal multiplexing, simultaneous execution on distinct resources, or distributed execution. These realizations are equivalent only relative to the observations and guarantees preserved at the higher boundary.
+The same concurrent structure may be realized through cooperative interleaving (as with JavaScript promises or Python `asyncio` tasks sharing one event-loop thread), preemptive temporal multiplexing (as when .NET task work runs on OS-scheduled thread-pool threads sharing one processor), simultaneous execution on distinct resources, or distributed execution. These realizations are equivalent only relative to the observations and guarantees preserved at the higher boundary.
 
 ## Fork and join
 
 [[Fork and Join|Fork and join]] make concurrency explicit in a process structure. A fork establishes a common predecessor for several branches. The branches are concurrent when the graph establishes no order among their relevant occurrences. A join then establishes dependencies from the required branch completions to a continuation and may separately combine their results.
 
-The join limits the scope of the concurrency: branch work may be incomparable within the forked region while every admitted continuation occurrence follows the completions required by the join rule.
+The join bounds the concurrent region. Branch occurrences may remain incomparable with one another before the join, but a continuation can proceed only after the completions required by the join rule have occurred.
 
 ## Modeling checks
 

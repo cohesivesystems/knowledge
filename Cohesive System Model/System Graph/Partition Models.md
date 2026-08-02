@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-08-01
 status: draft
 aliases:
   - Partition Model
@@ -15,6 +15,8 @@ aliases:
 Partition models describe how subjects, histories, relations, observations, or work are assigned to distinct ownership, ordering, storage, and execution scopes in the system graph.
 
 A partition model consists of more than a partition key. It includes the partition identities, assignment rule, rule revision, authority and invariant boundaries, route from a subject to its current partition, and lifecycle by which assignments change. Hash, range, tenant, geography, time, function, and manually declared schemes are possible realizations of that structure.
+
+[[Partitioning]] states the operational requirements on this structure, including assignment coverage and cardinality, skew, balance, stability, isolation, movement, and recovery. This note records the system-graph arrangement those requirements qualify.
 
 Partitioning should be distinguished from a network partition. A partition model is an authored division of work or data. A network partition is a failure condition that prevents participants from exchanging information within required timing or delivery assumptions.
 
@@ -84,4 +86,4 @@ Rebalancing is therefore a stateful process with identity, authority, persistenc
 
 - Martin Kleppmann, *Designing Data-Intensive Applications*, O'Reilly Media, 2017, chapter 6.
 
-Related concepts: [[System Graph|system graph]], [[Entity Models|entity models]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Replica Models|replica models]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Identity|identity]], [[Authority|authority]], [[Boundaries|boundaries]], [[Invariant Scopes|invariant scopes]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Isolation|isolation]], [[Coordination|coordination]], [[Locality|locality]], [[Scalability|scalability]], [[Recovery|recovery]], [[Failure Models|failure models]], [[Scaling Mechanisms|scaling mechanisms]].
+Related concepts: [[System Graph|system graph]], [[Partitioning|partitioning]], [[Entity Models|entity models]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Replica Models|replica models]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Identity|identity]], [[Authority|authority]], [[Boundaries|boundaries]], [[Invariant Scopes|invariant scopes]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Isolation|isolation]], [[Coordination|coordination]], [[Locality|locality]], [[Scalability|scalability]], [[Recovery|recovery]], [[Failure Models|failure models]], [[Scaling Mechanisms|scaling mechanisms]].

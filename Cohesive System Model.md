@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-07-29
+updated: 2026-08-01
 ---
 
 # Cohesive System Model
@@ -108,7 +108,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Coordination]]  
 - [[Consensus]]
 - [[Scheduling]], [[Parallelism|parallelism]], [[Fairness|fairness]], [[Arbitration|arbitration]]
-- [[Scalability]], [[Locality|locality]]
+- [[Scalability]], [[Locality|locality]], [[Partitioning|partitioning]]
 - [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[Failure Models|failure models]], [[Deadlock and Livelock|deadlock and livelock]], [[CAP Theorem|CAP theorem]], [[Metastability|metastability]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
@@ -118,7 +118,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Consistency Models]]  
 - [[Consistent Cuts]], [[Linearization Points|linearization points]]
 - [[CRDTs]]
-- [[Retry]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
+- [[Retry]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Load Balancing|load balancing]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
 - [[Correlation and Conversations]], [[Consumer Coordination|consumer coordination]], [[Interaction Control Flow|interaction control flow]]
 - [[Compatibility and Evolution]]
 - [[Temporal Completeness]]
@@ -161,7 +161,7 @@ Provides concrete mechanisms.
 - [[Runtimes]]  
 - [[Application Hosts|Application hosts]]  
 - [[Network]]
-- [[Storage Systems|Storage systems]]  
+- [[Storage Systems|Storage systems]], [[Database Transactions|database transactions]]
 - [[Write-Ahead Logging]]
 - [[Consensus Protocols]]
 - [[Event Sourcing]]
