@@ -30,7 +30,7 @@ Multiplexing is relative to the layer being observed:
 
 | Layer | Shared locus | Logical flows distinguished by |
 | --- | --- | --- |
-| Interface namespace | One logical [[Endpoints|endpoint]] | operation, resource, or method |
+| Interface namespace | One logical [[Endpoints\|endpoint]] | operation, resource, or method |
 | Service topology | One gateway or facade | downstream capability or service |
 | Application protocol | One conversation channel | message type or correlation identifier |
 | Broker | One topic, stream, or queue | key, subscription, or header |
@@ -44,7 +44,7 @@ A system may multiplex at one layer while demultiplexing at another.
 - [[Routing Models|Routing]] selects a next destination. Demultiplexing is the special case that recovers one logical lane or [[Endpoints|endpoint]] from a shared locus.
 - [[Flow Operators|Splitting]] derives several output values from one input value. It does not necessarily recover pre-existing logical lanes.
 - Aggregation combines several values into one composite value. It is semantic or structural composition, whereas multiplexing allows distinguishable flows to share capacity without necessarily combining their values.
-- Fan-out copies or distributes an interaction to several destinations. It may follow demultiplexing but is not the same operation.
+- Fanout copies or distributes an interaction to several destinations. It may follow demultiplexing but is not the same operation.
 - Temporal execution multiplexing lets several [[Concurrency|concurrent]] logical tasks share one execution resource through cooperative or preemptive [[Scheduling|scheduling]]. It can produce observational [[Parallelism|parallelism]] at a higher boundary, but it is not physical parallelism on that shared resource.
 
 ## Gateway Topologies
@@ -70,10 +70,10 @@ Shared loci couple flows through finite capacity. A complete model should theref
 - head-of-line blocking risks;
 - isolation among tenants or traffic classes;
 - failure and retry amplification;
-- fan-out and tail-latency effects; and
+- fanout and tail-latency effects; and
 - how backpressure propagates across the multiplexing boundary.
 
-These properties connect multiplexing to [[Flow Control]], [[Queueing Theory]], and [[Scheduling]], as well as to reliability and performance analysis.
+These properties connect multiplexing to [[Flow Control|flow control]], [[Queueing Theory|queueing theory]], and [[Scheduling|scheduling]], as well as to reliability and performance analysis.
 
 Multiplexing can cross channel layers. One [[Network Channels|network connection or transport stream set]] can carry several messaging channels, interface operations, or subscriptions. A broker topic can carry several logical message types while each broker client session is itself multiplexed over network streams. Every layer needs its own discriminator, ordering scope, flow-control owner, and failure boundary; successful demultiplexing at one layer does not prove correct routing or semantic admission at another.
 

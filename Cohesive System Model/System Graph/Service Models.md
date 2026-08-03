@@ -62,13 +62,13 @@ runtime work             -> scheduler and resources
 
 These relations need not be one-to-one. A monorepo can contain many independently deployed services, and one service can be built from modules stored in several repositories. Likewise, a deployment may contain multiple logical services, while one logical service may have many replicas or specialized runtime instances.
 
-The mapping is acceptable only when the chosen substrate preserves the required semantic and operational properties. See [[System Language and Realization]] and [[Realization]].
+The mapping is acceptable only when the chosen substrate preserves the required semantic and operational properties. See [[System Language and Realization|system language and realization]] and [[Realization|realization]].
 
 ## Composition and Encapsulation
 
 Some services own a semantic capability; others primarily compose, route, translate, or aggregate the capabilities of dependencies. These roles are independent of whether an operation executes locally or invokes another service.
 
-Use [[Service|service]] for the general encapsulation principle and its capability/composition taxonomy. Use [[Multiplexing and Demultiplexing]] when a gateway or facade changes the visible topology by placing several logical flows behind one node.
+Use [[Service|service]] for the general encapsulation principle and its capability/composition taxonomy. Use [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]] when a gateway or facade changes the visible topology by placing several logical flows behind one node.
 
 ## Projection Views
 

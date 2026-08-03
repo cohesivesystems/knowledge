@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-08-03
 ---
 
 # Realization
@@ -126,4 +126,10 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Universal Constructions|universal constructions]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[System Graph|system graph]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Infrastructure Graph|infrastructure graph]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Boundaries|boundaries]], [[Effect|effect]], [[Effects]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Durable Execution|durable execution]], [[Concurrency Control|concurrency control]], [[CRDTs]], [[Event Sourcing|event sourcing]], [[Outbox|outbox]], [[CQRS]], [[Runtimes|runtimes]], [[Actor Systems|actor systems]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Infrastructure|infrastructure]].
+Related concepts: [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[Observer|observer]], [[Effect|effect]], [[Effect Models|effect models]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Infrastructure|infrastructure]].
+
+## Formal relations
+
+- `refines`: [[System Language and Realization]] — Gives the realization half of the system-language vision a boundary-relative mapping, multiplicity, layering, and coherence discipline.
+- `constrains`: [[System Graph]] — Requires selected substrate mappings to preserve the modeled relationships, scopes, and operational demands that define the system structure.
+- `corresponds_to`: [[Infrastructure Graph]] — Relates logical system structure to selected substrate structure without identifying the two graphs or erasing their boundary-specific meanings.

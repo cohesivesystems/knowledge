@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-04
-updated: 2026-08-01
+updated: 2026-08-03
 status: draft
 aliases:
   - Process Theory
@@ -90,7 +90,7 @@ Many real systems mix both shapes. A process may be orchestrated inside one boun
 
 ## Feedback and Physical Reconciliation
 
-Process theories must account for feedback. Outputs may become future inputs through event loops, control loops, retries, projections, workflow timers, actor messages, human review, or physical response. [[Trace and Feedback|Trace and feedback]] gives the vocabulary for these loops, while [[Ordering]], [[Idempotency]], [[Recovery]], and [[Rate Limiting|rate limiting]] keep them operationally honest.
+Process theories must account for feedback. Outputs may become future inputs through event loops, control loops, retries, projections, workflow timers, actor messages, human review, or physical response. [[Trace and Feedback|Trace and feedback]] gives the vocabulary for these loops, while [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], and [[Rate Limiting|rate limiting]] keep them operationally honest.
 
 This matters because Cohesive should reconcile software processes with physical process theories rather than only with application architecture vocabulary. Dynamical systems emphasize state evolution over time. [[Control Theory|Control theory]] emphasizes observation, decision, actuation, and feedback. Petri-net style models emphasize concurrency, resources, and enabling conditions. Quantum and categorical process theories emphasize compositional interfaces, interaction, observation, and diagrammatic reasoning.
 
@@ -124,6 +124,12 @@ When modeling a process, ask:
 - What is the equivalence relation between two executions of the process?
 - Which realization mechanisms preserve the process theory, and where do they weaken it?
 
+## Formal relations
+
+- `refines`: [[Process]] — Supplies compositional interfaces, feedback, observation, and realization discipline for the semantic notion of coherent work unfolding over time.
+- `constrains`: [[Process Graphs]] — Requires process structure to preserve participant roles, composition, synchronization, recovery, and completion meaning without identifying the graph with one runtime execution.
+- `constrains`: [[Durable Execution]] — Keeps execution recovery distinct from semantic process purpose and from business-recovery policy such as compensation.
+
 ## External References
 
 - C. A. R. Hoare, [Communicating Sequential Processes](https://doi.org/10.1145/359576.359585), *Communications of the ACM* 21(8):666-677, 1978.
@@ -131,4 +137,4 @@ When modeling a process, ask:
 - Robin Milner, Joachim Parrow, and David Walker, [A Calculus of Mobile Processes, I](https://doi.org/10.1016/0890-5401(92)90008-4) and [II](https://doi.org/10.1016/0890-5401(92)90009-5), *Information and Computation* 100(1):1-77, 1992.
 - Robin Milner, [Communication and Concurrency](https://www.research.ed.ac.uk/en/publications/communication-and-concurrency/), Prentice Hall, 1989.
 
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Workflow Patterns|workflow patterns]], [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Control Theory|control theory]], [[Control Models|control models]], [[Process|process]], [[Process Graphs|process graphs]], [[Fork and Join|fork and join]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Transition Models|transition models]], [[State Machines|state machines]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Causality|causality]], [[Authority|authority]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Control Flow|interaction control flow]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Effect|effect]], [[Effects]], [[Boundaries|boundaries]], [[Realization|realization]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Control Theory|control theory]], [[Fork and Join|fork and join]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Interaction Control Flow|interaction control flow]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Workflow Engines|workflow engines]], [[Realization|realization]].

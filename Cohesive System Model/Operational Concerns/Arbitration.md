@@ -22,11 +22,11 @@ Arbitration is an operational concern rather than a claim that the selected acti
 | Role | Primary responsibility |
 | --- | --- |
 | arbiter | resolves a local contention or tie |
-| [[Scheduling|scheduler]] | allocates execution opportunity across enabled work over time |
+| [[Scheduling\|scheduler]] | allocates execution opportunity across enabled work over time |
 | sequencer | assigns positions in an order |
 | coordinator | aligns several participants or effects toward a coherent outcome |
-| [[Consensus|consensus protocol]] | makes participants agree on one value or ordered position |
-| [[Authority|authority]] | determines why the resulting act or decision counts |
+| [[Consensus\|consensus protocol]] | makes participants agree on one value or ordered position |
+| [[Authority\|authority]] | determines why the resulting act or decision counts |
 
 One mechanism can perform several roles, but the guarantees should be stated separately. A leader may schedule and sequence proposals, while quorum state authorizes the decided value. A lock manager may arbitrate ownership without deciding whether the protected domain transition is valid.
 

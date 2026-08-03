@@ -38,9 +38,9 @@ One execution can contain several non-identical orders:
 | Ordering space | Meaning |
 | --- | --- |
 | program order | operations as issued by one participant |
-| [[Happened-Before|happened-before]] | potential causal influence through local order, communication, and transitive closure |
+| [[Happened-Before\|happened-before]] | potential causal influence through local order, communication, and transitive closure |
 | reception or delivery order | the order in which a boundary admits messages or records |
-| scheduler-selection order | the order in which [[Scheduling|scheduling]] grants execution opportunity |
+| scheduler-selection order | the order in which [[Scheduling\|scheduling]] grants execution opportunity |
 | execution or completion order | the order in which work starts, advances, or finishes |
 | commit or version order | the order in which accepted transitions become authoritative |
 | consensus-log order | the order of protocol-decided log positions |

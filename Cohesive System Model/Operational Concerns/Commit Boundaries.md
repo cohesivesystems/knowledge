@@ -12,7 +12,7 @@ aliases:
 
 Commit Boundaries answer: what becomes accepted as one unit, and within which boundary?
 
-A commit boundary is the scope in which selected [[Effects|effects]] become accepted, durable, visible, or irreversible according to a declared rule. The rule may commit all covered effects as a unit, reject them as a unit, or record enough durable information for recovery to finish or compensate the work later.
+A commit boundary is the scope in which selected [[Effect Models|effects]] become accepted, durable, visible, or irreversible according to a declared rule. The rule may commit all covered effects as a unit, reject them as a unit, or record enough durable information for recovery to finish or compensate the work later.
 
 Commitment is boundary-relative. A database transaction commit, event-store append, broker acknowledgment, consumer offset commit, workflow checkpoint, actor turn, outbox record, and business completion are different commitments unless a model explicitly coordinates them.
 
@@ -49,4 +49,4 @@ Enterprise Integration Patterns describes a **Transactional Client** as an endpo
 
 - Gregor Hohpe and Bobby Woolf, [Transactional Client](https://www.enterpriseintegrationpatterns.com/patterns/messaging/TransactionalClient.html), *Enterprise Integration Patterns*, 2003.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Effects|effects]], [[Interaction Channels|interaction channels]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Acknowledgments|acknowledgments]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Business Transactions|business transactions]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Effect Models|effects]], [[Interaction Channels|interaction channels]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Acknowledgments|acknowledgments]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Business Transactions|business transactions]].

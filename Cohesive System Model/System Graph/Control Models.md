@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-08-03
 status: draft
 aliases:
   - Control Model
@@ -17,7 +17,7 @@ Control models place adaptive observation, decision, and actuation loops in the 
 
 A `Cohesive.Control` block authors one control model. It identifies what is observed, what objective and policy govern regulation, what controller state is retained, what bounded action may be proposed, which participant is authorized to actuate it, and which later observations close the loop. It does not prescribe one algorithm, runtime, metric system, or infrastructure controller.
 
-[[Control Theory|Control theory]] supplies the source discipline. [[Observable|Observables]], [[Observation|observations]], [[Policy|policies]], [[Observer Models|observer models]], [[Effects]], and [[Interaction|interactions]] supply the semantic and structural trace. [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID]], thresholds, hysteresis, and model-based controllers are possible realization choices.
+[[Control Theory|Control theory]] supplies the source discipline. [[Observable|Observables]], [[Observation|observations]], [[Policy|policies]], [[Observer Models|observer models]], [[Effect Models|effect models]], and [[Interaction|interactions]] supply the semantic and structural trace. [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID]], thresholds, hysteresis, and model-based controllers are possible realization choices.
 
 ## Structural Roles
 
@@ -54,7 +54,7 @@ The same control structure can regulate several mechanisms while preserving thei
 
 | Use | Representative controlled variables | Manipulated variables | Important constraints |
 | --- | --- | --- | --- |
-| Adaptive throttling | latency, useful throughput, rejection, saturation, queue age | admission rate, token rate, pacing interval, accepted fraction | [[Admission Control and Load Shedding|admission obligations]], retry amplification, fairness, shared dependencies |
+| Adaptive throttling | latency, useful throughput, rejection, saturation, queue age | admission rate, token rate, pacing interval, accepted fraction | [[Admission Control and Load Shedding\|admission obligations]], retry amplification, fairness, shared dependencies |
 | Adaptive batching | per-item cost, completion latency, queue age, backlog, batch fill | maximum batch size, minimum size, formation wait, flush trigger | deadlines, ordering, partial batches, effect and commit boundaries |
 | Adaptive concurrency | useful throughput, latency, saturation, lock or pool pressure | permits, workers, fetch count, in-flight limit | contention knee, locality, downstream capacity, scheduling and ownership |
 
@@ -111,4 +111,10 @@ The lowering must preserve units, boundaries, timing assumptions, target and pol
 - Which other control blocks share the same resource, observation, or actuator?
 - Which realization algorithm is selected, and which assumptions make it valid?
 
-Related concepts: [[Control Theory|control theory]], [[Observer Models|observer models]], [[Observable|observable]], [[Observation|observation]], [[Observer|observer]], [[Policy|policy]], [[Policy Scopes|policy scopes]], [[Effects]], [[Effect|effect]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Boundaries|boundaries]], [[Authority|authority]], [[Identity|identity]], [[State|state]], [[Time|time]], [[Uncertainty|uncertainty]], [[Trace and Feedback|trace and feedback]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]], [[Scheduling|scheduling]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Scalability|scalability]], [[Locality|locality]], [[Metastability|metastability]], [[Scaling Mechanisms|scaling mechanisms]], [[Additive Increase Multiplicative Decrease|additive increase multiplicative decrease]], [[PID Control|PID control]], [[Runtimes|runtimes]], [[Compute|compute]], [[Infrastructure Graph|infrastructure graph]].
+Related concepts: [[Control Theory|control theory]], [[Observer Models|observer models]], [[Policy Scopes|policy scopes]], [[Effect Models|effect models]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Authority|authority]], [[Uncertainty|uncertainty]], [[Trace and Feedback|trace and feedback]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]], [[Commit Boundaries|commit boundaries]], [[Scheduling|scheduling]], [[Scaling Mechanisms|scaling mechanisms]], [[Infrastructure Graph|infrastructure graph]].
+
+## Formal relations
+
+- `arranges`: [[Observable]] — Places measured or derived signals into controller observation roles with declared units, freshness, and sampling boundaries.
+- `arranges`: [[Policy]] — Associates objectives, limits, and controller parameters with the scope and authority under which they apply.
+- `arranges`: [[Effect]] — Places controller decisions into explicit actuation obligations whose acceptance and achieved result remain separately observable.

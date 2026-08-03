@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-28
-updated: 2026-07-29
+updated: 2026-08-03
 status: draft
 aliases:
   - Scaling
@@ -125,10 +125,15 @@ Replicated and partitioned state adds explicit operational choices. [[Consensus]
 - Which identities, authorities, delivery, ordering, idempotency, persistence, and recovery guarantees must survive scaling?
 - Do aggregate gains preserve fairness and service objectives for each relevant policy scope?
 
+## Formal relations
+
+- `qualifies`: [[Scaling Mechanisms]] — Defines the boundary-relative workload, resource population, useful-completion measure, and constraints by which a scaling mechanism is evaluated.
+- `qualifies`: [[Infrastructure Graph]] — States capacity, contention, coordination, and churn properties that must be evaluated across the end-to-end topology.
+
 ## External References
 
 - Neil J. Gunther, [A General Theory of Computational Scalability Based on Rational Functions](https://arxiv.org/abs/0808.1431), 2008.
 - Neil J. Gunther, [Universal Scalability Law](https://www.perfdynamics.com/Manifesto/USLscalability.html), including its contention and coherency interpretation.
 - Google, [Addressing Cascading Failures](https://sre.google/sre-book/addressing-cascading-failures/), especially overload protection, load shedding, and retry amplification.
 
-Related concepts: [[Stuff Structure Property|stuff structure property]], [[Compositionality|compositionality]], [[Queueing Theory|queueing theory]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Scaling Mechanisms|scaling mechanisms]], [[Capacity Planning|capacity planning]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Locality|locality]], [[Metastability|metastability]], [[Boundaries|boundaries]], [[Infrastructure Graph|infrastructure graph]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Consumer Coordination|consumer coordination]], [[Policy Scopes|policy scopes]], [[Authority|authority]], [[Identity|identity]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Compute|compute]], [[Infrastructure|infrastructure]], [[Scheduling|scheduling]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]], [[Coordination|coordination]], [[Concurrency Control|concurrency control]], [[Consensus|consensus]], [[CRDTs]], [[Retry|retry]], [[Recovery|recovery]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Consistency Models|consistency models]], [[Compatibility and Evolution|compatibility and evolution]], [[Storage Systems|storage systems]], [[Network|network]], [[Brokers|brokers]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]].
+Related concepts: [[Stuff Structure Property|stuff structure property]], [[Compositionality|compositionality]], [[Queueing Theory|queueing theory]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Capacity Planning|capacity planning]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Locality|locality]], [[Metastability|metastability]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Coordination|coordination]], [[Recovery|recovery]], [[Boundaries|boundaries]], [[Compatibility and Evolution|compatibility and evolution]].

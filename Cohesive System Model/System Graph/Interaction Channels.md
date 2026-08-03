@@ -40,7 +40,7 @@ Channel topology is better described by independent dimensions than by one undif
 | Dimension | Representative forms |
 | --- | --- |
 | exchange | one-way, coupled request/reply, paired request/reply |
-| distribution | point-to-point, competing consumers, fan-out, selective delivery |
+| distribution | point-to-point, competing consumers, fanout, selective delivery |
 | interaction shape | fire-and-forget, publication, unary invocation, request stream, response stream, bidirectional stream, datagram, correlated request/reply |
 | routing | operation endpoint, topic or filter, key or session affinity, connection or stream, explicit response target |
 | framing | typed value, framed message, datagram, byte stream with reconstructed boundaries |

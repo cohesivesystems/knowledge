@@ -2,7 +2,7 @@
 realm: Principles
 kind: discipline
 created: 2026-07-13
-updated: 2026-07-29
+updated: 2026-08-03
 status: draft
 aliases:
   - Relational Programming
@@ -24,7 +24,7 @@ This perspective connects several traditions that should be related without bein
 
 These traditions share declarative and relational structure, but they differ in what counts as a fact, how relations are derived, which variables may be supplied by a query, how absence and negation are interpreted, and which operational procedure searches for answers.
 
-For Cohesive, relational programming exposes common computational structure across several otherwise distinct problems: expressing correspondences between shapes, querying across data sources, deriving views and dependencies, tracing the effects of change, and working with ontology-backed semantics. Formulating these problems in terms of relations, facts, constraints, rules, and queries makes a unified programming model possible, with shared composition and tooling, without erasing the differences among the problems. This also reflects the broader Cohesive practice of giving structure multiple explicit interpretations: the same relational structure may support navigation, query, derivation, validation, or explanation. Compiler-like [[Realization|realization]] can lower each interpretation to suitable query languages, databases, graph stores, or runtimes while keeping semantic meaning, evidence, evaluation strategy, and guarantee boundaries explicit.
+For Cohesive, relations can provide a common representation for correspondences, queries, derivations, and dependency analysis, while each use retains its own facts, constraints, query modes, and evaluation strategy. [[Realization|Realization]] can map each use to an appropriate query language, database, graph store, or runtime without treating those substrates as semantically equivalent.
 
 ## Relations and Functions
 
@@ -203,7 +203,7 @@ Understanding which records are affected by a change is a relational and logical
 2. Which derived facts actually change for this particular transition?
 3. Which operational work should be scheduled because of that change?
 
-The first is reachability over a dependency or derivation relation. The second is incremental query evaluation, change propagation, or truth maintenance. The third introduces [[Policy|policy]], [[Process|processes]], [[Effects|effects]], delivery, retry, and recovery; it is not determined by logical consequence alone.
+The first is reachability over a dependency or derivation relation. The second is incremental query evaluation, change propagation, or truth maintenance. The third introduces [[Policy|policy]], [[Process|processes]], [[Effect Models|effects]], delivery, retry, and recovery; it is not determined by logical consequence alone.
 
 Provenance strengthens this model by recording why a result exists and which facts or derivation paths contributed to it. Provenance can support explanation, invalidation, selective recomputation, trust, and access control. A Boolean relation answers whether a dependency exists; an evidence-bearing or annotated relation can explain how and why it exists.
 
@@ -252,4 +252,4 @@ This keeps an ontology from being reduced to a graph schema and keeps a stored e
 - W3C OWL Working Group, [OWL 2 Web Ontology Language Document Overview, Second Edition](https://www.w3.org/TR/owl2-overview/), W3C Recommendation, 2012.
 - R. V. Guha and Douglas B. Lenat, [CYC: A Midterm Report](https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/842), *AI Magazine* 11(3):32-59, 1990. [DOI](https://doi.org/10.1609/aimag.v11i3.842)
 
-Related concepts: [[Programming Paradigms|programming paradigms]], [[Functional Programming|functional programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Fairness|fairness]], [[Scheduling|scheduling]], [[Relation|relation]], [[Relation Models|relation models]], [[Query|query]], [[Projection Models|projection models]], [[Shape|shape]], [[Observer|observer]], [[Boundaries|boundaries]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[CALM Theorem|CALM theorem]], [[Optics and Lenses|optics and lenses]], [[Database Sheaf Semantics|database sheaf semantics]], [[Policy|policy]], [[Process|process]], [[Effects|effects]], [[Realization|realization]].
+Related concepts: [[Programming Paradigms|programming paradigms]], [[Functional Programming|functional programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Fairness|fairness]], [[Scheduling|scheduling]], [[Relation|relation]], [[Relation Models|relation models]], [[Query|query]], [[Projection Models|projection models]], [[Shape|shape]], [[Observer|observer]], [[Boundaries|boundaries]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Functoriality|functoriality]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[CALM Theorem|CALM theorem]], [[Optics and Lenses|optics and lenses]], [[Database Sheaf Semantics|database sheaf semantics]], [[Policy|policy]], [[Process|process]], [[Effect Models|effects]], [[Realization|realization]].

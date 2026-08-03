@@ -51,7 +51,7 @@ The relation between messaging and network channels is generally many-to-many ra
 | --- | --- | --- |
 | direct point-to-point send | one or more datagram, stream, or invocation exchanges | Preserve recipient selection, framing, delivery boundary, and completion meaning. |
 | brokered publication | producer-to-broker exchange, broker state, and broker-to-consumer exchanges | Do not identify broker admission, storage, consumer delivery, or application commitment. |
-| publish-subscribe | publications plus subscription-control and delivery exchanges across changing sessions | Preserve subscriber identity and fan-out independently of connection identity. |
+| publish-subscribe | publications plus subscription-control and delivery exchanges across changing sessions | Preserve subscriber identity and fanout independently of connection identity. |
 | request/reply | one coupled invocation/session or paired request and reply paths | Preserve two logical directions, request identity, reply correlation, and terminal obligations. |
 | durable log or queue | network client protocols composed with retained storage, cursor state, and consumer coordination | Do not derive retention, replay, or progress from transport reliability alone. |
 | multiplexed messaging lanes | several logical channels over one connection or transport stream set | Preserve lane discrimination, isolation, ordering scopes, and flow-control ownership. |
@@ -65,7 +65,7 @@ Lowering a messaging channel into network channels should state the mapping for 
 
 ### Direction and Topology
 
-A one-way messaging direction may use a bidirectional network connection because acknowledgments, credits, negotiation, heartbeats, and failures travel in the reverse direction. Application fan-out may be realized by network multicast, repeated unicast, broker-mediated delivery, or several independently established sessions. Similar arrow shape does not establish equivalent topology or failure behavior.
+A one-way messaging direction may use a bidirectional network connection because acknowledgments, credits, negotiation, heartbeats, and failures travel in the reverse direction. Application fanout may be realized by network multicast, repeated unicast, broker-mediated delivery, or several independently established sessions. Similar arrow shape does not establish equivalent topology or failure behavior.
 
 ### Framing
 

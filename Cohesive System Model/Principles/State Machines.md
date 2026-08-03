@@ -67,7 +67,7 @@ In Cohesive terms, state machines relate:
 - [[State|state]] as the condition being advanced.
 - [[Transition|transitions]] as admissible movement between states.
 - [[Command|commands]], [[Event|events]], observations, signals, or messages as inputs.
-- Endogenous events, observations, acknowledgments, emitted [[Effects|effects]], or nil as outputs.
+- Endogenous events, observations, acknowledgments, emitted [[Effect Models|effects]], or nil as outputs.
 - [[Behavior|behavior]] as the resulting run, trace, or state history.
 
 An [[Entity|entity]] can be modeled as a state machine when commands are interpreted against current entity state and committed as controlled transitions. A [[Process|process]] can be modeled as a state machine when its state records phase, pending work, timeouts, decisions, and emitted effects. A projection can be modeled as a state machine when source events are folded into derived observation state.
@@ -77,7 +77,7 @@ Cohesive provides multiple implementation paths by composing operational concern
 - [[Reconstitution|Reconstitution]] recovers the state or observation needed to interpret the next input.
 - [[Persistence|Persistence]] chooses which state, history, checkpoints, events, or effect records become durable truth.
 - Execution serialization, [[Ordering|ordering]], and [[Concurrency Control|concurrency control]] determine which attempted transitions may be interpreted and committed together or one at a time.
-- [[Effects|Effects]] and [[Commit Boundaries|commit boundaries]] define which outputs are accepted, persisted, published, retried, acknowledged, or compensated.
+- [[Effect Models|Effects]] and [[Commit Boundaries|commit boundaries]] define which outputs are accepted, persisted, published, retried, acknowledged, or compensated.
 
 This composition keeps the state-machine model separate from the mechanism that realizes it. A single behavioral model can be realized through current-state storage, event sourcing, actor identity serialization, workflow histories, replicated logs, CRDT merge rules, or database transactions when the chosen mechanisms preserve the required transition semantics.
 
@@ -89,4 +89,4 @@ Restriction maps can hide labels, select a time interval, project to one [[Obser
 
 This is especially useful when the state machine is distributed, observer-relative, partially observed, or non-sequential. The question is not only "what is the next state?" but also "which local state-machine views are compatible, and what global behavior do they determine, if any?"
 
-Related concepts: [[State|state]], [[Transition|transition]], [[Behavior|behavior]], [[Event|event]], [[Command|command]], [[Observation|observation]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Reconstitution|reconstitution]], [[Persistence|persistence]], [[Effects|effects]], [[Ordering|ordering]], [[Concurrency Control|concurrency control]], [[Event-State Duality|event-state duality]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Trace and Feedback|trace and feedback]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]].
+Related concepts: [[State|state]], [[Transition|transition]], [[Behavior|behavior]], [[Event|event]], [[Command|command]], [[Observation|observation]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Reconstitution|reconstitution]], [[Persistence|persistence]], [[Effect Models|effects]], [[Ordering|ordering]], [[Concurrency Control|concurrency control]], [[Event-State Duality|event-state duality]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Trace and Feedback|trace and feedback]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]].

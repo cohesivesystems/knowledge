@@ -94,13 +94,13 @@ The correspondence between messaging and [[Network Channels|network-channel]] fl
 | --- | --- |
 | **flow control** | How much work may progress in response to available capacity? |
 | **backpressure** | How does constrained capacity become feedback to a participant that can regulate work? |
-| **[[Interaction Control Flow|interaction control flow]]** | Which participant actively pushes, fetches, polls, or delivers at this boundary? |
-| **[[Rate Limiting|rate limiting]]** | How quickly may work proceed under a declared time-based policy or budget? |
-| **[[Admission Control and Load Shedding|admission control]]** | Should this work be accepted at this boundary under current policy and capacity? |
+| **[[Interaction Control Flow\|interaction control flow]]** | Which participant actively pushes, fetches, polls, or delivers at this boundary? |
+| **[[Rate Limiting\|rate limiting]]** | How quickly may work proceed under a declared time-based policy or budget? |
+| **[[Admission Control and Load Shedding\|admission control]]** | Should this work be accepted at this boundary under current policy and capacity? |
 | **scheduling** | Which admitted work should run next, when, and with which resources? |
 | **buffering** | Where can an arrival and its consumption be separated temporarily? |
 | **congestion control** | How should offered load adapt to contention or saturation in a shared path or network? |
-| **[[Control Theory|feedback control]]** | How do observations of behavior regulate future action toward an objective? |
+| **[[Control Theory\|feedback control]]** | How do observations of behavior regulate future action toward an objective? |
 
 These concerns often cooperate. A capacity feedback loop may change a rate limit, an admission controller may refuse work when credits are exhausted, and a scheduler may allocate the remaining permits fairly. None of those compositions makes the terms synonymous.
 

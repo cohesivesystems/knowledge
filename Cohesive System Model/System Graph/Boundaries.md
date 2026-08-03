@@ -19,7 +19,7 @@ As a modeling discipline, a boundary should be treated as a kind of [[Universal 
 
 Interpretation is performed by an [[Observer|observer]] relative to a boundary. An observer interprets [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], and [[Query|queries]] within the scope and context defined by that boundary.
 
-An observer boundary determines whether an event is exogenous, input, endogenous, or output relative to that [[Observer|observer]]. It also frames which state is visible, which policies apply, which authority is available, which [[Effects|effects]] can be committed, and what command or query interpretation can mean.
+An observer boundary determines whether an event is exogenous, input, endogenous, or output relative to that [[Observer|observer]]. It also frames which state is visible, which policies apply, which authority is available, which [[Effect Models|effects]] can be committed, and what command or query interpretation can mean.
 
 Boundary types include:
 
@@ -54,4 +54,4 @@ Different guarantees apply at different boundaries:
 
 So a system can acknowledge a message and preserve broker ordering while still failing to commit the domain transition. It can also receive the same message more than once while committing the domain transition only once through idempotency and concurrency control.
 
-Related concepts: [[Domain|domain]], [[Subdomain|subdomain]], [[Bounded Context|bounded context]], [[Ubiquitous Language|ubiquitous language]], [[Domain-Driven Design|domain-driven design]], [[Interfaces|interfaces]], [[Service|service]], [[Service Models|service models]], [[Observer|observer]], [[Authority|authority]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effects|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].
+Related concepts: [[Domain|domain]], [[Subdomain|subdomain]], [[Bounded Context|bounded context]], [[Ubiquitous Language|ubiquitous language]], [[Domain-Driven Design|domain-driven design]], [[Interfaces|interfaces]], [[Service|service]], [[Service Models|service models]], [[Observer|observer]], [[Authority|authority]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effect Models|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].

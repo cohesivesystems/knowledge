@@ -53,7 +53,7 @@ The important architectural change is that the sender may finish after transferr
 
 Absence of progress is also ambiguous. At an interaction boundary, a consumer with no visible progress may be slow, overloaded, paused, partitioned, crashed, repeatedly retrying, blocked behind another item, or processing work whose result has not yet become visible. A timeout or lease expiry is a policy decision made under uncertainty, not proof of which condition occurred. This is the [[Safety and Liveness|safety and liveness]] tension of asynchronous systems in operational form.
 
-Deadlines and cancellation no longer propagate automatically through a call stack. They must become explicit protocol data or process transitions, with clear meanings for work that has already committed or produced irreversible [[Effects|effects]].
+Deadlines and cancellation no longer propagate automatically through a call stack. They must become explicit protocol data or process transitions, with clear meanings for work that has already committed or produced irreversible [[Effect Models|effects]].
 
 ## Flow Health and Stability
 

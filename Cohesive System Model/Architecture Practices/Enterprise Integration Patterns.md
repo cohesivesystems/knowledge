@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-07-27
-updated: 2026-08-02
+updated: 2026-08-03
 aliases:
   - EIP
   - Enterprise Integration Pattern Language
@@ -159,7 +159,7 @@ The two vocabularies meet through explicit correspondence rather than identifica
 
 ## Boundary of Adoption
 
-Cohesive encompasses these patterns by making their semantic inputs, structural arrangements, operational guarantees, and realization choices explicit. It does not preserve assumptions that no longer hold. In particular, guaranteed delivery is not business completion, a canonical integration model is not canonical domain meaning, and a process manager is not the semantic process it coordinates.
+Cohesive adopts EIP with three qualifications: guaranteed delivery is not business completion; a canonical integration model is not canonical domain meaning; and a process manager is not the semantic process it coordinates.
 
 ## External References
 

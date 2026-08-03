@@ -52,14 +52,14 @@ Admission control composes with several controls without becoming synonymous wit
 
 | Concern | Primary question |
 | --- | --- |
-| [[Rate Limiting|Rate limiting]] | How quickly may a subject offer, admit, or execute work under a time-based budget? |
+| [[Rate Limiting\|Rate limiting]] | How quickly may a subject offer, admit, or execute work under a time-based budget? |
 | Concurrency limiting | How much admitted work may remain in flight at once? |
-| [[Flow Control|Flow control]] | How does capacity information or demand regulate work across an interaction edge? |
-| [[Control Models|Adaptive feedback control]] | How should observations regulate a manipulated limit or policy toward an objective? |
+| [[Flow Control\|Flow control]] | How does capacity information or demand regulate work across an interaction edge? |
+| [[Control Models\|Adaptive feedback control]] | How should observations regulate a manipulated limit or policy toward an objective? |
 | [[Scheduling]] | Which admitted work receives the next execution opportunity? |
 | Circuit breaking | Should attempts to a dependency be suppressed because its recent outcomes indicate unavailability or failure? |
-| [[Routing Models|Routing]] | Which eligible destination or path should receive the work? |
-| [[Scaling Mechanisms|Autoscaling]] | Should resource capacity or topology be changed in response to observed demand? |
+| [[Routing Models\|Routing]] | Which eligible destination or path should receive the work? |
+| [[Scaling Mechanisms\|Autoscaling]] | Should resource capacity or topology be changed in response to observed demand? |
 
 One system may apply all of these at different boundaries. A global rate budget can coexist with per-tenant concurrency limits, receiver-issued credits, priority scheduling, dependency circuit breakers, route selection, and a capacity controller.
 

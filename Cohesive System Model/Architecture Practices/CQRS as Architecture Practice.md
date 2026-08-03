@@ -24,7 +24,7 @@ CQRS is useful when the benefits of separating those responsibilities exceed the
 | Realm | CQRS correspondence |
 | --- | --- |
 | Domain Semantics | Commands are observer-relative requests for interpreted change. Queries request observations. Entities, transitions, invariants, policies, and authority determine what can change and what can be observed. |
-| System Graph | [[Transition Models|Transition models]] own command-side decisions; [[Projection Models|projection models]] derive read-oriented observations; effects, source relations, and boundaries connect them. |
+| System Graph | [[Transition Models\|Transition models]] own command-side decisions; [[Projection Models\|projection models]] derive read-oriented observations; effects, source relations, and boundaries connect them. |
 | Operational Concerns | Commit meaning, consistency, source position, projection lag, ordering, idempotency, read-your-writes, monotonic reads, compatibility, access control, and rebuild recovery are explicit. |
 | Realization Substrate | Current-state stores, event histories, brokers, logs, projection workers, indexes, caches, search engines, and read stores are replaceable realization families. |
 | Architecture Practices | CQRS names the deliberate separation, its forces, and the obligations introduced by composing the other realms. |

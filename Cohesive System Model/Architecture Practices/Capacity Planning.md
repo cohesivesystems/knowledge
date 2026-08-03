@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-08-03
 status: draft
 aliases:
   - Demand Forecasting and Capacity Planning
@@ -93,6 +93,12 @@ The plan should be versioned against workload, service, topology, and realizatio
 - Adding capacity to clients of a constrained dependency and increasing overload.
 - Leaving rejection, degradation, or business-priority decisions to an infrastructure default.
 
+## Formal relations
+
+- `bundles`: [[Scalability]] — Uses measured scalability profiles to relate workload growth, useful completion, constraints, and effective capacity.
+- `bundles`: [[Service Levels]] — Grounds capacity and reserve decisions in declared latency, throughput, availability, freshness, and recovery objectives.
+- `bundles`: [[Scaling Mechanisms]] — Selects feasible capacity-changing mechanisms within explicit quotas, lead times, topology, and failure assumptions.
+
 ## External References
 
 - Google, [Site Reliability Engineering: Demand Forecasting and Capacity Planning](https://sre.google/sre-book/introduction/), in *Site Reliability Engineering*, 2016.
@@ -100,4 +106,4 @@ The plan should be versioned against workload, service, topology, and realizatio
 - Neil J. Gunther, [A General Theory of Computational Scalability Based on Rational Functions](https://arxiv.org/abs/0808.1431), 2008.
 - John D. C. Little, [A Proof for the Queuing Formula: $L=\lambda W$](https://doi.org/10.1287/opre.9.3.383), *Operations Research* 9(3):383-387, 1961.
 
-Related concepts: [[Architecture Practices|architecture practices]], [[Service Levels|service levels]], [[Scalability|scalability]], [[Scaling Mechanisms|scaling mechanisms]], [[Control Theory|control theory]], [[Control Models|control models]], [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID control]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Locality|locality]], [[Metastability|metastability]], [[Queueing Theory|queueing theory]], [[Stuff Structure Property|stuff structure property]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[System Graph|system graph]], [[Infrastructure Graph|infrastructure graph]], [[Service Models|service models]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Boundaries|boundaries]], [[Policy Scopes|policy scopes]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Retry|retry]], [[Recovery|recovery]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]], [[Compute|compute]], [[Infrastructure|infrastructure]], [[Storage Systems|storage systems]], [[Network|network]].
+Related concepts: [[Control Models|control models]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Locality|locality]], [[Metastability|metastability]], [[Queueing Theory|queueing theory]], [[Compositionality|compositionality]], [[Infrastructure Graph|infrastructure graph]], [[Service Models|service models]], [[Routing Models|routing models]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Flow Control|flow control]], [[Recovery|recovery]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Observability and Provenance|observability and provenance]].

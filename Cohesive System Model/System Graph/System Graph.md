@@ -2,14 +2,14 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-08-01
+updated: 2026-08-03
 ---
 
 # System Graph
 
 The system graph is the compositional, boundary-relative graph of a modeled system as a whole, in which semantic subjects and roles become explicit nodes and relations with declared placement, interaction, ownership, scope, and boundaries.
 
-It asks how semantic roles are placed, composed, owned, related, scoped, and prepared for realization once they are part of a model of a whole system. It describes graph shape: which [[Entity Models|entity models]] exist, how [[Transition Models|transition models]] govern their possible evolution, which [[Observer Models|observer models]] interpret which [[Boundaries|boundaries]], how [[Control Models|control models]] regulate selected variables through feedback and actuation, how [[Process Graphs|process graphs]] coordinate work, which [[Relation Models|relation models]] connect subjects, which [[Projection Models|projection models]] expose derived observations, how [[Replica Models|replica models]] arrange copies and authority roles, how [[Partition Models|partition models]] assign subjects and work to ownership and ordering scopes, how [[Service Models|service models]] bundle responsibilities behind [[Interfaces|interfaces]], which [[Interaction Protocols|interaction protocols]] govern their conversations, which [[Policy Scopes|policy scopes]] and [[Invariant Scopes|invariant scopes]] constrain transitions, and where [[Effects|effects]] leave a boundary.
+It records how semantic roles compose across boundaries and which operational properties a [[Realization|realization]] must preserve.
 
 This realm sits between primitive meaning and concrete implementation:
 
@@ -58,7 +58,7 @@ Core system graph notes:
 - [[Interfaces|interfaces]]
 - [[Interaction Protocols|interaction protocols]]
 - [[Service Models|service models]]
-- [[Effects|effects]]
+- [[Effect Models|effects]]
 - [[Messages and Envelopes|messages and envelopes]]
 - [[Interaction Channels|interaction channels]]
 - [[Routing Models|routing models]]

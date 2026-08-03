@@ -2,15 +2,17 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-29
-updated: 2026-07-28
+updated: 2026-08-03
 aliases:
+  - Effects
+  - Effect Structure
   - Effect Boundary
   - Effect Boundaries
 ---
 
-# Effects
+# Effect Models
 
-Effects describe how semantic [[Effect|effects]] are placed, related, scoped, and carried through the system graph.
+Effect models describe how semantic [[Effect|effects]] are placed, related, scoped, and carried through the system graph.
 
 This note describes effect structure rather than redefining the semantic effect. An effect may be local to an [[Observer|observer]] or [[Entity|entity]] boundary, or it may cross a boundary through [[Interaction|interaction]]. A decision may declare an effect before any commit or external operation has occurred.
 
@@ -78,3 +80,7 @@ Effects that may be retried, replayed, resumed, or redelivered need [[Idempotenc
 For example, handling the same input twice may produce an applied no-change or prior-result outcome for the target entity while still recording an operational observation that the duplicate was seen. Publishing the same outbox record twice may be acceptable only when the receiver has an idempotent protocol, deduplication record, or [[Transactional Inbox|inbox]].
 
 Related concepts: [[Effect|effect]], [[Event|event]], [[Command|command]], [[Query|query]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Correlation and Conversations|correlation and conversations]], [[Transition|transition]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Observer|observer]], [[Entity|entity]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[Business Transactions|business transactions]], [[Execution Kernel|execution kernel]].
+
+## Formal relations
+
+- `realm_peer_of`: [[Effect]] — Treats the same nominal effect notion as system-graph placement, scope, and boundary structure, while the peer entry owns the semantic consequence or obligation established by a decision.

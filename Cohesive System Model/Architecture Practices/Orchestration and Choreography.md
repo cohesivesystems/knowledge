@@ -47,7 +47,7 @@ Examples include:
 
 ## Cross-Realm Process Control
 
-The same semantic process is present at both ends of the spectrum. In [[System Language and Realization|cross-realm projection]], the semantic process and its global protocol are arranged as participant roles, interactions, and process structure in the system graph, and those participant structures are then lowered through [[Realization]] into runtime mechanisms.
+The same semantic process is present at both ends of the spectrum. In [[System Language and Realization|cross-realm projection]], the semantic process and its global protocol are arranged as participant roles, interactions, and process structure in the system graph, and those participant structures are then lowered through [[Realization|realization]] into runtime mechanisms.
 
 In choreography, the global protocol restricts to participant-local rules. Compatible local behaviors must agree on their shared interactions and [[Sheaves and Gluing|glue]] into a coherent global run. The global process may therefore be drawn as a logical node with projection or conformance edges to every participant, but those are typed correspondence edges rather than command, scheduling, or runtime-control edges. No participant realizes that global node as an active controller.
 

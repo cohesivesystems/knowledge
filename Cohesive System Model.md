@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-08-01
+updated: 2026-08-03
 ---
 
 # Cohesive System Model
@@ -30,7 +30,7 @@ Domains can be described as cohesive system graphs composed from semantic constr
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
 - [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and [[Effect|effects]] over time
 
-Cohesive arranges interactions among these primitives through its system graph, bundles responsibilities into [[Service Models|service models]] with explicit [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], and [[Interaction Channels|interaction channels]], states the required [[Service Levels|service levels]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery]], [[Delivery Progress and Settlement|progress and settlement]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control properties, then realizes the resulting structure and property demands through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network Channels|network channels]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
+Cohesive arranges interactions among these primitives through its system graph and qualifies that structure with operational concerns, including [[Delivery Semantics|delivery semantics]] and [[Commit Boundaries|commit boundaries]]. [[Realization|Realization]] maps the structure and its property demands to concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network Channels|network channels]], [[Storage Systems|storage systems]], and [[Infrastructure|infrastructure]] while preserving meaning across layers.
 
 ## Realms of Description
 
@@ -142,7 +142,7 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Replica Models]]
 - [[Partition Models]]
 - [[Process Graphs]], [[Fork and Join|fork and join]]
-- [[Effects]]
+- [[Effect Models]]
 - [[Flow Views]] as movement views within or between process graphs
 - [[Service Models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]]
 - [[Interaction Bindings|Interaction bindings]], [[Endpoints|endpoints]]

@@ -207,7 +207,7 @@ Related concepts by realm:
 
 - **Principles:** [[Ubiquitous Language|ubiquitous language]], [[Categorical Principles|categorical principles]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Process Theories|process theories]], [[Compositionality|compositionality]], and [[Execution Kernel|execution kernel]].
 - **Domain semantics:** [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Relation|relation]], [[Transition|transition]], [[Effect|semantic effect]], and [[Authority|authority]].
-- **System graph:** [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Effects|effect structure]], and [[Infrastructure Graph|infrastructure graph]].
+- **System graph:** [[System Graph|system graph]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Effect Models|effect structure]], and [[Infrastructure Graph|infrastructure graph]].
 - **Operational concerns:** [[Compatibility and Evolution|compatibility and evolution]], [[Coordination|coordination]], [[Scheduling|scheduling]], and [[Fairness|fairness]].
 - **Architecture practices:** [[Architecture Practices|architecture practices]].
 - **Realization substrate:** [[Realization|realization]] and [[Storage Systems|storage systems]].

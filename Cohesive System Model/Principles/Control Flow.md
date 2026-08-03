@@ -19,14 +19,14 @@ Control does not necessarily imply a central controller. A successor may be sele
 
 | Meaning | What progresses or is controlled | Canonical home |
 | --- | --- | --- |
-| **process control flow** | Steps, branches, tokens, forks, joins, waits, recurrence, cancellation, and terminal outcomes within a semantic process structure. | [[Process Graphs|process graphs]] and [[Workflow Patterns|workflow patterns]] |
-| **program or evaluation control flow** | Expressions, instructions, calls, returns, exceptions, continuations, loops, and evaluation paths within a program or runtime. | [[Reduction, Evaluation, and Confluence|reduction and evaluation]], [[Runtimes|runtimes]], and [[Scheduling|scheduling]] |
-| **[[Interaction Control Flow|interaction control flow]]** | Which participant actively pushes, fetches, polls, calls, or delivers at an interaction boundary. | [[Interaction Control Flow|interaction control flow]] |
-| **execution control** | Which enabled activation receives execution opportunity, how its work is interleaved, and whether it continues until it yields or may be preempted. | [[Scheduling]] and [[Runtimes|runtimes]] |
-| **control-flow synchrony** | Whether one logical operation waits for a result, observation, or completion before continuing. | [[Synchrony and Asynchrony|synchrony and asynchrony]] |
-| **[[Operational Control|operational control]]** | Authorized intervention that pauses, resumes, routes, drains, replays, or otherwise changes running-system behavior. | [[Operational Control|operational control]] |
-| **[[Flow Control|flow control]]** | How much work may be admitted or remain in flight in response to capacity. | [[Flow Control|flow control]] |
-| **feedback control** | How observations of behavior regulate future action through a controller and actuator. | [[Control Theory|control theory]] and [[Control Models|control models]] |
+| **process control flow** | Steps, branches, tokens, forks, joins, waits, recurrence, cancellation, and terminal outcomes within a semantic process structure. | [[Process Graphs\|process graphs]] and [[Workflow Patterns\|workflow patterns]] |
+| **program or evaluation control flow** | Expressions, instructions, calls, returns, exceptions, continuations, loops, and evaluation paths within a program or runtime. | [[Reduction, Evaluation, and Confluence\|reduction and evaluation]], [[Runtimes\|runtimes]], and [[Scheduling\|scheduling]] |
+| **[[Interaction Control Flow\|interaction control flow]]** | Which participant actively pushes, fetches, polls, calls, or delivers at an interaction boundary. | [[Interaction Control Flow\|interaction control flow]] |
+| **execution control** | Which enabled activation receives execution opportunity, how its work is interleaved, and whether it continues until it yields or may be preempted. | [[Scheduling]] and [[Runtimes\|runtimes]] |
+| **control-flow synchrony** | Whether one logical operation waits for a result, observation, or completion before continuing. | [[Synchrony and Asynchrony\|synchrony and asynchrony]] |
+| **[[Operational Control\|operational control]]** | Authorized intervention that pauses, resumes, routes, drains, replays, or otherwise changes running-system behavior. | [[Operational Control\|operational control]] |
+| **[[Flow Control\|flow control]]** | How much work may be admitted or remain in flight in response to capacity. | [[Flow Control\|flow control]] |
+| **feedback control** | How observations of behavior regulate future action through a controller and actuator. | [[Control Theory\|control theory]] and [[Control Models\|control models]] |
 
 The boundary qualifier is essential. One process-progression edge may lower into several program evaluations and distributed interactions. A synchronous-looking program call may lower into queues and callbacks. A pull interaction may drive data opposite to the interaction-control direction without reversing process progression.
 
