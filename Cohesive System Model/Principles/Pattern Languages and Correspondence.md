@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-28
-updated: 2026-07-30
+updated: 2026-08-02
 status: draft
 aliases:
   - Catalog Correspondence
@@ -46,6 +46,19 @@ In plain language, a correspondence should preserve the relationships that make 
 - Information that is forgotten, approximated, delayed, aggregated, or newly introduced is declared.
 
 Many useful correspondences are partial, one-to-many, or relational rather than total functions. One semantic process may have several workflow realizations; one message channel may carry several semantic roles; one catalog pattern may decompose into several Cohesive nodes. The framework is called functorial because it demands structure-preserving correspondence, not because every crosswalk must be formalized as one mathematical functor.
+
+### Layered channel correspondence
+
+Channels illustrate why cross-realm correspondence cannot be reduced to name matching or one-to-one lowering. A messaging [[Interaction Channels|interaction channel]] is a system-graph exchange with logical directions and scoped requirements. A [[Network Channels|network channel]] is a realization-substrate communication locus at a protocol boundary. Both can expose asynchronous send and receive, direction, topology, framing, addressing, ordering, and flow control, but each operation and guarantee belongs to its own boundary.
+
+The realization relation is often graph-to-graph:
+
+- one brokered messaging channel lowers into producer-to-broker and broker-to-consumer network exchanges plus broker state and control protocols;
+- one durable messaging channel persists across many network connections or sessions;
+- one multiplexed network connection can carry many messaging channels, interface operations, or logical streams; and
+- reverse-path acknowledgments, credits, cancellation, and recovery exchanges can realize the control obligations of an apparently one-way upper-layer channel.
+
+A sound correspondence therefore maps direction, transmitted unit, framing, endpoint and address identity, routing, ordering scope, reliability, retention, acknowledgment, durable progress, settlement, flow control, security, and failure boundaries independently. The shared operation `send` is preserved only when its input and composition correspond; its completion claim can become a different lower-layer observation and must not be lifted back without evidence.
 
 ### Nominal realm peers
 
@@ -218,4 +231,4 @@ For example, an EIP Command Message is a carrier whose contract strongly indicat
 - Martin Fowler, [Patterns in Enterprise Software](https://martinfowler.com/articles/enterprisePatterns.html), 2005.
 - Frank Buschmann, Kevlin Henney, and Douglas C. Schmidt, [*Pattern-Oriented Software Architecture, Volume 4: A Pattern Language for Distributed Computing*](https://www.wiley.com/en-us/Pattern-Oriented+Software+Architecture%2C+Volume+4%2C+A+Pattern+Language+for+Distributed+Computing-p-9780470065303), Wiley, 2007.
 
-Related concepts: [[Functoriality|functoriality]], [[System Language and Realization|system language and realization]], [[Realization|realization]], [[Architecture Practices|architecture practices]], [[System Graph|system graph]], [[Process Theories|process theories]], [[Compositionality|compositionality]], [[Equivalence vs Equality|equivalence vs equality]], [[Boundaries|boundaries]], [[Authority|authority]], [[Compatibility and Evolution|compatibility and evolution]], [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[CQRS as Architecture Practice|CQRS]].
+Related concepts: [[Functoriality|functoriality]], [[System Language and Realization|system language and realization]], [[Realization|realization]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Network Channels|network channels]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Architecture Practices|architecture practices]], [[System Graph|system graph]], [[Process Theories|process theories]], [[Compositionality|compositionality]], [[Equivalence vs Equality|equivalence vs equality]], [[Boundaries|boundaries]], [[Authority|authority]], [[Compatibility and Evolution|compatibility and evolution]], [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[CQRS as Architecture Practice|CQRS]].

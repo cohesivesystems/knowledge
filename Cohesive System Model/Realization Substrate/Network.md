@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-08-02
 ---
 
 # Network
@@ -11,7 +11,7 @@ Network is the realization substrate for interaction across link, network, trans
 
 Network mechanisms [[Realization|realize]] interaction edges, but they are not the definition of [[Interaction|interaction]]. Interaction also occurs locally between processes, threads, runtime tasks, actors, CPU cores, memory cells, and synchronization primitives. Networked interaction is one important family of realization.
 
-This note specializes [[Interaction|interaction]] for network substrates. Use [[Interaction|interaction]] for the general boundary-relative model of observers, modes, semantic roles, and guarantees; use [[Interfaces|interfaces]] and [[Interaction Protocols|interaction protocols]] for the logical interaction surface and conversation; use this note for how those structures are bound to protocol layers and physical links.
+This note specializes [[Interaction|interaction]] for network substrates. Use [[Interaction|interaction]] for the general boundary-relative model of observers, modes, semantic roles, and guarantees; use [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], and [[Interaction Bindings|interaction bindings]] for the logical interaction surface, conversation, and attachment of roles to channel directions; use [[Network Channels|network channels]] for the layer-relative channel correspondence; use this note for the broader network substrate through which those structures are lowered to protocol layers and physical links.
 
 ## Application Interaction from Async Send/Receive
 
@@ -31,6 +31,14 @@ Protocol layers add structure to this minimal edge:
 - Application flows compose those protocols into domain-level interactions and [[Business Transactions|business transactions]] involving services, humans, agents, policies, entities, and processes.
 
 This ladder is not a strict hierarchy of concepts. The same interaction edge shape can reappear at different layers. UDP multicast and a Kafka topic are both one-to-many publication configurations at different realization boundaries, with very different addressing, durability, ordering, retention, and acknowledgment semantics.
+
+## Network and Messaging Channels
+
+[[Network Channels|Network channels]] and messaging [[Interaction Channels|interaction channels]] share structures such as asynchronous send and receive, direction, framing, addressing, multiplexing, ordering, flow control, and completion. Their correspondence is usually many-to-many. One durable messaging channel may be realized by a succession or graph of network connections, broker sessions, and control exchanges; one network connection may multiplex many messaging channels, operations, and streams.
+
+A higher-layer one-way send may also require a bidirectional network channel because acknowledgments, credits, negotiation, and failure signals travel in the reverse direction. Broker-mediated messaging adds stored channel state between producer-to-broker and broker-to-consumer network exchanges. Transport reliability therefore does not imply message retention, application replay, consumer progress, or provider settlement, while messaging durability can survive the replacement of every underlying network connection.
+
+The cross-realm mapping must state separately how logical directions, endpoints, message boundaries, addresses, ordering scopes, identities, acknowledgments, progress, flow control, security, and failures are preserved. Similar topology or operation names are evidence of possible correspondence, not identity of guarantees.
 
 ## Link and Physical Realization
 
@@ -108,4 +116,4 @@ Network behavior does not automatically equal domain commitment. The receiving [
 
 Network partitions expose the distinction between [[Safety and Liveness|safety and liveness]]. A system may preserve a consistency claim by refusing progress across the partition, or preserve availability by accepting progress whose global order or freshness cannot yet be known. The [[CAP Theorem|CAP theorem]] is the named form of this tradeoff for linearizable shared data.
 
-Related concepts: [[Realization|realization]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Brokers|brokers]], [[Application Hosts|application hosts]], [[Coordination|coordination]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]].
+Related concepts: [[Realization|realization]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Interaction Channels|interaction channels]], [[Network Channels|network channels]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Delivery Semantics|delivery semantics]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Ordering|ordering]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Brokers|brokers]], [[Application Hosts|application hosts]], [[Coordination|coordination]], [[Safety and Liveness|safety and liveness]], [[CAP Theorem|CAP theorem]].

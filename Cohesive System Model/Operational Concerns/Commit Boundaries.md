@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-29
-updated: 2026-07-27
+updated: 2026-08-02
 aliases:
   - Commit Boundary
   - Commitment
@@ -29,6 +29,8 @@ Examples include:
 
 Atomic commit does not automatically mean that downstream observers processed the work, read models caught up, or the [[Business Transactions|business transaction]] completed.
 
+For channel consumption, the candidate operation set can include input consumption, authoritative state mutation, produced output, durable application-progress advancement, and provider settlement. A claim of atomicity should enumerate exactly which of these operations share one commit boundary. When provider settlement lies outside the application transaction, the safe causal order is to commit covered effects and exact progress before settlement, then use replay, redelivery, idempotency, or reconciliation across the remaining crash cut. See [[Delivery Progress and Settlement|delivery progress and settlement]].
+
 ## Boundary Questions
 
 For any claimed commit, ask:
@@ -47,4 +49,4 @@ Enterprise Integration Patterns describes a **Transactional Client** as an endpo
 
 - Gregor Hohpe and Bobby Woolf, [Transactional Client](https://www.enterpriseintegrationpatterns.com/patterns/messaging/TransactionalClient.html), *Enterprise Integration Patterns*, 2003.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Effects|effects]], [[Acknowledgments|acknowledgments]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Business Transactions|business transactions]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Effects|effects]], [[Interaction Channels|interaction channels]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Acknowledgments|acknowledgments]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Business Transactions|business transactions]].

@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-07-27
-updated: 2026-07-28
+updated: 2026-08-02
 aliases:
   - EIP
   - Enterprise Integration Pattern Language
@@ -70,7 +70,7 @@ The two vocabularies meet through explicit correspondence rather than identifica
 | Pipes and Filters | [[Flow Operators\|flow operators]], [[Flow Views\|flow views]], and [[Interaction Control Flow\|interaction control flow]] |
 | Message Router | [[Routing Models\|routing models]] |
 | Message Translator | [[Anti-Corruption Layer\|anti-corruption layer]] and [[Compatibility and Evolution\|compatibility and evolution]] |
-| Message Endpoint | [[Observer Models\|observer models]] and [[Ports and Adapters\|ports and adapters]] |
+| Message Endpoint | [[Endpoints\|endpoints]], [[Observer Models\|observer models]], and [[Ports and Adapters\|ports and adapters]] |
 
 ### Messaging Channels
 

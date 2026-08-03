@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-28
-updated: 2026-07-29
+updated: 2026-08-02
 aliases:
   - Backpressure and Flow Control
   - Capacity Flow Control
@@ -75,6 +75,19 @@ Common mechanism families include:
 
 These mechanisms provide flow control only at their declared boundaries. A broker acknowledgment may release producer-side capacity without proving consumer capacity; a consumer acknowledgment may release a queue slot without proving a downstream domain transition committed.
 
+## Channel Flow and Lifecycle
+
+A channel binding can require one or more provider-neutral regulation forms:
+
+- **bounded buffer** limits admitted in-flight work under an explicit overflow policy;
+- **demand** lets the consumer request additional elements or iterator advancement;
+- **credit** grants a count or quantity that delivery consumes; and
+- **no semantic flow control** states that the channel contract relies on another boundary or accepts unregulated offering.
+
+Flow regulation should be modeled separately from stream lifecycle. Terminal completion, half-close, independently completed directions, cancellation of one invocation or direction, connection termination, reconnect, and bounded resume are protocol states rather than capacity signals. They interact—a cancellation can release credits and a half-closed direction can stop demand—but one does not define the other.
+
+The correspondence between messaging and [[Network Channels|network-channel]] flow control is frequently many-to-many. One transport receive window can couple several multiplexed logical channels; one messaging demand signal can regulate broker prefetch, worker permits, and network reads at different boundaries. A realization must identify which resource each loop protects and how pressure crosses codecs, buffers, brokers, and endpoint adapters.
+
 ## Distinctions
 
 | Concept | Governing question |
@@ -117,4 +130,4 @@ A delayed, oscillating, or incorrectly scoped flow-control loop can contribute t
 - Reactive Streams, [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm#specification).
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Interaction|interaction]], [[Control Flow|control flow]], [[Control Theory|control theory]], [[Control Models|control models]], [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID control]], [[Interaction Control Flow|interaction control flow]], [[Trace and Feedback|trace and feedback]], [[Queueing Theory|queueing theory]], [[Scalability|scalability]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Metastability|metastability]], [[Rate Limiting|rate limiting]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Consumer Coordination|consumer coordination]], [[Interaction Channels|interaction channels]], [[Brokers|brokers]], [[Network|network]], [[Runtimes|runtimes]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]].
+Related concepts: [[Interaction|interaction]], [[Control Flow|control flow]], [[Control Theory|control theory]], [[Control Models|control models]], [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID control]], [[Interaction Control Flow|interaction control flow]], [[Trace and Feedback|trace and feedback]], [[Queueing Theory|queueing theory]], [[Scalability|scalability]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Metastability|metastability]], [[Rate Limiting|rate limiting]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Delivery Semantics|delivery semantics]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Acknowledgments|acknowledgments]], [[Consumer Coordination|consumer coordination]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Brokers|brokers]], [[Network Channels|network channels]], [[Network|network]], [[Runtimes|runtimes]], [[Ordering|ordering]], [[Retry|retry]], [[Recovery|recovery]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]].

@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-27
-updated: 2026-08-01
+updated: 2026-08-02
 aliases:
   - Distributed Control Flow
   - EIP Control Flow
@@ -66,10 +66,10 @@ A request/acknowledgment/poll protocol composes several interaction edges around
 
 | Phase | Protocol meaning | Interaction-control framing |
 | --- | --- | --- |
-| **start request** | A client requests that the receiver create, admit, or begin the process. | The client is an active sender and the receiving endpoint is a passive sink at the start edge. |
+| **start request** | A client requests that the receiver create, admit, or begin the process. | The client is an active sender and the receiving [[Endpoints|endpoint]] is a passive sink at the start edge. |
 | **acknowledgment** | The receiver reports a precisely named boundary fact, such as durable admission and a process identity. It does not imply process completion. | On the response edge, the receiver supplies the acknowledgment and the client receives it. [[Acknowledgments|Acknowledgment]] names what is claimed; reply names its role in discharging a request. |
 | **process execution** | The process advances through independently durable activations or cuts after admission. | Its internal scheduling, queues, timers, callbacks, or workers have their own interaction-control roles; no continuing client operation should be inferred. |
-| **status poll** | The client makes a new request, usually interpreted as a [[Query|query]], for an [[Observation|observation]] of process status or result. | The client is an active fetcher and the status endpoint is a passive source. The poll operation points toward the source while status data returns toward the fetcher. |
+| **status poll** | The client makes a new request, usually interpreted as a [[Query|query]], for an [[Observation|observation]] of process status or result. | The client is an active fetcher and the status [[Endpoints|endpoint]] is a passive source. The poll operation points toward the source while status data returns toward the fetcher. |
 | **terminal observation** | A poll reports that the process completed, failed, was cancelled, or reached another declared terminal disposition. | The response discharges that poll request. Whether it also completes a broader conversation depends on the separately declared process and correlation protocol. |
 
 The initial acknowledgment has two coherent interpretations. If the start request asks only for durable admission, an accepted acknowledgment is its terminal reply; later polls are independent requests correlated by process identity. If the original semantic request asks for the eventual process result, the acknowledgment is nonterminal at that boundary—even if it terminates an HTTP exchange or another lower-level call—and the original terminal-response or terminal-failure obligation remains live while polling supplies supplemental observations. The contract must state which interpretation applies and must not confuse delivery or admission acknowledgment with process completion.
@@ -100,4 +100,4 @@ These roles are abstraction-relative. A managed service may appear as a pusher a
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), Enterprise Integration Patterns, 2024.
 - Gregor Hohpe and Bobby Woolf, [Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/), Addison-Wesley Professional, 2003.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Interaction|interaction]], [[Control Flow|control flow]], [[Flow Control|flow control]], [[Flow Views|flow views]], [[Interaction Channels|interaction channels]], [[Consumer Coordination|consumer coordination]], [[Brokers|brokers]], [[Messages and Envelopes|messages and envelopes]], [[Observer Models|observer models]], [[Process Theories|process theories]], [[Process Graphs|process graphs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Correlation and Conversations|correlation and conversations]], [[Acknowledgments|acknowledgments]], [[Trace and Feedback|trace and feedback]], [[Rate Limiting|rate limiting]], [[Scheduling|scheduling]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Durability|durability]], [[Recovery|recovery]], [[Operational Control|operational control]], [[Execution Kernel|execution kernel]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Interaction|interaction]], [[Control Flow|control flow]], [[Flow Control|flow control]], [[Flow Views|flow views]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Interaction Channels|interaction channels]], [[Consumer Coordination|consumer coordination]], [[Brokers|brokers]], [[Messages and Envelopes|messages and envelopes]], [[Observer Models|observer models]], [[Process Theories|process theories]], [[Process Graphs|process graphs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Correlation and Conversations|correlation and conversations]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Acknowledgments|acknowledgments]], [[Trace and Feedback|trace and feedback]], [[Rate Limiting|rate limiting]], [[Scheduling|scheduling]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Durability|durability]], [[Recovery|recovery]], [[Operational Control|operational control]], [[Execution Kernel|execution kernel]].

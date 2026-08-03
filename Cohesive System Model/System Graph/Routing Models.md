@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-27
-updated: 2026-08-01
+updated: 2026-08-02
 aliases:
   - Message Routing
   - Message Router
@@ -29,7 +29,7 @@ When routing or dispatch distributes admitted work among several eligible capaci
 
 Routing does not by itself establish that a receiver admitted, processed, committed, or completed the intended work. It must be combined with [[Interaction Channels|channels]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Consumer Coordination|consumer coordination]], and explicit failure and fallback meanings.
 
-[[Multiplexing and Demultiplexing|Demultiplexing]] is a qualified routing role: it uses a discriminator to recover one logical lane or endpoint from a shared locus. General routing may instead choose among alternative paths, create a recipient set, or change topology without reversing a prior multiplexing relation.
+[[Multiplexing and Demultiplexing|Demultiplexing]] is a qualified routing role: it uses a discriminator to recover one logical lane or [[Endpoints|endpoint]] from a shared locus. General routing may instead choose among alternative paths, create a recipient set, or change topology without reversing a prior multiplexing relation.
 
 Routing models should preserve route provenance: which definition, rule, observation, policy, branch, and revision selected the path. Dynamic routing and retries must also state whether a later attempt may choose a different destination and what that means for idempotency, ordering, and authority.
 
@@ -38,4 +38,4 @@ Routing models should preserve route provenance: which definition, rule, observa
 - Enterprise Integration Patterns, [Message Routing patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html).
 - Gregor Hohpe and Bobby Woolf, [Content-Based Router](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ContentBasedRouter.html) and [Process Manager](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html), *Enterprise Integration Patterns*, 2003.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Observer Models|observer models]], [[Policy Scopes|policy scopes]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Messages and Envelopes|messages and envelopes]], [[Flow Operators|flow operators]], [[Consumer Coordination|consumer coordination]], [[Load Balancing|load balancing]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Brokers|brokers]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Observer Models|observer models]], [[Policy Scopes|policy scopes]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Interaction Channels|interaction channels]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Messages and Envelopes|messages and envelopes]], [[Flow Operators|flow operators]], [[Consumer Coordination|consumer coordination]], [[Load Balancing|load balancing]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Network Channels|network channels]], [[Brokers|brokers]].

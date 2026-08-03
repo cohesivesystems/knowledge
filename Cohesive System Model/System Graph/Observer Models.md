@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-08-02
 aliases:
   - Observer Placement
   - Observer Placements
@@ -30,8 +30,8 @@ Observer models provide structure for:
 - Alignment between transition interpretation and the realization context that commits effects.
 - Attribution of definition, revision, node, branch, activation, and causal provenance to observed decisions.
 
-Messaging endpoints, gateways, service activators, polling consumers, event-driven consumers, dispatchers, and competing consumers are possible endpoint or activation structures for observer models. They do not make a transport endpoint identical to the semantic observer: the model must still identify the boundary, state view, authority, and interpretation rules supplied at activation.
+[[Endpoints|Messaging endpoints]], gateways, service activators, polling consumers, event-driven consumers, dispatchers, and competing consumers are possible endpoint or activation structures for observer models. They do not make a transport or messaging endpoint identical to the semantic observer: the model must still identify the boundary, state view, authority, and interpretation rules supplied at activation. One logical endpoint can activate many observer instances, and one observer responsibility can be reachable through several physical endpoints.
 
 When an adapter returns a request result, signal, or external observation, the observer model determines how that input is admitted and interpreted. The adapter must not bypass the entity transition boundary to mutate authoritative state directly, and a runtime callback must not become hidden semantic decision structure.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Observer|observer]], [[Observation|observation]], [[Command|command]], [[Event|event]], [[Effect|effect]], [[Entity|entity]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Execution Kernel|execution kernel]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Observer|observer]], [[Observation|observation]], [[Command|command]], [[Event|event]], [[Effect|effect]], [[Entity|entity]], [[Messages and Envelopes|messages and envelopes]], [[Interfaces|interfaces]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Execution Kernel|execution kernel]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]].

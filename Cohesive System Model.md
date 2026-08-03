@@ -30,7 +30,7 @@ Domains can be described as cohesive system graphs composed from semantic constr
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
 - [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and [[Effect|effects]] over time
 
-Cohesive arranges interactions among these primitives through its system graph, bundles responsibilities into [[Service Models|service models]] with explicit [[Interfaces|interfaces]] and [[Interaction Protocols|interaction protocols]], states the required [[Service Levels|service levels]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control properties, then realizes the resulting structure and property demands through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
+Cohesive arranges interactions among these primitives through its system graph, bundles responsibilities into [[Service Models|service models]] with explicit [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], and [[Interaction Channels|interaction channels]], states the required [[Service Levels|service levels]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery]], [[Delivery Progress and Settlement|progress and settlement]], [[Acknowledgments|acknowledgment]], [[Commit Boundaries|commit]], [[Coordination|coordination]], and control properties, then realizes the resulting structure and property demands through concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network Channels|network channels]], [[Network|network]], [[Storage Systems|storage]], and [[Infrastructure|infrastructure]] components while preserving coherence across layers.
 
 ## Realms of Description
 
@@ -122,7 +122,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Consistent Cuts]], [[Linearization Points|linearization points]]
 - [[CRDTs]]
 - [[Retry]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Load Balancing|load balancing]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
-- [[Correlation and Conversations]], [[Consumer Coordination|consumer coordination]], [[Interaction Control Flow|interaction control flow]]
+- [[Correlation and Conversations]], [[Consumer Coordination|consumer coordination]], [[Interaction Control Flow|interaction control flow]], [[Delivery Progress and Settlement|delivery progress and settlement]]
 - [[Compatibility and Evolution]]
 - [[Temporal Completeness]]
 - [[Retention Expiration and Quarantine|Retention, expiration, and quarantine]]
@@ -145,6 +145,7 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Effects]]
 - [[Flow Views]] as movement views within or between process graphs
 - [[Service Models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]]
+- [[Interaction Bindings|Interaction bindings]], [[Endpoints|endpoints]]
 - [[Messages and Envelopes]], [[Interaction Channels|interaction channels]]
 - [[Routing Models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Flow Operators|flow operators]]
 - [[Business Transactions]]
@@ -164,7 +165,7 @@ Provides concrete mechanisms.
 - [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID control]]
 - [[Runtimes]]  
 - [[Application Hosts|Application hosts]]  
-- [[Network]]
+- [[Network]], [[Network Channels|network channels]]
 - [[Storage Systems|Storage systems]], [[Database Transactions|database transactions]]
 - [[Write-Ahead Logging]]
 - [[Consensus Protocols]]

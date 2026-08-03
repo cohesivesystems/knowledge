@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-01
+updated: 2026-08-02
 status: draft
 aliases:
   - Multiplexing
@@ -30,7 +30,7 @@ Multiplexing is relative to the layer being observed:
 
 | Layer | Shared locus | Logical flows distinguished by |
 | --- | --- | --- |
-| Interface namespace | One service endpoint | operation, resource, or method |
+| Interface namespace | One logical [[Endpoints|endpoint]] | operation, resource, or method |
 | Service topology | One gateway or facade | downstream capability or service |
 | Application protocol | One conversation channel | message type or correlation identifier |
 | Broker | One topic, stream, or queue | key, subscription, or header |
@@ -41,7 +41,7 @@ A system may multiplex at one layer while demultiplexing at another.
 
 ## Distinctions
 
-- [[Routing Models|Routing]] selects a next destination. Demultiplexing is the special case that recovers one logical lane or endpoint from a shared locus.
+- [[Routing Models|Routing]] selects a next destination. Demultiplexing is the special case that recovers one logical lane or [[Endpoints|endpoint]] from a shared locus.
 - [[Flow Operators|Splitting]] derives several output values from one input value. It does not necessarily recover pre-existing logical lanes.
 - Aggregation combines several values into one composite value. It is semantic or structural composition, whereas multiplexing allows distinguishable flows to share capacity without necessarily combining their values.
 - Fan-out copies or distributes an interaction to several destinations. It may follow demultiplexing but is not the same operation.
@@ -74,6 +74,8 @@ Shared loci couple flows through finite capacity. A complete model should theref
 - how backpressure propagates across the multiplexing boundary.
 
 These properties connect multiplexing to [[Flow Control]], [[Queueing Theory]], and [[Scheduling]], as well as to reliability and performance analysis.
+
+Multiplexing can cross channel layers. One [[Network Channels|network connection or transport stream set]] can carry several messaging channels, interface operations, or subscriptions. A broker topic can carry several logical message types while each broker client session is itself multiplexed over network streams. Every layer needs its own discriminator, ordering scope, flow-control owner, and failure boundary; successful demultiplexing at one layer does not prove correct routing or semantic admission at another.
 
 ## External References
 

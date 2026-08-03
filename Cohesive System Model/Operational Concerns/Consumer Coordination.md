@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-02
 aliases:
   - Consumer Groups
   - Subscription Coordination
@@ -34,10 +34,13 @@ The model should state:
 - Partition affinity, ordering scope, exclusivity, and rebalancing rules.
 - Poll cadence, activation fairness, concurrency limits, backpressure, and starvation risks.
 - Which acknowledgment advances which cursor or releases which claim.
+- Which replay position selects input, which durable application progress proves applied work, and which settlement authority changes provider state.
 - What happens when a consumer loses ownership while its work is still running.
 - How durable subscription state is retained, expired, reset, replayed, or migrated.
 
 Competing consumption is an [[Arbitration|arbitration]] and [[Scheduling|scheduling]] problem. Fair scheduling does not imply eventual delivery when partitions, poison work, expired retention, unavailable consumers, or lost cursor state prevent progress. Fencing or expected assignment epochs may be required to prevent a stale consumer from committing after ownership changes.
+
+Consumer ownership and delivery settlement are related but distinct. A lease or group assignment can authorize one consumer to receive work, while a separate attempt-local token authorizes settlement. Durable application progress should survive consumer replacement even when assignment, connection, delivery attempt, and settlement authority all change. See [[Delivery Progress and Settlement|delivery progress and settlement]].
 
 ## External References
 
@@ -45,4 +48,4 @@ Competing consumption is an [[Arbitration|arbitration]] and [[Scheduling|schedul
 - Gregor Hohpe and Bobby Woolf, [Polling Consumer](https://www.enterpriseintegrationpatterns.com/patterns/messaging/PollingConsumer.html), [Event-Driven Consumer](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventDrivenConsumer.html), and [Competing Consumers](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html), *Enterprise Integration Patterns*, 2003.
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Observer Models|observer models]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Brokers|brokers]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Recovery|recovery]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Observer Models|observer models]], [[Endpoints|endpoints]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Brokers|brokers]], [[Delivery Semantics|delivery semantics]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Acknowledgments|acknowledgments]], [[Ordering|ordering]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Recovery|recovery]].

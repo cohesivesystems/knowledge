@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-08-02
 ---
 
 # Ports and Adapters
@@ -11,7 +11,7 @@ Ports and Adapters addresses the problem of keeping domain and application seman
 
 ## Cohesive Formulation
 
-Ports are named attachment points or roles through which a component provides or requires an [[Interfaces|interface]] at a [[Boundaries|boundary]]. Adapters are realization mechanisms that translate between those interface roles, component behavior, and substrate-specific messages without making the port, interface, boundary, channel, and binding synonymous.
+Ports are named attachment roles through which a component provides or requires an [[Interfaces|interface]] at a [[Boundaries|boundary]]. [[Endpoints|Endpoints]] are the bound loci through which those port roles participate in particular [[Interaction Channels|channel]] arrangements. Adapters are realization mechanisms that translate among interface roles, component behavior, messages, and substrate mechanisms without making the port, endpoint, interface, boundary, channel, or [[Interaction Bindings|binding]] synonymous.
 
 The practice asks:
 
@@ -20,7 +20,8 @@ The practice asks:
 - What semantic object enters or leaves the boundary?
 - Which observer interprets the input?
 - Which [[Interaction Protocols|interaction protocol]] governs the conversation?
-- What channel, protocol binding, storage mechanism, UI, or external system realizes the edge?
+- Which endpoint and channel directions are attached by the interaction binding?
+- What channel realization, protocol binding, storage mechanism, UI, or external system realizes the edge?
 
 ## In the Model
 
@@ -30,10 +31,10 @@ Enterprise Integration Patterns channel adapters, messaging gateways, messaging 
 
 ## Failure Modes
 
-The pattern fails when adapters leak substrate semantics into the domain, when ports are treated as network endpoints, or when interfaces are described without stating their semantic boundary, protocol, and authority.
+The pattern fails when adapters leak substrate semantics into the domain, when ports are treated as concrete network endpoints, when endpoint addresses become semantic identity, or when interfaces are described without stating their semantic boundary, protocol, binding, and authority.
 
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Channel Adapter](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ChannelAdapter.html), [Messaging Gateway](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingGateway.html), and [Messaging Mapper](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingMapper.html), *Enterprise Integration Patterns*, 2003.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Observer|observer]], [[Observer Models|observer models]], [[Command|command]], [[Query|query]], [[Observation|observation]], [[Event|event]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Compatibility and Evolution|compatibility and evolution]], [[Network|network]], [[Application Hosts|application hosts]], [[Realization|realization]], [[Anti-Corruption Layer|anti-corruption layer]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Observer|observer]], [[Observer Models|observer models]], [[Command|command]], [[Query|query]], [[Observation|observation]], [[Event|event]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Compatibility and Evolution|compatibility and evolution]], [[Network Channels|network channels]], [[Network|network]], [[Application Hosts|application hosts]], [[Realization|realization]], [[Anti-Corruption Layer|anti-corruption layer]].
