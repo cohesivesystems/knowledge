@@ -43,7 +43,7 @@ Describe modeling disciplines used across the system model.
 - [[Execution Kernel]]
 - [[Pattern Languages and Correspondence]]
 - [[Categorical Principles]]
-- [[Logic]], [[Judgement|judgement]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]]
+- [[Logic]], [[Judgement|judgement]], [[Law of Excluded Middle|law of excluded middle]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Lambda Calculus|lambda calculus]], [[Substitution|substitution]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]]
 - [[Programming Paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]]
 - [[Process Theories]], [[Process Calculi|process calculi]], [[Session Types|session types]]
 - [[Service]]

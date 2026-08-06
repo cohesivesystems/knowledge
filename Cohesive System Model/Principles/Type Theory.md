@@ -10,7 +10,7 @@ aliases:
 
 # Type Theory
 
-Type theory studies terms together with the types that classify them and the [[Judgement|judgements]] that establish when those terms are well formed. It can serve as a foundation for mathematics, a formal system for proofs, and a semantic basis for programming-language type systems.
+Type theory studies terms together with the types that classify them and the [[Judgement|judgements]] that establish when those terms are well formed. It can serve as a foundation for mathematics, a formal system for proofs, and a semantic basis for programming-language type systems. [[Substitution]] transports terms and types across contexts, while typed [[Lambda Calculus|lambda calculi]] provide foundational term languages for abstraction and application.
 
 A typing [[Judgement|judgement]] is commonly written:
 
@@ -54,4 +54,4 @@ Type theory can discipline Cohesive language and compiler-like [[Realization|rea
 - An effect type should distinguish a described domain [[Effect|effect]] from a host-language effect or runtime operation.
 - A successful type check should state what was proved and what remains an operational or realization obligation.
 
-Related concepts: [[Logic|logic]], [[Judgement|judgement]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Session Types|session types]], [[Process Calculi|process calculi]], [[Temporal Logic|temporal logic]], [[Functional Programming|functional programming]], [[Programming Paradigms|programming paradigms]], [[Shape|shape]], [[Invariant|invariants]], [[Interfaces|interfaces]], [[Effect|effect]], [[Effect Models|effect models]], [[Compositionality|compositionality]], [[System Language and Realization|system language and realization]], [[Realization|realization]].
+Related concepts: [[Logic|logic]], [[Judgement|judgement]], [[Law of Excluded Middle|law of excluded middle]], [[Substitution|substitution]], [[Lambda Calculus|lambda calculus]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Session Types|session types]], [[Process Calculi|process calculi]], [[Temporal Logic|temporal logic]], [[Functional Programming|functional programming]], [[Programming Paradigms|programming paradigms]], [[Shape|shape]], [[Invariant|invariants]], [[Interfaces|interfaces]], [[Effect|effect]], [[Effect Models|effect models]], [[Compositionality|compositionality]], [[System Language and Realization|system language and realization]], [[Realization|realization]].

@@ -52,15 +52,15 @@ For implication, a proof of $A \Rightarrow B$ is a construction that transforms 
 
 Different systems support different instances of the correspondence:
 
-- Intuitionistic propositional logic corresponds to the simply typed lambda calculus with suitable product, sum, unit, and empty types.
+- Intuitionistic propositional logic corresponds to the simply typed [[Lambda Calculus|lambda calculus]] with suitable product, sum, unit, and empty types.
 - Polymorphic calculi such as System F correspond to forms of second-order constructive logic.
 - Dependent type theories internalize predicate-level propositions through types that depend on terms.
 - [[Linear Logic|Linear logic]] corresponds to linear type systems in which assumptions and resources cannot be duplicated or discarded without explicit permission.
-- Classical logic can receive computational interpretations through continuations, control operators, double-negation translations, or related calculi, but it does not share the ordinary direct constructive reading unchanged.
+- Classical logic and the [[Law of Excluded Middle|law of excluded middle]] can receive computational interpretations through continuations, control operators, double-negation translations, or related calculi, but they do not share the ordinary direct constructive reading unchanged.
 
 [[Session Types|Session types]] and typed [[Process Calculi|process calculi]] extend the correspondence from propositions-as-types and proofs-as-programs to propositions-as-sessions and proofs-as-processes. [[Linear Logic|Linear propositions]] describe communication protocols, logical duality relates compatible endpoints, cut composes processes along a private channel, and cut elimination corresponds to communication. These results belong to particular logical process calculi rather than to every distributed interaction.
 
-The correspondence can extend categorically. Cartesian closed categories provide semantics for simply typed lambda calculus and intuitionistic propositional logic: types or propositions appear as objects, programs or proofs as morphisms, and composition represents substitution or cut. This broader view is often called the Curry–Howard–Lambek correspondence and connects the principle to [[Categorical Principles|categorical principles]] and [[Compositionality|compositionality]].
+The correspondence can extend categorically. Cartesian closed categories provide semantics for simply typed [[Lambda Calculus|lambda calculus]] and intuitionistic propositional logic: types or propositions appear as objects, programs or proofs as morphisms, and composition represents [[Substitution|substitution]] or cut. This broader view is often called the Curry–Howard–Lambek correspondence and connects the principle to [[Categorical Principles|categorical principles]] and [[Compositionality|compositionality]].
 
 ## Normalization, Totality, and Effects
 
@@ -103,7 +103,7 @@ This does not collapse meaning into types. A domain [[Invariant|invariant]] rema
 
 - Philip Wadler, [Propositions as Types](https://doi.org/10.1145/2699407), *Communications of the ACM* 58(12):75–84, 2015.
 
-Related concepts: [[Logic|logic]], [[Type Theory|type theory]], [[Judgement|judgement]], [[Functional Programming|functional programming]], [[Linear Logic|linear logic]], [[Session Types|session types]], [[Process Calculi|process calculi]], [[Categorical Principles|categorical principles]], [[Compositionality|compositionality]], [[Invariant|invariants]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[System Language and Realization|system language and realization]], [[Realization|realization]].
+Related concepts: [[Logic|logic]], [[Type Theory|type theory]], [[Judgement|judgement]], [[Law of Excluded Middle|law of excluded middle]], [[Substitution|substitution]], [[Lambda Calculus|lambda calculus]], [[Functional Programming|functional programming]], [[Linear Logic|linear logic]], [[Session Types|session types]], [[Process Calculi|process calculi]], [[Categorical Principles|categorical principles]], [[Compositionality|compositionality]], [[Invariant|invariants]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[System Language and Realization|system language and realization]], [[Realization|realization]].
 
 ## Formal relations
 

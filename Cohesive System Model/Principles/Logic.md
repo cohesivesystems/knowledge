@@ -20,6 +20,8 @@ $$
 
 says that $\varphi$ is true under the interpretation supplied by $M$. Semantic entailment $\Gamma \models \varphi$ says that every model satisfying the assumptions $\Gamma$ also satisfies $\varphi$. A proof [[Judgement|judgement]] $\Gamma \vdash \varphi$ instead says that $\varphi$ is derivable from $\Gamma$ in a selected proof system. Truth in a model, validity across models, and derivability in a calculus are related but distinct notions.
 
+[[Substitution]] instantiates variables in terms and formulas while preserving binding and well-formedness. A logical system must state which substitutions are admissible and prove a substitution lemma connecting syntax, derivability, and interpretation.
+
 ## Propositional, Predicate, and Higher-Order Logic
 
 These names identify different expressive levels:
@@ -32,6 +34,8 @@ These names identify different expressive levels:
 The expressive level should be named rather than inferred from notation. A formula containing a predicate is not necessarily higher-order; it becomes higher-order when predicates or functions themselves occupy quantified or value-level positions permitted by the logic.
 
 Propositional, first-order, and higher-order distinguish what formulas can quantify over. [[Linear Logic|Linear logic]] and related substructural logics vary a different axis: whether assumptions may be reordered, discarded, or reused. A logic can therefore be first-order and linear, higher-order and linear, or non-linear at either expressive level.
+
+The [[Law of Excluded Middle|law of excluded middle]] distinguishes classical from constructive proof principles along another axis. Classical logic accepts $P\lor\neg P$ for every proposition; constructive systems require evidence for a selected disjunct and may prove the principle only for decidable propositions.
 
 ## Logic in the System Model
 
@@ -58,4 +62,4 @@ Typed functional languages commonly realize fragments of type theory through typ
 - Is a logical statement being used as a specification, a proof obligation, a query, or an executable decision procedure?
 - What part of the claim is preserved when it is lowered into types, validation, storage constraints, model checking, or runtime code?
 
-Related concepts: [[Judgement|judgement]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]], [[Programming Paradigms|programming paradigms]], [[Invariant|invariants]], [[Relation|relations]], [[Query|queries]], [[Policy|policies]], [[Behavior|behavior]], [[State Machines|state machines]], [[Compositionality|compositionality]], [[System Language and Realization|system language and realization]], [[Realization|realization]].
+Related concepts: [[Judgement|judgement]], [[Law of Excluded Middle|law of excluded middle]], [[Substitution|substitution]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Lambda Calculus|lambda calculus]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]], [[Programming Paradigms|programming paradigms]], [[Invariant|invariants]], [[Relation|relations]], [[Query|queries]], [[Policy|policies]], [[Behavior|behavior]], [[State Machines|state machines]], [[Compositionality|compositionality]], [[System Language and Realization|system language and realization]], [[Realization|realization]].

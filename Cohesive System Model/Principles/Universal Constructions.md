@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-08-06
 ---
 
 # Universal Constructions
@@ -23,6 +23,7 @@ Limits are useful for modeling coherence, compatibility, and shared constraint. 
 
 - A product as a way to consider several observations together.
 - A pullback as a way to align two views over a shared identity, version, key, or boundary.
+- A pullback as the reindexing of a predicate or dependent type along a term; see [[Substitution|substitution]].
 - An equalizer as a way to select cases where two interpretations, projections, or policies agree.
 - A limit of observations as "the" coherent view determined by all required observations and compatibility constraints.
 
@@ -46,4 +47,4 @@ Examples in the Cohesive System Model:
 
 Universal constructions are not always implemented literally. Their value is disciplinary: they force the model to say what relationships make an object canonical, and what related information has been included, excluded, merged, or quotiented away.
 
-Related concepts: [[Transition|transition]], [[Observation|observation]], [[Projection Models|projection models]], [[Boundaries|boundaries]], [[Behavior|behavior]], [[Realization|realization]], [[Version Histories|version histories]], [[Consensus|consensus]], [[State|state]], [[Event|event]], [[Value|value]].
+Related concepts: [[Substitution|substitution]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Transition|transition]], [[Observation|observation]], [[Projection Models|projection models]], [[Boundaries|boundaries]], [[Behavior|behavior]], [[Realization|realization]], [[Version Histories|version histories]], [[Consensus|consensus]], [[State|state]], [[Event|event]], [[Value|value]].

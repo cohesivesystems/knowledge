@@ -12,7 +12,7 @@ aliases:
 
 Functional programming describes computation primarily through values, functions, composition, and evaluation rather than through a distinguished sequence of commands that mutate shared state.
 
-It is one family within [[Programming Paradigms|programming paradigms]], not a claim that every program is pure, total, terminating, or implemented by direct lambda-calculus reduction.
+It is one family within [[Programming Paradigms|programming paradigms]], not a claim that every program is pure, total, terminating, or implemented by direct [[Lambda Calculus|lambda-calculus]] reduction.
 
 ## Core Structure
 
@@ -30,7 +30,7 @@ Pure functions are deterministic only when their inputs and semantic operations 
 
 ## Evaluation and Confluence
 
-The lambda calculus supplies a foundational model of function application and substitution. Its pure beta-reduction relation is confluent, but different [[Reduction, Evaluation, and Confluence|evaluation strategies]] can have different termination and cost behavior.
+The [[Lambda Calculus|lambda calculus]] supplies a foundational model of function application and [[Substitution|substitution]]. Its pure beta-reduction relation is confluent, but different [[Reduction, Evaluation, and Confluence|evaluation strategies]] can have different termination and cost behavior.
 
 Call-by-value, call-by-name, call-by-need, strict evaluation, lazy evaluation, parallel evaluation, and compiler normalization are realization or language-semantic choices over related functional structure. They should not be treated as interchangeable when effects, divergence, resource usage, or observation timing matter.
 
@@ -87,4 +87,4 @@ A functional program can describe a process, but the semantic [[Process|process]
 - John Hughes, [Why Functional Programming Matters](https://doi.org/10.1093/comjnl/32.2.98), *The Computer Journal* 32(2):98-107, 1989.
 - Gordon D. Plotkin, [Call-by-Name, Call-by-Value and the Lambda-Calculus](https://doi.org/10.1016/0304-3975(75)90017-1), *Theoretical Computer Science* 1(2):125-159, 1975.
 
-Related concepts: [[Programming Paradigms|programming paradigms]], [[Logic|logic]], [[Judgement|judgement]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]], [[Relational and Logic Programming|relational and logic programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Monads Monoids and Duals|monads monoids and duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Behavior|behavior]], [[Event|event]], [[State Machines|state machines]], [[Process Theories|process theories]], [[Runtimes|runtimes]], [[Scheduling|scheduling]], [[Invariant|invariants]], [[Realization|realization]].
+Related concepts: [[Programming Paradigms|programming paradigms]], [[Lambda Calculus|lambda calculus]], [[Substitution|substitution]], [[Logic|logic]], [[Judgement|judgement]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]], [[Relational and Logic Programming|relational and logic programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Monads Monoids and Duals|monads monoids and duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Behavior|behavior]], [[Event|event]], [[State Machines|state machines]], [[Process Theories|process theories]], [[Runtimes|runtimes]], [[Scheduling|scheduling]], [[Invariant|invariants]], [[Realization|realization]].

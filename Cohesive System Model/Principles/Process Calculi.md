@@ -43,7 +43,7 @@ $$
 
 Here $a(x).P$ receives a name on $a$ and continues as $P$, $\overline{a}\langle b\rangle.P$ sends $b$ on $a$, $P \mid Q$ composes processes in parallel, $(\nu a)P$ restricts a fresh or private name, $P+Q$ offers a choice, and $!P$ provides replicable behavior. Exact syntax and whether output is synchronous, asynchronous, guarded, polyadic, or typed vary by calculus.
 
-Communication reduces compatible endpoints by substitution:
+Communication reduces compatible endpoints by [[Substitution|substitution]]:
 
 $$
 \overline{a}\langle b\rangle.P \mid a(x).Q
@@ -70,7 +70,7 @@ Many standard labelled semantics represent independent actions through their pos
 
 ## From Lambda Calculus to Interaction
 
-The lambda calculus centers computation on abstraction, application, substitution, and evaluation of terms. Process calculi generalize that computational viewpoint in an important but qualified sense: they make multiple independently progressing processes, interaction, synchronization, choice, scoping, and evolving communication topology primary.
+The [[Lambda Calculus|lambda calculus]] centers computation on abstraction, application, substitution, and evaluation of terms. Process calculi generalize that computational viewpoint in an important but qualified sense: they make multiple independently progressing processes, interaction, synchronization, choice, scoping, and evolving communication topology primary.
 
 The relationship is not simply set inclusion. Different lambda and process calculi have different observations and equivalences. Instead, translations show how one computational discipline can be represented in another. Milner's *Functions as Processes* encodes lambda-calculus evaluation in the π-calculus by representing a function as a process protocol and application as communication over names. Call-by-name, call-by-value, linear, higher-order, and continuation-passing interpretations induce different encodings and behavioral equivalences.
 
@@ -145,7 +145,7 @@ A lowering from a process calculus into infrastructure must preserve the selecte
 - John C. Baez and Christian Williams, [Enriched Lawvere Theories for Operational Semantics](https://arxiv.org/abs/1905.05636), 2019.
 - Michael Stay and L. G. Meredith, [Representing Operational Semantics with Enriched Lawvere Theories](https://arxiv.org/abs/1704.03080), 2017.
 
-Related concepts: [[Process Theories|process theories]], [[Session Types|session types]], [[Linear Logic|linear logic]], [[Process|process]], [[Process Graphs|process graphs]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Concurrency|concurrency]], [[Nondeterminism and Choice|nondeterminism and choice]], [[State Machines|state machines]], [[Temporal Logic|temporal logic]], [[Fixed Points|fixed points]], [[Recursion|recursion]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Categorical Principles|categorical principles]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Actor Model|actor model]], [[Actor Systems|actor systems]], [[Realization|realization]].
+Related concepts: [[Process Theories|process theories]], [[Lambda Calculus|lambda calculus]], [[Substitution|substitution]], [[Session Types|session types]], [[Linear Logic|linear logic]], [[Process|process]], [[Process Graphs|process graphs]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Concurrency|concurrency]], [[Nondeterminism and Choice|nondeterminism and choice]], [[State Machines|state machines]], [[Temporal Logic|temporal logic]], [[Fixed Points|fixed points]], [[Recursion|recursion]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Categorical Principles|categorical principles]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Actor Model|actor model]], [[Actor Systems|actor systems]], [[Realization|realization]].
 
 ## Formal relations
 

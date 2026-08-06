@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-08-06
 status: draft
 aliases:
   - Confluence
@@ -59,7 +59,7 @@ Monad associativity gives coherent rebracketing of effectful sequencing. It does
 
 ## Lambda Calculus and Evaluation Strategies
 
-Beta reduction in the pure lambda calculus satisfies the Church-Rosser property: if a term reduces along two paths, the results can be joined. A beta-normal form is therefore unique when it exists.
+Beta reduction in the pure [[Lambda Calculus|lambda calculus]] applies capture-avoiding [[Substitution|substitution]] and satisfies the Church-Rosser property: if a term reduces along two paths, the results can be joined. A beta-normal form is therefore unique when it exists.
 
 Confluence does not make every evaluation strategy terminate. Normal order can reach a normal form without evaluating an unused divergent argument, while call-by-value can diverge on that argument. Common strategies include:
 
@@ -116,4 +116,4 @@ Confluence is not the same as eventual convergence. Confluence says that branche
 - M. H. A. Newman, [On Theories with a Combinatorial Definition of Equivalence](https://doi.org/10.2307/1968867), *Annals of Mathematics* 43(2):223-243, 1942.
 - Gordon D. Plotkin, [Call-by-Name, Call-by-Value and the Lambda-Calculus](https://doi.org/10.1016/0304-3975(75)90017-1), *Theoretical Computer Science* 1(2):125-159, 1975.
 
-Related concepts: [[Functional Programming|functional programming]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Equivalence vs Equality|equivalence vs equality]], [[Compositionality|compositionality]], [[Naturality|naturality]], [[Monads Monoids and Duals|monads monoids and duals]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[State Machines|state machines]], [[Process Theories|process theories]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[CRDTs]], [[Actor Systems|actor systems]].
+Related concepts: [[Lambda Calculus|lambda calculus]], [[Substitution|substitution]], [[Functional Programming|functional programming]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Equivalence vs Equality|equivalence vs equality]], [[Compositionality|compositionality]], [[Naturality|naturality]], [[Monads Monoids and Duals|monads monoids and duals]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[State Machines|state machines]], [[Process Theories|process theories]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[CRDTs]], [[Actor Systems|actor systems]].

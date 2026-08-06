@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-06-29
+updated: 2026-08-06
 ---
 
 # Fibrations and Indexed Structure
@@ -39,6 +39,8 @@ Examples:
 
 Fibrational thinking prevents context from being erased. It keeps clear that an observation is not just a value, a version is not just a number, and a realization is not just an implementation artifact. Each is something over a subject, identity, boundary, or semantic role.
 
+In categorical semantics of type theory, a context can index a fiber of types or predicates valid over that context. A term or context morphism $t:A\to B$ induces contravariant reindexing $t^*$ from the fiber over $B$ to the fiber over $A$. This is the indexed form of [[Substitution|substitution as pullback]]: dependent types or predicates are pulled back along the substituted term, while substitution of terms themselves is composition in the category of contexts.
+
 Observer-indexed fibers can also support [[Systems Sheaf Semantics|systems sheaf semantics]], where each observer has local sections over the cuts, boundaries, and views available to it.
 
-Related concepts: [[Realization|realization]], [[Observation|observation]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Systems Sheaf Semantics|systems sheaf semantics]].
+Related concepts: [[Substitution|substitution]], [[Type Theory|type theory]], [[Lambda Calculus|lambda calculus]], [[Realization|realization]], [[Observation|observation]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Systems Sheaf Semantics|systems sheaf semantics]].
