@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-08-03
+updated: 2026-08-06
 ---
 
 # Realization
@@ -48,15 +48,15 @@ Examples include:
 canonical definition
   -> semantic decision or finite activation
   -> structural requirements and guarantee demands
-  -> capability evidence and realization judgment
+  -> capability evidence and realization judgement
   -> commit, continuation, effects, and observations
 ```
 
 The canonical definition is not identical to the semantic entity, process, state, event, or effect. It is the portable system-graph structure selected to make those meanings executable and independently interpretable. A checkpoint, generated handler, backend plan, or runtime registration remains derived material and must not become a parallel source of semantic authority.
 
-A realization judgment should state whether a requirement is native, composed from several mechanisms, available only under constraints, accepted through an explicit authorized override, unavailable, or unknown. A realization may select a stronger semantically equivalent mechanism. It must not silently weaken a requirement or substitute compensation, retry, best effort, or name-based compatibility for stronger authored semantics.
+A realization [[Judgement|judgement]] should state whether a requirement is native, composed from several mechanisms, available only under constraints, accepted through an explicit authorized override, unavailable, or unknown. A realization may select a stronger semantically equivalent mechanism. It must not silently weaken a requirement or substitute compensation, retry, best effort, or name-based compatibility for stronger authored semantics.
 
-## Cross-Realm Realization Judgment
+## Cross-Realm Realization Judgement
 
 [[System Language and Realization|Cross-realm projection]] treats a realization mapping as carrying semantic and system-graph structure into a substrate graph while operational concerns qualify the mapping. For a graph element or edge `x`, a candidate realization `ρ(x)`, requirements `P(x)`, and claim boundary `B`, the essential check is:
 
@@ -126,7 +126,7 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[Observer|observer]], [[Effect|effect]], [[Effect Models|effect models]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Infrastructure|infrastructure]].
+Related concepts: [[Judgement|judgement]], [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[Observer|observer]], [[Effect|effect]], [[Effect Models|effect models]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Infrastructure|infrastructure]].
 
 ## Formal relations
 

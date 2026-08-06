@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-02
+updated: 2026-08-06
 status: draft
 aliases:
   - Interaction Protocol
@@ -64,6 +64,7 @@ These layers can share an operation name or edge shape without sharing its meani
 | [[Shape\|shape or schema]] | Structure of exchanged values |
 | semantic contract | Meaning of interactions, outcomes, and failures |
 | interaction protocol | Legal traces, conversational state, ordering, concurrency, and completion |
+| [[Session Types\|session type]] | Formally typed participant-local or projected communication behavior |
 | interaction shape | Coarse exchange morphology required from a channel |
 | operational envelope | Quantitative expectations such as capacity, throughput, latency, and queue limits |
 | [[Interaction Channels\|channel]] | Logical exchange and directions through which occurrences move |
@@ -95,6 +96,7 @@ A service may perform an operation whose domain meaning belongs to an external o
 - [[Interaction Channels|Interaction channels]] carry protocol occurrences but do not define their complete meanings or legal traces.
 - [[Network Channels|Network channels]] and network protocols can realize parts of a service or channel protocol without being identical to it.
 - [[Process Graphs|Process structures]] can describe longer-lived conversations that span several interface operations or protocol sessions.
+- [[Session Types|Session types]] can formally constrain participant-local traces, duality, branching, recursion, and endpoint use without automatically supplying the protocol's domain meaning or operational guarantees.
 - [[Trace and Feedback|Traces]] provide evidence that observed conversations conform to their protocols.
 
 ## Formal relations
@@ -106,4 +108,4 @@ A service may perform an operation whose domain meaning belongs to an external o
 - [Enterprise Integration Patterns: Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html)
 - [RFC 9110: HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110)
 
-Related concepts: [[Interfaces|interfaces]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Interaction Channels|interaction channels]], [[Messages and Envelopes|messages and envelopes]], [[Correlation and Conversations|correlation and conversations]], [[Interaction Control Flow|interaction control flow]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Flow Control|flow control]], [[Network Channels|network channels]], [[Network|network]], [[Realization|realization]].
+Related concepts: [[Interfaces|interfaces]], [[Session Types|session types]], [[Process Calculi|process calculi]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Interaction Channels|interaction channels]], [[Messages and Envelopes|messages and envelopes]], [[Correlation and Conversations|correlation and conversations]], [[Interaction Control Flow|interaction control flow]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Flow Control|flow control]], [[Network Channels|network channels]], [[Network|network]], [[Realization|realization]].

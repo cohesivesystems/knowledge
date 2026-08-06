@@ -2,7 +2,7 @@
 realm: Principles
 kind: discipline
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-08-06
 status: draft
 aliases:
   - Functional Paradigm
@@ -57,6 +57,16 @@ Functional and relational programming therefore overlap without collapsing:
 - A logic program may use functional terms and deterministic subcomputations.
 - A typed functional language may host relational query expressions and lower them through compiler-like [[Realization|realization]].
 
+## Logic and Types
+
+[[Logic]] supplies propositions, predicates, quantification, entailment, and proof systems with which functional programs can be specified and reasoned about. Higher-order functions may accept and return functions or predicates, but using higher-order values does not by itself turn the host language into higher-order logic.
+
+[[Type Theory|Type theory]] gives typed functional programming much of its formal structure. Under the [[Curry–Howard Correspondence|Curry–Howard correspondence]] and related propositions-as-types interpretations, types may represent propositions and well-typed terms may serve as proofs. Ordinary application types more often establish structural properties than full functional correctness: a compiler establishes only the [[Judgement|judgements]] expressed by its type system and trusted checking boundary.
+
+[[Linear Logic|Linear logic]] and related substructural systems refine how typed values may be used. Linear types prohibit implicit duplication and disposal, affine types permit disposal but not duplication, and ordered types can make use sequence significant. These source-level disciplines do not by themselves establish exactly-once external effects, delivery, or distributed ownership.
+
+The distinctions remain useful in both directions. A pure function is not automatically a proof, a terminating type checker is not a general theorem prover, and a type-safe program can still violate a temporal, distributed, or domain-level [[Invariant|invariant]] that its types do not encode.
+
 ## Reactive and Process Interpretation
 
 [[Behavior|Behavior]] as a time-varying value and [[Event|events]] as occurrences provide a functional-reactive interpretation of evolving systems. [[State Machines|State machines]] and [[Process Theories|process theories]] add transition, interaction, concurrency, and recovery structure that a pure value-level account does not supply by itself.
@@ -77,4 +87,4 @@ A functional program can describe a process, but the semantic [[Process|process]
 - John Hughes, [Why Functional Programming Matters](https://doi.org/10.1093/comjnl/32.2.98), *The Computer Journal* 32(2):98-107, 1989.
 - Gordon D. Plotkin, [Call-by-Name, Call-by-Value and the Lambda-Calculus](https://doi.org/10.1016/0304-3975(75)90017-1), *Theoretical Computer Science* 1(2):125-159, 1975.
 
-Related concepts: [[Programming Paradigms|programming paradigms]], [[Relational and Logic Programming|relational and logic programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Monads Monoids and Duals|monads monoids and duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Behavior|behavior]], [[Event|event]], [[State Machines|state machines]], [[Process Theories|process theories]], [[Runtimes|runtimes]], [[Scheduling|scheduling]], [[Realization|realization]].
+Related concepts: [[Programming Paradigms|programming paradigms]], [[Logic|logic]], [[Judgement|judgement]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]], [[Relational and Logic Programming|relational and logic programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation and confluence]], [[Compositionality|compositionality]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Monads Monoids and Duals|monads monoids and duals]], [[Algebras and Coalgebras|algebras and coalgebras]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Behavior|behavior]], [[Event|event]], [[State Machines|state machines]], [[Process Theories|process theories]], [[Runtimes|runtimes]], [[Scheduling|scheduling]], [[Invariant|invariants]], [[Realization|realization]].

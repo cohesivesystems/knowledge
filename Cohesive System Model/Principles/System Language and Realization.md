@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-07-04
-updated: 2026-07-29
+updated: 2026-08-06
 status: draft
 aliases:
   - cohesive vision
@@ -95,7 +95,7 @@ A complete system description can be viewed as a cross-realm realization of one 
 
 The arrows are typed correspondences, not identities. An entity may be authoritative in one service but projected by another. A process may span several services. A service may map to many modules, deployables, and instances, while a repository may contain many services. An interface may have local, HTTP, RPC, broker, or file-based bindings without changing its semantic contract.
 
-Let `G` be the semantic and system graph, `R` a candidate substrate graph, `ρ` a realization mapping, `P` the requirements attached to graph elements and mappings, and `B` the boundary at which they are claimed. A compact realization judgment is:
+Let `G` be the semantic and system graph, `R` a candidate substrate graph, `ρ` a realization mapping, `P` the requirements attached to graph elements and mappings, and `B` the boundary at which they are claimed. A compact [[Judgement|realization judgement]] is:
 
 ```text
 G; P @ B ⊢ ρ : G -> R
@@ -103,7 +103,7 @@ G; P @ B ⊢ ρ : G -> R
 
 `G` appears on both sides because the semantic and system graph is both the context in which `P` is defined and the source graph that `ρ` lowers.
 
-The judgment is acceptable only when capability evidence for `R` demonstrates every required property in `P` at its declared boundary and the composed mappings preserve the relationships that matter. Requirements that qualify the projection include [[Cohesive System Model#2. Operational Concerns|operational concerns]] and other boundary-relative demands, for example:
+The judgement is acceptable only when capability evidence for `R` demonstrates every required property in `P` at its declared boundary and the composed mappings preserve the relationships that matter. Requirements that qualify the projection include [[Cohesive System Model#2. Operational Concerns|operational concerns]] and other boundary-relative demands, for example:
 
 - Concurrency, ordering, and consistency.
 - Throughput, queue bounds, and scaling.

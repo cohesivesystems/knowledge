@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-08-03
+updated: 2026-08-06
 ---
 
 # Cohesive System Model
@@ -43,8 +43,9 @@ Describe modeling disciplines used across the system model.
 - [[Execution Kernel]]
 - [[Pattern Languages and Correspondence]]
 - [[Categorical Principles]]
+- [[Logic]], [[Judgement|judgement]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]]
 - [[Programming Paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]]
-- [[Process Theories]]
+- [[Process Theories]], [[Process Calculi|process calculi]], [[Session Types|session types]]
 - [[Service]]
 - [[Control Flow]]
 - [[Control Theory]]
@@ -176,6 +177,7 @@ Provides concrete mechanisms.
 - [[Workflow Engines|Workflow engines]]  
 - [[Durable Execution Engines|Durable execution engines]]
 - [[Actor Systems|Actor systems]]  
+- [[TLA+]]
 - [[Batch and File Exchange]]
 - [[Infrastructure]]
 

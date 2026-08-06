@@ -2,7 +2,7 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-08-03
+updated: 2026-08-06
 ---
 
 # System Graph
@@ -25,7 +25,7 @@ The domain-semantic graph states meaning-bearing subjects, roles, relations, and
 ![Correspondence from domain semantics through the system graph to realization substrate](../../assets/diagrams/cross-realm-projection.svg)
 *The system graph makes composition, placement, interaction, ownership, scope, and boundaries explicit between domain meaning and concrete realization. Operational concerns qualify nodes, edges, and mappings.*
 
-See [[System Language and Realization#Cross-Realm Projection|cross-realm projection]] for the fuller realization judgment and its preservation requirements.
+See [[System Language and Realization#Cross-Realm Projection|cross-realm projection]] for the fuller realization [[Judgement|judgement]] and its preservation requirements.
 
 Use this realm to answer questions such as:
 

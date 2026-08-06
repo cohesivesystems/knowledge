@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-04
-updated: 2026-08-03
+updated: 2026-08-06
 status: draft
 aliases:
   - Process Theory
@@ -17,7 +17,7 @@ Process theories are modeling disciplines for work, interaction, change, and beh
 
 In Cohesive, process theories provide a shared language for [[Process|processes]], [[Process Graphs|process graphs]], workflows, [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], choreography, orchestration, feedback loops, control loops, and physical processes without making all of those things identical.
 
-The goal is not to choose one universal formalism. Open systems, Petri nets, process calculi, session types, string diagrams, compositional games, dynamical systems, [[Control Theory|control theory]], quantum processes, and compositional concurrency each emphasize different structure. Cohesive uses them as sources of discipline for asking what composes, what is observed, what crosses a boundary, and what must be preserved by realization.
+The goal is not to choose one universal formalism. Open systems, Petri nets, [[Process Calculi|process calculi]], [[Session Types|session types]], string diagrams, compositional games, dynamical systems, [[Control Theory|control theory]], quantum processes, and compositional concurrency each emphasize different structure. Cohesive uses them as sources of discipline for asking what composes, what is observed, what crosses a boundary, and what must be preserved by realization.
 
 ## Cohesive Formulation
 
@@ -137,4 +137,4 @@ When modeling a process, ask:
 - Robin Milner, Joachim Parrow, and David Walker, [A Calculus of Mobile Processes, I](https://doi.org/10.1016/0890-5401(92)90008-4) and [II](https://doi.org/10.1016/0890-5401(92)90009-5), *Information and Computation* 100(1):1-77, 1992.
 - Robin Milner, [Communication and Concurrency](https://www.research.ed.ac.uk/en/publications/communication-and-concurrency/), Prentice Hall, 1989.
 
-Related concepts: [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Control Theory|control theory]], [[Fork and Join|fork and join]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Interaction Control Flow|interaction control flow]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Workflow Engines|workflow engines]], [[Realization|realization]].
+Related concepts: [[System Language and Realization|system language and realization]], [[Execution Kernel|execution kernel]], [[Process Calculi|process calculi]], [[Session Types|session types]], [[Control Theory|control theory]], [[Fork and Join|fork and join]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Interaction Control Flow|interaction control flow]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Workflow Engines|workflow engines]], [[Realization|realization]].

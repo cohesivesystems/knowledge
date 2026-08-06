@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-07-28
-updated: 2026-07-29
+updated: 2026-08-06
 status: draft
 aliases:
   - Infrastructure Scaling
@@ -18,7 +18,7 @@ Scaling mechanisms are concrete ways to change resource capacity, execution popu
 
 They include changing resource allocations, adding or removing execution units, realizing [[Replica Models|replica models]], decomposing responsibilities, realizing [[Partition Models|partition models]], redistributing ownership, and controlling these changes automatically. A mechanism changes a realization; it does not prove that useful capacity increased or that semantic and operational guarantees were preserved.
 
-In [[Stuff Structure Property|stuff, structure, and property]] terms, scaling mechanisms change substrate stuff or structure in pursuit of an operational property. The realization judgment must show that the changed structure still preserves the system model's identities, authorities, interfaces, protocols, commitments, and recovery meanings.
+In [[Stuff Structure Property|stuff, structure, and property]] terms, scaling mechanisms change substrate stuff or structure in pursuit of an operational property. The realization [[Judgement|judgement]] must show that the changed structure still preserves the system model's identities, authorities, interfaces, protocols, commitments, and recovery meanings.
 
 ## Vertical and Horizontal Scaling
 
@@ -94,7 +94,7 @@ The [[Scalability|Universal Scalability Law]] provides one way to detect a retro
 
 [[Capacity Planning|Capacity planning]] establishes the demand envelope, reserves, quotas, provisioning lead times, and tested limits within which scaling controllers operate. Autoscaling cannot create unavailable quota, shorten a physical lead time, partition an unsplittable authority, or make a shared bottleneck scale merely by increasing desired capacity.
 
-## Realization Judgment
+## Realization Judgement
 
 A scaling realization should state:
 
@@ -115,4 +115,4 @@ A scaling realization should state:
 - Kubernetes, [Horizontal Pod Autoscaling](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/), an example of a metric-driven scaling control loop with readiness handling and stabilization behavior.
 - Tania Lorido-Botran, Jose Miguel-Alonso, and Jose A. Lozano, [A Review of Auto-scaling Techniques for Elastic Applications in Cloud Environments](https://doi.org/10.1007/s10723-014-9314-7), *Journal of Grid Computing* 12:559-592, 2014.
 
-Related concepts: [[Stuff Structure Property|stuff structure property]], [[Scalability|scalability]], [[Capacity Planning|capacity planning]], [[Control Models|control models]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Locality|locality]], [[Metastability|metastability]], [[Realization|realization]], [[Infrastructure Graph|infrastructure graph]], [[Replica Models|replica models]], [[Partition Models|partition models]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Identity|identity]], [[Authority|authority]], [[Compatibility and Evolution|compatibility and evolution]], [[Recovery|recovery]], [[Microservice Architecture|microservices]], [[Modular Monolith|modular monolith]].
+Related concepts: [[Stuff Structure Property|stuff structure property]], [[Scalability|scalability]], [[Capacity Planning|capacity planning]], [[Control Models|control models]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Locality|locality]], [[Metastability|metastability]], [[Realization|realization]], [[Judgement|judgement]], [[Infrastructure Graph|infrastructure graph]], [[Replica Models|replica models]], [[Partition Models|partition models]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Identity|identity]], [[Authority|authority]], [[Compatibility and Evolution|compatibility and evolution]], [[Recovery|recovery]], [[Microservice Architecture|microservices]], [[Modular Monolith|modular monolith]].

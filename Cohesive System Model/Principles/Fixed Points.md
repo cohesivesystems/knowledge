@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-07-14
+updated: 2026-08-06
 aliases:
   - Fixed Point
 ---
@@ -50,7 +50,8 @@ Let $y = N(x)$. Then $N(y) = N(N(x)) = N(x) = y$, so every result of an idempote
 Examples:
 
 - In functional programming, the Y combinator is a fixed-point combinator. For a function $F$, it produces a fixed point $Y(F)$ satisfying $F(Y(F)) = Y(F)$, allowing a recursive function to be expressed without referring to itself by name.
+- In the π-calculus, replication commonly unfolds as $!P \equiv P \mid !P$. This is fixed-point-like for the process context $F(X)=P\mid X$, but its parallel operational meaning, behavioral equivalence, and solution discipline differ from the Y combinator; see [[Process Calculi|process calculi]].
 - The declarative meaning of a positive Datalog program is the least fixed point of its immediate-consequence operator; see [[Relational and Logic Programming|relational and logic programming]].
 - A feedback or control system is at a fixed point when another modeled observation-decision-update cycle leaves its relevant state unchanged. Stability, convergence, and sensitivity remain separate questions; see [[Trace and Feedback|trace and feedback]].
 
-Related concepts: [[Recursion|recursion]], [[Idempotency|idempotency]], [[Behavior|behavior]], [[State Machines|state machines]], [[Relational and Logic Programming|relational and logic programming]], [[Trace and Feedback|trace and feedback]], [[Equivalence vs Equality|equivalence vs equality]], [[Enrichment and Order|enrichment and order]].
+Related concepts: [[Recursion|recursion]], [[Process Calculi|process calculi]], [[Session Types|session types]], [[Idempotency|idempotency]], [[Behavior|behavior]], [[State Machines|state machines]], [[Relational and Logic Programming|relational and logic programming]], [[Trace and Feedback|trace and feedback]], [[Equivalence vs Equality|equivalence vs equality]], [[Enrichment and Order|enrichment and order]].

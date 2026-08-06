@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-08-02
+updated: 2026-08-06
 ---
 
 # Interaction
@@ -35,7 +35,7 @@ Cohesive keeps these descriptions related without collapsing them. A semantic [[
 
 ## Property Correspondence
 
-Semantic and operational properties are related but not identical. Semantic properties state what must remain true for an interaction to preserve its modeled meaning. Operational properties refine those requirements into claims that can be attached to explicit graph and substrate boundaries. A system graph can carry these refinements as guarantee demands before a realization is selected; capability evidence from the selected mechanisms then supports or rejects the realization judgment.
+Semantic and operational properties are related but not identical. Semantic properties state what must remain true for an interaction to preserve its modeled meaning. Operational properties refine those requirements into claims that can be attached to explicit graph and substrate boundaries. A system graph can carry these refinements as guarantee demands before a realization is selected; capability evidence from the selected mechanisms then supports or rejects the realization [[Judgement|judgement]].
 
 | Semantic property | Possible operational refinements |
 | --- | --- |
