@@ -280,7 +280,7 @@ An executable long-lived process advances through finite activations separated b
 
 [[Interaction]] names boundary-relative participation among subjects: how observers, processes, entities, or other participants affect, observe, request, notify, answer, share state with, wait for, or synchronize with one another.
 
-Interaction is described across realms. Its semantic description identifies participant roles, meanings, occurrences, continuations, and obligations. The system graph makes interactions explicit as compositional structure. Operational concerns state the boundary-relative properties interactions require or exhibit, and [[Realization|realization]] relates that structure and those property demands to substrate mechanisms and capability evidence.
+Interaction is cross-realm because no single realm fully describes it. Domain semantics identifies what the participation means; the system graph arranges participants and occurrences as compositional structure; operational concerns qualify that structure with boundary-relative property claims; and [[Realization|realization]] relates the structure and its property demands to substrate mechanisms and capability evidence. These descriptions must preserve meaning across lowering, but none substitutes for another.
 
 Under the [[Stuff Structure Property|stuff structure property]] lens, an interaction may be structure when it relates participants and occurrences, stuff when reified as a modeled object, or the subject of properties constraining valid interaction. The aspect being described depends on the model boundary and purpose.
 

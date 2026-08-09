@@ -2,22 +2,22 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-08-06
+updated: 2026-08-08
 ---
 
 # Interaction
 
 Interaction names boundary-relative participation among subjects: how [[Observer|observers]], [[Process|processes]], [[Entity|entities]], or other participants affect, observe, request, notify, answer, share state with, wait for, or synchronize with one another.
 
-Interaction is a cross-realm concept. Its semantic description identifies participant roles, meanings, occurrences, continuations, and obligations. The [[System Graph|system graph]] makes interactions explicit as compositional structure through observer models, process graphs, flow views, messages, channels, routes, and boundaries. Operational concerns specify the boundary-relative properties interactions require or exhibit. [[Realization|Realization]] relates that structure and those property demands to substrate mechanisms and capability evidence.
+Interaction is a cross-realm concept because no single realm fully describes it. The same boundary-relative participation has linked semantic, structural, operational, and realization descriptions. Each makes a different kind of claim, and none substitutes for the others.
 
-This note is located in Domain Semantics as the definitional entry point for interaction, not as a claim that the semantic perspective is intrinsically prior to its structural, operational, or realization descriptions.
+The Domain Semantics realm identifies this note as the definitional entry point for interaction, alongside its structural, operational, and realization realm descriptions.
 
 Under the [[Stuff Structure Property|stuff structure property]] lens, an interaction may be structure when it relates participants and occurrences, stuff when it is reified as a modeled object, or the subject of properties that constrain valid interaction. Which aspect is foregrounded depends on the model boundary and purpose.
 
 Every interaction description is relative to participant boundaries. A claim about a successful interaction must say which boundary observed success: sender-local acceptance, receiver-local admission, handler processing, durable persistence, responsibility transfer, or domain commitment.
 
-A designed interaction surface is an [[Interfaces|interface]]. The boundary establishes scope; the interface declares the roles and contracts by which selected interactions may cross it; the interaction is the actual or possible participation through that surface. An [[Interaction Channels|interaction channel]] supplies logical exchanges and directions among [[Endpoints|endpoints]], while an [[Interaction Protocols|interaction protocol]] constrains how occurrences may unfold over time. An [[Interaction Bindings|interaction binding]] associates exact interface and protocol roles with those endpoints and channel directions.
+An explicitly designed interaction surface is an [[Interfaces|interface]]. A boundary establishes scope. An interface declares the roles and contracts by which selected interactions may cross it. An interaction is the actual or possible participation through that surface. An [[Interaction Channels|interaction channel]] provides a stable, provider-neutral structural locus through which values can move among [[Endpoints|endpoints]]; it identifies the exchange's logical directions and scopes requirements attached to the exchange or to an individual direction. An [[Interaction Protocols|interaction protocol]] constrains how occurrences may unfold over time. An [[Interaction Bindings|interaction binding]] associates exact interface and protocol roles with those endpoints and channel directions.
 
 Interaction is boundary-relative. It can occur over a [[Network|network]], between processes on one host, between threads in one process, between tasks in a runtime, between actors and mailboxes, between CPU cores through cache coherence, or between a program and memory/register state.
 
@@ -27,11 +27,18 @@ For the network-specific realization ladder from physical signaling through link
 
 ## Cross-Realm Descriptions
 
-From a semantic perspective, interaction is boundary-crossing participation: one [[Observer|observer]], [[Process|process]], or subject affects, observes, requests, notifies, answers, or synchronizes with another. Semantic properties can constrain authority, admissibility, causality, response obligations, continuation, completion, and valid composition without selecting a transport or runtime.
+Each description answers a different question about the interaction:
 
-From the system-graph perspective, an interaction description arranges participants, interfaces, ports, endpoints, bindings, local occurrences, directions, carried roles, protocols, channels, topology, and composition. Operational properties refine semantic constraints and structural requirements into scoped claims about addressing, timing, delivery, ordering, acknowledgment, progress, settlement, durability, failure, commitment, and recovery. Realization selects or composes mechanisms capable of satisfying those claims and states the evidence and boundaries under which they hold.
+| Realm | Question | Description |
+| --- | --- | --- |
+| Domain Semantics | What does the participation mean? | Identifies participant roles, meanings, occurrences, continuations, obligations, authority, admissibility, and completion without selecting a transport or runtime. |
+| System Graph | How is the participation arranged? | Places participants, interfaces, ports, endpoints, bindings, local occurrences, directions, carried roles, protocols, channels, topology, and composition in explicit structure. |
+| Operational Concerns | What properties must hold, and at which boundaries? | Qualifies the structure with scoped claims about addressing, timing, delivery, ordering, acknowledgment, progress, settlement, durability, failure, commitment, and recovery. |
+| Realization Substrate | Which mechanisms can satisfy those claims? | Selects or composes mechanisms and supplies capability evidence for the required properties at declared boundaries. |
 
-Cohesive keeps these descriptions related without collapsing them. A semantic [[Command|command]], [[Query|query]], [[Event|event]], or [[Observation|observation]] may be carried by many system-graph interaction shapes and substrate mechanisms. Neither an interaction edge nor its realization determines the semantic role of what crosses it.
+The correspondence among these descriptions is many-to-many. A semantic [[Command|command]], [[Query|query]], [[Event|event]], or [[Observation|observation]] may be carried by many system-graph interaction shapes and substrate mechanisms. Neither an interaction edge nor its realization determines the semantic role of what crosses it.
+
+Cross-realm coherence requires lowering to preserve the interaction's participant roles, meanings, obligations, and boundaries while operational claims are supported by capability evidence from the selected realization. A message, channel, route, mailbox, socket, or shared-state cell may participate in that lowering, but no such structural or substrate element is by itself the semantic interaction.
 
 ## Property Correspondence
 

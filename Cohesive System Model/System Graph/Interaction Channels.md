@@ -15,7 +15,7 @@ aliases:
 
 An interaction channel is a provider-neutral logical exchange through which values, messages, observations, signals, requests, replies, events, or framed data can move among [[Endpoints|endpoints]]. It gives the exchange a stable structural locus, identifies its logical directions, and provides scopes to which required observable properties can be attached.
 
-A channel is not the whole [[Interaction|interaction]], an [[Interfaces|interface]], or an [[Interaction Protocols|interaction protocol]]. An interface defines the roles and semantic obligations available at a boundary. A protocol constrains their legal traces. A channel arranges how occurrences can move between attached endpoints. An [[Interaction Bindings|interaction binding]] relates those distinct structures without making them synonymous.
+Channels, [[Interfaces|interfaces]], and [[Interaction Protocols|interaction protocols]] describe distinct aspects of an [[Interaction|interaction]]. An interface defines the roles and semantic obligations available at a boundary. A protocol constrains their legal traces. A channel arranges how occurrences can move between attached endpoints. An [[Interaction Bindings|interaction binding]] relates those distinct structures without making them synonymous.
 
 ## Exchanges and Directions
 

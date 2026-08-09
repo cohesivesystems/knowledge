@@ -12,7 +12,7 @@ aliases:
 
 # Network Channels
 
-A network channel is a protocol-layer communication locus realized through network addresses, links, paths, datagrams, connections, streams, sessions, frames, buffers, and their control state. It is the realization-substrate peer of the provider-neutral [[Interaction Channels|interaction channel]], not a synonym for an application or messaging channel.
+A network channel is a protocol-layer communication locus realized through network addresses, links, paths, datagrams, connections, streams, sessions, frames, buffers, and their control state. It is distinct from the provider-neutral [[Interaction Channels|interaction channel]] and is not a synonym for an application or messaging channel.
 
 Network channels and messaging channels both expose transmission structures such as send, receive, direction, addressing, framing, sequencing, multiplexing, flow control, and completion. Their shared shapes support explicit correspondence. Their meanings and guarantees remain relative to different boundaries.
 
@@ -99,7 +99,6 @@ The realization is acceptable only when those introduced mechanics do not violat
 
 ## Formal relations
 
-- `realm_peer_of`: [[Interaction Channels]] — Network channels and interaction channels treat the nominal channel notion at realization and system-graph boundaries respectively; their structures correspond without making their identities or guarantees interchangeable.
 - `may_realize`: [[Interaction Channels]] — A network channel or a graph of network channels can realize an interaction channel when framing, identity, topology, protocol, and operational requirements are preserved.
 
 ## External References
