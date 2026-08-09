@@ -300,11 +300,9 @@ Addressability is not intrinsic to the definition of an observer. A semantic [[I
 
 An observer may be realized by an OS thread, logical thread, fiber, coroutine, task, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler. In green-thread, fiber, or async runtimes, the observer follows the logical execution context governed by a scheduler, not necessarily the OS thread.
 
-Actor systems make observers addressable: an actor address gives other observers a delivery path to a receiving observer boundary. Entities and [[Process|processes]] can also be modeled as observers when they interpret inputs relative to their own state, history, policies, and boundary.
+Actor systems make observers addressable: an actor address gives other observers a delivery path to a receiving observer boundary. Entities and [[Process|processes]] can also be modeled as observers; in that model, inputs are interpreted relative to their own state, history, policies, and boundary.
 
-An endogenous event emitted inside one observer’s [[Boundaries|boundary]] can be observed as an exogenous event by another observer.
-
-Commands and queries are **observer-relative interpretations**: the same incoming event may be interpreted differently (or rejected) depending on the observer’s current view of entity state, [[Projection Models|projection models]], required observations, [[Invariant|invariants]], [[Policy|policies]], authority, and consistency expectations.
+Events, commands, and queries are **observer-relative interpretations**: an event that is endogenous to one observer may be exogenous to another, and the same incoming observation may be interpreted differently (or rejected) depending on the observer’s current view of entity state, [[Projection Models|projection models]], required observations, [[Invariant|invariants]], [[Policy|policies]], authority, and consistency expectations.
 
 ### Entity
 

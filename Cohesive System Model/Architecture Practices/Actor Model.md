@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-31
+updated: 2026-08-08
 aliases:
   - Actor System
 ---
@@ -21,11 +21,11 @@ Concurrent sends introduce reception-order [[Nondeterminism and Choice|indetermi
 
 ## In the Model
 
-The practice is useful when correctness depends on serializing interpretation and commit for a subject. A mailbox turn can align observer, state access, transition interpretation, and commit.
+The practice is useful when correctness depends on serializing message handling, interpretation, and commit for a subject. An actor mailbox commonly provides this serialization boundary: each turn can align the observer, state access, transition interpretation, and commit.
 
 ## Failure Modes
 
-Actor serialization only proves transition correctness when the actor owns the transition boundary. A router, cache, shard, or forwarding actor may be addressable without being the semantic owner of the entity transition.
+A common failure mode is treating an addressable actor as the authoritative serialization boundary while [[Entity|entity]] transitions can also occur elsewhere. A router, cache, shard, or forwarding actor may serialize its own mailbox turns, but that serialization does not protect transitions that bypass it or commit at another boundary.
 
 ## External References
 

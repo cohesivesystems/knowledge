@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-15
-updated: 2026-08-06
+updated: 2026-08-08
 status: draft
 aliases:
   - Confluence
@@ -16,21 +16,21 @@ Reduction, evaluation, and confluence describe how a computation advances throug
 
 An abstract reduction relation is written:
 
-```txt
-t -> u
-```
+$$
+t \to u
+$$
 
-Its reflexive-transitive closure `t ->* u` represents zero or more reduction steps. A reduction system can therefore be viewed as a graph whose paths are possible evaluations.
+Its reflexive-transitive closure $t \to^{*} u$ represents zero or more reduction steps. A reduction system can therefore be viewed as a graph whose paths are possible evaluations.
 
 ## Confluence
 
 A reduction relation is confluent when every pair of reductions from the same source can be joined:
 
-```txt
-t ->* u and t ->* v
-implies
-there exists w such that u ->* w and v ->* w
-```
+$$
+t \to^{*} u \;\land\; t \to^{*} v
+\quad\Longrightarrow\quad
+\exists w\;\bigl(u \to^{*} w \;\land\; v \to^{*} w\bigr)
+$$
 
 The paths and their intermediate terms need not be equal. They are coherent because they can reach a common reduct. If two normal forms are reachable from one term in a confluent system, those normal forms must be equal under the declared equality, such as equality up to renaming.
 
@@ -77,11 +77,16 @@ Standardization results ask whether arbitrary successful reductions can be rearr
 
 Pure substitution supports strong confluence results because reduction does not ordinarily expose mutation, I/O, failure, or scheduling. Effects can make evaluation order observable:
 
-```txt
-read state + mutate state
-emit output + throw exception
-choose branch + update store
-```
+$$
+\begin{aligned}
+\operatorname{read}(\mathsf{state})
+  &\mathbin{;} \operatorname{mutate}(\mathsf{state}), \\
+\operatorname{emit}(\mathsf{output})
+  &\mathbin{;} \operatorname{throw}(\mathsf{exception}), \\
+\operatorname{choose}(\mathsf{branch})
+  &\mathbin{;} \operatorname{update}(\mathsf{store}).
+\end{aligned}
+$$
 
 [[Monads Monoids and Duals|Monads]] and algebraic effects make sequencing and effect structure explicit, but their basic composition laws do not restore confluence automatically. Additional commutation, distributive, idempotence, handler, or isolation laws are needed.
 
