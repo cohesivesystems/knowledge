@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-07-17
-updated: 2026-08-01
+updated: 2026-08-08
 status: draft
 aliases:
   - Async Interaction Design
@@ -236,6 +236,10 @@ For every asynchronous edge or stage, ask:
 The practice fails when enqueue acknowledgment is presented as business completion, when error rate is monitored without backlog and oldest-work age, when unbounded buffers hide instability, when aggregate lag hides a blocked partition, or when retry amplifies an overloaded dependency.
 
 It also fails when a dead-letter queue has no owner or repair path, when retention is shorter than the recovery horizon, when a new consumer has no coherent bootstrap protocol, when backfill competes blindly with live traffic or repeats external effects, when “exactly once” is claimed without a boundary, when a protocol name is mistaken for a topology, or when one transient trace is expected to explain an arbitrarily long business process.
+
+## Formal relations
+
+- `requires`: [[Correlation and Conversations]] — Split interaction occurrences must be re-associated through stable identities, reply paths, or observation rules when later progress depends on the same logical conversation.
 
 ## External References
 

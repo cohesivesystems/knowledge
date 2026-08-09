@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-06-30
+updated: 2026-08-08
 ---
 
 # Event-State Duality
@@ -59,6 +59,10 @@ Hegel's distinction between being and becoming provides a useful conceptual para
 The parallel is not a formal identification. In the Cohesive model, state and event remain semantic constructs with observer-relative roles. The useful point is that state is not intelligible apart from the behavior and event histories through which it is determined, while events are not intelligible apart from the states they affect, reveal, or relate.
 
 This also suggests a notion of indeterminate state. An indeterminate state is not necessarily the absence of state. It is a recognized subject, possibility, external process, or pending situation whose relevant dimensions are not yet determined relative to an [[Observer|observer]], [[Boundaries|boundary]], [[Shape|shape]], or [[Version|version]]. Indeterminacy may be epistemic, shape-relative, operational, semantic, or external. State becomes determinate for the model through observation, event interpretation, or a commitment boundary.
+
+## Formal relations
+
+- `refines`: [[Duality and Symmetry]] — Instantiates the broader duality principle through model-dependent accumulation and difference views of event schedules and state histories.
 
 ## External References
 

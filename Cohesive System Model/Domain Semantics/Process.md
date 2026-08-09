@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-28
-updated: 2026-07-29
+updated: 2026-08-08
 ---
 
 # Process
@@ -73,3 +73,7 @@ Process composition requires attention to boundary, identity, ordering, idempote
 ## Related Concepts
 
 Related concepts: [[Process Theories|process theories]], [[Behavior|behavior]], [[Observer|observer]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Effect|effect]], [[Identity|identity]], [[State|state]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].
+
+## Formal relations
+
+- `distinguished_from`: [[Workflow Engines]] — A process is coherent semantic work unfolding over time, whereas a workflow engine is one substrate family that may operate a structural realization of that work.

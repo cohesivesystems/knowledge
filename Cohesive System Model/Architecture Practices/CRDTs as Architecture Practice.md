@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-30
+updated: 2026-08-08
 ---
 
 # CRDTs as Architecture Practice
@@ -34,4 +34,4 @@ Related concepts: [[CRDTs]], [[CALM Theorem|CALM theorem]], [[Coordination|coord
 
 ## Formal relations
 
-- `realm_peer_of`: [[CRDTs]] — Treats the same named CRDT family as an architecture practice, while the peer entry owns its operational convergence semantics, delivery assumptions, and coordination boundary.
+- `bundles`: [[CRDTs]] — Adopts a convergent replicated data type and its merge, delivery, metadata, and coordination requirements as an architecture choice.

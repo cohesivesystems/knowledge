@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-08-08
 ---
 
 # Workflow Engines
@@ -39,3 +39,8 @@ A workflow engine that claims [[Execution Kernel|execution-kernel]] conformance 
 An engine may offer stronger native guarantees, but unavailable atomicity, ordering, durability, response, idempotency, or recovery requirements must remain explicit rather than degrade to engine defaults.
 
 Related concepts: [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Process Graphs|process graphs]], [[Process|process]], [[Transition Models|transition models]], [[Effect|effect]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Query|query]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Retry|retry]], [[Recovery|recovery]], [[Ordering|ordering]].
+
+## Formal relations
+
+- `may_realize`: [[Process Graphs]] — Interprets process definitions and operates instances while preserving declared identity, progression, wait, recovery, and completion structure.
+- `may_realize`: [[Coordination]] — Mediates participant progress, timers, signals, activities, retries, and recovery under declared authority and failure boundaries.

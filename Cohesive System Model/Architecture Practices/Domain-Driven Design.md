@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-08-01
+updated: 2026-08-08
 aliases:
   - DDD
 ---
@@ -44,6 +44,11 @@ DDD supplies much of the semantic orientation needed to interpret patterns from 
 ## Failure Modes
 
 DDD fails when names are preserved but semantics are not: the ubiquitous language becomes a glossary of nouns, entities become database rows, value objects become DTOs, domain events become arbitrary messages, and aggregate or bounded-context boundaries are chosen for storage or deployment convenience rather than model coherence and invariant scope. It also fails when “ubiquitous” is mistaken for universal and distinct context languages are forced into one enterprise model.
+
+## Formal relations
+
+- `bundles`: [[Ubiquitous Language]] — Adopts a model-grounded language as the shared expression of domain meaning within its applicable context.
+- `bundles`: [[Bounded Context]] — Adopts an explicit model boundary for language, rules, authority, consistency, ownership, and evolution.
 
 ## External References
 

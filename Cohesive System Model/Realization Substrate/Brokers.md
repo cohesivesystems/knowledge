@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-08-02
+updated: 2026-08-08
 ---
 
 # Brokers
@@ -31,6 +31,10 @@ A brokered messaging channel is normally realized by more than one [[Network Cha
 At its public ports, a broker queue commonly behaves as a passive sink for active producers and a passive source for active consumers. It therefore separates producer and consumer cadence and changes the [[Interaction Control Flow|interaction-control driver]] across the queue. Push subscriptions, event routers, and managed pipes may expose other roles, often by combining internal queues with active drivers. Public push or pull behavior, internal scheduling, buffering, batching, ordering, and backpressure should be modeled separately.
 
 Broker delivery does not by itself provide durable wait arbitration, exclusive signal consumption, entity concurrency control, request-result admission, external idempotency, or exactly-once logical consequences. Those guarantees may be composed with inbox, outbox, checkpoint, claim, fence, and operation-ledger mechanisms when the composition has explicit evidence.
+
+## Formal relations
+
+- `may_realize`: [[Interaction Channels]] — Mediates logical delivery paths when framing, endpoint attachment, topology, identity, ordering, acknowledgment, and recovery requirements are preserved.
 
 ## External References
 

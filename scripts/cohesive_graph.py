@@ -40,6 +40,7 @@ RELATION_INVERSES = {
     "qualifies": "qualified_by",
     "constrains": "constrained_by",
     "requires": "required_by",
+    "distinguished_from": "distinguished_from",
     "bundles": "bundled_by",
     "documents": "documented_by",
     "may_realize": "may_be_realized_by",

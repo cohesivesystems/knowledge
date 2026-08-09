@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-08-08
 status: draft
 aliases:
   - Glitch Phenomenon
@@ -63,6 +63,10 @@ This illustrates why determinacy and uncertainty are boundary-relative. A detail
 - Which fairness or failure assumptions are separate from the physical result?
 - What happens if the arbiter has not settled before a timeout or deadline?
 - Does the higher-level protocol preserve safety while waiting an unbounded time?
+
+## Formal relations
+
+- `constrains`: [[Arbitration]] — Rules out a uniform finite decision-time bound when discrete arbitration is realized by a non-trivial continuous physical process.
 
 ## External References
 

@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-30
+updated: 2026-08-08
 ---
 
 # Event Sourcing as Architecture Practice
@@ -33,4 +33,4 @@ Related concepts: [[Event Sourcing|event sourcing]], [[Event|event]], [[Transiti
 
 ## Formal relations
 
-- `realm_peer_of`: [[Event Sourcing]] — Treats the same named event-sourcing pattern as an architecture practice, while the peer entry owns the realization-substrate mechanics of committed event history and reconstitution.
+- `bundles`: [[Event Sourcing]] — Adopts committed event history as the authoritative persistence and reconstitution mechanism of the architecture practice.

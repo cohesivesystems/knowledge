@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-28
-updated: 2026-07-17
+updated: 2026-08-08
 aliases:
   - Consistency beyond Transaction Boundaries
   - Cross-Boundary Consistency Patterns
@@ -127,6 +127,10 @@ This shifts design work into the semantic model:
 The practice fails when pending states are not first-class, when asynchronous work is presented as complete, when retries lack idempotency, when compensation is treated as inverse transition, or when related facts are read without versioning, reservations, or reconciliation.
 
 It also fails when eventual consistency is used as a slogan. Eventuality must say what will eventually happen, under which delivery and recovery assumptions, and what observers may see before convergence.
+
+## Formal relations
+
+- `bundles`: [[Isolation]] — Adopts explicitly weaker isolation profiles together with the invariant, visibility, coordination, and reconciliation choices they require.
 
 ## External References
 

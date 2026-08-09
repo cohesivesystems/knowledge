@@ -35,4 +35,4 @@ Related concepts: [[Actor Systems|actor systems]], [[Observer|observer]], [[Enti
 
 ## Formal relations
 
-- `realm_peer_of`: [[Actor Systems]] — Treats the same named actor model and actor-system family as an architecture practice, while the peer entry owns runtime addressing, placement, mailboxes, supervision, and execution guarantees.
+- `bundles`: [[Actor Systems]] — Adopts actor-system addressing, mailbox, placement, isolation, supervision, and serialized handling as the named realization family for actor roles.

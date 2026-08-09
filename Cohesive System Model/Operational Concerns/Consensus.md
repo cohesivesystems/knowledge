@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-29
+updated: 2026-08-08
 ---
 
 # Consensus
@@ -57,6 +57,10 @@ Consensus is a synchronizing construction in the sense of [[Synchrony and Asynch
 Consensus gives a universal construction for distributed objects: decide the next operation, apply it to the local state machine, return the operation's result, and repeat. The distributed implementation inherits the sequential object's meaning by making all correct replicas apply operations in the same agreed order.
 
 This connects [[Universal Constructions|universal constructions]] to operational concerns. A sequential specification supplies the transition rule; consensus supplies the ordered choice of which operation is next; [[Consistency Models|linearizability]] supplies the correctness condition that lets observers reason as if the distributed object were atomic.
+
+## Formal relations
+
+- `refines`: [[Coordination]] — Gives coordination a narrower distributed agreement contract with explicit validity, integrity, termination, membership, and failure assumptions.
 
 ## External References
 

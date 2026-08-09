@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-07-27
-updated: 2026-08-03
+updated: 2026-08-08
 aliases:
   - EIP
   - Enterprise Integration Pattern Language
@@ -160,6 +160,12 @@ The two vocabularies meet through explicit correspondence rather than identifica
 ## Boundary of Adoption
 
 Cohesive adopts EIP with three qualifications: guaranteed delivery is not business completion; a canonical integration model is not canonical domain meaning; and a process manager is not the semantic process it coordinates.
+
+## Formal relations
+
+- `documents`: [[Messages and Envelopes]] — Organizes message construction, translation, correlation, and envelope concerns without identifying carried records with semantic events or commands.
+- `documents`: [[Interaction Channels]] — Organizes channel, endpoint, adapter, routing, and mediation patterns for message-based interaction structure.
+- `documents`: [[Routing Models]] — Organizes content-, context-, recipient-, process-, and topology-sensitive routing alternatives and their composition.
 
 ## External References
 

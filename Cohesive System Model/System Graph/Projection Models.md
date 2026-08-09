@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-29
+updated: 2026-08-08
 aliases:
   - Projection
   - Projections
@@ -75,3 +75,7 @@ A projection model should state:
 - Effect policy during live processing and replay.
 
 Related concepts: [[Functoriality|functoriality]], [[Observation|observation]], [[Observable|observable]], [[Shape|shape]], [[Query|query]], [[State|state]], [[Event|event]], [[Effect|effect]], [[Authority|authority]], [[Relation Models|relation models]], [[Replica Models|replica models]], [[Partition Models|partition models]], [[Flow Operators|flow operators]], [[Relational and Logic Programming|relational and logic programming]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Consistent Cuts|consistent cuts]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[Temporal Completeness|temporal completeness]], [[Delivery Semantics|delivery semantics]], [[CRDTs]], [[CQRS]], [[Ordering|ordering]], [[Recovery|recovery]], [[Realization|realization]].
+
+## Formal relations
+
+- `arranges`: [[Observation]] — Places derived observations and state views into model-specific source, transformation, freshness, lineage, and query structures.

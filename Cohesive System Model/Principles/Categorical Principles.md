@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-06-24
-updated: 2026-07-15
+updated: 2026-08-08
 ---
 
 # Categorical Principles
@@ -56,3 +56,9 @@ Additional recurring principles:
 The point is not to force every concept into formal notation. The point is to use categorical language as a precision check: if a mapping does not preserve the required relations, if a duality is mistaken for identity, if "the" object is named without its defining diagram, or if a realization cannot say what semantic structure it preserves, the model is probably hiding an assumption.
 
 Related concepts: [[System Language and Realization|system language and realization]], [[Process Theories|process theories]], [[Programming Paradigms|programming paradigms]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Realization|realization]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Concurrency Control|concurrency control]], [[Boundaries|boundaries]].
+
+## Formal relations
+
+- `documents`: [[Functoriality]] — Organizes identity- and composition-preserving mappings as a core categorical modeling discipline.
+- `documents`: [[Naturality]] — Organizes coherent transformation among structure-preserving mappings as a core categorical modeling discipline.
+- `documents`: [[Universal Constructions]] — Organizes boundary-relative constructions characterized by their mappings and universal properties.

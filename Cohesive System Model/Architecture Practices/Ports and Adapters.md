@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-06-24
-updated: 2026-08-02
+updated: 2026-08-08
 ---
 
 # Ports and Adapters
@@ -32,6 +32,10 @@ Enterprise Integration Patterns channel adapters, messaging gateways, messaging 
 ## Failure Modes
 
 The pattern fails when adapters leak substrate semantics into the domain, when ports are treated as concrete network endpoints, when endpoint addresses become semantic identity, or when interfaces are described without stating their semantic boundary, protocol, binding, and authority.
+
+## Formal relations
+
+- `corresponds_to`: [[Clean Architecture]] — Shares a dependency-direction and boundary-separation structure while retaining distinct interface-role and layering vocabularies.
 
 ## External References
 

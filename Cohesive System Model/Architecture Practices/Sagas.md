@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-07-04
-updated: 2026-07-17
+updated: 2026-08-08
 aliases:
   - Saga
 ---
@@ -41,6 +41,11 @@ ARIES is useful as a contrast point. A database transaction log can support undo
 ## Failure Modes
 
 The pattern fails when the process boundary is implicit, when compensation is assumed to be an inverse transition, when retry and idempotency are ignored, or when execution recovery is mistaken for business recovery. Durable execution can keep saga code running; it does not decide whether the business should compensate, continue, pause, or accept a partial outcome.
+
+## Formal relations
+
+- `requires`: [[Recovery]] — Its defining business-recovery claim depends on explicit partial-completion, compensation, alternate-path, escalation, and reconciliation behavior.
+- `refines`: [[Process Managers]] — Specializes the broader process-manager role for domain process recovery when one atomic transaction is unavailable or inappropriate.
 
 ## External References
 

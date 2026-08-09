@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-29
+updated: 2026-08-08
 ---
 
 # Consistency Models
@@ -105,6 +105,10 @@ The [[CALM Theorem|CALM theorem]] relates consistency to program shape rather th
 The [[CAP Theorem|CAP theorem]] is a specific safety/liveness impossibility: under network partition, a system cannot guarantee both linearizable consistency and request availability for all non-failing nodes.
 
 The design question is not simply "strong" or "weak" consistency. It is which observations must be coherent for which observer, boundary, invariant, and history shape.
+
+## Formal relations
+
+- `qualifies`: [[Replica Models]] — States which writes, reads, orders, versions, lag, convergence, and failure observations replica arrangements may expose at a declared boundary.
 
 ## External References
 

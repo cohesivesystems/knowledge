@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-28
-updated: 2026-07-31
+updated: 2026-08-08
 ---
 
 # Consensus Protocols
@@ -38,4 +38,4 @@ Related concepts: [[Consensus|consensus]], [[Quorum Intersection|quorum intersec
 
 ## Formal relations
 
-- `realm_peer_of`: [[Consensus]] — Treats the same named consensus notion as a realization-protocol family, while the peer entry owns the operational agreement, validity, integrity, termination, and boundary-relative guarantee.
+- `may_realize`: [[Consensus]] — Implements agreement, validity, integrity, and termination claims under declared membership, quorum, network, failure, timing, and persistence assumptions.

@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-15
-updated: 2026-08-01
+updated: 2026-08-08
 status: draft
 aliases:
   - Happens-Before
@@ -45,6 +45,10 @@ An implementation may impose a total order that extends happened-before. That to
 - Does metadata preserve causality fully, partially, or only in one direction?
 - Is a later total order a realization choice or part of domain meaning?
 - Which observations require closure under happened-before?
+
+## Formal relations
+
+- `corresponds_to`: [[Causality]] — Relates a strict partial order of potential information influence to semantic causal dependency without treating temporal comparability as proof of actual cause.
 
 ## External References
 

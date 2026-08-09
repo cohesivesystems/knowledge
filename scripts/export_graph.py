@@ -20,7 +20,7 @@ from cohesive_graph import (
 )
 
 
-SCHEMA_VERSION = "0.4.0"
+SCHEMA_VERSION = "0.5.0"
 
 
 def collect_realm_peers(

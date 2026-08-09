@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-06-28
-updated: 2026-07-31
+updated: 2026-08-08
 ---
 
 # Durable Execution
@@ -49,4 +49,5 @@ Related concepts: [[Durability|durability]], [[Process Theories|process theories
 
 ## Formal relations
 
-- `realm_peer_of`: [[Durable Execution Engines]] — Treats the same named durable-execution family as an architecture practice for coherent recovery, while the peer entry owns the concrete runtime and substrate mechanisms that preserve execution material.
+- `requires`: [[Durability]] — Coherent resumption after interruption depends on execution identity, progress, waits, signals, and pending obligations surviving the declared failure boundary.
+- `bundles`: [[Durable Execution Engines]] — Adopts durable execution engines as the named substrate family for persisted continuation, replay, retry, and recovery of logical execution.

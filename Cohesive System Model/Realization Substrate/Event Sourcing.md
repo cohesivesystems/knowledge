@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: pattern
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-08-08
 ---
 
 # Event Sourcing
@@ -104,6 +104,10 @@ One useful arrangement is a cross-region replication chain. The head accepts wri
 
 ## ARIES and Event Sourcing
 ARIES is relevant by analogy and contrast. In a database, the transaction log is often an internal [[Write-Ahead Logging|write-ahead]] recovery structure used for redo, undo, checkpoints, and crash recovery. In event-sourced systems, the event log is usually an addressable, first-class primitive of the application model: committed persistence events define entity history, version succession, reconstitution, projection, audit, and sometimes publication. The logs therefore have different semantics. ARIES log records are internal recovery records for a storage engine. Event-sourced records are application-level persistence events for an entity boundary and may additionally carry domain-event meaning. Both make durable ordered history central to [[Persistence|persistence]], [[Reconstitution|reconstitution]], and [[Recovery|recovery]].
+
+## Formal relations
+
+- `requires`: [[Compatibility and Evolution]] — Stored authoritative histories must remain interpretable across schema, handler, snapshot, and model revisions for reconstitution and replay claims to hold.
 
 ## External References
 

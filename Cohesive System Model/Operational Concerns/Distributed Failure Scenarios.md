@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: reference
 created: 2026-07-04
-updated: 2026-07-29
+updated: 2026-08-08
 status: draft
 aliases:
   - Distributed Failure Modes
@@ -155,3 +155,7 @@ The queue serializes or buffers work, but it does not by itself provide an await
 Typical resolutions include process identity, durable process state, result observations, workflow queries, callbacks, signals, pending states, timeouts, cancellation, and explicit completion events.
 
 Related concepts: [[Failure Models|failure models]], [[Weak Isolation Patterns|weak isolation patterns]], [[Dual-Write Problem|dual-write problem]], [[Isolation|isolation]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Commit Boundaries|commit boundaries]], [[Effect Models|effects]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Durability|durability]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Metastability|metastability]], [[Coordination|coordination]], [[Replica Models|replica models]], [[Partition Models|partition models]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Actor Systems|actor systems]], [[Business Transactions|business transactions]], [[Invariant|invariants]].
+
+## Formal relations
+
+- `documents`: [[Dual-Write Problem]] — Organizes the split-commit hazard as a recurring distributed failure scenario across independently governed effect and commit boundaries.

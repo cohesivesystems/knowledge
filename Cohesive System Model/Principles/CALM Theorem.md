@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-28
-updated: 2026-06-29
+updated: 2026-08-08
 ---
 
 # CALM Theorem
@@ -23,6 +23,10 @@ In Cohesive terms, CALM gives a test for coordination avoidance:
 CALM is therefore not a replacement for [[Consistency Models|consistency models]]. It explains when a useful consistency guarantee can be obtained without coordination, and when coordination or model redesign is required.
 
 Like the [[Asynchronous Computability Theorem|asynchronous computability theorem]], CALM is a computability-oriented constraint on distributed design. CALM uses logical monotonicity to characterize when coordination can be avoided; ACT uses topology to characterize when wait-free tasks can be solved.
+
+## Formal relations
+
+- `constrains`: [[Coordination]] — Characterizes when monotone distributed conclusions can be derived without coordination and when non-monotone conclusions require coordination or model redesign.
 
 ## External References
 

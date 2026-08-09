@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-28
-updated: 2026-06-29
+updated: 2026-08-08
 ---
 
 # Asynchronous Computability Theorem
@@ -35,6 +35,10 @@ The theorem provides a formal account of why [[Consensus|consensus]] cannot be s
 - The asynchronous computability theorem concerns wait-free task solvability and describes the topological obstruction in the read/write model.
 
 Both results connect [[Safety and Liveness|safety and liveness]] to model structure. Consensus safety can be stated, but the progress condition cannot be satisfied under the stated assumptions.
+
+## Formal relations
+
+- `constrains`: [[Progress Conditions]] — Bounds which task specifications can satisfy wait-free progress in the asynchronous read-write model through the existence of a suitable simplicial map.
 
 ## External References
 

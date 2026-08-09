@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-29
-updated: 2026-08-02
+updated: 2026-08-08
 aliases:
   - Commit Boundary
   - Commitment
@@ -44,6 +44,10 @@ For any claimed commit, ask:
 When required effects cross commit boundaries, the model needs a coordination mechanism, such as [[Two-Phase Commit|two-phase commit]], [[Consensus|consensus]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Sagas|sagas]], [[Process Managers|process managers]], [[Durable Execution|durable execution]], compensation, reconciliation, or another [[Weak Isolation Patterns|weak isolation pattern]].
 
 Enterprise Integration Patterns describes a **Transactional Client** as an endpoint that coordinates its messaging actions with a transaction. The transaction's actual participants and boundary must still be named; transaction-aware messaging does not automatically include domain storage, external effects, or downstream processing.
+
+## Formal relations
+
+- `distinguished_from`: [[Business Transactions]] — One atomic or durable commitment scope does not by itself establish completion of the larger domain process or business outcome.
 
 ## External References
 

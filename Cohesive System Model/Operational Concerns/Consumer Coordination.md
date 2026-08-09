@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-27
-updated: 2026-08-02
+updated: 2026-08-08
 aliases:
   - Consumer Groups
   - Subscription Coordination
@@ -41,6 +41,10 @@ The model should state:
 Competing consumption is an [[Arbitration|arbitration]] and [[Scheduling|scheduling]] problem. Fair scheduling does not imply eventual delivery when partitions, poison work, expired retention, unavailable consumers, or lost cursor state prevent progress. Fencing or expected assignment epochs may be required to prevent a stale consumer from committing after ownership changes.
 
 Consumer ownership and delivery settlement are related but distinct. A lease or group assignment can authorize one consumer to receive work, while a separate attempt-local token authorizes settlement. Durable application progress should survive consumer replacement even when assignment, connection, delivery attempt, and settlement authority all change. See [[Delivery Progress and Settlement|delivery progress and settlement]].
+
+## Formal relations
+
+- `qualifies`: [[Interaction Channels]] — States how available channel work is assigned, claimed, renewed, completed, reassigned, and recovered among consumers.
 
 ## External References
 

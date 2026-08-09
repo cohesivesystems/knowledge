@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-08-02
+updated: 2026-08-08
 aliases:
   - Observer Placement
   - Observer Placements
@@ -35,3 +35,7 @@ Observer models provide structure for:
 When an adapter returns a request result, signal, or external observation, the observer model determines how that input is admitted and interpreted. The adapter must not bypass the entity transition boundary to mutate authoritative state directly, and a runtime callback must not become hidden semantic decision structure.
 
 Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Observer|observer]], [[Observation|observation]], [[Command|command]], [[Event|event]], [[Effect|effect]], [[Entity|entity]], [[Messages and Envelopes|messages and envelopes]], [[Interfaces|interfaces]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Execution Kernel|execution kernel]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]].
+
+## Formal relations
+
+- `arranges`: [[Observer]] — Places semantic observer roles into model-specific interpretation, responsibility, execution-context, and boundary positions.

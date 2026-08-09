@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-29
-updated: 2026-06-29
+updated: 2026-08-08
 status: draft
 aliases:
   - Relational Sheaf Semantics
@@ -212,6 +212,10 @@ The main modeling value is diagnostic. When a system maps between relational vie
 - Does a glued section exist, and is it unique?
 
 This frames mapping as a structure-preserving correspondence between local sections, not merely an imperative transformation between object graphs. It gives a shared language for schema matching, mapping composition, incremental transformation, synchronization, and query generation.
+
+## Formal relations
+
+- `refines`: [[Sheaves and Gluing]] — Specializes restriction, compatibility, and gluing to schemas, database instances, sub-schema views, relations, queries, and migrations.
 
 ## External References
 

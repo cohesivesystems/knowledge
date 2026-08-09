@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-02
+updated: 2026-08-08
 status: draft
 aliases:
   - Interface
@@ -74,6 +74,7 @@ The relationships are many-to-many. One interface can have local, HTTP, RPC, bro
 ## Formal relations
 
 - `arranges`: [[Interaction]] — An interface arranges which interaction roles and semantic obligations are available at a declared boundary.
+- `distinguished_from`: [[Boundaries]] — A boundary separates scopes and contexts, whereas an interface declares selected interaction roles and obligations available across that boundary.
 
 ## External References
 

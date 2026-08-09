@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-31
+updated: 2026-08-08
 ---
 
 # Transactional Outbox
@@ -39,4 +39,5 @@ Related concepts: [[Outbox|outbox]], [[Weak Isolation Patterns|weak isolation pa
 
 ## Formal relations
 
-- `realm_peer_of`: [[Outbox]] — Treats the same named outbox pattern as an architecture practice tying local commitment to publication responsibility, while the peer entry owns the durable obligation, relay, and recovery mechanism.
+- `requires`: [[Idempotency]] — At-least-once relay and duplicate publication require downstream handling to preserve one logical consequence for the same publication obligation.
+- `bundles`: [[Outbox]] — Adopts a durable outbox obligation and relay as the mechanism tying local commitment to downstream publication responsibility.

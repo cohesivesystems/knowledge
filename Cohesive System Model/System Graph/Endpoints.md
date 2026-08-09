@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-08
 status: draft
 aliases:
   - Endpoint
@@ -57,3 +57,4 @@ Related concepts: [[Interaction|interaction]], [[Boundaries|boundaries]], [[Inte
 ## Formal relations
 
 - `arranges`: [[Interaction]] — Endpoints place boundary-relative attachment loci through which participants enter or leave interaction-channel directions.
+- `distinguished_from`: [[Observer]] — An endpoint is a bound attachment locus, whereas an observer supplies interpretation, state view, authority, and decision context.

@@ -131,6 +131,7 @@ Relation names are directed predicates from the source note to the target note:
 | `qualifies` | `qualified_by` | An operational concern states scoped properties, guarantees, or execution behavior for the target. |
 | `constrains` | `constrained_by` | Restricts the valid forms, choices, or realizations of the target. |
 | `requires` | `required_by` | The source cannot satisfy its stated claims without the target concern or capability. |
+| `distinguished_from` | `distinguished_from` | Records a symmetric, materially important distinction between concepts that are commonly conflated without asserting that they are otherwise unrelated. |
 | `bundles` | `bundled_by` | An architecture practice deliberately adopts the target as part of a named cross-realm choice. |
 | `documents` | `documented_by` | A reference, catalog, glossary, or overview explains or organizes the target. |
 | `may_realize` | `may_be_realized_by` | A public substrate family is a candidate mechanism for the target when its requirements are met. |
@@ -143,6 +144,13 @@ Graph, Operational Concerns, Architecture Practices, and Realization Substrate
 realms respectively. `documents` originates from a reference-like node.
 `realizes` is stronger than `may_realize`: the former asserts an actual selected
 mapping, while the latter records only a possible public realization family.
+
+`distinguished_from` is symmetric and should be authored once. Use it only when
+the source note makes an explicit, stable distinction whose loss would collapse
+different meanings, layers, roles, or guarantees. It does not mean that the two
+concepts are unrelated, disjoint in every model, or unable to participate in a
+stronger directed relation. Do not use it merely to record that two separately
+named graph nodes are unequal.
 
 `realm_peer_of` is symmetric and must cross realms. It asserts that the entries
 treat the same named notion, not graph-node identity, equality of claims,

@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-02
+updated: 2026-08-08
 status: draft
 aliases:
   - Multiplexing
@@ -76,6 +76,10 @@ Shared loci couple flows through finite capacity. A complete model should theref
 These properties connect multiplexing to [[Flow Control|flow control]], [[Queueing Theory|queueing theory]], and [[Scheduling|scheduling]], as well as to reliability and performance analysis.
 
 Multiplexing can cross channel layers. One [[Network Channels|network connection or transport stream set]] can carry several messaging channels, interface operations, or subscriptions. A broker topic can carry several logical message types while each broker client session is itself multiplexed over network streams. Every layer needs its own discriminator, ordering scope, flow-control owner, and failure boundary; successful demultiplexing at one layer does not prove correct routing or semantic admission at another.
+
+## Formal relations
+
+- `distinguished_from`: [[Flow Operators]] — Multiplexing shares a locus while retaining distinguishable flows, whereas flow operators transform, select, split, aggregate, join, or otherwise compose carried values.
 
 ## External References
 

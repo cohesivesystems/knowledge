@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-29
-updated: 2026-08-03
+updated: 2026-08-08
 aliases:
   - Effects
   - Effect Structure
@@ -83,4 +83,4 @@ Related concepts: [[Effect|effect]], [[Event|event]], [[Command|command]], [[Que
 
 ## Formal relations
 
-- `realm_peer_of`: [[Effect]] — Treats the same nominal effect notion as system-graph placement, scope, and boundary structure, while the peer entry owns the semantic consequence or obligation established by a decision.
+- `arranges`: [[Effect]] — Places semantic effects into model-specific obligation, dependency, scope, boundary, and settlement structure.

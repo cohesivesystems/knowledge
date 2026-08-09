@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-30
+updated: 2026-08-08
 aliases:
   - Command Query Responsibility Segregation as Architecture Practice
 ---
@@ -63,7 +63,7 @@ The practice fails when read and write models are separated without distinct for
 
 ## Formal relations
 
-- `realm_peer_of`: [[CQRS]] — Treats the same named CQRS pattern as an architecture-practice bundle, while the peer entry owns the realization-substrate topology and its operational consequences.
+- `bundles`: [[CQRS]] — Adopts separated command-side and query-side structures as part of the named cross-realm architecture choice.
 
 ## External References
 

@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-08-01
+updated: 2026-08-08
 aliases:
   - Process Structure
   - Process Structures
@@ -71,6 +71,10 @@ Examples include:
 - ML workflows that normalize training examples, generate or project datasets, run models, transform and persist model artifacts, evaluate outcomes, and promote selected models.
 
 Process graphs compose when outputs of one process feed another process as observations, commands, events, artifacts, or decisions. Such compositions may be pipelines, nested sub-processes, [[Concurrency|concurrent]] processes, or feedback loops.
+
+## Formal relations
+
+- `arranges`: [[Process]] — Gives semantic processes model-specific participant, progression, branch, wait, recovery, and completion structure across time and boundaries.
 
 ## External References
 

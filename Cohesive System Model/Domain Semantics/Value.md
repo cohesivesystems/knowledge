@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-08-08
 ---
 
 # Value
@@ -34,3 +34,7 @@ Values relate to the other semantic concepts as follows:
 Values may be complete, partial, or projected only relative to a declared [[Shape|shape]], model [[Boundaries|boundary]], or operation. Completeness is not intrinsic to the value itself.
 
 Related concepts: [[Shape|shape]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Entity|entity]], [[Observable|observable]], [[Boundaries|boundaries]], [[Equivalence vs Equality|equivalence vs equality]], [[Naturality|naturality]].
+
+## Formal relations
+
+- `distinguished_from`: [[Shape]] — A value is identity-free information, whereas shape specifies the structural dimensions and admissible form through which values are organized or observed.

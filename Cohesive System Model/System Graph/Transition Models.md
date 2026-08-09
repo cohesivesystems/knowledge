@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-27
-updated: 2026-07-27
+updated: 2026-08-08
 aliases:
   - Transition Model
   - Transition Structure
@@ -47,3 +47,7 @@ Path-sensitive structure matters. Must, may, and actual observations, writes, an
 A transition model may be invoked directly. It becomes a node in a [[Process Graphs|process graph]] when work must coordinate multiple transitions, subjects, interactions, waits, timelines, or recovery boundaries.
 
 Related concepts: [[Transition|transition]], [[Entity|entity]], [[State|state]], [[Observation|observation]], [[Effect|effect]], [[Event|event]], [[Entity Models|entity models]], [[Process Graphs|process graphs]], [[Observer Models|observer models]], [[Policy Scopes|policy scopes]], [[Invariant Scopes|invariant scopes]], [[Boundaries|boundaries]], [[Effect Models|effect models]], [[Commit Boundaries|commit boundaries]], [[Concurrency Control|concurrency control]], [[Realization|realization]], [[Execution Kernel|execution kernel]].
+
+## Formal relations
+
+- `arranges`: [[Transition]] — Places the semantic transition role into model-specific observation, decision, validation, outcome, and commit structure.

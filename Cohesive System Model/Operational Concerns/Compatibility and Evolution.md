@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-27
-updated: 2026-07-29
+updated: 2026-08-08
 aliases:
   - Schema Evolution
   - Contract Compatibility
@@ -63,6 +63,11 @@ Useful compatibility checks include:
 - Which old and new components coexist during rollout and rollback?
 - Which retained histories, snapshots, continuations, and quarantine records remain interpretable?
 - What migration, translation, fallback, or rejection behavior applies when correspondence fails?
+
+## Formal relations
+
+- `qualifies`: [[Interfaces]] — States which contract, role, shape, protocol, and behavior changes remain interoperable across independently evolving interface participants.
+- `qualifies`: [[Messages and Envelopes]] — States how carried contracts, payload revisions, envelope fields, identities, and interpretation rules evolve without silently changing meaning.
 
 ## External References
 

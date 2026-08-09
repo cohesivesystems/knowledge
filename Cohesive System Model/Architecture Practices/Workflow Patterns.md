@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-07-28
-updated: 2026-08-01
+updated: 2026-08-08
 aliases:
   - Workflow Pattern Language
   - Workflow Patterns Initiative
@@ -42,6 +42,10 @@ Workflow-net soundness provides a complementary verification view over [[Deadloc
 ## Boundary of Adoption
 
 A workflow pattern does not define the domain purpose or authority of a [[Process|process]]. Exclusive Choice supplies branch structure; it does not decide which domain policy may choose a branch. Multiple Instances supplies cardinality structure; it does not identify the business subjects or completion meaning. Resource assignment supplies a work-allocation shape; it does not grant domain authority merely because a worker is scheduled.
+
+## Formal relations
+
+- `documents`: [[Process Graphs]] — Organizes recurring control-flow, data, resource, exception, and event-log structures used to assess process-graph expressiveness and realization obligations.
 
 ## External References
 

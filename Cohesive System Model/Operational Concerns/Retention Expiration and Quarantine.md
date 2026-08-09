@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-27
-updated: 2026-08-02
+updated: 2026-08-08
 aliases:
   - Message Retention
   - Message Expiration
@@ -48,6 +48,10 @@ A viable quarantine path requires:
 A durable subscriber requires subscription identity and retained material or another authoritative recovery source. Retention must cover the outage, detection, repair, and catch-up horizon, or the system must declare how snapshots, event histories, backfills, or reconciliation fill the gap.
 
 Channel purging is an authorized operational action. It changes the available history and may invalidate pending work, test isolation, replay, or recovery claims. The target scope, cutoff, authority, audit record, and recoverability must be explicit.
+
+## Formal relations
+
+- `qualifies`: [[Messages and Envelopes]] — States how long interaction material remains available, when it expires, and how suspect or unprocessable material is isolated and recovered.
 
 ## External References
 

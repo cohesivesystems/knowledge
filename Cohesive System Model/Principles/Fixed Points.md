@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-24
-updated: 2026-08-06
+updated: 2026-08-08
 aliases:
   - Fixed Point
 ---
@@ -55,3 +55,7 @@ Examples:
 - A feedback or control system is at a fixed point when another modeled observation-decision-update cycle leaves its relevant state unchanged. Stability, convergence, and sensitivity remain separate questions; see [[Trace and Feedback|trace and feedback]].
 
 Related concepts: [[Recursion|recursion]], [[Process Calculi|process calculi]], [[Session Types|session types]], [[Idempotency|idempotency]], [[Behavior|behavior]], [[State Machines|state machines]], [[Relational and Logic Programming|relational and logic programming]], [[Trace and Feedback|trace and feedback]], [[Equivalence vs Equality|equivalence vs equality]], [[Enrichment and Order|enrichment and order]].
+
+## Formal relations
+
+- `corresponds_to`: [[Recursion]] — Relates recursive equations to solutions invariant under their defining transformations without claiming that every fixed point is recursively computed or every recursion stabilizes.

@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: pattern
 created: 2026-06-28
-updated: 2026-07-04
+updated: 2026-08-08
 ---
 
 # Write-Ahead Logging
@@ -29,6 +29,11 @@ ARIES is the canonical database recovery design built around WAL. It uses analys
 WAL is not the same as [[Event Sourcing|event sourcing]]. WAL records are usually internal storage-engine recovery material. Event-sourced records are committed domain events that are addressable in the application model. Both make durable ordered history central, but they assign different meanings to the records.
 
 WAL is also not the same as saga compensation. ARIES Compensation Log Records are storage-engine recovery records for undo. Saga compensation is a semantic forward action, command, or process step across boundaries.
+
+## Formal relations
+
+- `may_realize`: [[Recovery]] — Preserves redo, undo, checkpoint, and commit evidence from which a storage or transaction boundary can recover after interruption.
+- `may_realize`: [[Persistence]] — Records authoritative recovery history before dependent state changes become the accepted durable representation.
 
 ## External References
 

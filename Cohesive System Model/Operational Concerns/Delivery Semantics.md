@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-08-02
+updated: 2026-08-08
 ---
 
 # Delivery Semantics
@@ -79,3 +79,7 @@ Delivery semantics are one way [[Synchrony and Asynchrony|asynchronous]] interac
 - Does "exactly once" name a transport occurrence, local state transition, external effect, or semantic obligation?
 
 Related concepts: [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Interaction Protocols|interaction protocols]], [[Acknowledgments|acknowledgments]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Ordering|ordering]], [[Commit Boundaries|commit boundaries]], [[Effect Models|effects]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]], [[Recovery|recovery]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[Temporal Completeness|temporal completeness]], [[CRDTs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Observer|observer]], [[Brokers|brokers]], [[Network Channels|network channels]], [[Network|network]].
+
+## Formal relations
+
+- `qualifies`: [[Interaction Channels]] — States which emitted, admitted, delivered, processed, committed, acknowledged, or discharged occurrence a channel guarantee covers at a declared boundary.

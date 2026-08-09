@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-29
+updated: 2026-08-08
 ---
 
 # Storage Systems
@@ -60,6 +60,11 @@ When an activation reaches a durable cut, the required atomic commit may include
 A storage system stores records, logs, snapshots, projections, or histories. The model defines what those stored values mean.
 
 Shared-database integration and message stores are specialized uses of storage as a mediating interaction locus. Sharing physical storage does not erase semantic ownership, transaction, isolation, compatibility, authority, retention, or recovery boundaries. A diagnostic message store is not automatically authoritative domain history.
+
+## Formal relations
+
+- `may_realize`: [[Persistence]] — Stores records, logs, snapshots, or histories that preserve declared material across the relevant failure and retention boundary.
+- `may_realize`: [[Reconstitution]] — Supplies preserved state, history, schema, and provenance from which a usable modeled subject or view can be rebuilt.
 
 ## External References
 

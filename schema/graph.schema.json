@@ -70,6 +70,7 @@
         "qualifies",
         "constrains",
         "requires",
+        "distinguished_from",
         "bundles",
         "documents",
         "may_realize",

@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-08-08
 aliases:
   - Policy Scope
   - Policy Scopes
@@ -27,3 +27,7 @@ Policy scopes may cover:
 Policies are observer-relative when they affect command interpretation inside a specific observer boundary.
 
 Related concepts: [[Policy|policy]], [[Observer Models|observer models]], [[Entity Models|entity models]], [[Process Graphs|process graphs]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Command|command]], [[Observer|observer]], [[Transition|transition]], [[Invariant Scopes|invariant scopes]], [[Rate Limiting|rate limiting]], [[Retry|retry]], [[Coordination|coordination]].
+
+## Formal relations
+
+- `arranges`: [[Policy]] — Attaches semantic policies to the exact observers, entities, processes, relations, projections, transitions, effects, or boundaries they govern.

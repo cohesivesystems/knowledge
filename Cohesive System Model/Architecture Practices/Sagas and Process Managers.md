@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-06-24
-updated: 2026-07-04
+updated: 2026-08-08
 ---
 
 # Sagas and Process Managers
@@ -16,3 +16,8 @@ The concepts should not be collapsed. A [[Process Managers|process manager]] is 
 The broader coordination distinction is described in [[Orchestration and Choreography|orchestration and choreography]]. Process managers are the orchestration form. Choreography coordinates a process through participant-local rules over shared messages, events, logs, or protocols without one explicit process manager controlling the whole execution.
 
 Related concepts: [[Sagas|sagas]], [[Process Managers|process managers]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Weak Isolation Patterns|weak isolation patterns]], [[Durable Execution|durable execution]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Ordering|ordering]].
+
+## Formal relations
+
+- `documents`: [[Sagas]] — Explains the specialized business-recovery role and its compensation, alternate-path, escalation, and reconciliation responsibilities.
+- `documents`: [[Process Managers]] — Explains the broader orchestration role with process identity, progress state, observation, decision, and emission responsibilities.

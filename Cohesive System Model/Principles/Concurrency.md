@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-08-01
-updated: 2026-08-01
+updated: 2026-08-08
 status: draft
 aliases:
   - Logical Concurrency
@@ -53,3 +53,7 @@ The join bounds the concurrent region. Branch occurrences may remain incomparabl
 - Which observations distinguish interleaving from physical parallel execution?
 
 Related concepts: [[Ordering|ordering]], [[Happened-Before|happened-before]], [[Causality|causality]], [[Fork and Join|fork and join]], [[Process Graphs|process graphs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Parallelism|parallelism]], [[Scheduling|scheduling]], [[Runtimes|runtimes]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Concurrency Control|concurrency control]], [[Isolation|isolation]], [[Boundaries|boundaries]], [[Observer|observer]].
+
+## Formal relations
+
+- `distinguished_from`: [[Parallelism]] — Concurrency is logical incomparability at a declared boundary, whereas parallelism concerns overlapping execution on distinct resources or its higher-boundary appearance.

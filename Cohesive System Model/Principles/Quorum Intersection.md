@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-08-08
 status: draft
 aliases:
   - Quorums
@@ -55,6 +55,10 @@ Quorum participation also does not create semantic [[Authority|authority]] by it
 - What does a quorum acknowledgment prove, and what remains unapplied or externally incomplete?
 - Which safety properties survive loss and recovery of quorum members?
 - Which timing, fairness, and availability assumptions are required to assemble a quorum and make progress?
+
+## Formal relations
+
+- `constrains`: [[Consensus]] — Requires quorum-based agreement claims to preserve the participant overlap and durable evidence needed to prevent incompatible decisions.
 
 ## External References
 

@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-01
+updated: 2026-08-08
 ---
 
 # CAP Theorem
@@ -26,6 +26,10 @@ CAP also uses narrower meanings than many architecture discussions:
 - Partition tolerance is not a feature to opt into for any networked system; it is the failure scenario in which the tradeoff becomes observable.
 
 Many practical systems choose finer-grained behavior than a global CAP label: preserve consistency for one key range while refusing writes, allow stale reads from followers, accept local writes and reconcile later, require quorum for some commands, or expose pending states until coordination or recovery completes. The boundary of the claim matters.
+
+## Formal relations
+
+- `constrains`: [[Consistency Models]] — Bounds which consistency and availability claims can be maintained simultaneously during partitions under the theorem's failure and request assumptions.
 
 ## External References
 

@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-08-08
 ---
 
 # Actor Systems
@@ -49,6 +49,11 @@ An actor system may interpret canonical [[Transition Models|transition models]] 
 Actor serialization can be evidence for local transition exclusion, but it does not by itself prove atomic persistence of state and emissions, durable wait registration, logical exactly-once effects, multi-actor atomicity, or process recovery. Timers, reminders, persisted state, and mailboxes can realize process requirements only when stable identities, deduplication, definition compatibility, token state, acknowledgment, and crash boundaries are preserved.
 
 An effect adapter hosted by an actor must not mutate authoritative entity state outside the entity's transition boundary. External results and signals return through explicit admission, observer, continuation, and transition semantics.
+
+## Formal relations
+
+- `may_realize`: [[Observer]] — Hosts addressable interpretation loci when actor identity, boundary, authority, state view, and activation semantics preserve the observer role.
+- `may_realize`: [[Entity]] — Hosts entity identity and transition authority when serialization, persistence, versioning, and commit requirements are satisfied.
 
 ## External References
 

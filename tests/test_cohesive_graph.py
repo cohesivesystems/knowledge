@@ -80,6 +80,21 @@ class FormalRelationParsingTests(unittest.TestCase):
         self.assertIn("realm_peer_of", ALLOWED_FORMAL_RELATION_TYPES)
         self.assertEqual(RELATION_INVERSES["realm_peer_of"], "realm_peer_of")
 
+    def test_distinguished_from_relation_is_allowed_and_symmetric(self) -> None:
+        body = """## Formal relations
+
+- `distinguished_from`: [[Parallelism]] — Separates logical concurrency from execution overlap.
+"""
+
+        relations, issues = extract_formal_relations("Example.md", body)
+
+        self.assertEqual(issues, [])
+        self.assertEqual(relations[0].relation_type, "distinguished_from")
+        self.assertIn("distinguished_from", ALLOWED_FORMAL_RELATION_TYPES)
+        self.assertEqual(
+            RELATION_INVERSES["distinguished_from"], "distinguished_from"
+        )
+
 
 class RealmPeerValidationTests(unittest.TestCase):
     def test_realm_peer_must_cross_realms(self) -> None:
@@ -138,7 +153,7 @@ class RealmPeerExportTests(unittest.TestCase):
         self.assertEqual(peers["architecture/cqrs"], ["substrate/cqrs"])
         self.assertEqual(peers["substrate/cqrs"], ["architecture/cqrs"])
         self.assertNotIn("semantics/command", peers)
-        self.assertEqual(SCHEMA_VERSION, "0.4.0")
+        self.assertEqual(SCHEMA_VERSION, "0.5.0")
 
 
 if __name__ == "__main__":
