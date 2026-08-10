@@ -11,7 +11,7 @@ Concurrency Control answers: How can multiple concurrent histories be reconciled
 
 [[Concurrency]] itself is the absence of an established order between occurrences relative to a declared relation and boundary. Concurrency control is not its definition. It becomes necessary when concurrent attempts meet at state, invariant, authority, observation, or effect boundaries that require admission, rejection, serialization, merge, or conflict representation.
 
-In the model, commands may carry an expected version or etag: the [[Version|version]] of [[Entity|entity]] state the [[Observer|observer]] believed was current when it formulated the [[Command|command]].
+In the model, commands may carry an expected version or ETag: the [[Version|version]] of [[Entity|entity]] state the [[Observer|observer]] believed was current when it formulated the [[Command|command]].
 
 Concurrency-control mechanisms include:
 

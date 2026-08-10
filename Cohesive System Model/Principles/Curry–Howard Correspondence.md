@@ -107,5 +107,5 @@ Related concepts: [[Logic|logic]], [[Type Theory|type theory]], [[Judgement|judg
 
 ## Formal relations
 
-- `refines`: [[Logic]] — Gives constructive propositions and derivations a proof-relevant computational interpretation without claiming that every logical system has the same program correspondence.
-- `refines`: [[Type Theory]] — Explains how selected types, inhabitants, and computation rules correspond to propositions, proofs, and proof normalization.
+- `corresponds_to`: [[Logic]] — Relates selected propositions and derivations to types and proof-relevant terms without claiming that every logical system has the same program interpretation.
+- `corresponds_to`: [[Type Theory]] — Relates selected types, inhabitants, and computation rules to propositions, proofs, and proof normalization without identifying the participating systems.

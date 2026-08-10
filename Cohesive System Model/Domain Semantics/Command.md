@@ -29,7 +29,7 @@ Commands are not mere messages. They are interpretations made relative to:
 - The specific [[Observer|observer]], its [[Boundaries|boundary]] and its current view of state.
 - [[Authority]], [[Invariant|invariants]], and [[Policy|policies]].
 - The intended transition.
-- An optional expected [[Version|version]] or etag.
+- An optional expected [[Version|version]] or ETag.
 
 A command's expected version is a claim carried by the input event, ordinarily based on the emitter's observation of entity state when it formed its request. The receiving observer decides whether that claim is relevant and validates it before accepting the transition and advancing the entity version.
 

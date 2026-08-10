@@ -112,7 +112,7 @@ $$
 
 The binding establishes correspondence, not identity. The emitting machine's output, the carried [[Interaction|interaction]], the receiving machine's input, and the receiving transition remain distinct roles and occurrences. The composition may be [[Synchrony and Asynchrony|synchronous or asynchronous]]. A synchronous interaction can coordinate the steps or make one participant wait, but it creates one transition or commit boundary only when the model declares a shared boundary. In asynchronous composition, emission, transport or admission, receipt, and the receiving transition progress as separate occurrences under explicit delivery, ordering, and recovery rules.
 
-A process machine can coordinate one or more entity machines. Its state records process position, pending work, replies, timeouts, and recovery progress; each entity machine retains authority over its own state and transitions. The process machine issues commands or requests and consumes resulting events or observations rather than copying entity state into one larger authoritative machine.
+A process machine can coordinate one or more entity machines. Its state records process position, pending work, replies, timeouts, and recovery progress; each entity machine retains authority over its own state and transitions. The process machine may retain observer-relative snapshots or projections of entity state, but those copies do not transfer semantic authority from the entity machine. It issues commands or requests and consumes resulting events or observations through the entities' declared transition boundaries.
 
 Participant machines can likewise correspond across organizational boundaries. In logistics, a shipper machine and a carrier machine may interact as follows:
 
@@ -227,7 +227,7 @@ In Cohesive terms, state machines relate:
 - [[State|state]] as the condition being advanced.
 - [[Transition|transitions]] as admissible movement between states.
 - [[Command|commands]], [[Event|events]], observations, signals, or messages as inputs.
-- Endogenous events, observations, acknowledgments, emitted [[Effect Models|effects]], or nil as outputs.
+- Endogenous events, observations, acknowledgments, emitted [[Effect|effects]], or nil as outputs.
 - [[Behavior|behavior]] as the resulting run, trace, or state history.
 
 An [[Entity|entity]] can be modeled as a state machine when commands are interpreted against current entity state and committed as controlled transitions. A [[Process|process]] can be modeled as a state machine when its state records phase, pending work, timeouts, decisions, and emitted effects. A projection can be modeled as a state machine when source events are folded into derived observation state.

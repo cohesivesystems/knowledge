@@ -58,15 +58,15 @@ The reduction rule gives a local interaction step. Context and structural rules 
 Process syntax is not enough to define behavior. A calculus ordinarily supplies:
 
 - **Structural congruence**, identifying descriptions that differ only by accepted rearrangements such as associativity or commutativity of parallel composition, scope extrusion, or replication unfolding.
-- **Reduction semantics**, describing unlabelled internal computation or communication steps.
-- **Labelled transition semantics**, exposing selected actions as labels in a transition system.
+- **Reduction semantics**, describing unlabeled internal computation or communication steps.
+- **Labeled transition semantics**, exposing selected actions as labels in a transition system.
 - **Behavioral equivalence or preorder**, such as strong or weak bisimulation, barbed congruence, trace equivalence, testing equivalence, failures equivalence, simulation, or refinement.
 
 The chosen equivalence determines what transformations preserve meaning. Weak bisimulation may hide internal $\tau$ steps; trace equivalence may forget branching structure; testing equivalence asks what an interacting context can distinguish. Two processes can therefore be equal under one observational theory and different under another.
 
-Operational semantics often generates a [[State Machines|labelled transition system]] whose states are process terms or congruence classes of terms. This gives process calculi a state-machine realization without reducing them to one global sequential machine: parallel syntax, name scope, synchronization, and observational equivalence retain compositional concurrency structure.
+Operational semantics often generates a [[State Machines|labeled transition system]] whose states are process terms or congruence classes of terms. This gives process calculi a state-machine realization without reducing them to one global sequential machine: parallel syntax, name scope, synchronization, and observational equivalence retain compositional concurrency structure.
 
-Many standard labelled semantics represent independent actions through their possible interleavings. Event structures, Petri nets, pomsets, higher-dimensional automata, and other true-concurrency models retain more explicit causality and independence. A process calculus can be given such semantics, but the word “concurrent” does not by itself say whether independence is primitive or reconstructed from interleavings.
+Many standard labeled semantics represent independent actions through their possible interleavings. Event structures, Petri nets, pomsets, higher-dimensional automata, and other true-concurrency models retain more explicit causality and independence. A process calculus can be given such semantics, but the word “concurrent” does not by itself say whether independence is primitive or reconstructed from interleavings.
 
 ## From Lambda Calculus to Interaction
 
@@ -145,7 +145,7 @@ A lowering from a process calculus into infrastructure must preserve the selecte
 - John C. Baez and Christian Williams, [Enriched Lawvere Theories for Operational Semantics](https://arxiv.org/abs/1905.05636), 2019.
 - Michael Stay and L. G. Meredith, [Representing Operational Semantics with Enriched Lawvere Theories](https://arxiv.org/abs/1704.03080), 2017.
 
-Related concepts: [[Process Theories|process theories]], [[Lambda Calculus|lambda calculus]], [[Substitution|substitution]], [[Session Types|session types]], [[Linear Logic|linear logic]], [[Process|process]], [[Process Graphs|process graphs]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Concurrency|concurrency]], [[Nondeterminism and Choice|nondeterminism and choice]], [[State Machines|state machines]], [[Temporal Logic|temporal logic]], [[Fixed Points|fixed points]], [[Recursion|recursion]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Categorical Principles|categorical principles]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Actor Model|actor model]], [[Actor Systems|actor systems]], [[Realization|realization]].
+Related concepts: [[Process Theories|process theories]], [[Lambda Calculus|lambda calculus]], [[Session Types|session types]], [[Linear Logic|linear logic]], [[Process|process]], [[Process Graphs|process graphs]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Concurrency|concurrency]], [[Nondeterminism and Choice|nondeterminism and choice]], [[State Machines|state machines]], [[Temporal Logic|temporal logic]], [[Compositionality|compositionality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Actor Model|actor model]], [[Actor Systems|actor systems]], [[Realization|realization]].
 
 ## Formal relations
 

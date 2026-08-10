@@ -26,7 +26,7 @@ Storage concerns include:
 - Data model and shape.
 - Transaction scope.
 - Consistency guarantees.
-- Version or etag support.
+- Version or ETag support.
 - Indexing and [[Query|query]] behavior.
 - Retention and compaction.
 - Backup and recovery.

@@ -127,4 +127,4 @@ Related concepts: [[Substitution|substitution]], [[Functional Programming|functi
 
 ## Formal relations
 
-- `refines`: [[Functional Programming]] — Supplies a foundational calculus for abstraction, application, lexical binding, substitution, evaluation, and typed functional structure without defining every programming-language effect or runtime behavior.
+- `corresponds_to`: [[Functional Programming]] — Relates functional abstraction, application, lexical binding, substitution, and evaluation to a foundational term calculus without identifying every functional language with one lambda calculus.

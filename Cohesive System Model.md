@@ -364,7 +364,7 @@ Commands are not mere messages. They are interpretations made relative to:
 - The observer’s [[Boundaries|boundary]] and current view of state
 - Authority, invariants, and policies  
 - The intended transition  
-- An optional expected version or etag carried by the input event
+- An optional expected version or ETag carried by the input event
 
 The expected version ordinarily represents the emitter's observation of entity state when it formed its request. The receiving observer decides whether that claim is relevant and validates it before accepting the transition.
 
@@ -442,7 +442,7 @@ One observer’s endogenous event may become another observer’s exogenous even
 
 ## Commands (Expanded Flow with Versioning)
 
-A command may carry an optional **expected version / etag** based on the emitter's observation of entity state when it formed the request. The receiving observer interprets and validates that claim.
+A command may carry an optional **expected version / ETag** based on the emitter's observation of entity state when it formed the request. The receiving observer interprets and validates that claim.
 
 The entity transition interpreter, aligned with the interpreting observer, evaluates the definition against current entity state, required observations, invariants, policies, authority, and expected version. It produces a typed transition decision. A storage or runtime realization then validates the commit demands and either commits the patch and local obligations, reports a concurrency conflict, or reports another explicit failure.
 

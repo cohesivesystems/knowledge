@@ -30,7 +30,7 @@ This note is intentionally narrower than [[Asynchronous Interaction Design|async
 
 Weak isolation design makes the missing transaction guarantees explicit in the model:
 
-- [[Version|Version]] and etag checks for target entities and related observations.
+- [[Version|Version]] and ETag checks for target entities and related observations.
 - [[Idempotency]] records for retryable operations.
 - [[Transactional Outbox|Transactional outbox]] records for local commit plus asynchronous publication responsibility.
 - [[Transactional Inbox|Transactional inbox]] records for consumer-side deduplication and idempotent receipt.
@@ -53,7 +53,7 @@ The [[CALM Theorem|CALM theorem]] is a useful filter for these choices: monotone
 ### Version and Dependency Patterns
 
 - **Expected-version checks** reject stale updates to the target entity.
-- **Related-version checks** carry versions, etags, read-model positions, policy versions, or causal metadata for related facts used during validation.
+- **Related-version checks** carry versions, ETags, read-model positions, policy versions, or causal metadata for related facts used during validation.
 - **Causal or dependency tokens** carry dependency context across requests so later reads or writes can wait for, validate, or reject against missing prerequisites.
 - **Read-your-writes routing** sends a session to a primary, sufficiently fresh replica, or dependency-aware read path after it has written.
 - **Consistent-prefix reads** prevent an observer from seeing later effects without earlier prerequisite effects.
