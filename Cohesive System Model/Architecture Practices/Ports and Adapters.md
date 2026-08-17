@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-08-17
 ---
 
 # Ports and Adapters
@@ -11,12 +11,12 @@ Ports and Adapters addresses the problem of keeping domain and application seman
 
 ## Cohesive Formulation
 
-Ports are named attachment roles through which a component provides or requires an [[Interfaces|interface]] at a [[Boundaries|boundary]]. [[Endpoints|Endpoints]] are the bound loci through which those port roles participate in particular [[Interaction Channels|channel]] arrangements. Adapters are realization mechanisms that translate among interface roles, component behavior, messages, and substrate mechanisms without making the port, endpoint, interface, boundary, channel, or [[Interaction Bindings|binding]] synonymous.
+An [[Interfaces|interface]] is a reusable intentional interaction type projected on a [[Surfaces|surface]]. Ports are particular boundary occurrences through which a component provides or requires that interface. [[Endpoints|Endpoints]] are the bound loci through which those port roles participate in particular [[Interaction Channels|channel]] arrangements. Adapters are realization mechanisms that translate among interface roles, component behavior, messages, and substrate mechanisms without making the port, endpoint, interface, surface, boundary, channel, or [[Interaction Bindings|binding]] synonymous.
 
 The practice asks:
 
 - Which boundary is being crossed?
-- Which provided or required interface does the port represent?
+- Which interface type and provided or required orientation does the port instantiate?
 - What semantic object enters or leaves the boundary?
 - Which observer interprets the input?
 - Which [[Interaction Protocols|interaction protocol]] governs the conversation?
@@ -41,4 +41,4 @@ The pattern fails when adapters leak substrate semantics into the domain, when p
 
 - Gregor Hohpe and Bobby Woolf, [Channel Adapter](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ChannelAdapter.html), [Messaging Gateway](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingGateway.html), and [Messaging Mapper](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessagingMapper.html), *Enterprise Integration Patterns*, 2003.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Observer|observer]], [[Observer Models|observer models]], [[Command|command]], [[Query|query]], [[Observation|observation]], [[Event|event]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Compatibility and Evolution|compatibility and evolution]], [[Network Channels|network channels]], [[Network|network]], [[Application Hosts|application hosts]], [[Realization|realization]], [[Anti-Corruption Layer|anti-corruption layer]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Observer|observer]], [[Observer Models|observer models]], [[Command|command]], [[Query|query]], [[Observation|observation]], [[Event|event]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Compatibility and Evolution|compatibility and evolution]], [[Network Channels|network channels]], [[Network|network]], [[Application Hosts|application hosts]], [[Realization|realization]], [[Anti-Corruption Layer|anti-corruption layer]].

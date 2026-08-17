@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-08-17
 ---
 
 # Interaction
@@ -17,7 +17,7 @@ Under the [[Stuff Structure Property|stuff structure property]] lens, an interac
 
 Every interaction description is relative to participant boundaries. A claim about a successful interaction must say which boundary observed success: sender-local acceptance, receiver-local admission, handler processing, durable persistence, responsibility transfer, or domain commitment.
 
-An explicitly designed interaction surface is an [[Interfaces|interface]]. A boundary establishes scope. An interface declares the roles and contracts by which selected interactions may cross it. An interaction is the actual or possible participation through that surface. An [[Interaction Channels|interaction channel]] provides a stable, provider-neutral structural locus through which values can move among [[Endpoints|endpoints]]; it identifies the exchange's logical directions and scopes requirements attached to the exchange or to an individual direction. An [[Interaction Protocols|interaction protocol]] constrains how occurrences may unfold over time. An [[Interaction Bindings|interaction binding]] associates exact interface and protocol roles with those endpoints and channel directions.
+An explicitly designed external contract is projected as a [[Surfaces|surface]] at a boundary. An [[Interfaces|interface]] is a reusable intentional interaction type projected on that surface, while a [[Ports and Adapters|port]] is a particular occurrence of the interface on a system boundary. An interaction is the actual or possible participation through that port under the declared interface and protocol roles. An [[Interaction Channels|interaction channel]] provides a stable, provider-neutral structural locus through which values can move among [[Endpoints|endpoints]]; it identifies the exchange's logical directions and scopes requirements attached to the exchange or to an individual direction. An [[Interaction Protocols|interaction protocol]] constrains how occurrences may unfold over time. An [[Interaction Bindings|interaction binding]] associates exact interface and protocol roles with ports, endpoints, and channel directions.
 
 Interaction is boundary-relative. It can occur over a [[Network|network]], between processes on one host, between threads in one process, between tasks in a runtime, between actors and mailboxes, between CPU cores through cache coherence, or between a program and memory/register state.
 
@@ -186,7 +186,7 @@ Other graph projections use different edge meanings:
 
 The same system element can appear in several graphs. An entity relationship does not imply direct interaction. An interaction edge does not imply a semantic entity relationship. A process-flow edge may be realized by several interaction edges. A broker, channel, mailbox, lock, or shared memory cell may be modeled as an edge at one abstraction layer and as a node at another.
 
-Interaction graphs are especially useful for reasoning about coordination, delivery, ordering, backpressure, failure, acknowledgment, progress, settlement, durability, and commit boundaries. An interaction edge should therefore be annotated with its provided and required interfaces, governing protocol, endpoints, interaction binding, channel and directions, boundary where guarantees hold, mode, topology, carried semantic roles, and realizing substrate layer.
+Interaction graphs are especially useful for reasoning about coordination, delivery, ordering, backpressure, failure, acknowledgment, progress, settlement, durability, and commit boundaries. An interaction edge should therefore be annotated with its provided and required ports, reusable interface types, governing protocol, endpoints, interaction binding, channel and directions, boundary where guarantees hold, mode, topology, carried semantic roles, and realizing substrate layer.
 
 ## Dimensions
 

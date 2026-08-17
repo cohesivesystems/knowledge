@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-04
-updated: 2026-08-06
+updated: 2026-08-17
 status: draft
 aliases:
   - Process Theory
@@ -71,7 +71,7 @@ This distinction is practical. A saga implemented on durable execution still con
 
 [[Orchestration and Choreography|Orchestration and choreography]] are coordination shapes, not claims that one style is inherently better than the other.
 
-In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the decision surface. It observes process state, issues commands, waits for replies or events, handles timeouts, and decides next steps. Orchestration makes control explicit, but can concentrate [[Authority|authority]], coupling, and failure impact.
+In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the process [[Surfaces|decision surface]]. It observes process state, issues commands, waits for replies or events, handles timeouts, and decides next steps. Orchestration makes control explicit, but can concentrate [[Authority|authority]], coupling, and failure impact.
 
 In choreography, participants advance the process through published events, protocols, subscriptions, shared logs, shared media, and local reactions. Choreography does not mean there is no process or no global protocol. It means the process is not controlled by one explicit process manager. Choreography distributes control and can reduce central coupling, but it can also hide the process boundary, make global progress harder to observe, and leave compensation or timeout behavior implicit.
 
@@ -102,7 +102,7 @@ A process realization preserves:
 
 - Process identity and correlation.
 - Participant roles and [[Authority|authority]].
-- Provided and required interfaces, their governing [[Interaction Protocols|interaction protocols]], and carried semantic roles.
+- Provided and required ports, their reusable [[Interfaces|interface types]], governing [[Interaction Protocols|interaction protocols]], and carried semantic roles.
 - [[Causality]], ordering, and synchronization requirements.
 - State, history, trace, checkpoint, or behavior needed for progress.
 - Commit, acknowledgment, and effect boundaries.

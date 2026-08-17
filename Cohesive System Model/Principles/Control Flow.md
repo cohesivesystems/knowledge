@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-28
-updated: 2026-08-01
+updated: 2026-08-17
 aliases:
   - Control-Flow Distinctions
 ---
@@ -32,7 +32,7 @@ The boundary qualifier is essential. One process-progression edge may lower into
 
 ## Progression, Activation, Evaluation, and Execution
 
-A compact reconciliation is: **process control flow constrains which semantic step may happen next; interaction control flow identifies who initiates work across a boundary; program control flow describes how an activated handler evaluates; execution control determines which enabled activation runs now and how it yields or is preempted.** [[Orchestration and Choreography|Orchestration and choreography]] separately classify whether authority over the process decision surface is concentrated in a process manager or distributed across participant-local rules under a shared protocol. These relations can realize one another, but none determines the others.
+A compact reconciliation is: **process control flow constrains which semantic step may happen next; interaction control flow identifies who initiates work across a boundary; program control flow describes how an activated handler evaluates; execution control determines which enabled activation runs now and how it yields or is preempted.** [[Orchestration and Choreography|Orchestration and choreography]] separately classify whether authority exposed through the process [[Surfaces|decision surface]] is concentrated in a process manager or distributed across participant-local rules under a shared protocol. These relations can realize one another, but none determines the others.
 
 For example, an order-process edge from inventory reservation to payment authorization states logical progression. A participant may realize its part by polling a broker, or a runtime may push a delivery into a registered callback. The callback outcome may then be admitted and interpreted as the observation that enables or selects a later process step. A cooperative event loop and a preemptive thread scheduler can both execute such handlers. Those choices affect activation, interleaving, latency, and failure behavior, but they do not by themselves reverse or redefine the order-process edge.
 
@@ -44,7 +44,7 @@ Control flow should not be inferred from:
 - **Causal flow**, which says which occurrence may have influenced another.
 - **Ordering**, which constrains relative positions without necessarily selecting the next step.
 - **Scheduling**, which selects among enabled work but does not necessarily define which successors are semantically valid.
-- **Orchestration authority**, which says who owns a process decision surface.
+- **Orchestration authority**, which says who owns the process [[Surfaces|decision surface]].
 - **Flow control**, which regulates capacity rather than branch or token progression.
 - **Feedback control**, which regulates a controlled variable rather than selecting the next semantic or program step.
 

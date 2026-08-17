@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-07-04
-updated: 2026-08-06
+updated: 2026-08-17
 status: draft
 aliases:
   - cohesive vision
@@ -122,7 +122,7 @@ Compiler-like realization may use a persisted, versioned canonical execution def
 
 ```mermaid
 flowchart LR
-    subgraph Sources["Authoring surfaces"]
+    subgraph Sources["Authoring inputs"]
         direction TB
         A["Graph or DSL authoring"]
         I["Imported definition"]

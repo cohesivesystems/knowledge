@@ -2,7 +2,7 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-08-14
+updated: 2026-08-17
 ---
 
 # System Graph
@@ -61,7 +61,7 @@ Core system graph notes:
 - [[Interfaces|interfaces]]
 - [[Interaction Protocols|interaction protocols]]
 - [[Service Models|service models]]
-- [[Effect Models|effects]]
+- [[Effect Models|effect models]]
 - [[Messages and Envelopes|messages and envelopes]]
 - [[Interaction Channels|interaction channels]]
 - [[Routing Models|routing models]]

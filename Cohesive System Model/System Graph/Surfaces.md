@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-08-14
-updated: 2026-08-14
+updated: 2026-08-17
 status: draft
 aliases:
   - Surface
@@ -12,7 +12,7 @@ aliases:
 
 # Surfaces
 
-A surface is the boundary-relative projection through which a modeled system declares what it provides, requires, may affect, guarantees, assumes, and can substantiate with evidence. It exposes the contract relevant outside a declared [[Boundaries|boundary]] without exposing the system's entire internal graph.
+A surface is a typed, boundary-relative abstraction of a modeled system's externally relevant semantics. It declares what the system provides, requires, may affect, claims under stated assumptions, and must substantiate with evidence without exposing the system's entire internal graph.
 
 A surface is not the boundary itself. A boundary establishes a cut between scopes and determines which meanings, authorities, observations, failures, and guarantees are relative to that cut. A surface selects and organizes what the system intentionally makes externally relevant at the cut. A boundary may expose no surface, one surface, or several audience-relative surfaces.
 
@@ -20,9 +20,9 @@ A surface is not the boundary itself. A boundary establishes a cut between scope
 
 A surface may declare:
 
-- provided and required capabilities expressed through [[Interfaces|interfaces]];
+- provided and required capabilities expressed through ports typed by [[Interfaces|interfaces]];
 - governing [[Interaction Protocols|interaction protocols]] and compatibility rules;
-- expected inputs, outputs, observations, state projections, and [[Effect Models|effects]];
+- expected inputs, outputs, observations, state projections, and semantic [[Effect|effects]];
 - semantic obligations, assumptions, failure meanings, and authority requirements;
 - boundary-relative operational claims such as ordering, delivery, consistency, availability, timing, and resource limits; and
 - evidence, provenance, attestations, checks, or observations supporting those claims.
@@ -35,12 +35,15 @@ These declarations do not all belong to the same realm. Interfaces and their arr
 | --- | --- |
 | [[Boundaries\|boundary]] | Which scopes are separated, and relative to which cut do meaning, authority, visibility, failure, and guarantees apply? |
 | surface | What does the system intentionally expose, require, claim, and support with evidence at that boundary? |
-| [[Interfaces\|interface]] | At which declared interaction point can a participant use or provide a capability on the surface? |
+| [[Interfaces\|interface]] | Which reusable intentional interaction type is projected on the surface? |
+| [[Ports and Adapters\|port]] | Which occurrence of an interface is provided or required at this system boundary? |
 | [[Interaction Protocols\|interaction protocol]] | In which legal traces may participants use the interface roles? |
 | [[Interaction Bindings\|interaction binding]] | How are exact interface and protocol roles attached to channel directions and endpoints? |
 | realization | Which concrete mechanisms preserve the bound contract and its required properties? |
 
-An interface is therefore one interaction point or facet on a surface, not a synonym for the whole surface. A surface may collect several interfaces and may also expose non-interaction claims such as operating assumptions, resource limits, security posture, or evidence. Conversely, a boundary may exist only to separate ownership, trust, consistency, persistence, or failure scopes and expose no interface.
+An interface is therefore a reusable interaction type projected on a surface, not a synonym for the whole surface. A port is the boundary occurrence through which a system provides or requires that interface. A surface may project several interfaces through several ports and may also expose non-interaction claims such as operating assumptions, resource limits, security posture, or evidence. Conversely, a boundary may exist only to separate ownership, trust, consistency, persistence, or failure scopes and expose no surface or port.
+
+Unqualified *surface* in Cohesive means this typed contract abstraction. Compound phrases such as *observation surface*, *decision surface*, or *administration surface* name specialized projections only when they satisfy this definition; otherwise they should be described as views, scopes, or facilities rather than as surfaces.
 
 ## Audience-Relative Projections
 
@@ -50,7 +53,7 @@ A projection should state what it preserves, hides, weakens, or forgets. Hiding 
 
 ## Composition and Internalization
 
-Systems compose when compatible provided and required interface roles on their surfaces are connected through explicit [[Interaction Bindings|bindings]]. Compatibility includes more than matching names or value shapes: protocol roles, sequencing, cardinality, authority, failure meanings, and required operational properties must also agree. An adapter may reconcile a mismatch only by declaring what it translates, preserves, weakens, or assumes.
+Systems compose when provided and required ports on their surfaces are connected through explicit [[Interaction Bindings|bindings]]. [[Compatibility and Evolution|Compatibility]] is directional: under a declared policy, the provided interface and protocol behavior must discharge the required role's obligations, and the provider's guarantees must satisfy the requirement under compatible assumptions. Names and value shapes are insufficient; sequencing, cardinality, authority, failure meanings, effects, and operational properties must also be checked. An adapter may reconcile a mismatch only by declaring what it translates, preserves, weakens, or assumes.
 
 When a connection satisfies a dependency, the connected roles may become internal to the composite and disappear from its public surface. The composite retains the internal boundaries, bindings, obligations, assumptions, realization mappings, and evidence needed to explain its remaining external claims. Internalization changes visibility; it does not erase provenance.
 
@@ -62,12 +65,10 @@ A surface can declare a guarantee only at an explicit boundary and under explici
 
 Evidence may include provider attestations, static checks, proofs, tests, observed traces, configuration facts, or monitored behavior. Different evidence supports different confidence and scope. See [[Observability and Provenance|observability and provenance]] for the distinction between a claim and the evidence used to support it.
 
+Related concepts: [[System Graph|system graph]], [[System Composition Algebra|system composition algebra]], [[Boundaries|boundaries]], [[Interfaces|interfaces]], [[Ports and Adapters|ports and adapters]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Compatibility and Evolution|compatibility and evolution]], [[Service Models|service models]], [[Service Levels|service levels]], [[Effect|effect]], [[Effect Models|effect models]], [[Observability and Provenance|observability and provenance]], [[Compositionality|compositionality]], [[Realization|realization]].
+
 ## Formal relations
 
-- `arranges`: [[Interfaces]] — A surface groups provided and required interface roles into the external contract projected at a declared boundary.
+- `arranges`: [[Interfaces]] — A surface projects reusable interface types through provided and required ports as part of the external contract at a declared boundary.
 - `distinguished_from`: [[Boundaries]] — A boundary establishes the cut between scopes, whereas a surface organizes what a system intentionally exposes, requires, and claims at that cut.
-- `distinguished_from`: [[Interfaces]] — A surface is the broader external contract at a boundary, whereas an interface is one declared interaction point or facet on that surface.
-
-## Related Concepts
-
-Related concepts: [[System Graph|system graph]], [[System Composition Algebra|system composition algebra]], [[Boundaries|boundaries]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Compatibility and Evolution|compatibility and evolution]], [[Service Models|service models]], [[Service Levels|service levels]], [[Effect Models|effects]], [[Observability and Provenance|observability and provenance]], [[Compositionality|compositionality]], [[Realization|realization]].
+- `distinguished_from`: [[Interfaces]] — A surface is the broader boundary-relative contract abstraction, whereas an interface is a reusable intentional interaction type projected on it.

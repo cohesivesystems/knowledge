@@ -2,25 +2,23 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-14
+updated: 2026-08-17
 status: draft
 aliases:
   - Interface
-  - Provided Interface
-  - Required Interface
 ---
 
 # Interfaces
 
-An interface is a declared interaction point or facet on a [[Surfaces|surface]] at a [[Boundaries|boundary]]. A boundary distinguishes scopes, a surface organizes the contract presented at that boundary, and an interface makes a selected crossing available with declared roles and meanings.
+An interface is a reusable intentional interaction type projected on a [[Surfaces|surface]]. It declares roles and meanings that can be instantiated at system boundaries without identifying the reusable type with any one participant, address, endpoint, or realization.
 
-Every interface occupies a boundary and participates in a surface, but neither every boundary nor every surface is exhausted by its interfaces. Ownership, trust, consistency, deployment, and failure boundaries may exist without being designed as crossing points, while a surface may also expose assumptions, guarantees, resource constraints, or evidence that are not themselves interaction points.
+A [[Ports and Adapters|port]] is a particular occurrence of an interface on a system [[Boundaries|boundary]]. A port provides or requires the interface under boundary-specific ownership, policy, scope, assumptions, and evidence. A surface may project several interfaces through several ports and may expose guarantees, resource constraints, or evidence that are not themselves interaction types.
 
-## Provided and Required Interfaces
+## Provided and Required Ports
 
-A node provides an interface when it accepts the interface's interactions and assumes its obligations. It requires an interface when its behavior depends on another node providing that interface.
+A system provides or requires an interface through a port on its surface. A provided port undertakes the provider-side obligations of the interface and governing protocol. A required port records the compatible capability and obligations on which the system depends.
 
-Provided and required interfaces make dependency direction explicit without committing to a particular transport, address, process boundary, or deployment topology. Their roles are attached to [[Interaction Channels|channel]] directions and [[Endpoints|endpoints]] by [[Interaction Bindings|interaction bindings]]. The corresponding realization may use an in-process call, HTTP, RPC, a broker, a file exchange, shared state, or another mechanism without making the mechanism the interface's semantic authority.
+Provided and required ports make dependency direction explicit without committing to a particular transport, address, process boundary, or deployment topology. Their interface and protocol roles are attached to [[Interaction Channels|channel]] directions and [[Endpoints|endpoints]] by [[Interaction Bindings|interaction bindings]]. The corresponding realization may use an in-process call, HTTP, RPC, a broker, a file exchange, shared state, or another mechanism without making the mechanism the interface's semantic authority.
 
 ## Contents
 
@@ -40,7 +38,9 @@ The interface need not reveal the internal entities, relations, processes, stora
 
 | Term | Governing question |
 | --- | --- |
-| interface | What roles, contracts, and obligations are available at this boundary? |
+| [[Surfaces\|surface]] | Which externally relevant boundary semantics does the system expose, require, or claim? |
+| interface | Which reusable intentional interaction type governs the participating roles? |
+| [[Ports and Adapters\|port]] | Which occurrence of that interface is provided or required by this system? |
 | [[Interaction Protocols\|interaction protocol]] | In which legal traces may participants use those roles? |
 | [[Interaction Channels\|interaction channel]] | Through which logical exchange and directions can occurrences move? |
 | [[Endpoints\|endpoint]] | At which attachment locus does a participant enter or leave a channel direction? |
@@ -53,12 +53,12 @@ The relationships are many-to-many. One interface can have local, HTTP, RPC, bro
 
 | Term | Cohesive distinction |
 | --- | --- |
-| [[Boundaries\|boundary]] | Separates scopes or authorities. An interface is a designed crossing of a boundary. |
-| [[Surfaces\|surface]] | Organizes the externally relevant contract presented at a boundary. An interface is one interaction point or facet on that surface. |
+| [[Boundaries\|boundary]] | Separates scopes or authorities. A port instantiates an interface at that boundary. |
+| [[Surfaces\|surface]] | Organizes externally relevant boundary semantics. An interface is a reusable interaction type projected on that surface. |
 | [[Shape\|shape or schema]] | Describes exchanged value structure. It does not by itself define meaning or legal interaction sequences. |
 | contract | States semantic obligations and guarantees associated with an interface role. |
 | API | Is a concrete or published interface description, often coupled to a particular binding or toolchain. |
-| port | Is a component's named attachment role through which it provides or requires an interface. |
+| port | Is a particular boundary occurrence through which a system provides or requires an interface. |
 | [[Endpoints\|endpoint]] | Is the bound attachment locus through which a port participates in a channel arrangement. |
 | adapter | Translates among interface roles, component behavior, messages, and realization mechanisms. |
 | address | Names or selects an endpoint, participant, channel, or mediating locus under a routing interpretation. |
@@ -67,15 +67,15 @@ The relationships are many-to-many. One interface can have local, HTTP, RPC, bro
 
 - [[Interaction|Interactions]] cross boundaries under interface roles and contracts.
 - [[Ports and Adapters]] separate an interface role from the mechanisms that realize or consume it.
-- [[Service|Services]] encapsulate internal structure behind provided interfaces and declare dependencies through required interfaces.
-- [[Service Models|Service models]] connect logical services by their provided and required interfaces and bindings.
+- [[Service|Services]] encapsulate internal structure behind surfaces whose ports provide or require interfaces.
+- [[Service Models|Service models]] connect logical services through those ports, interfaces, and bindings.
 - [[Service Levels|Service levels]] qualify interface outcomes with measurable objectives and accountable commitments.
 - [[Realization|Realization]] binds interface roles to concrete channels, protocols, endpoints, addresses, adapters, and runtime mechanisms.
 
 ## Formal relations
 
-- `arranges`: [[Interaction]] — An interface arranges which interaction roles and semantic obligations are available at a declared boundary.
-- `distinguished_from`: [[Boundaries]] — A boundary separates scopes and contexts, whereas an interface declares selected interaction roles and obligations available across that boundary.
+- `arranges`: [[Interaction]] — An interface arranges reusable interaction roles and semantic obligations that ports project at declared boundaries.
+- `distinguished_from`: [[Boundaries]] — A boundary separates scopes and contexts, whereas an interface is a reusable interaction type that ports instantiate at selected boundaries.
 
 ## External References
 

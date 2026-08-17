@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-17
 status: draft
 aliases:
   - Interaction Binding
@@ -20,7 +20,7 @@ Bindings are the reconciliation layer among interface, protocol, channel, endpoi
 
 A complete binding may identify:
 
-- the boundary, participants, and provided or required interface roles;
+- the boundary, participants, provided or required ports, and reusable interface roles;
 - exact operation, event, request, reply, stream-item, or other carried contracts;
 - protocol roles, initiation rules, correlation, and terminal outcomes;
 - exact channel definition revision and channel directions;
@@ -59,11 +59,11 @@ Bindings can be layered. A message publication binding may lower into a broker c
 | [[Interaction Protocols\|interaction protocol]] | Defines legal traces; a binding assigns protocol roles to exact endpoints and directions. |
 | [[Interaction Channels\|channel]] | Defines the logical exchange and scoped demands; a binding states what the channel carries for this interaction. |
 | [[Endpoints\|endpoint]] | Is one attachment locus; a binding relates the loci on all participating sides. |
-| port | Is a component's named provided or required interface role; a binding connects that role to a channel endpoint. |
+| port | Is a particular provided or required occurrence of an interface on a system boundary; a binding connects that occurrence to a channel endpoint. |
 | adapter | Translates between bound roles and concrete mechanisms; it is part of realization rather than the binding's semantic authority. |
 | address | Names or selects a path, channel, or endpoint; changing an address need not change the logical binding. |
 
-Related concepts: [[Interaction|interaction]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Endpoints|endpoints]], [[Messages and Envelopes|messages and envelopes]], [[Correlation and Conversations|correlation and conversations]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Ports and Adapters|ports and adapters]], [[Compatibility and Evolution|compatibility and evolution]], [[Realization|realization]], [[Network Channels|network channels]].
+Related concepts: [[Interaction|interaction]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Endpoints|endpoints]], [[Messages and Envelopes|messages and envelopes]], [[Correlation and Conversations|correlation and conversations]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Ports and Adapters|ports and adapters]], [[Compatibility and Evolution|compatibility and evolution]], [[Realization|realization]], [[Network Channels|network channels]].
 
 ## Formal relations
 

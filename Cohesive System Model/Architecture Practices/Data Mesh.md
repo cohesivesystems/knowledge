@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-05
+updated: 2026-08-17
 ---
 
 # Data Mesh
@@ -20,7 +20,7 @@ Data Mesh can be expressed as ownership and projection-model boundaries:
 
 ## In the Model
 
-A data product is not merely a dataset. It is a boundary-specific observation surface with declared semantics, source relationships, reconstitution rules, policies, and operational guarantees.
+A data product is not merely a dataset. It presents a boundary-specific [[Surfaces|observation surface]] with declared semantics, source relationships, reconstitution rules, policies, and operational guarantees.
 
 ## Failure Modes
 

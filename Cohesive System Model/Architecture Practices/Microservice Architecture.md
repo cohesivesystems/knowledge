@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-08-01
+updated: 2026-08-17
 aliases:
   - Microservices Architecture
 ---
@@ -19,7 +19,7 @@ The practice asks:
 
 - What boundary does the service own?
 - Which entities, processes, policies, and projections are inside it?
-- Which provided and required interfaces admit events, commands, queries, and observations across the boundary?
+- Which provided and required ports, typed by which interfaces, admit events, commands, queries, and observations across the boundary?
 - Which protocols and operational envelopes govern those interactions?
 - What delivery, ordering, recovery, and consistency semantics apply?
 - Which code modules and contracts realize the boundary?

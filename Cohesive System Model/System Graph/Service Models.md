@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-01
+updated: 2026-08-17
 status: draft
 aliases:
   - Service Model
@@ -13,7 +13,7 @@ aliases:
 
 # Service Models
 
-A service model is a system-graph view that bundles semantic responsibilities into logical [[Service|services]] and connects their provided and required [[Interfaces|interfaces]] through [[Interaction Channels|interaction channels]]. [[Interaction Protocols|Interaction protocols]] and operational envelopes qualify how those interactions may proceed. It mediates between the domain's entities, relations, queries, and processes and the concrete repositories, deployments, runtimes, and schedulers that realize them.
+A service model is a system-graph view that bundles semantic responsibilities into logical [[Service|services]] and connects provided and required ports on their [[Surfaces|surfaces]] through [[Interaction Channels|interaction channels]]. Reusable [[Interfaces|interface]] types, [[Interaction Protocols|interaction protocols]], and operational envelopes qualify how those interactions may proceed. It mediates between the domain's entities, relations, queries, and processes and the concrete repositories, deployments, runtimes, and schedulers that realize them.
 
 A logical service is not identical to a code module, repository, deployable, process, container, host, or runtime instance. Those are possible realization units, and their relationship to the logical service must be stated rather than assumed.
 
@@ -22,8 +22,8 @@ A logical service is not identical to a code module, repository, deployable, pro
 Within a service model, a service is a node with:
 
 - an encapsulated internal subgraph;
-- provided interfaces expressing capabilities;
-- required interfaces expressing dependencies;
+- provided ports typed by interfaces and expressing capabilities;
+- required ports typed by interfaces and expressing dependencies;
 - declared semantic and [[Service Levels|service-level]] guarantees; and
 - ownership or accountability when those concerns are modeled.
 
@@ -86,7 +86,7 @@ These are related projections, not interchangeable descriptions. Conflating them
 
 ## Formal relations
 
-- `arranges`: [[Service]] — Represents the boundary-relative service role as logical graph nodes with encapsulated responsibilities, provided and required interfaces, guarantees, and allocation relations.
+- `arranges`: [[Service]] — Represents the boundary-relative service role as logical graph nodes with encapsulated responsibilities, surfaces, provided and required ports, reusable interfaces, guarantees, and allocation relations.
 - `realm_peer_of`: [[Service]] — Treats the same nominal service notion as a system-graph structure, while the peer entry owns the general boundary-relative provider role and its modeling discipline.
 
 ## Relationships

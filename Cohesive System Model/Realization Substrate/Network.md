@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-08-02
+updated: 2026-08-17
 ---
 
 # Network
@@ -11,7 +11,7 @@ Network is the realization substrate for interaction across link, network, trans
 
 Network mechanisms [[Realization|realize]] interaction edges, but they are not the definition of [[Interaction|interaction]]. Interaction also occurs locally between processes, threads, runtime tasks, actors, CPU cores, memory cells, and synchronization primitives. Networked interaction is one important family of realization.
 
-This note specializes [[Interaction|interaction]] for network substrates. Use [[Interaction|interaction]] for the general boundary-relative model of observers, modes, semantic roles, and guarantees; use [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], and [[Interaction Bindings|interaction bindings]] for the logical interaction surface, conversation, and attachment of roles to channel directions; use [[Network Channels|network channels]] for the layer-relative channel correspondence; use this note for the broader network substrate through which those structures are lowered to protocol layers and physical links.
+This note specializes [[Interaction|interaction]] for network substrates. Use [[Interaction|interaction]] for the general boundary-relative model of observers, modes, semantic roles, and guarantees; use [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], and [[Interaction Bindings|interaction bindings]] for the externally relevant contract, reusable interaction types, conversation, and attachment of roles to channel directions; use [[Network Channels|network channels]] for the layer-relative channel correspondence; use this note for the broader network substrate through which those structures are lowered to protocol layers and physical links.
 
 ## Application Interaction from Async Send/Receive
 

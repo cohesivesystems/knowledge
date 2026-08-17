@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-07-04
-updated: 2026-08-01
+updated: 2026-08-17
 aliases:
   - Orchestration
   - Choreography
@@ -57,7 +57,7 @@ In orchestration, a substantial part of the global control structure is addition
 
 *Choreography distributes process control through role projection and compatible local behavior; orchestration realizes more of the global control structure in an active process manager. Both system-graph shapes lower independently into replaceable runtime mechanisms.*
 
-The variance of these mappings depends on the chosen objects and arrow direction. Global-to-local role projection often behaves as contravariant restriction with respect to context inclusion; compatible local behavior glues in the reverse local-to-global direction. Participant-to-substrate lowering is commonly covariant when it preserves identities and composition, while provided and required interfaces may introduce mixed variance. [[Functoriality]] therefore requires every mapping to name its source, target, preserved structure, and direction rather than calling every cross-realm relation merely a projection.
+The variance of these mappings depends on the chosen objects and arrow direction. Global-to-local role projection often behaves as contravariant restriction with respect to context inclusion; compatible local behavior glues in the reverse local-to-global direction. Participant-to-substrate lowering is commonly covariant when it preserves identities and composition, while provided and required ports and their interface roles may introduce mixed variance. [[Functoriality]] therefore requires every mapping to name its source, target, preserved structure, and direction rather than calling every cross-realm relation merely a projection.
 
 ## Coordination Spectrum
 

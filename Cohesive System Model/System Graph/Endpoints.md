@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-08-02
-updated: 2026-08-08
+updated: 2026-08-17
 status: draft
 aliases:
   - Endpoint
@@ -21,14 +21,14 @@ An endpoint is not automatically the participant, [[Observer|observer]], interfa
 
 In the system graph, a logical endpoint can state:
 
-- its boundary and provided or required interface role;
+- its boundary, port orientation, and interface role;
 - the channel directions it may emit to or admit from;
 - its sender, sink, source, or fetcher role in [[Interaction Control Flow|interaction control flow]];
 - admissible contracts, routing selectors, or subscription role;
 - the observer or service responsibility activated by ingress; and
 - the guarantees required at the attachment boundary.
 
-A port is the component's named declaration that it provides or requires an interface. An endpoint is the bound attachment locus through which that role participates in a particular channel arrangement. A port can therefore have several endpoint bindings, and an endpoint can expose a multiplexed interface namespace.
+A port is the particular occurrence through which a component provides or requires an interface on a [[Surfaces|surface]]. An endpoint is the bound attachment locus through which that port participates in a particular channel arrangement. A port can therefore have several endpoint bindings, and an endpoint can expose a multiplexed interface namespace.
 
 ## Endpoint Specializations
 
@@ -52,7 +52,7 @@ A URL, topic name, queue name, actor address, socket tuple, stream identifier, c
 
 Delivery to an endpoint does not itself interpret the carried value. A messaging endpoint, gateway, service activator, polling consumer, or event-driven consumer can activate an [[Observer Models|observer model]], but the observer boundary still supplies authority, state view, and interpretation rules. Likewise, successful transmission to a network endpoint does not prove admission at the messaging endpoint or commitment by the receiving observer.
 
-Related concepts: [[Interaction|interaction]], [[Boundaries|boundaries]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Interaction Channels|interaction channels]], [[Observer|observer]], [[Observer Models|observer models]], [[Interaction Control Flow|interaction control flow]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Ports and Adapters|ports and adapters]], [[Network Channels|network channels]], [[Network|network]], [[Application Hosts|application hosts]], [[Brokers|brokers]].
+Related concepts: [[Interaction|interaction]], [[Boundaries|boundaries]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Interaction Channels|interaction channels]], [[Observer|observer]], [[Observer Models|observer models]], [[Interaction Control Flow|interaction control flow]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Ports and Adapters|ports and adapters]], [[Network Channels|network channels]], [[Network|network]], [[Application Hosts|application hosts]], [[Brokers|brokers]].
 
 ## Formal relations
 

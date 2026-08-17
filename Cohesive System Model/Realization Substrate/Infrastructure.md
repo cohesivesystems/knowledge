@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-08-17
 ---
 
 # Infrastructure
@@ -22,7 +22,7 @@ Infrastructure shapes the boundaries within which the system runs:
 
 Infrastructure can support or undermine the model's operational concerns. Its concrete guarantees should be mapped back through [[Realization|realization]] and, when public structure is needed, through an [[Infrastructure Graph|infrastructure graph]] to interaction, delivery, coordination, concurrency, and recovery meanings.
 
-Infrastructure also realizes [[Operational Control|operational control]] and [[Observability and Provenance|observability and provenance]] through administration surfaces, policy distribution, metrics, logs, traces, diagnostic routes, and retained evidence. Those mechanisms do not define their own authority, semantic completion, or provenance meaning.
+Infrastructure also realizes [[Operational Control|operational control]] and [[Observability and Provenance|observability and provenance]] through [[Surfaces|administration surfaces]], policy distribution, metrics, logs, traces, diagnostic routes, and retained evidence. Those mechanisms do not define their own authority, semantic completion, or provenance meaning.
 
 Infrastructure supplies [[Scaling Mechanisms|scaling mechanisms]] such as resource resizing, replication, placement, partition movement, routing changes, and autoscaling controllers. Their effectiveness is judged against a declared [[Scalability|scalability]] profile; a successful infrastructure operation does not prove that ready or useful capacity increased.
 

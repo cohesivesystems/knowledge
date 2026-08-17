@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-28
-updated: 2026-08-01
+updated: 2026-08-17
 status: draft
 aliases:
   - Services
@@ -39,12 +39,13 @@ One microservice may expose several application services, run several background
 
 ## Encapsulation and Bundling
 
-The common role across these meanings is encapsulation. A service bundles some internal structure and presents a more stable, selective interaction surface to consumers:
+The common role across these meanings is encapsulation. A service bundles some internal structure and presents a more stable, selective [[Surfaces|interaction surface]] to consumers:
 
 ```text
 service = encapsulated internal subgraph
-        + provided interfaces
-        + required interfaces
+        + externally relevant surface
+        + provided and required ports
+        + reusable interface types
         + declared guarantees
         + accountable ownership
 ```
@@ -116,7 +117,7 @@ When using *service*, state:
 - Which capability is provided, to whom, and at which [[Boundaries|boundary]]?
 - Which observer interprets the request, message, timer, or other input?
 - Where do domain rules, transition authority, coordination, and effects belong?
-- Which [[Interfaces|provided and required interfaces]] declare the available interactions and semantic contracts?
+- Which provided and required ports instantiate which [[Interfaces|interface types]] and semantic contracts?
 - Which [[Interaction Protocols|interaction protocols]] govern ordering, concurrency, completion, cancellation, and failure?
 - Which [[Interaction Channels|channels]] and network bindings realize those interfaces?
 - Which operational guarantees apply to delivery, ordering, consistency, recovery, and compatibility?

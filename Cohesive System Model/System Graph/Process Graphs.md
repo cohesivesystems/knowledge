@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-08-17
 aliases:
   - Process Structure
   - Process Structures
@@ -37,7 +37,7 @@ Process graphs have [[Flow Views|flow views]]. A flow view describes how process
 
 A process edge constrains logical progression; it does not prescribe how a participant becomes active or receives compute time. The same edge may be realized through [[Interaction Control Flow|interaction-control]] arrangements such as broker polling or runtime push, callback or continuation handling, and cooperative or preemptive [[Scheduling|scheduling]]. Those lower-layer choices must preserve the edge's declared enabling, decision, ordering, and completion meaning rather than becoming implicit process structure.
 
-[[Orchestration and Choreography|Orchestration and choreography]] are process coordination shapes. In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the decision surface. In choreography, participants advance the process through events, protocols, subscriptions, shared media, and local reactions. Choreography can still have a shared global protocol and singular goal; it lacks one explicit process manager controlling the whole execution. Many systems mix both shapes, so the model should state where process identity, authority, ordering, recovery, and completion meaning live.
+[[Orchestration and Choreography|Orchestration and choreography]] are process coordination shapes. In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the process [[Surfaces|decision surface]]. In choreography, participants advance the process through events, protocols, subscriptions, shared media, and local reactions. Choreography can still have a shared global protocol and singular goal; it lacks one explicit process manager controlling the whole execution. Many systems mix both shapes, so the model should state where process identity, authority, ordering, recovery, and completion meaning live.
 
 Process graph concerns include:
 

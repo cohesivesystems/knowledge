@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-27
-updated: 2026-08-02
+updated: 2026-08-17
 status: draft
 aliases:
   - Interaction Channel
@@ -61,7 +61,7 @@ Common arrangements include:
 - A **typed or datatype channel** restricts admissible message contracts or shapes.
 - An **invalid-message or quarantine channel** separates material that cannot be admitted or processed under the active contract and policy.
 - A **bridge** relates channels or messaging systems with different addressing, formats, guarantees, or administrative boundaries.
-- A **message bus** arranges a shared integration surface over multiple channels, contracts, endpoints, and routing rules.
+- A **message bus** arranges a shared [[Surfaces|integration surface]] over multiple channels, contracts, endpoints, and routing rules.
 
 A messaging channel is not necessarily one network connection. Broker-mediated publication commonly composes a producer-to-broker network exchange, durable broker state, and one or more broker-to-consumer exchanges. One messaging channel can survive many network sessions, while one network connection can multiplex many messaging channels. [[Network Channels|Network channels]] give the realization-substrate peer of this channel notion and state the preservation conditions between the layers.
 

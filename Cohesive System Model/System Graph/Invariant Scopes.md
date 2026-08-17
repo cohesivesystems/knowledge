@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-08-17
 aliases:
   - Invariant Scope
   - Invariant Scopes
@@ -12,7 +12,7 @@ aliases:
 
 Invariant scopes describe where semantic [[Invariant|invariants]] are attached in the system graph.
 
-At the structure level, an invariant scope identifies which entity model, process graph, transition, relation model, projection model, observer model, or boundary the invariant constrains. This describes the constraint's modeled scope and dependency surface, not a specific validation mechanism or runtime enforcement substrate.
+At the structure level, an invariant scope identifies which entity model, process graph, transition, relation model, projection model, observer model, or boundary the invariant constrains. This describes the constraint's modeled scope and dependency extent, not a specific validation mechanism or runtime enforcement substrate.
 
 Under the [[Stuff Structure Property|stuff structure property]] lens, an invariant is primarily property: a constraint or predicate that valid stuff and structure must satisfy. An invariant scope becomes structure when the model represents the constraint as an explicit attachment, dependency, validation rule, or first-class graph element.
 
