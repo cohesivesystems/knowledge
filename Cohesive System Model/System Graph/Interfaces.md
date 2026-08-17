@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-08
+updated: 2026-08-14
 status: draft
 aliases:
   - Interface
@@ -12,9 +12,9 @@ aliases:
 
 # Interfaces
 
-An interface is a declared interaction surface at a [[Boundaries|boundary]]. A boundary distinguishes scopes; an interface makes selected crossings of that boundary available and constrains what may cross, in which role, and with what meaning.
+An interface is a declared interaction point or facet on a [[Surfaces|surface]] at a [[Boundaries|boundary]]. A boundary distinguishes scopes, a surface organizes the contract presented at that boundary, and an interface makes a selected crossing available with declared roles and meanings.
 
-Every interface defines or occupies a boundary, but not every boundary is an interface. Ownership, trust, consistency, deployment, and failure boundaries may exist without being designed as crossing points.
+Every interface occupies a boundary and participates in a surface, but neither every boundary nor every surface is exhausted by its interfaces. Ownership, trust, consistency, deployment, and failure boundaries may exist without being designed as crossing points, while a surface may also expose assumptions, guarantees, resource constraints, or evidence that are not themselves interaction points.
 
 ## Provided and Required Interfaces
 
@@ -54,6 +54,7 @@ The relationships are many-to-many. One interface can have local, HTTP, RPC, bro
 | Term | Cohesive distinction |
 | --- | --- |
 | [[Boundaries\|boundary]] | Separates scopes or authorities. An interface is a designed crossing of a boundary. |
+| [[Surfaces\|surface]] | Organizes the externally relevant contract presented at a boundary. An interface is one interaction point or facet on that surface. |
 | [[Shape\|shape or schema]] | Describes exchanged value structure. It does not by itself define meaning or legal interaction sequences. |
 | contract | States semantic obligations and guarantees associated with an interface role. |
 | API | Is a concrete or published interface description, often coupled to a particular binding or toolchain. |
@@ -81,4 +82,4 @@ The relationships are many-to-many. One interface can have local, HTTP, RPC, bro
 - [Hexagonal architecture](https://alistair.cockburn.us/hexagonal-architecture/)
 - [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 
-Related concepts: [[Boundaries|boundaries]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Ports and Adapters|ports and adapters]], [[Service Models|service models]], [[Compatibility and Evolution|compatibility and evolution]], [[Network Channels|network channels]], [[Realization|realization]].
+Related concepts: [[Surfaces|surfaces]], [[Boundaries|boundaries]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Ports and Adapters|ports and adapters]], [[Service Models|service models]], [[Compatibility and Evolution|compatibility and evolution]], [[Network Channels|network channels]], [[Realization|realization]].

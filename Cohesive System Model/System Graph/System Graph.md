@@ -2,7 +2,7 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-08-06
+updated: 2026-08-14
 ---
 
 # System Graph
@@ -41,6 +41,8 @@ Use this realm to answer questions such as:
 
 The system graph does not by itself choose a database, broker, scheduler, workflow engine, service deployment, or runtime. Those choices belong to realization substrate. It also does not by itself assert durability, ordering, isolation, retries, or recovery. Those belong to operational concerns. Its job is to make the shape of the system explicit enough that those later choices can preserve the intended meaning.
 
+For an accessible introduction to systems, surfaces, connections, composites, guarantees, and evidence, see [[System Composition Algebra|system composition algebra]].
+
 Core system graph notes:
 
 - [[Entity Models|entity models]]
@@ -54,6 +56,7 @@ Core system graph notes:
 - [[Process Graphs|process graphs]]
 - [[Business Transactions|business transactions]]
 - [[Boundaries|boundaries]]
+- [[Surfaces|surfaces]]
 - [[Bounded Context|bounded contexts]]
 - [[Interfaces|interfaces]]
 - [[Interaction Protocols|interaction protocols]]

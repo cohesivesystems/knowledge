@@ -134,6 +134,7 @@ Describes the properties required for domain semantics and system-graph structur
 Organizes domain semantics into a cohesive system graph. The system graph describes placement, composition, ownership, boundaries, dependencies, graph shape, and public substrate-facing projections; it is distinct from primitive semantic definitions, operational guarantees, and concrete realization substrate.
 
 - [[System Graph]]
+- [[System Composition Algebra]]
 - [[Entity Models]]
 - [[Transition Models]]
 - [[Observer Models]]
@@ -145,7 +146,7 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Process Graphs]], [[Fork and Join|fork and join]]
 - [[Effect Models]]
 - [[Flow Views]] as movement views within or between process graphs
-- [[Service Models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]]
+- [[Service Models]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]]
 - [[Interaction Bindings|Interaction bindings]], [[Endpoints|endpoints]]
 - [[Messages and Envelopes]], [[Interaction Channels|interaction channels]]
 - [[Routing Models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Flow Operators|flow operators]]

@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-08-01
+updated: 2026-08-14
 ---
 
 # Boundaries
@@ -11,7 +11,7 @@ Boundaries define the scope and context in which observation, interpretation, [[
 
 At the structure level, boundaries describe semantic and operational scoping in the system graph, not a specific process, network, storage, or deployment mechanism.
 
-A boundary is not necessarily an [[Interfaces|interface]]. A boundary separates scopes; an interface is a declared crossing at a boundary. One boundary may have several provided and required interfaces, and some boundaries intentionally expose none.
+A boundary is not a [[Surfaces|surface]] or necessarily an [[Interfaces|interface]]. A boundary separates scopes; a surface organizes the external contract presented at that cut; and an interface is a declared interaction point on a surface. One boundary may expose no surface, one surface, or several audience-relative surfaces, and each surface may contain several provided and required interfaces.
 
 Scope answers what is included, excluded, owned, visible, controlled, or guaranteed. Context answers which meanings, policies, identities, versions, capabilities, assumptions, and authorities apply inside that scope.
 
@@ -54,4 +54,4 @@ Different guarantees apply at different boundaries:
 
 So a system can acknowledge a message and preserve broker ordering while still failing to commit the domain transition. It can also receive the same message more than once while committing the domain transition only once through idempotency and concurrency control.
 
-Related concepts: [[Domain|domain]], [[Subdomain|subdomain]], [[Bounded Context|bounded context]], [[Ubiquitous Language|ubiquitous language]], [[Domain-Driven Design|domain-driven design]], [[Interfaces|interfaces]], [[Service|service]], [[Service Models|service models]], [[Observer|observer]], [[Authority|authority]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effect Models|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].
+Related concepts: [[Domain|domain]], [[Subdomain|subdomain]], [[Bounded Context|bounded context]], [[Ubiquitous Language|ubiquitous language]], [[Domain-Driven Design|domain-driven design]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Service|service]], [[Service Models|service models]], [[Observer|observer]], [[Authority|authority]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Event|event]], [[Command|command]], [[Query|query]], [[Universal Constructions|universal constructions]], [[Effect Models|effects]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Recovery|recovery]], [[Dual-Write Problem|dual-write problem]].
