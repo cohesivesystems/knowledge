@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-08-17
 status: draft
 aliases:
   - Data Locality
@@ -30,6 +30,16 @@ Locality is not semantic identity or authority. Co-locating a request handler wi
 These forms can conflict. Moving computation toward data may move it away from another dependency. Replicating data can improve read locality while increasing write coordination, consistency, and invalidation work. Concentrating related work can improve cache reuse while creating a hot partition or larger failure impact.
 
 Fault locality is related but distinct. A failure domain describes which components may fail together; access locality describes which interactions are near or reusable. Co-location can improve performance while increasing correlated failure, and geographic separation can improve failure independence while increasing interaction cost.
+
+## Location Transparency
+
+Location transparency separates a logical name, address, or interface from a participant's current physical placement. This indirection can support routing, migration, replication, failover, and stable references while implementations move.
+
+It does not make local and remote interaction equivalent. A uniform call or send syntax can conceal latency, serialization, bandwidth, transport cost, topology, partial failure, security, administration, and recovery differences that remain operationally significant. [[Fallacies of Distributed Computing|The fallacies of distributed computing]] provide a checklist for these hidden assumptions.
+
+Location transparency is therefore selective rather than absolute. A system may hide host coordinates from application code while retaining region, zone, partition, failure-domain, authority, data-sovereignty, or co-location constraints in the [[System Graph|system graph]]. Some interactions should refuse remote placement or expose it explicitly when distance changes their guarantees, cost, or valid recovery policy.
+
+Actor addressing illustrates the distinction. A stable actor address can name one logical observer across activation and placement changes, but the realization must still expose whether a send remains in-process, crosses a host or region, depends on serialization and network delivery, or reaches a different administrative and failure boundary. The useful rule is to hide coordinates where they are irrelevant while preserving their operational consequences.
 
 ## Working Sets and Thrashing
 
@@ -66,6 +76,7 @@ Capacity and recovery plans should account for locality loss. Failover capacity 
 - Which hotspots, skew, coordination, consistency, fairness, or failure tradeoffs result?
 - How are local access, remote access, hit rate, reuse distance, state movement, and cold-start duration observed?
 - Is affinity merely an optimization, or does correctness depend on a separately established authority mechanism?
+- Which placement facts may be hidden from callers, and which locality, cost, failure, authority, or policy consequences must remain visible?
 
 ## External References
 
@@ -73,4 +84,8 @@ Capacity and recovery plans should account for locality loss. Failover capacity 
 - Liang Yuan, Chen Ding, Peter Denning, and Yunquan Zhang, [A Measurement Theory of Locality](https://arxiv.org/abs/1802.01254), 2018.
 - Jeffrey Dean and Sanjay Ghemawat, [MapReduce: Simplified Data Processing on Large Clusters](https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/), *OSDI '04*, 2004.
 
-Related concepts: [[Scalability|scalability]], [[Scaling Mechanisms|scaling mechanisms]], [[Stuff Structure Property|stuff structure property]], [[Compositionality|compositionality]], [[Boundaries|boundaries]], [[Identity|identity]], [[Authority|authority]], [[Entity|entity]], [[Interaction|interaction]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Consumer Coordination|consumer coordination]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Coordination|coordination]], [[Consistency Models|consistency models]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Observability and Provenance|observability and provenance]], [[Compute|compute]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Network|network]], [[Storage Systems|storage systems]], [[Infrastructure Graph|infrastructure graph]], [[Capacity Planning|capacity planning]].
+## Formal relations
+
+- `qualifies`: [[Interaction]] — States how placement, distance, reuse, and movement change the boundary-relative cost and behavior of participant interaction.
+- `qualifies`: [[Infrastructure Graph]] — Attaches locality, working-set, affinity, migration, and cold-start consequences to explicit realization placement and dependency structure.
+- `distinguished_from`: [[Authority]] — Co-location, affinity, and cached access can improve locality without granting semantic ownership or transition authority.

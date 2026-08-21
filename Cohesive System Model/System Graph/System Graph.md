@@ -59,6 +59,7 @@ Core system graph notes:
 - [[Surfaces|surfaces]]
 - [[Bounded Context|bounded contexts]]
 - [[Interfaces|interfaces]]
+- [[Interaction Modes|interaction modes]]
 - [[Interaction Protocols|interaction protocols]]
 - [[Service Models|service models]]
 - [[Effect Models|effect models]]
@@ -74,5 +75,3 @@ Core system graph notes:
 Secondary views and projections:
 
 - [[Flow Views|flow views]]
-
-Related concepts: [[System Language and Realization|system language and realization]], [[Compositionality|compositionality]], [[Stuff Structure Property|stuff structure property]], [[Execution Kernel|execution kernel]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Interaction|interaction]], [[Service|service]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Realization|realization]].

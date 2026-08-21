@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-08-17
 aliases:
   - Actor System
 ---
@@ -14,6 +14,8 @@ The actor model addresses the problem of organizing concurrent computation aroun
 ## Cohesive Formulation
 
 In Cohesive terms, actors are a realization pattern for addressable [[Observer|observers]]. An actor address gives other observers a delivery path to a receiving observer boundary.
+
+That address may remain stable across placement and activation changes, but location transparency is not local-remote equivalence. Latency, serialization, capacity, delivery, partitions, failure domains, and administrative boundaries remain explicit through [[Locality|locality]], [[Failure Models|failure models]], and the [[Infrastructure Graph|infrastructure graph]]. The [[Fallacies of Distributed Computing|fallacies of distributed computing]] are a useful check against letting one actor API conceal those properties.
 
 Actors can also realize entities when actor identity aligns with entity identity and the actor hosts that entity's transition boundary.
 
@@ -31,8 +33,8 @@ A common failure mode is treating an addressable actor as the authoritative seri
 
 - Carl Hewitt, [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/abs/1008.1459), 2010.
 
-Related concepts: [[Actor Systems|actor systems]], [[Observer|observer]], [[Entity|entity]], [[Identity|identity]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Interaction|interaction]], [[Concurrency Control|concurrency control]], [[Delivery Semantics|delivery semantics]], [[Realization|realization]].
-
 ## Formal relations
 
 - `bundles`: [[Actor Systems]] — Adopts actor-system addressing, mailbox, placement, isolation, supervision, and serialized handling as the named realization family for actor roles.
+- `bundles`: [[Interaction Modes]] — Selects explicit message passing, one-way tell, correlated ask, mailbox mediation, and actor-boundary serialization as a named interaction profile.
+- `distinguished_from`: [[Entity]] — An actor is an addressable execution and observation role; it represents a semantic entity only when identity, authority, transition, and commit boundaries deliberately align.

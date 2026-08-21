@@ -58,7 +58,7 @@ The correspondence is generally many-to-many. Exactly one semantic discharge, fo
 
 ## Minimal Edge
 
-At a low level for software modeling, interaction can be modeled as asynchronous send and receive. A send operation usually means the local boundary accepted data for transmission, publication, storage, or delivery. A receive operation observes data already admitted by the receiver's local substrate. Stronger meanings, such as remote receipt, application processing, durable persistence, visibility to another participant, or domain commitment, require additional protocol structure.
+One useful low-level presentation models interaction as asynchronous send and receive. A send operation usually means the local boundary accepted data for transmission, publication, storage, or delivery. A receive operation observes data already admitted by the receiver's local substrate. Stronger meanings, such as remote receipt, application processing, durable persistence, visibility to another participant, or domain commitment, require additional protocol structure. [[Interaction Modes|Interaction modes]] keep this message-passing presentation distinct from direct invocation, shared-state mediation, retained-artifact exchange, streams, and rendezvous.
 
 Higher layers add addressing, atomicity, ordering, reliability, [[Flow Control|flow control]], framing, [[Multiplexing and Demultiplexing|multiplexing]], persistence, cursoring, acknowledgment, correlation, and semantic interpretation.
 
@@ -80,7 +80,7 @@ An interaction description should say:
 - What guarantees enrich the edge: ordering, durability, isolation, delivery, retention, idempotency, retry, [[Flow Control|flow control]], or recovery.
 - Which semantic role the carried value has when interpreted: [[Command|command]], [[Query|query]], [[Event|event]], [[Observation|observation]], policy decision, acknowledgment, or signal.
 
-These are reusable interaction shapes rather than disjoint categories. [[Interaction Protocols|Protocols]] refine them with legal traces and meanings, while [[Interaction Channels|channels]] can demand the coarse exchange morphology from a realization without owning the complete protocol.
+[[Interaction Modes|Interaction modes]] organize these dimensions as reusable boundary-relative profiles rather than disjoint categories. [[Interaction Protocols|Protocols]] refine them with legal traces and meanings, while [[Interaction Channels|channels]] can demand the coarse exchange morphology from a realization without owning the complete protocol.
 
 ## Addressing and Identity
 
@@ -90,14 +90,9 @@ Addressing should not be collapsed into [[Identity|identity]]. An address names 
 
 ## Derived Modes
 
-Interaction modes are edge configurations at a chosen abstraction layer. One mode may be realized in terms of another at a lower layer.
+[[Interaction Modes|Interaction modes]] are edge profiles at a chosen abstraction layer. They distinguish mediation families such as direct invocation, explicit message passing, shared state, and retained artifacts from exchange morphologies such as one-way, request/reply, publish/consume, stream, and session. They also keep synchronization, interaction control, topology, retention, and runtime progress explicit as separate dimensions.
 
-- **One-way send**: emit plus an address, channel, or location, with no modeled continuation. Examples include actor tell, asynchronous channel send, notification, fire-and-forget message send, and some event publication.
-- **Request/reply**: one send plus a modeled continuation that expects a later response. The reply path may be direct, correlated, synchronous, asynchronous, multiplexed, carried through another channel, or observed through shared state. RPC, HTTP request/response, actor ask, memory read, and queue-based request/reply are examples.
-- **Publish/consume**: one or more sends into a mediating channel from which consumers observe or consume. Queues, logs, topics, pub/sub buses, stream subscriptions, and multicast are configurations of publish/consume with different topology, retention, cursor ownership, and delivery semantics.
-- **Stream/session**: a session identity relating many sends and receives over time. TCP realizes a full-duplex connection with an ordered byte stream in each direction. Higher layers can frame request/reply, publish/consume, or multiplexed protocols over a stream.
-- **Shared-state interaction**: observers interact through a mediating state cell, register, memory location, table, log, lock, or object rather than by explicit point-to-point message. Examples include read, write, compare-and-swap, lock, wait, notify, memory barriers, cache coherence, and transactional memory.
-- **Synchronization/rendezvous**: independent occurrences are joined so that progress, visibility, or commitment is coordinated. Examples include blocking handoff, CSP-style channel rendezvous, barrier, latch, semaphore acquire/release, join, await, and select/choice.
+One mode may be realized in terms of another at a lower layer. Local actors can exchange logical messages through a shared-memory mailbox, while a distributed shared-state abstraction can realize reads and writes through lower-level message exchange. The selected upper-layer mode does not erase the guarantees and failure boundaries introduced by its realization.
 
 ## Data Flow and Interaction Control Flow
 
@@ -141,7 +136,7 @@ Actor message send is the case where the addressed target is itself an observer 
 
 ## Layering and Lowering
 
-Interaction modes compose upward into richer protocols and lower into more primitive realization steps:
+[[Interaction Modes|Interaction modes]] compose upward into richer protocols and lower into more primitive realization steps:
 
 - Request/reply can be framed over a stream, as with HTTP or RPC over TCP. RPC realizes application-level message-based request/reply by adding framing, correlation, multiplexing, dispatch, status, and metadata over a lower-level stream/session edge; see [[Network|network]].
 - Request/reply can be realized over queues by carrying a reply address and correlation identifier.
@@ -221,4 +216,7 @@ Interaction does not by itself define whether a domain transition committed. Tha
 - Martin Fowler, [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html), 2017.
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Observer|observer]], [[Command|command]], [[Query|query]], [[Event|event]], [[Effect|effect]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Interaction Control Flow|interaction control flow]], [[Flow Control|flow control]], [[Routing Models|routing models]], [[Correlation and Conversations|correlation and conversations]], [[Consumer Coordination|consumer coordination]], [[Relation Models|relation models]], [[Flow Views|flow views]], [[Projection Models|projection models]], [[Delivery Semantics|delivery semantics]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Coordination|coordination]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Network Channels|network channels]], [[Network|network]], [[Brokers|brokers]], [[Actor Systems|actor systems]], [[Trace and Feedback|trace and feedback]], [[Duality and Symmetry|duality and symmetry]].
+## Formal relations
+
+- `requires`: [[Boundaries]] — Interaction meaning, participant roles, occurrence identity, and success claims are always relative to declared observation and responsibility boundaries.
+- `corresponds_to`: [[Interaction Modes]] — Semantic participation is arranged as boundary-relative structural profiles without identifying its meaning with one carrier, protocol, or realization mechanism.

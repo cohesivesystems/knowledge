@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-08-17
 ---
 
 # Actor Systems
@@ -30,6 +30,16 @@ Actor-system concerns include:
 - Passivation and reactivation.
 - Delivery and ordering guarantees.
 
+## Addressing, Placement, and Location Transparency
+
+An actor address can remain stable while the actor is inactive, migrates, is rebalanced, fails over, or is reached through a router. This location transparency is an addressing and placement indirection: senders need not embed the actor's current process, host, or network coordinates.
+
+It is not a guarantee that local and remote sends are operationally interchangeable. An in-process mailbox enqueue, cross-process serialization, cross-host network send, cross-region route, and activation through a remote state provider have different latency, capacity, ordering, delivery, security, cost, and partial-failure boundaries. A uniform `tell` or `ask` surface must not erase those differences from the [[Infrastructure Graph|infrastructure graph]], [[Failure Models|failure model]], [[Service Levels|service levels]], or operational policy.
+
+Location transparency is not always desirable. A model may require co-location with authoritative state, affinity to a partition or region, separation across failure domains, data-sovereignty constraints, or a prohibition on remote interaction. [[Locality|Locality]] and placement policy should express those requirements even when application code uses one logical address form.
+
+The [[Fallacies of Distributed Computing|fallacies of distributed computing]] are a useful check on actor abstractions: stable addressing does not make the network reliable, latency-free, unlimited, secure, static, singly administered, costless, or homogeneous. Actor systems can hide coordinates where they are irrelevant while still exposing operational consequences, placement evidence, and failure boundaries where they matter.
+
 ## Reception-Order Indeterminacy
 
 Concurrent message transmissions need not determine one global next state or one universal arrival order. Transport, runtime [[Arbitration|arbitration]], and [[Scheduling|scheduling]] establish a local reception and execution order at each actor boundary. Different orders can lead to different future behavior; [[Nondeterminism and Choice|nondeterminism and choice]] names this actor-specific source **reception-order indeterminacy**.
@@ -54,9 +64,8 @@ An effect adapter hosted by an actor must not mutate authoritative entity state 
 
 - `may_realize`: [[Observer]] — Hosts addressable interpretation loci when actor identity, boundary, authority, state view, and activation semantics preserve the observer role.
 - `may_realize`: [[Entity]] — Hosts entity identity and transition authority when serialization, persistence, versioning, and commit requirements are satisfied.
+- `may_realize`: [[Interaction Modes]] — Implements explicit message-passing profiles through actor addresses, mailboxes, placement, dispatch, and correlated continuations while preserving declared boundaries.
 
 ## External References
 
 - Carl Hewitt, [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/abs/1008.1459), 2010.
-
-Related concepts: [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Identity|identity]], [[Observer|observer]], [[Entity|entity]], [[Process|process]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Effect|effect]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Glitch Principle|glitch principle]], [[Ordering|ordering]], [[Causality|causality]], [[Authority|authority]], [[Concurrency Control|concurrency control]], [[Delivery Semantics|delivery semantics]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].

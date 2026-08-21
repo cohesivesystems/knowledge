@@ -91,6 +91,13 @@ Tooling exports ordinary wikilinks as edges with relation type `mentions`. Use
 a formal relation when the source note makes a stable, intentional, and
 reviewable assertion about another graph node.
 
+Do not add an undifferentiated `Related concepts:` tag cloud merely to create
+graph adjacency. Put ordinary wikilinks where the surrounding definition,
+comparison, example, table, or modeling check explains their local relevance.
+Promote stable assertions to formal relations so the relation type and rationale
+state why the concepts are connected. Index and overview lists may still use
+ordinary links when their authored purpose is navigation or organization.
+
 ### Authored Format
 
 Formal relations appear in an exact `## Formal relations` section:
@@ -189,3 +196,12 @@ Do not include:
 `cohesive-website` may consume selected graph notes or generated graph exports
 to render public library content. That website is an editorial projection. This
 repository remains the canonical graph source.
+
+The graph export preserves both kinds of authored links as directed edges.
+Formal relations carry their authored type and a derived inverse label; ordinary
+in-context wikilinks carry `mentions` and `mentioned_by`. Node projections also
+include `outbound` and `backlinks` identifiers for convenience. Consumers should
+derive outgoing navigation from edges whose `source` is the displayed node and
+incoming navigation from edges whose `target` is the displayed node, using the
+edge's `type` or `inverse` label as appropriate. Do not author inverse links or
+tag clouds solely to make website navigation appear.

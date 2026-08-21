@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-08-06
+updated: 2026-08-17
 ---
 
 # Cohesive System Model
@@ -113,7 +113,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Consensus]]
 - [[Scheduling]], [[Parallelism|parallelism]], [[Fairness|fairness]], [[Arbitration|arbitration]]
 - [[Scalability]], [[Locality|locality]], [[Partitioning|partitioning]]
-- [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[Failure Models|failure models]], [[Deadlock and Livelock|deadlock and livelock]], [[CAP Theorem|CAP theorem]], [[Metastability|metastability]]
+- [[Safety and Liveness]], [[Progress Conditions|progress conditions]], [[Failure Models|failure models]], [[Fallacies of Distributed Computing|fallacies of distributed computing]], [[Deadlock and Livelock|deadlock and livelock]], [[CAP Theorem|CAP theorem]], [[Metastability|metastability]]
 - [[Concurrency Control|Concurrency control]]
 - [[Isolation]]
 - [[ACID]], [[Two-Phase Commit|two-phase commit]]
@@ -146,7 +146,7 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Process Graphs]], [[Fork and Join|fork and join]]
 - [[Effect Models]]
 - [[Flow Views]] as movement views within or between process graphs
-- [[Service Models]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]]
+- [[Service Models]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Modes|interaction modes]], [[Interaction Protocols|interaction protocols]]
 - [[Interaction Bindings|Interaction bindings]], [[Endpoints|endpoints]]
 - [[Messages and Envelopes]], [[Interaction Channels|interaction channels]]
 - [[Routing Models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Flow Operators|flow operators]]
@@ -189,7 +189,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Architecture Practices]]
 - [[Analysis Patterns]], [[Domain-Driven Design|domain-driven design]]
 - [[Patterns of Enterprise Application Architecture]], [[Enterprise Integration Patterns|enterprise integration patterns]]
-- [[Workflow Patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]]
+- [[Workflow Patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[Reactive Manifesto|reactive manifesto]]
 - [[Ports and Adapters]], [[Clean Architecture|clean architecture]], [[Modular Monolith|modular monolith]], [[Microservice Architecture|microservice architecture]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Capacity Planning|capacity planning]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
 - [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]

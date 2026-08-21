@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-06-24
-updated: 2026-07-29
+updated: 2026-08-17
 ---
 
 # Architecture Practices
@@ -39,6 +39,7 @@ Some well-known patterns & practices:
 - [[Microservice Architecture]]
 - [[Event-Driven Architecture]]
 - [[Asynchronous Interaction Design]]
+- [[Reactive Manifesto]]
 - [[Capacity Planning]]
 - [[CQRS as Architecture Practice]]
 - [[Event Sourcing as Architecture Practice]]
@@ -53,5 +54,3 @@ Some well-known patterns & practices:
 - [[Weak Isolation Patterns]]
 - [[CRDTs as Architecture Practice]]
 - [[Data Mesh]]
-
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Analysis Patterns|analysis patterns]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Enterprise Integration Patterns|enterprise integration patterns]], [[Workflow Patterns|workflow patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[Capacity Planning|capacity planning]], [[System Language and Realization|system language and realization]], [[Categorical Principles|categorical principles]], [[Process Theories|process theories]], [[Stuff Structure Property|stuff structure property]], [[Boundaries|boundaries]], [[Observer|observer]], [[Entity|entity]], [[Transition|transition]], [[Persistence|persistence]], [[Durability|durability]], [[Reconstitution|reconstitution]], [[Effect Models|effects]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].
