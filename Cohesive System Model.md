@@ -84,7 +84,8 @@ assigning operational guarantees or realization mechanisms.
 - [[Behavior]]  
 - [[Process]]
 - [[Interaction]]
-- [[Observer]]  
+- [[Observer]]
+- [[Agent]]
 - [[Entity]]  
 - [[Relation]]
 - [[Invariant]]
@@ -304,6 +305,12 @@ An observer may be realized by an OS thread, logical thread, fiber, coroutine, t
 Actor systems make observers addressable: an actor address gives other observers a delivery path to a receiving observer boundary. Entities and [[Process|processes]] can also be modeled as observers; in that model, inputs are interpreted relative to their own state, history, policies, and boundary.
 
 Events, commands, and queries are **observer-relative interpretations**: an event that is endogenous to one observer may be exogenous to another, and the same incoming observation may be interpreted differently (or rejected) depending on the observer’s current view of entity state, [[Projection Models|projection models]], required observations, [[Invariant|invariants]], [[Policy|policies]], authority, and consistency expectations.
+
+### Agent
+
+An [[Agent|agent]] is an observer role whose modeled responsibility is to interpret observations and select or initiate actions in service of a purpose, objective, commitment, or obligation. Agency adds an attributable decision-and-action role governed by policies, available actions, authority, and capabilities.
+
+Participant, observer, agent, and actor name different aspects. Participant is the broad relational role. Observer identifies where interpretation occurs. Agent identifies responsibility for selecting or initiating action. Actor identifies an addressable, message-driven execution role that may realize an observer or agent.
 
 ### Entity
 

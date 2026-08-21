@@ -28,7 +28,7 @@ Protocol layers add structure to this minimal edge:
 - TCP adds ordering, retransmission, flow control, and congestion control, forming a full-duplex connection with an ordered byte stream in each direction. It orders bytes within a connection, not application messages, and TCP acknowledgments do not imply application processing or durable commit.
 - HTTP, RPC, WebSockets, gRPC, and custom protocols add application-level framing, correlation, multiplexing, status, metadata, request/reply, and streaming semantics.
 - Queues, logs, topics, and brokers reify channel state as system entities. Clients typically interact with them through lower-level request/reply protocols, thereby implementing higher-level publish/consume, subscription, cursor, retention, and delivery semantics.
-- Application flows compose those protocols into domain-level interactions and [[Business Transactions|business transactions]] involving services, humans, agents, policies, entities, and processes.
+- Application flows compose those protocols into domain-level interactions and [[Business Transactions|business transactions]] involving services, humans, [[Agent|agents]], policies, entities, and processes.
 
 This ladder is not a strict hierarchy of concepts. The same interaction edge shape can reappear at different layers. UDP multicast and a Kafka topic are both one-to-many publication configurations at different realization boundaries, with very different addressing, durability, ordering, retention, and acknowledgment semantics.
 

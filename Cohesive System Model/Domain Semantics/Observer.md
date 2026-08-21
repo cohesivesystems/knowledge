@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-08-20
 ---
 
 # Observer
@@ -20,6 +20,8 @@ An observer is characterized by:
 - The ability to host, observe, route, or project [[Entity|entities]] and their [[Event|events]] within its boundary.
 - The ability to receive events from other observers as exogenous events.
 
+An [[Agent|agent]] is an observer whose modeled role includes selecting or initiating action in service of a purpose, commitment, or obligation. Observer identifies the context in which interpretation occurs; agent additionally identifies an attributable decision-and-action role within that context.
+
 An observer may be realized by an OS thread, logical thread, fiber, coroutine, task, actor mailbox turn, workflow activation, request handler, projection run, process step, or entity command handler. In green-thread, fiber, or async runtimes, the observer follows the logical execution context managed by a scheduler, not necessarily the OS thread on which code happens to run.
 
 Addressability is not intrinsic to the definition of an observer. A semantic [[Interaction|interaction]] can identify an intended participant or role; [[Interaction Channels|interaction channels]] and [[Routing Models|routing models]] arrange the addressable path in the system graph; operational concerns specify its delivery properties; and realization supplies concrete addresses and mechanisms. Some observers have globally addressable identities, such as actors. Others have transient or local identities, such as a request handler or a logical execution context created for a single operation.
@@ -30,4 +32,4 @@ Entities and [[Process|processes]] can be modeled as observers; in that model, i
 
 [[Event|Events]], [[Command|commands]], and [[Query|queries]] are observer-relative interpretations: an event that is endogenous to one observer may be exogenous to another, and the same incoming observation may be interpreted differently or rejected depending on the observer's current view of entity state, projections, invariants, policies, authority, and consistency expectations.
 
-Related concepts: [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Entity|entity]], [[Process|process]], [[Authority|authority]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]].
+Related concepts: [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Agent|agent]], [[Entity|entity]], [[Process|process]], [[Authority|authority]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]].

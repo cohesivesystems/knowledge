@@ -9,7 +9,7 @@ updated: 2026-08-01
 
 Business Transactions describe domain-level units of work whose progress, acceptance, rejection, compensation, or completion matters to the business.
 
-A business transaction is not the same as a [[Database Transactions|database transaction]]. A database transaction is one possible coordination mechanism inside a business transaction. A business transaction may span observer models, entity models, services, brokers, workflow engines, humans, agents, external systems, and time.
+A business transaction is not the same as a [[Database Transactions|database transaction]]. A database transaction is one possible coordination mechanism inside a business transaction. A business transaction may span observer models, entity models, services, brokers, workflow engines, humans, [[Agent|agents]], external systems, and time.
 
 At the structure level, a business transaction arranges [[Process Graphs|process graphs]], their [[Flow Views|flow views]], [[Entity Models|entity models]], [[Observer Models|observer models]], [[Command|commands]], [[Query|queries]], [[Event|events]], [[Observation|observations]], and [[Transition|transitions]] into coherent domain work.
 
@@ -55,7 +55,7 @@ Application-level pieces include [[Interaction|request/reply]], [[Interaction|pu
 A business transaction should identify:
 
 - The business subject or correlation identity.
-- Participating entity models, observer models, people, agents, and external systems.
+- Participating entity models, observer models, people, [[Agent|agents]], and external systems.
 - Commands that request state transitions.
 - Queries and observations needed for decisions.
 - Endogenous events that mark accepted domain change.

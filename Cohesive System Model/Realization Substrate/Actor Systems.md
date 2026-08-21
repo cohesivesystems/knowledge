@@ -2,14 +2,14 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-08-17
+updated: 2026-08-20
 ---
 
 # Actor Systems
 
 Actor Systems are runtimes that organize execution around addressable actor identities, message delivery, placement, isolation, and serialized handling per actor.
 
-In the model, actor systems can realize [[Observer|observers]], [[Entity|entities]], [[Process|process]] participants, projections, or coordination components.
+In the model, actor systems can realize [[Observer|observers]], [[Agent|agents]], [[Entity|entities]], [[Process|process]] participants, projections, or coordination components.
 
 The distinctive contribution of an actor system is that it can make observers globally or system-wide addressable. An actor address gives other observers a delivery path to a receiving observer boundary:
 
@@ -63,6 +63,7 @@ An effect adapter hosted by an actor must not mutate authoritative entity state 
 ## Formal relations
 
 - `may_realize`: [[Observer]] — Hosts addressable interpretation loci when actor identity, boundary, authority, state view, and activation semantics preserve the observer role.
+- `may_realize`: [[Agent]] — Hosts addressable decision-and-action roles when an actor activation preserves the agent's observer context, purpose, policies, action repertoire, attribution, and authority boundary.
 - `may_realize`: [[Entity]] — Hosts entity identity and transition authority when serialization, persistence, versioning, and commit requirements are satisfied.
 - `may_realize`: [[Interaction Modes]] — Implements explicit message-passing profiles through actor addresses, mailboxes, placement, dispatch, and correlated continuations while preserving declared boundaries.
 

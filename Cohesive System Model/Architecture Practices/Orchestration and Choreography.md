@@ -41,7 +41,7 @@ Examples include:
 - Event-driven order fulfillment where payment, inventory, shipping, notification, and projection services react to published events and local state.
 - Pub/sub projection pipelines where consumers independently follow committed event streams and update their own read models.
 - Gossip protocols where peers exchange local observations and converge without a central coordinator.
-- Population protocols where anonymous finite-state agents update through pairwise local transition rules and eventually converge under a [[Fairness|fairness]] assumption.
+- Population protocols where anonymous finite-state [[Agent|agents]] update through pairwise local transition rules and eventually converge under a [[Fairness|fairness]] assumption.
 - [[CRDTs|CRDT]] replication where replicas accept compatible local updates and merge by algebraic rules.
 - Domain event choreography where each participant owns its own transition and emits events for others to interpret.
 
@@ -80,7 +80,7 @@ This table should not be read as a ranking. It identifies where control and auth
 
 Many distributed protocols sit between pure choreography and classic orchestration.
 
-Population protocols sit near the choreographed end of the spectrum. The protocol has a global semantic objective and a shared transition rule, but no agent owns process identity, observes global progress, commands another agent, or decides completion. The [[Scheduling|scheduler]] or adversary supplies interaction opportunities under a fairness assumption; it is part of the execution environment, not a process manager in the protocol. If an implementation added a central scheduler that inspected global state and chose interactions to drive a result, that implementation would add orchestration outside the basic population-protocol model.
+Population protocols sit near the choreographed end of the spectrum. The protocol has a global semantic objective and a shared transition rule, but no [[Agent|agent]] owns process identity, observes global progress, commands another agent, or decides completion. The [[Scheduling|scheduler]] or adversary supplies interaction opportunities under a fairness assumption; it is part of the execution environment, not a process manager in the protocol. If an implementation added a central scheduler that inspected global state and chose interactions to drive a result, that implementation would add orchestration outside the basic population-protocol model.
 
 Paxos can be seen as more choreographed than an index rebuild. Paxos implements a single replicated state machine and coordinates participants toward a shared decision, but no single node "runs the algorithm" in the way an index rebuild coordinator runs a rebuild. Proposers, acceptors, and learners follow protocol-local rules. A leader or proposer may coordinate a round and make global proposals, but it cannot unilaterally authorize the history; quorum intersection and acceptor state determine which value is chosen. The leader role can change, and the authority to decide is distributed through the protocol.
 

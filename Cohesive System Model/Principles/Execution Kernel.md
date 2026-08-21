@@ -27,7 +27,7 @@ authoring or import
 
 ## Canonical Authority
 
-Persisted, versioned canonical definitions are semantic authority for executable [[Transition Models|transition models]] and [[Process Graphs|process graphs]]. Host-language authoring, source generators, editors, importers, agents, generated code, runtime registrations, checkpoints, backend plans, and deployment artifacts are producers, projections, derived artifacts, or interpretations.
+Persisted, versioned canonical definitions are semantic authority for executable [[Transition Models|transition models]] and [[Process Graphs|process graphs]]. Host-language authoring, source generators, editors, importers, [[Agent|agents]], generated code, runtime registrations, checkpoints, backend plans, and deployment artifacts are producers, projections, derived artifacts, or interpretations.
 
 Canonical authority does not replace the broader semantic graph. An [[Entity|entity]], [[State|state]], [[Event|event]], [[Effect|effect]], [[Transition|transition]], or [[Process|process]] is not defined by its serialized representation. The canonical execution definition is the stable system-graph structure chosen to make those meanings portable and independently interpretable.
 

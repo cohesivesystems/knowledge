@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-08-17
+updated: 2026-08-20
 aliases:
   - Actor System
 ---
@@ -14,6 +14,8 @@ The actor model addresses the problem of organizing concurrent computation aroun
 ## Cohesive Formulation
 
 In Cohesive terms, actors are a realization pattern for addressable [[Observer|observers]]. An actor address gives other observers a delivery path to a receiving observer boundary.
+
+Actors and [[Agent|agents]] answer different modeling questions. An agent is a semantic role that selects or initiates action under purposes, policies, and constraints; an actor is an addressable, message-driven execution role. An actor may realize an agent when its observer context and handler preserve that decision-and-action role. Other actors realize routing, projection, entity hosting, or coordination roles without modeled agency.
 
 That address may remain stable across placement and activation changes, but location transparency is not local-remote equivalence. Latency, serialization, capacity, delivery, partitions, failure domains, and administrative boundaries remain explicit through [[Locality|locality]], [[Failure Models|failure models]], and the [[Infrastructure Graph|infrastructure graph]]. The [[Fallacies of Distributed Computing|fallacies of distributed computing]] are a useful check against letting one actor API conceal those properties.
 

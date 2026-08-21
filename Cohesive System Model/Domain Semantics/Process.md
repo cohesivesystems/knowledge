@@ -16,7 +16,7 @@ A process is required when declared behavior needs coordination across transitio
 A process is characterized by:
 
 - A subject, purpose, or correlation [[Identity|identity]].
-- Participants such as [[Observer|observers]], [[Entity|entities]], people, agents, services, stores, models, or external systems.
+- Participants such as [[Observer|observers]], [[Entity|entities]], people, [[Agent|agents]], services, stores, models, or external systems.
 - Inputs it observes or receives.
 - Decisions, policies, and invariants that govern progression.
 - Steps, phases, or transitions that describe meaningful progress.
@@ -72,7 +72,7 @@ Process composition requires attention to boundary, identity, ordering, idempote
 
 ## Related Concepts
 
-Related concepts: [[Process Theories|process theories]], [[Behavior|behavior]], [[Observer|observer]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Effect|effect]], [[Identity|identity]], [[State|state]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].
+Related concepts: [[Process Theories|process theories]], [[Behavior|behavior]], [[Observer|observer]], [[Agent|agent]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Effect|effect]], [[Identity|identity]], [[State|state]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].
 
 ## Formal relations
 
