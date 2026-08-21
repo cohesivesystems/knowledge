@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: reference
 created: 2026-06-24
-updated: 2026-08-17
+updated: 2026-08-21
 ---
 
 # Architecture Practices
@@ -35,6 +35,7 @@ Some well-known patterns & practices:
 - [[Domain-Driven Design]]
 - [[Ports and Adapters]]
 - [[Clean Architecture]]
+- [[Vertical Slice Architecture]]
 - [[Modular Monolith]]
 - [[Microservice Architecture]]
 - [[Event-Driven Architecture]]

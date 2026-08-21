@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-08-01
-updated: 2026-08-01
+updated: 2026-08-21
 status: draft
 aliases:
   - Sub-domain
@@ -15,7 +15,7 @@ aliases:
 
 A subdomain is a coherent region of a larger [[Domain|domain]], distinguished by its subject matter, knowledge, activity, capability, purpose, policy, or strategic value.
 
-A subdomain is a problem-space distinction. It identifies a portion of what must be understood or addressed, not the software boundary chosen to model or realize it. A useful subdomain has enough semantic cohesion that its concepts and relationships can be discussed together, and enough distinction that separating it clarifies the larger domain.
+A subdomain is a problem-space distinction. It identifies a portion of what must be understood or addressed, not the software boundary chosen to model or realize it. A useful subdomain has enough [[Cohesion and Coupling|semantic cohesion]] under a declared purpose that its concepts and relationships can be discussed together, and enough distinction that separating it clarifies the larger domain.
 
 The decomposition is purpose-relative. The same domain may be partitioned by business capability for investment, by knowledge area for modeling, by regulatory responsibility for governance, or by another declared criterion. Subdomains can have relations or shared subject matter; calling something a subdomain does not by itself prove that it is independent or disjoint from every other subdomain.
 

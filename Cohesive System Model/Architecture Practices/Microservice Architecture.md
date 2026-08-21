@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-08-17
+updated: 2026-08-21
 aliases:
   - Microservices Architecture
 ---
@@ -10,6 +10,8 @@ aliases:
 # Microservice Architecture
 
 Microservice architecture addresses the problem of independent ownership, deployment, scaling, and evolution across bounded capabilities. These benefits are not exclusive to microservices: a [[Modular Monolith|modular monolith]] can establish similar semantic and code boundaries and can selectively separate deployment or scaling units. The prefix *micro* is relative to a coarser service, application, or deployment boundary; it does not prescribe a code size, endpoint count, process count, or team size.
+
+The decomposition must state the [[Cohesion and Coupling|measure]] under which a capability is cohesive and the forms of coupling that its boundary accepts or introduces. Shared language, authority, invariants, co-change, runtime interaction, ownership, deployment, failure, and recovery describe different graph projections and need not select the same partition.
 
 ## Cohesive Formulation
 

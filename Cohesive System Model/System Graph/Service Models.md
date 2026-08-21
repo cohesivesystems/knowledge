@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-17
+updated: 2026-08-21
 status: draft
 aliases:
   - Service Model
@@ -61,6 +61,8 @@ runtime work             -> scheduler and resources
 ```
 
 These relations need not be one-to-one. A monorepo can contain many independently deployed services, and one service can be built from modules stored in several repositories. Likewise, a deployment may contain multiple logical services, while one logical service may have many replicas or specialized runtime instances.
+
+Each allocation is a boundary choice evaluated against a declared [[Cohesion and Coupling|cohesion and coupling]] measure. Semantic responsibility may favor shared purpose, language, authority, or invariants; code modules may favor static dependency and co-change locality; service boundaries may additionally account for interaction, ownership, deployment, failure, and recovery costs. A cluster in one projection is evidence for, not proof of, the corresponding boundary in another projection.
 
 The mapping is acceptable only when the chosen substrate preserves the required semantic and operational properties. See [[System Language and Realization|system language and realization]] and [[Realization|realization]].
 

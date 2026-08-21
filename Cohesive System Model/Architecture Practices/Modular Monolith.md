@@ -2,12 +2,12 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-06-24
-updated: 2026-07-29
+updated: 2026-08-21
 ---
 
 # Modular Monolith
 
-The modular monolith addresses the problem of maintaining strong internal boundaries and cohesive change units within one repository and one compiler-visible solution or build graph. The shared graph enables static contract checking, compiler-enforced dependency rules, coordinated refactoring, shared code, and common repository and delivery infrastructure across the modules.
+The modular monolith addresses the problem of maintaining strong internal boundaries and [[Cohesion and Coupling|cohesive change units]] within one repository and one compiler-visible solution or build graph. The shared graph enables static contract checking, compiler-enforced dependency rules, coordinated refactoring, shared code, and common repository and delivery infrastructure across the modules.
 
 In Cohesive, *monolith* in this term names the integrated source-and-build arrangement, not a requirement that every module share one deployment, process, data store, or runtime failure boundary. A modular monolith may produce one deployable application or module-selective artifacts and hosts. Separately deployed modules may form a [[Microservice Architecture|microservice architecture]] while retaining a modular-monolith source and build realization.
 
