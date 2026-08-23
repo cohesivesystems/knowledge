@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-08-21
+updated: 2026-08-23
 ---
 
 # Cohesive System Model
@@ -30,7 +30,7 @@ Domains can be described as cohesive system graphs composed from semantic constr
 - [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
 - [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and [[Effect|effects]] over time
 
-Cohesive arranges interactions among these primitives through its system graph and qualifies that structure with operational concerns, including [[Delivery Semantics|delivery semantics]] and [[Commit Boundaries|commit boundaries]]. [[Realization|Realization]] maps the structure and its property demands to concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network Channels|network channels]], [[Storage Systems|storage systems]], and [[Infrastructure|infrastructure]] while preserving meaning across layers.
+Cohesive arranges interactions among these primitives through its system graph and qualifies that structure with operational concerns, including [[Delivery Semantics|delivery semantics]], [[Semantic Propagation|semantic propagation]], and [[Commit Boundaries|commit boundaries]]. [[Realization|Realization]] maps the structure and its property demands to concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network Channels|network channels]], [[Storage Systems|storage systems]], and [[Infrastructure|infrastructure]] while preserving meaning across layers.
 
 ## Realms of Description
 
@@ -109,6 +109,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Durability]]
 - [[Reconstitution]]  
 - [[Delivery Semantics|Delivery semantics]]  
+- [[Semantic Propagation|Semantic propagation]]
 - [[Acknowledgments]]
 - [[Commit Boundaries]]
 - [[Coordination]]  
@@ -503,6 +504,16 @@ What guarantees does an interaction edge provide?
 - Deduplicated  
 - Requires idempotent receiver
 - Explicit [[Acknowledgments|acknowledgment]] meaning
+
+### Semantic Propagation
+
+What observer-relative postcondition must eventually hold beyond message delivery?
+
+- An admissible observation becomes available at a declared source version or cut
+- A projection converges to its declared derivation of authoritative state
+- A downstream transition, effect, invariant, or process obligation reaches its required disposition
+- Missed notifications can be repaired through an explicit replay, polling, or reconciliation path
+- Delivery evidence remains distinct from evidence that the semantic postcondition holds
 
 ### Coordination
 

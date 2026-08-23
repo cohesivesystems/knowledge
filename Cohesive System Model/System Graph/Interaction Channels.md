@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-27
-updated: 2026-08-17
+updated: 2026-08-23
 status: draft
 aliases:
   - Interaction Channel
@@ -63,6 +63,8 @@ Common arrangements include:
 - A **bridge** relates channels or messaging systems with different addressing, formats, guarantees, or administrative boundaries.
 - A **message bus** arranges a shared [[Surfaces|integration surface]] over multiple channels, contracts, endpoints, and routing rules.
 
+Publish-subscribe defines a distribution arrangement, not the semantic authority of a publication or the completion meaning of observing it. A publication may distribute authoritative event history, a state observation or delta, or a hint that prompts observers to resynchronize with another source. The observer dependency and [[Semantic Propagation|semantic propagation]] requirement determine whether loss, coalescing, ordering, durable retention, replay, or reconciliation is acceptable.
+
 A messaging channel is not necessarily one network connection. Broker-mediated publication commonly composes a producer-to-broker network exchange, durable broker state, and one or more broker-to-consumer exchanges. One messaging channel can survive many network sessions, while one network connection can multiplex many messaging channels. [[Network Channels|Network channels]] give the realization-substrate peer of this channel notion and state the preservation conditions between the layers.
 
 ## Scoped Requirements
@@ -114,4 +116,4 @@ At one abstraction layer a channel is an edge between endpoints. At another it i
 - Enterprise Integration Patterns, [Messaging Channels](https://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html).
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Messages and Envelopes|messages and envelopes]], [[Observer Models|observer models]], [[Flow Views|flow views]], [[Routing Models|routing models]], [[Delivery Semantics|delivery semantics]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Ordering|ordering]], [[Consumer Coordination|consumer coordination]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Brokers|brokers]], [[Network Channels|network channels]], [[Network|network]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Messages and Envelopes|messages and envelopes]], [[Observer Models|observer models]], [[Flow Views|flow views]], [[Routing Models|routing models]], [[Delivery Semantics|delivery semantics]], [[Semantic Propagation|semantic propagation]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Ordering|ordering]], [[Consumer Coordination|consumer coordination]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Brokers|brokers]], [[Network Channels|network channels]], [[Network|network]].

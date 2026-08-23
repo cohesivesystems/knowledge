@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-08-23
 ---
 
 # Delivery Semantics
@@ -46,6 +46,14 @@ The sequence is descriptive rather than universal: an acknowledgment may occur b
 
 A broker offset, delivery tag, handler attempt, local transaction, external operation, and business interaction have different identities and commitment rules. Exactly one occurrence in one space does not imply exactly one occurrence in another.
 
+## Delivery and Semantic Propagation
+
+Delivery is not proof of [[Semantic Propagation|semantic propagation]]. A delivered message may remain unprocessed, be rejected under the receiver's interpretation, fail before local commitment, update a projection that is not yet visible, or leave an external effect or process obligation incomplete. The intended semantic postcondition requires its own boundary and evidence.
+
+Conversely, failure to deliver one notification need not prevent semantic propagation when the observer can poll authoritative state, replay retained history, compare versions, recompute a projection, or reconcile through another path. That alternate path must have explicit liveness, authority, retention, and recovery assumptions; the mere existence of an authoritative source does not make a lossy notification path sufficient.
+
+The model should therefore distinguish whether carried material is authoritative history, a state transfer or delta, or a hint that another source should be inspected. It should also state whether every occurrence matters or whether convergence to an admissible source version or cut satisfies the observer's requirement.
+
 ## At-Most-Once, At-Least-Once, and Effectively-Once
 
 At-most-once delivery avoids redelivery after selected failures by tolerating possible loss. At-least-once delivery retries or replays until the receiver or sender observes the required acknowledgment, so duplicate delivery is an admitted outcome. Neither property alone determines whether the receiver's semantic effect occurs zero, one, or several times.
@@ -77,8 +85,12 @@ Delivery semantics are one way [[Synchrony and Asynchrony|asynchronous]] interac
 - What retained material, schema, and handler interpretation make replay safe?
 - Which replay position, application-progress record, and provider settlement evidence exist, and how are they related?
 - Does "exactly once" name a transport occurrence, local state transition, external effect, or semantic obligation?
+- What observer-relative postcondition constitutes semantic propagation?
+- Is the delivered material authoritative history, a state transfer or delta, or a hint to inspect another authority?
+- Does every source occurrence matter, or is convergence to an admissible source cut sufficient?
+- Can reconciliation establish the postcondition after a missed notification, and under which progress assumptions?
 
-Related concepts: [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Interaction Protocols|interaction protocols]], [[Acknowledgments|acknowledgments]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Ordering|ordering]], [[Commit Boundaries|commit boundaries]], [[Effect Models|effects]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]], [[Recovery|recovery]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[Temporal Completeness|temporal completeness]], [[CRDTs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Observer|observer]], [[Brokers|brokers]], [[Network Channels|network channels]], [[Network|network]].
+Related concepts: [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Interaction Protocols|interaction protocols]], [[Acknowledgments|acknowledgments]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Semantic Propagation|semantic propagation]], [[Ordering|ordering]], [[Commit Boundaries|commit boundaries]], [[Effect Models|effects]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]], [[Recovery|recovery]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[Temporal Completeness|temporal completeness]], [[CRDTs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Observer|observer]], [[Brokers|brokers]], [[Network Channels|network channels]], [[Network|network]].
 
 ## Formal relations
 

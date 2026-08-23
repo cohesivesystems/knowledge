@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-08-23
 ---
 
 # Event
@@ -16,6 +16,12 @@ Message ingress at a receiving boundary is an exogenous event carrying a value. 
 An incoming event becomes a [[Command|command]] when an observer interprets it as an attempted [[Transition|transition]]. A request, signal, or reply is instead a distinct emission and interaction role. A request establishes an emitter-side response obligation; an event does not. These roles may use similar payloads or the same transport without becoming the same semantic construct.
 
 A publication presented as an event is therefore not a domain-event emission when its emitter must receive a correlated terminal result before its own process can continue. It participates in an [[Interaction|implicit request protocol]], even when dispatch and response are asynchronous.
+
+## Occurrence and Notification
+
+The occurrence of an event is distinct from publishing a notification about it. A notification may carry a representation of the event, an [[Observation|observation]] or delta of state, or merely a signal that an observer's prior observation may be stale. The original occurrence, notification emission, channel admission, delivery, and receiving-boundary ingress are separate occurrences with separate identities and guarantees.
+
+A notification mechanism therefore need not be the authority for the fact it reports. When authoritative state or history exists elsewhere, a notification may only prompt an observer to read, replay, compare, or reconcile with that source. When a retained event history is itself authoritative at the declared boundary, preserving its identity, order, and availability may instead be part of the semantic requirement. [[Semantic Propagation|Semantic propagation]] states the observer-relative postcondition; notification and delivery mechanisms are selected to establish it.
 
 ## Common Uses of Event
 
@@ -76,4 +82,8 @@ Events participate in [[Event-State Duality|event-state duality]]:
 - Gregor Hohpe and Bobby Woolf, [Event Message](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html), *Enterprise Integration Patterns*, 2003.
 - Martin Fowler, [What do you mean by "Event-Driven"?](https://martinfowler.com/articles/201701-event-driven.html), 2017.
 
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[State|state]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Observer|observer]], [[Boundaries|boundaries]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Version|version]], [[Effect|effect]], [[Effect Models]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Event Sourcing|event sourcing]].
+Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[State|state]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Observer|observer]], [[Boundaries|boundaries]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Version|version]], [[Effect|effect]], [[Effect Models]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Semantic Propagation|semantic propagation]], [[Event Sourcing|event sourcing]].
+
+## Formal relations
+
+- `distinguished_from`: [[Messages and Envelopes]] — An event is a semantic occurrence, whereas a message is a structural carrier whose emission, delivery, and ingress are separate occurrences.
