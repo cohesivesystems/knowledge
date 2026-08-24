@@ -51,7 +51,7 @@ The interval and workload class matter. One aggregate working-set estimate can h
 
 ## Local and Distributed Locality
 
-Local mechanisms include processor caches, NUMA placement, memory and allocator arenas, thread or task affinity, runtime queues, connection pools, local disks, and process caches. Distributed mechanisms include partition placement, replica selection, data-aware scheduling, zone or region affinity, edge caches, ownership routing, colocated service stages, and movement of computation toward retained data.
+Local mechanisms include processor caches, NUMA placement, memory and allocator arenas, thread or task affinity, runtime queues, connection pools, local disks, and process caches. Distributed mechanisms include partition placement, replica selection, data-aware scheduling, zone or region affinity, edge caches, ownership routing, co-located service stages, and movement of computation toward retained data.
 
 The same pattern recurs across layers: a near access is usually cheaper, but preserving nearness requires placement information, capacity, and sometimes coordination. A scheduler can preserve one kind of locality while weakening [[Fairness|fairness]], packing efficiency, fault isolation, or another workload's locality.
 

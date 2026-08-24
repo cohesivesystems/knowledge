@@ -71,7 +71,7 @@ This distinction is practical. A saga implemented on durable execution still con
 
 [[Orchestration and Choreography|Orchestration and choreography]] are coordination shapes, not claims that one style is inherently better than the other.
 
-In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the process [[Surfaces|decision surface]]. It observes process state, issues commands, waits for replies or events, handles timeouts, and decides next steps. Orchestration makes control explicit, but can concentrate [[Authority|authority]], coupling, and failure impact.
+In orchestration, a coordinating observer or [[Process Managers|process manager]] owns more of the process decision authority. It observes process state, issues commands, waits for replies or events, handles timeouts, and decides next steps. Orchestration makes control explicit, but can concentrate [[Authority|authority]], coupling, and failure impact.
 
 In choreography, participants advance the process through published events, protocols, subscriptions, shared logs, shared media, and local reactions. Choreography does not mean there is no process or no global protocol. It means the process is not controlled by one explicit process manager. Choreography distributes control and can reduce central coupling, but it can also hide the process boundary, make global progress harder to observe, and leave compensation or timeout behavior implicit.
 

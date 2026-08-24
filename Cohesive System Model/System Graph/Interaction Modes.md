@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-08-24
 status: draft
 aliases:
   - Interaction Mode
@@ -17,19 +17,26 @@ Interaction modes are boundary-relative profiles of how participants are structu
 
 They arrange semantic [[Interaction|interaction]] without determining the meaning of the carried value, the complete legal trace, the operational guarantees, or the realizing mechanism. A mode must therefore be described across several independent dimensions rather than reduced to a label such as *message-driven*, *request/reply*, *synchronous*, or *non-blocking*.
 
-## Profile Dimensions
+## Structural Profile and Qualifications
 
-| Dimension | Question | Representative values |
+An interaction mode structurally selects mediation, exchange morphology, and topology:
+
+| Structural dimension | Question | Representative values |
 | --- | --- | --- |
 | Mediation family | Through what logical locus do participants interact? | direct invocation, explicit message passing, shared state, or retained artifact |
 | Exchange morphology | How many related occurrences and directions form the exchange? | one-way, request/reply, publish/consume, request stream, response stream, bidirectional stream, or session |
+| Topology | How are senders, receivers, and mediating loci related? | one-to-one, one-to-any, one-to-many, many-to-one, many-to-many, partitioned, replicated, or dynamically routed |
+
+Several independent concerns qualify that structural selection without becoming system-graph structure themselves:
+
+| Qualification | Question | Representative values |
+| --- | --- | --- |
 | [[Synchrony and Asynchrony\|Synchronization]] | Which local occurrences remain distinct, and which are coordinated into one boundary-relative unit? | asynchronous send and receive, call/return wait, handoff rendezvous, barrier, critical section, transaction, or commit point |
 | [[Interaction Control Flow\|Interaction control]] | Which participant actively drives each operation? | push, pull, poll, callback, queue, or source-to-sink driver |
-| Topology | How are senders, receivers, and mediating loci related? | one-to-one, one-to-any, one-to-many, many-to-one, many-to-many, partitioned, replicated, or dynamically routed |
 | Retention and cadence | Can accepted work outlive either participant or wait between stages? | direct handoff, buffered, queued, logged, replayable, expiring, or unbounded only as an invalid assumption |
 | [[Progress Conditions\|Runtime progress]] | What can remain occupied or prevented from advancing while the logical interaction is pending? | OS-thread blocking, continuation suspension, cooperative yield, lock-free progress, wait-free progress, or progress conditional on another participant |
 
-These dimensions constrain one another without collapsing into one axis. A rendezvous selects a synchronization relationship by definition. A direct call commonly combines caller-driven request/reply with control-flow synchrony and one call stack, but a runtime can dispatch the same interface asynchronously. Explicit message passing separates carrier emission from reception, yet a sender can still block on mailbox capacity or wait synchronously for a reply.
+The structural selections and their qualifications constrain one another without collapsing into one axis. A rendezvous selects a synchronization relationship by definition. A direct call commonly combines caller-driven request/reply with control-flow synchrony and one call stack, but a runtime can dispatch the same interface asynchronously. Explicit message passing separates carrier emission from reception, yet a sender can still block on mailbox capacity or wait synchronously for a reply.
 
 ## Mediation Families
 
@@ -98,5 +105,5 @@ The same interaction can have different profiles at different layers. Two local 
 ## Formal relations
 
 - `arranges`: [[Interaction]] — Classifies reusable boundary-relative edge profiles while preserving semantic participant roles and leaving protocol, guarantee, and realization claims explicit.
-- `constrains`: [[Interaction Protocols]] — Restricts the mediation, morphology, synchronization, control, topology, retention, and progress profile within which a protocol may define legal traces.
+- `constrains`: [[Interaction Protocols]] — Restricts the mediation, exchange morphology, and topology within which a protocol may define legal traces; synchronization, interaction control, retention, and progress remain explicit qualifications.
 - `distinguished_from`: [[Progress Conditions]] — Interaction modes describe structural profiles, while progress conditions state which runtime or protocol participants can advance under declared assumptions.

@@ -65,8 +65,6 @@ A surface can declare a guarantee only at an explicit boundary and under explici
 
 Evidence may include provider attestations, static checks, proofs, tests, observed traces, configuration facts, or monitored behavior. Different evidence supports different confidence and scope. See [[Observability and Provenance|observability and provenance]] for the distinction between a claim and the evidence used to support it.
 
-Related concepts: [[System Graph|system graph]], [[System Composition Algebra|system composition algebra]], [[Boundaries|boundaries]], [[Interfaces|interfaces]], [[Ports and Adapters|ports and adapters]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Compatibility and Evolution|compatibility and evolution]], [[Service Models|service models]], [[Service Levels|service levels]], [[Effect|effect]], [[Effect Models|effect models]], [[Observability and Provenance|observability and provenance]], [[Compositionality|compositionality]], [[Realization|realization]].
-
 ## Formal relations
 
 - `arranges`: [[Interfaces]] — A surface projects reusable interface types through provided and required ports as part of the external contract at a declared boundary.

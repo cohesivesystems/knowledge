@@ -81,8 +81,6 @@ An [[Acknowledgments|acknowledgment]] likewise proves only the occurrence named 
 - Can a provider report successful delivery while the semantic postcondition remains false?
 - Can a missed notification be repaired without losing required semantic information?
 
-Related concepts: [[Event|event]], [[State|state]], [[Observation|observation]], [[Observer|observer]], [[Observable|observable]], [[Flow Views|flow views]], [[Observer Models|observer models]], [[Projection Models|projection models]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Consistency Models|consistency models]], [[Temporal Completeness|temporal completeness]], [[Safety and Liveness|safety and liveness]], [[Recovery|recovery]], [[Event-State Duality|event-state duality]], [[Asynchronous Interaction Design|asynchronous interaction design]].
-
 ## Formal relations
 
 - `qualifies`: [[Flow Views]] — States when semantic movement has satisfied a declared observer-relative postcondition rather than merely producing a channel occurrence.

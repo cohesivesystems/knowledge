@@ -20,7 +20,7 @@ The term is deliberately qualified as *interaction* control flow because [[Contr
 
 - Branching, looping, token progression, or sequencing within a semantic [[Process|process]] or [[Process Graphs|process graph]].
 - Host-language evaluation order or whether a logical operation waits synchronously for a result.
-- [[Orchestration and Choreography|Orchestration]] authority or ownership exposed through a larger process [[Surfaces|decision surface]].
+- [[Orchestration and Choreography|Orchestration]] authority or ownership over a larger semantic process.
 - A control plane or [[Operational Control|operational control]] operation.
 - **[[Flow Control|Flow control]]**, which applies backpressure, credits, buffering, admission, batching, throttling, or shedding in response to capacity.
 

@@ -22,7 +22,7 @@ multiplex:   (lane, value) -> shared flow
 demultiplex: shared flow + discriminator -> lane
 ```
 
-The two operations are dual but need not be colocated. A client, gateway, broker, transport connection, scheduler, or service implementation may perform either one.
+The two operations are dual but need not be co-located. A client, gateway, broker, transport connection, scheduler, or service implementation may perform either one.
 
 ## Layer-Relative Meaning
 

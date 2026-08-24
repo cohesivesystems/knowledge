@@ -70,7 +70,7 @@ A driving adapter admits an external occurrence as an input event relative to an
 
 ## Relation to Code Organization
 
-Ports and Adapters governs a boundary and dependency direction; it does not require one universal folder layout. It can be applied within a [[Vertical Slice Architecture|vertical slice]], across a coarser component boundary, or at a service boundary. A slice may colocate a use case with its driving and driven adapters while keeping the application-facing ports explicit.
+Ports and Adapters governs a boundary and dependency direction; it does not require one universal folder layout. It can be applied within a [[Vertical Slice Architecture|vertical slice]], across a coarser component boundary, or at a service boundary. A slice may co-locate a use case with its driving and driven adapters while keeping the application-facing ports explicit.
 
 This makes the practice complementary to [[Cohesion and Coupling|cohesion and coupling]]. Grouping code that changes for one use case can improve feature and change cohesion, while ports reduce coupling to mechanisms outside that cohesive unit. Introducing an interface for every class does not create a useful port: the port should represent a meaningful boundary conversation, substitution point, or independently variable outside dependency.
 

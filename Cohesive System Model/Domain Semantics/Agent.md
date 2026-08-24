@@ -45,8 +45,6 @@ An AI model can supply inference, planning, prediction, or action selection with
 
 Agency does not grant authority. An agent may recommend, propose, request, or attempt an action while another observer, entity transition, person, policy, or protocol retains authority to accept and commit the result. Likewise, technical capability to perform an action is evidence about realization, not semantic authority to make that action count.
 
-Related concepts: [[Observer|observer]], [[Observation|observation]], [[Interaction|interaction]], [[Process|process]], [[Entity|entity]], [[Actor Model|actor model]], [[Actor Systems|actor systems]], [[Policy|policy]], [[Authority|authority]], [[Identity|identity]], [[State|state]], [[Behavior|behavior]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Command|command]], [[Effect|effect]], [[Boundaries|boundaries]], [[Realization|realization]].
-
 ## Formal relations
 
 - `refines`: [[Observer]] — Adds an attributable decision-and-action role oriented by purposes, commitments, obligations, and policies to the observer's boundary-relative interpretation context.

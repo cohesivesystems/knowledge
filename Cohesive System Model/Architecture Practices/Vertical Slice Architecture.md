@@ -65,7 +65,7 @@ src/
     Observability/
 ```
 
-The filenames are illustrative, not required roles. `PlaceOrder` may delegate complex rules to domain entities and policies, while `GetOrder` may read a purpose-built projection directly. Another language or framework may colocate these roles in fewer files, mirror tests in a separate tree, or express the entry point through a message handler, job, CLI command, or UI action. The architectural claim is about the use-case boundary and dependency graph, not a prescribed directory shape or mediator library.
+The filenames are illustrative, not required roles. `PlaceOrder` may delegate complex rules to domain entities and policies, while `GetOrder` may read a purpose-built projection directly. Another language or framework may co-locate these roles in fewer files, mirror tests in a separate tree, or express the entry point through a message handler, job, CLI command, or UI action. The architectural claim is about the use-case boundary and dependency graph, not a prescribed directory shape or mediator library.
 
 ## Relationship to Clean Architecture
 
@@ -73,7 +73,7 @@ Vertical slice architecture and [[Clean Architecture|clean architecture]] answer
 
 Clean architecture constrains dependency direction so that domain and application meaning do not depend on volatile frameworks, delivery mechanisms, or storage choices. Vertical slice architecture selects which request-specific code should be grouped and allowed to evolve together. A system can therefore apply clean dependency rules within each slice, place several slices around a shared domain core, or use different internal patterns for slices with different complexity.
 
-The two practices conflict only when one is applied as an inflexible global layout. Requiring every slice to pass through the same controller-service-repository chain can recreate technical-layer coupling. Conversely, colocating a slice does not justify letting framework or storage semantics define domain behavior.
+The two practices conflict only when one is applied as an inflexible global layout. Requiring every slice to pass through the same controller-service-repository chain can recreate technical-layer coupling. Conversely, co-locating a slice does not justify letting framework or storage semantics define domain behavior.
 
 ## Relationship to Ports and Adapters
 

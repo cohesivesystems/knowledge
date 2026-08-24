@@ -105,8 +105,6 @@ The composition algebra is intended to give Cohesive a machine-checkable way to 
 6. What may users of the composite safely rely on?
 7. Which realization and evidence justify those claims?
 
-Related concepts: [[System Language and Realization|system language and realization]], [[System Graph|system graph]], [[Surfaces|surfaces]], [[Boundaries|boundaries]], [[Interfaces|interfaces]], [[Ports and Adapters|ports and adapters]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Service Models|service models]], [[Compatibility and Evolution|compatibility and evolution]], [[Compositionality|compositionality]], [[Trace and Feedback|trace and feedback]], [[Observability and Provenance|observability and provenance]], [[Realization|realization]].
-
 ## Formal relations
 
 - `documents`: [[System Graph]] — Provides an accessible overview of how system-graph boundaries, surfaces, interfaces, bindings, and composites participate in system composition.
