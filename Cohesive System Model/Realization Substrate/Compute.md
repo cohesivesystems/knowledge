@@ -27,7 +27,6 @@ Adding compute changes a resource dimension; it does not by itself establish [[S
 
 Compute supplies the resource boundary for physical [[Parallelism|parallelism]]. A parallelism claim must identify resources whose execution intervals can actually overlap. Multiple logical tasks, processes, containers, or OS threads may still be temporally multiplexed on one underlying resource, while one application thread may rely on devices or remote nodes progressing in parallel beyond its local boundary.
 
-Related concepts: [[Realization|realization]], [[Parallelism|parallelism]], [[Concurrency|concurrency]], [[Scalability|scalability]], [[Scaling Mechanisms|scaling mechanisms]], [[Locality|locality]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Capacity Planning|capacity planning]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Infrastructure|infrastructure]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Recovery|recovery]].
 
 ## Formal relations
 

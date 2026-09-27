@@ -63,7 +63,6 @@ Bindings can be layered. A message publication binding may lower into a broker c
 | adapter | Translates between bound roles and concrete mechanisms; it is part of realization rather than the binding's semantic authority. |
 | address | Names or selects a path, channel, or endpoint; changing an address need not change the logical binding. |
 
-Related concepts: [[Interaction|interaction]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Endpoints|endpoints]], [[Messages and Envelopes|messages and envelopes]], [[Correlation and Conversations|correlation and conversations]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Ports and Adapters|ports and adapters]], [[Compatibility and Evolution|compatibility and evolution]], [[Realization|realization]], [[Network Channels|network channels]].
 
 ## Formal relations
 

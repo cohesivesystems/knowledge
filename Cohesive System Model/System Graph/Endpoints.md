@@ -52,7 +52,6 @@ A URL, topic name, queue name, actor address, socket tuple, stream identifier, c
 
 Delivery to an endpoint does not itself interpret the carried value. A messaging endpoint, gateway, service activator, polling consumer, or event-driven consumer can activate an [[Observer Models|observer model]], but the observer boundary still supplies authority, state view, and interpretation rules. Likewise, successful transmission to a network endpoint does not prove admission at the messaging endpoint or commitment by the receiving observer.
 
-Related concepts: [[Interaction|interaction]], [[Boundaries|boundaries]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Interaction Channels|interaction channels]], [[Observer|observer]], [[Observer Models|observer models]], [[Interaction Control Flow|interaction control flow]], [[Routing Models|routing models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Ports and Adapters|ports and adapters]], [[Network Channels|network channels]], [[Network|network]], [[Application Hosts|application hosts]], [[Brokers|brokers]].
 
 ## Formal relations
 

@@ -36,5 +36,3 @@ Patterns such as Active Record deliberately combine concerns that Data Mapper se
 
 - Martin Fowler, with David Rice, Matthew Foemmel, Edward Hieatt, Robert Mee, and Randy Stafford, [*Patterns of Enterprise Application Architecture*](https://martinfowler.com/books/eaa.html), Addison-Wesley Professional, 2002.
 - Martin Fowler, [Catalog of Patterns of Enterprise Application Architecture](https://martinfowler.com/eaaCatalog/).
-
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Domain-Driven Design|domain-driven design]], [[Analysis Patterns|analysis patterns]], [[Service|service]], [[Entity|entity]], [[Value|value]], [[Transition|transition]], [[Observer Models|observer models]], [[Projection Models|projection models]], [[Interaction|interaction]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Commit Boundaries|commit boundaries]], [[Concurrency Control|concurrency control]], [[Ports and Adapters|ports and adapters]], [[Storage Systems|storage systems]], [[Application Hosts|application hosts]].

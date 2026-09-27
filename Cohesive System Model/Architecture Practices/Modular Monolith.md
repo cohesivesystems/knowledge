@@ -56,7 +56,6 @@ The monolith is a source-and-build realization choice. The modules are the impor
 
 The pattern fails when shared source, solution, process, or database is mistaken for shared semantics; when shared libraries let dependencies bypass module interfaces; or when cyclic module dependencies make independent change impossible. It is also misclassified when co-location in one repository is called a modular monolith even though independent solutions or build graphs make modules opaque to compiler-wide checking. Separately deployed modules fail as microservices when they require coordinated releases or continue to assume same-version, in-process behavior. Without explicit and enforced module boundaries, the result is only a source monolith, not a modular one.
 
-Related concepts: [[Boundaries|boundaries]], [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Relation|relations]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Entity Models|entity models]], [[Application Hosts|application hosts]], [[Runtimes|runtimes]], [[Scaling Mechanisms|scaling mechanisms]], [[Persistence|persistence]], [[Commit Boundaries|commit boundaries]], [[Compatibility and Evolution|compatibility and evolution]], [[Delivery Semantics|delivery semantics]], [[Coordination|coordination]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Microservice Architecture|microservice architecture]].
 
 ## Formal relations
 

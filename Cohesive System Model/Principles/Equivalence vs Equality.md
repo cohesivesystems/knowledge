@@ -28,5 +28,3 @@ Examples:
 - Two states may be observationally equivalent for a projection while not equal as full entity state.
 
 Equivalence is often the right concept for abstraction. Equality is often too strong. But equivalence must be declared and preserved by the operations that rely on it.
-
-Related concepts: [[Value|value]], [[State|state]], [[Event|event]], [[Observation|observation]], [[Observer|observer]], [[Realization|realization]], [[Projection Models|projection models]], [[Naturality|naturality]].

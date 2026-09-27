@@ -35,5 +35,3 @@ Examples:
 - [[Realization]] should preserve observer, entity, transition, and boundary meaning across runtime choices.
 
 Naturality is useful for detecting hidden coupling. If a model says two representations are equivalent but an operation behaves differently for one of them, the operation is not natural with respect to that equivalence.
-
-Related concepts: [[Functoriality|functoriality]], [[Value|value]], [[Observation|observation]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Realization|realization]], [[Equivalence vs Equality|equivalence vs equality]].

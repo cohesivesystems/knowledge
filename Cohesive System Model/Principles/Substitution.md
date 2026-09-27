@@ -178,7 +178,6 @@ Correct lowering must preserve binding, type and proof judgements, identity, sha
 
 - Andrej Bauer, [Substitution is pullback](https://math.andrej.com/2012/09/28/substitution-is-pullback/), including Paul Taylor's comments on the substitution lemma and the category of contexts and substitutions, 2012.
 
-Related concepts: [[Lambda Calculus|lambda calculus]], [[Functional Programming|functional programming]], [[Logic|logic]], [[Type Theory|type theory]], [[Judgement|judgement]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Process Calculi|process calculi]], [[Relational and Logic Programming|relational and logic programming]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Universal Constructions|universal constructions]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Boundaries|boundaries]], [[Realization|realization]].
 
 ## Formal relations
 

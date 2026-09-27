@@ -30,5 +30,3 @@ The functorial question is whether a pattern imported into a context preserves t
 ## External References
 
 - Martin Fowler, [*Analysis Patterns: Reusable Object Models*](https://martinfowler.com/books/ap.html), Addison-Wesley, 1996.
-
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Domain-Driven Design|domain-driven design]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Entity|entity]], [[Relation|relation]], [[Relation Models|relation models]], [[Observable|observable]], [[Observation|observation]], [[Value|value]], [[Shape|shape]], [[Time|time]], [[Authority|authority]], [[Uncertainty|uncertainty]], [[Business Transactions|business transactions]], [[Boundaries|boundaries]], [[Functoriality|functoriality]].

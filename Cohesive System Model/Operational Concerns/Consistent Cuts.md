@@ -56,5 +56,3 @@ Distributed [[Deadlock and Livelock|deadlock]] detection is one application. Com
 ## External References
 
 - K. Mani Chandy and Leslie Lamport, [Distributed Snapshots: Determining Global States of a Distributed System](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/Determining-Global-States-of-a-Distributed-System.pdf), *ACM Transactions on Computer Systems* 3(1):63-75, 1985.
-
-Related concepts: [[Causality|causality]], [[Happened-Before|happened-before]], [[Ordering|ordering]], [[Consistency Models|consistency models]], [[Version Histories|version histories]], [[Observation|observation]], [[State|state]], [[Version|version]], [[Observer|observer]], [[Systems Sheaf Semantics|systems sheaf semantics]], [[Sheaves and Gluing|sheaves and gluing]], [[Deadlock and Livelock|deadlock and livelock]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Boundaries|boundaries]].

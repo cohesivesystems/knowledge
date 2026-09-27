@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-28
-updated: 2026-08-17
+updated: 2026-09-07
 status: draft
 aliases:
   - Services
@@ -39,18 +39,18 @@ One microservice may expose several application services, run several background
 
 ## Encapsulation and Bundling
 
-The common role across these meanings is encapsulation. A service bundles some internal structure and presents a more stable, selective [[Surfaces|interaction surface]] to consumers:
+The common role across these meanings is encapsulation. A service bundles some internal structure and presents a more stable, selective [[Surfaces|surface]] to consumers:
 
 ```text
 service = encapsulated internal subgraph
-        + externally relevant surface
-        + provided and required ports
-        + reusable interface types
-        + declared guarantees
+        + externally relevant surface {
+            provided and required ports typed by interfaces
+            declared guarantees, assumptions, and evidence
+          }
         + accountable ownership
 ```
 
-The internal subgraph may contain entities, policies, domain services, queries, processes, code modules, storage, workers, or calls to other services. Its [[Interfaces|interfaces]] expose capabilities without requiring consumers to know that internal arrangement. This is boundary-relative: a composite service may encapsulate several downstream services for one consumer while appearing as a dependency node to another.
+The internal subgraph may contain entities, policies, domain services, queries, processes, code modules, storage, workers, or calls to other services. The surface projects selected [[Interfaces|interfaces]] through particular ports without requiring consumers to know that internal arrangement. This is boundary-relative: a composite service may encapsulate several downstream services for one consumer while appearing as a dependency node to another.
 
 Encapsulation can be semantic, structural, operational, organizational, or some combination. A model should say which internal changes consumers are protected from and which guarantees remain valid across the interface.
 
@@ -135,5 +135,3 @@ Names such as `CustomerService`, a `/services` directory, a service-manager unit
 - Refactoring.Guru, [Facade](https://refactoring.guru/design-patterns/facade).
 - Linux man-pages project, [daemon(7)](https://man7.org/linux/man-pages/man7/daemon.7.html).
 - James Lewis and Martin Fowler, [Microservices](https://martinfowler.com/articles/microservices.html), 2014.
-
-Related concepts: [[System Language and Realization|system language and realization]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Service Models|service models]], [[Service Levels|service levels]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Domain-Driven Design|domain-driven design]], [[Patterns of Enterprise Application Architecture|enterprise application patterns]], [[Microservice|microservice]], [[Microservice Architecture|microservice architecture]], [[Modular Monolith|modular monolith]], [[Queueing Theory|queueing theory]], [[Observer|observer]], [[Observer Models|observer models]], [[Process|process]], [[Interaction|interaction]], [[Command|command]], [[Query|query]], [[Effect|effect]], [[Boundaries|boundaries]], [[Authority|authority]], [[Scheduling|scheduling]], [[Observability and Provenance|observability and provenance]], [[Capacity Planning|capacity planning]], [[Application Hosts|application hosts]], [[Runtimes|runtimes]], [[Realization|realization]].

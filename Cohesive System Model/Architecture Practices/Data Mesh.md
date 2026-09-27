@@ -25,5 +25,3 @@ A data product is not merely a dataset. It presents a boundary-specific [[Surfac
 ## Failure Modes
 
 The practice fails when data products are just replicated tables without ownership, lineage, interpretation rules, freshness guarantees, or recovery semantics.
-
-Related concepts: [[Boundaries|boundaries]], [[Observation|observation]], [[Projection Models|projection models]], [[Policy|policies]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Realization|realization]], [[CQRS as Architecture Practice|CQRS as architecture practice]].

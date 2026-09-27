@@ -69,5 +69,3 @@ Model checking can explore a finite or finitely represented behavior space for v
 
 - Amir Pnueli, [The Temporal Logic of Programs](https://doi.org/10.1109/SFCS.1977.32), *18th Annual Symposium on Foundations of Computer Science*, 1977.
 - Leslie Lamport, [The Temporal Logic of Actions](https://doi.org/10.1145/177492.177726), *ACM Transactions on Programming Languages and Systems* 16(3):872–923, 1994.
-
-Related concepts: [[Logic|logic]], [[TLA+]], [[State Machines|state machines]], [[Behavior|behavior]], [[State|state]], [[Transition|transition]], [[Time|time]], [[Invariant|invariants]], [[Safety and Liveness|safety and liveness]], [[Fairness|fairness]], [[Scheduling|scheduling]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Process Theories|process theories]], [[Trace and Feedback|trace and feedback]], [[System Language and Realization|system language and realization]], [[Realization|realization]].

@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-28
-updated: 2026-08-08
+updated: 2026-09-07
 ---
 
 # Process
@@ -47,32 +47,31 @@ Processes may be modeled as [[Entity|entities]] when they have identity, durable
 
 Process identity or coordination state does not make every participant part of one atomic transaction. Atomicity, isolation, durability, response obligation, idempotency, recovery, compensation, and visibility are independent guarantee facets whose realizations must be established at explicit scopes. Unavailable atomicity must not be silently replaced with a saga; compensation and reconciliation are authored process semantics.
 
-Examples include:
+Semantic process examples include:
 
-- OS processes and OS threads executing work across one or more operating-system scheduling units.
-- Logical processes spanning fibers, green threads, coroutines, or tasks managed by a scheduler.
-- ASP.NET operations that perform multiple steps, possibly wrapped by [[Durable Execution|durable execution]].
 - Driver onboarding, where a domain lifecycle is backed by entity transitions and coordinated by runtime listeners, effect emitters, concurrency control, UI activity, and durable step advancement.
 - UI wizards or sessions that coordinate with a domain process without being the same process.
 - Index rebuilds, backfills, data repairs, migrations, and other resumable maintenance work.
-- [[Process Managers|Process managers]] that explicitly orchestrate process progress.
-- [[Sagas|Sagas]], where selected steps have compensating actions.
-- RDBMS transactions, which attach ACID commit and rollback semantics to a bounded sequence of database operations.
 - ML workflows such as normalizing training examples, generating or projecting datasets, running models, transforming and persisting model artifacts, evaluating outcomes, and promoting selected models.
 - Human approval, escalation, exception-handling, compliance, or review procedures.
 - Control loops that observe state, decide, emit corrective commands, and observe the resulting changes.
 
+Named process roles and specializations include [[Process Managers|process managers]], which explicitly coordinate progress, and [[Sagas|sagas]], whose selected steps have compensating actions.
+
+Possible realization fragments include:
+
+- OS processes and OS threads executing work across one or more operating-system scheduling units.
+- Fibers, green threads, coroutines, or tasks managed by a scheduler.
+- ASP.NET operations that perform multiple steps, possibly wrapped by [[Durable Execution|durable execution]].
+- RDBMS transactions, which attach ACID commit and rollback semantics to a bounded sequence of database operations.
 
 ## Process Composition
+
 Processes compose. One process may produce outputs, artifacts, observations, commands, or events consumed by another process. Compositions may be linear pipelines, branching protocols, nested sub-processes, concurrent processes over the same subject, or feedback loops where later outputs become future inputs.
 
 Process composition requires attention to boundary, identity, ordering, idempotency, persistence, retry, recovery, and compensation. Without those semantics, individually valid process steps may fail to compose into coherent work.
 
 [[Process Theories|Process theories]] provide the broader discipline for this composition. They ask what a process exposes at its interface, which observations and effects cross boundaries, how sequential, concurrent, nested, choice, and feedback compositions are formed, and which realization obligations must be preserved by workflows, [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Actor Systems|actor systems]], transaction mechanisms, [[Brokers|brokers]], or lower-layer physical processes.
-
-## Related Concepts
-
-Related concepts: [[Process Theories|process theories]], [[Behavior|behavior]], [[Observer|observer]], [[Agent|agent]], [[Entity|entity]], [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Transition|transition]], [[Effect|effect]], [[Identity|identity]], [[State|state]], [[Process Graphs|process graphs]], [[Coordination|coordination]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Commit Boundaries|commit boundaries]], [[Recovery|recovery]], [[Realization|realization]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Trace and Feedback|trace and feedback]], [[Compositionality|compositionality]].
 
 ## Formal relations
 

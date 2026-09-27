@@ -34,5 +34,3 @@ Useful provenance may include definition and semantic revision, node and branch 
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Wire Tap](https://www.enterpriseintegrationpatterns.com/patterns/messaging/WireTap.html), [Message History](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageHistory.html), and [Message Store](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageStore.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Service|service]], [[Service Levels|service levels]], [[Interfaces|interfaces]], [[Observation|observation]], [[Observer|observer]], [[Causality|causality]], [[Identity|identity]], [[Correlation and Conversations|correlation and conversations]], [[Messages and Envelopes|messages and envelopes]], [[Process|process]], [[Process Graphs|process graphs]], [[Trace and Feedback|trace and feedback]], [[Persistence|persistence]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Operational Control|operational control]], [[Infrastructure|infrastructure]].

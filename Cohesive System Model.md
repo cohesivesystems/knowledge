@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-08-23
+updated: 2026-09-07
 ---
 
 # Cohesive System Model
@@ -53,6 +53,7 @@ Describe modeling disciplines used across the system model.
 - [[Stuff Structure Property]]
 - [[Compositionality]]
 - [[Cohesion and Coupling]]
+- [[Graph Partitioning and Software Modularization]]
 - [[Nondeterminism and Choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]]
 - [[CALM Theorem]]
 - [[Asynchronous Computability Theorem]]
@@ -195,7 +196,7 @@ Contextualizes named architecture practices as cross-realm bundles of problems, 
 - [[Workflow Patterns]], [[Microservice Pattern Language|microservice pattern language]], [[Patterns of Distributed Systems|distributed-systems patterns]], [[Pattern-Oriented Software Architecture|POSA]], [[Reactive Manifesto|reactive manifesto]]
 - [[Ports and Adapters]], [[Clean Architecture|clean architecture]], [[Vertical Slice Architecture|vertical slice architecture]], [[Modular Monolith|modular monolith]], [[Microservice Architecture|microservice architecture]], [[Event-Driven Architecture|event-driven architecture]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Capacity Planning|capacity planning]]
 - [[CQRS as Architecture Practice]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]]
-- [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
+- [[Orchestration and Choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Durable Execution|durable execution]], [[Actor Model|actor model]], [[Anti-Corruption Layer|anti-corruption layer]]
 - [[Transactional Outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns|weak isolation patterns]], [[CRDTs as Architecture Practice|CRDTs as architecture practice]], [[Data Mesh|data mesh]]
 
 ## Domain Semantics

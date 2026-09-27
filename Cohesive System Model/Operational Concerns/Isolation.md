@@ -63,5 +63,3 @@ In [[ACID]], isolation is one part of a transaction contract. Outside a single A
 ## External References
 
 - Hal Berenson, Philip A. Bernstein, Jim Gray, Jim Melton, Elizabeth J. O'Neil, and Patrick E. O'Neil, [A Critique of ANSI SQL Isolation Levels](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-95-51.pdf), SIGMOD 1995.
-
-Related concepts: [[ACID]], [[Consistency Models|consistency models]], [[Concurrency Control|concurrency control]], [[Coordination|coordination]], [[Version|version]], [[Ordering|ordering]], [[Entity|entity]], [[Transition|transition]], [[Observation|observation]], [[Invariant|invariant]], [[Invariant Scopes|invariant scopes]], [[Partition Models|partition models]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Weak Isolation Patterns|weak isolation patterns]].

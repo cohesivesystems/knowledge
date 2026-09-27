@@ -61,5 +61,3 @@ Failure assumptions compose poorly by default. Components that each tolerate one
 ## External References
 
 - Martin Kleppmann, *Designing Data-Intensive Applications*, O'Reilly Media, 2017, chapter 8.
-
-Related concepts: [[Distributed Failure Scenarios|distributed failure scenarios]], [[Uncertainty|uncertainty]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Boundaries|boundaries]], [[Service Levels|service levels]], [[Durability|durability]], [[Recovery|recovery]], [[Retry|retry]], [[Acknowledgments|acknowledgments]], [[Authority|authority]], [[Consensus|consensus]], [[Quorum Intersection|quorum intersection]], [[Replica Models|replica models]], [[Partition Models|partition models]], [[CAP Theorem|CAP theorem]], [[Network|network]], [[Infrastructure Graph|infrastructure graph]].

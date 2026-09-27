@@ -70,5 +70,3 @@ The practice fails when read and write models are separated without distinct for
 - Martin Fowler, [CQRS](https://martinfowler.com/bliki/CQRS.html), 2011.
 - Greg Young, [CQRS Documents](https://cqrs.files.wordpress.com/2010/11/cqrs_documents.pdf), 2010.
 - Chris Richardson, [CQRS pattern](https://microservices.io/patterns/data/cqrs.html), Microservice Architecture pattern language.
-
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[CQRS]], [[Microservice Pattern Language|microservice pattern language]], [[Command|command]], [[Query|query]], [[Entity|entity]], [[Transition|transition]], [[Transition Models|transition models]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Projection Models|projection models]], [[Observation|observation]], [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Compatibility and Evolution|compatibility and evolution]], [[Recovery|recovery]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Event Sourcing as Architecture Practice|event sourcing as architecture practice]].

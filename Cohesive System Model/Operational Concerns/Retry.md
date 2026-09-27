@@ -32,5 +32,3 @@ A retry policy should define:
 - How exhausted retries are surfaced for recovery.
 
 Retries are safe only when paired with explicit [[Idempotency|idempotency]], appropriate [[Delivery Semantics|delivery semantics]], and clear recovery behavior.
-
-Related concepts: [[Idempotency|idempotency]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Queueing Theory|queueing theory]], [[Trace and Feedback|trace and feedback]], [[Metastability|metastability]], [[Ordering|ordering]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Command|command]], [[Time|time]], [[State|state]], [[Consensus|consensus]], [[Transition|transition]].

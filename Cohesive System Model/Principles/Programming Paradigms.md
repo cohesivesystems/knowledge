@@ -54,5 +54,3 @@ The Cohesive System Model should use paradigm terminology to expose structure, n
 ## External References
 
 - Peter Van Roy, [Programming Paradigms for Dummies: What Every Programmer Should Know](https://webperso.info.ucl.ac.be/~pvr/VanRoyChapter.pdf), in *New Computational Paradigms for Computer Music*, 2009.
-
-Related concepts: [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]], [[State Machines|state machines]], [[Process Theories|process theories]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Compositionality|compositionality]], [[System Language and Realization|system language and realization]], [[Behavior|behavior]], [[Process|process]], [[Actor Model|actor model]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Realization|realization]].

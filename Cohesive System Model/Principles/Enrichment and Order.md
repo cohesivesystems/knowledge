@@ -35,5 +35,3 @@ Examples:
 - [[Version]] enriches entity state observations with history position.
 - [[Delivery Semantics]] enrich interaction edges with guarantees.
 - [[Rate Limiting]] and retry policies enrich interactions with control behavior.
-
-Related concepts: [[Ordering|ordering]], [[Version|version]], [[Time|time]], [[Delivery Semantics|delivery semantics]], [[Rate Limiting|rate limiting]], [[Boundaries|boundaries]], [[Concurrency Control|concurrency control]].

@@ -53,5 +53,3 @@ An implementation may impose a total order that extends happened-before. That to
 ## External References
 
 - Leslie Lamport, [Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf), *Communications of the ACM* 21(7):558-565, 1978.
-
-Related concepts: [[Causality|causality]], [[Concurrency|concurrency]], [[Ordering|ordering]], [[Event|event]], [[Observation|observation]], [[Process|process]], [[Interaction|interaction]], [[Consistent Cuts|consistent cuts]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Time|time]], [[Actor Systems|actor systems]], [[Boundaries|boundaries]].

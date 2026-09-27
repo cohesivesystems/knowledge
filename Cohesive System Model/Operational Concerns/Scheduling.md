@@ -89,5 +89,3 @@ Priority can also introduce [[Deadlock and Livelock|priority inversion]] when hi
 ## External References
 
 - Nissim Francez, [Fairness](https://doi.org/10.1007/978-1-4612-4886-6), especially the treatment of explicit schedulers, Springer, 1986.
-
-Related concepts: [[Queueing Theory|queueing theory]], [[Control Flow|control flow]], [[Interaction Control Flow|interaction control flow]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Ordering|ordering]], [[Causality|causality]], [[Consistency Models|consistency models]], [[Progress Conditions|progress conditions]], [[Deadlock and Livelock|deadlock and livelock]], [[Safety and Liveness|safety and liveness]], [[Rate Limiting|rate limiting]], [[Interaction|interaction]], [[Process|process]], [[Observer|observer]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Compute|compute]], [[Workflow Engines|workflow engines]], [[Realization|realization]].

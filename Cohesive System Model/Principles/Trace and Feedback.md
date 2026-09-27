@@ -32,5 +32,3 @@ Examples:
 Feedback must be modeled with boundaries, ordering, idempotency, and recovery semantics. Otherwise the system may accidentally turn a legitimate loop into duplicate effects, [[Deadlock and Livelock|livelock]], or uncontrolled amplification.
 
 When an amplifying loop makes a degraded operating regime persist after its trigger has disappeared, the system exhibits [[Metastability|metastability]]. The loop may raise effective arrivals, reduce effective capacity, or prevent the successful work needed to restore ordinary operation.
-
-Related concepts: [[Behavior|behavior]], [[Control Theory|control theory]], [[Control Models|control models]], [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID control]], [[Flow Views|flow views]], [[Process Graphs|process graphs]], [[Observer|observer]], [[Event|event]], [[Command|command]], [[Retry|retry]], [[Recovery|recovery]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Deadlock and Livelock|deadlock and livelock]], [[Metastability|metastability]], [[Queueing Theory|queueing theory]], [[Recursion|recursion]], [[Fixed Points|fixed points]].

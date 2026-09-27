@@ -103,7 +103,6 @@ This does not collapse meaning into types. A domain [[Invariant|invariant]] rema
 
 - Philip Wadler, [Propositions as Types](https://doi.org/10.1145/2699407), *Communications of the ACM* 58(12):75–84, 2015.
 
-Related concepts: [[Logic|logic]], [[Type Theory|type theory]], [[Judgement|judgement]], [[Law of Excluded Middle|law of excluded middle]], [[Substitution|substitution]], [[Lambda Calculus|lambda calculus]], [[Functional Programming|functional programming]], [[Linear Logic|linear logic]], [[Session Types|session types]], [[Process Calculi|process calculi]], [[Categorical Principles|categorical principles]], [[Compositionality|compositionality]], [[Invariant|invariants]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[System Language and Realization|system language and realization]], [[Realization|realization]].
 
 ## Formal relations
 

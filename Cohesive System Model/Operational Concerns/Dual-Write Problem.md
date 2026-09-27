@@ -44,5 +44,3 @@ Common resolutions include:
 - Use [[Event Sourcing|event sourcing]] so committed persistence events are the authoritative durable basis for state reconstitution and downstream orchestration, when that history is the intended source of coordination.
 
 Each option must state which stronger guarantee it replaces and what guarantees remain at each boundary.
-
-Related concepts: [[Commit Boundaries|commit boundaries]], [[Effect Models|effects]], [[Persistence|persistence]], [[Coordination|coordination]], [[Recovery|recovery]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Idempotency|idempotency]], [[Weak Isolation Patterns|weak isolation patterns]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Business Transactions|business transactions]].

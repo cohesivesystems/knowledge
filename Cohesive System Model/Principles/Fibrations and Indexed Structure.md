@@ -42,5 +42,3 @@ Fibrational thinking prevents context from being erased. It keeps clear that an 
 In categorical semantics of type theory, a context can index a fiber of types or predicates valid over that context. A term or context morphism $t:A\to B$ induces contravariant reindexing $t^*$ from the fiber over $B$ to the fiber over $A$. This is the indexed form of [[Substitution|substitution as pullback]]: dependent types or predicates are pulled back along the substituted term, while substitution of terms themselves is composition in the category of contexts.
 
 Observer-indexed fibers can also support [[Systems Sheaf Semantics|systems sheaf semantics]], where each observer has local sections over the cuts, boundaries, and views available to it.
-
-Related concepts: [[Substitution|substitution]], [[Type Theory|type theory]], [[Lambda Calculus|lambda calculus]], [[Realization|realization]], [[Observation|observation]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Systems Sheaf Semantics|systems sheaf semantics]].

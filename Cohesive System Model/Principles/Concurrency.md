@@ -52,7 +52,6 @@ The join bounds the concurrent region. Branch occurrences may remain incomparabl
 - Which additional orders may a scheduler, log, sequencer, or runtime introduce without changing meaning?
 - Which observations distinguish interleaving from physical parallel execution?
 
-Related concepts: [[Ordering|ordering]], [[Happened-Before|happened-before]], [[Causality|causality]], [[Fork and Join|fork and join]], [[Process Graphs|process graphs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Parallelism|parallelism]], [[Scheduling|scheduling]], [[Runtimes|runtimes]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Concurrency Control|concurrency control]], [[Isolation|isolation]], [[Boundaries|boundaries]], [[Observer|observer]].
 
 ## Formal relations
 

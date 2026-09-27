@@ -46,5 +46,3 @@ Examples in the Cohesive System Model:
 - [[Consensus]] can be understood as a universal construction for distributed objects: decide the next operation, apply the sequential transition rule, and repeat so replicas share a common operation history.
 
 Universal constructions are not always implemented literally. Their value is disciplinary: they force the model to say what relationships make an object canonical, and what related information has been included, excluded, merged, or quotiented away.
-
-Related concepts: [[Substitution|substitution]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Transition|transition]], [[Observation|observation]], [[Projection Models|projection models]], [[Boundaries|boundaries]], [[Behavior|behavior]], [[Realization|realization]], [[Version Histories|version histories]], [[Consensus|consensus]], [[State|state]], [[Event|event]], [[Value|value]].

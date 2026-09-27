@@ -38,5 +38,3 @@ A typed channel, format indicator, schema version, or message contract may selec
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Datatype Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/DatatypeChannel.html) and [Format Indicator](https://www.enterpriseintegrationpatterns.com/patterns/messaging/FormatIndicator.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Value|value]], [[Observation|observation]], [[State|state]], [[Observable|observable]], [[Query|query]], [[Command|command]], [[Transition|transition]], [[Messages and Envelopes|messages and envelopes]], [[Interaction Channels|interaction channels]], [[Compatibility and Evolution|compatibility and evolution]], [[Projection Models|projection models]], [[Boundaries|boundaries]], [[Naturality|naturality]], [[Equivalence vs Equality|equivalence vs equality]].

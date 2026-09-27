@@ -58,5 +58,3 @@ The history shape determines what kind of consistency claim can be meaningful. A
 ## External References
 
 - Samuel Mimram and Cinzia Di Giusto, [A Categorical Theory of Patches](https://arxiv.org/abs/1311.3903), 2013.
-
-Related concepts: [[Version|version]], [[Causality|causality]], [[Happened-Before|happened-before]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Time|time]], [[Concurrency Control|concurrency control]], [[Consistency Models|consistency models]], [[Event-State Duality|event-state duality]], [[Event|event]], [[State|state]], [[Transition|transition]], [[CRDTs]], [[Universal Constructions|universal constructions]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].

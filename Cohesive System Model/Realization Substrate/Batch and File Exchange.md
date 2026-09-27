@@ -34,5 +34,3 @@ Batch exchange can realize [[Interaction Channels|interaction channels]], docume
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [File Transfer](https://www.enterpriseintegrationpatterns.com/patterns/messaging/FileTransferIntegration.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Event|event]], [[Observation|observation]], [[Shape|shape]], [[Compatibility and Evolution|compatibility and evolution]], [[Consistent Cuts|consistent cuts]], [[Delivery Semantics|delivery semantics]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Storage Systems|storage systems]], [[Network|network]].

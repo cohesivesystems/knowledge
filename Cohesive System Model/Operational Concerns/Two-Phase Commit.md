@@ -42,5 +42,3 @@ These alternatives do not provide the same semantics as two-phase commit. They r
 ## External References
 
 - Jim Gray and Andreas Reuter, [Transaction Processing: Concepts and Techniques](https://www.microsoft.com/en-us/research/publication/transaction-processing-concepts-and-techniques/), Morgan Kaufmann, 1993.
-
-Related concepts: [[ACID]], [[Isolation|isolation]], [[Coordination|coordination]], [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Orchestration and Choreography|orchestration and choreography]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Concurrency Control|concurrency control]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Durable Execution|durable execution]], [[Business Transactions|business transactions]], [[Weak Isolation Patterns|weak isolation patterns]].

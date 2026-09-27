@@ -93,5 +93,3 @@ Correct modeling therefore requires naming the boundary for each guarantee:
 - Did an output event become durable?
 - Did another observer receive, process, or commit the follow-up work?
 - Did the business transaction reach its domain-defined completion condition?
-
-Related concepts: [[Process Graphs|process graphs]], [[Flow Views|flow views]], [[Coordination|coordination]], [[Database Transactions|database transactions]], [[Isolation|isolation]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Weak Isolation Patterns|weak isolation patterns]], [[Durable Execution|durable execution]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Persistence|persistence]], [[Recovery|recovery]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Event Sourcing|event sourcing]], [[CQRS]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Brokers|brokers]], [[Network|network]], [[Compositionality|compositionality]].

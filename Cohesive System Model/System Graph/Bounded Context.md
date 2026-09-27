@@ -73,5 +73,3 @@ Any of these may align with a bounded context when that alignment helps preserve
 - Eric Evans, [*Domain-Driven Design Reference: Definitions and Pattern Summaries*](https://www.domainlanguage.com/ddd/reference/), especially “Bounded Context,” “Ubiquitous Language,” and “Context Map.”
 - Martin Fowler, [“Bounded Context”](https://martinfowler.com/bliki/BoundedContext.html), 2014.
 - Vaughn Vernon, [*Implementing Domain-Driven Design*](https://www.informit.com/store/domain-driven-design-9780321834577), Addison-Wesley Professional, 2013.
-
-Related concepts: [[Domain|domain]], [[Subdomain|subdomain]], [[Ubiquitous Language|ubiquitous language]], [[Domain-Driven Design|domain-driven design]], [[System Graph|system graph]], [[Boundaries|boundaries]], [[Anti-Corruption Layer|anti-corruption layer]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Service Models|service models]], [[Entity Models|entity models]], [[Authority|authority]], [[Compatibility and Evolution|compatibility and evolution]], [[Functoriality|functoriality]], and [[Realization|realization]].

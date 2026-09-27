@@ -16,5 +16,3 @@ Relations may connect [[Entity|entities]], [[Identity|identities]], [[State|stat
 Relations are interpreted relative to a model boundary. The same pair of subjects may be related differently under different purposes: ownership, reference, dependency, derivation, observation, causation, authorization, inclusion, or equivalence may all carry different meanings.
 
 At the system graph layer, relations are arranged as [[Relation Models|relation models]]. A relation model may later be realized by foreign keys, indexes, graph edges, embedded documents, materialized projections, subscriptions, event streams, API links, shared state, or runtime routing, but those mechanisms do not exhaust the semantic relation.
-
-Related concepts: [[Entity|entity]], [[Identity|identity]], [[State|state]], [[Observation|observation]], [[Event|event]], [[Observer|observer]], [[Process|process]], [[Transition|transition]], [[Boundaries|boundaries]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Relational and Logic Programming|relational and logic programming]], [[Realization|realization]].

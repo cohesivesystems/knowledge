@@ -64,5 +64,3 @@ Quorum participation also does not create semantic [[Authority|authority]] by it
 
 - Leslie Lamport, [Paxos Made Simple](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf), *ACM SIGACT News* 32(4):51-58, 2001.
 - Martin Kleppmann, *Designing Data-Intensive Applications*, O'Reilly Media, 2017, chapters 5 and 9.
-
-Related concepts: [[Consensus|consensus]], [[Consensus Protocols|consensus protocols]], [[Coordination|coordination]], [[Consistency Models|consistency models]], [[Authority|authority]], [[Replica Models|replica models]], [[Partition Models|partition models]], [[Version Histories|version histories]], [[Ordering|ordering]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Failure Models|failure models]], [[Safety and Liveness|safety and liveness]], [[Progress Conditions|progress conditions]], [[CAP Theorem|CAP theorem]].

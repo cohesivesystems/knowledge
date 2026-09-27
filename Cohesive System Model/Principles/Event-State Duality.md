@@ -69,5 +69,3 @@ This also suggests a notion of indeterminate state. An indeterminate state is no
 - G. W. F. Hegel, [Book I of *Science of Logic*: Being](https://www.marxists.org/reference/archive/hegel/works/hl/hlbeing.htm).
 - F. W. Lawvere, [Some Thoughts on the Future of Category Theory](https://lawverearchives.com/wp-content/uploads/2024/12/1991-some-thoughts-on-the-future-of-category-theory.pdf), 1991.
 - Vaughan R. Pratt, [Event-State Duality: The Enriched Case](https://boole.stanford.edu/pub/concur02.pdf), CONCUR 2002. [Springer entry](https://link.springer.com/chapter/10.1007/3-540-45694-5_3)
-
-Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Event|event]], [[State|state]], [[Behavior|behavior]], [[Transition|transition]], [[Entity|entity]], [[Version|version]], [[Observer|observer]], [[Boundaries|boundaries]], [[Shape|shape]], [[Concurrency Control|concurrency control]].

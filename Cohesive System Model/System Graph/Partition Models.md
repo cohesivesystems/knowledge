@@ -85,5 +85,3 @@ Rebalancing is therefore a stateful process with identity, authority, persistenc
 ## External References
 
 - Martin Kleppmann, *Designing Data-Intensive Applications*, O'Reilly Media, 2017, chapter 6.
-
-Related concepts: [[System Graph|system graph]], [[Partitioning|partitioning]], [[Entity Models|entity models]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Replica Models|replica models]], [[Interaction Channels|interaction channels]], [[Routing Models|routing models]], [[Consumer Coordination|consumer coordination]], [[Identity|identity]], [[Authority|authority]], [[Boundaries|boundaries]], [[Invariant Scopes|invariant scopes]], [[Ordering|ordering]], [[Consistent Cuts|consistent cuts]], [[Isolation|isolation]], [[Coordination|coordination]], [[Locality|locality]], [[Scalability|scalability]], [[Recovery|recovery]], [[Failure Models|failure models]], [[Scaling Mechanisms|scaling mechanisms]].

@@ -28,5 +28,3 @@ A rate limit may be static or the manipulated variable of a [[Control Models|con
 ## External References
 
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
-
-Related concepts: [[Control Theory|control theory]], [[Control Models|control models]], [[Additive Increase Multiplicative Decrease|AIMD]], [[PID Control|PID control]], [[Queueing Theory|queueing theory]], [[Flow Control|flow control]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Scalability|scalability]], [[Retry|retry]], [[Metastability|metastability]], [[Ordering|ordering]], [[Recovery|recovery]], [[Interaction|interaction]], [[Interaction Control Flow|interaction control flow]], [[Brokers|brokers]], [[Application Hosts|application hosts]].

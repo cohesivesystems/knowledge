@@ -94,7 +94,7 @@ These are related projections, not interchangeable descriptions. Conflating them
 ## Relationships
 
 - Domain semantics supplies the semantic responsibilities allocated to services.
-- [[Interfaces]] and [[Interaction Protocols]] define allowed service interactions.
+- [[Interfaces]] and [[Interaction Protocols|interaction protocols]] define allowed service interactions.
 - [[Service Levels|Service levels]] qualify provided capabilities with measurable objectives and accountable commitments.
 - [[Microservice|Microservices]] are logical service nodes with an explicit independent-evolution profile; [[Microservice Architecture|microservice architecture]] owns the forces and cross-realm alignment practice that selects that profile.
 - [[Infrastructure Graph]] records public realization mechanisms and evidence.

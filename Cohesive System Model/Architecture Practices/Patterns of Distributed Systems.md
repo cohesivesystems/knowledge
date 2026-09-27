@@ -34,5 +34,3 @@ These distinctions make the catalog valuable realization evidence: Cohesive can 
 
 - Unmesh Joshi, [Catalog of Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/), 2023.
 - Unmesh Joshi, *Patterns of Distributed Systems*, Addison-Wesley Professional, 2023.
-
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Consensus|consensus]], [[Consistency Models|consistency models]], [[Causality|causality]], [[Ordering|ordering]], [[Version Histories|version histories]], [[Persistence|persistence]], [[Durability|durability]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Consensus Protocols|consensus protocols]], [[Storage Systems|storage systems]], [[Write-Ahead Logging|write-ahead logging]], [[Event Sourcing|event sourcing]].

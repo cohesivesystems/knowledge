@@ -64,5 +64,3 @@ Logical and causal time also support the notion of a consistent cut: a causally 
 
 - Leslie Lamport, [Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf), Communications of the ACM, 21(7):558-565, July 1978.
 - Friedemann Mattern, [Virtual Time and Global States of Distributed Systems](https://homes.cs.washington.edu/~arvind/cs425/doc/mattern89virtual.pdf), 1989.
-
-Related concepts: [[Value|value]], [[Event|event]], [[Observation|observation]], [[Observer|observer]], [[Behavior|behavior]], [[Version|version]], [[State|state]], [[Ordering|ordering]], [[Happened-Before|happened-before]], [[Uncertainty|uncertainty]], [[Authority|authority]], [[Failure Models|failure models]], [[Temporal Completeness|temporal completeness]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Consistency Models|consistency models]].

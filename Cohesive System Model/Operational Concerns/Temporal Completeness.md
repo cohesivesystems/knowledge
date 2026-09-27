@@ -75,5 +75,3 @@ A complete result for one [[Shape|shape]], source set, key, window, and policy m
 ## External References
 
 - Martin Kleppmann, *Designing Data-Intensive Applications*, O'Reilly Media, 2017, chapter 11.
-
-Related concepts: [[Time|time]], [[Uncertainty|uncertainty]], [[Observation|observation]], [[Event|event]], [[Flow Operators|flow operators]], [[Flow Views|flow views]], [[Projection Models|projection models]], [[Interaction Channels|interaction channels]], [[Consistent Cuts|consistent cuts]], [[Ordering|ordering]], [[Delivery Semantics|delivery semantics]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[CALM Theorem|CALM theorem]], [[Asynchronous Interaction Design|asynchronous interaction design]].

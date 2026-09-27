@@ -38,7 +38,6 @@ A workflow engine that claims [[Execution Kernel|execution-kernel]] conformance 
 
 An engine may offer stronger native guarantees, but unavailable atomicity, ordering, durability, response, idempotency, or recovery requirements must remain explicit rather than degrade to engine defaults.
 
-Related concepts: [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Process Graphs|process graphs]], [[Process|process]], [[Transition Models|transition models]], [[Effect|effect]], [[Durability|durability]], [[Durable Execution|durable execution]], [[Durable Execution Engines|durable execution engines]], [[Observer|observer]], [[Entity|entity]], [[Query|query]], [[Coordination|coordination]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Retry|retry]], [[Recovery|recovery]], [[Ordering|ordering]].
 
 ## Formal relations
 

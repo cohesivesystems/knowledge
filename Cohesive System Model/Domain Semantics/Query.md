@@ -40,5 +40,3 @@ Query is therefore dual to [[Command|command]] only in a limited modeling sense:
 The distinction is semantic, not transport-level. Request/reply, actor ask, RPC, shared-memory read, stream subscription, and broker-backed fetch can all carry queries at different interaction layers.
 
 In [[CQRS]], queries are commonly answered from read-side projections, indexes, materialized views, caches, or derived state. The correctness question is boundary-relative: the query result may be current, stale, monotonic for one observer, read-your-writes for one session, or only eventually consistent with authoritative persistence.
-
-Related concepts: [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Observable|observable]], [[Observer|observer]], [[Authority|authority]], [[Boundaries|boundaries]], [[State|state]], [[Command|command]], [[Interaction|interaction]], [[CQRS]], [[Projection Models|projection models]], [[Relational and Logic Programming|relational and logic programming]], [[Reconstitution|reconstitution]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]].

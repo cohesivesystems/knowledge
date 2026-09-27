@@ -101,5 +101,3 @@ Error-budget policy can inform release pacing, risk acceptance, escalation, or r
 
 - Google, [Service Level Objectives](https://sre.google/sre-book/service-level-objectives/), in *Site Reliability Engineering*, 2016.
 - Google, [Implementing SLOs](https://sre.google/workbook/implementing-slos/), in *The Site Reliability Workbook*, 2018.
-
-Related concepts: [[Service|service]], [[Service Models|service models]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Boundaries|boundaries]], [[Policy|policy]], [[Policy Scopes|policy scopes]], [[Observable|observable]], [[Observation|observation]], [[Observability and Provenance|observability and provenance]], [[Authority|authority]], [[Compositionality|compositionality]], [[Compatibility and Evolution|compatibility and evolution]], [[Scalability|scalability]], [[Capacity Planning|capacity planning]], [[Control Models|control models]], [[Scaling Mechanisms|scaling mechanisms]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Fairness|fairness]], [[Recovery|recovery]].

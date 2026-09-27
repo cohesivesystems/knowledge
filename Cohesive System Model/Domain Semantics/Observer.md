@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-08-20
+updated: 2026-09-07
 ---
 
 # Observer
@@ -28,8 +28,6 @@ Addressability is not intrinsic to the definition of an observer. A semantic [[I
 
 Actor systems are important because they make observers addressable: an actor address gives other observers a delivery path to a receiving observer boundary. The address does not necessarily expose state, and it is not automatically the same as an entity identity, though an actor may be used to realize an entity observer.
 
-Entities and [[Process|processes]] can be modeled as observers; in that model, inputs are interpreted relative to their own state, history, policies, and boundary. A process is often a special kind of entity-observer: it has identity and state, observes events over time, and emits commands or endogenous events as its behavior progresses.
+Entities and [[Process|processes]] can be modeled as observers; in that model, inputs are interpreted relative to their own state, history, policies, and boundary. A process with its own identity, coordination state, history, policies, and boundary may also be modeled as both an entity and an observer. This is a modeling choice, not an intrinsic property of every semantic process.
 
 [[Event|Events]], [[Command|commands]], and [[Query|queries]] are observer-relative interpretations: an event that is endogenous to one observer may be exogenous to another, and the same incoming observation may be interpreted differently or rejected depending on the observer's current view of entity state, projections, invariants, policies, authority, and consistency expectations.
-
-Related concepts: [[Observation|observation]], [[Event|event]], [[Command|command]], [[Query|query]], [[Agent|agent]], [[Entity|entity]], [[Process|process]], [[Authority|authority]], [[Boundaries|boundaries]], [[Realization|realization]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Concurrency Control|concurrency control]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]].

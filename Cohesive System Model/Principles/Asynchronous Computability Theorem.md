@@ -45,5 +45,3 @@ Both results connect [[Safety and Liveness|safety and liveness]] to model struct
 - Maurice Herlihy and Nir Shavit, [The Asynchronous Computability Theorem for t-Resilient Tasks](https://groups.csail.mit.edu/tds/papers/Shavit/STOC93.pdf), STOC 1993.
 - Maurice Herlihy and Nir Shavit, [The Topological Structure of Asynchronous Computability](https://cs.brown.edu/people/mph/HerlihyS99/p858-herlihy.pdf), Journal of the ACM, 46(6):858-923, November 1999.
 - Leo Gorodinski, [The Asynchronous Computability Theorem](https://medium.com/@eulerfx/the-asynchronous-computability-theorem-171e9d7b9423), 2019.
-
-Related concepts: [[Progress Conditions|progress conditions]], [[Consensus|consensus]], [[Safety and Liveness|safety and liveness]], [[Coordination|coordination]], [[CALM Theorem|CALM theorem]], [[Universal Constructions|universal constructions]], [[Compositionality|compositionality]], [[Enrichment and Order|enrichment and order]], [[State|state]], [[Observation|observation]], [[Process|process]].

@@ -37,7 +37,6 @@ Each transition evaluation and process activation executes finite semantic work.
 
 When a runtime cannot realize a required atomicity, durability, ordering, compatibility, response, or recovery guarantee, it must report the unsupported requirement rather than silently choose a weaker path. Conformance compares stable semantic decisions and traces, not thread identity, worker placement, or wall-clock scheduling accidents.
 
-Related concepts: [[Execution Kernel|execution kernel]], [[Realization|realization]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Fork and Join|fork and join]], [[Control Flow|control flow]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Observer|observer]], [[Effect|effect]], [[Interaction Control Flow|interaction control flow]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Arbitration|arbitration]], [[Authority|authority]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Progress Conditions|progress conditions]], [[Application Hosts|application hosts]], [[Actor Systems|actor systems]], [[Workflow Engines|workflow engines]], [[Durable Execution Engines|durable execution engines]], [[Network|network]], [[Compute|compute]].
 
 ## Formal relations
 

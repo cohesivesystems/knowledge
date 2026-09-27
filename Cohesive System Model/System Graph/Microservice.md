@@ -29,7 +29,6 @@ These correspondences need not be one-to-one. One microservice may use several d
 
 Within one service model, microservices can coexist with logical services that use different deployment or ownership profiles. The distinction is justified by the independent change, scaling, failure-isolation, or accountability benefit, not by a fixed granularity threshold.
 
-Related concepts: [[Service|service]], [[Service Models|service models]], [[Microservice Architecture|microservice architecture]], [[Interfaces|interfaces]], [[Interaction Protocols|interaction protocols]], [[Boundaries|boundaries]], [[Authority|authority]], [[Compatibility and Evolution|compatibility and evolution]], [[Service Levels|service levels]], [[Scaling Mechanisms|scaling mechanisms]], [[Infrastructure Graph|infrastructure graph]], [[Application Hosts|application hosts]], [[Runtimes|runtimes]], [[Scheduling|scheduling]], [[Recovery|recovery]], [[Modular Monolith|modular monolith]], [[Realization|realization]].
 
 ## Formal relations
 

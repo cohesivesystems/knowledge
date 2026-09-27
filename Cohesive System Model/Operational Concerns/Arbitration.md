@@ -62,5 +62,3 @@ Fencing tokens, epochs, compare-and-set, queue positions, leases, lock ownership
 ## External References
 
 - Leslie Lamport and Richard Palais, [On the Glitch Phenomenon](https://lamport.azurewebsites.net/pubs/glitch.pdf), 1976.
-
-Related concepts: [[Nondeterminism and Choice|nondeterminism and choice]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Glitch Principle|glitch principle]], [[Authority|authority]], [[Ordering|ordering]], [[Causality|causality]], [[Coordination|coordination]], [[Consensus|consensus]], [[Concurrency Control|concurrency control]], [[Progress Conditions|progress conditions]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Realization|realization]].

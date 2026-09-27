@@ -36,5 +36,3 @@ Domains and subdomains belong primarily to problem-space description. A [[Bounde
 
 - Eric Evans, [*Domain-Driven Design Reference: Definitions and Pattern Summaries*](https://www.domainlanguage.com/ddd/reference/), definition of “domain.”
 - Eric Evans, [*Domain-Driven Design: Tackling Complexity in the Heart of Software*](https://www.informit.com/store/domain-driven-design-tackling-complexity-in-the-heart-9780321125217), Addison-Wesley Professional, 2003.
-
-Related concepts: [[Subdomain|subdomain]], [[Bounded Context|bounded context]], [[Ubiquitous Language|ubiquitous language]], [[Domain-Driven Design|domain-driven design]], [[System Graph|system graph]], [[Entity|entity]], [[Relation|relation]], [[Value|value]], [[Event|event]], [[Process|process]], [[Invariant|invariant]], [[Policy|policy]], [[Observer|observer]], [[Authority|authority]], and [[Boundaries|boundaries]].

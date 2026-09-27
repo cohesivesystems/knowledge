@@ -42,7 +42,6 @@ Andrew P. Black, Vincent Cremet, Rachid Guerraoui, and Martin Odersky's FSTTCS 2
 Consistency is not a fourth operator. It is treated as an induction principle: actions that preserve consistency locally yield global consistency when the transaction guarantees preserve their boundaries. A conventional transaction is expressed by nesting the all-or-nothing action inside durability and then isolation, `⟨⟨⟨P⟩_A⟩_D⟩_I`. Because the operators do not generally commute, the calculus can distinguish mechanisms that offer different subsets or scopes of transaction guarantees.
 
 
-Related concepts: [[Storage Systems|storage systems]], [[Business Transactions|business transactions]], [[ACID]], [[Commit Boundaries|commit boundaries]], [[Isolation|isolation]], [[Durability|durability]], [[Consistency Models|consistency models]], [[Invariant|invariants]], [[Concurrency Control|concurrency control]], [[Write-Ahead Logging|write-ahead logging]], [[Recovery|recovery]], [[Two-Phase Commit|two-phase commit]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Weak Isolation Patterns|weak isolation patterns]].
 
 ## Formal relations
 

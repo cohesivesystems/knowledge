@@ -62,7 +62,6 @@ Durable fork-join additionally requires persistent active-branch and completion 
 - Is result or completion order observable, fixed, order-insensitive, or nondeterministic?
 - Which fork, join, and branch state must survive interruption?
 
-Related concepts: [[Process|process]], [[Process Graphs|process graphs]], [[Control Flow|control flow]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Flow Operators|flow operators]], [[Workflow Patterns|workflow patterns]], [[Ordering|ordering]], [[Causality|causality]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Scheduling|scheduling]], [[Deadlock and Livelock|deadlock and livelock]], [[Recovery|recovery]], [[Runtimes|runtimes]], [[Workflow Engines|workflow engines]], [[Boundaries|boundaries]].
 
 ## Formal relations
 

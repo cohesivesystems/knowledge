@@ -68,7 +68,6 @@ Balancing and stability can conflict. Frequent reassignment may improve an insta
 - How do replication, affinity, fanout, hedging, failover, and stale routes change the assignment shape?
 - Does rebalancing improve the intended objective after accounting for locality loss, state movement, coordination, and recovery cost?
 
-Related concepts: [[Stuff Structure Property|stuff structure property]], [[Compositionality|compositionality]], [[Partition Models|partition models]], [[Routing Models|routing models]], [[Load Balancing|load balancing]], [[Entity Models|entity models]], [[Relation Models|relation models]], [[Interaction Channels|interaction channels]], [[Policy Scopes|policy scopes]], [[Invariant Scopes|invariant scopes]], [[Boundaries|boundaries]], [[Identity|identity]], [[Authority|authority]], [[Ordering|ordering]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Coordination|coordination]], [[Locality|locality]], [[Scalability|scalability]], [[Fairness|fairness]], [[Scheduling|scheduling]], [[Consumer Coordination|consumer coordination]], [[Recovery|recovery]], [[Failure Models|failure models]], [[Replica Models|replica models]], [[Scaling Mechanisms|scaling mechanisms]], [[Storage Systems|storage systems]].
 
 ## Formal relations
 

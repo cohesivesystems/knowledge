@@ -22,5 +22,3 @@ Identity participates in:
 - Addressing and routing.
 - Concurrency checks.
 - Ordered delivery per key or subject.
-
-Related concepts: [[Entity|entity]], [[Observer|observer]], [[Version|version]], [[Interaction|interaction]], [[Delivery Semantics|delivery semantics]], [[Actor Systems|actor systems]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]].

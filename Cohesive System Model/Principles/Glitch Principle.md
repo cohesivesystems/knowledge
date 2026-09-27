@@ -71,5 +71,3 @@ This illustrates why determinacy and uncertainty are boundary-relative. A detail
 ## External References
 
 - Leslie Lamport and Richard Palais, [On the Glitch Phenomenon](https://lamport.azurewebsites.net/pubs/glitch.pdf), 1976.
-
-Related concepts: [[Nondeterminism and Choice|nondeterminism and choice]], [[Arbitration|arbitration]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Progress Conditions|progress conditions]], [[Safety and Liveness|safety and liveness]], [[Actor Systems|actor systems]], [[Runtimes|runtimes]], [[Realization|realization]], [[Boundaries|boundaries]], [[Observation|observation]].

@@ -31,5 +31,3 @@ Examples:
 - A [[Realization|realization]] is understood through the semantic relationships it preserves and the substrate guarantees it exposes.
 
 The Yoneda lemma is a discipline against representation-only definitions. If two things cannot be distinguished by any relevant observation, interaction, transition, or relation within a boundary, then they may be equivalent for that model even if they differ internally.
-
-Related concepts: [[Entity|entity]], [[Observer|observer]], [[Observation|observation]], [[Interaction|interaction]], [[Boundaries|boundaries]], [[Realization|realization]], [[Equivalence vs Equality|equivalence vs equality]].

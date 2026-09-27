@@ -34,5 +34,3 @@ Duality helps the model ask:
 Symmetry is often broken by boundaries, observers, time, authority, or commitment. For example, input and output appear symmetric as interaction roles, but a receiving [[Observer|observer]] may reject, reinterpret, or ignore an incoming event. Persistence and reconstitution appear symmetric as write/read roles, but persistence choices determine which histories, observations, and versions can actually be reconstituted.
 
 Recognizing dualities keeps the model honest. It prevents event histories from being treated as identical to state histories, syntax from being mistaken for semantics, broker delivery from being mistaken for domain commitment, and realization substrate from being mistaken for the semantic role it realizes.
-
-Related concepts: [[Event-State Duality|event-state duality]], [[Fork and Join|fork and join]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Event|event]], [[State|state]], [[Behavior|behavior]], [[Observer|observer]], [[Boundaries|boundaries]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Interaction|interaction]], [[Concurrency Control|concurrency control]].

@@ -79,5 +79,3 @@ These structures are not naming decorations. They matter when the model needs la
 
 - Eugenio Moggi, [Notions of Computation and Monads](https://doi.org/10.1016/0890-5401(91)90052-4), *Information and Computation* 93(1):55-92, 1991.
 - Michèle Giry, [A Categorical Approach to Probability Theory](https://doi.org/10.1007/BFb0079007), in *Categorical Aspects of Topology and Analysis*, 1982.
-
-Related concepts: [[Programming Paradigms|programming paradigms]], [[Functional Programming|functional programming]], [[Relational and Logic Programming|relational and logic programming]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Behavior|behavior]], [[Observation|observation]], [[Observer|observer]], [[Event|event]], [[Transition|transition]], [[Projection Models|projection models]], [[Duality and Symmetry|duality and symmetry]], [[Compositionality|compositionality]].

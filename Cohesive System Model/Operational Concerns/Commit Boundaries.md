@@ -52,5 +52,3 @@ Enterprise Integration Patterns describes a **Transactional Client** as an endpo
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Transactional Client](https://www.enterpriseintegrationpatterns.com/patterns/messaging/TransactionalClient.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Effect Models|effects]], [[Interaction Channels|interaction channels]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Acknowledgments|acknowledgments]], [[ACID]], [[Two-Phase Commit|two-phase commit]], [[Coordination|coordination]], [[Process Managers|process managers]], [[Sagas|sagas]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Consistency Models|consistency models]], [[Isolation|isolation]], [[Dual-Write Problem|dual-write problem]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Business Transactions|business transactions]].

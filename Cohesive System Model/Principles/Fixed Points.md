@@ -54,7 +54,6 @@ Examples:
 - The declarative meaning of a positive Datalog program is the least fixed point of its immediate-consequence operator; see [[Relational and Logic Programming|relational and logic programming]].
 - A feedback or control system is at a fixed point when another modeled observation-decision-update cycle leaves its relevant state unchanged. Stability, convergence, and sensitivity remain separate questions; see [[Trace and Feedback|trace and feedback]].
 
-Related concepts: [[Recursion|recursion]], [[Process Calculi|process calculi]], [[Session Types|session types]], [[Idempotency|idempotency]], [[Behavior|behavior]], [[State Machines|state machines]], [[Relational and Logic Programming|relational and logic programming]], [[Trace and Feedback|trace and feedback]], [[Equivalence vs Equality|equivalence vs equality]], [[Enrichment and Order|enrichment and order]].
 
 ## Formal relations
 

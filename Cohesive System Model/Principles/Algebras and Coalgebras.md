@@ -42,5 +42,3 @@ Examples:
 - An observer exposing what it can observe, emit, or request next.
 
 Algebras and coalgebras are connected to [[Event-State Duality|event-state duality]]. Folding events into state is algebraic. Observing state for possible events or future behavior is coalgebraic. Neither side fully replaces the other.
-
-Related concepts: [[Behavior|behavior]], [[Event-State Duality|event-state duality]], [[Event|event]], [[State|state]], [[Transition|transition]], [[Observer|observer]], [[Process Graphs|process graphs]], [[Duality and Symmetry|duality and symmetry]].

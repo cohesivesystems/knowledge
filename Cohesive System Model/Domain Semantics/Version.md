@@ -23,5 +23,3 @@ Versions support:
 A version need not be a single scalar counter. In distributed or replicated histories, version may be realized by logical timestamps, causal contexts, vector-clock-like metadata, branch heads, commit identifiers, or other [[Time|time]], [[Ordering|ordering]], and [[Version Histories|version-history]] mechanisms.
 
 If a command is rejected and no accepted state change occurs for the target entity, the entity version remains unchanged.
-
-Related concepts: [[Identity|identity]], [[State|state]], [[Entity|entity]], [[Event|event]], [[Event-State Duality|event-state duality]], [[Command|command]], [[Concurrency Control|concurrency control]], [[Version Histories|version histories]], [[Consistency Models|consistency models]], [[Time|time]], [[Ordering|ordering]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Enrichment and Order|enrichment and order]].

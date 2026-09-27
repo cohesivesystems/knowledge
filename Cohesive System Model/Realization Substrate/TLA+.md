@@ -67,5 +67,3 @@ These are correspondence choices, not identities. A TLA+ variable may combine se
 - Leslie Lamport, [Specifying Systems: The TLA+ Language and Tools for Hardware and Software Engineers](https://lamport.azurewebsites.net/tla/book.html), Addison-Wesley, 2002.
 - [TLA+ project](https://lamport.azurewebsites.net/tla/tla.html).
 - [TLA+ tools](https://github.com/tlaplus/tlaplus).
-
-Related concepts: [[Temporal Logic|temporal logic]], [[Logic|logic]], [[Judgement|judgement]], [[State Machines|state machines]], [[State|state]], [[Transition|transition]], [[Behavior|behavior]], [[Invariant|invariants]], [[Safety and Liveness|safety and liveness]], [[Fairness|fairness]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Failure Models|failure models]], [[System Language and Realization|system language and realization]], [[Realization|realization]].

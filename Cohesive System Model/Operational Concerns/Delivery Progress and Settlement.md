@@ -94,7 +94,6 @@ When state mutation, produced output, application progress, and provider settlem
 
 Claims of atomicity must enumerate the coupled operations and resource boundary. Atomic publication and offset advancement inside a broker does not automatically include an application's database, an external effect, or a downstream semantic obligation.
 
-Related concepts: [[Interaction Channels|interaction channels]], [[Interaction Protocols|interaction protocols]], [[Messages and Envelopes|messages and envelopes]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Durability|durability]], [[Ordering|ordering]], [[Correlation and Conversations|correlation and conversations]], [[Consumer Coordination|consumer coordination]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Idempotency|idempotency]], [[Retry|retry]], [[Recovery|recovery]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Network Channels|network channels]], [[Brokers|brokers]].
 
 ## Formal relations
 

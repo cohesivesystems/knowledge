@@ -83,7 +83,6 @@ Policies may deliberately totalize a partial situation: reject when evidence is 
 - What computational interpretation does classical reasoning receive?
 - Does a policy choose a branch under uncertainty without claiming logical proof?
 
-Related concepts: [[Logic|logic]], [[Judgement|judgement]], [[Type Theory|type theory]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Lambda Calculus|lambda calculus]], [[Linear Logic|linear logic]], [[Temporal Logic|temporal logic]], [[Observer|observer]], [[Observation|observation]], [[Uncertainty|uncertainty]], [[Policy|policy]], [[Boundaries|boundaries]], [[Failure Models|failure models]], [[Consistency Models|consistency models]], [[Realization|realization]].
 
 ## Formal relations
 

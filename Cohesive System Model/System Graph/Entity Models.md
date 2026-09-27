@@ -45,7 +45,6 @@ Entity models provide structure for:
 
 Process coordination state, continuation tokens, wait registrations, operation ledgers, and projection state may refer to an entity model without becoming a second authoritative entity model. [[Process Graphs|Process graphs]] coordinate independently authoritative entity models by invoking their transitions rather than copying and mutating their business state.
 
-Related concepts: [[Entity|entity]], [[Transition Models|transition models]], [[Process Graphs|process graphs]], [[Observer Models|observer models]], [[Observer|observer]], [[State|state]], [[Identity|identity]], [[Version|version]], [[Transition|transition]], [[Effect|effect]], [[Query|query]], [[Invariant Scopes|invariant scopes]], [[Policy Scopes|policy scopes]], [[Boundaries|boundaries]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Realization|realization]], [[Concurrency Control|concurrency control]].
 
 ## Formal relations
 

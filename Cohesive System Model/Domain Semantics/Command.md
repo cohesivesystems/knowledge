@@ -44,5 +44,3 @@ In [[CQRS]], commands belong to the write side: they are interpreted against the
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Command Message](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CommandMessage.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Query|query]], [[CQRS]], [[Observer|observer]], [[Authority|authority]], [[Boundaries|boundaries]], [[Entity|entity]], [[Transition|transition]], [[Version|version]], [[Effect|effect]], [[Effect Models]], [[Messages and Envelopes|messages and envelopes]], [[Interaction|interaction]], [[Concurrency Control|concurrency control]], [[Monads Monoids and Duals|monads monoids and duals]], [[Adjunctions|adjunctions]].

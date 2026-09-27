@@ -53,5 +53,3 @@ A bounded context therefore models subject matter from one or more subdomains; i
 
 - Eric Evans, [*Domain-Driven Design Reference: Definitions and Pattern Summaries*](https://www.domainlanguage.com/ddd/reference/), especially “Core Domain,” “Generic Subdomains,” and “Domain Vision Statement.”
 - Vaughn Vernon, [*Domain-Driven Design Distilled*](https://www.informit.com/store/domain-driven-design-distilled-9780134434988), Addison-Wesley Professional, 2016.
-
-Related concepts: [[Domain|domain]], [[Bounded Context|bounded context]], [[Ubiquitous Language|ubiquitous language]], [[Domain-Driven Design|domain-driven design]], [[System Graph|system graph]], [[Boundaries|boundaries]], [[Authority|authority]], [[Policy|policy]], [[Invariant|invariant]], [[Entity|entity]], [[Process|process]], and [[Service|service]].

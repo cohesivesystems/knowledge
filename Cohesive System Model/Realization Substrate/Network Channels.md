@@ -107,5 +107,3 @@ The realization is acceptable only when those introduced mechanics do not violat
 - IETF, [RFC 9293: Transmission Control Protocol](https://www.rfc-editor.org/rfc/rfc9293), 2022.
 - IETF, [RFC 9000: QUIC](https://www.rfc-editor.org/rfc/rfc9000), 2021.
 - Gregor Hohpe and Bobby Woolf, [Message Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageChannel.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Network|network]], [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Interaction Protocols|interaction protocols]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Messages and Envelopes|messages and envelopes]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Routing Models|routing models]], [[Interaction Control Flow|interaction control flow]], [[Flow Control|flow control]], [[Delivery Semantics|delivery semantics]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Ordering|ordering]], [[Brokers|brokers]], [[Realization|realization]].

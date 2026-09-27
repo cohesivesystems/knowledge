@@ -29,7 +29,6 @@ When an invariant fails, the command is rejected for the target entity and no ac
 
 With [[CRDTs]], invariants must be checked for compatibility with monotonic merge or commutative updates. Non-monotonic invariants may still require coordination, escrow, reservations, or a different data model.
 
-Related concepts: [[Invariant|invariant]], [[Entity Models|entity models]], [[Process Graphs|process graphs]], [[Relation Models|relation models]], [[Projection Models|projection models]], [[Observer Models|observer models]], [[Entity|entity]], [[State|state]], [[Observation|observation]], [[Command|command]], [[Transition|transition]], [[Version|version]], [[Stuff Structure Property|stuff structure property]], [[Concurrency Control|concurrency control]], [[CRDTs]].
 
 ## Formal relations
 

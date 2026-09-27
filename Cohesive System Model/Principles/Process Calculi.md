@@ -145,7 +145,6 @@ A lowering from a process calculus into infrastructure must preserve the selecte
 - John C. Baez and Christian Williams, [Enriched Lawvere Theories for Operational Semantics](https://arxiv.org/abs/1905.05636), 2019.
 - Michael Stay and L. G. Meredith, [Representing Operational Semantics with Enriched Lawvere Theories](https://arxiv.org/abs/1704.03080), 2017.
 
-Related concepts: [[Process Theories|process theories]], [[Lambda Calculus|lambda calculus]], [[Session Types|session types]], [[Linear Logic|linear logic]], [[Process|process]], [[Process Graphs|process graphs]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Concurrency|concurrency]], [[Nondeterminism and Choice|nondeterminism and choice]], [[State Machines|state machines]], [[Temporal Logic|temporal logic]], [[Compositionality|compositionality]], [[Scheduling|scheduling]], [[Fairness|fairness]], [[Actor Model|actor model]], [[Actor Systems|actor systems]], [[Realization|realization]].
 
 ## Formal relations
 

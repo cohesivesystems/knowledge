@@ -111,7 +111,6 @@ The lowering must preserve units, boundaries, timing assumptions, target and pol
 - Which other control blocks share the same resource, observation, or actuator?
 - Which realization algorithm is selected, and which assumptions make it valid?
 
-Related concepts: [[Control Theory|control theory]], [[Observer Models|observer models]], [[Policy Scopes|policy scopes]], [[Effect Models|effect models]], [[Interaction|interaction]], [[Interfaces|interfaces]], [[Authority|authority]], [[Uncertainty|uncertainty]], [[Trace and Feedback|trace and feedback]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]], [[Commit Boundaries|commit boundaries]], [[Scheduling|scheduling]], [[Scaling Mechanisms|scaling mechanisms]], [[Infrastructure Graph|infrastructure graph]].
 
 ## Formal relations
 

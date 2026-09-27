@@ -123,7 +123,6 @@ The lambda calculus is therefore a semantic and proof-theoretic foundation, not 
 - Gordon D. Plotkin, [Call-by-Name, Call-by-Value and the Lambda-Calculus](https://doi.org/10.1016/0304-3975(75)90017-1), *Theoretical Computer Science* 1(2):125-159, 1975.
 - Robin Milner, [Functions as Processes](https://doi.org/10.1017/S0960129500001407), *Mathematical Structures in Computer Science* 2(2):119-141, 1992.
 
-Related concepts: [[Substitution|substitution]], [[Functional Programming|functional programming]], [[Type Theory|type theory]], [[Logic|logic]], [[Judgement|judgement]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Linear Logic|linear logic]], [[Law of Excluded Middle|law of excluded middle]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Process Calculi|process calculi]], [[Categorical Principles|categorical principles]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Functoriality|functoriality]], [[Compositionality|compositionality]], [[Realization|realization]].
 
 ## Formal relations
 

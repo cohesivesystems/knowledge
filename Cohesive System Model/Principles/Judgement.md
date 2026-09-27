@@ -96,7 +96,6 @@ A judgement is not identical to a domain decision or an [[Observation|observatio
 - Is the judgement about a candidate, a selected realization, a deployed configuration, or observed runtime behavior?
 - Can local judgements compose, and what new obligations arise at their interfaces?
 
-Related concepts: [[Logic|logic]], [[Type Theory|type theory]], [[Linear Logic|linear logic]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Temporal Logic|temporal logic]], [[Functional Programming|functional programming]], [[System Language and Realization|system language and realization]], [[Realization|realization]], [[Pattern Languages and Correspondence|pattern languages and correspondence]], [[Boundaries|boundaries]], [[Invariant|invariants]], [[Policy|policy]], [[Observation|observation]], [[Authority|authority]], [[Compositionality|compositionality]], [[Equivalence vs Equality|equivalence vs equality]].
 
 ## Formal relations
 

@@ -28,5 +28,3 @@ Examples:
 Lawful optics preserve round-trip expectations. For example, if a view is updated and then read back, the read should reflect the update where that update is meaningful. Not every projection is a lawful lens: many projections are lossy, derived, eventually consistent, or read-only.
 
 Optics help keep partial observation distinct from full state and derived views distinct from canonical history.
-
-Related concepts: [[Observable|observable]], [[Observation|observation]], [[State|state]], [[Projection Models|projection models]], [[Command|command]], [[Boundaries|boundaries]], [[Equivalence vs Equality|equivalence vs equality]].

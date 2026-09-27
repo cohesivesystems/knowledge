@@ -81,5 +81,3 @@ The relationships are many-to-many. One interface can have local, HTTP, RPC, bro
 
 - [Hexagonal architecture](https://alistair.cockburn.us/hexagonal-architecture/)
 - [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-Related concepts: [[Surfaces|surfaces]], [[Boundaries|boundaries]], [[Interaction|interaction]], [[Interaction Protocols|interaction protocols]], [[Interaction Channels|interaction channels]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Ports and Adapters|ports and adapters]], [[Service Models|service models]], [[Compatibility and Evolution|compatibility and evolution]], [[Network Channels|network channels]], [[Realization|realization]].

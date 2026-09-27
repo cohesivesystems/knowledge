@@ -107,5 +107,3 @@ A service may perform an operation whose domain meaning belongs to an external o
 
 - [Enterprise Integration Patterns: Request-Reply](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html)
 - [RFC 9110: HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110)
-
-Related concepts: [[Interfaces|interfaces]], [[Session Types|session types]], [[Process Calculi|process calculi]], [[Interaction Bindings|interaction bindings]], [[Endpoints|endpoints]], [[Interaction Channels|interaction channels]], [[Messages and Envelopes|messages and envelopes]], [[Correlation and Conversations|correlation and conversations]], [[Interaction Control Flow|interaction control flow]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Flow Control|flow control]], [[Network Channels|network channels]], [[Network|network]], [[Realization|realization]].

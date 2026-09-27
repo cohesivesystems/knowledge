@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-07-17
-updated: 2026-08-08
+updated: 2026-09-07
 status: draft
 aliases:
   - Async Interaction Design
@@ -47,7 +47,7 @@ This shift creates several obligations:
 
 ## Fate Sharing and Independent Failure
 
-[[Durability|Fate sharing]] describes which components fail or survive together; it is not a synonym for synchrony. A synchronous RPC can cross independently failing boundaries, while a durable asynchronous handoff may deliberately let queued work survive the producer or consumer.
+Fate sharing, as part of a [[Failure Models|failure model]], describes which components fail or survive together; it is not a synonym for synchrony or [[Durability|durability]]. A synchronous RPC can cross independently failing boundaries, while a durable asynchronous handoff may deliberately let queued work survive the producer or consumer.
 
 The important architectural change is that the sender may finish after transferring a narrower responsibility while downstream work continues elsewhere. A successful sender-local commit or broker acknowledgment therefore cannot be interpreted as downstream or business completion unless an explicit protocol establishes that meaning.
 
@@ -246,5 +246,3 @@ It also fails when a dead-letter queue has no owner or repair path, when retenti
 - Enterprise Integration Patterns, [Messaging Patterns Overview](https://www.enterpriseintegrationpatterns.com/patterns/messaging/index.html), especially Guaranteed Delivery, Invalid Message Channel, Dead Letter Channel, Message Expiration, Durable Subscriber, and the consumer endpoint patterns.
 - Gregor Hohpe and Bobby Woolf, [Dead Letter Channel](https://www.enterpriseintegrationpatterns.com/patterns/messaging/DeadLetterChannel.html) and [Competing Consumers](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html), *Enterprise Integration Patterns*, 2003.
 - Gregor Hohpe, [Control Flow—The Other Half of Integration Patterns](https://www.enterpriseintegrationpatterns.com/ramblings/queues_control_flow.html), 2024.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Concurrency|concurrency]], [[Parallelism|parallelism]], [[Interaction Control Flow|interaction control flow]], [[Queueing Theory|queueing theory]], [[Flow Control|flow control]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Retention Expiration and Quarantine|retention, expiration, and quarantine]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Compatibility and Evolution|compatibility and evolution]], [[Temporal Completeness|temporal completeness]], [[Observability and Provenance|observability and provenance]], [[Failure Models|failure models]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Weak Isolation Patterns|weak isolation patterns]], [[Transactional Outbox|transactional outbox]], [[Transactional Inbox|transactional inbox]], [[Process Graphs|process graphs]], [[Projection Models|projection models]], [[Partition Models|partition models]], [[Trace and Feedback|trace and feedback]], [[Brokers|brokers]].

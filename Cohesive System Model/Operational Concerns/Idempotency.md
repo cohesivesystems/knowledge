@@ -47,5 +47,3 @@ Enterprise Integration Patterns calls the consumer-side application of this disc
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Idempotent Receiver](https://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Fixed Points|fixed points]], [[Equivalence vs Equality|equivalence vs equality]], [[Retry|retry]], [[Delivery Semantics|delivery semantics]], [[Acknowledgments|acknowledgments]], [[Commit Boundaries|commit boundaries]], [[Effect Models|effects]], [[Command|command]], [[Transition|transition]], [[Version|version]], [[Recovery|recovery]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]].

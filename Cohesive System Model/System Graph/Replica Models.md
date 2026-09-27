@@ -72,5 +72,3 @@ Reconfiguration may temporarily involve old and new memberships, routes, and rep
 ## External References
 
 - Martin Kleppmann, *Designing Data-Intensive Applications*, O'Reilly Media, 2017, chapters 5 and 9.
-
-Related concepts: [[System Graph|system graph]], [[Observer Models|observer models]], [[Entity Models|entity models]], [[Projection Models|projection models]], [[Partition Models|partition models]], [[Identity|identity]], [[Authority|authority]], [[Version|version]], [[Version Histories|version histories]], [[Observation|observation]], [[Consistency Models|consistency models]], [[Consistent Cuts|consistent cuts]], [[Ordering|ordering]], [[Coordination|coordination]], [[Quorum Intersection|quorum intersection]], [[Consensus|consensus]], [[CRDTs]], [[Persistence|persistence]], [[Durability|durability]], [[Recovery|recovery]], [[Failure Models|failure models]], [[Routing Models|routing models]], [[Storage Systems|storage systems]], [[Consensus Protocols|consensus protocols]], [[Scaling Mechanisms|scaling mechanisms]].

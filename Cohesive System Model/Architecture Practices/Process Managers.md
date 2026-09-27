@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-07-04
-updated: 2026-07-27
+updated: 2026-09-07
 aliases:
   - Process Manager
 ---
@@ -37,6 +37,8 @@ A [[Durable Execution Engines|durable execution engine]] can play the process-ma
 
 Not every process manager is a saga, and not every durable execution engine use is a process manager. A durable job runner may resume one task without owning a larger process, while a hand-written event-sourced process manager may coordinate a long-running process without using a full durable execution engine.
 
+The narrower distinction is summarized in [[Sagas and Process Managers|sagas and process managers]].
+
 ## Examples
 
 - A saga orchestrator that reserves inventory, charges payment, arranges shipment, and issues compensating commands when a later step fails.
@@ -54,5 +56,3 @@ The pattern fails when the process boundary is implicit, when process state is n
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Process Manager](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Orchestration and Choreography|orchestration and choreography]], [[Sagas|sagas]], [[Process|process]], [[Process Graphs|process graphs]], [[Correlation and Conversations|correlation and conversations]], [[Coordination|coordination]], [[Observer|observer]], [[Entity|entity]], [[Durable Execution|durable execution]], [[Durable Execution Engines|durable execution engines]], [[Workflow Engines|workflow engines]], [[Recovery|recovery]], [[Retry|retry]], [[Idempotency|idempotency]], [[Ordering|ordering]], [[Boundaries|boundaries]], [[Business Transactions|business transactions]].

@@ -27,5 +27,3 @@ Examples:
 - Free process descriptions and workflow realizations: a process model may describe possible steps, while a workflow engine realizes a constrained executable form.
 
 Adjunctions are useful because many important pairs are not equalities or isomorphisms. They are structured approximations with explicit directionality.
-
-Related concepts: [[Duality and Symmetry|duality and symmetry]], [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Realization|realization]], [[Command|command]], [[Transition|transition]], [[Workflow Engines|workflow engines]].

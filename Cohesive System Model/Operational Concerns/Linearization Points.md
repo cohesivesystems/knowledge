@@ -46,5 +46,3 @@ For a replicated object, a consensus-decided log position may establish the abst
 ## External References
 
 - Maurice P. Herlihy and Jeannette M. Wing, [Linearizability: A Correctness Condition for Concurrent Objects](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), *ACM Transactions on Programming Languages and Systems* 12(3):463-492, 1990.
-
-Related concepts: [[Consistency Models|consistency models]], [[Ordering|ordering]], [[Scheduling|scheduling]], [[Authority|authority]], [[Consensus|consensus]], [[Commit Boundaries|commit boundaries]], [[Concurrency Control|concurrency control]], [[Isolation|isolation]], [[Transition|transition]], [[Version|version]], [[Observation|observation]], [[Boundaries|boundaries]], [[Realization|realization]].

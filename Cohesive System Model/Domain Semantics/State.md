@@ -59,5 +59,3 @@ In [[Event-State Duality|event-state duality]]:
 ## External References
 
 - Leslie Lamport, [The Temporal Logic of Actions](https://lamport.azurewebsites.net/pubs/lamport-actions.pdf), ACM Transactions on Programming Languages and Systems, 16(3):872-923, May 1994. Section 2.1 defines state in terms of assigning values to variables.
-
-Related concepts: [[Value|value]], [[Shape|shape]], [[Observation|observation]], [[Observable|observable]], [[Observer|observer]], [[Event|event]], [[Event-State Duality|event-state duality]], [[Behavior|behavior]], [[Entity|entity]], [[Identity|identity]], [[Version|version]], [[Boundaries|boundaries]], [[Transition|transition]], [[Effect|effect]], [[Process|process]], [[Relation|relations]], [[Entity Models|entity models]], [[Projection Models|projection models]], [[Process Graphs|process graphs]], [[Persistence|persistence]], [[Reconstitution|reconstitution]].

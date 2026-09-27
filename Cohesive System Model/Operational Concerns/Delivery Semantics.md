@@ -90,7 +90,6 @@ Delivery semantics are one way [[Synchrony and Asynchrony|asynchronous]] interac
 - Does every source occurrence matter, or is convergence to an admissible source cut sufficient?
 - Can reconciliation establish the postcondition after a missed notification, and under which progress assumptions?
 
-Related concepts: [[Interaction|interaction]], [[Interaction Channels|interaction channels]], [[Interaction Protocols|interaction protocols]], [[Acknowledgments|acknowledgments]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Semantic Propagation|semantic propagation]], [[Ordering|ordering]], [[Commit Boundaries|commit boundaries]], [[Effect Models|effects]], [[Idempotency|idempotency]], [[Transactional Inbox|transactional inbox]], [[Outbox|outbox]], [[Recovery|recovery]], [[Compatibility and Evolution|compatibility and evolution]], [[Observability and Provenance|observability and provenance]], [[Temporal Completeness|temporal completeness]], [[CRDTs]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Observer|observer]], [[Brokers|brokers]], [[Network Channels|network channels]], [[Network|network]].
 
 ## Formal relations
 

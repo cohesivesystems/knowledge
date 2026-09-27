@@ -142,7 +142,6 @@ A compiler-like [[Realization|realization]] should therefore state which semanti
 - Luís Caires and Frank Pfenning, [Session Types as Intuitionistic Linear Propositions](https://doi.org/10.1007/978-3-642-15375-4_16), CONCUR 2010, LNCS 6269:222-236.
 - Philip Wadler, [Propositions as Sessions](https://doi.org/10.1145/2364527.2364568), ICFP 2012:273-286.
 
-Related concepts: [[Logic|logic]], [[Type Theory|type theory]], [[Judgement|judgement]], [[Curry–Howard Correspondence|Curry–Howard correspondence]], [[Functional Programming|functional programming]], [[Session Types|session types]], [[Process Calculi|process calculi]], [[Concurrency|concurrency]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Duality and Symmetry|duality and symmetry]], [[Compositionality|compositionality]], [[Categorical Principles|categorical principles]], [[Monads Monoids and Duals|monads monoids and duals]], [[Recursion|recursion]], [[Fixed Points|fixed points]], [[Authority|authority]], [[Effect|effect]], [[Delivery Semantics|delivery semantics]], [[Commit Boundaries|commit boundaries]], [[Realization|realization]].
 
 ## Formal relations
 

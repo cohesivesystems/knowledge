@@ -72,5 +72,3 @@ Uncertainty should not be converted directly into rejection, retry, or acceptanc
 ## External References
 
 - Joseph Y. Halpern, [Reasoning about Uncertainty](https://mitpress.mit.edu/9780262533805/reasoning-about-uncertainty/), second edition, MIT Press, 2017.
-
-Related concepts: [[Observer|observer]], [[Observation|observation]], [[Observable|observable]], [[State|state]], [[Version|version]], [[Nondeterminism and Choice|nondeterminism and choice]], [[Reduction, Evaluation, and Confluence|reduction, evaluation, and confluence]], [[Causality|causality]], [[Authority|authority]], [[Policy|policy]], [[Consistency Models|consistency models]], [[Synchrony and Asynchrony|synchrony and asynchrony]], [[Consensus|consensus]], [[Safety and Liveness|safety and liveness]], [[Boundaries|boundaries]].

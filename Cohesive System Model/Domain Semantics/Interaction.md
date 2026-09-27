@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-08-17
+updated: 2026-09-07
 ---
 
 # Interaction
@@ -21,7 +21,7 @@ An explicitly designed external contract is projected as a [[Surfaces|surface]] 
 
 An [[Interaction Channels|interaction channel]] provides a stable, provider-neutral structural locus through which values can move among [[Endpoints|endpoints]]. It identifies the exchange's logical directions and scopes requirements attached to the exchange or to an individual direction. An [[Interaction Protocols|interaction protocol]] constrains how occurrences may unfold over time, while an [[Interaction Bindings|interaction binding]] associates exact interface and protocol roles with ports, endpoints, and channel directions.
 
-Interaction is boundary-relative. It can occur over a [[Network|network]], between processes on one host, between threads in one process, between tasks in a runtime, between actors and mailboxes, between CPU cores through cache coherence, or between a program and memory/register state.
+It can occur over a [[Network|network]], between processes on one host, between threads in one process, between tasks in a runtime, between actors and mailboxes, between CPU cores through cache coherence, or between a program and memory/register state.
 
 Network distribution is the common case when discussing distributed systems, but it is not the only case. A system is distributed whenever interaction crosses a boundary where observation, ordering, visibility, failure, authority, or commitment is nontrivial.
 
@@ -184,30 +184,6 @@ Other graph projections use different edge meanings:
 The same system element can appear in several graphs. An entity relationship does not imply direct interaction. An interaction edge does not imply a semantic entity relationship. A process-flow edge may be realized by several interaction edges. A broker, channel, mailbox, lock, or shared memory cell may be modeled as an edge at one abstraction layer and as a node at another.
 
 Interaction graphs are especially useful for reasoning about coordination, delivery, ordering, backpressure, failure, acknowledgment, progress, settlement, durability, and commit boundaries. An interaction edge should therefore be annotated with its provided and required ports, reusable interface types, governing protocol, endpoints, interaction binding, channel and directions, boundary where guarantees hold, mode, topology, carried semantic roles, and realizing substrate layer.
-
-## Dimensions
-
-An interaction edge can be classified by:
-
-- Abstraction level.
-- Addressing space.
-- Operation role: send, receive, request, reply, publish, consume, read, write, lock, wait, subscribe, poll.
-- Interaction-control role and direction: active sender or fetcher, passive sink or source, and pusher, puller, queue, or driver at composed stages.
-- Topology: one-to-one, one-to-any, one-to-many, one-to-all, many-to-one, many-to-many.
-- Channel form: socket stream, datagram, queue, log, topic, mailbox, shared memory cell, register, lock, condition variable.
-- Unit of transfer: byte, frame, datagram, record, message, event, command, observation, transaction.
-- Reply path: none, acknowledgment, correlated reply, streaming reply, shared-state observation.
-- Time coupling: synchronous, asynchronous, deferred, replayable.
-- Consumer position: ephemeral receive, durable cursor, offset, competing claim, retained subscription.
-- Retention and durability.
-- Delivery and ordering semantics.
-- Acknowledgment and commit boundary.
-- Failure boundary.
-- Coordination role.
-- Carried semantic roles: [[Command|command]], [[Query|query]], [[Event|event]], [[Observation|observation]], acknowledgment, policy decision.
-- Realization layer: memory, runtime, IPC, [[Network|network]], broker, database, workflow engine.
-
-Interaction does not by itself define whether a domain transition committed. That depends on the receiver's observer-relative interpretation, validation, persistence, and delivery semantics.
 
 ## External References
 

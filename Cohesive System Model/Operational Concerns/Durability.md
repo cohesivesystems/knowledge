@@ -61,5 +61,3 @@ For example:
 - A process checkpoint is durable enough when execution can resume or repair without changing the process meaning.
 
 [[Durable Execution|Durable execution]] is an architecture practice built from this concern. It uses durable execution material plus recovery, reconstitution, idempotency, ordering, and coordination to address interruption of logical execution.
-
-Related concepts: [[Persistence|persistence]], [[Reconstitution|reconstitution]], [[Recovery|recovery]], [[Distributed Failure Scenarios|distributed failure scenarios]], [[Commit Boundaries|commit boundaries]], [[Acknowledgments|acknowledgments]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Consensus|consensus]], [[Write-Ahead Logging|write-ahead logging]], [[Outbox|outbox]], [[Transactional Inbox|transactional inbox]], [[Event Sourcing|event sourcing]], [[Durable Execution|durable execution]], [[Durable Execution Engines|durable execution engines]], [[Storage Systems|storage systems]], [[Brokers|brokers]].

@@ -126,7 +126,6 @@ The projection back to the semantic model forgets the concrete realization while
 
 This categorical language is not required for ordinary modeling, but it keeps the distinction precise: realization is not a collapse of meaning into implementation. It is a structured relationship between semantic objects and possible concrete mechanisms.
 
-Related concepts: [[Judgement|judgement]], [[Execution Kernel|execution kernel]], [[Stuff Structure Property|stuff structure property]], [[Functoriality|functoriality]], [[Fibrations and Indexed Structure|fibrations and indexed structure]], [[Equivalence vs Equality|equivalence vs equality]], [[Observer|observer]], [[Effect|effect]], [[Effect Models|effect models]], [[Boundaries|boundaries]], [[Commit Boundaries|commit boundaries]], [[Persistence|persistence]], [[Runtimes|runtimes]], [[Application Hosts|application hosts]], [[Storage Systems|storage systems]], [[Infrastructure|infrastructure]].
 
 ## Formal relations
 

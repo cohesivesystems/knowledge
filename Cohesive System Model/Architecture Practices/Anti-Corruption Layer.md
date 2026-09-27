@@ -32,5 +32,3 @@ The pattern fails when translation is only structural serialization. Matching fi
 ## External References
 
 - Gregor Hohpe and Bobby Woolf, [Message Translator](https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageTranslator.html), [Normalizer](https://www.enterpriseintegrationpatterns.com/patterns/messaging/Normalizer.html), and [Canonical Data Model](https://www.enterpriseintegrationpatterns.com/patterns/messaging/CanonicalDataModel.html), *Enterprise Integration Patterns*, 2003.
-
-Related concepts: [[Enterprise Integration Patterns|enterprise integration patterns]], [[Boundaries|boundaries]], [[Observer|observer]], [[Observation|observation]], [[Command|command]], [[Event|event]], [[Shape|shape]], [[Compatibility and Evolution|compatibility and evolution]], [[Functoriality|functoriality]], [[Naturality|naturality]], [[Equivalence vs Equality|equivalence vs equality]], [[Ports and Adapters|ports and adapters]].

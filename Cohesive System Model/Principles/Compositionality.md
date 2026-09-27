@@ -35,5 +35,3 @@ Compositionality fails when two parts are individually correct but their combina
 
 - Brendan Fong and David I. Spivak, [*An Invitation to Applied Category Theory: Seven Sketches in Compositionality*](https://arxiv.org/abs/1803.05316), Cambridge University Press, 2019. [DOI](https://doi.org/10.1017/9781108668804)
 - Andrea Censi, [*A Mathematical Theory of Co-Design*](https://arxiv.org/abs/1512.08055), Laboratory for Information and Decision Systems, MIT, 2016.
-
-Related concepts: [[Business Transactions|business transactions]], [[Process|process]], [[Process Graphs|process graphs]], [[Flow Views|flow views]], [[Relation Models|relation models]], [[Relation|relations]], [[Boundaries|boundaries]], [[Coordination|coordination]], [[Realization|realization]], [[Functoriality|functoriality]].

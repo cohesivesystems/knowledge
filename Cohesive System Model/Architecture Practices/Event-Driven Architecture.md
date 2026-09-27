@@ -33,5 +33,3 @@ Adopting event flow also creates the capacity, failure, retention, replay, topol
 ## Failure Modes
 
 The pattern fails when event schemas are treated as shared semantics, when broker delivery is mistaken for domain commitment, when successful publication or delivery is presented as proof that semantic consequences propagated, or when downstream consumers assume ordering, durability, causality, authority, or recoverability that the event flow does not guarantee.
-
-Related concepts: [[Event|event]], [[Observer|observer]], [[Observer Models|observer models]], [[Flow Views|flow views]], [[Interaction|interaction]], [[Asynchronous Interaction Design|asynchronous interaction design]], [[Delivery Semantics|delivery semantics]], [[Semantic Propagation|semantic propagation]], [[Ordering|ordering]], [[Brokers|brokers]], [[Trace and Feedback|trace and feedback]], [[Event-State Duality|event-state duality]].
