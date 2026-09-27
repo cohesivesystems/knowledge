@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-09-07
+updated: 2026-09-27
 ---
 
 # Cohesive System Model
@@ -39,6 +39,7 @@ Cohesive arranges interactions among these primitives through its system graph a
 Describe modeling disciplines used across the system model.
 
 - [[System Language and Realization]]
+- [[Requirements and Capabilities]]
 - [[Ubiquitous Language]]
 - [[Execution Kernel]]
 - [[Pattern Languages and Correspondence]]
@@ -132,6 +133,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Temporal Completeness]]
 - [[Retention Expiration and Quarantine|Retention, expiration, and quarantine]]
 - [[Service Levels]], [[Operational Control|operational control]], [[Observability and Provenance|observability and provenance]]
+- [[Implementation Conformance|Implementation conformance]], [[Assurance and Evidence|assurance and evidence]]
 
 ### 3. System Graph
 
@@ -150,7 +152,7 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Process Graphs]], [[Fork and Join|fork and join]]
 - [[Effect Models]]
 - [[Flow Views]] as movement views within or between process graphs
-- [[Service Models]], [[Surfaces|surfaces]], [[Interfaces|interfaces]], [[Interaction Modes|interaction modes]], [[Interaction Protocols|interaction protocols]]
+- [[Service Models]], [[Surfaces|surfaces]], [[Contract Models|contract models]], [[Interfaces|interfaces]], [[Interaction Modes|interaction modes]], [[Interaction Protocols|interaction protocols]]
 - [[Interaction Bindings|Interaction bindings]], [[Endpoints|endpoints]]
 - [[Messages and Envelopes]], [[Interaction Channels|interaction channels]]
 - [[Routing Models]], [[Multiplexing and Demultiplexing|multiplexing and demultiplexing]], [[Flow Operators|flow operators]]
@@ -182,7 +184,7 @@ Provides concrete mechanisms.
 - [[Workflow Engines|Workflow engines]]  
 - [[Durable Execution Engines|Durable execution engines]]
 - [[Actor Systems|Actor systems]]  
-- [[TLA+]]
+- [[TLA+]], [[Proof Assistants|proof assistants]]
 - [[Batch and File Exchange]]
 - [[Infrastructure]]
 

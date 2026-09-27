@@ -2,7 +2,7 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-08-17
+updated: 2026-09-27
 ---
 
 # System Graph
@@ -57,6 +57,7 @@ Core system graph notes:
 - [[Business Transactions|business transactions]]
 - [[Boundaries|boundaries]]
 - [[Surfaces|surfaces]]
+- [[Contract Models|contract models]]
 - [[Bounded Context|bounded contexts]]
 - [[Interfaces|interfaces]]
 - [[Interaction Modes|interaction modes]]
@@ -75,3 +76,7 @@ Core system graph notes:
 Secondary views and projections:
 
 - [[Flow Views|flow views]]
+
+Bounded examples:
+
+- [[Fenced Exclusive Mutation Example|fenced exclusive mutation example]]

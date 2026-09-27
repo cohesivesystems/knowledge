@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-08-14
-updated: 2026-08-17
+updated: 2026-09-27
 status: draft
 aliases:
   - Surface
@@ -28,6 +28,8 @@ A surface may declare:
 - evidence, provenance, attestations, checks, or observations supporting those claims.
 
 These declarations do not all belong to the same realm. Interfaces and their arrangement belong to the system graph. Their semantic meanings originate in domain semantics. Operational concerns qualify the declared behavior. [[Realization|Realization]] relates the surface and its demands to mechanisms and capability evidence. A surface brings those references together as an external contract without collapsing their meanings.
+
+[[Contract Models|Contract models]] provide the general account of requirements, provided properties, effects, coeffects, guarantees, assumptions, and evidence obligations. A surface projects the contract dimensions intentionally exposed at one system boundary; contracts can also qualify internal constructs, bindings, or realization mappings that are not public surfaces.
 
 ## Surface, Boundary, Interface, and Protocol
 
@@ -63,10 +65,11 @@ The composite surface is not necessarily the simple union of the component surfa
 
 A surface can declare a guarantee only at an explicit boundary and under explicit assumptions. Wiring compatible interfaces together does not by itself establish reliability, atomicity, security, availability, or another operational property. The mechanism that earns such a claim must be represented through operational qualifications and [[Realization|realization]] evidence.
 
-Evidence may include provider attestations, static checks, proofs, tests, observed traces, configuration facts, or monitored behavior. Different evidence supports different confidence and scope. See [[Observability and Provenance|observability and provenance]] for the distinction between a claim and the evidence used to support it.
+Evidence may include provider attestations, static checks, proofs, tests, observed traces, configuration facts, or monitored behavior. Different evidence supports different conclusions and scopes. [[Observability and Provenance|Observability and provenance]] supplies attributable observations; [[Assurance and Evidence|assurance and evidence]] determines which claims those records establish, refute, or leave unknown under the active policy.
 
 ## Formal relations
 
 - `arranges`: [[Interfaces]] — A surface projects reusable interface types through provided and required ports as part of the external contract at a declared boundary.
+- `arranges`: [[Contract Models]] — Projects the contract dimensions intentionally exposed to a particular audience at a selected system boundary.
 - `distinguished_from`: [[Boundaries]] — A boundary establishes the cut between scopes, whereas a surface organizes what a system intentionally exposes, requires, and claims at that cut.
 - `distinguished_from`: [[Interfaces]] — A surface is the broader boundary-relative contract abstraction, whereas an interface is a reusable intentional interaction type projected on it.

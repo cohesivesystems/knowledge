@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-08-06
+updated: 2026-09-27
 ---
 
 # Realization
@@ -47,8 +47,10 @@ Examples include:
 ```txt
 canonical definition
   -> semantic decision or finite activation
-  -> structural requirements and guarantee demands
-  -> capability evidence and realization judgement
+  -> contract properties and induced requirements
+  -> realization strategy and residual obligations
+  -> configured facility claims and capability evidence
+  -> realization and assurance judgements
   -> commit, continuation, effects, and observations
 ```
 
@@ -56,12 +58,30 @@ The canonical definition is not identical to the semantic entity, process, state
 
 A realization [[Judgement|judgement]] should state whether a requirement is native, composed from several mechanisms, available only under constraints, accepted through an explicit authorized override, unavailable, or unknown. A realization may select a stronger semantically equivalent mechanism. It must not silently weaken a requirement or substitute compensation, retry, best effort, or name-based compatibility for stronger authored semantics.
 
+## Requirements, Strategies, and Facilities
+
+[[Requirements and Capabilities|Requirements and capabilities]] are different roles played by shared property definitions. A requirement states what a semantic or system-graph context demands. A facility capability states what a configured participant or substrate claims to provide under stated assumptions, limits, and evidence.
+
+A **realization strategy** is the provider-independent bridge between them. It identifies a construction and justifies how its premises entail the required property. The premises may include several facility capabilities, configuration and binding facts, application behavior, auxiliary protocols, and operating assumptions. A strategy also records the obligations it introduces or leaves unresolved.
+
+A **realization** is the exact selection and coherent composition of facilities, configurations, bindings, application obligations, and strategy witnesses for a source model revision. It is stronger than the existence of a strategy and different from deployment. A candidate strategy can be valid while no available facility satisfies its premises; a selected realization can be valid while not yet deployed; a deployed estate can drift from the realization it previously conformed to.
+
+Capability evidence remains typed by claim and subject. Provider documentation may support a capability claim, configuration analysis may attest that its preconditions are selected, conformance tests may exercise the configured adapter, and runtime observations may assess a deployed instance. These evidence methods are not interchangeable, and a formal theorem remains conditional on empirical premises it does not establish.
+
 ## Cross-Realm Realization Judgement
 
 [[System Language and Realization|Cross-realm projection]] treats a realization mapping as carrying semantic and system-graph structure into a substrate graph while operational concerns qualify the mapping. For a graph element or edge `x`, a candidate realization `ρ(x)`, requirements `P(x)`, and claim boundary `B`, the essential check is:
 
 ```text
 capability evidence(ρ(x), B) satisfies P(x, B)
+```
+
+This compact form abbreviates a derivation rather than capability-name equality. A fuller account identifies the strategy `s`, its premises `Q`, evidence `E`, and residual obligations `O`:
+
+```text
+E establishes Q for ρ(x) at B
+Q |-s P(x, B)
+residual obligations = O
 ```
 
 Requirements may also belong to the mapping itself. For example, allocating one service to several replicas creates identity, routing, consistency, scheduling, and recovery obligations that belong neither to the logical service alone nor to an isolated runtime instance. A valid realization demonstrates those cross-realm properties for the composed mapping.
@@ -108,6 +128,8 @@ A coherent architecture selects realizations that preserve the intended correspo
 
 Conformance compares normalized semantic evidence rather than accidental runtime details. Stable definition, node, branch, instance, attempt, activation, token, emission, correlation, causation, outcome, and commit meanings should agree across interpreters even when worker identities, timestamps, storage layouts, or informational diagnostics differ.
 
+[[Implementation Conformance|Implementation conformance]] distinguishes the separate correspondences from authoring surfaces to canonical definitions, formal or analytical projections, realization plans, generated and handwritten implementations, deployment configuration, and observed runtime behavior. Passing one boundary does not prove the next. [[Assurance and Evidence|Assurance and evidence]] records which conformance and capability claims are currently established, conditional, refuted, unknown, or overridden.
+
 ## Categorical Discipline
 
 When one coherent implementation has been selected, realization can be viewed through [[Functoriality|functoriality]]: a functor from a semantic or system model category into a substrate model category. This is useful as a discipline because realization should preserve the relationships that matter, not merely map names to implementation artifacts.
@@ -132,3 +154,4 @@ This categorical language is not required for ordinary modeling, but it keeps th
 - `refines`: [[System Language and Realization]] — Gives the realization half of the system-language vision a boundary-relative mapping, multiplicity, layering, and coherence discipline.
 - `constrains`: [[System Graph]] — Requires selected substrate mappings to preserve the modeled relationships, scopes, and operational demands that define the system structure.
 - `corresponds_to`: [[Infrastructure Graph]] — Relates logical system structure to selected substrate structure without identifying the two graphs or erasing their boundary-specific meanings.
+- `constrains`: [[Contract Models]] — Requires realization mappings and strategies to preserve or explicitly transform every contract property on which the source context depends.

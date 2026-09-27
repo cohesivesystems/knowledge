@@ -2,7 +2,7 @@
 realm: System Graph
 kind: reference
 created: 2026-08-14
-updated: 2026-08-17
+updated: 2026-09-27
 status: draft
 aliases:
   - Cohesive Composition Algebra
@@ -44,11 +44,13 @@ A surface is broader than an interface and is not identical to its boundary. The
 
 ## Systems Connect through Compatible Contracts
 
-A surface can declare what the system provides, what it requires from its environment, which effects it may produce, which guarantees it claims, which assumptions limit those claims, and which evidence supports them.
+A surface can declare what the system provides, what it requires from its environment, which effects it may produce, which guarantees it claims, which assumptions limit those claims, and which evidence supports them. [[Contract Models|Contract models]] organize these dimensions around an explicit subject and boundary without redefining their semantic or operational meanings.
 
 A connection relates a required port on one system to a provided port on another. [[Interaction Bindings|Interaction bindings]] attach the exact interface and protocol roles to channel directions and endpoints.
 
 [[Compatibility and Evolution|Compatibility]] is directional and is not based only on names or data shapes. Under a declared policy, the provided role must discharge the required role's obligations: protocol actions, sequencing, cardinality, ordering, failure meanings, authority, assumptions, and guarantees must compose in the required direction. When two roles do not match directly, an explicit adapter must state what it translates, preserves, weakens, or assumes.
+
+[[Requirements and Capabilities|Requirements and capabilities]] are distinct roles in this check. A requirement states the property demanded by the consuming context. A capability states a property a participant or facility claims to provide under explicit conditions. Satisfaction may require implication, composition, restriction, an auxiliary protocol, or a residual application obligation; matching names are insufficient.
 
 Terms such as client and server describe roles within a particular connection. They are not permanent kinds of system. The same system may act as a client in one interaction and a server in another.
 
@@ -74,6 +76,30 @@ Connecting systems establishes that declared boundary roles fit together under t
 If a guarantee depends on a quorum, transaction coordinator, consensus algorithm, replication protocol, cache policy, retry mechanism, or another realization choice, that mechanism and the relevant boundary must be represented explicitly. This keeps the realization mechanism and the scope of its guarantee visible in the model.
 
 Guarantees may initially be declarations supported by assumptions, provider attestations, checks, tests, observations, proofs, or other evidence. More capable compilers and validators may later establish that selected guarantees are earned through composition.
+
+## Composition Judgement Ladder
+
+Several judgements commonly collapsed into “the architecture works” must remain distinct:
+
+```text
+wireable
+  -> admissible
+  -> contract-closed
+  -> realizable
+  -> conformant
+  -> assured
+  -> healthy
+```
+
+- **Wireable** means boundary shapes admit a candidate structural connection.
+- **Admissible** means interface, protocol, authority, effect, failure, and compatibility obligations align.
+- **Contract-closed** means every requirement is discharged, deliberately exposed, or retained as a residual obligation.
+- **Realizable** means an implementation plan exists without undeclared semantic weakening.
+- **Conformant** means the relevant projections, artifacts, code, configuration, and deployment preserve the accepted source model.
+- **Assured** means evidence accepted by the active policy supports the required claims.
+- **Healthy** means sufficiently fresh runtime evidence remains within the declared operating assumptions and objectives.
+
+Each judgement has its own subject, context, evidence, and failure meaning. A system may be realizable but not yet deployed, deployed but nonconformant, conformant but insufficiently observed, or assured for correctness while unhealthy against a current service objective.
 
 ## Internal Details Can Be Hidden without Being Discarded
 
@@ -111,3 +137,5 @@ The composition algebra is intended to give Cohesive a machine-checkable way to 
 - `documents`: [[Surfaces]] — Explains the role of surfaces as boundary-relative external contracts in the emerging composition algebra.
 - `documents`: [[Compositionality]] — Applies the general principle of meaning-preserving composition to Cohesive systems and their realizations.
 - `documents`: [[Realization]] — Explains why composed specifications require explicit, evidence-bearing mappings to concrete mechanisms.
+- `documents`: [[Contract Models]] — Explains how boundary-relative requirements, provided properties, guarantees, assumptions, and evidence participate in composition.
+- `documents`: [[Assurance and Evidence]] — Places accepted evidence and runtime health after structural, contract, realization, and conformance judgements.

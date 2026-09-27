@@ -2,7 +2,7 @@
 realm: Principles
 kind: reference
 created: 2026-07-04
-updated: 2026-08-17
+updated: 2026-09-27
 status: draft
 aliases:
   - cohesive vision
@@ -90,6 +90,8 @@ This layered view also localizes impedance mismatch. A mismatch is not merely be
 
 A complete system description can be viewed as a cross-realm realization of one related graph, not as several unrelated diagrams. Domain semantics supplies meaning-bearing objects and relations. The system graph bundles and connects them into entities, processes, services, interfaces, and flows. Realization maps that structure onto code and infrastructure. Operational concerns are requirements on the nodes, edges, and mappings in that projection.
 
+[[Contract Models|Contract models]] make boundary-relative requirements, effects, guarantees, assumptions, and evidence obligations explicit across this projection. [[Requirements and Capabilities|Requirements and capabilities]] distinguish the properties demanded by the source context from those offered by candidate facilities. A realization strategy justifies how aligned facility properties, application obligations, and assumptions entail a demanded property; [[Implementation Conformance|implementation conformance]] and [[Assurance and Evidence|assurance and evidence]] then evaluate whether the resulting projections and deployed subjects remain justified.
+
 ![Cross-realm projection from domain semantics through the system graph to the realization substrate](../../assets/diagrams/cross-realm-projection.svg)  
 *Operational concerns qualify nodes, edges, and mappings at declared boundaries.*
 
@@ -111,6 +113,20 @@ The judgement is acceptable only when capability evidence for `R` demonstrates e
 - Authority and ownership.
 
 These requirements constrain the projection without becoming semantic objects themselves.
+
+The compact judgement abbreviates a longer attributable chain:
+
+```text
+semantic property
+  -> contract role and boundary
+  -> induced requirement
+  -> realization strategy and residual obligations
+  -> configured facility mapping
+  -> implementation conformance
+  -> accepted evidence and current assurance
+```
+
+No arrow is an identity. A theorem may justify the strategy while leaving facility premises empirical. A compiler may produce a conforming plan while handwritten adapters remain outside its checked boundary. A deployment may conform at one revision while stale or incomplete observations leave its current assurance unknown.
 
 The word *projection* is also used for a view that intentionally forgets detail. A semantic view, [[Service Models|service model]], code graph, team graph, deployment topology, and runtime scheduling graph may all be projections of the same realized system. Each view must state which structure it preserves and which detail it omits.
 
@@ -182,6 +198,8 @@ When reconciling a building block against the graph, ask:
 - Which operational guarantees does the block claim?
 - Where are the boundaries of those guarantees?
 - Which realization choices make the block executable?
+- Which strategy relates its requirements to facility capabilities, and what obligations remain?
+- Which conformance and assurance evidence supports the implementation and deployed instance?
 - Which distinctions are preserved, which are hidden, and which are intentionally unavailable?
 - What failure modes appear when a substrate mechanism is mistaken for the semantic concept itself?
 

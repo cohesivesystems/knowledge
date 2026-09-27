@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-09-27
 status: draft
 aliases:
   - Judgment
@@ -68,6 +68,22 @@ Formal systems often treat a judgement as derivable or not derivable. Engineerin
 
 An override records an authorized [[Policy|policy]] decision; it does not prove that the original requirement holds. Likewise, an unknown result must not be silently converted into success or failure.
 
+## Architecture Judgement Forms
+
+Architecture verification uses several related but non-interchangeable judgement forms:
+
+| Judgement | Subject and question |
+| --- | --- |
+| **Wireability** | Do boundary shapes admit a candidate structural connection? |
+| **Admissibility** | Do types, protocols, effects, authority, failures, and assumptions compose? |
+| **Contract closure** | Is each requirement discharged, deliberately exposed, or retained as an explicit obligation? |
+| **Realizability** | Does a semantics-preserving implementation plan exist? |
+| **Conformance** | Does a projection, artifact, implementation, configuration, or deployment preserve its declared source? |
+| **Assurance** | Does accepted evidence support the claim at the stated scope and time? |
+| **Health** | Do fresh runtime observations remain within the declared objectives and operating assumptions? |
+
+Later judgements do not erase earlier contexts. Health cannot repair an inadmissible protocol, observed success cannot close an unmodeled requirement, and formal realizability does not establish that a deployed instance conforms to the plan.
+
 ## Realization Judgements
 
 In Cohesive, [[Realization|realization]] depends on judgements that a candidate substrate mapping preserves required meaning and properties. For semantic and system graph $G$, requirements $P$, boundary $B$, candidate substrate graph $R$, and realization mapping $\rho$, the compact form
@@ -101,3 +117,5 @@ A judgement is not identical to a domain decision or an [[Observation|observatio
 
 - `refines`: [[Logic]] — Makes explicit the context, judgement form, rules, and evidence by which satisfaction, entailment, derivability, and related logical assertions are stated.
 - `constrains`: [[Realization]] — Requires realization claims to name their source and target, requirements, boundary, evidence, authority, status, and preservation obligations.
+- `constrains`: [[Assurance and Evidence]] — Requires assurance results to name their subject, context, rules, evidence, authority, boundary, and exact judgement status.
+- `constrains`: [[Implementation Conformance]] — Requires conformance claims to name the declared source, target, preservation relation, assumptions, evidence, and checked boundary.

@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-28
-updated: 2026-07-28
+updated: 2026-09-27
 ---
 
 # Safety and Liveness
@@ -26,6 +26,14 @@ In distributed systems, uncertainty makes the safety/liveness split unavoidable.
 [[Consistency Models]] are primarily safety properties over histories: they constrain which observations and results are allowed. Availability, termination, delivery, recovery, and eventual convergence are liveness or progress properties. A complete operational claim usually needs both.
 
 [[Progress Conditions]] refine liveness claims by saying who is guaranteed to complete: every participant, some participant, or only a participant that eventually runs without interference. This distinction matters when a system uses locks, retries, actors, quorum protocols, consensus, or coordination avoidance.
+
+## Evidence Boundaries
+
+Safety and liveness claims have different observational and proof obligations. One valid finite counterexample is sufficient to refute a safety property whose forbidden behavior it witnesses. A finite execution with no observed violation generally cannot establish that the safety property holds for all admitted executions; the observation may also be incomplete, sampled, or unable to see the relevant effect.
+
+Liveness cannot usually be established by observing that selected executions completed. Its claim ranges over admitted executions and depends on progress, scheduling, fairness, timing, workload, failure, and recovery assumptions. A bounded deadline property can be refuted by a sufficiently complete late execution, but establishing it universally still requires evidence covering the modeled behavior and assumptions.
+
+[[Assurance and Evidence|Assurance assessments]] must therefore distinguish a refuted claim from one that remains unknown because the history, observation mapping, or assumptions are incomplete. Model checking, deductive proof, conformance testing, and runtime observation support different boundaries; success in one does not silently widen the claim to the others.
 
 ## Consensus
 
