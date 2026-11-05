@@ -41,7 +41,7 @@ Examples include:
 - Event-driven order fulfillment where payment, inventory, shipping, notification, and projection services react to published events and local state.
 - Pub/sub projection pipelines where consumers independently follow committed event streams and update their own read models.
 - Gossip protocols where peers exchange local observations and converge without a central coordinator.
-- Leaderless population protocols where anonymous finite-state [[Agent|agents]] update through pairwise local transition rules and eventually converge under a [[Fairness|fairness]] assumption.
+- Leaderless population protocols in which anonymous finite-state [[Agent|agents]] interact in pairs to compute a predicate. Under the protocol’s [[Fairness|fairness]] assumption, their outputs eventually stabilize at the correct value.
 - [[CRDTs|CRDT]] replication where replicas accept compatible local updates and merge by algebraic rules.
 - Domain event choreography where each participant owns its own transition and emits events for others to interpret.
 

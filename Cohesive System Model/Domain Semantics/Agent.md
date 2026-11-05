@@ -30,12 +30,12 @@ Agency is boundary-relative and graded. An agent may be reactive or deliberative
 
 | Term | Role | Relationship to agent |
 | --- | --- | --- |
-| participant | Anything assigned a role in a relation, [[Interaction|interaction]], or [[Process|process]]. | An agent is a participant with a modeled interpretation-and-action role. Stores, channels, entities, and other participants can participate without being modeled as agents. |
-| [[Observer|observer]] | The participant, context, or execution locus relative to which inputs, state, and events acquire meaning. | An agent acts through an observer context and additionally owns a modeled role in choosing or initiating action. |
+| participant | Anything assigned a role in a relation, [[Interaction\|interaction]], or [[Process\|process]]. | An agent is a participant with a modeled interpretation-and-action role. Stores, channels, entities, and other participants can participate without being modeled as agents. |
+| [[Observer\|observer]] | The participant, context, or execution locus relative to which inputs, state, and events acquire meaning. | An agent acts through an observer context and additionally owns a modeled role in choosing or initiating action. |
 | agent | A purpose-, commitment-, or obligation-directed observer role that selects or initiates actions under policies and constraints. | Agency is semantic and does not prescribe addressing, concurrency, or runtime substrate. |
 | actor | An isolated, addressable execution role that receives messages and commonly serializes their handling. | An actor may realize an agent, but actors may instead realize routers, projections, entity hosts, or other observer roles. An agent may be realized without an actor system. |
-| [[Entity|entity]] | An enduring identifiable subject with evolving authoritative state. | An agent may be modeled as an entity when its identity, state, history, and lifecycle matter. Agency alone does not establish entity identity or transition authority. |
-| [[Process|process]] | Coherent work unfolding across occurrences, participants, and time. | An agent may participate in or coordinate a process. The process describes the work; the agent describes a role that selects or initiates actions within it. |
+| [[Entity\|entity]] | An enduring identifiable subject with evolving authoritative state. | An agent may be modeled as an entity when its identity, state, history, and lifecycle matter. Agency alone does not establish entity identity or transition authority. |
+| [[Process\|process]] | Coherent work unfolding across occurrences, participants, and time. | An agent may participate in or coordinate a process. The process describes the work; the agent describes a role that selects or initiates actions within it. |
 
 ## Realization
 

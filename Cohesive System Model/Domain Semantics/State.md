@@ -38,7 +38,7 @@ These roles may be stored together, but they must not be treated as one authorit
 
 ## Sparse State Observation
 
-A [[Transition|transition]] may operate from a finite sparse observation instead of fully materialized entity state. The observation contract must distinguish:
+A [[Transition|transition]] may operate from a finite sparse observation instead of fully materialized entity state. The sparse-state observation contract must distinguish:
 
 - A path that was not observed.
 - A path observed as absent.

@@ -9,7 +9,7 @@ updated: 2026-11-04
 
 A query is a message that an [[Observer|observer]] interprets at its boundary as a request to observe, compute, or return information without requesting a modeled state transition.
 
-The message may carry a query expression containing predicates, selectors, paging parameters, or aggregation rules. The expression describes which information to return and how to shape it. The message asks the observer to provide that information.
+A query message may carry an expression that specifies which information to return and how to shape it. The expression can include predicates, selectors, paging parameters, or aggregation rules.
 
 Query interpretation follows this shape:
 

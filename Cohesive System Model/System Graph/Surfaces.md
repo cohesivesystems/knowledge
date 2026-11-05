@@ -20,7 +20,7 @@ A surface is not the boundary itself. A boundary establishes a cut between scope
 
 A surface may declare:
 
-- provided and required capabilities expressed through ports typed by [[Interfaces|interfaces]];
+- requirements and provided capabilities expressed through ports typed by [[Interfaces|interfaces]];
 - governing [[Interaction Protocols|interaction protocols]] and compatibility rules;
 - expected inputs, outputs, observations, state projections, and semantic [[Effect|effects]];
 - semantic obligations, assumptions, failure meanings, and authority requirements;
