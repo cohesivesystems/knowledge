@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-11-05
 ---
 
 # Identity
@@ -22,3 +22,9 @@ Identity participates in:
 - Addressing and routing.
 - Concurrency checks.
 - Ordered delivery per key or subject.
+
+## Supersession and continuity
+
+Merging two subjects can retire their identities in favor of a survivor or successor without changing an old key. A split can retire the original and record which successors derive from it. Preserve the original history and causal references; do not silently route a request addressed to a retired identity as though it addressed the successor. A contract can return a superseded disposition identifying the successor or successors and require callers to decide how to proceed.
+
+Changing a definition’s name or moving its storage does not itself merge or split any instance. [[Compatibility and Evolution|Compatibility and evolution]] asks separately which instance obligations remain valid across the change.

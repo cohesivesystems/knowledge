@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-27
+updated: 2026-11-05
 tags:
 ---
 
@@ -37,9 +37,9 @@ An emitter may express command intent through a target identity, operation name,
 
 When the emitter expects a later response, the emission may be modeled as a request [[Effect|effect]]. The request obligation belongs to the emitter's intent and continuation; command interpretation belongs to the receiving observer. Neither relation requires synchronous interaction, and the request is not an event subtype.
 
-A [[Query|query]] is the corresponding observer-relative interpretation of input as a request to observe, compute, or return information without requesting a modeled semantic state transition.
+A [[Query Request|query request]] is the corresponding observer-relative interpretation of input as a request to observe, compute, or return information without requesting a modeled semantic state transition.
 
-In [[CQRS]], commands belong to the write side: they are interpreted against the authoritative model and may commit transitions that later become visible to [[Query|queries]] through projections, read models, or other reconstitution paths.
+In [[CQRS]], commands belong to the write side: they are interpreted against the authoritative model and may commit transitions that later become visible to [[Query Request|query requests]] through projections, read models, or other reconstitution paths.
 
 ## External References
 

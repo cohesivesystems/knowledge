@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-17
+updated: 2026-11-05
 status: draft
 aliases:
   - Interface
@@ -12,7 +12,7 @@ aliases:
 
 An interface is a reusable intentional interaction type projected on a [[Surfaces|surface]]. It declares roles and meanings that can be instantiated at system boundaries without identifying the reusable type with any one participant, address, endpoint, or realization.
 
-A [[Ports and Adapters|port]] is a particular occurrence of an interface on a system [[Boundaries|boundary]]. A port provides or requires the interface under boundary-specific ownership, policy, scope, assumptions, and evidence. A surface may project several interfaces through several ports and may expose guarantees, resource constraints, or evidence that are not themselves interaction types.
+A [[Ports|port]] is a particular occurrence of an interface on a system [[Boundaries|boundary]]. A port provides or requires the interface under boundary-specific ownership, policy, scope, assumptions, and evidence. A surface may project several interfaces through several ports and may expose guarantees, resource constraints, or evidence that are not themselves interaction types.
 
 ## Provided and Required Ports
 
@@ -40,7 +40,7 @@ The interface need not reveal the internal entities, relations, processes, stora
 | --- | --- |
 | [[Surfaces\|surface]] | Which externally relevant boundary semantics does the system expose, require, or claim? |
 | interface | Which reusable intentional interaction type governs the participating roles? |
-| [[Ports and Adapters\|port]] | Which occurrence of that interface is provided or required by this system? |
+| [[Ports\|port]] | Which occurrence of that interface is provided or required by this system? |
 | [[Interaction Protocols\|interaction protocol]] | In which legal traces may participants use those roles? |
 | [[Interaction Channels\|interaction channel]] | Through which logical exchange and directions can occurrences move? |
 | [[Endpoints\|endpoint]] | At which attachment locus does a participant enter or leave a channel direction? |

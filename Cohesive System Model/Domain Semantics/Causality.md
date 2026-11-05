@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-07-15
-updated: 2026-08-01
+updated: 2026-11-05
 status: draft
 aliases:
   - Causal Relation
@@ -11,7 +11,7 @@ aliases:
 
 # Causality
 
-Causality is a dependency [[Relation|relation]] between events, observations, transitions, decisions, or effects in which one occurrence may have influenced, enabled, required, constrained, or carried information into another.
+Causality is a dependency between events, observations, transitions, decisions, or effects in which one occurrence may have influenced, enabled, required, constrained, or carried information into another.
 
 Causality belongs to the meaning of the occurrences being related. [[Ordering]] supplies mathematical structures that can represent causal dependencies, but an order is not causal merely because it compares two positions.
 

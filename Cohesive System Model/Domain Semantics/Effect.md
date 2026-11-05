@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-07-27
-updated: 2026-07-28
+updated: 2026-11-05
 aliases:
   - Semantic Effect
 ---
@@ -45,6 +45,12 @@ A deterministic semantic decision describes which effects would follow from an a
 An effect handler is an impure adapter interpretation of an accepted request, signal, or event-delivery obligation. It does not become semantic authority merely because a runtime registers it. In particular, an effect handler must not mutate authoritative entity state directly; a resulting state change must be admitted through an authorized transition boundary.
 
 Effects that may be retried, replayed, resumed, or redelivered require stable identity and an explicit [[Idempotency|idempotency]], deduplication, reconciliation, expected-version, or compensation rule. Physical exactly-once execution must not be inferred from one logical effect identity.
+
+## Outcome and outstanding effects
+
+A **consequential effect** follows from a decision whose domain outcome is already true: a confirmation notice can still be owed after an order is accepted. A **constitutive effect** supplies part of the outcome itself: if acceptance requires a counterparty’s assent, committing a local request cannot make the order accepted. The contract must identify the response or disposition that resolves the obligation and what remains indeterminate on timeout.
+
+Ordinary pending status is derived from outstanding obligations. A named state such as *cancellation requested* is useful when it changes admissible actions: a late reservation success can now require release rather than confirmation. If responsibility for an effect must be atomic with a decision, both must be accepted at the same commit boundary; this does not imply atomic external execution.
 
 ## External References
 

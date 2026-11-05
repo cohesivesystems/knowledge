@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-29
-updated: 2026-08-02
+updated: 2026-11-05
 aliases:
   - Acknowledgment
   - Ack
@@ -45,3 +45,16 @@ Acknowledging too late can duplicate work. For example, a consumer that commits 
 Acknowledgment therefore belongs with [[Delivery Semantics|delivery semantics]], [[Delivery Progress and Settlement|delivery progress and settlement]], [[Commit Boundaries|commit boundaries]], [[Durability|durability]], [[Recovery|recovery]], and [[Effect Models|effect-structure]] design.
 
 For a consuming channel, the model should distinguish the acknowledgment signal from the authority used to settle current provider state and from the durable progress that justifies settlement. A failed settlement call can be ambiguous after provider dispatch; recovery may need to reconcile provider state rather than assume either delivery or non-delivery.
+
+## Receipts and reports
+
+A receipt belongs to the receiving observer’s history and identifies the input occurrence it refers to. The publisher’s occurrence and the receiver’s receipt are distinct. Use the following vocabulary when the receiver’s contract distinguishes these stages:
+
+| Stage | What the evidence establishes |
+| --- | --- |
+| Delivered | Input arrived at the receiver’s endpoint; arrival alone establishes no semantic acceptance. |
+| Admitted | The receiver durably recorded the input receipt. |
+| Applied | The receiver interpreted the input and committed its decision, including rejection where applicable. |
+| Handled | The decision was applied and all effects owed by it were accepted; their external execution may still be pending. |
+
+An acknowledgment reports one of these facts under a declared protocol. It does not create the fact it reports, and a protocol need not expose every stage.

@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-11-05
 status: draft
 aliases:
   - Channel Progress
@@ -94,6 +94,9 @@ When state mutation, produced output, application progress, and provider settlem
 
 Claims of atomicity must enumerate the coupled operations and resource boundary. Atomic publication and offset advancement inside a broker does not automatically include an application's database, an external effect, or a downstream semantic obligation.
 
+## Receiver progress
+
+A delivery attempt, a durable receiver receipt, and provider settlement have different owners. [[Acknowledgments|Acknowledgments]] can report delivery, admission, application, or handling. If a contract requires durable handling before settlement, a cursor advance after arrival alone cannot discharge it. Where handling is impossible, record the declared disposition (for example, expiry, supersession, or quarantine) rather than reporting successful handling.
 
 ## Formal relations
 

@@ -1,7 +1,7 @@
 ---
 kind: overview
 created: 2026-06-24
-updated: 2026-09-27
+updated: 2026-11-05
 ---
 
 # Cohesive System Model
@@ -27,7 +27,7 @@ Domains can be described as cohesive system graphs composed from semantic constr
 - [[Relation Models|Relation models]] over semantic [[Relation|relations]]
 - [[State|States]], [[Value|values]], [[Transition|transitions]], and [[Event|events]]
 - [[Observer Models|Observer models]] for active participants
-- [[Command|Commands]] and [[Query|queries]] as observer-relative interpretations
+- [[Command|Commands]] and [[Query Request|query requests]] as observer-relative interpretations
 - [[Process Graphs|Process graphs]] that compose processes, participants, decisions, and [[Effect|effects]] over time
 
 Cohesive arranges interactions among these primitives through its system graph and qualifies that structure with operational concerns, including [[Delivery Semantics|delivery semantics]], [[Semantic Propagation|semantic propagation]], and [[Commit Boundaries|commit boundaries]]. [[Realization|Realization]] maps the structure and its property demands to concrete [[Compute|compute]], [[Runtimes|runtimes]], [[Network Channels|network channels]], [[Storage Systems|storage systems]], and [[Infrastructure|infrastructure]] while preserving meaning across layers.
@@ -90,11 +90,11 @@ assigning operational guarantees or realization mechanisms.
 - [[Observer]]
 - [[Agent]]
 - [[Entity]]  
-- [[Relation]]
+- [[Relation]], [[Relationship|relationship]], [[Mapping|mapping]]
 - [[Invariant]]
 - [[Policy]]
 - [[Command]]  
-- [[Query]]
+- [[Query]], [[Query Request|query request]]
 - [[Transition]]  
 - [[Time]]  
 - [[Identity]]  
@@ -128,6 +128,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Consistent Cuts]], [[Linearization Points|linearization points]]
 - [[CRDTs]]
 - [[Retry]], [[Rate Limiting|rate limiting]], [[Flow Control|flow control]], [[Load Balancing|load balancing]], [[Admission Control and Load Shedding|admission control and load shedding]], [[Ordering|ordering]], [[Idempotency|idempotency]], [[Recovery|recovery]]
+- [[Convergent Requirements]]
 - [[Correlation and Conversations]], [[Consumer Coordination|consumer coordination]], [[Interaction Control Flow|interaction control flow]], [[Delivery Progress and Settlement|delivery progress and settlement]]
 - [[Compatibility and Evolution]]
 - [[Temporal Completeness]]
@@ -145,7 +146,8 @@ Organizes domain semantics into a cohesive system graph. The system graph descri
 - [[Transition Models]]
 - [[Observer Models]]
 - [[Control Models]]
-- [[Relation Models]]
+- [[Relation Models]], [[Arrangement Models|arrangement models]], [[Machine Models|machine models]]
+- [[Ports]], [[Codecs|codecs]]
 - [[Projection Models]]
 - [[Replica Models]]
 - [[Partition Models]]
@@ -255,7 +257,7 @@ An observation has:
 
 The value inside an observation is identity-free, version-free, lineage-free, and timeless. Observation metadata supplies attribution and provenance when correctness requires it. Observations do not carry intrinsic occurrence time; time and occurrence belong to events.
 
-When an entity is [[Reconstitution|reconstituted]], its current state is delivered as an entity-scoped observation. [[Command|Commands]] are validated against observations of current entity state, related state, policy state, and environmental state. [[Query|Queries]] request observations or values from state, projections, read models, or computations.
+When an entity is [[Reconstitution|reconstituted]], its current state is delivered as an entity-scoped observation. [[Command|Commands]] are validated against observations of current entity state, related state, policy state, and environmental state. [[Query Request|Query requests]] seek observations or values from state, projections, read models, or computations.
 
 Entity state is a specialized observation whose subject is an entity.
 
@@ -309,7 +311,7 @@ An observer may be realized by an OS thread, logical thread, fiber, coroutine, t
 
 Actor systems make observers addressable: an actor address gives other observers a delivery path to a receiving observer boundary. Entities and [[Process|processes]] can also be modeled as observers; in that model, inputs are interpreted relative to their own state, history, policies, and boundary.
 
-Events, commands, and queries are **observer-relative interpretations**: an event that is endogenous to one observer may be exogenous to another, and the same incoming observation may be interpreted differently (or rejected) depending on the observer’s current view of entity state, [[Projection Models|projection models]], required observations, [[Invariant|invariants]], [[Policy|policies]], authority, and consistency expectations.
+Events, commands, and query requests are **observer-relative interpretations**: an event that is endogenous to one observer may be exogenous to another, and the same incoming observation may be interpreted differently (or rejected) depending on the observer’s current view of entity state, [[Projection Models|projection models]], required observations, [[Invariant|invariants]], [[Policy|policies]], authority, and consistency expectations.
 
 ### Agent
 
@@ -383,7 +385,7 @@ The expected version ordinarily represents the emitter's observation of entity s
 
 ### Query
 
-A [[Query|query]] is an observer-relative interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
+A [[Query|query]] is a parameterized derivation over input collections. A [[Query Request|query request]] is an observer-relative interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
 
 ```txt
 Exogenous input event at an observer boundary
@@ -392,7 +394,7 @@ Exogenous input event at an observer boundary
   -> observation | value | stream | nil | rejection
 ```
 
-Queries are not mere messages. They are interpretations made relative to:
+The receiver interprets a query request relative to:
 - The specific observer
 - The observer's [[Boundaries|boundary]] and current view of state
 - The requested [[Observable|observable]], projection, read model, or computation
@@ -432,7 +434,7 @@ Relative to an **observer’s [[Boundaries|boundary]]**:
 - **Exogenous event**: An event arriving from outside the observer’s [[Boundaries|boundary]]. It may originate from another observer’s endogenous event, a runtime, a clock, a user, a sensor, or the external environment.
 - **Input event**: An exogenous event in the role of entering the observer [[Boundaries|boundary]].
 - **Command**: The receiving observer's interpretation of an input event as an attempted transition for a target subject.
-- **Query**: The receiving observer's interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
+- **Query request**: The receiving observer's interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
 - **Endogenous event**: An event that occurs or is accepted within the observer’s own semantic history.
 - **Output event**: An endogenous event emitted across a [[Boundaries|boundary]].
 - **Applied no-change outcome**: The input was admitted but the accepted decision changed no entity value. The outcome is not an event.
@@ -444,7 +446,7 @@ Interpretation flow:
 ```txt
 Exogenous event
   -> input event
-  -> command | query (observer-relative)
+  -> command | query request (observer-relative)
   -> validation or observation selection
   -> typed transition outcome | observation | value | nil query result
 ```

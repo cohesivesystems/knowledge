@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-08-23
+updated: 2026-11-05
 ---
 
 # Event
@@ -30,7 +30,7 @@ The word event is used for several related but distinct concepts:
 - **Domain events** are events relevant inside a domain boundary, such as `OrderPlaced`, `PaymentCaptured`, or `ShipmentDispatched`. They may be used as [[Event Sourcing|event-sourcing]] events, persisted in a [[Transactional Outbox|transactional outbox]], or published best-effort after a state change. In Cohesive terms, a domain event is endogenous relative to the domain boundary in which it occurs or is accepted.
 - **Event-sourcing events** are committed persistence events interpreted as state actions and used as authoritative history for an [[Entity|entity]]. They can be folded or replayed into [[State|state]]. An event-sourcing event is also a domain event only when its meaning records a domain-relevant fact rather than merely reconstruction, audit, or storage mechanics.
 - **Telemetry or metric events** are system events about application behavior, runtime behavior, measurements, traces, or logs. They often have softer persistence guarantees and narrower retention windows. They may be exogenous to a domain model while endogenous to the observability system that records or aggregates them.
-- **External events** are observations of a process outside the observer's boundary. They arrive as exogenous events and may be interpreted as [[Command|commands]], [[Query|queries]], or ignored inputs. A command interpretation may then lead to an accepted endogenous event, state change, or committed event record depending on the realization.
+- **External events** are observations of a process outside the observer's boundary. They arrive as exogenous events and may be interpreted as [[Command|commands]], [[Query Request|query requests]], or ignored inputs. A command interpretation may then lead to an accepted endogenous event, state change, or committed event record depending on the realization.
 - **Persistence events** record state reconstruction, audit, or storage mechanics. They may be committed and occurrence-bearing without automatically being domain events or outbound publications.
 - **Machine events** are occurrences in a [[Runtimes|runtime]], host, operating system, orchestrator, or infrastructure boundary, such as restart, out-of-memory termination, timeout, placement change, or network partition. They are usually exogenous to an application or domain observer, while endogenous to the machine or infrastructure boundary that emits them.
 
@@ -43,7 +43,7 @@ Relative to an [[Observer|observer]]'s [[Boundaries|boundary]]:
 - An **exogenous** event arrives from outside the observer [[Boundaries|boundary]].
 - An **input event** is an exogenous event in the role of entering a system or observer.
 - A [[Command|command]] is the interpretation of an input event as an attempted [[Transition|transition]] for a target subject.
-- A [[Query|query]] is an input event interpreted as a request to observe, compute, or return information.
+- A [[Query Request|query request]] is an input event interpreted as a request to observe, compute, or return information.
 - An **endogenous** event occurs or is accepted within the observer's own semantic history.
 - An **output event** is an endogenous event emitted across a [[Boundaries|boundary]].
 - An **applied no-change outcome** records that the input was admitted but the accepted decision changed no entity value. The outcome is not itself an event.

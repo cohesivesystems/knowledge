@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-08-17
+updated: 2026-11-05
 ---
 
 # Boundaries
@@ -11,13 +11,13 @@ Boundaries define the scope and context in which observation, interpretation, [[
 
 At the structure level, boundaries describe semantic and operational scoping in the system graph, not a specific process, network, storage, or deployment mechanism.
 
-A boundary is not a [[Surfaces|surface]], [[Interfaces|interface]], or [[Ports and Adapters|port]]. A boundary separates scopes; a surface is a typed abstraction of the externally relevant semantics presented at that cut; an interface is a reusable intentional interaction type projected on a surface; and a port is a particular occurrence through which the bounded system provides or requires that interface. One boundary may expose no surface, one surface, or several audience-relative surfaces, and each surface may contain several provided and required ports.
+A boundary is not a [[Surfaces|surface]], [[Interfaces|interface]], or [[Ports|port]]. A boundary separates scopes; a surface is a typed abstraction of the externally relevant semantics presented at that cut; an interface is a reusable intentional interaction type projected on a surface; and a port is a particular occurrence through which the bounded system provides or requires that interface. One boundary may expose no surface, one surface, or several audience-relative surfaces, and each surface may contain several provided and required ports.
 
 Scope answers what is included, excluded, owned, visible, controlled, or guaranteed. Context answers which meanings, policies, identities, versions, capabilities, assumptions, and authorities apply inside that scope.
 
 As a modeling discipline, a boundary should be treated as a kind of [[Universal Constructions|universal construction]] only when its scope and context are determined by the relevant inclusions, exclusions, authorities, guarantees, and interaction edges.
 
-Interpretation is performed by an [[Observer|observer]] relative to a boundary. An observer interprets [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], and [[Query|queries]] within the scope and context defined by that boundary.
+Interpretation is performed by an [[Observer|observer]] relative to a boundary. An observer interprets [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], and [[Query Request|query requests]] within the scope and context defined by that boundary.
 
 An observer boundary determines whether an event is exogenous, input, endogenous, or output relative to that [[Observer|observer]]. It also frames which state is visible, which policies apply, which authority is available, which semantic [[Effect|effects]] can be committed, and what command or query interpretation can mean.
 

@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-11-05
 ---
 
 # Entity Models
@@ -32,7 +32,7 @@ For example, a semantic Shipment entity may appear structurally as:
 
 These are not necessarily the same structural entity, even when they correspond to the same semantic subject. Some may be canonical state, some may be projection models, some may be process subjects, and some may be boundary-specific resources.
 
-The [[Relation|relation]] is many-to-many. One semantic entity may have several structural entity models, and one structural entity model may combine aspects of several semantic entities, such as a dashboard row that joins shipment, carrier, customer, and exception state.
+The correspondence is many-to-many. One semantic entity may have several structural entity models, and one structural entity model may combine aspects of several semantic entities, such as a dashboard row that joins shipment, carrier, customer, and exception state.
 
 Entity models provide structure for:
 

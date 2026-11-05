@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-07-27
-updated: 2026-08-08
+updated: 2026-11-05
 aliases:
   - Schema Evolution
   - Contract Compatibility
@@ -63,6 +63,14 @@ Useful compatibility checks include:
 - Which old and new components coexist during rollout and rollback?
 - Which retained histories, snapshots, continuations, and quarantine records remain interpretable?
 - What migration, translation, fallback, or rejection behavior applies when correspondence fails?
+
+## Definition and instance continuity
+
+Definition continuity says which subjects, shapes, or operations in two revisions are preserved, renamed, moved, split, merged, introduced, or retired. Instance continuity says what happens to existing identities, histories, open sessions, and outstanding effects. Renaming an entity definition need not change any instance identity. A migration [[Codecs|codec]] must declare what it preserves, forgets, or rejects.
+
+A new revision may decode every old payload yet have no action for an outstanding reply. Pin the session to the old revision, migrate its continuation and obligations explicitly, or give it a declared disposition. Reading historical events through a new interpretation does not change what was originally recorded.
+
+Rebinding a facility must preserve both domain requirements and the selected arrangement. Changing the arrangement itself requires checking those requirements again at the new boundaries; changing domain meaning requires an explicit continuity decision.
 
 ## Formal relations
 

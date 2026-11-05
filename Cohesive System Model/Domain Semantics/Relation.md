@@ -2,17 +2,15 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-07-05
-updated: 2026-07-05
+updated: 2026-11-05
 aliases:
   - Relations
 ---
 
 # Relation
 
-A relation is a meaningful connection, dependency, association, correspondence, constraint, derivation, or causal link between semantic subjects.
+A relation is a typed correspondence between [[Shape|shapes]]. It specifies which values stand together; a source value can correspond to zero, one, or many target values, and conversely. A span of the form `source ← witnesses → target` expresses this without making either direction the privileged way to evaluate it.
 
-Relations may connect [[Entity|entities]], [[Identity|identities]], [[State|state]], [[Observation|observations]], [[Event|events]], [[Observer|observers]], [[Process|processes]], [[Transition|transitions]], [[Invariant|invariants]], [[Policy|policies]], or [[Boundaries|boundaries]]. A relation says that one part of the model matters to another; it is not defined by a database join, foreign key, pointer, network call, or graph-storage edge.
+A [[Relationship|relationship]] associates identified subjects. A [[Mapping|mapping]] computes corresponding values from a source observation; a [[Query|query]] derives named results from input collections and parameters. Forward lookup, inverse lookup, and membership testing are distinct capabilities: knowing which pairs belong does not promise an implementation for every mode.
 
-Relations are interpreted relative to a model boundary. The same pair of subjects may be related differently under different purposes: ownership, reference, dependency, derivation, observation, causation, authorization, inclusion, or equivalence may all carry different meanings.
-
-At the system graph layer, relations are arranged as [[Relation Models|relation models]]. A relation model may later be realized by foreign keys, indexes, graph edges, embedded documents, materialized projections, subscriptions, event streams, API links, shared state, or runtime routing, but those mechanisms do not exhaust the semantic relation.
+In this graph, a *formal relation* is an authored predicate between concept notes, such as `arranges`. That is graph vocabulary. A hosting link or causal dependency does not become a domain relation merely because it connects two nodes.

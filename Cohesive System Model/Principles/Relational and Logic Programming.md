@@ -2,7 +2,7 @@
 realm: Principles
 kind: discipline
 created: 2026-07-13
-updated: 2026-08-03
+updated: 2026-11-05
 status: draft
 aliases:
   - Relational Programming
@@ -193,7 +193,7 @@ The model must identify:
 - Whether the result is snapshot-consistent, stale, monotone, partial, or best-effort.
 - How failures, timeouts, duplicates, missing values, and contradictory observations appear.
 
-The semantic request is a [[Query|query]]. Its cross-source dependencies and correspondences belong to [[Relation Models|relation models]]. Result shaping and derivation belong to [[Projection Models|projection models]]. Providers, planners, storage engines, and network calls are realization choices.
+A [[Query Request|query request]] invokes the derivation. Its cross-source dependencies and correspondences belong to [[Relation Models|relation models]]. Result shaping and derivation belong to [[Projection Models|projection models]]. Providers, planners, storage engines, and network calls are realization choices.
 
 ### Change Impact, Lineage, and Derivation
 

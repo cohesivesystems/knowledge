@@ -2,7 +2,7 @@
 realm: System Graph
 kind: reference
 created: 2026-08-14
-updated: 2026-09-27
+updated: 2026-11-05
 status: draft
 aliases:
   - Cohesive Composition Algebra
@@ -38,7 +38,7 @@ A system presents its externally relevant boundary semantics through a typed [[S
 - semantic [[Effect|effects]], resource constraints, and assumptions; and
 - evidence supporting the system's claims.
 
-An [[Interfaces|interface]] is a reusable intentional interaction type projected on a surface. A [[Ports and Adapters|port]] is a particular occurrence of that interface on a system boundary, provided or required under boundary-specific ownership, policy, scope, and evidence. An [[Interaction Protocols|interaction protocol]] describes how interaction through those roles may unfold, including direction, sequencing, branching, retries, failures, and terminal outcomes.
+An [[Interfaces|interface]] is a reusable intentional interaction type projected on a surface. A [[Ports|port]] is a particular occurrence of that interface on a system boundary, provided or required under boundary-specific ownership, policy, scope, and evidence. An [[Interaction Protocols|interaction protocol]] describes how interaction through those roles may unfold, including direction, sequencing, branching, retries, failures, and terminal outcomes.
 
 A surface is broader than an interface and is not identical to its boundary. The boundary establishes the cut between scopes; the surface organizes what the system intentionally exposes, requires, and claims at that cut; interfaces supply reusable interaction types; and ports instantiate those types for the bounded system.
 

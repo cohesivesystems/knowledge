@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-06-29
-updated: 2026-08-08
+updated: 2026-11-05
 status: draft
 aliases:
   - Relational Sheaf Semantics
@@ -57,7 +57,7 @@ Objects represent entity types, relation symbols, attribute domains, or typed [[
 
 Constraints add equations and admissibility conditions to this structure. Path equalities, keys, cardinality constraints, referential integrity, and domain [[Invariant|invariants]] say which diagrams must commute and which sections count as valid.
 
-This gives [[Relation|relations]] a semantic role beyond storage layout. A relation is a navigable dependency in the schema category, not merely a join condition chosen by a query planner.
+This gives [[Relation|relations]] a semantic role beyond storage layout. A schema may expose a navigable dependency for a relation; the correspondence itself does not promise traversal in either direction.
 
 ## Instances as Functors
 
@@ -196,7 +196,7 @@ Database Sheaf Semantics connects database structure to several Cohesive concept
 | [[Entity Models]]      | Schema objects and typed record shapes                                           |                                                   |
 | [[Relation\|Relations]]          | Navigable morphisms, foreign keys, dependencies, and overlap structure           |                                                   |
 | [[Projection Models]]        | Restrictions or derived local sections                                           |                                                   |
-| [[Query]]              | queries                                                                          | Requests for local sections                       |
+| [[Query]]              | queries                                                                          | Derivations of local sections                       |
 | [[Persistence]]        | Durable storage of sections, histories, or constraints                           |                                                   |
 | [[Reconstitution]]     | Recovering a section from stored rows, events, snapshots, or indexes             |                                                   |
 | [[Consistency Models]] | Consistency                                                                      | Conditions under which local views agree and glue |

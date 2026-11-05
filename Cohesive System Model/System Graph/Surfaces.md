@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-08-14
-updated: 2026-09-27
+updated: 2026-11-05
 status: draft
 aliases:
   - Surface
@@ -38,7 +38,7 @@ These declarations do not all belong to the same realm. Interfaces and their arr
 | [[Boundaries\|boundary]]                        | Which scopes are separated, and relative to which cut do meaning, authority, visibility, failure, and guarantees apply? |
 | surface                                         | What does the system intentionally expose, require, claim, and support with evidence at that boundary?                  |
 | [[Interfaces\|interface]]                       | Which reusable intentional interaction type is projected on the surface?                                                |
-| [[Ports and Adapters\|port]]                    | Which occurrence of an interface is provided or required at this system boundary?                                       |
+| [[Ports\|port]]                    | Which occurrence of an interface is provided or required at this system boundary?                                       |
 | [[Interaction Protocols\|interaction protocol]] | In which legal traces may participants use the interface roles?                                                         |
 | [[Interaction Bindings\|interaction binding]]   | How are exact interface and protocol roles attached to channel directions and endpoints?                                |
 | realization                                     | Which concrete mechanisms preserve the bound contract and its required properties?                                      |
@@ -67,8 +67,15 @@ A surface can declare a guarantee only at an explicit boundary and under explici
 
 Evidence may include provider attestations, static checks, proofs, tests, observed traces, configuration facts, or monitored behavior. Different evidence supports different conclusions and scopes. [[Observability and Provenance|Observability and provenance]] supplies attributable observations; [[Assurance and Evidence|assurance and evidence]] determines which claims those records establish, refute, or leave unknown under the active policy.
 
+## State-dependent offers
+
+A surface can be indexed by the participant’s current configuration and outstanding [[Effect|effects]]. Each index selects the operations admissible there. For example, while a reservation is outstanding a caller may request cancellation; a second reservation request need not be admissible. A [[Machine Models|machine model]] can describe these offers without exposing its private state.
+
+A shared [[Ports|port]] may advertise all possible operations and return a declared rejection when the current state excludes one. Its guaranteed core contains only operations never rejected for state reasons. In a session, participants can instead track protocol state and offer only the actions legal at that point. Check each input that can arrive in each configuration, including late replies, timeouts, and cancellation.
+
 ## Formal relations
 
+- `arranges`: [[Ports]] — Exposes particular interface occurrences under the roles and assumptions of the selected boundary.
 - `arranges`: [[Interfaces]] — A surface projects reusable interface types through provided and required ports as part of the external contract at a declared boundary.
 - `arranges`: [[Contract Models]] — Projects the contract dimensions intentionally exposed to a particular audience at a selected system boundary.
 - `distinguished_from`: [[Boundaries]] — A boundary establishes the cut between scopes, whereas a surface organizes what a system intentionally exposes, requires, and claims at that cut.

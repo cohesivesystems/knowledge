@@ -2,19 +2,19 @@
 realm: System Graph
 kind: reference
 created: 2026-07-01
-updated: 2026-09-27
+updated: 2026-11-05
 ---
 
 # System Graph
 
 The system graph is the compositional, boundary-relative graph of a modeled system as a whole, in which semantic subjects and roles become explicit nodes and relations with declared placement, interaction, ownership, scope, and boundaries.
 
-It records how semantic roles compose across boundaries and which operational properties a [[Realization|realization]] must preserve.
+It records how semantic roles compose across boundaries and which operational properties a [[Realization|realization]] must preserve. An [[Arrangement Models|arrangement model]] records a choice of units and ownership; an [[Infrastructure Graph|infrastructure graph]] connects that choice to candidate facilities and evidence.
 
 This realm sits between primitive meaning and concrete implementation:
 
-- Domain semantics defines meaning-bearing primitives such as [[Entity|entities]], [[Observer|observers]], [[Process|processes]], [[Interaction|interactions]], [[Relation|relations]], [[Invariant|invariants]], [[Policy|policies]], [[State|state]], [[Event|events]], [[Command|commands]], and [[Query|queries]].
-- The system graph arranges those primitives into model-specific ownership, dependency, composition, authority, scope, and correspondence.
+- Domain semantics defines meaning-bearing constructs such as [[Entity|entities]], [[Observer|observers]], [[Process|processes]], [[Interaction|interactions]], [[Relation|relations]], [[Invariant|invariants]], [[Policy|policies]], [[State|state]], [[Event|events]], [[Command|commands]], and [[Query|queries]].
+- The system graph arranges those constructs into model-specific ownership, dependency, composition, authority, scope, and correspondence.
 - Operational concerns state required properties and guarantees such as [[Persistence|persistence]], [[Coordination|coordination]], [[Delivery Semantics|delivery semantics]], [[Ordering|ordering]], [[Isolation|isolation]], and [[Recovery|recovery]].
 - Realization substrate supplies concrete mechanisms such as [[Compute|compute]], [[Runtimes|runtimes]], [[Storage Systems|storage systems]], [[Brokers|brokers]], and [[Workflow Engines|workflow engines]].
 
@@ -34,7 +34,7 @@ Use this realm to answer questions such as:
 - How do observations, commands, events, effects, and artifacts move through flow views and business transactions?
 - How are interactions among participants arranged through interfaces, protocols, occurrences, flows, messages, channels, routes, multiplexing, and boundaries?
 - How are entities, relations, queries, and processes allocated to logical services without identifying those services with their code or deployment realizations?
-- Which relation models make the graph navigable, dependent, constrained, derived, or causally connected?
+- Which [[Relation Models|relation models]] assign roles, constraints, and evaluation modes to domain correspondences?
 - Where does a semantic role change meaning because it crosses a boundary?
 - Which infrastructure graph projection binds modeled structure to public substrate roles?
 - Which structural choices must later be given operational guarantees and concrete realizations?

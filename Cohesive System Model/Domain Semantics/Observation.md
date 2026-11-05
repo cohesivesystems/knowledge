@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-11-05
 ---
 
 # Observation
@@ -20,7 +20,7 @@ The value inside an observation is identity-free, version-free, lineage-free, an
 
 Observations do not carry intrinsic occurrence time. Time and occurrence belong to [[Event|events]]. An observation may carry a source version or observed-at metadata, but that is provenance or addressing, not the event occurrence itself.
 
-When an [[Entity|entity]] is reconstituted, its current state is delivered as an entity-scoped observation. When an exogenous event arrives, its value can be observed and interpreted by an observer relative to a [[Boundaries|boundary]]. [[Command|Commands]] are validated against observations of current entity state, related state, policy state, and environmental state. [[Query|Queries]] request observations or values from state, projections, read models, or computations.
+When an [[Entity|entity]] is reconstituted, its current state is delivered as an entity-scoped observation. When an exogenous event arrives, its value can be observed and interpreted by an observer relative to a [[Boundaries|boundary]]. [[Command|Commands]] are validated against observations of current entity state, related state, policy state, and environmental state. [[Query Request|Query requests]] request observations or values from state, projections, read models, or computations.
 
 Entity state is a specialized observation whose subject is an entity. Non-entity observations may describe relations, projections, processes, policies, query results, aggregates, or runtime environment.
 

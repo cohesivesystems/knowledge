@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-11-05
 ---
 
 # Value
@@ -27,7 +27,7 @@ Values relate to the other semantic concepts as follows:
 - [[Observation]] is a value with context: subject, [[Shape|shape]], source, version, observer, or lineage.
 - [[Event]] is a value with occurrence.
 - [[Command]] is an input [[Event|event]] interpreted as an attempted [[Transition|transition]].
-- [[Query]] is an input [[Event|event]] interpreted as a request to observe, compute, or return information.
+- [[Query Request|Query request]] is an input [[Event|event]] interpreted as a request to observe, compute, or return information.
 - Entity state is an entity-scoped observation: a value attributed to an entity identity at a version.
 - A [[Transition|transition]] consumes values and observations in a transition context and may produce an accepted endogenous event or state change.
 

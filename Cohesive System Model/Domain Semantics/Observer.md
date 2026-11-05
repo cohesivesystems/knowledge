@@ -2,12 +2,12 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-09-07
+updated: 2026-11-05
 ---
 
 # Observer
 
-An observer is a locus of interpretation. It is the participant, context, or execution locus relative to which [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], [[Query|queries]], [[Boundaries|boundaries]], and [[State|state]] acquire meaning.
+An observer is a locus of interpretation. It is the participant, context, or execution locus relative to which [[Value|values]], [[Observation|observations]], [[Event|events]], [[Command|commands]], [[Query Request|query requests]], [[Boundaries|boundaries]], and [[State|state]] acquire meaning.
 
 Every runtime participant is a potential observer, but an observer is not defined by a particular substrate mechanism. It is realized when some execution context supplies the boundary, state view, [[Authority|authority]], and interpretation rules needed to observe and act.
 
@@ -30,4 +30,4 @@ Actor systems are important because they make observers addressable: an actor ad
 
 Entities and [[Process|processes]] can be modeled as observers; in that model, inputs are interpreted relative to their own state, history, policies, and boundary. A process with its own identity, coordination state, history, policies, and boundary may also be modeled as both an entity and an observer. This is a modeling choice, not an intrinsic property of every semantic process.
 
-[[Event|Events]], [[Command|commands]], and [[Query|queries]] are observer-relative interpretations: an event that is endogenous to one observer may be exogenous to another, and the same incoming observation may be interpreted differently or rejected depending on the observer's current view of entity state, projections, invariants, policies, authority, and consistency expectations.
+[[Event|Events]], [[Command|commands]], and [[Query Request|query requests]] are observer-relative interpretations: an event that is endogenous to one observer may be exogenous to another, and the same incoming observation may be interpreted differently or rejected depending on the observer's current view of entity state, projections, invariants, policies, authority, and consistency expectations.

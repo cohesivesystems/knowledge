@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-09-27
-updated: 2026-09-27
+updated: 2026-11-05
 status: draft
 aliases:
   - Conformance
@@ -60,6 +60,14 @@ Conformance is revision-relative. Changes to the source model, projection, compi
 - Where are handwritten behavior, external systems, or trusted assumptions outside the checked boundary?
 - What invalidates the conformance result?
 - Does a runtime discrepancy refute conformance, reveal an incomplete observation mapping, or remain unknown?
+
+## Run-level correspondence and observation anchors
+
+A plan states why a realization should preserve a claim under its assumptions. In one run, the correspondence relates model occurrences to runtime occurrences: one emission can produce several deliveries, a batch commit can cover several emissions, and connection churn may have no model counterpart. [[Codecs|Codecs]] explain changes of representation; hosting identifies the participant whose execution the evidence concerns.
+
+An **observation anchor** identifies the occurrence at which the claim counts as true for a particular observer. For a publisher, a local outbox commit can anchor acceptance when it atomically records the decision and publication intent with sufficient durability. For a receiver, the anchor for handling is durable application progress, including acceptance of owed effects. A broker acknowledgment alone establishes neither claim.
+
+A database commit followed by a separate broker publish admits a crash between them. The wiring is valid, but it leaves atomic acceptance unestablished. An outbox can close that gap; delivery still depends on relay and broker progress, and duplicates require idempotent handling. One trace can falsify a safety claim or a deadline; healthy samples cannot establish eventual handling for all runs.
 
 ## Formal relations
 

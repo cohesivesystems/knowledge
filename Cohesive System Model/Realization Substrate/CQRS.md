@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: pattern
 created: 2026-06-24
-updated: 2026-07-28
+updated: 2026-11-05
 ---
 
 # CQRS
@@ -16,7 +16,7 @@ In the Cohesive System Model, CQRS can be understood as a separation of [[Persis
 - The command side interprets input as [[Command|commands]] relative to an [[Observer|observer]], [[Boundaries|boundary]], current entity state, invariants, policies, authority, and expected version.
 - Transition evaluation produces a typed decision with a sparse patch, outcome, emissions, and guarantee demands; it does not itself commit state.
 - Accepted transition decisions commit authoritative state changes, often as current-state records, [[Event Sourcing|event-sourced]] persistence events, or transactional writes.
-- The query side interprets input as [[Query|queries]] and reconstitutes read-oriented [[Observation|observations]] through projections, indexes, materialized views, caches, or derived state.
+- The query side interprets input as [[Query Request|query requests]] and reconstitutes read-oriented [[Observation|observations]] through projections, indexes, materialized views, caches, or derived state.
 
 CQRS does not require event sourcing. Event sourcing is one possible write-side persistence strategy. CQRS can also use current-state records, relational tables, documents, actor state, workflow state, or other persistence mechanisms.
 

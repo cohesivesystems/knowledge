@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-06-24
-updated: 2026-08-08
+updated: 2026-11-05
 aliases:
   - Projection
   - Projections
@@ -74,6 +74,9 @@ A projection model should state:
 - Bootstrap, backfill, and cutover protocol.
 - Effect policy during live processing and replay.
 
+## Derivation and maintenance
+
+A [[Mapping|mapping]] or [[Query|query]] defines which results follow from given inputs. A projection model arranges how those results are exposed or maintained: which source versions contribute, when updates become visible, and how a view is rebuilt. The same derivation can be evaluated on demand or maintained incrementally; only the latter needs a maintained view’s update and recovery contract.
 
 ## Formal relations
 

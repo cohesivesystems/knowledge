@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-09-27
-updated: 2026-09-27
+updated: 2026-11-05
 status: draft
 aliases:
   - Contract Model
@@ -68,6 +68,21 @@ This yields two related closure questions. **Contract closure** asks whether eve
 - What does an adapter preserve, translate, weaken, or assume?
 - Which obligations remain after composition or realization?
 - Does the available evidence support the claim at the same subject, scope, boundary, and revision?
+
+## Property coordinates
+
+Describe each property along four independent coordinates:
+
+| Coordinate | Question | Freshness example |
+| --- | --- | --- |
+| Role | Is the property required, provided, an effect, a coeffect, a guarantee, an assumption, or an evidence obligation? | The decision needs a sufficiently recent observation: a coeffect. |
+| Property kind | What is the assertion about? | Knowledge of customer state. |
+| Predicate classification | What kind of behavior or counterexample would settle it? | Timed safety: a commit based on an overly old observation violates the bound. |
+| Scope | Which subjects, keys, boundary, interval, and clock does it cover? | The referenced customer observation must be at most thirty seconds old at the acting transition’s commit, measured on the declared time basis. |
+
+A deadline for every request, a percentile over a population, and eventual progress under fairness need different evidence. A property may have several classifications; its label never substitutes for the predicate or failure assumptions.
+
+An **accidental observable** is behavior a consumer relies on but its provider did not promise, such as stable ordering among results with equal sort keys. Promote that ordering into the contract, remove the dependency, or explicitly restrict the consumer to a realization that guarantees it. A successful test against one provider cannot make the behavior portable.
 
 ## Formal relations
 

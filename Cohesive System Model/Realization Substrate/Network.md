@@ -2,7 +2,7 @@
 realm: Realization Substrate
 kind: realization-substrate
 created: 2026-06-24
-updated: 2026-08-17
+updated: 2026-11-05
 ---
 
 # Network
@@ -62,7 +62,7 @@ RPC coordinates atop TCP by adding an application-level protocol over the byte s
 - **Status and errors**: distinguish success, application rejection, protocol error, timeout, cancellation, and transport failure.
 - **Metadata**: carries headers, deadlines, authentication, tracing, content type, compression, or feature negotiation.
 
-These additions realize application-level [[Interaction|request/reply]] over a lower-level stream/session edge. The request may then be interpreted semantically as a [[Command|command]], [[Query|query]], subscription request, negotiation, or another input role by the receiving [[Observer|observer]].
+These additions realize application-level [[Interaction|request/reply]] over a lower-level stream/session edge. The request may then be interpreted semantically as a [[Command|command]], [[Query Request|query request]], subscription request, negotiation, or another input role by the receiving [[Observer|observer]].
 
 ```mermaid
 sequenceDiagram
@@ -110,7 +110,7 @@ Network guarantees must be mapped to the boundary where they hold:
 - What ordering is preserved?
 - What can fail independently?
 - What is durable or replayable?
-- What interpretation turns transmitted values into commands, [[Query|queries]], events, observations, or decisions?
+- What interpretation turns transmitted values into commands, [[Query Request|query requests]], events, observations, or decisions?
 
 Network behavior does not automatically equal domain commitment. The receiving [[Observer|observer]] still interprets the value relative to its boundary, validates it, and may or may not commit a transition.
 

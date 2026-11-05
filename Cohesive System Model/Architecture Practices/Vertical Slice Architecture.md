@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: architecture-practice
 created: 2026-08-21
-updated: 2026-08-21
+updated: 2026-11-05
 status: draft
 aliases:
   - Vertical Slices
@@ -18,7 +18,7 @@ The practice selects a request, use-case, or change axis for [[Cohesion and Coup
 
 ## Cohesive Formulation
 
-A vertical slice is a code-organization and application-boundary choice, not a new domain-semantic primitive. A slice commonly begins at an admitted request or occurrence and ends at a declared result, commitment, or effect boundary. Depending on the use case, its input may be interpreted as a [[Command|command]] or [[Query|query]], and its output may be a response, [[Observation|observation]], event, or requested effect.
+A vertical slice is a code-organization and application-boundary choice, not a new domain-semantic primitive. A slice commonly begins at an admitted request or occurrence and ends at a declared result, commitment, or effect boundary. Depending on the use case, its input may be interpreted as a [[Command|command]] or [[Query Request|query request]], and its output may be a response, [[Observation|observation]], event, or requested effect.
 
 The practice asks:
 

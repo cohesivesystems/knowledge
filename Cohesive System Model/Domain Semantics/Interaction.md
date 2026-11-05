@@ -2,7 +2,7 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-09-07
+updated: 2026-11-05
 ---
 
 # Interaction
@@ -17,7 +17,7 @@ Under the [[Stuff Structure Property|stuff structure property]] lens, an interac
 
 Every interaction description is relative to participant boundaries. A claim about a successful interaction must say which boundary observed success: sender-local acceptance, receiver-local admission, handler processing, durable persistence, responsibility transfer, or domain commitment.
 
-An explicitly designed external contract is projected as a [[Surfaces|surface]] at a boundary. An [[Interfaces|interface]] is a reusable intentional interaction type projected on that surface, while a [[Ports and Adapters|port]] is a particular occurrence of the interface on a system boundary. An interaction is the actual or possible participation through that port under the declared interface and protocol roles.
+An explicitly designed external contract is projected as a [[Surfaces|surface]] at a boundary. An [[Interfaces|interface]] is a reusable intentional interaction type projected on that surface, while a [[Ports|port]] is a particular occurrence of the interface on a system boundary. An interaction is the actual or possible participation through that port under the declared interface and protocol roles.
 
 An [[Interaction Channels|interaction channel]] provides a stable, provider-neutral structural locus through which values can move among [[Endpoints|endpoints]]. It identifies the exchange's logical directions and scopes requirements attached to the exchange or to an individual direction. An [[Interaction Protocols|interaction protocol]] constrains how occurrences may unfold over time, while an [[Interaction Bindings|interaction binding]] associates exact interface and protocol roles with ports, endpoints, and channel directions.
 
@@ -38,7 +38,7 @@ Each description answers a different question about the interaction:
 | Operational Concerns | What properties must hold, and at which boundaries? | Qualifies the structure with scoped claims about addressing, timing, delivery, ordering, acknowledgment, progress, settlement, durability, failure, commitment, and recovery. |
 | Realization Substrate | Which mechanisms can satisfy those claims? | Selects or composes mechanisms and supplies capability evidence for the required properties at declared boundaries. |
 
-The correspondence among these descriptions is many-to-many. A semantic [[Command|command]], [[Query|query]], [[Event|event]], or [[Observation|observation]] may be carried by many system-graph interaction shapes and substrate mechanisms. Neither an interaction edge nor its realization determines the semantic role of what crosses it.
+The correspondence among these descriptions is many-to-many. A semantic [[Command|command]], [[Query Request|query request]], [[Event|event]], or [[Observation|observation]] may be carried by many system-graph interaction shapes and substrate mechanisms. Neither an interaction edge nor its realization determines the semantic role of what crosses it.
 
 Cross-realm coherence requires lowering to preserve the interaction's participant roles, meanings, obligations, and boundaries while operational claims are supported by capability evidence from the selected realization. A message, channel, route, mailbox, socket, or shared-state cell may participate in that lowering, but no such structural or substrate element is by itself the semantic interaction.
 
@@ -80,7 +80,7 @@ An interaction description should say:
 - Which participant actively drives each push, fetch, poll, callback, or delivery operation and in which direction the carried value moves.
 - Which occurrences remain independent and which are joined by synchronization, acknowledgment, commit, reply, or rendezvous.
 - What guarantees enrich the edge: ordering, durability, isolation, delivery, retention, idempotency, retry, [[Flow Control|flow control]], or recovery.
-- Which semantic role the carried value has when interpreted: [[Command|command]], [[Query|query]], [[Event|event]], [[Observation|observation]], policy decision, acknowledgment, or signal.
+- Which semantic role the carried value has when interpreted: [[Command|command]], [[Query Request|query request]], [[Event|event]], [[Observation|observation]], policy decision, acknowledgment, or signal.
 
 [[Interaction Modes|Interaction modes]] organize these dimensions as reusable boundary-relative profiles rather than disjoint categories. [[Interaction Protocols|Protocols]] refine them with legal traces and meanings, while [[Interaction Channels|channels]] can demand the coarse exchange morphology from a realization without owning the complete protocol.
 
@@ -118,7 +118,7 @@ At the instruction-set boundary, a `mov` instruction may be treated as one synch
 
 Modes describe the edge shape. They do not determine the semantic role of the value crossing the edge.
 
-A request may be interpreted as a [[Command|command]] when the receiver treats it as intent to cause a state transition. It may be interpreted as a [[Query|query]] when the receiver treats it as a request to observe or compute a value with no semantic state transition requested. It may also be a subscription request, negotiation, acknowledgment, policy decision, observation, or event notification.
+A request may be interpreted as a [[Command|command]] when the receiver treats it as intent to cause a state transition. It may be interpreted as a [[Query Request|query request]] when the receiver treats it as a request to observe or compute a value with no semantic state transition requested. It may also be a subscription request, negotiation, acknowledgment, policy decision, observation, or event notification.
 
 At the emitting boundary, initiating such an interaction may be modeled as a request [[Effect|effect]]: the emitter establishes a typed terminal-response or terminal-failure obligation and a continuation that consumes it. The request is a distinct emission role rather than an event subtype. At the receiving boundary, message ingress is an exogenous event. Its carried value and contract supply evidence for interpretation as a command, query, negotiation, subscription, or another semantic role. The response is a later reply or terminal result at another boundary; it need not be synchronous or travel over the same channel.
 
@@ -132,7 +132,7 @@ This case is stronger than merely expecting some receiver to act. An event-style
 
 Martin Fowler describes the broader modeling failure as using an event as a "passive-aggressive command." Cohesive uses **implicit request protocol** for the narrower case with a response obligation and treats the informal label only as external provenance.
 
-Operational state can still change during a [[Query|query]]: caches may fill, metrics may record, cursors may advance, locks may be acquired, and acknowledgments may be emitted. The distinction is that the modeled semantic entity transition is not being requested.
+Operational state can still change during a [[Query Request|query request]]: caches may fill, metrics may record, cursors may advance, locks may be acquired, and acknowledgments may be emitted. The distinction is that the modeled semantic entity transition is not being requested.
 
 Actor message send is the case where the addressed target is itself an observer locus. An actor address gives the sender a delivery path to a receiving observer boundary. Actor ask is request/reply over actor addressing; actor tell is one-way send. The receiver still decides how the message is interpreted.
 
