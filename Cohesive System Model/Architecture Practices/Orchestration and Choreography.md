@@ -2,7 +2,7 @@
 realm: Architecture Practices
 kind: pattern
 created: 2026-07-04
-updated: 2026-08-17
+updated: 2026-11-04
 aliases:
   - Orchestration
   - Choreography
@@ -41,7 +41,7 @@ Examples include:
 - Event-driven order fulfillment where payment, inventory, shipping, notification, and projection services react to published events and local state.
 - Pub/sub projection pipelines where consumers independently follow committed event streams and update their own read models.
 - Gossip protocols where peers exchange local observations and converge without a central coordinator.
-- Population protocols where anonymous finite-state [[Agent|agents]] update through pairwise local transition rules and eventually converge under a [[Fairness|fairness]] assumption.
+- Leaderless population protocols where anonymous finite-state [[Agent|agents]] update through pairwise local transition rules and eventually converge under a [[Fairness|fairness]] assumption.
 - [[CRDTs|CRDT]] replication where replicas accept compatible local updates and merge by algebraic rules.
 - Domain event choreography where each participant owns its own transition and emits events for others to interpret.
 
@@ -72,7 +72,7 @@ The spectrum is more useful when decomposed into comparison properties:
 | Progress observation | No single participant necessarily sees global progress.                                           | Progress is observed through quorums, leases, acknowledgments, or replicated metadata.          | The process manager observes enough replies, events, and timers to advance.                            |
 | Completion meaning   | Stable convergence, local output agreement, merge fixpoint, or protocol-defined global condition. | Quorum decision, replicated-log commit, atomic-commit decision, or view-specific completion.    | Explicit completion, rejection, compensation, timeout, or escalation by the process manager.           |
 | Failure handling     | Fairness, retry, merge, local protocol rules, or eventual convergence.                            | Election, ballot/view change, durable participant metadata, quorum recovery.                    | Durable process recovery, retries, compensations, deadlines, and escalation.                           |
-| Typical examples     | Population protocols, gossip, [[CRDTs\|CRDT]] replication, event choreography.                    | Paxos, Multi-Paxos, Raft, Zab, Viewstamped Replication, [[Two-Phase Commit\|two-phase commit]]. | [[Sagas\|saga]] orchestrators, durable workflows, index rebuild coordinators, CI pipeline controllers. |
+| Typical examples     | Leaderless population protocols, gossip, [[CRDTs\|CRDT]] replication, event choreography.                    | Paxos, Multi-Paxos, Raft, Zab, Viewstamped Replication, [[Two-Phase Commit\|two-phase commit]]. | [[Sagas\|saga]] orchestrators, durable workflows, index rebuild coordinators, CI pipeline controllers. |
 
 This table should not be read as a ranking. It identifies where control and authority reside for a given process boundary. A system can be choreographed on one axis and orchestrated on another.
 
@@ -80,7 +80,9 @@ This table should not be read as a ranking. It identifies where control and auth
 
 Many distributed protocols sit between pure choreography and classic orchestration.
 
-Population protocols sit near the choreographed end of the spectrum. The protocol has a global semantic objective and a shared transition rule, but no [[Agent|agent]] owns process identity, observes global progress, commands another agent, or decides completion. The [[Scheduling|scheduler]] or adversary supplies interaction opportunities under a fairness assumption; it is part of the execution environment, not a process manager in the protocol. If an implementation added a central scheduler that inspected global state and chose interactions to drive a result, that implementation would add orchestration outside the basic population-protocol model.
+A leaderless population protocol sits near the choreographed end of the spectrum. A [[Scheduling|scheduler]] supplies pairwise interaction opportunities, and each pair of [[Agent|agents]] applies a shared transition rule to its local states. For a protocol that stably computes a predicate, the agents’ outputs eventually agree on the correct value under [[Fairness|fairness]]. Interactions can continue after the outputs stabilize.
+
+A population protocol can also have a distinguished leader. When the leader initiates successive phases, it holds next-step authority for those phases, while participants still update through local interactions. Its position on the spectrum depends on which decisions the protocol assigns to that role. [Fast Computation by Population Protocols With a Leader](https://cs.yale.edu/homes/aspnes/papers/fast-population-protocols-abstract.html)
 
 Paxos can be seen as more choreographed than an index rebuild. Paxos implements a single replicated state machine and coordinates participants toward a shared decision, but no single node "runs the algorithm" in the way an index rebuild coordinator runs a rebuild. Proposers, acceptors, and learners follow protocol-local rules. A leader or proposer may coordinate a round and make global proposals, but it cannot unilaterally authorize the history; quorum intersection and acceptor state determine which value is chosen. The leader role can change, and the authority to decide is distributed through the protocol.
 

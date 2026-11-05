@@ -2,7 +2,7 @@
 realm: Operational Concerns
 kind: operational-concern
 created: 2026-06-24
-updated: 2026-07-15
+updated: 2026-11-04
 ---
 
 # Coordination
@@ -12,6 +12,8 @@ Coordination answers: how is multi-step or multi-participant work made coherent 
 Coordination defines how multiple transitions, observers, stores, processes, projections, or external systems are made to move together without losing the semantic meaning of the work.
 
 [[Interaction]] provides the edges through which participants affect, observe, or signal one another. Coordination asks whether the resulting multi-participant behavior is coherent with the intended invariants, ordering, failure handling, and commitment boundaries.
+
+In a distributed computation, participants take local steps that together produce a result. An [[Interaction Protocols|interaction protocol]] constrains the exchanges participants may make. Coordination asks whether those exchanges and local steps together preserve the required invariants and make progress under the stated assumptions. [[Orchestration and Choreography|Orchestration and choreography]] describe how authority over that progress is allocated among participants.
 
 [[Business Transactions]] are a common reason coordination is needed: business-level work often composes several local transitions, interactions, persistence boundaries, retries, and recovery paths into one domain outcome.
 

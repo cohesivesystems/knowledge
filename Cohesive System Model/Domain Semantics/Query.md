@@ -2,12 +2,14 @@
 realm: Domain Semantics
 kind: semantic-construct
 created: 2026-06-24
-updated: 2026-07-01
+updated: 2026-11-04
 ---
 
 # Query
 
-A query is an observer-relative interpretation of an input event as a request to observe, compute, or return information without requesting a modeled semantic state transition.
+A query is a message that an [[Observer|observer]] interprets at its boundary as a request to observe, compute, or return information without requesting a modeled state transition.
+
+The message may carry a query expression containing predicates, selectors, paging parameters, or aggregation rules. The expression describes which information to return and how to shape it. The message asks the observer to provide that information.
 
 Query interpretation follows this shape:
 
@@ -19,7 +21,7 @@ Exogenous event
   -> observation | value | stream | nil | rejection
 ```
 
-Queries are not mere messages. They are interpretations made relative to:
+The observer interprets the request in light of the following factors.
 
 - The specific [[Observer|observer]].
 - The observer [[Boundaries|boundary]] and current view of state.

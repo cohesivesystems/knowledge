@@ -33,15 +33,15 @@ These declarations do not all belong to the same realm. Interfaces and their arr
 
 ## Surface, Boundary, Interface, and Protocol
 
-| Term | Governing question |
-| --- | --- |
-| [[Boundaries\|boundary]] | Which scopes are separated, and relative to which cut do meaning, authority, visibility, failure, and guarantees apply? |
-| surface | What does the system intentionally expose, require, claim, and support with evidence at that boundary? |
-| [[Interfaces\|interface]] | Which reusable intentional interaction type is projected on the surface? |
-| [[Ports and Adapters\|port]] | Which occurrence of an interface is provided or required at this system boundary? |
-| [[Interaction Protocols\|interaction protocol]] | In which legal traces may participants use the interface roles? |
-| [[Interaction Bindings\|interaction binding]] | How are exact interface and protocol roles attached to channel directions and endpoints? |
-| realization | Which concrete mechanisms preserve the bound contract and its required properties? |
+| Term                                            | Governing question                                                                                                      |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| [[Boundaries\|boundary]]                        | Which scopes are separated, and relative to which cut do meaning, authority, visibility, failure, and guarantees apply? |
+| surface                                         | What does the system intentionally expose, require, claim, and support with evidence at that boundary?                  |
+| [[Interfaces\|interface]]                       | Which reusable intentional interaction type is projected on the surface?                                                |
+| [[Ports and Adapters\|port]]                    | Which occurrence of an interface is provided or required at this system boundary?                                       |
+| [[Interaction Protocols\|interaction protocol]] | In which legal traces may participants use the interface roles?                                                         |
+| [[Interaction Bindings\|interaction binding]]   | How are exact interface and protocol roles attached to channel directions and endpoints?                                |
+| realization                                     | Which concrete mechanisms preserve the bound contract and its required properties?                                      |
 
 An interface is therefore a reusable interaction type projected on a surface, not a synonym for the whole surface. A port is the boundary occurrence through which a system provides or requires that interface. A surface may project several interfaces through several ports and may also expose non-interaction claims such as operating assumptions, resource limits, security posture, or evidence. Conversely, a boundary may exist only to separate ownership, trust, consistency, persistence, or failure scopes and expose no surface or port.
 

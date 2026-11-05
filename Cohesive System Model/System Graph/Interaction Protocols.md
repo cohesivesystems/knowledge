@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-28
-updated: 2026-08-06
+updated: 2026-11-04
 status: draft
 aliases:
   - Interaction Protocol
@@ -15,6 +15,12 @@ aliases:
 An interaction protocol describes the allowed temporal structure of [[Interaction|interactions]] through an [[Interfaces|interface]]. It constrains not only the values that may be exchanged, but also which roles may initiate, which occurrences may follow, how concurrent attempts relate, and how a conversation completes, fails, is cancelled, or remains live.
 
 An interface answers *what roles and obligations are available at a boundary*. A protocol answers *how participation in those roles may unfold over time*. An [[Interaction Channels|interaction channel]] supplies logical exchanges and directions over which protocol occurrences can move. An [[Interaction Bindings|interaction binding]] assigns the interface and protocol roles to exact [[Endpoints|endpoints]] and channel directions.
+
+## Coordination and Control
+
+An interaction protocol supports [[Coordination|coordination]] by specifying which exchanges participants may rely on. For example, it can require a reservation acknowledgment before a shipment request. [[Orchestration and Choreography|Orchestration and choreography]] describe who decides that the process can advance. A process manager can act on the acknowledgment, or a shipping participant can act on it under its local rules. Both arrangements can respect the same ordering constraint.
+
+[[Interaction Control Flow|Interaction control flow]] identifies who drives each boundary operation. The protocol may allow the inventory participant to push the acknowledgment or require the shipping participant to poll for it. Either exchange can occur under either arrangement of process authority.
 
 ## Protocol Contents
 
@@ -44,13 +50,13 @@ The interaction shape therefore belongs with channel topology as a provider-neut
 
 Protocols compose across abstraction layers:
 
-| Protocol layer | Representative responsibility |
-| --- | --- |
-| semantic or service protocol | Meaningful operations, participant obligations, admissible outcomes, and business-relative completion |
-| interface protocol | Legal use of the roles exposed at one boundary |
-| channel protocol | Observable delivery, demand, credit, settlement, cancellation, stream, and continuity behavior at one channel boundary |
-| provider or application protocol | HTTP, RPC, AMQP, MQTT, WebSocket, broker, or custom protocol exchanges |
-| transport and network protocol | Framing, addressing, streams, datagrams, retransmission, transport flow control, and connection lifecycle |
+| Protocol layer                   | Representative responsibility                                                                                          |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| semantic or service protocol     | Meaningful operations, participant obligations, admissible outcomes, and business-relative completion                  |
+| interface protocol               | Legal use of the roles exposed at one boundary                                                                         |
+| channel protocol                 | Observable delivery, demand, credit, settlement, cancellation, stream, and continuity behavior at one channel boundary |
+| provider or application protocol | HTTP, RPC, AMQP, MQTT, WebSocket, broker, or custom protocol exchanges                                                 |
+| transport and network protocol   | Framing, addressing, streams, datagrams, retransmission, transport flow control, and connection lifecycle              |
 
 These layers can share an operation name or edge shape without sharing its meaning. Asynchronous send appears at messaging, runtime, and network boundaries, but completion may mean local buffer admission, broker acceptance, remote protocol receipt, or application commitment. One higher-level occurrence may lower into several request, acknowledgment, control, and retry occurrences at lower layers.
 
