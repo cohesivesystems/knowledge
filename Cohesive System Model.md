@@ -112,7 +112,7 @@ Describes the properties required for domain semantics and system-graph structur
 - [[Reconstitution]]  
 - [[Delivery Semantics|Delivery semantics]]  
 - [[Semantic Propagation|Semantic propagation]]
-- [[Acknowledgments]]
+- [[Acknowledgments]] and [[Receipt|receipts]]
 - [[Commit Boundaries]]
 - [[Coordination]]  
 - [[Consensus]]

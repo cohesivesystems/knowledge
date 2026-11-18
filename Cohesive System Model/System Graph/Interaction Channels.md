@@ -2,7 +2,7 @@
 realm: System Graph
 kind: structural-construct
 created: 2026-07-27
-updated: 2026-08-23
+updated: 2026-11-18
 status: draft
 aliases:
   - Interaction Channel
@@ -104,7 +104,13 @@ A queue commonly presents a passive sink to an active producer and a passive sou
 
 ## Placement and Realization
 
-At one abstraction layer a channel is an edge between endpoints. At another it is a node with state, partitions, subscriptions, cursors, policies, and failure modes. [[Brokers|Brokers]], actor mailboxes, files, database tables, shared memory, sockets, logs, runtime queues, and [[Network Channels|network channels]] are possible realizations or constituents of realizations. Their acknowledgments, addresses, and identifiers remain scoped to their own boundaries.
+A channel can be drawn as an edge at the participant boundary and expanded into a graph at the realization boundary. [[Brokers|Brokers]], actor mailboxes, files, database tables, shared memory, sockets, logs, runtime queues, and [[Network Channels|network channels]] can each contribute to a realization. Describe the expansion by answering three questions:
+
+1. **What carries each occurrence?** Map each outer direction to the operations and fields that convey it. A record can travel in a producer's request and a consumer's reply, even though both clients initiate their own exchanges.
+2. **What connects the exchanges?** Identify any intervening state, its owner, and how later operations select it. A retained partition connects an append to many later reads by position. A queue connects an enqueue to acquisition and eventual removal.
+3. **What can each participant conclude?** Identify the observation that establishes each required property, including the scope of order and the meaning of completion. If a reply is lost after a successful append, the record may already be visible while the producer still lacks confirmation.
+
+Each constituent exchange can in turn have its own [[Interaction Bindings|binding]] and be expanded at its own boundary. [[Interaction Media|Interaction media]] classifies common realizations by the boundary they expose and depicts this expansion for Kafka.
 
 ## Formal relations
 

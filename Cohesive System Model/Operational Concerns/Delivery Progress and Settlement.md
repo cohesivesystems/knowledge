@@ -36,7 +36,7 @@ This order does not require one distributed transaction. It makes the crash cuts
 | settlement authority | Current receipt, lock, lease, acknowledgment subject, or token authorizing a provider-state change. It may expire and must not become durable logical identity. |
 | replay cursor | Opaque position used to select retained input. It does not prove application processing. |
 | application progress | Durable application-owned evidence of what input and effects have been accounted for. |
-| settlement receipt | Attributable evidence that provider delivery state was changed after a cited durable progress boundary. |
+| settlement [[Receipt\|receipt]] | Attributable evidence that provider delivery state was changed after a cited durable progress boundary. |
 
 These forms may refer to one another but must not be collapsed. A replay cursor can be retained inside application progress, yet the cursor alone does not prove that the selected input was applied. A provider can manage an acknowledgment floor, yet that floor is not automatically the application's authoritative checkpoint. A settlement token can authorize a current attempt without surviving long enough to identify the logical work.
 

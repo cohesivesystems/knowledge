@@ -48,7 +48,7 @@ For a consuming channel, the model should distinguish the acknowledgment signal 
 
 ## Receipts and reports
 
-A receipt belongs to the receiving observer’s history and identifies the input occurrence it refers to. The publisher’s occurrence and the receiver’s receipt are distinct. Use the following vocabulary when the receiver’s contract distinguishes these stages:
+A receiver [[Receipt|receipt]] belongs to the receiving observer’s history and identifies the input occurrence it refers to. The publisher’s occurrence and the receiver’s receipt are distinct. Use the following vocabulary when the receiver’s contract distinguishes these stages:
 
 | Stage | What the evidence establishes |
 | --- | --- |

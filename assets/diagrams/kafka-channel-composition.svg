@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="294" viewBox="0 0 700 294" role="img" aria-labelledby="title desc">
+  <title id="title">One publication through Kafka</title>
+  <desc id="desc">A logical publication channel is realized by two client exchanges and a retained partition. The producer sends records in a Produce request and receives an acknowledgment. The consumer issues a Fetch request and receives records in the response.</desc>
+  <style>
+    text { font-family:Helvetica,Arial,sans-serif;font-size:14px;fill:#202825;text-anchor:middle }
+    .heading { font-size:13px;font-weight:650 }
+    .name { font-size:16px;font-weight:600 }
+    .locus { fill:#ebf4ed;stroke:#336953 }
+    .flow { fill:none;stroke:#336953 }
+    @media (prefers-color-scheme:dark) {
+      [fill="#fbfaf7"] { fill:#19201e } [stroke="#fbfaf7"] { stroke:#19201e }
+      [fill="#202825"] { fill:#e6eee9 } [stroke="#202825"] { stroke:#e6eee9 }
+      [fill="#986017"] { fill:#efbe74 } [stroke="#986017"] { stroke:#efbe74 }
+      [fill="#fff2d5"] { fill:#3d3324 } [stroke="#fff2d5"] { stroke:#3d3324 }
+      [fill="#336953"] { fill:#9bc8ae } [stroke="#336953"] { stroke:#9bc8ae }
+      [fill="#ebf4ed"] { fill:#263b31 } [stroke="#ebf4ed"] { stroke:#263b31 }
+      [fill="#66706d"] { fill:#b1bcb7 } [stroke="#66706d"] { stroke:#b1bcb7 }
+      text { fill:#e6eee9 } .locus { fill:#263b31;stroke:#9bc8ae } .flow { stroke:#9bc8ae }
+    }
+  </style>
+  <rect width="700" height="294" fill="#fbfaf7"/>
+  <text x="65" y="24" class="heading">System graph</text>
+  <rect x="170" y="28" width="360" height="44" rx="22" fill="#fff2d5" stroke="#986017"/>
+  <text x="350" y="56" class="name">Publication channel</text>
+  <path d="M140 140H560 M350 140V74" stroke="#66706d" stroke-dasharray="4 4" fill="none"/>
+  <text x="418" y="106">jointly realize</text>
+  <text x="65" y="136" class="heading">Realization</text>
+  <rect x="12" y="182" width="98" height="54" rx="8" class="locus"/>
+  <text x="61" y="214" class="name">Producer</text>
+  <rect x="590" y="182" width="98" height="54" rx="8" class="locus"/>
+  <text x="639" y="214" class="name">Consumer</text>
+  <path d="M287 185V236C287 250 413 250 413 236V185" class="locus"/>
+  <ellipse cx="350" cy="185" rx="63" ry="9" class="locus"/>
+  <text x="350" y="215">Retained</text><text x="350" y="232">partition</text>
+  <path d="M111 196H285" class="flow"/><path d="M286 228H112" class="flow"/>
+  <path d="M589 196H415" class="flow"/><path d="M414 228H588" class="flow"/>
+  <path fill="#336953" d="M285 196l-8 -4v8z M112 228l8 -4v8z M415 196l8 -4v8z M588 228l-8 -4v8z"/>
+  <path fill="#66706d" d="M350 74l-4 8h8z"/>
+  <text x="198" y="185">Produce (records)</text><text x="198" y="250">Produce response</text>
+  <text x="502" y="185">Fetch (position)</text><text x="502" y="250">Fetch response (records)</text>
+  <text x="350" y="280">Each access exchange uses the Kafka protocol over TCP.</text>
+</svg>
