@@ -2,7 +2,7 @@
 realm: Principles
 kind: principle
 created: 2026-07-15
-updated: 2026-07-15
+updated: 2026-11-19
 status: draft
 aliases:
   - Non-determinism and Choice
@@ -16,15 +16,13 @@ Nondeterminism describes a model in which one context admits more than one possi
 
 A deterministic step is a function:
 
-```txt
-step : Context -> Outcome
-```
+$$\mathit{step} : \mathsf{Context} \to \mathsf{Outcome}$$
 
 A nondeterministic step is more generally a relation or set-valued function:
 
-```txt
-step : Context -> Set<Outcome>
-```
+$$\mathit{step} : \mathsf{Context} \to \mathcal{P}(\mathsf{Outcome})$$
+
+equivalently, a relation $\mathit{step} \subseteq \mathsf{Context} \times \mathsf{Outcome}$.
 
 This distinction is model-relative. A lower-level deterministic system can appear nondeterministic when hidden state, scheduling, physical detail, or environmental input is abstracted away. Conversely, a specification can intentionally leave several implementations or outcomes admissible even when a realization eventually selects one deterministically.
 
@@ -43,27 +41,29 @@ Not every operational difference is semantically nondeterministic. If two schedu
 
 ## Computational Representations
 
-In programming-language semantics, a nondeterministic computation can be represented by a type constructor or monad `M`:
+In programming-language semantics, a nondeterministic computation can be represented by a type constructor or monad $M$:
 
-```txt
-pure : A -> M A
-bind : M A -> (A -> M B) -> M B
-```
+$$
+\begin{aligned}
+\mathit{pure} &: A \to M\,A \\
+\mathit{bind} &: M\,A \to (A \to M\,B) \to M\,B
+\end{aligned}
+$$
 
-Different choices of `M` preserve different distinctions:
+Different choices of $M$ preserve different distinctions:
 
 | Structure | Interpretation |
 | --- | --- |
-| `Maybe<A>` | zero or one result; partiality or failure rather than general nondeterminism |
-| `List<A>` | an ordered enumeration of zero or more results, preserving duplicate answers |
-| `Set<A>` or a powerset | extensional possibilities with order and multiplicity forgotten |
-| `Multiset<A>` | alternatives with multiplicity but without presentation order |
+| $\mathsf{Maybe}\,A$ | zero or one result; partiality or failure rather than general nondeterminism |
+| $\mathsf{List}\,A$ | an ordered enumeration of zero or more results, preserving duplicate answers |
+| $\mathcal{P}(A)$, a powerset | extensional possibilities with order and multiplicity forgotten |
+| $\mathsf{Multiset}\,A$ | alternatives with multiplicity but without presentation order |
 | a distribution monad | discrete probabilistic branching |
 | the Giry monad | probability measures over measurable spaces; Kleisli arrows act as probability kernels |
 | a lazy stream or logic monad | potentially infinite search with an explicit enumeration and fairness strategy |
 | a free choice effect | unresolved choice syntax interpreted later by a handler |
 
-For a list, `[]` represents no answer, `[a]` one answer, and `[a,b]` two enumerated answers. List bind uses concatenation and therefore exposes search order and multiplicity. A list is not an extensional set: `[a,b]` differs from `[b,a]`, and `[a,a]` differs from `[a]`.
+For a list, $[\,]$ represents no answer, $[a]$ one answer, and $[a,b]$ two enumerated answers. List bind uses concatenation and therefore exposes search order and multiplicity. A list is not an extensional set: $[a,b] \neq [b,a]$ and $[a,a] \neq [a]$, whereas $\{a,b\} = \{b,a\}$ and $\{a,a\} = \{a\}$.
 
 This matters for [[Relational and Logic Programming|relational and logic programming]]. A relation or set of satisfying substitutions can provide the denotation, while a list or stream provides an operational enumeration of answers. The enumeration additionally carries search order, duplicate proofs, fairness, and termination behavior.
 
@@ -73,12 +73,14 @@ Probability and ordinary nondeterminism should also remain distinct. A set state
 
 A computation with choice often provides:
 
-```txt
-failure : M A
-choice  : M A x M A -> M A
-```
+$$
+\begin{aligned}
+\mathit{failure} &: M\,A \\
+\mathit{choice} &: M\,A \times M\,A \to M\,A
+\end{aligned}
+$$
 
-The laws of `choice` determine what the model remembers:
+The laws of $\mathit{choice}$ determine what the model remembers:
 
 - **Associativity** says grouping alternatives does not matter.
 - **Commutativity** says presentation order does not matter.
@@ -109,7 +111,7 @@ Nondeterminism and [[Uncertainty|uncertainty]] both use sets of possibilities bu
 - Nondeterminism is multiplicity in what may happen next.
 - Uncertainty is multiplicity in which current or prior state an observer considers possible.
 
-For state space `S`, a nondeterministic transition has the form `S -> Set<S>`, while an observer's information state is a subset of `S`. An unobserved nondeterministic transition can enlarge uncertainty. A later [[Observation|observation]] can restrict the possible-state set without changing the transition relation itself.
+For state space $S$, a nondeterministic transition has the form $S \to \mathcal{P}(S)$, while an observer's information state is a subset $K \subseteq S$. An unobserved nondeterministic transition can enlarge uncertainty. A later [[Observation|observation]] can restrict the possible-state set without changing the transition relation itself.
 
 A probability distribution can likewise represent either stochastic behavior in the system or an observer's degree of belief about hidden state. The representation alone does not determine whether the probability is aleatory or epistemic; the model must state its interpretation and boundary.
 
@@ -127,15 +129,9 @@ König's lemma exposes the semantic issue. A finitely branching tree with arbitr
 
 Unbounded nondeterminism permits every finite delay while excluding the infinite starvation path as unfair:
 
-```txt
-go^0 ; stop
-go^1 ; stop
-go^2 ; stop
-...
-go^n ; stop
-
-go^infinity      -- excluded by the fairness condition
-```
+$$
+\{\, \mathit{go}^{n} ; \mathit{stop} \mid n \in \mathbb{N} \,\} \quad \text{admitted}, \qquad \mathit{go}^{\omega} \quad \text{excluded by the fairness condition}
+$$
 
 Fairness is therefore a property of admissible complete executions, not something determined by a finite prefix alone. Claims about unbounded nondeterminism concern interactive or relational behavior under fairness assumptions; they should not be silently restated as claims about computing a new ordinary single-valued function.
 
@@ -165,6 +161,6 @@ A realization may narrow permitted nondeterminism through refinement, but it mus
 ## External References
 
 - Eugenio Moggi, [Notions of Computation and Monads](https://doi.org/10.1016/0890-5401(91)90052-4), *Information and Computation* 93(1):55-92, 1991.
-- Michèle Giry, [A Categorical Approach to Probability Theory](https://doi.org/10.1007/BFb0079007), in *Categorical Aspects of Topology and Analysis*, 1982.
+- Michèle Giry, [A Categorical Approach to Probability Theory](https://doi.org/10.1007/BFb0092872), in *Categorical Aspects of Topology and Analysis*, Lecture Notes in Mathematics 915, pp. 68-85, 1982.
 - Carl Hewitt, [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/abs/1008.1459), 2010.
 - Nissim Francez, [Fairness](https://doi.org/10.1007/978-1-4612-4886-6), Springer, 1986.
