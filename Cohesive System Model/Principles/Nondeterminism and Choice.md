@@ -34,7 +34,7 @@ This distinction is model-relative. A lower-level deterministic system can appea
 - **Internal choice**: a component, [[Policy|policy]], or authorized [[Observer|observer]] selects among alternatives.
 - **Concurrency and scheduling nondeterminism**: independent occurrences can be selected, ordered, observed, or committed differently.
 - **Failure nondeterminism**: delay, loss, duplication, crash, partition, retry, and recovery admit alternative executions.
-- **Probabilistic nondeterminism**: outcomes are assigned a probability measure rather than represented only as an unweighted set.
+- **Probabilistic branching**: outcomes are assigned a probability measure rather than represented only as an unweighted set. This is quantitative branching rather than nondeterminism in the strict sense; see below.
 - **Accidental realization nondeterminism**: a race, unstable iteration order, hidden shared state, or other substrate detail introduces behavior not licensed by the semantic model.
 
 Not every operational difference is semantically nondeterministic. If two schedules commute, converge, or remain observationally equivalent at the declared [[Boundaries|boundary]], their internal difference may be intentionally hidden.
@@ -67,7 +67,9 @@ For a list, $[\,]$ represents no answer, $[a]$ one answer, and $[a,b]$ two enume
 
 This matters for [[Relational and Logic Programming|relational and logic programming]]. A relation or set of satisfying substitutions can provide the denotation, while a list or stream provides an operational enumeration of answers. The enumeration additionally carries search order, duplicate proofs, fairness, and termination behavior.
 
-Probability and ordinary nondeterminism should also remain distinct. A set states which outcomes are possible. A probability measure assigns quantitative mass. Systems such as Markov decision processes combine policy- or environment-resolved nondeterminism with probabilistic state transitions; their semantics must state how those two forms of branching interact.
+Probability and ordinary nondeterminism should also remain distinct. A set states which outcomes are possible. A probability measure assigns quantitative mass. Systems such as Markov decision processes combine both: in each state, a policy or scheduler resolves the nondeterministic choice of action, and the environment then resolves a probabilistic transition. Their semantics must state how those two forms of branching interact.
+
+That interaction is not free. The powerset monad and the distribution monad do not compose through a distributive law, so "a set of distributions" and "a distribution over sets" cannot simply be stacked as one monad. A standard repair is to use convex sets of distributions, which close the possible outcomes under probabilistic mixing; see Varacca and Winskel. A model that mixes probability and nondeterminism should therefore state which combination it uses, typically by saying whether choices are resolved before, after, or independently of probabilistic outcomes.
 
 ## Choice Algebra
 
@@ -87,14 +89,26 @@ The laws of $\mathit{choice}$ determine what the model remembers:
 - **Idempotence** says offering the same alternative twice adds nothing.
 - **Identity** says choosing against failure changes nothing.
 
-List append is associative with an identity, but it is not commutative or idempotent. Set union satisfies all four laws. Multiset union is associative and commutative but not idempotent. Monad associativity says that sequencing can be rebracketed coherently; it does not imply that independent computations commute or that divergent evaluation paths are confluent.
+List append is associative with an identity, but it is not commutative or idempotent. Set union satisfies all four laws. Multiset union is associative and commutative but not idempotent. A nondeterminism monad also relates choice to sequencing. Writing $\oplus$ for $\mathit{choice}$ and $\gg\!=$ for $\mathit{bind}$, the usual laws are:
+
+$$
+\begin{aligned}
+\mathit{failure} \gg\!= k &= \mathit{failure} && \text{left zero} \\
+(m \oplus n) \gg\!= k &= (m \gg\!= k) \oplus (n \gg\!= k) && \text{left distribution} \\
+m \gg\!= (\lambda x.\, k\,x \oplus h\,x) &= (m \gg\!= k) \oplus (m \gg\!= h) && \text{right distribution}
+\end{aligned}
+$$
+
+Lists satisfy left zero and left distribution but not right distribution. For example, $[1,2] \gg\!= (\lambda x.\, [x] \mathbin{+\!\!+} [10x])$ is $[1,10,2,20]$, while $([1,2] \gg\!= \lambda x.\,[x]) \mathbin{+\!\!+} ([1,2] \gg\!= \lambda x.\,[10x])$ is $[1,2,10,20]$. Sets and multisets satisfy right distribution because their choice is commutative. Right distribution is therefore exactly where search order becomes observable.
+
+Monad associativity says that sequencing can be rebracketed coherently; it does not imply that independent computations commute or that divergent evaluation paths are confluent.
 
 ## Choice Ownership
 
 A choice point should state who or what resolves it:
 
-- **External choice** is resolved by an input or interaction with the environment.
-- **Internal choice** is resolved by the process or component.
+- **External choice** is resolved by an input or interaction with the environment. In CSP this is written $P \mathbin{\square} Q$: the environment's first offered event selects the branch.
+- **Internal choice** is resolved by the process or component. In CSP this is written $P \sqcap Q$: the process commits without consulting the environment, so a correct environment must cope with either branch.
 - **Policy choice** is resolved by a declared decision rule.
 - **Authority choice** is resolved by a role whose decision is accepted as counting.
 - **Joint choice** is resolved through negotiation, voting, [[Consensus|consensus]], or another protocol.
@@ -133,6 +147,8 @@ $$
 \{\, \mathit{go}^{n} ; \mathit{stop} \mid n \in \mathbb{N} \,\} \quad \text{admitted}, \qquad \mathit{go}^{\omega} \quad \text{excluded by the fairness condition}
 $$
 
+The tension has a history. Dijkstra argued that unbounded nondeterminism cannot be implemented, because the weakest-precondition semantics of guarded commands requires continuity, and continuity fails once a terminating program may take arbitrarily many steps without any bound. Clinger's actor semantics instead admits unbounded nondeterminism by taking fair reception of messages as a primitive guarantee of the computational model. Apt and Plotkin showed that countable nondeterminism, such as the random assignment $x := ?$ of an arbitrary natural number, has a well-defined semantics, but its fixed points need iteration beyond $\omega$ and are not continuous. Unbounded nondeterminism and fairness are closely related: a fair scheduler can simulate random assignment, and random assignment can implement fair scheduling.
+
 Fairness is therefore a property of admissible complete executions, not something determined by a finite prefix alone. Claims about unbounded nondeterminism concern interactive or relational behavior under fairness assumptions; they should not be silently restated as claims about computing a new ordinary single-valued function.
 
 ## Confluence and Consistency
@@ -164,3 +180,9 @@ A realization may narrow permitted nondeterminism through refinement, but it mus
 - Michèle Giry, [A Categorical Approach to Probability Theory](https://doi.org/10.1007/BFb0092872), in *Categorical Aspects of Topology and Analysis*, Lecture Notes in Mathematics 915, pp. 68-85, 1982.
 - Carl Hewitt, [Actor Model of Computation: Scalable Robust Information Systems](https://arxiv.org/abs/1008.1459), 2010.
 - Nissim Francez, [Fairness](https://doi.org/10.1007/978-1-4612-4886-6), Springer, 1986.
+- Edsger W. Dijkstra, "Guarded Commands, Nondeterminacy and Formal Derivation of Programs", *Communications of the ACM* 18(8):453-457, 1975.
+- Edsger W. Dijkstra, *A Discipline of Programming*, Prentice-Hall, 1976.
+- William D. Clinger, *Foundations of Actor Semantics*, PhD thesis, MIT, 1981.
+- C. A. R. Hoare, *Communicating Sequential Processes*, Prentice Hall, 1985.
+- Krzysztof R. Apt and Gordon D. Plotkin, "Countable Nondeterminism and Random Assignment", *Journal of the ACM* 33(4):724-767, 1986.
+- Daniele Varacca and Glynn Winskel, "Distributing Probability over Non-determinism", *Mathematical Structures in Computer Science* 16(1):87-113, 2006.
